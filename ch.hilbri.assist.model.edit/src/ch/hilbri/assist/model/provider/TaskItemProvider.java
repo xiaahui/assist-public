@@ -67,9 +67,20 @@ public class TaskItemProvider
 			addCoreUtilizationPropertyDescriptor(object);
 			addRamUtilizationPropertyDescriptor(object);
 			addRomUtilizationPropertyDescriptor(object);
+			addDurationPropertyDescriptor(object);
+			addPeriodPropertyDescriptor(object);
+			addEarlyTolerancePropertyDescriptor(object);
+			addLateTolerancePropertyDescriptor(object);
+			addMaxStartTimePropertyDescriptor(object);
+			addMaxEndTimePropertyDescriptor(object);
+			addAddInitTimePropertyDescriptor(object);
+			addSlicesPropertyDescriptor(object);
+			addMinSliceDurationPropertyDescriptor(object);
+			addPeriodicityPropertyDescriptor(object);
 			addApplicationPropertyDescriptor(object);
 			addFullNamePropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
+			addAssignedCorePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,6 +174,226 @@ public class TaskItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_duration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_duration_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Period feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPeriodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_period_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_period_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__PERIOD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Early Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEarlyTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_earlyTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_earlyTolerance_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__EARLY_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Late Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLateTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_lateTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_lateTolerance_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__LATE_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Start Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxStartTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_maxStartTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_maxStartTime_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__MAX_START_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max End Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxEndTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_maxEndTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_maxEndTime_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__MAX_END_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Add Init Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAddInitTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_addInitTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_addInitTime_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__ADD_INIT_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Slices feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSlicesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_slices_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_slices_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__SLICES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Slice Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinSliceDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_minSliceDuration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_minSliceDuration_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__MIN_SLICE_DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Periodicity feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPeriodicityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_periodicity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_periodicity_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__PERIODICITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Application feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,6 +451,28 @@ public class TaskItemProvider
 				 getString("_UI_Task_restrictMappingToHardwareElements_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_restrictMappingToHardwareElements_feature", "_UI_Task_type"),
 				 ModelPackage.Literals.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Assigned Core feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssignedCorePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_assignedCore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_assignedCore_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__ASSIGNED_CORE,
 				 true,
 				 false,
 				 true,
@@ -301,6 +554,16 @@ public class TaskItemProvider
 			case ModelPackage.TASK__CORE_UTILIZATION:
 			case ModelPackage.TASK__RAM_UTILIZATION:
 			case ModelPackage.TASK__ROM_UTILIZATION:
+			case ModelPackage.TASK__DURATION:
+			case ModelPackage.TASK__PERIOD:
+			case ModelPackage.TASK__EARLY_TOLERANCE:
+			case ModelPackage.TASK__LATE_TOLERANCE:
+			case ModelPackage.TASK__MAX_START_TIME:
+			case ModelPackage.TASK__MAX_END_TIME:
+			case ModelPackage.TASK__ADD_INIT_TIME:
+			case ModelPackage.TASK__SLICES:
+			case ModelPackage.TASK__MIN_SLICE_DURATION:
+			case ModelPackage.TASK__PERIODICITY:
 			case ModelPackage.TASK__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

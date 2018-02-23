@@ -67,6 +67,7 @@ public class ApplicationItemProvider
 			addDevelopedByPropertyDescriptor(object);
 			addCriticalityLevelPropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +161,28 @@ public class ApplicationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_fullName_feature", "_UI_Application_type"),
+				 ModelPackage.Literals.APPLICATION__FULL_NAME,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -231,6 +254,7 @@ public class ApplicationItemProvider
 			case ModelPackage.APPLICATION__NAME:
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
+			case ModelPackage.APPLICATION__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.APPLICATION__TASKS:

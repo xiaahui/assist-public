@@ -50,6 +50,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getSystemName <em>System Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
@@ -79,6 +80,26 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected String systemName = SYSTEM_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinHypPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIN_HYP_PERIOD_LENGTH_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinHypPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minHypPeriodLength = MIN_HYP_PERIOD_LENGTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' containment reference list.
@@ -168,6 +189,27 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		systemName = newSystemName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__SYSTEM_NAME, oldSystemName, systemName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMinHypPeriodLength() {
+		return minHypPeriodLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinHypPeriodLength(int newMinHypPeriodLength) {
+		int oldMinHypPeriodLength = minHypPeriodLength;
+		minHypPeriodLength = newMinHypPeriodLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH, oldMinHypPeriodLength, minHypPeriodLength));
 	}
 
 	/**
@@ -410,6 +452,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				return getSystemName();
+			case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
+				return getMinHypPeriodLength();
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				return getCompartments();
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
@@ -435,6 +479,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				setSystemName((String)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
+				setMinHypPeriodLength((Integer)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				getCompartments().clear();
@@ -471,6 +518,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				setSystemName(SYSTEM_NAME_EDEFAULT);
 				return;
+			case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
+				setMinHypPeriodLength(MIN_HYP_PERIOD_LENGTH_EDEFAULT);
+				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				getCompartments().clear();
 				return;
@@ -500,6 +550,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
+			case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
+				return minHypPeriodLength != MIN_HYP_PERIOD_LENGTH_EDEFAULT;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				return compartments != null && !compartments.isEmpty();
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
@@ -552,6 +604,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (systemName: ");
 		result.append(systemName);
+		result.append(", minHypPeriodLength: ");
+		result.append(minHypPeriodLength);
 		result.append(')');
 		return result.toString();
 	}

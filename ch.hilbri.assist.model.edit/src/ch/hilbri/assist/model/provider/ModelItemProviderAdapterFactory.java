@@ -509,6 +509,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AssistModelSchedulingResult} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssistModelSchedulingResultItemProvider assistModelSchedulingResultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.AssistModelSchedulingResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssistModelSchedulingResultAdapter() {
+		if (assistModelSchedulingResultItemProvider == null) {
+			assistModelSchedulingResultItemProvider = new AssistModelSchedulingResultItemProvider(this);
+		}
+
+		return assistModelSchedulingResultItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.TaskExecutionInstance} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskExecutionInstanceItemProvider taskExecutionInstanceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.TaskExecutionInstance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskExecutionInstanceAdapter() {
+		if (taskExecutionInstanceItemProvider == null) {
+			taskExecutionInstanceItemProvider = new TaskExecutionInstanceItemProvider(this);
+		}
+
+		return taskExecutionInstanceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,6 +672,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
+		if (assistModelSchedulingResultItemProvider != null) assistModelSchedulingResultItemProvider.dispose();
+		if (taskExecutionInstanceItemProvider != null) taskExecutionInstanceItemProvider.dispose();
 	}
 
 }

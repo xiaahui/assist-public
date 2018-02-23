@@ -188,6 +188,18 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT: {
+				AssistModelSchedulingResult assistModelSchedulingResult = (AssistModelSchedulingResult)theEObject;
+				T result = caseAssistModelSchedulingResult(assistModelSchedulingResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.TASK_EXECUTION_INSTANCE: {
+				TaskExecutionInstance taskExecutionInstance = (TaskExecutionInstance)theEObject;
+				T result = caseTaskExecutionInstance(taskExecutionInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -474,6 +486,36 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMetricParameter(MetricParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assist Model Scheduling Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assist Model Scheduling Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssistModelSchedulingResult(AssistModelSchedulingResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Execution Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Execution Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskExecutionInstance(TaskExecutionInstance object) {
 		return null;
 	}
 

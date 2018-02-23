@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.Application#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getMetricParameters <em>Metric Parameters</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Application#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getApplication()
@@ -161,6 +162,22 @@ public interface Application extends EObject {
 	 * @generated
 	 */
 	EList<HardwareElement> getRestrictMappingToHardwareElements();
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.model.ModelPackage#getApplication_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * <!-- begin-user-doc -->

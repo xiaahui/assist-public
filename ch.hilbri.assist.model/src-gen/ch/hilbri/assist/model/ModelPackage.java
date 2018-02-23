@@ -4,6 +4,7 @@ package ch.hilbri.assist.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -80,13 +81,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__SYSTEM_NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Min Hyp Period Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = 1;
+
+	/**
 	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COMPARTMENTS = 1;
+	int ASSIST_MODEL__COMPARTMENTS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -95,7 +105,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__APPLICATIONS = 2;
+	int ASSIST_MODEL__APPLICATIONS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -104,7 +114,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 3;
+	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -113,7 +123,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COLOCALITY_RELATIONS = 4;
+	int ASSIST_MODEL__COLOCALITY_RELATIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -122,7 +132,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 5;
+	int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -131,7 +141,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 6;
+	int ASSIST_MODEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -961,13 +971,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__FULL_NAME = 6;
+
+	/**
 	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 6;
+	int APPLICATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1034,13 +1053,103 @@ public interface ModelPackage extends EPackage {
 	int TASK__ROM_UTILIZATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DURATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__PERIOD = 5;
+
+	/**
+	 * The feature id for the '<em><b>Early Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__EARLY_TOLERANCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Late Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__LATE_TOLERANCE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Max Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__MAX_START_TIME = 8;
+
+	/**
+	 * The feature id for the '<em><b>Max End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__MAX_END_TIME = 9;
+
+	/**
+	 * The feature id for the '<em><b>Add Init Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__ADD_INIT_TIME = 10;
+
+	/**
+	 * The feature id for the '<em><b>Slices</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__SLICES = 11;
+
+	/**
+	 * The feature id for the '<em><b>Min Slice Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__MIN_SLICE_DURATION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Periodicity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__PERIODICITY = 13;
+
+	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__APPLICATION = 4;
+	int TASK__APPLICATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
@@ -1049,7 +1158,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__IO_ADAPTER_REQUIREMENTS = 5;
+	int TASK__IO_ADAPTER_REQUIREMENTS = 15;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1058,7 +1167,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 6;
+	int TASK__METRIC_PARAMETERS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
@@ -1067,7 +1176,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__FULL_NAME = 7;
+	int TASK__FULL_NAME = 17;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1076,7 +1185,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 8;
+	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 18;
+
+	/**
+	 * The feature id for the '<em><b>Assigned Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__ASSIGNED_CORE = 19;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1085,7 +1203,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 9;
+	int TASK_FEATURE_COUNT = 20;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1502,6 +1620,116 @@ public interface ModelPackage extends EPackage {
 	int METRIC_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Hyper Period Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Schedule</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Assist Model Scheduling Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Assist Model Scheduling Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.TaskExecutionInstanceImpl <em>Task Execution Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.TaskExecutionInstanceImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
+	 * @generated
+	 */
+	int TASK_EXECUTION_INSTANCE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE__BEGIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE__END = 1;
+
+	/**
+	 * The number of structural features of the '<em>Task Execution Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Task Execution Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1509,7 +1737,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 	 * @generated
 	 */
-	int DISSIMILARITY_ATTRIBUTES = 19;
+	int DISSIMILARITY_ATTRIBUTES = 21;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -1519,7 +1747,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 20;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 22;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1529,7 +1757,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 21;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 23;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1539,7 +1767,27 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 22;
+	int IO_ADAPTER_TYPE = 24;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.PeriodicityType
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
+	 * @generated
+	 */
+	int PERIODICITY_TYPE = 25;
+
+	/**
+	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.HashMap
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
+	 * @generated
+	 */
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 26;
 
 
 	/**
@@ -1562,6 +1810,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAssistModel_SystemName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Hyp Period Length</em>'.
+	 * @see ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength()
+	 * @see #getAssistModel()
+	 * @generated
+	 */
+	EAttribute getAssistModel_MinHypPeriodLength();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}'.
@@ -2264,6 +2523,17 @@ public interface ModelPackage extends EPackage {
 	EReference getApplication_RestrictMappingToHardwareElements();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Application#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.model.Application#getFullName()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_FullName();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Application#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2328,6 +2598,116 @@ public interface ModelPackage extends EPackage {
 	EAttribute getTask_RomUtilization();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see ch.hilbri.assist.model.Task#getDuration()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Duration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getPeriod <em>Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Period</em>'.
+	 * @see ch.hilbri.assist.model.Task#getPeriod()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Period();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getEarlyTolerance <em>Early Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Early Tolerance</em>'.
+	 * @see ch.hilbri.assist.model.Task#getEarlyTolerance()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_EarlyTolerance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getLateTolerance <em>Late Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Late Tolerance</em>'.
+	 * @see ch.hilbri.assist.model.Task#getLateTolerance()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_LateTolerance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMaxStartTime <em>Max Start Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Start Time</em>'.
+	 * @see ch.hilbri.assist.model.Task#getMaxStartTime()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_MaxStartTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMaxEndTime <em>Max End Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max End Time</em>'.
+	 * @see ch.hilbri.assist.model.Task#getMaxEndTime()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_MaxEndTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getAddInitTime <em>Add Init Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Add Init Time</em>'.
+	 * @see ch.hilbri.assist.model.Task#getAddInitTime()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_AddInitTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getSlices <em>Slices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slices</em>'.
+	 * @see ch.hilbri.assist.model.Task#getSlices()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Slices();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMinSliceDuration <em>Min Slice Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Slice Duration</em>'.
+	 * @see ch.hilbri.assist.model.Task#getMinSliceDuration()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_MinSliceDuration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getPeriodicity <em>Periodicity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Periodicity</em>'.
+	 * @see ch.hilbri.assist.model.Task#getPeriodicity()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Periodicity();
+
+	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2381,6 +2761,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTask_RestrictMappingToHardwareElements();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.Task#getAssignedCore <em>Assigned Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assigned Core</em>'.
+	 * @see ch.hilbri.assist.model.Task#getAssignedCore()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_AssignedCore();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#toString() <em>To String</em>}' operation.
@@ -2659,6 +3050,92 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMetricParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.AssistModelSchedulingResult <em>Assist Model Scheduling Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assist Model Scheduling Result</em>'.
+	 * @see ch.hilbri.assist.model.AssistModelSchedulingResult
+	 * @generated
+	 */
+	EClass getAssistModelSchedulingResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModelSchedulingResult#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.AssistModelSchedulingResult#getName()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModelSchedulingResult#getHyperPeriodLength <em>Hyper Period Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hyper Period Length</em>'.
+	 * @see ch.hilbri.assist.model.AssistModelSchedulingResult#getHyperPeriodLength()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_HyperPeriodLength();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.AssistModelSchedulingResult#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see ch.hilbri.assist.model.AssistModelSchedulingResult#getModel()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EReference getAssistModelSchedulingResult_Model();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModelSchedulingResult#getSchedule <em>Schedule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Schedule</em>'.
+	 * @see ch.hilbri.assist.model.AssistModelSchedulingResult#getSchedule()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_Schedule();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.TaskExecutionInstance <em>Task Execution Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Execution Instance</em>'.
+	 * @see ch.hilbri.assist.model.TaskExecutionInstance
+	 * @generated
+	 */
+	EClass getTaskExecutionInstance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.TaskExecutionInstance#getBegin <em>Begin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Begin</em>'.
+	 * @see ch.hilbri.assist.model.TaskExecutionInstance#getBegin()
+	 * @see #getTaskExecutionInstance()
+	 * @generated
+	 */
+	EAttribute getTaskExecutionInstance_Begin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.TaskExecutionInstance#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>End</em>'.
+	 * @see ch.hilbri.assist.model.TaskExecutionInstance#getEnd()
+	 * @see #getTaskExecutionInstance()
+	 * @generated
+	 */
+	EAttribute getTaskExecutionInstance_End();
+
+	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2697,6 +3174,27 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getIOAdapterType();
+
+	/**
+	 * Returns the meta object for enum '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Periodicity Type</em>'.
+	 * @see ch.hilbri.assist.model.PeriodicityType
+	 * @generated
+	 */
+	EEnum getPeriodicityType();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Execution Instances Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Task2 Execution Instances Map Type</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.model.Task, java.util.List&lt;ch.hilbri.assist.model.TaskExecutionInstance&gt;&gt;"
+	 * @generated
+	 */
+	EDataType getTask2ExecutionInstancesMapType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2738,6 +3236,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSIST_MODEL__SYSTEM_NAME = eINSTANCE.getAssistModel_SystemName();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Hyp Period Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = eINSTANCE.getAssistModel_MinHypPeriodLength();
 
 		/**
 		 * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
@@ -3284,6 +3790,14 @@ public interface ModelPackage extends EPackage {
 		EReference APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getApplication_RestrictMappingToHardwareElements();
 
 		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__FULL_NAME = eINSTANCE.getApplication_FullName();
+
+		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3334,6 +3848,86 @@ public interface ModelPackage extends EPackage {
 		EAttribute TASK__ROM_UTILIZATION = eINSTANCE.getTask_RomUtilization();
 
 		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__DURATION = eINSTANCE.getTask_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__PERIOD = eINSTANCE.getTask_Period();
+
+		/**
+		 * The meta object literal for the '<em><b>Early Tolerance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__EARLY_TOLERANCE = eINSTANCE.getTask_EarlyTolerance();
+
+		/**
+		 * The meta object literal for the '<em><b>Late Tolerance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__LATE_TOLERANCE = eINSTANCE.getTask_LateTolerance();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Start Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__MAX_START_TIME = eINSTANCE.getTask_MaxStartTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Max End Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__MAX_END_TIME = eINSTANCE.getTask_MaxEndTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Init Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__ADD_INIT_TIME = eINSTANCE.getTask_AddInitTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Slices</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__SLICES = eINSTANCE.getTask_Slices();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Slice Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__MIN_SLICE_DURATION = eINSTANCE.getTask_MinSliceDuration();
+
+		/**
+		 * The meta object literal for the '<em><b>Periodicity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__PERIODICITY = eINSTANCE.getTask_Periodicity();
+
+		/**
 		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3372,6 +3966,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getTask_RestrictMappingToHardwareElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Assigned Core</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__ASSIGNED_CORE = eINSTANCE.getTask_AssignedCore();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -3600,6 +4202,74 @@ public interface ModelPackage extends EPackage {
 		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModelSchedulingResult()
+		 * @generated
+		 */
+		EClass ASSIST_MODEL_SCHEDULING_RESULT = eINSTANCE.getAssistModelSchedulingResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__NAME = eINSTANCE.getAssistModelSchedulingResult_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Hyper Period Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH = eINSTANCE.getAssistModelSchedulingResult_HyperPeriodLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL_SCHEDULING_RESULT__MODEL = eINSTANCE.getAssistModelSchedulingResult_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Schedule</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = eINSTANCE.getAssistModelSchedulingResult_Schedule();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.TaskExecutionInstanceImpl <em>Task Execution Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.TaskExecutionInstanceImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
+		 * @generated
+		 */
+		EClass TASK_EXECUTION_INSTANCE = eINSTANCE.getTaskExecutionInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Begin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_EXECUTION_INSTANCE__BEGIN = eINSTANCE.getTaskExecutionInstance_Begin();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_EXECUTION_INSTANCE__END = eINSTANCE.getTaskExecutionInstance_End();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3638,6 +4308,26 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum IO_ADAPTER_TYPE = eINSTANCE.getIOAdapterType();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.PeriodicityType
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
+		 * @generated
+		 */
+		EEnum PERIODICITY_TYPE = eINSTANCE.getPeriodicityType();
+
+		/**
+		 * The meta object literal for the '<em>Task2 Execution Instances Map Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.HashMap
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
+		 * @generated
+		 */
+		EDataType TASK2_EXECUTION_INSTANCES_MAP_TYPE = eINSTANCE.getTask2ExecutionInstancesMapType();
 
 	}
 

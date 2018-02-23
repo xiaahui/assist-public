@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getSystemName <em>System Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
@@ -54,6 +55,33 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	void setSystemName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Min Hyp Period Length</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Min Hyp Period Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min Hyp Period Length</em>' attribute.
+	 * @see #setMinHypPeriodLength(int)
+	 * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_MinHypPeriodLength()
+	 * @model default="-1" unique="false"
+	 * @generated
+	 */
+	int getMinHypPeriodLength();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min Hyp Period Length</em>' attribute.
+	 * @see #getMinHypPeriodLength()
+	 * @generated
+	 */
+	void setMinHypPeriodLength(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Compartments</b></em>' containment reference list.

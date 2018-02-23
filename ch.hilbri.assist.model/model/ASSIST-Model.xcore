@@ -9,10 +9,17 @@
 
 package ch.hilbri.assist.model
 
+import java.util.HashMap
+import java.util.List
+
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	String			systemName	= ""
+	
+	int 				minHypPeriodLength 	= "-1"
+	
+	
 	contains 		Compartment[1..*] 				compartments
 	contains 		Application[1..*] 				applications
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
@@ -106,18 +113,33 @@ class Application {
 	contains MetricParameter[0..*] 	metricParameters
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	op String 			toString() { name }
+	derived String 				fullName 			get { name }
 }
 
-class Task {
-	String name 												= ""
-	int coreUtilization 										= "0"
-	int ramUtilization 										= "0"
-	int romUtilization										= "0"
+class Task {	
+	String name 													= ""
+	int coreUtilization 											= "0"
+	int ramUtilization 											= "0"
+	int romUtilization											= "0"
+	int duration 												= "-1"
+	int period													= "-1"
+	int earlyTolerance											= "-1"
+	int lateTolerance											= "-1"
+	int maxStartTime												= "-1"
+	int maxEndTime												= "-1"
+	int addInitTime												= "-1"
+	int slices													= "-1"
+	int minSliceDuration											= "-1"
+	
+	PeriodicityType periodicity									= "strict"
+	
 	container Application application opposite tasks
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
 	derived String fullName get { application.name + "." + name }
+
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
+	refers Core[0..1] 	assignedCore
 	op String 			toString() { name }
 }
 
@@ -221,3 +243,25 @@ enum IOAdapterType {
 	SERIAL		as "Serial"
 }
 
+enum PeriodicityType {
+	STRICT 		as "strict" 		= 0
+	FLEXIBLE		as "flexible"	= 1
+}
+
+
+/* ************************************** 
+ * RESULTS - SCHEDULING
+ * ************************************* */
+type Task2ExecutionInstancesMapType wraps HashMap<Task, List<TaskExecutionInstance>> 
+
+class AssistModelSchedulingResult {
+	String name 				= ""
+	int hyperPeriodLength 	= "-1"
+	refers AssistModel 				model
+	Task2ExecutionInstancesMapType 	schedule
+}
+
+class TaskExecutionInstance {
+	int begin = "-1"
+	int end   = "-1"
+}

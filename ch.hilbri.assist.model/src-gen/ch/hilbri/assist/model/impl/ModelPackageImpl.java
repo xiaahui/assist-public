@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
@@ -25,11 +26,16 @@ import ch.hilbri.assist.model.IOAdapterType;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Task;
+import ch.hilbri.assist.model.TaskExecutionInstance;
+
+import java.util.HashMap;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -183,6 +189,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass assistModelSchedulingResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskExecutionInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dissimilarityAttributesEEnum = null;
 
 	/**
@@ -205,6 +225,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EEnum ioAdapterTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum periodicityTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType task2ExecutionInstancesMapTypeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -293,8 +327,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_Compartments() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(1);
+	public EAttribute getAssistModel_MinHypPeriodLength() {
+		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -302,7 +336,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_Applications() {
+	public EReference getAssistModel_Compartments() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -311,7 +345,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_DislocalityRelations() {
+	public EReference getAssistModel_Applications() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -320,7 +354,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_ColocalityRelations() {
+	public EReference getAssistModel_DislocalityRelations() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -329,8 +363,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_DissimilarityRelations() {
+	public EReference getAssistModel_ColocalityRelations() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_DissimilarityRelations() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -887,6 +930,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getApplication_FullName() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getApplication__ToString() {
 		return applicationEClass.getEOperations().get(0);
 	}
@@ -941,8 +993,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Application() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+	public EAttribute getTask_Duration() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -950,8 +1002,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_IoAdapterRequirements() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(5);
+	public EAttribute getTask_Period() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -959,8 +1011,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_MetricParameters() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(6);
+	public EAttribute getTask_EarlyTolerance() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -968,7 +1020,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTask_FullName() {
+	public EAttribute getTask_LateTolerance() {
 		return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -977,8 +1029,107 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTask_MaxStartTime() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_MaxEndTime() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_AddInitTime() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Slices() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_MinSliceDuration() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Periodicity() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_Application() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_IoAdapterRequirements() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_MetricParameters() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_FullName() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTask_RestrictMappingToHardwareElements() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(8);
+		return (EReference)taskEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_AssignedCore() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1220,6 +1371,78 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAssistModelSchedulingResult() {
+		return assistModelSchedulingResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModelSchedulingResult_Name() {
+		return (EAttribute)assistModelSchedulingResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModelSchedulingResult_HyperPeriodLength() {
+		return (EAttribute)assistModelSchedulingResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModelSchedulingResult_Model() {
+		return (EReference)assistModelSchedulingResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModelSchedulingResult_Schedule() {
+		return (EAttribute)assistModelSchedulingResultEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskExecutionInstance() {
+		return taskExecutionInstanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskExecutionInstance_Begin() {
+		return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskExecutionInstance_End() {
+		return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDissimilarityAttributes() {
 		return dissimilarityAttributesEEnum;
 	}
@@ -1256,6 +1479,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getPeriodicityType() {
+		return periodicityTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getTask2ExecutionInstancesMapType() {
+		return task2ExecutionInstancesMapTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -1281,6 +1522,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Create classes and their features
 		assistModelEClass = createEClass(ASSIST_MODEL);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__SYSTEM_NAME);
+		createEAttribute(assistModelEClass, ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH);
 		createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
 		createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
@@ -1355,6 +1597,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(applicationEClass, APPLICATION__TASKS);
 		createEReference(applicationEClass, APPLICATION__METRIC_PARAMETERS);
 		createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
+		createEAttribute(applicationEClass, APPLICATION__FULL_NAME);
 		createEOperation(applicationEClass, APPLICATION___TO_STRING);
 
 		taskEClass = createEClass(TASK);
@@ -1362,11 +1605,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(taskEClass, TASK__CORE_UTILIZATION);
 		createEAttribute(taskEClass, TASK__RAM_UTILIZATION);
 		createEAttribute(taskEClass, TASK__ROM_UTILIZATION);
+		createEAttribute(taskEClass, TASK__DURATION);
+		createEAttribute(taskEClass, TASK__PERIOD);
+		createEAttribute(taskEClass, TASK__EARLY_TOLERANCE);
+		createEAttribute(taskEClass, TASK__LATE_TOLERANCE);
+		createEAttribute(taskEClass, TASK__MAX_START_TIME);
+		createEAttribute(taskEClass, TASK__MAX_END_TIME);
+		createEAttribute(taskEClass, TASK__ADD_INIT_TIME);
+		createEAttribute(taskEClass, TASK__SLICES);
+		createEAttribute(taskEClass, TASK__MIN_SLICE_DURATION);
+		createEAttribute(taskEClass, TASK__PERIODICITY);
 		createEReference(taskEClass, TASK__APPLICATION);
 		createEReference(taskEClass, TASK__IO_ADAPTER_REQUIREMENTS);
 		createEReference(taskEClass, TASK__METRIC_PARAMETERS);
 		createEAttribute(taskEClass, TASK__FULL_NAME);
 		createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
+		createEReference(taskEClass, TASK__ASSIGNED_CORE);
 		createEOperation(taskEClass, TASK___TO_STRING);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
@@ -1403,11 +1657,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__VALUE);
 
+		assistModelSchedulingResultEClass = createEClass(ASSIST_MODEL_SCHEDULING_RESULT);
+		createEAttribute(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__NAME);
+		createEAttribute(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH);
+		createEReference(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__MODEL);
+		createEAttribute(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE);
+
+		taskExecutionInstanceEClass = createEClass(TASK_EXECUTION_INSTANCE);
+		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__BEGIN);
+		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__END);
+
 		// Create enums
 		dissimilarityAttributesEEnum = createEEnum(DISSIMILARITY_ATTRIBUTES);
 		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
 		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
 		ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
+		periodicityTypeEEnum = createEEnum(PERIODICITY_TYPE);
+
+		// Create data types
+		task2ExecutionInstancesMapTypeEDataType = createEDataType(TASK2_EXECUTION_INSTANCES_MAP_TYPE);
 	}
 
 	/**
@@ -1453,6 +1721,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssistModel_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModel_MinHypPeriodLength(), theEcorePackage.getEInt(), "minHypPeriodLength", "-1", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1546,6 +1815,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getApplication_Tasks(), this.getTask(), this.getTask_Application(), "tasks", null, 1, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Application.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getApplication__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1554,11 +1824,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTask_CoreUtilization(), theEcorePackage.getEInt(), "coreUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Duration(), theEcorePackage.getEInt(), "duration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Period(), theEcorePackage.getEInt(), "period", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_EarlyTolerance(), theEcorePackage.getEInt(), "earlyTolerance", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_LateTolerance(), theEcorePackage.getEInt(), "lateTolerance", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_MaxStartTime(), theEcorePackage.getEInt(), "maxStartTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_MaxEndTime(), theEcorePackage.getEInt(), "maxEndTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_AddInitTime(), theEcorePackage.getEInt(), "addInitTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Slices(), theEcorePackage.getEInt(), "slices", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_MinSliceDuration(), theEcorePackage.getEInt(), "minSliceDuration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "strict", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTask__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1596,6 +1877,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMetricParameter_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(assistModelSchedulingResultEClass, AssistModelSchedulingResult.class, "AssistModelSchedulingResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAssistModelSchedulingResult_Name(), theEcorePackage.getEString(), "name", "", 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModelSchedulingResult_HyperPeriodLength(), theEcorePackage.getEInt(), "hyperPeriodLength", "-1", 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelSchedulingResult_Model(), this.getAssistModel(), null, "model", null, 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModelSchedulingResult_Schedule(), this.getTask2ExecutionInstancesMapType(), "schedule", null, 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskExecutionInstanceEClass, TaskExecutionInstance.class, "TaskExecutionInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskExecutionInstance_Begin(), theEcorePackage.getEInt(), "begin", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskExecutionInstance_End(), theEcorePackage.getEInt(), "end", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(dissimilarityAttributesEEnum, DissimilarityAttributes.class, "DissimilarityAttributes");
 		addEEnumLiteral(dissimilarityAttributesEEnum, DissimilarityAttributes.COMPARTMENT_MANUFACTURER);
@@ -1632,6 +1923,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ANALOG);
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.DIGITAL);
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.SERIAL);
+
+		initEEnum(periodicityTypeEEnum, PeriodicityType.class, "PeriodicityType");
+		addEEnumLiteral(periodicityTypeEEnum, PeriodicityType.STRICT);
+		addEEnumLiteral(periodicityTypeEEnum, PeriodicityType.FLEXIBLE);
+
+		// Initialize data types
+		initEDataType(task2ExecutionInstancesMapTypeEDataType, HashMap.class, "Task2ExecutionInstancesMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.model.Task, java.util.List<ch.hilbri.assist.model.TaskExecutionInstance>>");
 
 		// Create resource
 		createResource(eNS_URI);
