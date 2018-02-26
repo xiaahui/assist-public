@@ -1,10 +1,10 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result.impl;
+package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Result;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#isBuiltIn <em>Built In</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#isHigherScoreIsBetter <em>Higher Score Is Better</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#getWeight <em>Weight</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AbstractMetricImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AbstractMetricImpl#isBuiltIn <em>Built In</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AbstractMetricImpl#isHigherScoreIsBetter <em>Higher Score Is Better</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AbstractMetricImpl#getWeight <em>Weight</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,7 +130,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ResultPackage.Literals.ABSTRACT_METRIC;
+		return ModelPackage.Literals.ABSTRACT_METRIC;
 	}
 
 	/**
@@ -151,7 +151,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.ABSTRACT_METRIC__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ABSTRACT_METRIC__NAME, oldName, name));
 	}
 
 	/**
@@ -172,7 +172,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 		boolean oldBuiltIn = builtIn;
 		builtIn = newBuiltIn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.ABSTRACT_METRIC__BUILT_IN, oldBuiltIn, builtIn));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ABSTRACT_METRIC__BUILT_IN, oldBuiltIn, builtIn));
 	}
 
 	/**
@@ -193,7 +193,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 		boolean oldHigherScoreIsBetter = higherScoreIsBetter;
 		higherScoreIsBetter = newHigherScoreIsBetter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER, oldHigherScoreIsBetter, higherScoreIsBetter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER, oldHigherScoreIsBetter, higherScoreIsBetter));
 	}
 
 	/**
@@ -214,7 +214,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 		int oldWeight = weight;
 		weight = newWeight;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.ABSTRACT_METRIC__WEIGHT, oldWeight, weight));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ABSTRACT_METRIC__WEIGHT, oldWeight, weight));
 	}
 
 	/**
@@ -236,13 +236,13 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResultPackage.ABSTRACT_METRIC__NAME:
+			case ModelPackage.ABSTRACT_METRIC__NAME:
 				return getName();
-			case ResultPackage.ABSTRACT_METRIC__BUILT_IN:
+			case ModelPackage.ABSTRACT_METRIC__BUILT_IN:
 				return isBuiltIn();
-			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
+			case ModelPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				return isHigherScoreIsBetter();
-			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+			case ModelPackage.ABSTRACT_METRIC__WEIGHT:
 				return getWeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -256,16 +256,16 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResultPackage.ABSTRACT_METRIC__NAME:
+			case ModelPackage.ABSTRACT_METRIC__NAME:
 				setName((String)newValue);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__BUILT_IN:
+			case ModelPackage.ABSTRACT_METRIC__BUILT_IN:
 				setBuiltIn((Boolean)newValue);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
+			case ModelPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				setHigherScoreIsBetter((Boolean)newValue);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+			case ModelPackage.ABSTRACT_METRIC__WEIGHT:
 				setWeight((Integer)newValue);
 				return;
 		}
@@ -280,16 +280,16 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResultPackage.ABSTRACT_METRIC__NAME:
+			case ModelPackage.ABSTRACT_METRIC__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__BUILT_IN:
+			case ModelPackage.ABSTRACT_METRIC__BUILT_IN:
 				setBuiltIn(BUILT_IN_EDEFAULT);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
+			case ModelPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				setHigherScoreIsBetter(HIGHER_SCORE_IS_BETTER_EDEFAULT);
 				return;
-			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+			case ModelPackage.ABSTRACT_METRIC__WEIGHT:
 				setWeight(WEIGHT_EDEFAULT);
 				return;
 		}
@@ -304,13 +304,13 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResultPackage.ABSTRACT_METRIC__NAME:
+			case ModelPackage.ABSTRACT_METRIC__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ResultPackage.ABSTRACT_METRIC__BUILT_IN:
+			case ModelPackage.ABSTRACT_METRIC__BUILT_IN:
 				return builtIn != BUILT_IN_EDEFAULT;
-			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
+			case ModelPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				return higherScoreIsBetter != HIGHER_SCORE_IS_BETTER_EDEFAULT;
-			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+			case ModelPackage.ABSTRACT_METRIC__WEIGHT:
 				return weight != WEIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -324,7 +324,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResultPackage.ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT:
+			case ModelPackage.ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT:
 				return computeAbsoluteScore((Result)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

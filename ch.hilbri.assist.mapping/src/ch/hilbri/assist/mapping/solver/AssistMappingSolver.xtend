@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
@@ -20,6 +19,7 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.model.Result
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Model

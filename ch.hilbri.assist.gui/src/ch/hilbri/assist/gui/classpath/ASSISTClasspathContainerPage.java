@@ -13,14 +13,15 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-public class ASSISTClasspathContainerPage extends WizardPage implements IClasspathContainerPage, IClasspathContainerPageExtension  {
+public class ASSISTClasspathContainerPage extends WizardPage
+		implements IClasspathContainerPage, IClasspathContainerPageExtension {
 
 	private IClasspathEntry selection;
 
 	private IJavaProject project;
-	
+
 	private IClasspathEntry[] currentEntries;
-	
+
 	public ASSISTClasspathContainerPage() {
 		super("PageOne");
 
@@ -29,10 +30,10 @@ public class ASSISTClasspathContainerPage extends WizardPage implements IClasspa
 	}
 
 	@Override
-public void initialize(IJavaProject project, IClasspathEntry[] currentEntries) {
-	this.project = project;
-	this.currentEntries = currentEntries;
-}
+	public void initialize(IJavaProject project, IClasspathEntry[] currentEntries) {
+		this.project = project;
+		this.currentEntries = currentEntries;
+	}
 
 	@Override
 	public void createControl(Composite parent) {
@@ -42,24 +43,23 @@ public void initialize(IJavaProject project, IClasspathEntry[] currentEntries) {
 		composite.setLayout(layout);
 
 		setControl(composite);
-		
+
 		Label lblClickOnFinish = new Label(composite, SWT.NONE);
 		lblClickOnFinish.setText("Nothing to configure.");
 	}
 
 	@Override
 	public boolean finish() {
-		
-		IClasspathEntry[] newEntries = new IClasspathEntry[currentEntries.length+1];
-		
+
+		IClasspathEntry[] newEntries = new IClasspathEntry[currentEntries.length + 1];
+
 		System.arraycopy(currentEntries, 0, newEntries, 0, currentEntries.length);
-				
-		newEntries[newEntries.length-1] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.gui.classpathContainer"));
-		
+
+		newEntries[newEntries.length - 1] = JavaCore
+				.newContainerEntry(new Path("ch.hilbri.assist.gui.classpathContainer"));
+
 		try {
-		
 			project.setRawClasspath(newEntries, null);
-		
 		} catch (JavaModelException e) {
 			e.printStackTrace();
 			return false;

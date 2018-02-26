@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor
 
-import ch.hilbri.assist.mapping.model.result.SingleMappingElement
+import ch.hilbri.assist.model.SingleMappingElement
 import org.eclipse.jface.viewers.Viewer
 import org.eclipse.jface.viewers.ViewerFilter
 

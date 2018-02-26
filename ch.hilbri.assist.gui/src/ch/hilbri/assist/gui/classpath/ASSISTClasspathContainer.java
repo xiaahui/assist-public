@@ -23,7 +23,7 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 		IClasspathEntry[] cpEntries = new IClasspathEntry[4];
 
 		// Reference to AbstractMetric Class
-		Bundle assistMappingBundle = Platform.getBundle("ch.hilbri.assist.mapping.model.result");
+		Bundle assistMappingBundle = Platform.getBundle("ch.hilbri.assist.model");
 		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle), null, null);
 				
 		// Reference to Math Commons

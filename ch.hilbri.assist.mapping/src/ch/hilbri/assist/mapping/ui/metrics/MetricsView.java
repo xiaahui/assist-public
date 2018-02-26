@@ -45,9 +45,9 @@ import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.impl.AbstractMetricImpl;
 
 /* We need to implement IPartListener2, because we want to get notified, if the active editor changes */
 public class MetricsView implements IPartListener2 {

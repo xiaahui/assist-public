@@ -1,19 +1,12 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
-import ch.hilbri.assist.mapping.result.FactorySchedulingModelFromMappingSolution
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
-import ch.hilbri.assist.scheduling.dsl.SchedulingDslStandaloneSetup
-import java.io.IOException
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.e4.core.contexts.Active
 import org.eclipse.e4.core.di.annotations.CanExecute
 import org.eclipse.e4.core.di.annotations.Execute
 import org.eclipse.e4.ui.model.application.ui.basic.MPart
-import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor
-import org.eclipse.xtext.resource.SaveOptions
 
 class ExportToScheduling {
 	

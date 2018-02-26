@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin
 
-import ch.hilbri.assist.mapping.model.result.Result
-import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl
 import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.Result
+import ch.hilbri.assist.model.impl.AbstractMetricImpl
 
 class MinOrganizationsPerBoard extends AbstractMetricImpl {
 	new() {

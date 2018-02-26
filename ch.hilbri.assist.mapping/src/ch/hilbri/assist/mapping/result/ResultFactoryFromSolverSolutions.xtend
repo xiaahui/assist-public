@@ -1,9 +1,9 @@
 package ch.hilbri.assist.mapping.result
 
-import ch.hilbri.assist.mapping.model.result.Result
-import ch.hilbri.assist.mapping.model.result.ResultFactory
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.ModelFactory
+import ch.hilbri.assist.model.Result
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
@@ -25,7 +25,7 @@ class ResultFactoryFromSolverSolutions {
 			val solNumber 		= solverSolutions.indexOf(solution) + 1
 			val solTotalCount  	= solverSolutions.length
 			
-			val result = ResultFactory.eINSTANCE.createResult => [
+			val result = ModelFactory.eINSTANCE.createResult => [
 				name 			= "Solution "+ solNumber + " of " + solTotalCount
 				index			= solNumber - 1
 				model 			= assistModel

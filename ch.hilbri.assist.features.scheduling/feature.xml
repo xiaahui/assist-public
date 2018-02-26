@@ -14,6 +14,9 @@
 
    <requires>
       <import plugin="ch.hilbri.assist.gui"/>
+      <import plugin="ch.hilbri.assist.model"/>
+      <import plugin="ch.hilbri.assist.model.edit"/>
+      <import plugin="ch.hilbri.assist.model.editor"/>
       <import plugin="ch.hilbri.assist.libraries.math"/>
       <import plugin="ch.hilbri.assist.libraries.logback"/>
       <import plugin="ch.hilbri.assist.libraries.choco-solver"/>
@@ -54,12 +57,6 @@
       <import plugin="org.eclipse.xtext.junit4"/>
       <import plugin="org.eclipse.xtext.xbase.junit"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
    </requires>
 
    <plugin
@@ -99,27 +96,6 @@
 
    <plugin
          id="ch.hilbri.assist.scheduling.dsl.ui.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.hilbri.assist.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.hilbri.assist.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.hilbri.assist.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,9 +1,9 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result.impl;
+package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MetricScorePairImpl#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MetricScorePairImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,7 +78,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ResultPackage.Literals.METRIC_SCORE_PAIR;
+		return ModelPackage.Literals.METRIC_SCORE_PAIR;
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 			key = (AbstractMetric)eResolveProxy(oldKey);
 			if (key != oldKey) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
 			}
 		}
 		return key;
@@ -116,7 +116,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 		AbstractMetric oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 		Double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.METRIC_SCORE_PAIR__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.METRIC_SCORE_PAIR__VALUE, oldValue, value));
 	}
 
 	/**
@@ -148,10 +148,10 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResultPackage.METRIC_SCORE_PAIR__KEY:
+			case ModelPackage.METRIC_SCORE_PAIR__KEY:
 				if (resolve) return getTypedKey();
 				return basicGetTypedKey();
-			case ResultPackage.METRIC_SCORE_PAIR__VALUE:
+			case ModelPackage.METRIC_SCORE_PAIR__VALUE:
 				return getTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -165,10 +165,10 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResultPackage.METRIC_SCORE_PAIR__KEY:
+			case ModelPackage.METRIC_SCORE_PAIR__KEY:
 				setTypedKey((AbstractMetric)newValue);
 				return;
-			case ResultPackage.METRIC_SCORE_PAIR__VALUE:
+			case ModelPackage.METRIC_SCORE_PAIR__VALUE:
 				setTypedValue((Double)newValue);
 				return;
 		}
@@ -183,10 +183,10 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResultPackage.METRIC_SCORE_PAIR__KEY:
+			case ModelPackage.METRIC_SCORE_PAIR__KEY:
 				setTypedKey((AbstractMetric)null);
 				return;
-			case ResultPackage.METRIC_SCORE_PAIR__VALUE:
+			case ModelPackage.METRIC_SCORE_PAIR__VALUE:
 				setTypedValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -201,9 +201,9 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResultPackage.METRIC_SCORE_PAIR__KEY:
+			case ModelPackage.METRIC_SCORE_PAIR__KEY:
 				return key != null;
-			case ResultPackage.METRIC_SCORE_PAIR__VALUE:
+			case ModelPackage.METRIC_SCORE_PAIR__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);

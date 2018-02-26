@@ -22,14 +22,14 @@ import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
+import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Result;
 
 public class Runner {
 

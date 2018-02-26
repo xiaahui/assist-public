@@ -7,9 +7,9 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Display;
 
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.Result;
 
 class EvaluateJob implements IRunnableWithProgress {
 

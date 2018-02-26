@@ -16,13 +16,13 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.model.Result;
 
 public class GuiSolverJob extends Job {
 

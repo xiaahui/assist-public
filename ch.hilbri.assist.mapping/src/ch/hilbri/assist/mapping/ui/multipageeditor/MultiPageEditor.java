@@ -15,8 +15,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.Result;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 

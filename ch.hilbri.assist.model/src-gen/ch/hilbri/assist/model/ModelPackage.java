@@ -1620,6 +1620,416 @@ public interface ModelPackage extends EPackage {
 	int METRIC_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link java.lang.Comparable<ch.hilbri.assist.model.Result> <em>Comparable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Comparable<ch.hilbri.assist.model.Result>
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
+	 * @generated
+	 */
+	int COMPARABLE = 19;
+
+	/**
+	 * The number of structural features of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.MetricScorePairImpl <em>Metric Score Pair</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.MetricScorePairImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
+	 * @generated
+	 */
+	int METRIC_SCORE_PAIR = 20;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Metric Score Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Metric Score Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ResultImpl <em>Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.ResultImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getResult()
+	 * @generated
+	 */
+	int RESULT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__NAME = COMPARABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__INDEX = COMPARABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Task2 Core Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Metric Absolute Scores Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__METRIC_ABSOLUTE_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Metric Scaled Scores Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__METRIC_SCALED_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Partial Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Absolute Total Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__ABSOLUTE_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Scaled Total Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__SCALED_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get Mapped Tasks For Core</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Absolute Core Utilization</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Relative Core Utilization</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = COMPARABLE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Hardware Element For Task</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_MAPPING_ELEMENTS = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Compare To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___TO_STRING = COMPARABLE_OPERATION_COUNT + 6;
+
+	/**
+	 * The number of operations of the '<em>Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 7;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.SingleMappingElementImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
+	 * @generated
+	 */
+	int SINGLE_MAPPING_ELEMENT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Application</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__APPLICATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__TASK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__CORE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Processor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__PROCESSOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>Board</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__BOARD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Box</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__BOX = 5;
+
+	/**
+	 * The feature id for the '<em><b>Compartment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__COMPARTMENT = 6;
+
+	/**
+	 * The number of structural features of the '<em>Single Mapping Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT_FEATURE_COUNT = 7;
+
+	/**
+	 * The number of operations of the '<em>Single Mapping Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.AbstractMetricImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMetric()
+	 * @generated
+	 */
+	int ABSTRACT_METRIC = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Built In</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__BUILT_IN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Higher Score Is Better</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__WEIGHT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Compute Absolute Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1627,7 +2037,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModelSchedulingResult()
 	 * @generated
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT = 19;
+	int ASSIST_MODEL_SCHEDULING_RESULT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1691,7 +2101,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
 	 * @generated
 	 */
-	int TASK_EXECUTION_INSTANCE = 20;
+	int TASK_EXECUTION_INSTANCE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -1737,7 +2147,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 	 * @generated
 	 */
-	int DISSIMILARITY_ATTRIBUTES = 21;
+	int DISSIMILARITY_ATTRIBUTES = 26;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -1747,7 +2157,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 22;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1757,7 +2167,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 23;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1767,7 +2177,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 24;
+	int IO_ADAPTER_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -1777,7 +2187,27 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
 	 * @generated
 	 */
-	int PERIODICITY_TYPE = 25;
+	int PERIODICITY_TYPE = 30;
+
+	/**
+	 * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.HashMap
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
+	 * @generated
+	 */
+	int TASK2_CORE_MAP_TYPE = 31;
+
+	/**
+	 * The meta object id for the '<em>String List</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.List
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
+	 * @generated
+	 */
+	int STRING_LIST = 32;
 
 	/**
 	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -1787,7 +2217,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
 	 * @generated
 	 */
-	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 26;
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 33;
 
 
 	/**
@@ -3050,6 +3480,381 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMetricParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link java.lang.Comparable<ch.hilbri.assist.model.Result> <em>Comparable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comparable</em>'.
+	 * @see java.lang.Comparable<ch.hilbri.assist.model.Result>
+	 * @model instanceClass="java.lang.Comparable&lt;ch.hilbri.assist.model.Result&gt;"
+	 * @generated
+	 */
+	EClass getComparable();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Metric Score Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metric Score Pair</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyType="ch.hilbri.assist.model.AbstractMetric"
+	 *        valueUnique="false" valueDataType="org.eclipse.emf.ecore.EDoubleObject"
+	 * @generated
+	 */
+	EClass getMetricScorePair();
+
+	/**
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getMetricScorePair()
+	 * @generated
+	 */
+	EReference getMetricScorePair_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getMetricScorePair()
+	 * @generated
+	 */
+	EAttribute getMetricScorePair_Value();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Result <em>Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Result</em>'.
+	 * @see ch.hilbri.assist.model.Result
+	 * @generated
+	 */
+	EClass getResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.Result#getName()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#getIndex <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Index</em>'.
+	 * @see ch.hilbri.assist.model.Result#getIndex()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_Index();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.Result#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see ch.hilbri.assist.model.Result#getModel()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_Model();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#getTask2CoreMap <em>Task2 Core Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task2 Core Map</em>'.
+	 * @see ch.hilbri.assist.model.Result#getTask2CoreMap()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_Task2CoreMap();
+
+	/**
+	 * Returns the meta object for the map '{@link ch.hilbri.assist.model.Result#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metric Absolute Scores Map</em>'.
+	 * @see ch.hilbri.assist.model.Result#getMetricAbsoluteScoresMap()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_MetricAbsoluteScoresMap();
+
+	/**
+	 * Returns the meta object for the map '{@link ch.hilbri.assist.model.Result#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metric Scaled Scores Map</em>'.
+	 * @see ch.hilbri.assist.model.Result#getMetricScaledScoresMap()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_MetricScaledScoresMap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#isPartialSolution <em>Partial Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Partial Solution</em>'.
+	 * @see ch.hilbri.assist.model.Result#isPartialSolution()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_PartialSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#getAbsoluteTotalScore <em>Absolute Total Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Absolute Total Score</em>'.
+	 * @see ch.hilbri.assist.model.Result#getAbsoluteTotalScore()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_AbsoluteTotalScore();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Result#getScaledTotalScore <em>Scaled Total Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scaled Total Score</em>'.
+	 * @see ch.hilbri.assist.model.Result#getScaledTotalScore()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_ScaledTotalScore();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#getMappedTasksForCore(ch.hilbri.assist.model.Core) <em>Get Mapped Tasks For Core</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mapped Tasks For Core</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#getMappedTasksForCore(ch.hilbri.assist.model.Core)
+	 * @generated
+	 */
+	EOperation getResult__GetMappedTasksForCore__Core();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#getAbsoluteCoreUtilization(ch.hilbri.assist.model.Core) <em>Get Absolute Core Utilization</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Absolute Core Utilization</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#getAbsoluteCoreUtilization(ch.hilbri.assist.model.Core)
+	 * @generated
+	 */
+	EOperation getResult__GetAbsoluteCoreUtilization__Core();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#getRelativeCoreUtilization(ch.hilbri.assist.model.Core) <em>Get Relative Core Utilization</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Relative Core Utilization</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#getRelativeCoreUtilization(ch.hilbri.assist.model.Core)
+	 * @generated
+	 */
+	EOperation getResult__GetRelativeCoreUtilization__Core();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#getHardwareElementForTask(ch.hilbri.assist.model.Task, int) <em>Get Hardware Element For Task</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Element For Task</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#getHardwareElementForTask(ch.hilbri.assist.model.Task, int)
+	 * @generated
+	 */
+	EOperation getResult__GetHardwareElementForTask__Task_int();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#getMappingElements() <em>Get Mapping Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mapping Elements</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#getMappingElements()
+	 * @generated
+	 */
+	EOperation getResult__GetMappingElements();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#compareTo(ch.hilbri.assist.model.Result) <em>Compare To</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compare To</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#compareTo(ch.hilbri.assist.model.Result)
+	 * @generated
+	 */
+	EOperation getResult__CompareTo__Result();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Result#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.model.Result#toString()
+	 * @generated
+	 */
+	EOperation getResult__ToString();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.SingleMappingElement <em>Single Mapping Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Mapping Element</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement
+	 * @generated
+	 */
+	EClass getSingleMappingElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Application</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getApplication()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Application();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getTask()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Task();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getCore <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Core</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getCore()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Core();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getProcessor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Processor</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getProcessor()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Processor();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getBoard <em>Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Board</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getBoard()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Board();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getBox <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Box</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getBox()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Box();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.SingleMappingElement#getCompartment <em>Compartment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Compartment</em>'.
+	 * @see ch.hilbri.assist.model.SingleMappingElement#getCompartment()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Compartment();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.AbstractMetric <em>Abstract Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Metric</em>'.
+	 * @see ch.hilbri.assist.model.AbstractMetric
+	 * @generated
+	 */
+	EClass getAbstractMetric();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.AbstractMetric#getName()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#isBuiltIn <em>Built In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Built In</em>'.
+	 * @see ch.hilbri.assist.model.AbstractMetric#isBuiltIn()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_BuiltIn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Higher Score Is Better</em>'.
+	 * @see ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_HigherScoreIsBetter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see ch.hilbri.assist.model.AbstractMetric#getWeight()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Weight();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.model.Result) <em>Compute Absolute Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Absolute Score</em>' operation.
+	 * @see ch.hilbri.assist.model.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.model.Result)
+	 * @generated
+	 */
+	EOperation getAbstractMetric__ComputeAbsoluteScore__Result();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.AssistModelSchedulingResult <em>Assist Model Scheduling Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3184,6 +3989,28 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getPeriodicityType();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Core Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.model.Task, ch.hilbri.assist.model.Core&gt;"
+	 * @generated
+	 */
+	EDataType getTask2CoreMapType();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.List <em>String List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>String List</em>'.
+	 * @see java.util.List
+	 * @model instanceClass="java.util.List&lt;java.lang.String&gt;"
+	 * @generated
+	 */
+	EDataType getStringList();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Execution Instances Map Type</em>}'.
@@ -4202,6 +5029,296 @@ public interface ModelPackage extends EPackage {
 		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
 
 		/**
+		 * The meta object literal for the '{@link java.lang.Comparable<ch.hilbri.assist.model.Result> <em>Comparable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Comparable<ch.hilbri.assist.model.Result>
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
+		 * @generated
+		 */
+		EClass COMPARABLE = eINSTANCE.getComparable();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MetricScorePairImpl <em>Metric Score Pair</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.MetricScorePairImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
+		 * @generated
+		 */
+		EClass METRIC_SCORE_PAIR = eINSTANCE.getMetricScorePair();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METRIC_SCORE_PAIR__KEY = eINSTANCE.getMetricScorePair_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METRIC_SCORE_PAIR__VALUE = eINSTANCE.getMetricScorePair_Value();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ResultImpl <em>Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.ResultImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getResult()
+		 * @generated
+		 */
+		EClass RESULT = eINSTANCE.getResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__NAME = eINSTANCE.getResult_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__INDEX = eINSTANCE.getResult_Index();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__MODEL = eINSTANCE.getResult_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Task2 Core Map</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__TASK2_CORE_MAP = eINSTANCE.getResult_Task2CoreMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Metric Absolute Scores Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__METRIC_ABSOLUTE_SCORES_MAP = eINSTANCE.getResult_MetricAbsoluteScoresMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Metric Scaled Scores Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__METRIC_SCALED_SCORES_MAP = eINSTANCE.getResult_MetricScaledScoresMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Partial Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Absolute Total Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__ABSOLUTE_TOTAL_SCORE = eINSTANCE.getResult_AbsoluteTotalScore();
+
+		/**
+		 * The meta object literal for the '<em><b>Scaled Total Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__SCALED_TOTAL_SCORE = eINSTANCE.getResult_ScaledTotalScore();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mapped Tasks For Core</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE = eINSTANCE.getResult__GetMappedTasksForCore__Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Absolute Core Utilization</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE = eINSTANCE.getResult__GetAbsoluteCoreUtilization__Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Relative Core Utilization</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = eINSTANCE.getResult__GetRelativeCoreUtilization__Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Element For Task</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = eINSTANCE.getResult__GetHardwareElementForTask__Task_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mapping Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_MAPPING_ELEMENTS = eINSTANCE.getResult__GetMappingElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___TO_STRING = eINSTANCE.getResult__ToString();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.SingleMappingElementImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
+		 * @generated
+		 */
+		EClass SINGLE_MAPPING_ELEMENT = eINSTANCE.getSingleMappingElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__APPLICATION = eINSTANCE.getSingleMappingElement_Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__TASK = eINSTANCE.getSingleMappingElement_Task();
+
+		/**
+		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__CORE = eINSTANCE.getSingleMappingElement_Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__PROCESSOR = eINSTANCE.getSingleMappingElement_Processor();
+
+		/**
+		 * The meta object literal for the '<em><b>Board</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__BOARD = eINSTANCE.getSingleMappingElement_Board();
+
+		/**
+		 * The meta object literal for the '<em><b>Box</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__BOX = eINSTANCE.getSingleMappingElement_Box();
+
+		/**
+		 * The meta object literal for the '<em><b>Compartment</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__COMPARTMENT = eINSTANCE.getSingleMappingElement_Compartment();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.AbstractMetricImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMetric()
+		 * @generated
+		 */
+		EClass ABSTRACT_METRIC = eINSTANCE.getAbstractMetric();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__NAME = eINSTANCE.getAbstractMetric_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Built In</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__BUILT_IN = eINSTANCE.getAbstractMetric_BuiltIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Higher Score Is Better</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMetric_HigherScoreIsBetter();
+
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__WEIGHT = eINSTANCE.getAbstractMetric_Weight();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = eINSTANCE.getAbstractMetric__ComputeAbsoluteScore__Result();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4318,6 +5435,26 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PERIODICITY_TYPE = eINSTANCE.getPeriodicityType();
+
+		/**
+		 * The meta object literal for the '<em>Task2 Core Map Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.HashMap
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
+		 * @generated
+		 */
+		EDataType TASK2_CORE_MAP_TYPE = eINSTANCE.getTask2CoreMapType();
+
+		/**
+		 * The meta object literal for the '<em>String List</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.List
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
+		 * @generated
+		 */
+		EDataType STRING_LIST = eINSTANCE.getStringList();
 
 		/**
 		 * The meta object literal for the '<em>Task2 Execution Instances Map Type</em>' data type.

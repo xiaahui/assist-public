@@ -38,7 +38,7 @@
 		
 		
 		
-		<module>../ch.hilbri.assist.mapping.model.result</module>
+		
 		<module>../ch.hilbri.assist.mapping.dsl</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ide</module>
 		<module>../ch.hilbri.assist.mapping.dsl.tests</module>

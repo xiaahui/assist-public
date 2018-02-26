@@ -509,6 +509,75 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetricScorePairItemProvider metricScorePairItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetricScorePairAdapter() {
+		if (metricScorePairItemProvider == null) {
+			metricScorePairItemProvider = new MetricScorePairItemProvider(this);
+		}
+
+		return metricScorePairItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Result} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResultItemProvider resultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.Result}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResultAdapter() {
+		if (resultItemProvider == null) {
+			resultItemProvider = new ResultItemProvider(this);
+		}
+
+		return resultItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SingleMappingElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SingleMappingElementItemProvider singleMappingElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.SingleMappingElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSingleMappingElementAdapter() {
+		if (singleMappingElementItemProvider == null) {
+			singleMappingElementItemProvider = new SingleMappingElementItemProvider(this);
+		}
+
+		return singleMappingElementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AssistModelSchedulingResult} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -672,6 +741,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
+		if (metricScorePairItemProvider != null) metricScorePairItemProvider.dispose();
+		if (resultItemProvider != null) resultItemProvider.dispose();
+		if (singleMappingElementItemProvider != null) singleMappingElementItemProvider.dispose();
 		if (assistModelSchedulingResultItemProvider != null) assistModelSchedulingResultItemProvider.dispose();
 		if (taskExecutionInstanceItemProvider != null) taskExecutionInstanceItemProvider.dispose();
 	}

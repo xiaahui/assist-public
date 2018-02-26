@@ -8,7 +8,7 @@ import ch.hilbri.assist.model.Task
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
-//import ch.hilbri.assist.mapping.model.ModelPackage
+//import ch.hilbri.assist.model.ModelPackage
 
 class MappingDSLFormatter extends AbstractFormatter2 {
 	

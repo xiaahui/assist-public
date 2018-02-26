@@ -2,10 +2,41 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.*;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.DislocalityRelation;
+import ch.hilbri.assist.model.DissimilarityAttributes;
+import ch.hilbri.assist.model.DissimilarityClause;
+import ch.hilbri.assist.model.DissimilarityConjunction;
+import ch.hilbri.assist.model.DissimilarityDisjunction;
+import ch.hilbri.assist.model.DissimilarityEntry;
+import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.IOAdapter;
+import ch.hilbri.assist.model.IOAdapterRequirement;
+import ch.hilbri.assist.model.IOAdapterType;
+import ch.hilbri.assist.model.MetricParameter;
+import ch.hilbri.assist.model.ModelFactory;
+import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodicityType;
+import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.Task;
+import ch.hilbri.assist.model.TaskExecutionInstance;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -79,6 +110,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.DISSIMILARITY_CONJUNCTION: return createDissimilarityConjunction();
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
+			case ModelPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
+			case ModelPackage.RESULT: return createResult();
+			case ModelPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT: return createAssistModelSchedulingResult();
 			case ModelPackage.TASK_EXECUTION_INSTANCE: return createTaskExecutionInstance();
 			default:
@@ -104,6 +138,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createIOAdapterTypeFromString(eDataType, initialValue);
 			case ModelPackage.PERIODICITY_TYPE:
 				return createPeriodicityTypeFromString(eDataType, initialValue);
+			case ModelPackage.TASK2_CORE_MAP_TYPE:
+				return createTask2CoreMapTypeFromString(eDataType, initialValue);
+			case ModelPackage.STRING_LIST:
+				return createStringListFromString(eDataType, initialValue);
 			case ModelPackage.TASK2_EXECUTION_INSTANCES_MAP_TYPE:
 				return createTask2ExecutionInstancesMapTypeFromString(eDataType, initialValue);
 			default:
@@ -129,6 +167,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertIOAdapterTypeToString(eDataType, instanceValue);
 			case ModelPackage.PERIODICITY_TYPE:
 				return convertPeriodicityTypeToString(eDataType, instanceValue);
+			case ModelPackage.TASK2_CORE_MAP_TYPE:
+				return convertTask2CoreMapTypeToString(eDataType, instanceValue);
+			case ModelPackage.STRING_LIST:
+				return convertStringListToString(eDataType, instanceValue);
 			case ModelPackage.TASK2_EXECUTION_INSTANCES_MAP_TYPE:
 				return convertTask2ExecutionInstancesMapTypeToString(eDataType, instanceValue);
 			default:
@@ -331,6 +373,36 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Map.Entry<AbstractMetric, Double> createMetricScorePair() {
+		MetricScorePairImpl metricScorePair = new MetricScorePairImpl();
+		return metricScorePair;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Result createResult() {
+		ResultImpl result = new ResultImpl();
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SingleMappingElement createSingleMappingElement() {
+		SingleMappingElementImpl singleMappingElement = new SingleMappingElementImpl();
+		return singleMappingElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AssistModelSchedulingResult createAssistModelSchedulingResult() {
 		AssistModelSchedulingResultImpl assistModelSchedulingResult = new AssistModelSchedulingResultImpl();
 		return assistModelSchedulingResult;
@@ -444,6 +516,44 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 */
 	public String convertPeriodicityTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public HashMap<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<Task, Core>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTask2CoreMapTypeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public List<String> createStringListFromString(EDataType eDataType, String initialValue) {
+		return (List<String>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStringListToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

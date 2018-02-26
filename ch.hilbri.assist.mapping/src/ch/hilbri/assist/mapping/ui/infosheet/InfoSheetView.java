@@ -24,8 +24,8 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.model.Result;
 
 /* Needs to implement IPartListener2 to get notified, if the active editor changes */
 public class InfoSheetView implements IPartListener2 {

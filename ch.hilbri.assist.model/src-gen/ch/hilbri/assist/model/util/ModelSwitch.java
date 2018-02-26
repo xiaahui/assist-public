@@ -2,7 +2,33 @@
  */
 package ch.hilbri.assist.model.util;
 
-import ch.hilbri.assist.model.*;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.DislocalityRelation;
+import ch.hilbri.assist.model.DissimilarityClause;
+import ch.hilbri.assist.model.DissimilarityConjunction;
+import ch.hilbri.assist.model.DissimilarityDisjunction;
+import ch.hilbri.assist.model.DissimilarityEntry;
+import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.IOAdapter;
+import ch.hilbri.assist.model.IOAdapterRequirement;
+import ch.hilbri.assist.model.MetricParameter;
+import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.Task;
+import ch.hilbri.assist.model.TaskExecutionInstance;
+
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -185,6 +211,37 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.METRIC_PARAMETER: {
 				MetricParameter metricParameter = (MetricParameter)theEObject;
 				T result = caseMetricParameter(metricParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.COMPARABLE: {
+				@SuppressWarnings("unchecked") Comparable<Result> comparable = (Comparable<Result>)theEObject;
+				T result = caseComparable(comparable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.METRIC_SCORE_PAIR: {
+				@SuppressWarnings("unchecked") Map.Entry<AbstractMetric, Double> metricScorePair = (Map.Entry<AbstractMetric, Double>)theEObject;
+				T result = caseMetricScorePair(metricScorePair);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.RESULT: {
+				Result result = (Result)theEObject;
+				T theResult = caseResult(result);
+				if (theResult == null) theResult = caseComparable(result);
+				if (theResult == null) theResult = defaultCase(theEObject);
+				return theResult;
+			}
+			case ModelPackage.SINGLE_MAPPING_ELEMENT: {
+				SingleMappingElement singleMappingElement = (SingleMappingElement)theEObject;
+				T result = caseSingleMappingElement(singleMappingElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.ABSTRACT_METRIC: {
+				AbstractMetric abstractMetric = (AbstractMetric)theEObject;
+				T result = caseAbstractMetric(abstractMetric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -486,6 +543,81 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMetricParameter(MetricParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComparable(Comparable<Result> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Metric Score Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Metric Score Pair</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMetricScorePair(Map.Entry<AbstractMetric, Double> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResult(Result object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Single Mapping Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Single Mapping Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSingleMappingElement(SingleMappingElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractMetric(AbstractMetric object) {
 		return null;
 	}
 

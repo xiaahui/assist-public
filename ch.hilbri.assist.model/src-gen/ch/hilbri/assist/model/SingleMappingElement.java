@@ -1,14 +1,6 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result;
-
-import ch.hilbri.assist.model.Application;
-import ch.hilbri.assist.model.Board;
-import ch.hilbri.assist.model.Box;
-import ch.hilbri.assist.model.Compartment;
-import ch.hilbri.assist.model.Core;
-import ch.hilbri.assist.model.Processor;
-import ch.hilbri.assist.model.Task;
+package ch.hilbri.assist.model;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -21,16 +13,16 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getTask <em>Task</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCore <em>Core</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getProcessor <em>Processor</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBoard <em>Board</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBox <em>Box</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCompartment <em>Compartment</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getTask <em>Task</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getCore <em>Core</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getProcessor <em>Processor</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getBoard <em>Board</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getBox <em>Box</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.SingleMappingElement#getCompartment <em>Compartment</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement()
+ * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement()
  * @model
  * @generated
  */
@@ -45,14 +37,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Application</em>' reference.
 	 * @see #setApplication(Application)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Application()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Application()
 	 * @model
 	 * @generated
 	 */
 	Application getApplication();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getApplication <em>Application</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getApplication <em>Application</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Application</em>' reference.
@@ -71,14 +63,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task</em>' reference.
 	 * @see #setTask(Task)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Task()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Task()
 	 * @model
 	 * @generated
 	 */
 	Task getTask();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getTask <em>Task</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getTask <em>Task</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task</em>' reference.
@@ -97,14 +89,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Core</em>' reference.
 	 * @see #setCore(Core)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Core()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Core()
 	 * @model
 	 * @generated
 	 */
 	Core getCore();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCore <em>Core</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getCore <em>Core</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Core</em>' reference.
@@ -123,14 +115,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Processor</em>' reference.
 	 * @see #setProcessor(Processor)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Processor()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Processor()
 	 * @model
 	 * @generated
 	 */
 	Processor getProcessor();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getProcessor <em>Processor</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getProcessor <em>Processor</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Processor</em>' reference.
@@ -149,14 +141,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Board</em>' reference.
 	 * @see #setBoard(Board)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Board()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Board()
 	 * @model
 	 * @generated
 	 */
 	Board getBoard();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBoard <em>Board</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getBoard <em>Board</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Board</em>' reference.
@@ -175,14 +167,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Box</em>' reference.
 	 * @see #setBox(Box)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Box()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Box()
 	 * @model
 	 * @generated
 	 */
 	Box getBox();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBox <em>Box</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getBox <em>Box</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Box</em>' reference.
@@ -201,14 +193,14 @@ public interface SingleMappingElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compartment</em>' reference.
 	 * @see #setCompartment(Compartment)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Compartment()
+	 * @see ch.hilbri.assist.model.ModelPackage#getSingleMappingElement_Compartment()
 	 * @model
 	 * @generated
 	 */
 	Compartment getCompartment();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCompartment <em>Compartment</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.SingleMappingElement#getCompartment <em>Compartment</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Compartment</em>' reference.

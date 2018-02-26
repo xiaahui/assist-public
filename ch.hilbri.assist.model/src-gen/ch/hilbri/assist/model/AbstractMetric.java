@@ -1,6 +1,6 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result;
+package ch.hilbri.assist.model;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isBuiltIn <em>Built In</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getWeight <em>Weight</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AbstractMetric#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AbstractMetric#isBuiltIn <em>Built In</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AbstractMetric#getWeight <em>Weight</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getAbstractMetric()
+ * @see ch.hilbri.assist.model.ModelPackage#getAbstractMetric()
  * @model abstract="true"
  * @generated
  */
@@ -34,14 +34,14 @@ public interface AbstractMetric extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getAbstractMetric_Name()
+	 * @see ch.hilbri.assist.model.ModelPackage#getAbstractMetric_Name()
 	 * @model unique="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.AbstractMetric#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -60,14 +60,14 @@ public interface AbstractMetric extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Built In</em>' attribute.
 	 * @see #setBuiltIn(boolean)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getAbstractMetric_BuiltIn()
+	 * @see ch.hilbri.assist.model.ModelPackage#getAbstractMetric_BuiltIn()
 	 * @model unique="false"
 	 * @generated
 	 */
 	boolean isBuiltIn();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isBuiltIn <em>Built In</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.AbstractMetric#isBuiltIn <em>Built In</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Built In</em>' attribute.
@@ -86,14 +86,14 @@ public interface AbstractMetric extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Higher Score Is Better</em>' attribute.
 	 * @see #setHigherScoreIsBetter(boolean)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getAbstractMetric_HigherScoreIsBetter()
+	 * @see ch.hilbri.assist.model.ModelPackage#getAbstractMetric_HigherScoreIsBetter()
 	 * @model unique="false"
 	 * @generated
 	 */
 	boolean isHigherScoreIsBetter();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Higher Score Is Better</em>' attribute.
@@ -112,14 +112,14 @@ public interface AbstractMetric extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Weight</em>' attribute.
 	 * @see #setWeight(int)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getAbstractMetric_Weight()
+	 * @see ch.hilbri.assist.model.ModelPackage#getAbstractMetric_Weight()
 	 * @model unique="false"
 	 * @generated
 	 */
 	int getWeight();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getWeight <em>Weight</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.AbstractMetric#getWeight <em>Weight</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Weight</em>' attribute.

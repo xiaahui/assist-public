@@ -43,11 +43,11 @@ import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinOrganizationsPerBoard;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
+import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.SingleMappingElement;
 
 public class DetailedResults extends Composite {
 

@@ -1,13 +1,8 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result.impl;
+package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.mapping.model.result.AbstractMetric;
-import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.model.result.ResultFactory;
-import ch.hilbri.assist.mapping.model.result.ResultPackage;
-import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
-
+import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
@@ -15,7 +10,11 @@ import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ModelFactory;
+import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 
 import com.google.common.base.Objects;
@@ -64,15 +63,15 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getIndex <em>Index</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getModel <em>Model</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getAbsoluteTotalScore <em>Absolute Total Score</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getScaledTotalScore <em>Scaled Total Score</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getIndex <em>Index</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getAbsoluteTotalScore <em>Absolute Total Score</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ResultImpl#getScaledTotalScore <em>Scaled Total Score</em>}</li>
  * </ul>
  *
  * @generated
@@ -214,7 +213,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ResultPackage.Literals.RESULT;
+		return ModelPackage.Literals.RESULT;
 	}
 
 	/**
@@ -235,7 +234,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESULT__NAME, oldName, name));
 	}
 
 	/**
@@ -256,7 +255,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		int oldIndex = index;
 		index = newIndex;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__INDEX, oldIndex, index));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESULT__INDEX, oldIndex, index));
 	}
 
 	/**
@@ -270,7 +269,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			model = (AssistModel)eResolveProxy(oldModel);
 			if (model != oldModel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.RESULT__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.RESULT__MODEL, oldModel, model));
 			}
 		}
 		return model;
@@ -294,7 +293,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		AssistModel oldModel = model;
 		model = newModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESULT__MODEL, oldModel, model));
 	}
 
 	/**
@@ -315,7 +314,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		HashMap<Task, Core> oldTask2CoreMap = task2CoreMap;
 		task2CoreMap = newTask2CoreMap;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
 	}
 
 	/**
@@ -325,7 +324,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public EMap<AbstractMetric, Double> getMetricAbsoluteScoresMap() {
 		if (metricAbsoluteScoresMap == null) {
-			metricAbsoluteScoresMap = new EcoreEMap<AbstractMetric,Double>(ResultPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP);
+			metricAbsoluteScoresMap = new EcoreEMap<AbstractMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP);
 		}
 		return metricAbsoluteScoresMap;
 	}
@@ -337,7 +336,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public EMap<AbstractMetric, Double> getMetricScaledScoresMap() {
 		if (metricScaledScoresMap == null) {
-			metricScaledScoresMap = new EcoreEMap<AbstractMetric,Double>(ResultPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP);
+			metricScaledScoresMap = new EcoreEMap<AbstractMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP);
 		}
 		return metricScaledScoresMap;
 	}
@@ -360,7 +359,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		boolean oldPartialSolution = partialSolution;
 		partialSolution = newPartialSolution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
 	}
 
 	/**
@@ -543,7 +542,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 					final Box box = ((Box) _eContainer_3);
 					EObject _eContainer_4 = it.getValue().eContainer().eContainer().eContainer().eContainer();
 					final Compartment compartment = ((Compartment) _eContainer_4);
-					SingleMappingElement _createSingleMappingElement = ResultFactory.eINSTANCE.createSingleMappingElement();
+					SingleMappingElement _createSingleMappingElement = ModelFactory.eINSTANCE.createSingleMappingElement();
 					final Procedure1<SingleMappingElement> _function = new Procedure1<SingleMappingElement>() {
 						public void apply(final SingleMappingElement it) {
 							it.setApplication(application);
@@ -618,9 +617,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				return ((InternalEList<?>)getMetricAbsoluteScoresMap()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
 				return ((InternalEList<?>)getMetricScaledScoresMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -634,26 +633,26 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResultPackage.RESULT__NAME:
+			case ModelPackage.RESULT__NAME:
 				return getName();
-			case ResultPackage.RESULT__INDEX:
+			case ModelPackage.RESULT__INDEX:
 				return getIndex();
-			case ResultPackage.RESULT__MODEL:
+			case ModelPackage.RESULT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
-			case ResultPackage.RESULT__TASK2_CORE_MAP:
+			case ModelPackage.RESULT__TASK2_CORE_MAP:
 				return getTask2CoreMap();
-			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				if (coreType) return getMetricAbsoluteScoresMap();
 				else return getMetricAbsoluteScoresMap().map();
-			case ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
 				if (coreType) return getMetricScaledScoresMap();
 				else return getMetricScaledScoresMap().map();
-			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+			case ModelPackage.RESULT__PARTIAL_SOLUTION:
 				return isPartialSolution();
-			case ResultPackage.RESULT__ABSOLUTE_TOTAL_SCORE:
+			case ModelPackage.RESULT__ABSOLUTE_TOTAL_SCORE:
 				return getAbsoluteTotalScore();
-			case ResultPackage.RESULT__SCALED_TOTAL_SCORE:
+			case ModelPackage.RESULT__SCALED_TOTAL_SCORE:
 				return getScaledTotalScore();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -668,25 +667,25 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResultPackage.RESULT__NAME:
+			case ModelPackage.RESULT__NAME:
 				setName((String)newValue);
 				return;
-			case ResultPackage.RESULT__INDEX:
+			case ModelPackage.RESULT__INDEX:
 				setIndex((Integer)newValue);
 				return;
-			case ResultPackage.RESULT__MODEL:
+			case ModelPackage.RESULT__MODEL:
 				setModel((AssistModel)newValue);
 				return;
-			case ResultPackage.RESULT__TASK2_CORE_MAP:
+			case ModelPackage.RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)newValue);
 				return;
-			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				((EStructuralFeature.Setting)getMetricAbsoluteScoresMap()).set(newValue);
 				return;
-			case ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
 				((EStructuralFeature.Setting)getMetricScaledScoresMap()).set(newValue);
 				return;
-			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+			case ModelPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution((Boolean)newValue);
 				return;
 		}
@@ -701,25 +700,25 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResultPackage.RESULT__NAME:
+			case ModelPackage.RESULT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ResultPackage.RESULT__INDEX:
+			case ModelPackage.RESULT__INDEX:
 				setIndex(INDEX_EDEFAULT);
 				return;
-			case ResultPackage.RESULT__MODEL:
+			case ModelPackage.RESULT__MODEL:
 				setModel((AssistModel)null);
 				return;
-			case ResultPackage.RESULT__TASK2_CORE_MAP:
+			case ModelPackage.RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)null);
 				return;
-			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				getMetricAbsoluteScoresMap().clear();
 				return;
-			case ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
 				getMetricScaledScoresMap().clear();
 				return;
-			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+			case ModelPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);
 				return;
 		}
@@ -734,23 +733,23 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResultPackage.RESULT__NAME:
+			case ModelPackage.RESULT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ResultPackage.RESULT__INDEX:
+			case ModelPackage.RESULT__INDEX:
 				return index != INDEX_EDEFAULT;
-			case ResultPackage.RESULT__MODEL:
+			case ModelPackage.RESULT__MODEL:
 				return model != null;
-			case ResultPackage.RESULT__TASK2_CORE_MAP:
+			case ModelPackage.RESULT__TASK2_CORE_MAP:
 				return task2CoreMap != null;
-			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				return metricAbsoluteScoresMap != null && !metricAbsoluteScoresMap.isEmpty();
-			case ResultPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
 				return metricScaledScoresMap != null && !metricScaledScoresMap.isEmpty();
-			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+			case ModelPackage.RESULT__PARTIAL_SOLUTION:
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
-			case ResultPackage.RESULT__ABSOLUTE_TOTAL_SCORE:
+			case ModelPackage.RESULT__ABSOLUTE_TOTAL_SCORE:
 				return getAbsoluteTotalScore() != ABSOLUTE_TOTAL_SCORE_EDEFAULT;
-			case ResultPackage.RESULT__SCALED_TOTAL_SCORE:
+			case ModelPackage.RESULT__SCALED_TOTAL_SCORE:
 				return getScaledTotalScore() != SCALED_TOTAL_SCORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -764,19 +763,19 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResultPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
+			case ModelPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
 				return getMappedTasksForCore((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE:
+			case ModelPackage.RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE:
 				return getAbsoluteCoreUtilization((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE:
+			case ModelPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE:
 				return getRelativeCoreUtilization((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT:
+			case ModelPackage.RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT:
 				return getHardwareElementForTask((Task)arguments.get(0), (Integer)arguments.get(1));
-			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
+			case ModelPackage.RESULT___GET_MAPPING_ELEMENTS:
 				return getMappingElements();
-			case ResultPackage.RESULT___COMPARE_TO__RESULT:
+			case ModelPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
-			case ResultPackage.RESULT___TO_STRING:
+			case ModelPackage.RESULT___TO_STRING:
 				return toString();
 		}
 		return super.eInvoke(operationID, arguments);

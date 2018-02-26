@@ -193,6 +193,24 @@ public interface ModelFactory extends EFactory {
 	MetricParameter createMetricParameter();
 
 	/**
+	 * Returns a new object of class '<em>Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Result</em>'.
+	 * @generated
+	 */
+	Result createResult();
+
+	/**
+	 * Returns a new object of class '<em>Single Mapping Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Single Mapping Element</em>'.
+	 * @generated
+	 */
+	SingleMappingElement createSingleMappingElement();
+
+	/**
 	 * Returns a new object of class '<em>Assist Model Scheduling Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

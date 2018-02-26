@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.ui.infosheet
 
-import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Board
@@ -8,6 +7,7 @@ import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
 import ch.hilbri.assist.model.Processor
+import ch.hilbri.assist.model.Result
 import ch.hilbri.assist.model.Task
 import java.text.DecimalFormat
 import java.util.ArrayList

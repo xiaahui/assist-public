@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.infosheet
 
-import ch.hilbri.assist.mapping.model.result.AbstractMetric
+import ch.hilbri.assist.model.AbstractMetric
 import java.util.ArrayList
 import org.eclipse.emf.common.util.EMap
 

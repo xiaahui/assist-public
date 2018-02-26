@@ -1,16 +1,15 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.result.impl;
-
-import ch.hilbri.assist.mapping.model.result.ResultPackage;
-import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
+package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,13 +28,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getTask <em>Task</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getCore <em>Core</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getProcessor <em>Processor</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getBoard <em>Board</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getBox <em>Box</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl#getCompartment <em>Compartment</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getCore <em>Core</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getProcessor <em>Processor</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getBoard <em>Board</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getBox <em>Box</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SingleMappingElementImpl#getCompartment <em>Compartment</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,7 +126,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ResultPackage.Literals.SINGLE_MAPPING_ELEMENT;
+		return ModelPackage.Literals.SINGLE_MAPPING_ELEMENT;
 	}
 
 	/**
@@ -141,7 +140,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			application = (Application)eResolveProxy(oldApplication);
 			if (application != oldApplication) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION, oldApplication, application));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION, oldApplication, application));
 			}
 		}
 		return application;
@@ -165,7 +164,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Application oldApplication = application;
 		application = newApplication;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION, oldApplication, application));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION, oldApplication, application));
 	}
 
 	/**
@@ -179,7 +178,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			task = (Task)eResolveProxy(oldTask);
 			if (task != oldTask) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__TASK, oldTask, task));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__TASK, oldTask, task));
 			}
 		}
 		return task;
@@ -203,7 +202,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Task oldTask = task;
 		task = newTask;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__TASK, oldTask, task));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__TASK, oldTask, task));
 	}
 
 	/**
@@ -217,7 +216,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			core = (Core)eResolveProxy(oldCore);
 			if (core != oldCore) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__CORE, oldCore, core));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__CORE, oldCore, core));
 			}
 		}
 		return core;
@@ -241,7 +240,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Core oldCore = core;
 		core = newCore;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__CORE, oldCore, core));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__CORE, oldCore, core));
 	}
 
 	/**
@@ -255,7 +254,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			processor = (Processor)eResolveProxy(oldProcessor);
 			if (processor != oldProcessor) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR, oldProcessor, processor));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR, oldProcessor, processor));
 			}
 		}
 		return processor;
@@ -279,7 +278,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Processor oldProcessor = processor;
 		processor = newProcessor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR, oldProcessor, processor));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR, oldProcessor, processor));
 	}
 
 	/**
@@ -293,7 +292,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			board = (Board)eResolveProxy(oldBoard);
 			if (board != oldBoard) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD, oldBoard, board));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD, oldBoard, board));
 			}
 		}
 		return board;
@@ -317,7 +316,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Board oldBoard = board;
 		board = newBoard;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD, oldBoard, board));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD, oldBoard, board));
 	}
 
 	/**
@@ -331,7 +330,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			box = (Box)eResolveProxy(oldBox);
 			if (box != oldBox) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__BOX, oldBox, box));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__BOX, oldBox, box));
 			}
 		}
 		return box;
@@ -355,7 +354,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Box oldBox = box;
 		box = newBox;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__BOX, oldBox, box));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__BOX, oldBox, box));
 	}
 
 	/**
@@ -369,7 +368,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 			compartment = (Compartment)eResolveProxy(oldCompartment);
 			if (compartment != oldCompartment) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT, oldCompartment, compartment));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT, oldCompartment, compartment));
 			}
 		}
 		return compartment;
@@ -393,7 +392,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 		Compartment oldCompartment = compartment;
 		compartment = newCompartment;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT, oldCompartment, compartment));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT, oldCompartment, compartment));
 	}
 
 	/**
@@ -404,25 +403,25 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__TASK:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__TASK:
 				if (resolve) return getTask();
 				return basicGetTask();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__CORE:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__CORE:
 				if (resolve) return getCore();
 				return basicGetCore();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
 				if (resolve) return getProcessor();
 				return basicGetProcessor();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD:
 				if (resolve) return getBoard();
 				return basicGetBoard();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOX:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOX:
 				if (resolve) return getBox();
 				return basicGetBox();
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
 				if (resolve) return getCompartment();
 				return basicGetCompartment();
 		}
@@ -437,25 +436,25 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
 				setApplication((Application)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__TASK:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__TASK:
 				setTask((Task)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__CORE:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__CORE:
 				setCore((Core)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
 				setProcessor((Processor)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD:
 				setBoard((Board)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOX:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOX:
 				setBox((Box)newValue);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
 				setCompartment((Compartment)newValue);
 				return;
 		}
@@ -470,25 +469,25 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
 				setApplication((Application)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__TASK:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__TASK:
 				setTask((Task)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__CORE:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__CORE:
 				setCore((Core)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
 				setProcessor((Processor)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD:
 				setBoard((Board)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOX:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOX:
 				setBox((Box)null);
 				return;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
 				setCompartment((Compartment)null);
 				return;
 		}
@@ -503,19 +502,19 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__APPLICATION:
 				return application != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__TASK:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__TASK:
 				return task != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__CORE:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__CORE:
 				return core != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__PROCESSOR:
 				return processor != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOARD:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOARD:
 				return board != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__BOX:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__BOX:
 				return box != null;
-			case ResultPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
+			case ModelPackage.SINGLE_MAPPING_ELEMENT__COMPARTMENT:
 				return compartment != null;
 		}
 		return super.eIsSet(featureID);
