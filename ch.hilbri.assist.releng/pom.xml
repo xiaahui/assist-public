@@ -49,9 +49,9 @@
 		
 		
 		
-		<module>../ch.hilbri.assist.dse.model</module>
-		<module>../ch.hilbri.assist.dse.model.edit</module>
-		<module>../ch.hilbri.assist.dse.model.editor</module>
+		
+		
+		
 		<module>../ch.hilbri.assist.dse.dsl</module>
 		<module>../ch.hilbri.assist.dse.dsl.ide</module>
 		<module>../ch.hilbri.assist.dse.dsl.tests</module>
