@@ -1,7 +1,7 @@
 package ch.hilbri.assist.dse.dsl.ui.outline
 
-import ch.hilbri.assist.dse.model.AssistModelDSE
-import ch.hilbri.assist.dse.model.RestrictionAlternative
+import ch.hilbri.assist.model.AssistModelDSE
+import ch.hilbri.assist.model.RestrictionAlternative
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor

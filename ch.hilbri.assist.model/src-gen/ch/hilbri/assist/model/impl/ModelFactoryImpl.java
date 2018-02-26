@@ -4,10 +4,16 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.ApplicationAlternative;
+import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.AssistModelDSE;
 import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.BoardAlternative;
+import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.BoxDSE;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
@@ -19,6 +25,7 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
@@ -29,6 +36,8 @@ import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.RestrictionAlternative;
+import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.Result;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
@@ -110,6 +119,15 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.DISSIMILARITY_CONJUNCTION: return createDissimilarityConjunction();
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
+			case ModelPackage.ASSIST_MODEL_DSE: return createAssistModelDSE();
+			case ModelPackage.BOX_DSE: return createBoxDSE();
+			case ModelPackage.BOARD_ALTERNATIVES: return createBoardAlternatives();
+			case ModelPackage.BOARD_ALTERNATIVE: return createBoardAlternative();
+			case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
+			case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
+			case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
+			case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
+			case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
 			case ModelPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
 			case ModelPackage.RESULT: return createResult();
 			case ModelPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
@@ -366,6 +384,96 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public MetricParameter createMetricParameter() {
 		MetricParameterImpl metricParameter = new MetricParameterImpl();
 		return metricParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AssistModelDSE createAssistModelDSE() {
+		AssistModelDSEImpl assistModelDSE = new AssistModelDSEImpl();
+		return assistModelDSE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoxDSE createBoxDSE() {
+		BoxDSEImpl boxDSE = new BoxDSEImpl();
+		return boxDSE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternatives createBoardAlternatives() {
+		BoardAlternativesImpl boardAlternatives = new BoardAlternativesImpl();
+		return boardAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternative createBoardAlternative() {
+		BoardAlternativeImpl boardAlternative = new BoardAlternativeImpl();
+		return boardAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationAlternatives createApplicationAlternatives() {
+		ApplicationAlternativesImpl applicationAlternatives = new ApplicationAlternativesImpl();
+		return applicationAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationAlternative createApplicationAlternative() {
+		ApplicationAlternativeImpl applicationAlternative = new ApplicationAlternativeImpl();
+		return applicationAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionAlternatives createRestrictionAlternatives() {
+		RestrictionAlternativesImpl restrictionAlternatives = new RestrictionAlternativesImpl();
+		return restrictionAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionAlternative createRestrictionAlternative() {
+		RestrictionAlternativeImpl restrictionAlternative = new RestrictionAlternativeImpl();
+		return restrictionAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplorationCandidate createExplorationCandidate() {
+		ExplorationCandidateImpl explorationCandidate = new ExplorationCandidateImpl();
+		return explorationCandidate;
 	}
 
 	/**

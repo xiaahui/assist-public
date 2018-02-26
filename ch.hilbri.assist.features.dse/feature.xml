@@ -79,28 +79,7 @@
          unpack="false"/>
 
    <plugin
-         id="ch.hilbri.assist.dse.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="ch.hilbri.assist.dse.dsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.hilbri.assist.dse.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.hilbri.assist.dse.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

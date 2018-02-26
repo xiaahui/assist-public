@@ -4,10 +4,16 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.ApplicationAlternative;
+import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.AssistModelDSE;
 import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.BoardAlternative;
+import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.BoxDSE;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
@@ -17,12 +23,15 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.RestrictionAlternative;
+import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.Result;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
@@ -168,6 +177,42 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMetricParameter(MetricParameter object) {
 				return createMetricParameterAdapter();
+			}
+			@Override
+			public Adapter caseAssistModelDSE(AssistModelDSE object) {
+				return createAssistModelDSEAdapter();
+			}
+			@Override
+			public Adapter caseBoxDSE(BoxDSE object) {
+				return createBoxDSEAdapter();
+			}
+			@Override
+			public Adapter caseBoardAlternatives(BoardAlternatives object) {
+				return createBoardAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseBoardAlternative(BoardAlternative object) {
+				return createBoardAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseApplicationAlternatives(ApplicationAlternatives object) {
+				return createApplicationAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationAlternative(ApplicationAlternative object) {
+				return createApplicationAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseRestrictionAlternatives(RestrictionAlternatives object) {
+				return createRestrictionAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseRestrictionAlternative(RestrictionAlternative object) {
+				return createRestrictionAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseExplorationCandidate(ExplorationCandidate object) {
+				return createExplorationCandidateAdapter();
 			}
 			@Override
 			public Adapter caseComparable(Comparable<Result> object) {
@@ -480,6 +525,132 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMetricParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AssistModelDSE <em>Assist Model DSE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.AssistModelDSE
+	 * @generated
+	 */
+	public Adapter createAssistModelDSEAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.BoxDSE <em>Box DSE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.BoxDSE
+	 * @generated
+	 */
+	public Adapter createBoxDSEAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.BoardAlternatives <em>Board Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.BoardAlternatives
+	 * @generated
+	 */
+	public Adapter createBoardAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.BoardAlternative <em>Board Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.BoardAlternative
+	 * @generated
+	 */
+	public Adapter createBoardAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.ApplicationAlternatives
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ApplicationAlternative <em>Application Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.ApplicationAlternative
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionAlternatives <em>Restriction Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.RestrictionAlternatives
+	 * @generated
+	 */
+	public Adapter createRestrictionAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionAlternative <em>Restriction Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.RestrictionAlternative
+	 * @generated
+	 */
+	public Adapter createRestrictionAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ExplorationCandidate <em>Exploration Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.model.ExplorationCandidate
+	 * @generated
+	 */
+	public Adapter createExplorationCandidateAdapter() {
 		return null;
 	}
 

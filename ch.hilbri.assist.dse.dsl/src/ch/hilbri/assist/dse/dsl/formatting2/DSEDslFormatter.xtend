@@ -1,9 +1,9 @@
 package ch.hilbri.assist.dse.dsl.formatting2
 
 //import ch.hilbri.assist.dse.dsl.services.DSEDslGrammarAccess
-import ch.hilbri.assist.dse.model.AssistModelDSE
+
+import ch.hilbri.assist.model.AssistModelDSE
 import ch.hilbri.assist.model.Compartment
-//import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 

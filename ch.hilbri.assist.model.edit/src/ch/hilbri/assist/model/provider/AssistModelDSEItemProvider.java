@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
-import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.AssistModelDSE;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 
@@ -15,25 +15,23 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.model.Compartment} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.model.AssistModelDSE} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompartmentItemProvider extends HardwareElementItemProvider {
+public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompartmentItemProvider(AdapterFactory adapterFactory) {
+	public AssistModelDSEItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,54 +46,8 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPowerSupplyPropertyDescriptor(object);
-			addFullNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Power Supply feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Compartment_powerSupply_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_powerSupply_feature", "_UI_Compartment_type"),
-				 ModelPackage.Literals.COMPARTMENT__POWER_SUPPLY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Full Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFullNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Compartment_fullName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_fullName_feature", "_UI_Compartment_type"),
-				 ModelPackage.Literals.COMPARTMENT__FULL_NAME,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -110,7 +62,9 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.COMPARTMENT__BOXES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES);
 		}
 		return childrenFeatures;
 	}
@@ -129,14 +83,14 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
-	 * This returns Compartment.gif.
+	 * This returns AssistModelDSE.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Compartment"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssistModelDSE"));
 	}
 
 	/**
@@ -147,10 +101,10 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Compartment)object).getName();
+		String label = ((AssistModelDSE)object).getSystemName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Compartment_type") :
-			getString("_UI_Compartment_type") + " " + label;
+			getString("_UI_AssistModelDSE_type") :
+			getString("_UI_AssistModelDSE_type") + " " + label;
 	}
 	
 
@@ -165,12 +119,10 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Compartment.class)) {
-			case ModelPackage.COMPARTMENT__POWER_SUPPLY:
-			case ModelPackage.COMPARTMENT__FULL_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ModelPackage.COMPARTMENT__BOXES:
+		switch (notification.getFeatureID(AssistModelDSE.class)) {
+			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,13 +142,18 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.COMPARTMENT__BOXES,
-				 ModelFactory.eINSTANCE.createBox()));
+				(ModelPackage.Literals.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES,
+				 ModelFactory.eINSTANCE.createApplicationAlternatives()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.COMPARTMENT__BOXES,
-				 ModelFactory.eINSTANCE.createBoxDSE()));
+				(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES,
+				 ModelFactory.eINSTANCE.createRestrictionAlternatives()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES,
+				 ModelFactory.eINSTANCE.createExplorationCandidate()));
 	}
 
 }

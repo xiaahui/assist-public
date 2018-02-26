@@ -248,6 +248,55 @@ enum PeriodicityType {
 	FLEXIBLE		as "flexible"	= 1
 }
 
+/* *******************************************************
+ * DESIGN SPACE EXPLORATION - A SPECIALIZED ASSIST MODEL 
+ * ******************************************************* */
+class AssistModelDSE extends AssistModel {
+	contains ApplicationAlternatives[0..*] 	applicationAlternatives
+	contains RestrictionAlternatives[0..*]	restrictionAlternatives
+	contains ExplorationCandidate[0..*]		explorationCandidates
+}
+
+class BoxDSE extends Box {
+	contains BoardAlternatives[0..*] boardAlternatives
+}
+
+class BoardAlternatives {  // XOR
+	contains BoardAlternative[0..*] alternatives
+}
+
+class BoardAlternative {
+	String name
+	contains Board[0..*] boards 
+}
+
+class ApplicationAlternatives {  // XOR
+	contains ApplicationAlternative[0..*] alternatives
+}
+
+class ApplicationAlternative {
+	String name
+	contains Application[0..*] applications
+}
+
+class RestrictionAlternatives {
+	contains RestrictionAlternative[0..*] alternatives
+}
+
+class RestrictionAlternative{
+	String name
+	contains DislocalityRelation[0..*] dislocalityRelations
+	contains ColocalityRelation[0..*] colocalityRelations
+	// dissimilarityRelations
+}
+
+class ExplorationCandidate {
+	String name
+	refers BoardAlternative[0..*] 		boardAlternatives
+	refers ApplicationAlternative[0..*] applicationAlternatives
+	refers RestrictionAlternative[0..*] restrictionAlternatives
+}
+
 /* **************************************
  * RESULTS - MAPPING
  * ************************************** */

@@ -5,9 +5,9 @@ Bundle-Vendor: Robert Hilbrich
 Bundle-Version: 2.3.0.qualifier
 Bundle-SymbolicName: ch.hilbri.assist.dse.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: ch.hilbri.assist.dse.dsl,
+Require-Bundle: ch.hilbri.assist.model,
+ ch.hilbri.assist.dse.dsl,
  ch.hilbri.assist.dse.dsl.ide,
- ch.hilbri.assist.dse.model,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
