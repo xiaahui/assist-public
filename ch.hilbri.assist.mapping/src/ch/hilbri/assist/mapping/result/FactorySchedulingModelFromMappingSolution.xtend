@@ -20,6 +20,13 @@ class FactorySchedulingModelFromMappingSolution {
 		for (task : clonedModel.allTasks) {
 			task.coreUtilization = 0 // set to default value
 		}
+
+		// Remove all relations
+		clonedModel => [
+			dislocalityRelations.clear
+			colocalityRelations.clear
+			dissimilarityRelations.clear
+		]		
 	
 		// Now we apply the mapping result to the model
 		for (Entry<Task, Core> entry : mappingResult.task2CoreMap.entrySet) {
