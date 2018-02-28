@@ -16,6 +16,11 @@ class FactorySchedulingModelFromMappingSolution {
 		// Give the new model a better name
 		clonedModel.systemName = oldModel.systemName + " - Mapping Solution XXX"	
 	
+		// Remove attributes from the mapping which are no longer used in scheduling
+		for (task : clonedModel.allTasks) {
+			task.coreUtilization = 0 // set to default value
+		}
+	
 		// Now we apply the mapping result to the model
 		for (Entry<Task, Core> entry : mappingResult.task2CoreMap.entrySet) {
 			val task = entry.key
