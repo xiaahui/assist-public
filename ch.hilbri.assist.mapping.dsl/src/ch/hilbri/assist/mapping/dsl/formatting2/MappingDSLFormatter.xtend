@@ -5,6 +5,8 @@ import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
+import ch.hilbri.assist.model.DissimilarityClause
+import ch.hilbri.assist.model.DissimilarityDisjunction
 import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.Task
@@ -12,7 +14,6 @@ import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import ch.hilbri.assist.model.ModelPackage
 
 class MappingDSLFormatter extends AbstractFormatter2 {
 
@@ -60,31 +61,34 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	}
 	
 	def dispatch void format(ColocalityRelation relation, extension IFormattableDocument document) {
-//		relation.defaultFormat(document)
-		
-//		// Each restriction should be a one liner
-//		var open = relation.regionFor.assignment(colocalityRelationAccess.applicationsAssignment_0)
-//		val close = relation.regionFor.keyword(";")
-//    		while (open !== close) {
-//        		open.append[oneSpace]
-//        		open = open.nextSemanticRegion
-//    		}
+		relation => [
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+			regionFor.keyword(colocalityRelationAccess.onKeyword_2).surround[oneSpace]
+			regionFor.keyword(colocalityRelationAccess.sameKeyword_3).surround[oneSpace]
+			regionFor.assignment(colocalityRelationAccess.hardwareLevelAssignment_4).prepend[oneSpace]
+		]
 	}
 	
 	def dispatch void format(DissimilarityRelation relation, extension IFormattableDocument document) {
-//		relation.defaultFormat(document)
-//		
-//		// Each restriction should be a one liner
-//		var open = relation.regionFor.assignment(dissimilarityRelationAccess.applicationsAssignment_0)
-//		val close = relation.regionFor.keyword(";")
-//    		while (open !== close) {
-//        		open.append[oneSpace]
-//        		open = open.nextSemanticRegion
-//    		}
+		relation => [
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+			regionFor.keyword(dissimilarityRelationAccess.dissimilarKeyword_2).surround[oneSpace]
+			regionFor.keyword(dissimilarityRelationAccess.basedKeyword_3).surround[oneSpace]
+			regionFor.keyword(dissimilarityRelationAccess.onKeyword_4).surround[oneSpace]
+			dissimilarityClause.format
+		]
 	}
 	
-	
-	
+	def dispatch void format(DissimilarityClause clause, extension IFormattableDocument document) {
+		clause => [
+			regionFor.keywords('(').forEach[append[noSpace]]
+			regionFor.keywords(')').forEach[prepend[noSpace]]
+			regionFor.keywords('AND').forEach[surround[oneSpace]]
+			regionFor.keywords('OR').forEach[surround[oneSpace]]
+		]		
+	}
 	
 	private def defaultFormat(EObject obj, extension IFormattableDocument document) {
 		obj => [
