@@ -51,7 +51,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
 		relation => [
-			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
 			regionFor.keyword(dislocalityRelationAccess.dislocalKeyword_2).surround[oneSpace]
 			regionFor.keyword(dislocalityRelationAccess.upKeyword_3).surround[oneSpace]
@@ -62,7 +62,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	
 	def dispatch void format(ColocalityRelation relation, extension IFormattableDocument document) {
 		relation => [
-			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
 			regionFor.keyword(colocalityRelationAccess.onKeyword_2).surround[oneSpace]
 			regionFor.keyword(colocalityRelationAccess.sameKeyword_3).surround[oneSpace]
@@ -72,7 +72,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	
 	def dispatch void format(DissimilarityRelation relation, extension IFormattableDocument document) {
 		relation => [
-			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
 			regionFor.keyword(dissimilarityRelationAccess.dissimilarKeyword_2).surround[oneSpace]
 			regionFor.keyword(dissimilarityRelationAccess.basedKeyword_3).surround[oneSpace]
