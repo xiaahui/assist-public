@@ -4,7 +4,6 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -23,25 +22,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-/**
- * The "New" wizard page allows setting the container for the new file as well
- * as the file name. The page will only accept file name without the extension
- * OR with the extension that matches the expected one (sdsl).
- */
-
 public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 
 	private Text txtContainer;
 	private Text txtFilename;
 	private Text txtSystemName;
-
 	private ISelection selection;
 
-	/**
-	 * Constructor
-	 * 
-	 * @param pageName
-	 */
 	public ExportMappingResultToSchedulingWizardPage(ISelection selection) {
 		super("Create Specification");
 		setTitle("Export to a new scheduling specification");
@@ -49,9 +36,6 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 		this.selection = selection;
 	}
 
-	/**
-	 * @see IDialogPage#createControl(Composite)
-	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -79,7 +63,7 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 		});
 
 		Label fileNameLabel = new Label(container, SWT.NULL);
-		fileNameLabel.setText("&File name:");
+		fileNameLabel.setText("&File:");
 
 		txtFilename = new Text(container, SWT.BORDER | SWT.SINGLE);
 		txtFilename.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -125,17 +109,16 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 				if (obj instanceof IContainer)
 					container = (IContainer) obj;
 				else
-					container = ((IResource) obj).getParent();
+					container = ((IResource) obj).getParent().getParent();
 				txtContainer.setText(container.getFullPath().toString());
 			}
 		}
-		String name = "newScheduling";
-		int i = 1;
-		while (ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName() + "/" + name + ".sdsl")) != null) {
-			name = "newScheduling" + String.valueOf(i);
-			i++;
-		}
+//		String name = "newScheduling";
+//		int i = 1;
+//		while (ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + "/" + name + ".sdsl")) != null) {
+//			name = "newScheduling" + String.valueOf(i);
+//			i++;
+//		}
 	}
 
 	/**
@@ -209,7 +192,7 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 	public String getFileName() {
 		return txtFilename.getText();
 	}
-	
+
 	public String getSystemName() {
 		return txtSystemName.getText();
 	}
