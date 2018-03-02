@@ -97,9 +97,30 @@ Task:
 		('InitTime'					'=' addInitTime=INT				';')?
 		('Slices'					'=' slices=INT					';')?
 		('MinSliceDuration'			'=' minSliceDuration=INT 		';')?
+		('Color'					'='	color=Color					';')?
 		
 		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
+
+enum Color:           
+	NONE			= 'none'			|
+	BLACK			= 'black'			|
+	BLUE			= 'blue' 			|
+	CYAN			= 'cyan'			|
+	GRAY			= 'gray'			|
+	GREEN			= 'green'			|
+	MAGENTA			= 'magenta'			|
+	RED				= 'red'				|
+	WHITE			= 'white'			|
+	YELLOW			= 'yellow'			|
+	DARK_BLUE		= 'darkblue'		|
+	DARK_CYAN		= 'darkcyan'		|
+	DARK_GRAY		= 'darkgray'		|
+	DARK_GREEN		= 'darkgreen'		|
+	DARK_MAGENTA	= 'darkmagenta'		|
+	DARK_RED		= 'darkred'			|
+	DARK_YELLOW		= 'darkyellow'		
+;
 
 IOAdapterRequirement: 
 	'Requires' 	requiredAdapterCount=INT 

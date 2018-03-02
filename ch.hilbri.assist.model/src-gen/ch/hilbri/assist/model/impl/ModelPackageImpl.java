@@ -15,6 +15,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.BoxDSE;
 import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
@@ -311,6 +312,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass taskExecutionInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum colorEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1211,8 +1219,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_Application() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(14);
+	public EAttribute getTask_Color() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1220,7 +1228,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_IoAdapterRequirements() {
+	public EReference getTask_Application() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -1229,7 +1237,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_MetricParameters() {
+	public EReference getTask_IoAdapterRequirements() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1238,8 +1246,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTask_MetricParameters() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTask_FullName() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -1248,7 +1265,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getTask_RestrictMappingToHardwareElements() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(18);
+		return (EReference)taskEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1257,7 +1274,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getTask_AssignedCore() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(19);
+		return (EReference)taskEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2129,6 +2146,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getColor() {
+		return colorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDissimilarityAttributes() {
 		return dissimilarityAttributesEEnum;
 	}
@@ -2319,6 +2345,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(taskEClass, TASK__SLICES);
 		createEAttribute(taskEClass, TASK__MIN_SLICE_DURATION);
 		createEAttribute(taskEClass, TASK__PERIODICITY);
+		createEAttribute(taskEClass, TASK__COLOR);
 		createEReference(taskEClass, TASK__APPLICATION);
 		createEReference(taskEClass, TASK__IO_ADAPTER_REQUIREMENTS);
 		createEReference(taskEClass, TASK__METRIC_PARAMETERS);
@@ -2448,6 +2475,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__END);
 
 		// Create enums
+		colorEEnum = createEEnum(COLOR);
 		dissimilarityAttributesEEnum = createEEnum(DISSIMILARITY_ATTRIBUTES);
 		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
 		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
@@ -2619,6 +2647,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTask_Slices(), theEcorePackage.getEInt(), "slices", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_MinSliceDuration(), theEcorePackage.getEInt(), "minSliceDuration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "strict", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Color(), this.getColor(), "color", "none", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2764,6 +2793,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTaskExecutionInstance_End(), theEcorePackage.getEInt(), "end", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(colorEEnum, Color.class, "Color");
+		addEEnumLiteral(colorEEnum, Color.NONE);
+		addEEnumLiteral(colorEEnum, Color.BLACK);
+		addEEnumLiteral(colorEEnum, Color.BLUE);
+		addEEnumLiteral(colorEEnum, Color.CYAN);
+		addEEnumLiteral(colorEEnum, Color.GRAY);
+		addEEnumLiteral(colorEEnum, Color.GREEN);
+		addEEnumLiteral(colorEEnum, Color.MAGENTA);
+		addEEnumLiteral(colorEEnum, Color.RED);
+		addEEnumLiteral(colorEEnum, Color.WHITE);
+		addEEnumLiteral(colorEEnum, Color.YELLOW);
+		addEEnumLiteral(colorEEnum, Color.DARK_BLUE);
+		addEEnumLiteral(colorEEnum, Color.DARK_CYAN);
+		addEEnumLiteral(colorEEnum, Color.DARK_GRAY);
+		addEEnumLiteral(colorEEnum, Color.DARK_GREEN);
+		addEEnumLiteral(colorEEnum, Color.DARK_MAGENTA);
+		addEEnumLiteral(colorEEnum, Color.DARK_RED);
+		addEEnumLiteral(colorEEnum, Color.DARK_YELLOW);
+
 		initEEnum(dissimilarityAttributesEEnum, DissimilarityAttributes.class, "DissimilarityAttributes");
 		addEEnumLiteral(dissimilarityAttributesEEnum, DissimilarityAttributes.COMPARTMENT_MANUFACTURER);
 		addEEnumLiteral(dissimilarityAttributesEEnum, DissimilarityAttributes.COMPARTMENT_POWERSUPPLY);

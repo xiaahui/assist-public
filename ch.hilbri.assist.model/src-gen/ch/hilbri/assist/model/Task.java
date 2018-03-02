@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.Task#getSlices <em>Slices</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getMinSliceDuration <em>Min Slice Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getPeriodicity <em>Periodicity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Task#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getMetricParameters <em>Metric Parameters</em>}</li>
@@ -422,6 +423,36 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setPeriodicity(PeriodicityType value);
+
+	/**
+	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * The default value is <code>"none"</code>.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.Color}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Color</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color</em>' attribute.
+	 * @see ch.hilbri.assist.model.Color
+	 * @see #setColor(Color)
+	 * @see ch.hilbri.assist.model.ModelPackage#getTask_Color()
+	 * @model default="none" unique="false"
+	 * @generated
+	 */
+	Color getColor();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.Task#getColor <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color</em>' attribute.
+	 * @see ch.hilbri.assist.model.Color
+	 * @see #getColor()
+	 * @generated
+	 */
+	void setColor(Color value);
 
 	/**
 	 * Returns the value of the '<em><b>Application</b></em>' container reference.

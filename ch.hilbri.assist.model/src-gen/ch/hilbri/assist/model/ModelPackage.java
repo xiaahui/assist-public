@@ -1143,13 +1143,22 @@ public interface ModelPackage extends EPackage {
 	int TASK__PERIODICITY = 13;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__COLOR = 14;
+
+	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__APPLICATION = 14;
+	int TASK__APPLICATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
@@ -1158,7 +1167,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__IO_ADAPTER_REQUIREMENTS = 15;
+	int TASK__IO_ADAPTER_REQUIREMENTS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1167,7 +1176,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 16;
+	int TASK__METRIC_PARAMETERS = 17;
 
 	/**
 	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
@@ -1176,7 +1185,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__FULL_NAME = 17;
+	int TASK__FULL_NAME = 18;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1185,7 +1194,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 18;
+	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 19;
 
 	/**
 	 * The feature id for the '<em><b>Assigned Core</b></em>' reference.
@@ -1194,7 +1203,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__ASSIGNED_CORE = 19;
+	int TASK__ASSIGNED_CORE = 20;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1203,7 +1212,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 20;
+	int TASK_FEATURE_COUNT = 21;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -2761,6 +2770,16 @@ public interface ModelPackage extends EPackage {
 	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.Color
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
+	 * @generated
+	 */
+	int COLOR = 35;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2768,7 +2787,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 	 * @generated
 	 */
-	int DISSIMILARITY_ATTRIBUTES = 35;
+	int DISSIMILARITY_ATTRIBUTES = 36;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -2778,7 +2797,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 36;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -2788,7 +2807,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 37;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -2798,7 +2817,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 38;
+	int IO_ADAPTER_TYPE = 39;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -2808,7 +2827,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
 	 * @generated
 	 */
-	int PERIODICITY_TYPE = 39;
+	int PERIODICITY_TYPE = 40;
 
 	/**
 	 * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -2818,7 +2837,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
 	 * @generated
 	 */
-	int TASK2_CORE_MAP_TYPE = 40;
+	int TASK2_CORE_MAP_TYPE = 41;
 
 	/**
 	 * The meta object id for the '<em>String List</em>' data type.
@@ -2828,7 +2847,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
 	 * @generated
 	 */
-	int STRING_LIST = 41;
+	int STRING_LIST = 42;
 
 	/**
 	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -2838,7 +2857,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
 	 * @generated
 	 */
-	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 42;
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 43;
 
 
 	/**
@@ -3757,6 +3776,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTask_Periodicity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see ch.hilbri.assist.model.Task#getColor()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Color();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}'.
@@ -4850,6 +4880,16 @@ public interface ModelPackage extends EPackage {
 	EAttribute getTaskExecutionInstance_End();
 
 	/**
+	 * Returns the meta object for enum '{@link ch.hilbri.assist.model.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Color</em>'.
+	 * @see ch.hilbri.assist.model.Color
+	 * @generated
+	 */
+	EEnum getColor();
+
+	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5662,6 +5702,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK__PERIODICITY = eINSTANCE.getTask_Periodicity();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__COLOR = eINSTANCE.getTask_Color();
 
 		/**
 		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
@@ -6528,6 +6576,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK_EXECUTION_INSTANCE__END = eINSTANCE.getTaskExecutionInstance_End();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.Color
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
+		 * @generated
+		 */
+		EEnum COLOR = eINSTANCE.getColor();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.

@@ -129,6 +129,7 @@ class Task {
 	int slices													= "-1"
 	int minSliceDuration										= "-1"
 	PeriodicityType periodicity									= "strict"
+	Color color													= "none"
 	container Application application opposite tasks
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
@@ -136,6 +137,26 @@ class Task {
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	refers Core[0..1] 	assignedCore
 	op String 			toString() { name }
+}
+
+enum Color {
+	NONE			as "none"			= -1
+	BLACK			as "black"			= 0
+	BLUE			as "blue" 			= 1
+	CYAN			as "cyan"			= 2
+	GRAY			as "gray"			= 3
+	GREEN			as "green"			= 4
+	MAGENTA			as "magenta"		= 5
+	RED				as "red"			= 6
+	WHITE			as "white"			= 7
+	YELLOW			as "yellow"			= 8 
+	DARK_BLUE		as "darkblue"		= 9
+	DARK_CYAN		as "darkcyan"		= 10
+	DARK_GRAY		as "darkgray"		= 11
+	DARK_GREEN		as "darkgreen"		= 12
+	DARK_MAGENTA	as "darkmagenta"	= 13
+	DARK_RED		as "darkred"		= 14
+	DARK_YELLOW		as "darkyellow"		= 15
 }
 
 /* *********************************************** */
@@ -215,8 +236,8 @@ enum HardwareArchitectureLevelType {
 	CORE 		as "Core" 			= 0
 	PROCESSOR 	as "Processor"		= 1
 	BOARD		as "Board"			= 2
-	BOX			as "Box"				= 3
-	COMPARTMENT	as "Compartment"		= 4
+	BOX			as "Box"			= 3
+	COMPARTMENT	as "Compartment"	= 4
 }
 
 enum DesignAssuranceLevelType {

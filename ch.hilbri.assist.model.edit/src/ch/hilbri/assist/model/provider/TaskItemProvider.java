@@ -77,6 +77,7 @@ public class TaskItemProvider
 			addSlicesPropertyDescriptor(object);
 			addMinSliceDurationPropertyDescriptor(object);
 			addPeriodicityPropertyDescriptor(object);
+			addColorPropertyDescriptor(object);
 			addApplicationPropertyDescriptor(object);
 			addFullNamePropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
@@ -394,6 +395,28 @@ public class TaskItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_color_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_color_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__COLOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Application feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,6 +587,7 @@ public class TaskItemProvider
 			case ModelPackage.TASK__SLICES:
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
 			case ModelPackage.TASK__PERIODICITY:
+			case ModelPackage.TASK__COLOR:
 			case ModelPackage.TASK__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

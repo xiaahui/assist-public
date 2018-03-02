@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapterRequirement;
@@ -53,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getSlices <em>Slices</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getMinSliceDuration <em>Min Slice Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getPeriodicity <em>Periodicity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getMetricParameters <em>Metric Parameters</em>}</li>
@@ -343,6 +345,26 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected PeriodicityType periodicity = PERIODICITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Color COLOR_EDEFAULT = Color.NONE;
+
+	/**
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Color color = COLOR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' containment reference list.
@@ -712,6 +734,27 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(Color newColor) {
+		Color oldColor = color;
+		color = newColor == null ? COLOR_EDEFAULT : newColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__COLOR, oldColor, color));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Application getApplication() {
 		if (eContainerFeatureID() != ModelPackage.TASK__APPLICATION) return null;
 		return (Application)eContainer();
@@ -937,6 +980,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return getMinSliceDuration();
 			case ModelPackage.TASK__PERIODICITY:
 				return getPeriodicity();
+			case ModelPackage.TASK__COLOR:
+				return getColor();
 			case ModelPackage.TASK__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
@@ -1005,6 +1050,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return;
 			case ModelPackage.TASK__PERIODICITY:
 				setPeriodicity((PeriodicityType)newValue);
+				return;
+			case ModelPackage.TASK__COLOR:
+				setColor((Color)newValue);
 				return;
 			case ModelPackage.TASK__APPLICATION:
 				setApplication((Application)newValue);
@@ -1078,6 +1126,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case ModelPackage.TASK__PERIODICITY:
 				setPeriodicity(PERIODICITY_EDEFAULT);
 				return;
+			case ModelPackage.TASK__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
 			case ModelPackage.TASK__APPLICATION:
 				setApplication((Application)null);
 				return;
@@ -1133,6 +1184,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return minSliceDuration != MIN_SLICE_DURATION_EDEFAULT;
 			case ModelPackage.TASK__PERIODICITY:
 				return periodicity != PERIODICITY_EDEFAULT;
+			case ModelPackage.TASK__COLOR:
+				return color != COLOR_EDEFAULT;
 			case ModelPackage.TASK__APPLICATION:
 				return basicGetApplication() != null;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:

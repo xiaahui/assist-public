@@ -16,8 +16,10 @@ import org.eclipse.nebula.widgets.ganttchart.ISectionDetailContentReplacer;
 import org.eclipse.nebula.widgets.ganttchart.ISettings;
 import org.eclipse.nebula.widgets.ganttchart.themes.ColorThemeWindowsBlue;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
 import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.model.Core;
@@ -117,6 +119,14 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 
 			String eventName = task.getApplication().getName() + "." + task.getName() + " [" + schedule.indexOf(instance) +"]"; 
 			GanttEvent event = new GanttEvent(ganttChart, eventName, start, end, 0);
+
+			/* Color the task if desired */
+			if (task.getColor() != ch.hilbri.assist.model.Color.NONE) {
+				// We want them plain and simple - no gradient
+				event.setStatusColor(getSWTColor(task.getColor()));
+				event.setGradientStatusColor(getSWTColor(task.getColor()));
+			}
+			
 			coreGroup.addEvent(event);
 		}
 	}
@@ -165,4 +175,27 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 			return "<unknown pattern>";
 	}
 
+	private Color getSWTColor(ch.hilbri.assist.model.Color color) {
+		switch (color) {
+		case BLACK: 		return Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+		case BLUE:			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		case CYAN:			return Display.getCurrent().getSystemColor(SWT.COLOR_CYAN);
+		case DARK_BLUE:		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_BLUE);
+		case DARK_CYAN:		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_CYAN);
+		case DARK_GRAY:		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GRAY);
+		case DARK_GREEN:	return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
+		case DARK_MAGENTA:	return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_MAGENTA);
+		case DARK_RED:		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED);
+		case DARK_YELLOW:	return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
+		case GRAY:			return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
+		case GREEN:			return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
+		case MAGENTA:		return Display.getCurrent().getSystemColor(SWT.COLOR_MAGENTA);
+		case NONE:			return null;
+		case RED:			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+		case WHITE:			return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
+		case YELLOW:		return Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW);
+		}
+		return null;
+	}
+	
 }

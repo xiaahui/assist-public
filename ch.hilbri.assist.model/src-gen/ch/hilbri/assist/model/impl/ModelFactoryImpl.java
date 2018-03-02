@@ -15,6 +15,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.BoxDSE;
 import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
@@ -146,6 +147,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ModelPackage.COLOR:
+				return createColorFromString(eDataType, initialValue);
 			case ModelPackage.DISSIMILARITY_ATTRIBUTES:
 				return createDissimilarityAttributesFromString(eDataType, initialValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
@@ -175,6 +178,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ModelPackage.COLOR:
+				return convertColorToString(eDataType, instanceValue);
 			case ModelPackage.DISSIMILARITY_ATTRIBUTES:
 				return convertDissimilarityAttributesToString(eDataType, instanceValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
@@ -524,6 +529,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public TaskExecutionInstance createTaskExecutionInstance() {
 		TaskExecutionInstanceImpl taskExecutionInstance = new TaskExecutionInstanceImpl();
 		return taskExecutionInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColorFromString(EDataType eDataType, String initialValue) {
+		Color result = Color.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertColorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
