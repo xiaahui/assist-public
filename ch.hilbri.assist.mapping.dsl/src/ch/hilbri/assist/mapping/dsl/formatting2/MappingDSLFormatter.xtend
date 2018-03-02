@@ -40,7 +40,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
-		app.	defaultFormat(document)
+		app.defaultFormat(document)
 		app.tasks.forEach[format]
 	}
 

@@ -1,48 +1,52 @@
-
 package ch.hilbri.assist.scheduling.dsl.formatting2
 
+import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.Task
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class SchedulingDslFormatter extends AbstractFormatter2 {
-	
+
 //	@Inject extension SchedulingDslGrammarAccess
 
 	def dispatch void format(AssistModel assistModel, extension IFormattableDocument document) {
-		for (region : textRegionAccess.regionForRootEObject.allRegionsFor.keywords(";"))
-			region.prepend[noSpace].append[newLine]
-		
-		for (region : textRegionAccess.regionForRootEObject.allRegionsFor.keywords(","))
-			region.prepend[noSpace].append[oneSpace]
-		
-		for (region: textRegionAccess.regionForRootEObject.allRegionsFor.keywords('{'))
-			region.append[newLine]
-		
-		for (region: textRegionAccess.regionForRootEObject.allRegionsFor.keywords('}'))
-			region.prepend[newLine].append[newLine]
-		
-		for (i : 0 ..< textRegionAccess.regionForRootEObject.allRegionsFor.keywords('{').size) {
-			interior(
-				textRegionAccess.regionForRootEObject.allRegionsFor.keywords('{').get(i),
-				textRegionAccess.regionForRootEObject.allRegionsFor.keywords('}').get(i)
-			)[indent]	
-		}	
-		
-		assistModel.compartments.forEach[format]
-		assistModel.applications.forEach[format]
-		assistModel.dislocalityRelations.forEach[format]
-		assistModel.colocalityRelations.forEach[format]
-		assistModel.dissimilarityRelations.forEach[format]
+		assistModel => [
+			regionFor.keywordPairs('{', '}').forEach[interior[indent]]
+			regionFor.keywords('{').forEach[append[newLine]]
+			regionFor.keywords('}').forEach[append[newLines = 2]]
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+			compartments.forEach[format]
+			applications.forEach[format]
+		]
 	}
-	
-	def dispatch void format(Core core, extension IFormattableDocument document) {
-		core.regionFor.keyword('{').append[noSpace; newLines = 0; highPriority]
+
+	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
+		hwElem.defaultFormat(document)
+		hwElem.eContents.forEach[format]
 	}
-	
+
+	def dispatch void format(Application app, extension IFormattableDocument document) {
+		app.defaultFormat(document)
+		app.tasks.forEach[format]
+	}
+
 	def dispatch void format(Task task, extension IFormattableDocument document) {
-		task.regionFor.keyword('{').append[noSpace; newLines = 0; highPriority]
+		task.defaultFormat(document)
+		// no children
+	}
+
+	private def defaultFormat(EObject obj, extension IFormattableDocument document) {
+		obj => [
+			regionFor.keywordPairs('{', '}').forEach[interior[indent]]
+			regionFor.keywords('{').forEach[append[newLine]]
+			regionFor.keywords('}').forEach[append[newLine]]
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+		]
 	}
 }
