@@ -12,8 +12,11 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.jface.wizard.WizardDialog
+import org.eclipse.swt.widgets.Shell
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor
 import org.eclipse.xtext.resource.SaveOptions
+import ch.hilbri.assist.mapping.ui.wizards.ExportMappingResultToSchedulingWizard
 
 class ExportToScheduling {
 	
@@ -33,7 +36,7 @@ class ExportToScheduling {
 	}
 	
 	@Execute
-	def Object execute(@Active MPart part, IProgressMonitor monitor) {
+	def Object execute(@Active MPart part, IProgressMonitor monitor, Shell shell) {
 		val compEditor = part.object as CompatibilityEditor
 		val multiPageEditor = compEditor.editor as MultiPageEditor
 		val result = multiPageEditor.currentMappingResult
@@ -43,6 +46,9 @@ class ExportToScheduling {
 		val mappingModelURI = EcoreUtil.getURI(result.model)
 		val projectName = mappingModelURI.segment(1)
 		val fileName = mappingModelURI.trimFileExtension.lastSegment 
+		
+		val dialog = new WizardDialog(shell, new ExportMappingResultToSchedulingWizard())
+		dialog.open
 		
 		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName + "-Solution.sdsl", true)
 		
