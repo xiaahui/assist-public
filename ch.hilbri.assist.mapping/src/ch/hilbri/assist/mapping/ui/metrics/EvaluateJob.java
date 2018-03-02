@@ -9,11 +9,11 @@ import org.eclipse.swt.widgets.Display;
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.AbstractMetric;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 class EvaluateJob implements IRunnableWithProgress {
 
-	private List<Result> allResults;
+	private List<MappingResult> allResults;
 	private List<AbstractMetric> selectedMetrics;
 	private MultiPageEditor currentEditor;
 

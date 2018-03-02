@@ -2,15 +2,15 @@ package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Core
-import ch.hilbri.assist.model.Result
 import ch.hilbri.assist.model.Task
 import java.util.Map.Entry
 import org.eclipse.emf.ecore.util.EcoreUtil
+import ch.hilbri.assist.model.MappingResult
 
 class FactorySchedulingModelFromMappingSolution {
 	
-	static def AssistModel createAssistModel(Result mappingResult) {
-		val oldModel = mappingResult.model
+	static def AssistModel createAssistModel(MappingResult mappingResult) {
+		val oldModel = mappingResult.getModel
 		val clonedModel = EcoreUtil.copy(oldModel)
 	
 		// Give the new model a better name
@@ -29,7 +29,7 @@ class FactorySchedulingModelFromMappingSolution {
 		]		
 	
 		// Now we apply the mapping result to the model
-		for (Entry<Task, Core> entry : mappingResult.task2CoreMap.entrySet) {
+		for (Entry<Task, Core> entry : mappingResult.getTask2CoreMap.entrySet) {
 			val task = entry.key
 			val taskIdx = oldModel.allTasks.indexOf(task)
 			val core = entry.value

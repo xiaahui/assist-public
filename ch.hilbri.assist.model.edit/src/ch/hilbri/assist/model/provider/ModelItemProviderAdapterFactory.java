@@ -739,26 +739,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Result} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingResult} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultItemProvider resultItemProvider;
+	protected MappingResultItemProvider mappingResultItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.Result}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.MappingResult}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultAdapter() {
-		if (resultItemProvider == null) {
-			resultItemProvider = new ResultItemProvider(this);
+	public Adapter createMappingResultAdapter() {
+		if (mappingResultItemProvider == null) {
+			mappingResultItemProvider = new MappingResultItemProvider(this);
 		}
 
-		return resultItemProvider;
+		return mappingResultItemProvider;
 	}
 
 	/**
@@ -958,7 +958,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
 		if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();
 		if (metricScorePairItemProvider != null) metricScorePairItemProvider.dispose();
-		if (resultItemProvider != null) resultItemProvider.dispose();
+		if (mappingResultItemProvider != null) mappingResultItemProvider.dispose();
 		if (singleMappingElementItemProvider != null) singleMappingElementItemProvider.dispose();
 		if (assistModelSchedulingResultItemProvider != null) assistModelSchedulingResultItemProvider.dispose();
 		if (taskExecutionInstanceItemProvider != null) taskExecutionInstanceItemProvider.dispose();

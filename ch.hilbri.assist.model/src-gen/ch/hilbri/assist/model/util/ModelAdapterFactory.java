@@ -27,12 +27,12 @@ import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
-import ch.hilbri.assist.model.Result;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -215,7 +215,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createExplorationCandidateAdapter();
 			}
 			@Override
-			public Adapter caseComparable(Comparable<Result> object) {
+			public Adapter caseComparable(Comparable<MappingResult> object) {
 				return createComparableAdapter();
 			}
 			@Override
@@ -223,8 +223,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createMetricScorePairAdapter();
 			}
 			@Override
-			public Adapter caseResult(Result object) {
-				return createResultAdapter();
+			public Adapter caseMappingResult(MappingResult object) {
+				return createMappingResultAdapter();
 			}
 			@Override
 			public Adapter caseSingleMappingElement(SingleMappingElement object) {
@@ -655,13 +655,13 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.lang.Comparable<ch.hilbri.assist.model.Result> <em>Comparable</em>}'.
+	 * Creates a new adapter for an object of class '{@link java.lang.Comparable<ch.hilbri.assist.model.MappingResult> <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see java.lang.Comparable<ch.hilbri.assist.model.Result>
+	 * @see java.lang.Comparable<ch.hilbri.assist.model.MappingResult>
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
@@ -683,16 +683,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.Result <em>Result</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MappingResult <em>Mapping Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.Result
+	 * @see ch.hilbri.assist.model.MappingResult
 	 * @generated
 	 */
-	public Adapter createResultAdapter() {
+	public Adapter createMappingResultAdapter() {
 		return null;
 	}
 

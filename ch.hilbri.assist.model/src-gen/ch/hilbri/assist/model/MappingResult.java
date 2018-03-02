@@ -13,29 +13,29 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Result</b></em>'.
+ * A representation of the model object '<em><b>Mapping Result</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Result#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getIndex <em>Index</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getModel <em>Model</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getTask2CoreMap <em>Task2 Core Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#isPartialSolution <em>Partial Solution</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getAbsoluteTotalScore <em>Absolute Total Score</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Result#getScaledTotalScore <em>Scaled Total Score</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getIndex <em>Index</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getTask2CoreMap <em>Task2 Core Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getAbsoluteTotalScore <em>Absolute Total Score</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getScaledTotalScore <em>Scaled Total Score</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.model.ModelPackage#getResult()
+ * @see ch.hilbri.assist.model.ModelPackage#getMappingResult()
  * @model superTypes="ch.hilbri.assist.model.Comparable"
  * @generated
  */
-public interface Result extends EObject, Comparable<Result> {
+public interface MappingResult extends EObject, Comparable<MappingResult> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,14 +46,14 @@ public interface Result extends EObject, Comparable<Result> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_Name()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Name()
 	 * @model unique="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Result#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -72,14 +72,14 @@ public interface Result extends EObject, Comparable<Result> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Index</em>' attribute.
 	 * @see #setIndex(int)
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_Index()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Index()
 	 * @model unique="false"
 	 * @generated
 	 */
 	int getIndex();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Result#getIndex <em>Index</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getIndex <em>Index</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Index</em>' attribute.
@@ -98,14 +98,14 @@ public interface Result extends EObject, Comparable<Result> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model</em>' reference.
 	 * @see #setModel(AssistModel)
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_Model()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Model()
 	 * @model
 	 * @generated
 	 */
 	AssistModel getModel();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Result#getModel <em>Model</em>}' reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Model</em>' reference.
@@ -124,14 +124,14 @@ public interface Result extends EObject, Comparable<Result> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task2 Core Map</em>' attribute.
 	 * @see #setTask2CoreMap(HashMap)
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_Task2CoreMap()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Task2CoreMap()
 	 * @model unique="false" dataType="ch.hilbri.assist.model.Task2CoreMapType"
 	 * @generated
 	 */
 	HashMap<Task, Core> getTask2CoreMap();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Result#getTask2CoreMap <em>Task2 Core Map</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getTask2CoreMap <em>Task2 Core Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task2 Core Map</em>' attribute.
@@ -151,7 +151,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metric Absolute Scores Map</em>' map.
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_MetricAbsoluteScoresMap()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_MetricAbsoluteScoresMap()
 	 * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
 	 * @generated
 	 */
@@ -168,7 +168,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metric Scaled Scores Map</em>' map.
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_MetricScaledScoresMap()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_MetricScaledScoresMap()
 	 * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
 	 * @generated
 	 */
@@ -185,14 +185,14 @@ public interface Result extends EObject, Comparable<Result> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Partial Solution</em>' attribute.
 	 * @see #setPartialSolution(boolean)
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_PartialSolution()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_PartialSolution()
 	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	boolean isPartialSolution();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Result#isPartialSolution <em>Partial Solution</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#isPartialSolution <em>Partial Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Partial Solution</em>' attribute.
@@ -210,7 +210,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Absolute Total Score</em>' attribute.
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_AbsoluteTotalScore()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_AbsoluteTotalScore()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.Double%&gt; _xifexpression = null;\nboolean _isEmpty = this.getMetricAbsoluteScoresMap().keySet().isEmpty();\nif (_isEmpty)\n{\n\t_xifexpression = &lt;%java.lang.Double%&gt;.valueOf(0.0);\n}\nelse\n{\n\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;&gt;()\n\t{\n\t\tpublic &lt;%java.lang.Double%&gt; apply(final &lt;%java.lang.Double%&gt; p1, final &lt;%java.lang.Double%&gt; p2)\n\t\t{\n\t\t\treturn &lt;%java.lang.Double%&gt;.valueOf(&lt;%org.eclipse.xtext.xbase.lib.DoubleExtensions%&gt;.operator_plus(p1, p2));\n\t\t}\n\t};\n\t_xifexpression = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%java.lang.Double%&gt;&gt;reduce(this.getMetricAbsoluteScoresMap().values(), _function);\n}\nreturn (_xifexpression).doubleValue();'"
 	 * @generated
@@ -226,7 +226,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Scaled Total Score</em>' attribute.
-	 * @see ch.hilbri.assist.model.ModelPackage#getResult_ScaledTotalScore()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_ScaledTotalScore()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.Double%&gt; _xifexpression = null;\nboolean _isEmpty = this.getMetricScaledScoresMap().keySet().isEmpty();\nif (_isEmpty)\n{\n\t_xifexpression = &lt;%java.lang.Double%&gt;.valueOf(0.0);\n}\nelse\n{\n\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;, &lt;%java.lang.Double%&gt;&gt;()\n\t{\n\t\tpublic &lt;%java.lang.Double%&gt; apply(final &lt;%java.lang.Double%&gt; p1, final &lt;%java.lang.Double%&gt; p2)\n\t\t{\n\t\t\treturn &lt;%java.lang.Double%&gt;.valueOf(&lt;%org.eclipse.xtext.xbase.lib.DoubleExtensions%&gt;.operator_plus(p1, p2));\n\t\t}\n\t};\n\t_xifexpression = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%java.lang.Double%&gt;&gt;reduce(this.getMetricScaledScoresMap().values(), _function);\n}\nreturn (_xifexpression).doubleValue();'"
 	 * @generated
@@ -291,7 +291,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return &lt;%java.lang.Double%&gt;.compare(o.getScaledTotalScore(), this.getScaledTotalScore());'"
 	 * @generated
 	 */
-	int compareTo(Result o);
+	int compareTo(MappingResult o);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,4 +302,4 @@ public interface Result extends EObject, Comparable<Result> {
 	 */
 	String toString();
 
-} // Result
+} // MappingResult

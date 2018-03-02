@@ -46,19 +46,19 @@ import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribu
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.model.AbstractMetric;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
 
 public class DetailedResults extends Composite {
 
 	private Text textFilter;
 	private Table tblResult;
-	private List<Result> mappingResults = null;
+	private List<MappingResult> mappingResults = null;
 	private List<AbstractMetric> selectedMetricsList = new ArrayList<AbstractMetric>();
 	private List<AbstractMetric> availableMetricsList = new ArrayList<AbstractMetric>();
 
 	private int curResultIndex = -1;
-	private Result curResult = null;
+	private MappingResult curResult = null;
 	private Object curSelectedComponent = null;
 	
 	private Button btnFirst;
@@ -424,7 +424,7 @@ public class DetailedResults extends Composite {
 		clearResults();
 	}
 
-	public void setResultsList(List<Result> list) {
+	public void setResultsList(List<MappingResult> list) {
 		clearResults();
 
 		mappingResults = list;
@@ -547,7 +547,7 @@ public class DetailedResults extends Composite {
 		}
 	}
 
-	public Result getCurrentResult() {
+	public MappingResult getCurrentResult() {
 		return curResult;
 	}
 	
@@ -555,7 +555,7 @@ public class DetailedResults extends Composite {
 		return curSelectedComponent;
 	}
 
-	public List<Result> getMappingResults() {
+	public List<MappingResult> getMappingResults() {
 		return mappingResults;
 	}
 	

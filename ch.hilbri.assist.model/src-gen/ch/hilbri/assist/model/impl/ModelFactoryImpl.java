@@ -31,6 +31,7 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.IOAdapterType;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
@@ -38,7 +39,6 @@ import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
-import ch.hilbri.assist.model.Result;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -129,7 +129,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
 			case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
 			case ModelPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
-			case ModelPackage.RESULT: return createResult();
+			case ModelPackage.MAPPING_RESULT: return createMappingResult();
 			case ModelPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT: return createAssistModelSchedulingResult();
 			case ModelPackage.TASK_EXECUTION_INSTANCE: return createTaskExecutionInstance();
@@ -491,9 +491,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Result createResult() {
-		ResultImpl result = new ResultImpl();
-		return result;
+	public MappingResult createMappingResult() {
+		MappingResultImpl mappingResult = new MappingResultImpl();
+		return mappingResult;
 	}
 
 	/**

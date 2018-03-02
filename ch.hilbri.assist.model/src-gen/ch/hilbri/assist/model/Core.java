@@ -13,8 +13,8 @@ package ch.hilbri.assist.model;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Core#getArchitecture <em>Architecture</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Core#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Core#getCapacity <em>Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Core#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Core#getProcessor <em>Processor</em>}</li>
  * </ul>
  *
@@ -51,22 +51,6 @@ public interface Core extends HardwareElement {
 	void setArchitecture(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Full Name</em>' attribute.
-	 * @see ch.hilbri.assist.model.ModelPackage#getCore_FullName()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getProcessor().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
-	 * @generated
-	 */
-	String getFullName();
-
-	/**
 	 * Returns the value of the '<em><b>Capacity</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
@@ -92,6 +76,22 @@ public interface Core extends HardwareElement {
 	 * @generated
 	 */
 	void setCapacity(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.model.ModelPackage#getCore_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getProcessor().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Processor</b></em>' container reference.

@@ -5,14 +5,14 @@ import java.util.List;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import ch.hilbri.assist.model.AbstractMetric;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 public class ResultsAnalysis {
 
-	public static void evaluate(List<Result> results, List<AbstractMetric> metrics) {
+	public static void evaluate(List<MappingResult> results, List<AbstractMetric> metrics) {
 
 		// Delete results from previous evaluations
-		for (Result result : results) {
+		for (MappingResult result : results) {
 			result.getMetricAbsoluteScoresMap().clear();
 			result.getMetricScaledScoresMap().clear();
 		}
@@ -22,14 +22,14 @@ public class ResultsAnalysis {
 			DescriptiveStatistics statistics = new DescriptiveStatistics();
 
 			/* 1) Calculate the absolute score for each result */
-			for (Result result : results) {
+			for (MappingResult result : results) {
 				double absoluteScore = metric.computeAbsoluteScore(result);
 				result.getMetricAbsoluteScoresMap().put(metric, absoluteScore);
 				statistics.addValue(absoluteScore);
 			}
 
 			/* 2) Calculate the scaled score for each metric */
-			for (Result result : results) {
+			for (MappingResult result : results) {
 				if (statistics.getMax() - statistics.getMin() != 0) {
 					double absoluteScore = result.getMetricAbsoluteScoresMap().get(metric);
 					double scaledScore = (absoluteScore - statistics.getMin())

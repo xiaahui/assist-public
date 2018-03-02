@@ -5,7 +5,7 @@ package ch.hilbri.assist.model.provider;
 
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.model.Result} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.model.MappingResult} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResultItemProvider 
+public class MappingResultItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class ResultItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResultItemProvider(AdapterFactory adapterFactory) {
+	public MappingResultItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,9 +85,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_name_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__NAME,
+				 getString("_UI_MappingResult_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_name_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__NAME,
 				 true,
 				 false,
 				 false,
@@ -107,9 +107,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_index_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_index_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__INDEX,
+				 getString("_UI_MappingResult_index_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_index_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__INDEX,
 				 true,
 				 false,
 				 false,
@@ -129,9 +129,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_model_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__MODEL,
+				 getString("_UI_MappingResult_model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_model_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__MODEL,
 				 true,
 				 false,
 				 true,
@@ -151,9 +151,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_task2CoreMap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_task2CoreMap_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__TASK2_CORE_MAP,
+				 getString("_UI_MappingResult_task2CoreMap_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_task2CoreMap_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__TASK2_CORE_MAP,
 				 true,
 				 false,
 				 false,
@@ -173,9 +173,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_partialSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_partialSolution_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__PARTIAL_SOLUTION,
+				 getString("_UI_MappingResult_partialSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_partialSolution_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__PARTIAL_SOLUTION,
 				 true,
 				 false,
 				 false,
@@ -195,9 +195,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_absoluteTotalScore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_absoluteTotalScore_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__ABSOLUTE_TOTAL_SCORE,
+				 getString("_UI_MappingResult_absoluteTotalScore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_absoluteTotalScore_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__ABSOLUTE_TOTAL_SCORE,
 				 false,
 				 false,
 				 false,
@@ -217,9 +217,9 @@ public class ResultItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_scaledTotalScore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_scaledTotalScore_feature", "_UI_Result_type"),
-				 ModelPackage.Literals.RESULT__SCALED_TOTAL_SCORE,
+				 getString("_UI_MappingResult_scaledTotalScore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_scaledTotalScore_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__SCALED_TOTAL_SCORE,
 				 false,
 				 false,
 				 false,
@@ -240,8 +240,8 @@ public class ResultItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.RESULT__METRIC_ABSOLUTE_SCORES_MAP);
-			childrenFeatures.add(ModelPackage.Literals.RESULT__METRIC_SCALED_SCORES_MAP);
+			childrenFeatures.add(ModelPackage.Literals.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP);
+			childrenFeatures.add(ModelPackage.Literals.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP);
 		}
 		return childrenFeatures;
 	}
@@ -260,14 +260,14 @@ public class ResultItemProvider
 	}
 
 	/**
-	 * This returns Result.gif.
+	 * This returns MappingResult.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Result"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MappingResult"));
 	}
 
 	/**
@@ -278,10 +278,10 @@ public class ResultItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Result)object).getName();
+		String label = ((MappingResult)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Result_type") :
-			getString("_UI_Result_type") + " " + label;
+			getString("_UI_MappingResult_type") :
+			getString("_UI_MappingResult_type") + " " + label;
 	}
 	
 
@@ -296,17 +296,17 @@ public class ResultItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Result.class)) {
-			case ModelPackage.RESULT__NAME:
-			case ModelPackage.RESULT__INDEX:
-			case ModelPackage.RESULT__TASK2_CORE_MAP:
-			case ModelPackage.RESULT__PARTIAL_SOLUTION:
-			case ModelPackage.RESULT__ABSOLUTE_TOTAL_SCORE:
-			case ModelPackage.RESULT__SCALED_TOTAL_SCORE:
+		switch (notification.getFeatureID(MappingResult.class)) {
+			case ModelPackage.MAPPING_RESULT__NAME:
+			case ModelPackage.MAPPING_RESULT__INDEX:
+			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
+			case ModelPackage.MAPPING_RESULT__PARTIAL_SOLUTION:
+			case ModelPackage.MAPPING_RESULT__ABSOLUTE_TOTAL_SCORE:
+			case ModelPackage.MAPPING_RESULT__SCALED_TOTAL_SCORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
-			case ModelPackage.RESULT__METRIC_SCALED_SCORES_MAP:
+			case ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP:
+			case ModelPackage.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -326,12 +326,12 @@ public class ResultItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.RESULT__METRIC_ABSOLUTE_SCORES_MAP,
+				(ModelPackage.Literals.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP,
 				 ModelFactory.eINSTANCE.create(ModelPackage.Literals.METRIC_SCORE_PAIR)));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.RESULT__METRIC_SCALED_SCORES_MAP,
+				(ModelPackage.Literals.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP,
 				 ModelFactory.eINSTANCE.create(ModelPackage.Literals.METRIC_SCORE_PAIR)));
 	}
 
@@ -347,8 +347,8 @@ public class ResultItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ModelPackage.Literals.RESULT__METRIC_ABSOLUTE_SCORES_MAP ||
-			childFeature == ModelPackage.Literals.RESULT__METRIC_SCALED_SCORES_MAP;
+			childFeature == ModelPackage.Literals.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP ||
+			childFeature == ModelPackage.Literals.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP;
 
 		if (qualify) {
 			return getString

@@ -29,7 +29,7 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 public class Runner {
 
@@ -103,7 +103,7 @@ public class Runner {
 				solver.runConstraintGeneration();
 				solver.runSolutionSearch();
 				solver.createSolutions();
-				final ArrayList<Result> results = solver.getResults();
+				final ArrayList<MappingResult> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				
 				if (cmd.hasOption("u")) {
@@ -131,7 +131,7 @@ public class Runner {
 					ResultsAnalysis.evaluate(results, list);
 				}
 				
-				for (Result result : results) {
+				for (MappingResult result : results) {
 					System.out.println(result);
 					System.out.println();
 				}

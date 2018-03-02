@@ -22,7 +22,7 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 public class GuiSolverJob extends Job {
 
@@ -152,7 +152,7 @@ public class GuiSolverJob extends Job {
 		assistSolver.setSavePartialSolution(value);
 	}
 
-	public ArrayList<Result> getNewMappingResults() {
+	public ArrayList<MappingResult> getNewMappingResults() {
 		return assistSolver.getResults();
 	}
 	

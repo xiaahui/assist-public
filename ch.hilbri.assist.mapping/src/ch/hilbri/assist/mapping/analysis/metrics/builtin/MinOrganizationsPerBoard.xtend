@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin
 
 import ch.hilbri.assist.model.Application
-import ch.hilbri.assist.model.Result
 import ch.hilbri.assist.model.impl.AbstractMetricImpl
+import ch.hilbri.assist.model.MappingResult
 
 class MinOrganizationsPerBoard extends AbstractMetricImpl {
 	new() {
@@ -11,10 +11,10 @@ class MinOrganizationsPerBoard extends AbstractMetricImpl {
 		setHigherScoreIsBetter(false)
 	}
 
-	override double computeAbsoluteScore(Result result) {
+	override double computeAbsoluteScore(MappingResult result) {
 		var maxOrgCount = 0
 
-		for (board : result.model.allBoards) {
+		for (board : result.getModel.allBoards) {
 			
 			val organizations = newArrayList()
 			

@@ -16,15 +16,13 @@ annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	String			systemName	= ""
-	
-	int 				minHypPeriodLength 	= "-1"
-	
+	int 			minHypPeriodLength 	= "-1"
 	
 	contains 		Compartment[1..*] 				compartments
 	contains 		Application[1..*] 				applications
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
 	contains 		ColocalityRelation[0..*] 		colocalityRelations
-	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
+	contains 		DissimilarityRelation[0..*] 	dissimilarityRelations
 
 	op Compartment[] 	getAllCompartments() 	{ compartments										}
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList			}
@@ -44,13 +42,13 @@ class AssistModel {
 }
 
 class HardwareElement {
-	String name = ""
-	String manufacturer  = ""
+	String name				 	= ""
+	String manufacturer  		= ""
 	contains MetricParameter[0..*] metricParameters
 }
 
 class Compartment extends HardwareElement {
-	String powerSupply	= ""
+	String powerSupply			= ""
 	derived String fullName get { name }
 	contains Box[1..*] boxes opposite compartment
 	op Box[] 			getAllBoxes() 		{ boxes	}
@@ -73,10 +71,10 @@ class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 								ramCapacity 		= "0"
-	int 								romCapacity 		= "0"
+	int 							ramCapacity 	= "0"
+	int 							romCapacity 	= "0"
 	container 	Box 				box 			opposite boards
-	contains 	Processor[1..*] 	processors 	opposite board
+	contains 	Processor[1..*] 	processors 		opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
 	derived String fullName get { box.fullName + "." + name }
 	op String			toString() 			{ name }
@@ -94,50 +92,47 @@ class Processor extends HardwareElement {
 
 class Core extends HardwareElement {
 	String architecture = ""
+	int capacity 		= "0"
 	derived String fullName get { processor.fullName + "." + name }
-	int capacity = "0"
 	container Processor processor opposite cores
 }
 
 class IOAdapter {
-	String name = ""
-	int totalCount = "0"
-	IOAdapterType adapterType = "None"
+	String name 				= ""
+	int totalCount 				= "0"
+	IOAdapterType adapterType 	= "None"
 }
 
 class Application {
 	String 						name 				= ""
 	String 						developedBy			= ""
-	DesignAssuranceLevelType 	criticalityLevel		= "None"
-	contains Task[1..*] 				tasks 				opposite application
+	DesignAssuranceLevelType 	criticalityLevel	= "None"
+	contains Task[1..*] 		tasks	opposite application
 	contains MetricParameter[0..*] 	metricParameters
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	op String 			toString() { name }
-	derived String 				fullName 			get { name }
+	derived String 		fullName get { name }
 }
 
 class Task {	
-	String name 													= ""
-	int coreUtilization 											= "0"
+	String name 												= ""
+	int coreUtilization 										= "0"
 	int ramUtilization 											= "0"
 	int romUtilization											= "0"
 	int duration 												= "-1"
 	int period													= "-1"
 	int earlyTolerance											= "-1"
 	int lateTolerance											= "-1"
-	int maxStartTime												= "-1"
+	int maxStartTime											= "-1"
 	int maxEndTime												= "-1"
 	int addInitTime												= "-1"
 	int slices													= "-1"
-	int minSliceDuration											= "-1"
-	
+	int minSliceDuration										= "-1"
 	PeriodicityType periodicity									= "strict"
-	
 	container Application application opposite tasks
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
 	derived String fullName get { application.name + "." + name }
-
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	refers Core[0..1] 	assignedCore
 	op String 			toString() { name }
@@ -303,7 +298,7 @@ class ExplorationCandidate {
 type Task2CoreMapType wraps HashMap<Task, Core>
 type StringList wraps List<String>
 
-interface Comparable wraps Comparable<Result>{}
+interface Comparable wraps Comparable<MappingResult>{}
 
 // Hack to get a Map in Xcore
 // https://stackoverflow.com/questions/41387196/how-to-define-a-map-in-xcore
@@ -312,14 +307,14 @@ class MetricScorePair wraps java.util.Map$Entry {
     Double value
 }
 
-class Result extends Comparable {
+class MappingResult extends Comparable {
 	String							name
 	int								index
 	refers AssistModel				model	
- 	Task2CoreMapType					task2CoreMap
+ 	Task2CoreMapType				task2CoreMap
  	contains MetricScorePair[]		metricAbsoluteScoresMap 
  	contains MetricScorePair[]		metricScaledScoresMap
- 	boolean 							partialSolution = "false"
+ 	boolean 						partialSolution = "false"
 	
 	derived double absoluteTotalScore get {
 		if (metricAbsoluteScoresMap.keySet.empty) 	0.0
@@ -332,7 +327,7 @@ class Result extends Comparable {
 	}
 
 	op Task[] getMappedTasksForCore(Core core) {
-		task2CoreMap.keySet.filter[task2CoreMap.get(it) == core].toEList
+		getTask2CoreMap.keySet.filter[getTask2CoreMap.get(it) == core].toEList
 	}
 	
 	op int getAbsoluteCoreUtilization(Core core) {
@@ -348,18 +343,18 @@ class Result extends Comparable {
 	
 	/* Return the hardware element of the level level that the task task is being mapped to */
 	op HardwareElement getHardwareElementForTask(Task task, int level) {
-		if (level == 0) 			task2CoreMap.get(task)
-		else if (level == 1)		task2CoreMap.get(task).processor 
-		else if (level == 2)		task2CoreMap.get(task).processor.board
-		else if (level == 3)		task2CoreMap.get(task).processor.board.box
-		else if (level == 4)		task2CoreMap.get(task).processor.board.box.compartment
+		if (level == 0) 		getTask2CoreMap.get(task)
+		else if (level == 1)	getTask2CoreMap.get(task).processor 
+		else if (level == 2)	getTask2CoreMap.get(task).processor.board
+		else if (level == 3)	getTask2CoreMap.get(task).processor.board.box
+		else if (level == 4)	getTask2CoreMap.get(task).processor.board.box.compartment
 		else 					null
 	}
 
 
 	/* This creates the list of mapping elements; each elements contains all hardware / software elements */
 	op SingleMappingElement[]			getMappingElements() {
-		task2CoreMap.entrySet.map[ 
+		getTask2CoreMap.entrySet.map[ 
 
 			/* Retrieve the entries from the map */
 			val application 	= key.eContainer as Application
@@ -384,17 +379,17 @@ class Result extends Comparable {
 		].toEList
 	}
 	
-	op int compareTo(Result o) {
+	op int compareTo(MappingResult o) {
 		Double.compare(o.scaledTotalScore, scaledTotalScore)
 	}
 	
 	op String toString() {
 		val sb = new StringBuilder
-		sb.append("Result        : " + name + " (" + index + ")\n")
+		sb.append("Result        : " + getName + " (" + getIndex + ")\n")
 		sb.append("Absolute Score: " + absoluteTotalScore + "\n")
 		sb.append("Relative Score: " + scaledTotalScore + "\n")
-		for (task : model.allTasks) {
-			sb.append(task.fullName + "\t->\t" + task2CoreMap.get(task).fullName + '\n')
+		for (task : getModel.allTasks) {
+			sb.append(task.fullName + "\t->\t" + getTask2CoreMap.get(task).fullName + '\n')
 		}
 		sb.toString
 	}
@@ -416,7 +411,7 @@ abstract class AbstractMetric {
 	boolean higherScoreIsBetter
 	int		weight
 	
-	op double computeAbsoluteScore(Result result)
+	op double computeAbsoluteScore(MappingResult result)
 }
 
 /* ************************************** 
@@ -426,7 +421,7 @@ type Task2ExecutionInstancesMapType wraps HashMap<Task, List<TaskExecutionInstan
 
 class AssistModelSchedulingResult {
 	String name 				= ""
-	int hyperPeriodLength 	= "-1"
+	int hyperPeriodLength 		= "-1"
 	refers AssistModel 				model
 	Task2ExecutionInstancesMapType 	schedule
 }

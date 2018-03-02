@@ -27,12 +27,12 @@ import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
-import ch.hilbri.assist.model.Result;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -281,7 +281,7 @@ public class ModelSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case ModelPackage.COMPARABLE: {
-				@SuppressWarnings("unchecked") Comparable<Result> comparable = (Comparable<Result>)theEObject;
+				@SuppressWarnings("unchecked") Comparable<MappingResult> comparable = (Comparable<MappingResult>)theEObject;
 				T result = caseComparable(comparable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -292,12 +292,12 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RESULT: {
-				Result result = (Result)theEObject;
-				T theResult = caseResult(result);
-				if (theResult == null) theResult = caseComparable(result);
-				if (theResult == null) theResult = defaultCase(theEObject);
-				return theResult;
+			case ModelPackage.MAPPING_RESULT: {
+				MappingResult mappingResult = (MappingResult)theEObject;
+				T result = caseMappingResult(mappingResult);
+				if (result == null) result = caseComparable(mappingResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
 			}
 			case ModelPackage.SINGLE_MAPPING_ELEMENT: {
 				SingleMappingElement singleMappingElement = (SingleMappingElement)theEObject;
@@ -758,7 +758,7 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComparable(Comparable<Result> object) {
+	public T caseComparable(Comparable<MappingResult> object) {
 		return null;
 	}
 
@@ -778,17 +778,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Result</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResult(Result object) {
+	public T caseMappingResult(MappingResult object) {
 		return null;
 	}
 

@@ -25,7 +25,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 /* Needs to implement IPartListener2 to get notified, if the active editor changes */
 public class InfoSheetView implements IPartListener2 {
@@ -214,7 +214,7 @@ public class InfoSheetView implements IPartListener2 {
 
 	}
 	
-	public void setSelectedResult(MultiPageEditor sender, Result result) {
+	public void setSelectedResult(MultiPageEditor sender, MappingResult result) {
 		/*
 		 * Did we receive the selectedResult from the sender we expect it to
 		 * receive from?

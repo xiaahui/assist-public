@@ -3,8 +3,8 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.Result;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -222,7 +222,7 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double computeAbsoluteScore(Result result) {
+	public double computeAbsoluteScore(MappingResult result) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -324,8 +324,8 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT:
-				return computeAbsoluteScore((Result)arguments.get(0));
+			case ModelPackage.ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT:
+				return computeAbsoluteScore((MappingResult)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

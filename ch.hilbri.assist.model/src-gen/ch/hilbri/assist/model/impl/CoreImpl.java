@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getArchitecture <em>Architecture</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getCapacity <em>Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getProcessor <em>Processor</em>}</li>
  * </ul>
  *
@@ -54,16 +54,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	protected String architecture = ARCHITECTURE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFullName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FULL_NAME_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +72,16 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @ordered
 	 */
 	protected int capacity = CAPACITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,18 +128,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFullName() {
-		String _fullName = this.getProcessor().getFullName();
-		String _plus = (_fullName + ".");
-		String _name = this.getName();
-		return (_plus + _name);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getCapacity() {
 		return capacity;
 	}
@@ -154,6 +142,18 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 		capacity = newCapacity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CORE__CAPACITY, oldCapacity, capacity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		String _fullName = this.getProcessor().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**
@@ -261,10 +261,10 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 		switch (featureID) {
 			case ModelPackage.CORE__ARCHITECTURE:
 				return getArchitecture();
-			case ModelPackage.CORE__FULL_NAME:
-				return getFullName();
 			case ModelPackage.CORE__CAPACITY:
 				return getCapacity();
+			case ModelPackage.CORE__FULL_NAME:
+				return getFullName();
 			case ModelPackage.CORE__PROCESSOR:
 				if (resolve) return getProcessor();
 				return basicGetProcessor();
@@ -324,10 +324,10 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 		switch (featureID) {
 			case ModelPackage.CORE__ARCHITECTURE:
 				return ARCHITECTURE_EDEFAULT == null ? architecture != null : !ARCHITECTURE_EDEFAULT.equals(architecture);
-			case ModelPackage.CORE__FULL_NAME:
-				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.CORE__CAPACITY:
 				return capacity != CAPACITY_EDEFAULT;
+			case ModelPackage.CORE__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.CORE__PROCESSOR:
 				return basicGetProcessor() != null;
 		}

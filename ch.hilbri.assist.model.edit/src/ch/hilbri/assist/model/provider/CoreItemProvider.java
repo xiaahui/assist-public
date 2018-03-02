@@ -46,8 +46,8 @@ public class CoreItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArchitecturePropertyDescriptor(object);
-			addFullNamePropertyDescriptor(object);
 			addCapacityPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addProcessorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -180,8 +180,8 @@ public class CoreItemProvider extends HardwareElementItemProvider {
 
 		switch (notification.getFeatureID(Core.class)) {
 			case ModelPackage.CORE__ARCHITECTURE:
-			case ModelPackage.CORE__FULL_NAME:
 			case ModelPackage.CORE__CAPACITY:
+			case ModelPackage.CORE__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

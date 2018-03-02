@@ -19,7 +19,6 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.model.Result
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Model
@@ -32,6 +31,7 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.model.MappingResult
 
 class AssistMappingSolver {
 	
@@ -47,7 +47,7 @@ class AssistMappingSolver {
 	private SolverVariablesContainer 				solverVariables
 	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
 	private ArrayList<AbstractMappingConstraint> 	mappingConstraintsList
-	private ArrayList<Result> 						mappingResults
+	private ArrayList<MappingResult> 						mappingResults
 	
 	private boolean 									savePartialSolution 		= false
 
@@ -227,7 +227,7 @@ class AssistMappingSolver {
 		}
 	}
 	
-	def ArrayList<Result> getResults() 	{ 
+	def ArrayList<MappingResult> getResults() 	{ 
 		mappingResults
 	}
 	

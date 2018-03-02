@@ -16,7 +16,7 @@ import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
 import ch.hilbri.assist.model.AbstractMetric;
-import ch.hilbri.assist.model.Result;
+import ch.hilbri.assist.model.MappingResult;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 
@@ -95,7 +95,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		setActivePage(1);
 	}
 
-	public Result getCurrentMappingResult() {
+	public MappingResult getCurrentMappingResult() {
 		return tabResults.getCurrentResult();
 	}
 	
@@ -103,11 +103,11 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		return tabResults.getSelectedComponent();
 	}
 	
-	public void setMappingResultsList(List<Result> l) {
+	public void setMappingResultsList(List<MappingResult> l) {
 		tabResults.setResultsList(l);
 	}
 
-	public List<Result> getMappingResultsList() {
+	public List<MappingResult> getMappingResultsList() {
 		return tabResults.getMappingResults();
 	}
 	

@@ -7,19 +7,19 @@ import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
 import ch.hilbri.assist.model.Processor
-import ch.hilbri.assist.model.Result
 import ch.hilbri.assist.model.Task
 import java.text.DecimalFormat
 import java.util.ArrayList
 import org.eclipse.jface.viewers.IStructuredContentProvider
+import ch.hilbri.assist.model.MappingResult
 
 class ComponentContentProvider implements IStructuredContentProvider {
 	AssistModel assistModel
-	Result assistResult
+	MappingResult assistResult
 
-	new(Result result) {
+	new(MappingResult result) {
 		if (result !== null) {
-			assistModel = result.model
+			assistModel = result.getModel
 			assistResult = result
 		}
 		else

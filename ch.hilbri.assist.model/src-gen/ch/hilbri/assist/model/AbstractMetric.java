@@ -134,6 +134,6 @@ public interface AbstractMetric extends EObject {
 	 * @model unique="false" resultUnique="false"
 	 * @generated
 	 */
-	double computeAbsoluteScore(Result result);
+	double computeAbsoluteScore(MappingResult result);
 
 } // AbstractMetric
