@@ -5,16 +5,22 @@ import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.scheduling.dsl.SchedulingDslStandaloneSetup
 import java.io.IOException
 import java.lang.reflect.InvocationTargetException
+import org.eclipse.core.resources.IFile
+import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.jface.operation.IRunnableWithProgress
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.jface.viewers.IStructuredSelection
 import org.eclipse.ui.INewWizard
 import org.eclipse.ui.IWorkbench
+import org.eclipse.ui.PartInitException
+import org.eclipse.ui.PlatformUI
+import org.eclipse.ui.ide.IDE
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard
 import org.eclipse.xtext.resource.SaveOptions
 
@@ -36,7 +42,12 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 	}
 
 	override addPages() {
-		page = new ExportMappingResultToSchedulingWizardPage(selection)
+		val mappingModelURI = EcoreUtil.getURI(mappingResult.model)
+		val projectName 	= mappingModelURI.segment(1)
+		val fileName 		= mappingModelURI.trimFileExtension.lastSegment + " - Mapping " + mappingResult.name 
+		val systemName 		= mappingResult.model.systemName
+		
+		page = new ExportMappingResultToSchedulingWizardPage(selection, projectName, fileName, systemName)
 		addPage(page)
 	}
 
@@ -70,12 +81,13 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 	
 	/* Async worker method that is actually doing all the hard stuff */
 	def doFinish(String projectName, String fileName, String systemName, MappingResult mappingResult, IProgressMonitor monitor) {
-		monitor.beginTask("Exporting mapping solution to scheduling", 2);
+		monitor.beginTask("Exporting mapping solution to scheduling", 3);
 		
 		monitor.setTaskName("Creating scheduling model")
 		val schedulingModel = FactorySchedulingModelFromMappingSolution.createAssistModel(mappingResult)
 		schedulingModel.systemName = systemName
 		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName, true)
+		
 		monitor.worked(1)
 		
 		monitor.setTaskName("Serializing scheduling model to " + fileName)
@@ -90,5 +102,20 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 			e.printStackTrace
 		}
 		monitor.worked(1)
+
+		monitor.setTaskName("Opening exported file")
+		getShell().getDisplay().asyncExec(new Runnable() {
+			override run() {
+				val page = PlatformUI.workbench.activeWorkbenchWindow.activePage
+				try {
+					val file = ResourcesPlugin.workspace.root.findMember(schedulingModelURI.toPlatformString(true)) as IFile
+					IDE.openEditor(page, file, true);
+				} catch (PartInitException e) {
+					e.printStackTrace
+				}
+			}
+		})
+		monitor.worked(1)
+		
 	}
 }

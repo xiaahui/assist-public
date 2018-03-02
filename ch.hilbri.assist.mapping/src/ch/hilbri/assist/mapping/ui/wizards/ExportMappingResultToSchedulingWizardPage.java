@@ -1,11 +1,9 @@
 package ch.hilbri.assist.mapping.ui.wizards;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -18,22 +16,29 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
 public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 
-	private Text txtContainer;
-	private Text txtFilename;
+	private Text txtProject;
+	private Text txtFileName;
 	private Text txtSystemName;
+	
+	@SuppressWarnings("unused")
 	private ISelection selection;
-
-	public ExportMappingResultToSchedulingWizardPage(ISelection selection) {
+	
+	private String defaultProject;
+	private String defaultFileName;
+	private String defaultSystemName;
+	
+	public ExportMappingResultToSchedulingWizardPage(ISelection selection, String defaultProject, String defaultFileName, String defaultSystemName) {
 		super("Create Specification");
 		setTitle("Export to a new scheduling specification");
 		setDescription("This wizard exports a mapping result to a a scheduling specification file.");
 		this.selection = selection;
+		this.defaultProject = defaultProject;
+		this.defaultFileName = defaultFileName;
+		this.defaultSystemName = defaultSystemName;
 	}
 
 	public void createControl(Composite parent) {
@@ -46,9 +51,9 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 		Label projectLabel = new Label(container, SWT.NULL);
 		projectLabel.setText("&Project:");
 
-		txtContainer = new Text(container, SWT.BORDER | SWT.SINGLE);
-		txtContainer.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		txtContainer.addModifyListener(new ModifyListener() {
+		txtProject = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtProject.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		txtProject.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
@@ -65,9 +70,9 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 		Label fileNameLabel = new Label(container, SWT.NULL);
 		fileNameLabel.setText("&File:");
 
-		txtFilename = new Text(container, SWT.BORDER | SWT.SINGLE);
-		txtFilename.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		txtFilename.addModifyListener(new ModifyListener() {
+		txtFileName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtFileName.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		txtFileName.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
@@ -84,41 +89,12 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 		txtSystemName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		new Label(container, SWT.NONE);
 
-		initialize();
+		txtProject.setText(defaultProject);
+		txtFileName.setText(defaultFileName);
+		txtSystemName.setText(defaultSystemName);
+		
 		dialogChanged();
 		setControl(container);
-	}
-
-	/**
-	 * Tests if the current workbench selection is a suitable container to use.
-	 */
-
-	private void initialize() {
-		if (selection == null) {
-			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			selection = window.getSelectionService().getSelection("org.eclipse.ui.navigator.ProjectExplorer");
-		}
-
-		if (selection != null && selection.isEmpty() == false && selection instanceof IStructuredSelection) {
-			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
-				return;
-			Object obj = ssel.getFirstElement();
-			if (obj instanceof IResource) {
-				IContainer container;
-				if (obj instanceof IContainer)
-					container = (IContainer) obj;
-				else
-					container = ((IResource) obj).getParent().getParent();
-				txtContainer.setText(container.getFullPath().toString());
-			}
-		}
-//		String name = "newScheduling";
-//		int i = 1;
-//		while (ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + "/" + name + ".sdsl")) != null) {
-//			name = "newScheduling" + String.valueOf(i);
-//			i++;
-//		}
 	}
 
 	/**
@@ -135,7 +111,7 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 				Path path = (Path) result[0];
 				if (path.segmentCount() > 1)
 					path = (Path) path.removeLastSegments(path.segmentCount() - 1);
-				txtContainer.setText(path.toString());
+				txtProject.setText(path.toString());
 			}
 		}
 	}
@@ -186,11 +162,11 @@ public class ExportMappingResultToSchedulingWizardPage extends WizardPage {
 	}
 
 	public String getContainerName() {
-		return txtContainer.getText();
+		return txtProject.getText();
 	}
 
 	public String getFileName() {
-		return txtFilename.getText();
+		return txtFileName.getText();
 	}
 
 	public String getSystemName() {
