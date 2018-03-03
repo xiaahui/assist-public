@@ -472,8 +472,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_Compartments() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(2);
+    public EAttribute getAssistModel_TaskSwitchDelay() {
+        return (EAttribute)assistModelEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -481,7 +481,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_Applications() {
+    public EReference getAssistModel_Compartments() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
     }
 
@@ -490,7 +490,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_DislocalityRelations() {
+    public EReference getAssistModel_Applications() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
     }
 
@@ -499,7 +499,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_ColocalityRelations() {
+    public EReference getAssistModel_DislocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
     }
 
@@ -508,8 +508,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_DissimilarityRelations() {
+    public EReference getAssistModel_ColocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_DissimilarityRelations() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -2253,6 +2262,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         assistModelEClass = createEClass(ASSIST_MODEL);
         createEAttribute(assistModelEClass, ASSIST_MODEL__SYSTEM_NAME);
         createEAttribute(assistModelEClass, ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH);
+        createEAttribute(assistModelEClass, ASSIST_MODEL__TASK_SWITCH_DELAY);
         createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
         createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
         createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
@@ -2535,6 +2545,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getAssistModel_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssistModel_MinHypPeriodLength(), theEcorePackage.getEInt(), "minHypPeriodLength", "-1", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssistModel_TaskSwitchDelay(), theEcorePackage.getEInt(), "taskSwitchDelay", "0", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

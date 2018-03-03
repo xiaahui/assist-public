@@ -90,13 +90,22 @@ public interface ModelPackage extends EPackage {
     int ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = 1;
 
     /**
+     * The feature id for the '<em><b>Task Switch Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL__TASK_SWITCH_DELAY = 2;
+
+    /**
      * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__COMPARTMENTS = 2;
+    int ASSIST_MODEL__COMPARTMENTS = 3;
 
     /**
      * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -105,7 +114,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__APPLICATIONS = 3;
+    int ASSIST_MODEL__APPLICATIONS = 4;
 
     /**
      * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -114,7 +123,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 4;
+    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 5;
 
     /**
      * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -123,7 +132,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__COLOCALITY_RELATIONS = 5;
+    int ASSIST_MODEL__COLOCALITY_RELATIONS = 6;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -132,7 +141,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 6;
+    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 7;
 
     /**
      * The number of structural features of the '<em>Assist Model</em>' class.
@@ -141,7 +150,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL_FEATURE_COUNT = 7;
+    int ASSIST_MODEL_FEATURE_COUNT = 8;
 
     /**
      * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -1657,6 +1666,15 @@ public interface ModelPackage extends EPackage {
     int ASSIST_MODEL_DSE__MIN_HYP_PERIOD_LENGTH = ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH;
 
     /**
+     * The feature id for the '<em><b>Task Switch Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL_DSE__TASK_SWITCH_DELAY = ASSIST_MODEL__TASK_SWITCH_DELAY;
+
+    /**
      * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2891,6 +2909,17 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getAssistModel_MinHypPeriodLength();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Task Switch Delay</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EAttribute getAssistModel_TaskSwitchDelay();
 
     /**
      * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}'.
@@ -5020,6 +5049,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = eINSTANCE.getAssistModel_MinHypPeriodLength();
+
+        /**
+         * The meta object literal for the '<em><b>Task Switch Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ASSIST_MODEL__TASK_SWITCH_DELAY = eINSTANCE.getAssistModel_TaskSwitchDelay();
 
         /**
          * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.

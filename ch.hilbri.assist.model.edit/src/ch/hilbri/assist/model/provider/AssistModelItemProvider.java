@@ -65,6 +65,7 @@ public class AssistModelItemProvider
 
             addSystemNamePropertyDescriptor(object);
             addMinHypPeriodLengthPropertyDescriptor(object);
+            addTaskSwitchDelayPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -114,6 +115,28 @@ public class AssistModelItemProvider
     }
 
 	/**
+     * This adds a property descriptor for the Task Switch Delay feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTaskSwitchDelayPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_AssistModel_taskSwitchDelay_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_taskSwitchDelay_feature", "_UI_AssistModel_type"),
+                 ModelPackage.Literals.ASSIST_MODEL__TASK_SWITCH_DELAY,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -187,6 +210,7 @@ public class AssistModelItemProvider
         switch (notification.getFeatureID(AssistModel.class)) {
             case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
             case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
+            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:

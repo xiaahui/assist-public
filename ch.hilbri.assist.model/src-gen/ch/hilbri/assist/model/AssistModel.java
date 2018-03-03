@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getSystemName <em>System Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
@@ -82,6 +83,33 @@ public interface AssistModel extends EObject {
      * @generated
      */
     void setMinHypPeriodLength(int value);
+
+    /**
+     * Returns the value of the '<em><b>Task Switch Delay</b></em>' attribute.
+     * The default value is <code>"0"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Task Switch Delay</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Task Switch Delay</em>' attribute.
+     * @see #setTaskSwitchDelay(int)
+     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_TaskSwitchDelay()
+     * @model default="0" unique="false"
+     * @generated
+     */
+    int getTaskSwitchDelay();
+
+    /**
+     * Sets the value of the '{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Task Switch Delay</em>' attribute.
+     * @see #getTaskSwitchDelay()
+     * @generated
+     */
+    void setTaskSwitchDelay(int value);
 
     /**
      * Returns the value of the '<em><b>Compartments</b></em>' containment reference list.
