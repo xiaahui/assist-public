@@ -2,10 +2,10 @@ package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.model.Task
 import java.util.Map.Entry
 import org.eclipse.emf.ecore.util.EcoreUtil
-import ch.hilbri.assist.model.MappingResult
 
 class FactorySchedulingModelFromMappingSolution {
 	
@@ -34,6 +34,8 @@ class FactorySchedulingModelFromMappingSolution {
 			val taskIdx = oldModel.allTasks.indexOf(task)
 			val core = entry.value
 			val coreIdx = oldModel.allCores.indexOf(core)
+			val taskDuration = Math.round(Math.floor(new Double(task.coreUtilization) / new Double(core.capacity) * 100.0)) as int 
+			
 			
 			// Here we assume that despite the object cloning, the index of the cores and tasks
 			// stays constant --> otherwise we would have to implement the Result in EMF reference manner
@@ -41,8 +43,8 @@ class FactorySchedulingModelFromMappingSolution {
 			val clonedTask = clonedModel.allTasks.get(taskIdx)
 			clonedTask => [
 				assignedCore 	= clonedModel.allCores.get(coreIdx)
-				period			= 5
-				duration			= 1
+				period			= 100
+				duration			= taskDuration
 			]
 		}
 		return clonedModel
