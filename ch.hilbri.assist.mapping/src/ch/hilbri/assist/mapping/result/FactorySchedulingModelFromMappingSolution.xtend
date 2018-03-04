@@ -34,7 +34,8 @@ class FactorySchedulingModelFromMappingSolution {
 			val taskIdx = oldModel.allTasks.indexOf(task)
 			val core = entry.value
 			val coreIdx = oldModel.allCores.indexOf(core)
-			val taskDuration = Math.round(Math.floor(new Double(task.coreUtilization) / new Double(core.capacity) * 100.0)) as int 
+			val periodValue = 20
+			val taskDuration = Math.round(Math.floor(new Double(task.coreUtilization) / new Double(core.capacity) * periodValue)) as int 
 			
 			
 			// Here we assume that despite the object cloning, the index of the cores and tasks
@@ -43,7 +44,7 @@ class FactorySchedulingModelFromMappingSolution {
 			val clonedTask = clonedModel.allTasks.get(taskIdx)
 			clonedTask => [
 				assignedCore 	= clonedModel.allCores.get(coreIdx)
-				period			= 100
+				period			= periodValue
 				duration			= taskDuration
 			]
 		}

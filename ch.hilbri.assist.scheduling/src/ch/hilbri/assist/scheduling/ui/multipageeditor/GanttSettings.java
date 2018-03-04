@@ -11,7 +11,7 @@ class GanttSettings extends AbstractSettings {
 	public GanttSettings(DetailedResults detailedResults) {
 		resultsView = detailedResults;
 	}
-
+	
 	public boolean drawHeader() {
 		return true;
 	}
