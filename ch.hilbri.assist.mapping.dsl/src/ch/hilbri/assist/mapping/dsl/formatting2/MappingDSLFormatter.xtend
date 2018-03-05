@@ -18,6 +18,7 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 class MappingDSLFormatter extends AbstractFormatter2 {
 
 	@Inject extension MappingDSLGrammarAccess
+	
 	def dispatch void format(AssistModel assistModel, extension IFormattableDocument document) {
 
 		assistModel => [

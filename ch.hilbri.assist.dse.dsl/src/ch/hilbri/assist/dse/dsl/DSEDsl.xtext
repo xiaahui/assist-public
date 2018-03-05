@@ -20,6 +20,7 @@ AssistModelDSE:
 	('Restrictions' '{'
 					(dislocalityRelations+=DislocalityRelation)*
 					(colocalityRelations+=ColocalityRelation)*
+					(dissimilarityRelations+=DissimilarityRelation)*
 					(restrictionAlternatives+=RestrictionAlternatives)*
 	'}')?
 	
@@ -160,10 +161,41 @@ DislocalityRelation returns DislocalityRelation:
 ColocalityRelation returns ColocalityRelation:
 	applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'; 
 
+DissimilarityRelation: 
+	applications+=[Application|QualifiedName] (',' (applications+=[Application]))*
+	'dissimilar' 'based' 'on'
+	dissimilarityClause=DissimilarityClause ';';
+
+DissimilarityClause:  
+	DissimilarityEntry | 
+	(=>DissimilarityDisjunction | DissimilarityConjunction);  
+
+DissimilarityEntry: 
+	dissimilarityAttribute=DissimilarityAttributes;
+
+DissimilarityDisjunction: 
+	'(' dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ 	')' ;
+
+DissimilarityConjunction: 
+	'(' dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ 	')';
+
+
+enum DissimilarityAttributes:
+	COMPARTMENT_MANUFACTURER		= 'Compartment.Manufacturer'			|
+	COMPARTMENT_POWERSUPPLY		= 'Compartment.PowerSupply'			|
+	BOX_MANUFACTURER				= 'Box.Manufacturer'					|
+	BOARD_MANUFACTURER			= 'Board.Manufacturer'				|
+	BOARD_BOARDTYPE				= 'Board.Type'						|
+	BOARD_POWERSUPPLY			= 'Board.PowerSupply'				|
+	BOARD_ASSURANCELEVEL			= 'Board.DesignAssuranceLevel'		|
+	PROCESSOR_MANUFACTURER		= 'Processor.Manufacturer'			|
+	PROCESSOR_PROCESSORTYPE		= 'Processor.Type'					|
+	CORE_ARCHITECTURE			= 'Core.Architecture'
+;
+
 
 /* Exploration Candidates */
 /* ********************** */
-
 ExplorationCandidate returns ExplorationCandidate:
 	'Candidate' name=ID '{'
 		('Boards' 		'=' boardAlternatives+=[BoardAlternative] 				(',' boardAlternatives+=[BoardAlternative])* 				';')?
