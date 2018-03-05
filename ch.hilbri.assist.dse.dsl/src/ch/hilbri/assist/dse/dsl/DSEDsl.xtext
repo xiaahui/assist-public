@@ -165,7 +165,7 @@ ColocalityRelation returns ColocalityRelation:
 /* ********************** */
 
 ExplorationCandidate returns ExplorationCandidate:
-	name=ID '{'
+	'Candidate' name=ID '{'
 		('Boards' 		'=' boardAlternatives+=[BoardAlternative] 				(',' boardAlternatives+=[BoardAlternative])* 				';')?
 		('Applications' '=' applicationAlternatives+=[ApplicationAlternative] 	(',' applicationAlternatives+=[ApplicationAlternative])* 	';')?
 		('Restrictions' '=' restrictionAlternatives+=[RestrictionAlternative] 	(',' restrictionAlternatives+=[RestrictionAlternative])* 	';')?
