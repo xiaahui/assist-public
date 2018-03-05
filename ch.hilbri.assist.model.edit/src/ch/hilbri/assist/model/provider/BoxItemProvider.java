@@ -111,6 +111,7 @@ public class BoxItemProvider extends HardwareElementItemProvider {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.BOX__BOARDS);
+            childrenFeatures.add(ModelPackage.Literals.BOX__BOARD_ALTERNATIVES);
         }
         return childrenFeatures;
     }
@@ -170,6 +171,7 @@ public class BoxItemProvider extends HardwareElementItemProvider {
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.BOX__BOARDS:
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -191,6 +193,11 @@ public class BoxItemProvider extends HardwareElementItemProvider {
             (createChildParameter
                 (ModelPackage.Literals.BOX__BOARDS,
                  ModelFactory.eINSTANCE.createBoard()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.BOX__BOARD_ALTERNATIVES,
+                 ModelFactory.eINSTANCE.createBoardAlternatives()));
     }
 
 }

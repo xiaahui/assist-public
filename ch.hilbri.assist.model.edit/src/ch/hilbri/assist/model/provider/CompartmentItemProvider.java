@@ -192,11 +192,6 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
             (createChildParameter
                 (ModelPackage.Literals.COMPARTMENT__BOXES,
                  ModelFactory.eINSTANCE.createBox()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.COMPARTMENT__BOXES,
-                 ModelFactory.eINSTANCE.createBoxDSE()));
     }
 
 }

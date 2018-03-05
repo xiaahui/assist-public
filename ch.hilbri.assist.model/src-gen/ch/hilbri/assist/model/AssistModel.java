@@ -23,6 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getExplorationCandidates <em>Exploration Candidates</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getAssistModel()
@@ -190,6 +193,54 @@ public interface AssistModel extends EObject {
      * @generated
      */
     EList<DissimilarityRelation> getDissimilarityRelations();
+
+    /**
+     * Returns the value of the '<em><b>Application Alternatives</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.ApplicationAlternatives}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Application Alternatives</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Application Alternatives</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_ApplicationAlternatives()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ApplicationAlternatives> getApplicationAlternatives();
+
+    /**
+     * Returns the value of the '<em><b>Restriction Alternatives</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.RestrictionAlternatives}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Restriction Alternatives</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Restriction Alternatives</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_RestrictionAlternatives()
+     * @model containment="true"
+     * @generated
+     */
+    EList<RestrictionAlternatives> getRestrictionAlternatives();
+
+    /**
+     * Returns the value of the '<em><b>Exploration Candidates</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.ExplorationCandidate}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Exploration Candidates</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Exploration Candidates</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_ExplorationCandidates()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ExplorationCandidate> getExplorationCandidates();
 
     /**
      * <!-- begin-user-doc -->

@@ -42,8 +42,8 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getPowerSupply <em>Power Supply</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getBoxes <em>Boxes</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,16 +70,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     protected String powerSupply = POWER_SUPPLY_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFullName()
-     * @generated
-     * @ordered
-     */
-    protected static final String FULL_NAME_EDEFAULT = null;
-
-    /**
      * The cached value of the '{@link #getBoxes() <em>Boxes</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -88,6 +78,16 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * @ordered
      */
     protected EList<Box> boxes;
+
+    /**
+     * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFullName()
+     * @generated
+     * @ordered
+     */
+    protected static final String FULL_NAME_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -134,8 +134,11 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFullName() {
-        return this.getName();
+    public EList<Box> getBoxes() {
+        if (boxes == null) {
+            boxes = new EObjectContainmentWithInverseEList<Box>(Box.class, this, ModelPackage.COMPARTMENT__BOXES, ModelPackage.BOX__COMPARTMENT);
+        }
+        return boxes;
     }
 
     /**
@@ -143,11 +146,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Box> getBoxes() {
-        if (boxes == null) {
-            boxes = new EObjectContainmentWithInverseEList<Box>(Box.class, this, ModelPackage.COMPARTMENT__BOXES, ModelPackage.BOX__COMPARTMENT);
-        }
-        return boxes;
+    public String getFullName() {
+        return this.getName();
     }
 
     /**
@@ -240,10 +240,10 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
         switch (featureID) {
             case ModelPackage.COMPARTMENT__POWER_SUPPLY:
                 return getPowerSupply();
-            case ModelPackage.COMPARTMENT__FULL_NAME:
-                return getFullName();
             case ModelPackage.COMPARTMENT__BOXES:
                 return getBoxes();
+            case ModelPackage.COMPARTMENT__FULL_NAME:
+                return getFullName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -296,10 +296,10 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
         switch (featureID) {
             case ModelPackage.COMPARTMENT__POWER_SUPPLY:
                 return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
-            case ModelPackage.COMPARTMENT__FULL_NAME:
-                return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
             case ModelPackage.COMPARTMENT__BOXES:
                 return boxes != null && !boxes.isEmpty();
+            case ModelPackage.COMPARTMENT__FULL_NAME:
+                return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
         }
         return super.eIsSet(featureID);
     }

@@ -58,6 +58,24 @@ public interface ModelFactory extends EFactory {
     Box createBox();
 
     /**
+     * Returns a new object of class '<em>Board Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board Alternatives</em>'.
+     * @generated
+     */
+    BoardAlternatives createBoardAlternatives();
+
+    /**
+     * Returns a new object of class '<em>Board Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board Alternative</em>'.
+     * @generated
+     */
+    BoardAlternative createBoardAlternative();
+
+    /**
      * Returns a new object of class '<em>Board</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -92,6 +110,24 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     IOAdapter createIOAdapter();
+
+    /**
+     * Returns a new object of class '<em>Application Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application Alternatives</em>'.
+     * @generated
+     */
+    ApplicationAlternatives createApplicationAlternatives();
+
+    /**
+     * Returns a new object of class '<em>Application Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application Alternative</em>'.
+     * @generated
+     */
+    ApplicationAlternative createApplicationAlternative();
 
     /**
      * Returns a new object of class '<em>Application</em>'.
@@ -191,60 +227,6 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     MetricParameter createMetricParameter();
-
-    /**
-     * Returns a new object of class '<em>Assist Model DSE</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Assist Model DSE</em>'.
-     * @generated
-     */
-    AssistModelDSE createAssistModelDSE();
-
-    /**
-     * Returns a new object of class '<em>Box DSE</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Box DSE</em>'.
-     * @generated
-     */
-    BoxDSE createBoxDSE();
-
-    /**
-     * Returns a new object of class '<em>Board Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Board Alternatives</em>'.
-     * @generated
-     */
-    BoardAlternatives createBoardAlternatives();
-
-    /**
-     * Returns a new object of class '<em>Board Alternative</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Board Alternative</em>'.
-     * @generated
-     */
-    BoardAlternative createBoardAlternative();
-
-    /**
-     * Returns a new object of class '<em>Application Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Application Alternatives</em>'.
-     * @generated
-     */
-    ApplicationAlternatives createApplicationAlternatives();
-
-    /**
-     * Returns a new object of class '<em>Application Alternative</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Application Alternative</em>'.
-     * @generated
-     */
-    ApplicationAlternative createApplicationAlternative();
 
     /**
      * Returns a new object of class '<em>Restriction Alternatives</em>'.

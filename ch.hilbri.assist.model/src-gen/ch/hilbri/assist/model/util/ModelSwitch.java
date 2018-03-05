@@ -7,13 +7,11 @@ import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.model.AssistModelDSE;
 import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
 import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
-import ch.hilbri.assist.model.BoxDSE;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
@@ -127,6 +125,18 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.BOARD_ALTERNATIVES: {
+                BoardAlternatives boardAlternatives = (BoardAlternatives)theEObject;
+                T result = caseBoardAlternatives(boardAlternatives);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.BOARD_ALTERNATIVE: {
+                BoardAlternative boardAlternative = (BoardAlternative)theEObject;
+                T result = caseBoardAlternative(boardAlternative);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.BOARD: {
                 Board board = (Board)theEObject;
                 T result = caseBoard(board);
@@ -151,6 +161,18 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.IO_ADAPTER: {
                 IOAdapter ioAdapter = (IOAdapter)theEObject;
                 T result = caseIOAdapter(ioAdapter);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.APPLICATION_ALTERNATIVES: {
+                ApplicationAlternatives applicationAlternatives = (ApplicationAlternatives)theEObject;
+                T result = caseApplicationAlternatives(applicationAlternatives);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.APPLICATION_ALTERNATIVE: {
+                ApplicationAlternative applicationAlternative = (ApplicationAlternative)theEObject;
+                T result = caseApplicationAlternative(applicationAlternative);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -220,45 +242,6 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.METRIC_PARAMETER: {
                 MetricParameter metricParameter = (MetricParameter)theEObject;
                 T result = caseMetricParameter(metricParameter);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.ASSIST_MODEL_DSE: {
-                AssistModelDSE assistModelDSE = (AssistModelDSE)theEObject;
-                T result = caseAssistModelDSE(assistModelDSE);
-                if (result == null) result = caseAssistModel(assistModelDSE);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.BOX_DSE: {
-                BoxDSE boxDSE = (BoxDSE)theEObject;
-                T result = caseBoxDSE(boxDSE);
-                if (result == null) result = caseBox(boxDSE);
-                if (result == null) result = caseHardwareElement(boxDSE);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.BOARD_ALTERNATIVES: {
-                BoardAlternatives boardAlternatives = (BoardAlternatives)theEObject;
-                T result = caseBoardAlternatives(boardAlternatives);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.BOARD_ALTERNATIVE: {
-                BoardAlternative boardAlternative = (BoardAlternative)theEObject;
-                T result = caseBoardAlternative(boardAlternative);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.APPLICATION_ALTERNATIVES: {
-                ApplicationAlternatives applicationAlternatives = (ApplicationAlternatives)theEObject;
-                T result = caseApplicationAlternatives(applicationAlternatives);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.APPLICATION_ALTERNATIVE: {
-                ApplicationAlternative applicationAlternative = (ApplicationAlternative)theEObject;
-                T result = caseApplicationAlternative(applicationAlternative);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -388,6 +371,36 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBoardAlternatives(BoardAlternatives object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBoardAlternative(BoardAlternative object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Board</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -444,6 +457,36 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseIOAdapter(IOAdapter object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplicationAlternatives(ApplicationAlternatives object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplicationAlternative(ApplicationAlternative object) {
         return null;
     }
 
@@ -609,96 +652,6 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseMetricParameter(MetricParameter object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Assist Model DSE</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Assist Model DSE</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseAssistModelDSE(AssistModelDSE object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Box DSE</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Box DSE</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBoxDSE(BoxDSE object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBoardAlternatives(BoardAlternatives object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBoardAlternative(BoardAlternative object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseApplicationAlternatives(ApplicationAlternatives object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseApplicationAlternative(ApplicationAlternative object) {
         return null;
     }
 

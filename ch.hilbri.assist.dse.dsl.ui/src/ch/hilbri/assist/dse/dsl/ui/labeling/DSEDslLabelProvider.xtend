@@ -6,9 +6,7 @@ import ch.hilbri.assist.model.ApplicationAlternatives
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Board
 import ch.hilbri.assist.model.BoardAlternative
-import ch.hilbri.assist.model.BoardAlternatives
 import ch.hilbri.assist.model.Box
-import ch.hilbri.assist.model.BoxDSE
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
@@ -50,7 +48,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_hardware_node.gif'
 	}
 
-	def text(BoxDSE box) {
+	def text(Box box) {
 		'Box ' + box.name
 	}
 
@@ -156,13 +154,13 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def image(BoardAlternatives ba) {
-		'outlineview_alternatives.png'
-	}
-	
-	def text(BoardAlternatives ba) {
-		'Alternatives'
-	}
+//	def image(BoardAlternatives ba) {
+//		'outlineview_alternatives.png'
+//	}
+//	
+//	def text(BoardAlternatives ba) {
+//		'Alternatives'
+//	}
 	
 	def image(BoardAlternative ba) {
 		'outlineview_alternative.gif'

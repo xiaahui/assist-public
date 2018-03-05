@@ -3,13 +3,15 @@ package ch.hilbri.assist.dse.dsl.formatting2
 import ch.hilbri.assist.dse.dsl.services.DSEDslGrammarAccess
 import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.ApplicationAlternative
-import ch.hilbri.assist.model.AssistModelDSE
+import ch.hilbri.assist.model.ApplicationAlternatives
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.BoardAlternative
-import ch.hilbri.assist.model.BoxDSE
+import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityRelation
+import ch.hilbri.assist.model.ExplorationCandidate
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.RestrictionAlternative
 import ch.hilbri.assist.model.Task
@@ -17,15 +19,14 @@ import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import ch.hilbri.assist.model.ExplorationCandidate
 
 class DSEDslFormatter extends AbstractFormatter2 {
 
 	@Inject extension DSEDslGrammarAccess
 
-	def dispatch void format(AssistModelDSE assistModelDSE, extension IFormattableDocument document) {
+	def dispatch void format(AssistModel assistModel, extension IFormattableDocument document) {
 
-		assistModelDSE => [
+		assistModel => [
 			regionFor.keywordPairs('{', '}').forEach[interior[indent]]
 			regionFor.keywords('{').forEach[append[newLine]]
 			regionFor.keywords('}').forEach[append[newLines = 2]]
@@ -42,7 +43,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		]
 	}
 
-	def dispatch void format(BoxDSE box, extension IFormattableDocument document) {
+	def dispatch void format(Box box, extension IFormattableDocument document) {
 		box.defaultFormat(document)
 		box.boards.forEach[format]
 		box.boardAlternatives.forEach[format]
@@ -58,6 +59,11 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		hwElem.eContents.forEach[format]
 	}
 
+	def dispatch void format(ApplicationAlternatives alternatives, extension IFormattableDocument document) {
+		alternatives.defaultFormat(document)
+		alternatives.alternatives.forEach[format]
+	}
+
 	def dispatch void format(ApplicationAlternative alternative, extension IFormattableDocument document) {
 		alternative.defaultFormat(document)
 		alternative.applications.forEach[format]	
@@ -65,11 +71,13 @@ class DSEDslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
 		app.defaultFormat(document)
+		app.regionFor.assignment(applicationAccess.nameAssignment_1).surround[oneSpace]
 		app.tasks.forEach[format]
 	}
 
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task.defaultFormat(document)
+		task.regionFor.assignment(taskAccess.nameAssignment_1).surround[oneSpace]
 		// no children
 	}
 	

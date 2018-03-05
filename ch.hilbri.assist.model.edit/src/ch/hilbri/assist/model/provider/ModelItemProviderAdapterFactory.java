@@ -164,6 +164,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternatives} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BoardAlternativesItemProvider boardAlternativesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardAlternatives}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBoardAlternativesAdapter() {
+        if (boardAlternativesItemProvider == null) {
+            boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
+        }
+
+        return boardAlternativesItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Board} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,75 +529,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return metricParameterItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AssistModelDSE} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected AssistModelDSEItemProvider assistModelDSEItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.AssistModelDSE}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createAssistModelDSEAdapter() {
-        if (assistModelDSEItemProvider == null) {
-            assistModelDSEItemProvider = new AssistModelDSEItemProvider(this);
-        }
-
-        return assistModelDSEItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoxDSE} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected BoxDSEItemProvider boxDSEItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.BoxDSE}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createBoxDSEAdapter() {
-        if (boxDSEItemProvider == null) {
-            boxDSEItemProvider = new BoxDSEItemProvider(this);
-        }
-
-        return boxDSEItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternatives} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected BoardAlternativesItemProvider boardAlternativesItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardAlternatives}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createBoardAlternativesAdapter() {
-        if (boardAlternativesItemProvider == null) {
-            boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
-        }
-
-        return boardAlternativesItemProvider;
     }
 
 	/**
@@ -933,10 +887,14 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();
         if (boxItemProvider != null) boxItemProvider.dispose();
+        if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
+        if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
         if (boardItemProvider != null) boardItemProvider.dispose();
         if (processorItemProvider != null) processorItemProvider.dispose();
         if (coreItemProvider != null) coreItemProvider.dispose();
         if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
+        if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
+        if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
         if (taskItemProvider != null) taskItemProvider.dispose();
         if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
@@ -948,12 +906,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
         if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
         if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
-        if (assistModelDSEItemProvider != null) assistModelDSEItemProvider.dispose();
-        if (boxDSEItemProvider != null) boxDSEItemProvider.dispose();
-        if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
-        if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
-        if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
-        if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
         if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
         if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
         if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();

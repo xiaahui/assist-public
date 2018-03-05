@@ -20,10 +20,16 @@ class AssistModel {
 	int				taskSwitchDelay 		= "0"
 	
 	contains 		Compartment[1..*] 				compartments
+	
 	contains 		Application[1..*] 				applications
+	
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
 	contains 		ColocalityRelation[0..*] 		colocalityRelations
-	contains 		DissimilarityRelation[0..*] 	dissimilarityRelations
+	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
+	
+	contains 		ApplicationAlternatives[0..*] 	applicationAlternatives
+	contains 		RestrictionAlternatives[0..*]	restrictionAlternatives
+	contains 		ExplorationCandidate[0..*]		explorationCandidates
 
 	op Compartment[] 	getAllCompartments() 	{ compartments										}
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList			}
@@ -50,8 +56,11 @@ class HardwareElement {
 
 class Compartment extends HardwareElement {
 	String powerSupply			= ""
-	derived String fullName get { name }
+	
 	contains Box[1..*] boxes opposite compartment
+	
+	derived String fullName get { name }
+		
 	op Box[] 			getAllBoxes() 		{ boxes	}
 	op Board[] 			getAllBoards() 		{ boxes.map[allBoards].flatten.toEList 		}
 	op Processor[] 		getAllProcessors() 	{ boxes.map[allProcessors].flatten.toEList 	}
@@ -60,24 +69,40 @@ class Compartment extends HardwareElement {
 
 
 class Box extends HardwareElement {
-	container Compartment compartment opposite boxes
-	contains Board[0..*] boards opposite box
+	container 	Compartment compartment opposite boxes
+	
+	contains 	Board[0..*] boards opposite box
+	contains 	BoardAlternatives[0..*] boardAlternatives
+	
 	derived String fullName get { compartment.fullName + "." + name }
+	
 	op Board[] 			getAllBoards() 		{ boards }
 	op Processor[] 		getAllProcessors() 	{ boards.map[allProcessors].flatten.toEList 	}
 	op Core[] 			getAllCores() 		{ boards.map[allCores].flatten.toEList		}
+}
+
+class BoardAlternatives {  // XOR
+	contains BoardAlternative[0..*] alternatives
+}
+
+class BoardAlternative {
+	String name	= ""
+	contains Board[0..*] boards 
 }
 
 class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 							ramCapacity 	= "0"
-	int 							romCapacity 	= "0"
-	container 	Box 				box 			opposite boards
+	int 								ramCapacity 	= "0"
+	int 								romCapacity 	= "0"
+	
+	container 	Box 				box 				opposite boards
 	contains 	Processor[1..*] 	processors 		opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
-	derived String fullName get { box.fullName + "." + name }
+	
+	derived String fullName get { if (box !== null) box.fullName + "." + name else name}
+	
 	op String			toString() 			{ name }
 	op Processor[] 		getAllProcessors() 	{ processors }
 	op Core[] 			getAllCores() 		{ processors.map[allCores].flatten.toEList }
@@ -104,6 +129,16 @@ class IOAdapter {
 	IOAdapterType adapterType 	= "None"
 }
 
+
+class ApplicationAlternatives {  // XOR
+	contains ApplicationAlternative[0..*] alternatives
+}
+
+class ApplicationAlternative {
+	String name
+	contains Application[0..*] applications
+}
+
 class Application {
 	String 						name 				= ""
 	String 						developedBy			= ""
@@ -116,19 +151,19 @@ class Application {
 }
 
 class Task {	
-	String name 												= ""
-	int coreUtilization 										= "0"
+	String name 													= ""
+	int coreUtilization 											= "0"
 	int ramUtilization 											= "0"
 	int romUtilization											= "0"
 	int duration 												= "-1"
 	int period													= "-1"
 	int earlyTolerance											= "-1"
 	int lateTolerance											= "-1"
-	int maxStartTime											= "-1"
+	int maxStartTime												= "-1"
 	int maxEndTime												= "-1"
 	int addInitTime												= "-1"
 	int slices													= "-1"
-	int minSliceDuration										= "-1"
+	int minSliceDuration											= "-1"
 	PeriodicityType periodicity									= "strict"
 	Color color													= "none"
 	container Application application opposite tasks
@@ -141,22 +176,22 @@ class Task {
 }
 
 enum Color {
-	NONE			as "none"			= -1
+	NONE				as "none"			= -1
 	BLACK			as "black"			= 0
-	BLUE			as "blue" 			= 1
-	CYAN			as "cyan"			= 2
-	GRAY			as "gray"			= 3
+	BLUE				as "blue" 			= 1
+	CYAN				as "cyan"			= 2
+	GRAY				as "gray"			= 3
 	GREEN			as "green"			= 4
-	MAGENTA			as "magenta"		= 5
-	RED				as "red"			= 6
+	MAGENTA			as "magenta"			= 5
+	RED				as "red"				= 6
 	WHITE			as "white"			= 7
 	YELLOW			as "yellow"			= 8 
 	DARK_BLUE		as "darkblue"		= 9
 	DARK_CYAN		as "darkcyan"		= 10
 	DARK_GRAY		as "darkgray"		= 11
 	DARK_GREEN		as "darkgreen"		= 12
-	DARK_MAGENTA	as "darkmagenta"	= 13
-	DARK_RED		as "darkred"		= 14
+	DARK_MAGENTA		as "darkmagenta"		= 13
+	DARK_RED			as "darkred"			= 14
 	DARK_YELLOW		as "darkyellow"		= 15
 }
 
@@ -251,8 +286,8 @@ enum DesignAssuranceLevelType {
 }
 
 enum IOAdapterType {
-	NONE		as "None"
-	CAN 		as "Can"
+	NONE			as "None"
+	CAN 			as "Can"
 	ELB			as "Enhanced Local Bus"
 	ETH			as "Ethernet"
 	ANALOG 		as "Analog"
@@ -265,36 +300,8 @@ enum PeriodicityType {
 	FLEXIBLE		as "flexible"	= 1
 }
 
-/* *******************************************************
- * DESIGN SPACE EXPLORATION - A SPECIALIZED ASSIST MODEL 
- * ******************************************************* */
-class AssistModelDSE extends AssistModel {
-	contains ApplicationAlternatives[0..*] 	applicationAlternatives
-	contains RestrictionAlternatives[0..*]	restrictionAlternatives
-	contains ExplorationCandidate[0..*]		explorationCandidates
-}
 
-class BoxDSE extends Box {
-	contains BoardAlternatives[0..*] boardAlternatives
-}
 
-class BoardAlternatives {  // XOR
-	contains BoardAlternative[0..*] alternatives
-}
-
-class BoardAlternative {
-	String name
-	contains Board[0..*] boards 
-}
-
-class ApplicationAlternatives {  // XOR
-	contains ApplicationAlternative[0..*] alternatives
-}
-
-class ApplicationAlternative {
-	String name
-	contains Application[0..*] applications
-}
 
 class RestrictionAlternatives {
 	contains RestrictionAlternative[0..*] alternatives
@@ -310,8 +317,8 @@ class RestrictionAlternative{
 class ExplorationCandidate {
 	String name
 	refers BoardAlternative[0..*] 		boardAlternatives
-	refers ApplicationAlternative[0..*] applicationAlternatives
-	refers RestrictionAlternative[0..*] restrictionAlternatives
+	refers ApplicationAlternative[0..*] 	applicationAlternatives
+	refers RestrictionAlternative[0..*] 	restrictionAlternatives
 }
 
 /* **************************************

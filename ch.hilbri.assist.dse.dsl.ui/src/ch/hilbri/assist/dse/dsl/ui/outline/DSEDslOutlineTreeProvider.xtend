@@ -1,6 +1,6 @@
 package ch.hilbri.assist.dse.dsl.ui.outline
 
-import ch.hilbri.assist.model.AssistModelDSE
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.RestrictionAlternative
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
@@ -22,7 +22,7 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	val imgsubfolderDesc = ImageDescriptor.createFromURL(
 		FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));
 
-	def _createChildren(IOutlineNode parentNode, AssistModelDSE model) {
+	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 
 		/* ---------- HARDWARE ------------- */
 		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Hardware", false)

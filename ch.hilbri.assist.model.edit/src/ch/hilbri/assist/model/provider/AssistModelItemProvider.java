@@ -153,6 +153,9 @@ public class AssistModelItemProvider
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
+            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
+            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EXPLORATION_CANDIDATES);
         }
         return childrenFeatures;
     }
@@ -218,6 +221,9 @@ public class AssistModelItemProvider
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
             case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
             case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+            case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
+            case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -259,6 +265,21 @@ public class AssistModelItemProvider
             (createChildParameter
                 (ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS,
                  ModelFactory.eINSTANCE.createDissimilarityRelation()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES,
+                 ModelFactory.eINSTANCE.createApplicationAlternatives()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__RESTRICTION_ALTERNATIVES,
+                 ModelFactory.eINSTANCE.createRestrictionAlternatives()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__EXPLORATION_CANDIDATES,
+                 ModelFactory.eINSTANCE.createExplorationCandidate()));
     }
 
 	/**

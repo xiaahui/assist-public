@@ -240,7 +240,7 @@ public interface Board extends HardwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getBoard_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getBox().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _xifexpression = null;\n&lt;%ch.hilbri.assist.model.Box%&gt; _box = this.getBox();\nboolean _tripleNotEquals = (_box != null);\nif (_tripleNotEquals)\n{\n\t&lt;%java.lang.String%&gt; _fullName = this.getBox().getFullName();\n\t&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n\t&lt;%java.lang.String%&gt; _name = this.getName();\n\t_xifexpression = (_plus + _name);\n}\nelse\n{\n\t_xifexpression = this.getName();\n}\nreturn _xifexpression;'"
      * @generated
      */
     String getFullName();

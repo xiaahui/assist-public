@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface BoardAlternative extends EObject {
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * The default value is <code>""</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -35,7 +36,7 @@ public interface BoardAlternative extends EObject {
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see ch.hilbri.assist.model.ModelPackage#getBoardAlternative_Name()
-     * @model unique="false"
+     * @model default="" unique="false"
      * @generated
      */
     String getName();

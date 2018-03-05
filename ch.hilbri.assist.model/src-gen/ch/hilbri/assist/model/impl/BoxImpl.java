@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -44,6 +46,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.BoxImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoxImpl#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.BoxImpl#getBoardAlternatives <em>Board Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoxImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
@@ -59,6 +62,16 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * @ordered
      */
     protected EList<Board> boards;
+
+    /**
+     * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBoardAlternatives()
+     * @generated
+     * @ordered
+     */
+    protected EList<BoardAlternatives> boardAlternatives;
 
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
@@ -157,6 +170,18 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<BoardAlternatives> getBoardAlternatives() {
+        if (boardAlternatives == null) {
+            boardAlternatives = new EObjectContainmentEList<BoardAlternatives>(BoardAlternatives.class, this, ModelPackage.BOX__BOARD_ALTERNATIVES);
+        }
+        return boardAlternatives;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public String getFullName() {
         String _fullName = this.getCompartment().getFullName();
         String _plus = (_fullName + ".");
@@ -232,6 +257,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
                 return basicSetCompartment(null, msgs);
             case ModelPackage.BOX__BOARDS:
                 return ((InternalEList<?>)getBoards()).basicRemove(otherEnd, msgs);
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
+                return ((InternalEList<?>)getBoardAlternatives()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -263,6 +290,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
                 return basicGetCompartment();
             case ModelPackage.BOX__BOARDS:
                 return getBoards();
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
+                return getBoardAlternatives();
             case ModelPackage.BOX__FULL_NAME:
                 return getFullName();
         }
@@ -285,6 +314,10 @@ public class BoxImpl extends HardwareElementImpl implements Box {
                 getBoards().clear();
                 getBoards().addAll((Collection<? extends Board>)newValue);
                 return;
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
+                getBoardAlternatives().clear();
+                getBoardAlternatives().addAll((Collection<? extends BoardAlternatives>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -303,6 +336,9 @@ public class BoxImpl extends HardwareElementImpl implements Box {
             case ModelPackage.BOX__BOARDS:
                 getBoards().clear();
                 return;
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
+                getBoardAlternatives().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -319,6 +355,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
                 return basicGetCompartment() != null;
             case ModelPackage.BOX__BOARDS:
                 return boards != null && !boards.isEmpty();
+            case ModelPackage.BOX__BOARD_ALTERNATIVES:
+                return boardAlternatives != null && !boardAlternatives.isEmpty();
             case ModelPackage.BOX__FULL_NAME:
                 return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
         }

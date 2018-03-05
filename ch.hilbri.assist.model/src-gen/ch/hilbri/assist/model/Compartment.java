@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Compartment#getPowerSupply <em>Power Supply</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Compartment#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Compartment#getBoxes <em>Boxes</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Compartment#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getCompartment()
@@ -51,22 +51,6 @@ public interface Compartment extends HardwareElement {
     void setPowerSupply(String value);
 
     /**
-     * Returns the value of the '<em><b>Full Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Full Name</em>' attribute.
-     * @see ch.hilbri.assist.model.ModelPackage#getCompartment_FullName()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
-     * @generated
-     */
-    String getFullName();
-
-    /**
      * Returns the value of the '<em><b>Boxes</b></em>' containment reference list.
      * The list contents are of type {@link ch.hilbri.assist.model.Box}.
      * It is bidirectional and its opposite is '{@link ch.hilbri.assist.model.Box#getCompartment <em>Compartment</em>}'.
@@ -83,6 +67,22 @@ public interface Compartment extends HardwareElement {
      * @generated
      */
     EList<Box> getBoxes();
+
+    /**
+     * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Full Name</em>' attribute.
+     * @see ch.hilbri.assist.model.ModelPackage#getCompartment_FullName()
+     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
+     * @generated
+     */
+    String getFullName();
 
     /**
      * <!-- begin-user-doc -->

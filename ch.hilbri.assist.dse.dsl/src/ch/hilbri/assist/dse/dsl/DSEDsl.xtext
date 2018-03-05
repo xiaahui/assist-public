@@ -3,7 +3,7 @@ grammar ch.hilbri.assist.dse.dsl.DSEDsl with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "ch.hilbri.assist.model" 
 
-AssistModelDSE: 
+AssistModel: 
 	'Global' 	'{' 
 					'System' '=' systemName=STRING ';' 
 	'}'
@@ -14,14 +14,14 @@ AssistModelDSE:
 
 	'Software' '{'
 					(applications+=Application)* 
-					(applicationAlternatives+=ApplicationAlternatives)*
+					(applicationAlternatives+=ApplicationAlternatives)?
 	'}'
 
 	('Restrictions' '{'
 					(dislocalityRelations+=DislocalityRelation)*
 					(colocalityRelations+=ColocalityRelation)*
 					(dissimilarityRelations+=DissimilarityRelation)*
-					(restrictionAlternatives+=RestrictionAlternatives)*
+					(restrictionAlternatives+=RestrictionAlternatives)?
 	'}')?
 	
 	('Candidates' '{'
@@ -31,25 +31,37 @@ AssistModelDSE:
 
 /* HARDWARE */
 
-Compartment returns Compartment: 
+Compartment: 
 	'Compartment' name=ID '{'
 		('Manufacturer' 	'=' manufacturer=STRING 	';')?
 		('PowerSupply' 	'=' powerSupply=STRING 	';')?
-		(boxes+=BoxDSE)+
+		(boxes+=Box)+
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
-BoxDSE:
+Box:
 	'Box' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		(boards+=Board)*
-		(boardAlternatives+=BoardAlternatives)*
+		(boardAlternatives+=BoardAlternatives)?
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
+
+BoardAlternatives:
+	'Alternatives' '{' 
+			 (alternatives+=BoardAlternative)+
+	'}'
+;
+
+BoardAlternative: 
+	'Alternative' name=ID '{'
+		(boards+=Board)*
+	'}'
+;
 	
-Board returns Board:
+Board:
 	'Board' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('Type' 					'=' boardType=STRING ';')?
@@ -63,7 +75,7 @@ Board returns Board:
 	'}'
 ;
 
-Processor returns Processor:
+Processor:
 	'Processor' name=ID '{'
 	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
 	    ('Type'         			'=' processorType=STRING ';')?
@@ -71,30 +83,18 @@ Processor returns Processor:
 		('Properties' '{'		(metricParameters+=MetricParameter)* '}')?
 	'}';
 
-Core returns Core:
+Core:
 	'Core' name=ID '{' 
 		('Capacity' 					'=' capacity=INT ';')?
 		('Architecture' 				'=' architecture=STRING ';')?
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
-IOAdapter returns IOAdapter:
+IOAdapter:
 	'Adapter' name=ID '{' 	
 	 	'Type' '=' adapterType=IOAdapterType ';'
 	 	'Count' '=' totalCount=INT ';'
 	'}' 
-;
-
-BoardAlternatives: 
-	'Alternatives' '{' 
-		(alternatives+=BoardAlternative)+
-	'}'
-;
-
-BoardAlternative: 
-	'Alternative' name=ID '{'
-		(boards+=Board)*
-	'}'
 ;
 
 /* SOFTWARE */
@@ -131,7 +131,6 @@ ApplicationAlternatives:
 		(alternatives+=ApplicationAlternative)+
 	'}'
 ;
-
 
 ApplicationAlternative: 
 	'Alternative' name=ID  '{'
@@ -179,7 +178,6 @@ DissimilarityDisjunction:
 
 DissimilarityConjunction: 
 	'(' dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ 	')';
-
 
 enum DissimilarityAttributes:
 	COMPARTMENT_MANUFACTURER		= 'Compartment.Manufacturer'			|

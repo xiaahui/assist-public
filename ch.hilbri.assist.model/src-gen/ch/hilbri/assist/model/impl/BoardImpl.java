@@ -393,10 +393,19 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * @generated
      */
     public String getFullName() {
-        String _fullName = this.getBox().getFullName();
-        String _plus = (_fullName + ".");
-        String _name = this.getName();
-        return (_plus + _name);
+        String _xifexpression = null;
+        Box _box = this.getBox();
+        boolean _tripleNotEquals = (_box != null);
+        if (_tripleNotEquals) {
+            String _fullName = this.getBox().getFullName();
+            String _plus = (_fullName + ".");
+            String _name = this.getName();
+            _xifexpression = (_plus + _name);
+        }
+        else {
+            _xifexpression = this.getName();
+        }
+        return _xifexpression;
     }
 
     /**
