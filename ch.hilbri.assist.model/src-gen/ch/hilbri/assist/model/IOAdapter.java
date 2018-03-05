@@ -23,88 +23,88 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface IOAdapter extends EObject {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_Name()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getName();
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_Name()
+	 * @model default="" unique="false"
+	 * @generated
+	 */
+	String getName();
 
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
-    /**
-     * Returns the value of the '<em><b>Total Count</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Total Count</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Total Count</em>' attribute.
-     * @see #setTotalCount(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_TotalCount()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getTotalCount();
+	/**
+	 * Returns the value of the '<em><b>Total Count</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Total Count</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Total Count</em>' attribute.
+	 * @see #setTotalCount(int)
+	 * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_TotalCount()
+	 * @model default="0" unique="false"
+	 * @generated
+	 */
+	int getTotalCount();
 
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getTotalCount <em>Total Count</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Total Count</em>' attribute.
-     * @see #getTotalCount()
-     * @generated
-     */
-    void setTotalCount(int value);
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getTotalCount <em>Total Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Total Count</em>' attribute.
+	 * @see #getTotalCount()
+	 * @generated
+	 */
+	void setTotalCount(int value);
 
-    /**
-     * Returns the value of the '<em><b>Adapter Type</b></em>' attribute.
-     * The default value is <code>"None"</code>.
-     * The literals are from the enumeration {@link ch.hilbri.assist.model.IOAdapterType}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Adapter Type</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Adapter Type</em>' attribute.
-     * @see ch.hilbri.assist.model.IOAdapterType
-     * @see #setAdapterType(IOAdapterType)
-     * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_AdapterType()
-     * @model default="None" unique="false"
-     * @generated
-     */
-    IOAdapterType getAdapterType();
+	/**
+	 * Returns the value of the '<em><b>Adapter Type</b></em>' attribute.
+	 * The default value is <code>"None"</code>.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.IOAdapterType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Adapter Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Adapter Type</em>' attribute.
+	 * @see ch.hilbri.assist.model.IOAdapterType
+	 * @see #setAdapterType(IOAdapterType)
+	 * @see ch.hilbri.assist.model.ModelPackage#getIOAdapter_AdapterType()
+	 * @model default="None" unique="false"
+	 * @generated
+	 */
+	IOAdapterType getAdapterType();
 
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getAdapterType <em>Adapter Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Adapter Type</em>' attribute.
-     * @see ch.hilbri.assist.model.IOAdapterType
-     * @see #getAdapterType()
-     * @generated
-     */
-    void setAdapterType(IOAdapterType value);
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.IOAdapter#getAdapterType <em>Adapter Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adapter Type</em>' attribute.
+	 * @see ch.hilbri.assist.model.IOAdapterType
+	 * @see #getAdapterType()
+	 * @generated
+	 */
+	void setAdapterType(IOAdapterType value);
 
 } // IOAdapter
