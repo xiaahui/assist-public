@@ -104,6 +104,7 @@ public class RestrictionAlternativeItemProvider
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
+            childrenFeatures.add(ModelPackage.Literals.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS);
         }
         return childrenFeatures;
     }
@@ -164,6 +165,7 @@ public class RestrictionAlternativeItemProvider
                 return;
             case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
             case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -190,6 +192,11 @@ public class RestrictionAlternativeItemProvider
             (createChildParameter
                 (ModelPackage.Literals.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS,
                  ModelFactory.eINSTANCE.createColocalityRelation()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS,
+                 ModelFactory.eINSTANCE.createDissimilarityRelation()));
     }
 
 	/**

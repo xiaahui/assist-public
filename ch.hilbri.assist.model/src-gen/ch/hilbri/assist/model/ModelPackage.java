@@ -2186,13 +2186,22 @@ public interface ModelPackage extends EPackage {
     int RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS = 2;
 
     /**
+     * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS = 3;
+
+    /**
      * The number of structural features of the '<em>Restriction Alternative</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RESTRICTION_ALTERNATIVE_FEATURE_COUNT = 3;
+    int RESTRICTION_ALTERNATIVE_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Restriction Alternative</em>' class.
@@ -4394,6 +4403,17 @@ public interface ModelPackage extends EPackage {
     EReference getRestrictionAlternative_ColocalityRelations();
 
     /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.RestrictionAlternative#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Dissimilarity Relations</em>'.
+     * @see ch.hilbri.assist.model.RestrictionAlternative#getDissimilarityRelations()
+     * @see #getRestrictionAlternative()
+     * @generated
+     */
+    EReference getRestrictionAlternative_DissimilarityRelations();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.ExplorationCandidate <em>Exploration Candidate</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6213,6 +6233,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS = eINSTANCE.getRestrictionAlternative_ColocalityRelations();
+
+        /**
+         * The meta object literal for the '<em><b>Dissimilarity Relations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS = eINSTANCE.getRestrictionAlternative_DissimilarityRelations();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ExplorationCandidateImpl <em>Exploration Candidate</em>}' class.

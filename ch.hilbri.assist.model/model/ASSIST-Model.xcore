@@ -302,9 +302,9 @@ class RestrictionAlternatives {
 
 class RestrictionAlternative{
 	String name
-	contains DislocalityRelation[0..*] dislocalityRelations
-	contains ColocalityRelation[0..*] colocalityRelations
-	// dissimilarityRelations
+	contains DislocalityRelation[0..*] 	dislocalityRelations
+	contains ColocalityRelation[0..*] 	colocalityRelations
+	contains DissimilarityRelation[0..*]	dissimilarityRelations
 }
 
 class ExplorationCandidate {

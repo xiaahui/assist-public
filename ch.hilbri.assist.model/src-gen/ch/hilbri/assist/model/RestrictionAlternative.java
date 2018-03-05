@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.RestrictionAlternative#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.RestrictionAlternative#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.RestrictionAlternative#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.RestrictionAlternative#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getRestrictionAlternative()
@@ -82,5 +83,21 @@ public interface RestrictionAlternative extends EObject {
      * @generated
      */
     EList<ColocalityRelation> getColocalityRelations();
+
+    /**
+     * Returns the value of the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.DissimilarityRelation}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Dissimilarity Relations</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Dissimilarity Relations</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getRestrictionAlternative_DissimilarityRelations()
+     * @model containment="true"
+     * @generated
+     */
+    EList<DissimilarityRelation> getDissimilarityRelations();
 
 } // RestrictionAlternative

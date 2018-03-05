@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.DislocalityRelation;
+import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.RestrictionAlternative;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +80,16 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * @ordered
      */
     protected EList<ColocalityRelation> colocalityRelations;
+
+    /**
+     * The cached value of the '{@link #getDissimilarityRelations() <em>Dissimilarity Relations</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDissimilarityRelations()
+     * @generated
+     * @ordered
+     */
+    protected EList<DissimilarityRelation> dissimilarityRelations;
 
     /**
      * <!-- begin-user-doc -->
@@ -148,6 +160,18 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<DissimilarityRelation> getDissimilarityRelations() {
+        if (dissimilarityRelations == null) {
+            dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS);
+        }
+        return dissimilarityRelations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -155,6 +179,8 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
                 return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
             case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
                 return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+                return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -173,6 +199,8 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
                 return getDislocalityRelations();
             case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
                 return getColocalityRelations();
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+                return getDissimilarityRelations();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -197,6 +225,10 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
                 getColocalityRelations().clear();
                 getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
                 return;
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+                getDissimilarityRelations().clear();
+                getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -218,6 +250,9 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
             case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
                 getColocalityRelations().clear();
                 return;
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+                getDissimilarityRelations().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -236,6 +271,8 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
                 return dislocalityRelations != null && !dislocalityRelations.isEmpty();
             case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
                 return colocalityRelations != null && !colocalityRelations.isEmpty();
+            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+                return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
         }
         return super.eIsSet(featureID);
     }

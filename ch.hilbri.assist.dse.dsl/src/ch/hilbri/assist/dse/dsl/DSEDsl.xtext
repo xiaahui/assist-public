@@ -151,7 +151,8 @@ RestrictionAlternatives:
 RestrictionAlternative: 
 	'Alternative' name=ID '{'
 		(dislocalityRelations+=DislocalityRelation)*
-		(colocalityRelations+=ColocalityRelation)*		
+		(colocalityRelations+=ColocalityRelation)*	
+		(dissimilarityRelations+=DissimilarityRelation)*
 	'}'
 ;
 
