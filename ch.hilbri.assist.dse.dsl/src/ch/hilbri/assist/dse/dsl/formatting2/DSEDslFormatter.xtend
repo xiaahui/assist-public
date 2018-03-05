@@ -2,17 +2,22 @@ package ch.hilbri.assist.dse.dsl.formatting2
 
 import ch.hilbri.assist.dse.dsl.services.DSEDslGrammarAccess
 import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.ApplicationAlternative
 import ch.hilbri.assist.model.AssistModelDSE
+import ch.hilbri.assist.model.BoardAlternative
+import ch.hilbri.assist.model.BoxDSE
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.HardwareElement
+import ch.hilbri.assist.model.RestrictionAlternative
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import ch.hilbri.assist.model.ExplorationCandidate
 
 class DSEDslFormatter extends AbstractFormatter2 {
 
@@ -28,15 +33,34 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
 			compartments.forEach[format]
 			applications.forEach[format]
+			applicationAlternatives.forEach[format]
 			dislocalityRelations.forEach[format]
 			colocalityRelations.forEach[format]
 			dissimilarityRelations.forEach[format]
+			restrictionAlternatives.forEach[format]
+			explorationCandidates.forEach[format]
 		]
+	}
+
+	def dispatch void format(BoxDSE box, extension IFormattableDocument document) {
+		box.defaultFormat(document)
+		box.boards.forEach[format]
+		box.boardAlternatives.forEach[format]
+	}
+	
+	def dispatch void format(BoardAlternative alternative, extension IFormattableDocument document) {
+		alternative.defaultFormat(document)
+		alternative.boards.forEach[format]		
 	}
 
 	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
 		hwElem.defaultFormat(document)
 		hwElem.eContents.forEach[format]
+	}
+
+	def dispatch void format(ApplicationAlternative alternative, extension IFormattableDocument document) {
+		alternative.defaultFormat(document)
+		alternative.applications.forEach[format]	
 	}
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
@@ -46,7 +70,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task.defaultFormat(document)
-	// no children
+		// no children
 	}
 	
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
@@ -88,6 +112,21 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.keywords('AND').forEach[surround[oneSpace]]
 			regionFor.keywords('OR').forEach[surround[oneSpace]]
 		]		
+	}
+	
+	def dispatch void format(RestrictionAlternative alternative, extension IFormattableDocument document) {
+		alternative => [
+			defaultFormat(document)
+			dislocalityRelations.forEach[format]
+			colocalityRelations.forEach[format]
+			dissimilarityRelations.forEach[format]
+		]
+	}
+	
+	def dispatch void format(ExplorationCandidate candidate, extension IFormattableDocument document) {
+		candidate => [
+			defaultFormat(document)
+		]
 	}
 	
 	private def defaultFormat(EObject obj, extension IFormattableDocument document) {
