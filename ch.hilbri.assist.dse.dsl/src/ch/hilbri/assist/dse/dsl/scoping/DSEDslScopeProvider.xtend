@@ -17,14 +17,16 @@ import ch.hilbri.assist.model.ExplorationCandidate
 class DSEDslScopeProvider extends AbstractDSEDslScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
-		if (context instanceof ExplorationCandidate) // && reference == ModelPackage.Literals.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES) 
+		if (context instanceof ExplorationCandidate && reference == ModelPackage.Literals.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES) 
 		{
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement, BoardAlternative)
 			return Scopes.scopeFor(candidates)
-		} else {
-			return null
-		}
+		} 
+		
+		/* Else - go back to default implementation */
+		return super.getScope(context, reference);
+		
 
 	}
 }

@@ -54,12 +54,19 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 					createNode(proximityRelationNode, r)
 			}
 
+			if (!model.dissimilarityRelations.empty) {
+				val dissimilarityRelationNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc,
+					"Dissimilarity", false)
+				for (r : model.dissimilarityRelations)
+					createNode(dissimilarityRelationNode, r)
+			}
+
 			if (!model.restrictionAlternatives.empty) {
 				for (a : model.restrictionAlternatives)
 					createNode(restrictionsNode, a)
 			}
 		}
-		
+
 		/* ------- CANDIDATES -------------- */
 		if (!model.explorationCandidates.empty) {
 			val candidatesNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Exploration Candidates", false)

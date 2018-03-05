@@ -134,6 +134,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 	def dispatch void format(ExplorationCandidate candidate, extension IFormattableDocument document) {
 		candidate => [
 			defaultFormat(document)
+			regionFor.assignment(explorationCandidateAccess.nameAssignment_1).surround[oneSpace]
 		]
 	}
 	
