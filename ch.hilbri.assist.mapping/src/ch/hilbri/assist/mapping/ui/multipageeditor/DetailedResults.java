@@ -60,13 +60,13 @@ public class DetailedResults extends Composite {
 	private int curResultIndex = -1;
 	private MappingResult curResult = null;
 	private Object curSelectedComponent = null;
-	
+
 	private Button btnFirst;
 	private Button btnPrev;
 	private Button btnGotoResult;
 	private Button btnNext;
 	private Button btnLast;
-	
+
 	private Label lblSolutionName;
 	private TableViewer tblviewerResult;
 	private TableColumn tblclmnProcessor;
@@ -91,6 +91,7 @@ public class DetailedResults extends Composite {
 	private TableCursor tableCursorResult;
 	private Button btnSortScore;
 	private Button btnSortName;
+	private Composite compositeArchitecture;
 
 	/**
 	 * Create the composite.
@@ -102,12 +103,13 @@ public class DetailedResults extends Composite {
 		super(parent, style);
 		multiPageEditor = e;
 		setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		setLayout(new GridLayout(2, false));
+		setLayout(new GridLayout(3, false));
 
 		lblSolutionName = new Label(this, SWT.NONE);
-		lblSolutionName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		lblSolutionName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
 		lblSolutionName.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblSolutionName.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		new Label(this, SWT.NONE);
 
 		Label lblFilterHintText = new Label(this, SWT.NONE);
 		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -120,9 +122,15 @@ public class DetailedResults extends Composite {
 				tblviewerResult.refresh();
 			}
 		});
-		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_textFilter.widthHint = 387;
+		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_textFilter.widthHint = 300;
 		textFilter.setLayoutData(gd_textFilter);
+
+		compositeArchitecture = new Composite(this, SWT.NONE);
+		compositeArchitecture.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		GridData gd_compositeArchitecture = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
+		gd_compositeArchitecture.widthHint = 99;
+		compositeArchitecture.setLayoutData(gd_compositeArchitecture);
 
 		Composite compositeResultData = new Composite(this, SWT.NONE);
 		compositeResultData.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
@@ -130,8 +138,8 @@ public class DetailedResults extends Composite {
 		gl_compositeResultData.marginHeight = 0;
 		gl_compositeResultData.marginWidth = 0;
 		compositeResultData.setLayout(gl_compositeResultData);
-		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
-		gd_compositeResultData.widthHint = 548;
+		GridData gd_compositeResultData = new GridData(SWT.LEFT, SWT.FILL, false, true, 2, 1);
+		gd_compositeResultData.widthHint = 369;
 		gd_compositeResultData.heightHint = 172;
 		compositeResultData.setLayoutData(gd_compositeResultData);
 
@@ -140,14 +148,16 @@ public class DetailedResults extends Composite {
 		tblviewerResult.setFilters(tableFilter);
 
 		tblResult = tblviewerResult.getTable();
-		tblResult.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		GridData gd_tblResult = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_tblResult.widthHint = 337;
+		tblResult.setLayoutData(gd_tblResult);
 		tblResult.setHeaderVisible(true);
 		tblResult.setLinesVisible(true);
-		tblResult.addListener(SWT.EraseItem, new Listener() {   
-		    @Override
-		    public void handleEvent(Event event) {
-		        event.detail &= ~SWT.HOT;
-		    }
+		tblResult.addListener(SWT.EraseItem, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				event.detail &= ~SWT.HOT;
+			}
 		});
 
 		tableViewerColumn = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -158,7 +168,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnApplication = tableViewerColumn.getColumn();
-		tblclmnApplication.setWidth(100);
+		tblclmnApplication.setWidth(75);
 		tblclmnApplication.setText("Application");
 
 		tableViewerColumn_1 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -169,7 +179,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnTask = tableViewerColumn_1.getColumn();
-		tblclmnTask.setWidth(100);
+		tblclmnTask.setWidth(75);
 		tblclmnTask.setText("Task");
 
 		tableViewerColumn_3 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -180,7 +190,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnCore = tableViewerColumn_3.getColumn();
-		tblclmnCore.setWidth(100);
+		tblclmnCore.setWidth(75);
 		tblclmnCore.setText("Core");
 
 		tableViewerColumn_2 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -191,7 +201,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnProcessor = tableViewerColumn_2.getColumn();
-		tblclmnProcessor.setWidth(100);
+		tblclmnProcessor.setWidth(75);
 		tblclmnProcessor.setText("Processor");
 
 		tableViewerColumn_4 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -202,7 +212,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnBoard = tableViewerColumn_4.getColumn();
-		tblclmnBoard.setWidth(100);
+		tblclmnBoard.setWidth(75);
 		tblclmnBoard.setText("Board");
 
 		tableViewerColumn_5 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -213,7 +223,7 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnBox = tableViewerColumn_5.getColumn();
-		tblclmnBox.setWidth(100);
+		tblclmnBox.setWidth(75);
 		tblclmnBox.setText("Box");
 
 		tableViewerColumn_6 = new TableViewerColumn(tblviewerResult, SWT.NONE);
@@ -224,9 +234,9 @@ public class DetailedResults extends Composite {
 			}
 		});
 		tblclmnCompartment = tableViewerColumn_6.getColumn();
-		tblclmnCompartment.setWidth(100);
+		tblclmnCompartment.setWidth(75);
 		tblclmnCompartment.setText("Compartment");
-		
+
 		tableCursorResult = new TableCursor(tblResult, SWT.NONE);
 		tableCursorResult.setForeground(SWTResourceManager.getColor(0, 0, 0));
 		tableCursorResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
@@ -275,7 +285,7 @@ public class DetailedResults extends Composite {
 		rl_compositeNavButtons.justify = true;
 		rl_compositeNavButtons.wrap = false;
 		compositeNavButtons.setLayout(rl_compositeNavButtons);
-		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 
 		btnFirst = new Button(compositeNavButtons, SWT.NONE);
 		btnFirst.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/first_result.png"));
@@ -342,39 +352,39 @@ public class DetailedResults extends Composite {
 		});
 		btnLast.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnLast.setText("Last");
-		
+
 		btnSortScore = new Button(compositeNavButtons, SWT.NONE);
 		btnSortScore.setEnabled(false);
-		btnSortScore.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/results_sort_score.png"));
+		btnSortScore
+				.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/results_sort_score.png"));
 		btnSortScore.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// We want decending sort order
-				mappingResults.sort((r1, r2) -> Double.compare(r2.getScaledTotalScore(),r1.getScaledTotalScore()));
+				mappingResults.sort((r1, r2) -> Double.compare(r2.getScaledTotalScore(), r1.getScaledTotalScore()));
 				setResultsList(mappingResults);
 			}
 		});
 		btnSortScore.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnSortScore.setText("Sort by score");
-		
+
 		btnSortName = new Button(compositeNavButtons, SWT.NONE);
 		btnSortName.setEnabled(false);
 		btnSortName.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/results_sort_id.png"));
 		btnSortName.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				mappingResults.sort((r1, r2)-> Integer.compare(r1.getIndex(), r2.getIndex()));
+				mappingResults.sort((r1, r2) -> Integer.compare(r1.getIndex(), r2.getIndex()));
 				setResultsList(mappingResults);
 			}
 		});
 		btnSortName.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnSortName.setText("Sort by index");
-		
-	
+
 		Composite compositeScoreOverview = new Composite(this, SWT.NONE);
 		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
-		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.BOTTOM, true, false, 2, 1);
+		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.BOTTOM, true, false, 3, 1);
 		gd_compositeScoreOverview.heightHint = 180;
 		gd_compositeScoreOverview.minimumHeight = 180;
 		gd_compositeScoreOverview.widthHint = 406;
@@ -392,6 +402,13 @@ public class DetailedResults extends Composite {
 		scoreOverview.getTitle().setVisible(false);
 
 		IAxis xaxes = scoreOverview.getAxisSet().getXAxes()[0];
+
+		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
+
+		scoreOverview.getAxisSet().adjustRange();
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		xaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		xaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
 		xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
@@ -401,8 +418,6 @@ public class DetailedResults extends Composite {
 		xaxes.getGrid().setStyle(LineStyle.NONE);
 		xaxes.setRange(new Range(0, 10));
 		xaxes.getTick().setFormat(new DecimalFormat("#"));
-
-		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
 		yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
 		yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
@@ -412,8 +427,6 @@ public class DetailedResults extends Composite {
 		yaxes.getGrid().setStyle(LineStyle.DOT);
 		yaxes.getTick().setTickMarkStepHint(30);
 
-		scoreOverview.getAxisSet().adjustRange();
-		
 		/* Preload the available metrics list */
 		availableMetricsList.add(new MaxFreeCapacity());
 		availableMetricsList.add(new UniformCoreLoadDistribution());
@@ -433,8 +446,9 @@ public class DetailedResults extends Composite {
 			/* Update the score chart */
 			double[] xValues = new double[mappingResults.size()];
 			for (int i = 1; i <= mappingResults.size(); i++)
-				xValues[i-1] = i;
-			List<Double> yValueList = mappingResults.stream().map(r -> r.getScaledTotalScore()).collect(Collectors.toList());
+				xValues[i - 1] = i;
+			List<Double> yValueList = mappingResults.stream().map(r -> r.getScaledTotalScore())
+					.collect(Collectors.toList());
 			double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
 
 			ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
@@ -447,7 +461,7 @@ public class DetailedResults extends Composite {
 
 			scoreOverview.getLegend().setVisible(false);
 			scoreOverview.getAxisSet().adjustRange();
-			
+
 			// Let the y range start from 0
 			Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
 			scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
@@ -455,14 +469,13 @@ public class DetailedResults extends Composite {
 			btnGotoResult.setEnabled(true);
 			btnSortName.setEnabled(true);
 			btnSortScore.setEnabled(true);
-			
 
 			showResult(0);
 		}
 
 		/*
-		 * Let the metrics view know, that we might have new results - so it may
-		 * have to enable a button
+		 * Let the metrics view know, that we might have new results - so it may have to
+		 * enable a button
 		 */
 		if (MetricsView.INSTANCE != null)
 			MetricsView.INSTANCE.refreshEntries(multiPageEditor);
@@ -507,8 +520,8 @@ public class DetailedResults extends Composite {
 		if (scoreOverview.getSeriesSet().getSeries("selection") != null)
 			scoreOverview.getSeriesSet().deleteSeries("selection");
 		/* - create a new selection */
-		double[] xValues = {curResultIndex + 1};
-		double[] yValues = {curResult.getScaledTotalScore()};
+		double[] xValues = { curResultIndex + 1 };
+		double[] yValues = { curResult.getScaledTotalScore() };
 		ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "selection");
 		lineSeries.setYSeries(yValues);
 		lineSeries.setXSeries(xValues);
@@ -550,7 +563,7 @@ public class DetailedResults extends Composite {
 	public MappingResult getCurrentResult() {
 		return curResult;
 	}
-	
+
 	public Object getSelectedComponent() {
 		return curSelectedComponent;
 	}
@@ -558,7 +571,7 @@ public class DetailedResults extends Composite {
 	public List<MappingResult> getMappingResults() {
 		return mappingResults;
 	}
-	
+
 	public int getMappingResultsCount() {
 		if (mappingResults == null)
 			return -1;
