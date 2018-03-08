@@ -27,7 +27,9 @@ Require-Bundle: ch.hilbri.assist.gui,
  org.eclipse.xtext.ui;bundle-version="2.10.0",
  ch.hilbri.assist.scheduling.dsl,
  ch.hilbri.assist.scheduling.dsl.ide,
- ch.hilbri.assist.scheduling.dsl.ui
+ ch.hilbri.assist.scheduling.dsl.ui,
+ org.eclipse.zest.core;bundle-version="1.5.300",
+ org.eclipse.zest.layouts;bundle-version="1.1.300"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.analysis,
  ch.hilbri.assist.mapping.analysis.metrics.builtin,
