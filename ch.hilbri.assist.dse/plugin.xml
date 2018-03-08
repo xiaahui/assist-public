@@ -14,7 +14,7 @@
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.dse.ui.wizards.NewDSESpecificationWizard"
-            icon="icons/dse-specification.gif"
+            icon="icons/dse-specification.png"
             id="ch.hilbri.assist.dse.wizards.newDSESpecification"
             name="Design Space Exploration - Specification"
             project="false">

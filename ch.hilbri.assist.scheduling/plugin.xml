@@ -16,7 +16,7 @@
             contributorClass="ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditorContributor"
             default="true"
             extensions="sdsl"
-            icon="icons/scheduling-specification.gif"
+            icon="icons/scheduling-specification.png"
             id="ch.hilbri.assist.scheduling.editors.schedulingeditor"
             name="Scheduling Specification">
       </editor>
@@ -27,7 +27,7 @@
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.scheduling.ui.wizards.NewSchedulingSpecificationWizard"
-            icon="icons/scheduling-specification.gif"
+            icon="icons/scheduling-specification.png"
             id="ch.hilbri.assist.scheduling.wizards.newSchedulingSpecification"
             name="Scheduling - Specification"
             project="false">
