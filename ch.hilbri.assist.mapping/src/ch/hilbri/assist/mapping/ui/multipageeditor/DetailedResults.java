@@ -106,10 +106,9 @@ public class DetailedResults extends Composite {
 		setLayout(new GridLayout(3, false));
 
 		lblSolutionName = new Label(this, SWT.NONE);
-		lblSolutionName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
+		lblSolutionName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		lblSolutionName.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblSolutionName.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-		new Label(this, SWT.NONE);
 
 		Label lblFilterHintText = new Label(this, SWT.NONE);
 		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -126,8 +125,9 @@ public class DetailedResults extends Composite {
 		gd_textFilter.widthHint = 300;
 		textFilter.setLayoutData(gd_textFilter);
 
-		compositeArchitecture = new Composite(this, SWT.NONE);
-		compositeArchitecture.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		compositeArchitecture = new Composite(this, SWT.BORDER);
+		compositeArchitecture.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		compositeArchitecture.setLayout(new FillLayout(SWT.HORIZONTAL));
 		GridData gd_compositeArchitecture = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
 		gd_compositeArchitecture.widthHint = 99;
 		compositeArchitecture.setLayoutData(gd_compositeArchitecture);
@@ -409,6 +409,7 @@ public class DetailedResults extends Composite {
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
+		
 		xaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		xaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
 		xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
