@@ -113,7 +113,7 @@ public class DetailedResults extends Composite {
 		setLayout(new GridLayout(3, false));
 
 		lblSolutionName = new Label(this, SWT.NONE);
-		lblSolutionName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
+		lblSolutionName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 		lblSolutionName.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblSolutionName.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 
@@ -128,9 +128,7 @@ public class DetailedResults extends Composite {
 				tblviewerResult.refresh();
 			}
 		});
-		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_textFilter.widthHint = 300;
-		textFilter.setLayoutData(gd_textFilter);
+		textFilter.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
 		compositeArchitecture = new Composite(this, SWT.BORDER);
 		compositeArchitecture.addControlListener(new ControlAdapter() {
@@ -154,9 +152,8 @@ public class DetailedResults extends Composite {
 		gl_compositeResultData.marginHeight = 0;
 		gl_compositeResultData.marginWidth = 0;
 		compositeResultData.setLayout(gl_compositeResultData);
-		GridData gd_compositeResultData = new GridData(SWT.LEFT, SWT.FILL, false, true, 2, 1);
-		gd_compositeResultData.widthHint = 369;
-		gd_compositeResultData.heightHint = 172;
+		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, false, true, 2, 1);
+		gd_compositeResultData.heightHint = 250;
 		compositeResultData.setLayoutData(gd_compositeResultData);
 
 		tableFilter = new MappingViewerFilter();
@@ -165,7 +162,7 @@ public class DetailedResults extends Composite {
 
 		tblResult = tblviewerResult.getTable();
 		GridData gd_tblResult = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-		gd_tblResult.widthHint = 337;
+		gd_tblResult.widthHint = 420;
 		tblResult.setLayoutData(gd_tblResult);
 		tblResult.setHeaderVisible(true);
 		tblResult.setLinesVisible(true);
