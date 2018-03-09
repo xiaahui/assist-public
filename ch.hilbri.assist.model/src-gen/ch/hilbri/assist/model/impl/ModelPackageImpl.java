@@ -1806,8 +1806,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMappingResult_Model() {
-		return (EReference)mappingResultEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMappingResult_Task2CoreMap() {
+		return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1815,8 +1815,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMappingResult_Task2CoreMap() {
-		return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(3);
+	public EReference getMappingResult_Model() {
+		return (EReference)mappingResultEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2415,8 +2415,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		mappingResultEClass = createEClass(MAPPING_RESULT);
 		createEAttribute(mappingResultEClass, MAPPING_RESULT__NAME);
 		createEAttribute(mappingResultEClass, MAPPING_RESULT__INDEX);
-		createEReference(mappingResultEClass, MAPPING_RESULT__MODEL);
 		createEAttribute(mappingResultEClass, MAPPING_RESULT__TASK2_CORE_MAP);
+		createEReference(mappingResultEClass, MAPPING_RESULT__MODEL);
 		createEReference(mappingResultEClass, MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP);
 		createEReference(mappingResultEClass, MAPPING_RESULT__METRIC_SCALED_SCORES_MAP);
 		createEAttribute(mappingResultEClass, MAPPING_RESULT__PARTIAL_SOLUTION);
@@ -2714,8 +2714,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(mappingResultEClass, MappingResult.class, "MappingResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMappingResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappingResult_Index(), theEcorePackage.getEInt(), "index", null, 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMappingResult_Model(), this.getAssistModel(), null, "model", null, 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappingResult_Task2CoreMap(), this.getTask2CoreMapType(), "task2CoreMap", null, 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappingResult_Model(), this.getAssistModel(), null, "model", null, 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMappingResult_MetricAbsoluteScoresMap(), this.getMetricScorePair(), null, "metricAbsoluteScoresMap", null, 0, -1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMappingResult_MetricScaledScoresMap(), this.getMetricScorePair(), null, "metricScaledScoresMap", null, 0, -1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappingResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#getIndex <em>Index</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#getTask2CoreMap <em>Task2 Core Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingResult#isPartialSolution <em>Partial Solution</em>}</li>
@@ -89,32 +89,6 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
 	void setIndex(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' reference.
-	 * @see #setModel(AssistModel)
-	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Model()
-	 * @model
-	 * @generated
-	 */
-	AssistModel getModel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' reference.
-	 * @see #getModel()
-	 * @generated
-	 */
-	void setModel(AssistModel value);
-
-	/**
 	 * Returns the value of the '<em><b>Task2 Core Map</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -139,6 +113,32 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
 	 * @generated
 	 */
 	void setTask2CoreMap(HashMap<Task, Core> value);
+
+	/**
+	 * Returns the value of the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model</em>' reference.
+	 * @see #setModel(AssistModel)
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_Model()
+	 * @model
+	 * @generated
+	 */
+	AssistModel getModel();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model</em>' reference.
+	 * @see #getModel()
+	 * @generated
+	 */
+	void setModel(AssistModel value);
 
 	/**
 	 * Returns the value of the '<em><b>Metric Absolute Scores Map</b></em>' map.

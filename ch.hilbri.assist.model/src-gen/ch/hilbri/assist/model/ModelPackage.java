@@ -2107,22 +2107,22 @@ public interface ModelPackage extends EPackage {
 	int MAPPING_RESULT__INDEX = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING_RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Task2 Core Map</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 3;
+	int MAPPING_RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Metric Absolute Scores Map</b></em>' map.
@@ -4253,17 +4253,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMappingResult_Index();
 
 	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see ch.hilbri.assist.model.MappingResult#getModel()
-	 * @see #getMappingResult()
-	 * @generated
-	 */
-	EReference getMappingResult_Model();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.MappingResult#getTask2CoreMap <em>Task2 Core Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4273,6 +4262,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMappingResult_Task2CoreMap();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.MappingResult#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see ch.hilbri.assist.model.MappingResult#getModel()
+	 * @see #getMappingResult()
+	 * @generated
+	 */
+	EReference getMappingResult_Model();
 
 	/**
 	 * Returns the meta object for the map '{@link ch.hilbri.assist.model.MappingResult#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}'.
@@ -6035,20 +6035,20 @@ public interface ModelPackage extends EPackage {
 		EAttribute MAPPING_RESULT__INDEX = eINSTANCE.getMappingResult_Index();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MAPPING_RESULT__MODEL = eINSTANCE.getMappingResult_Model();
-
-		/**
 		 * The meta object literal for the '<em><b>Task2 Core Map</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAPPING_RESULT__TASK2_CORE_MAP = eINSTANCE.getMappingResult_Task2CoreMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAPPING_RESULT__MODEL = eINSTANCE.getMappingResult_Model();
 
 		/**
 		 * The meta object literal for the '<em><b>Metric Absolute Scores Map</b></em>' map feature.

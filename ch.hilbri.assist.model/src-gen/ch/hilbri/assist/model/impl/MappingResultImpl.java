@@ -65,8 +65,8 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getIndex <em>Index</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
@@ -118,16 +118,6 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 	protected int index = INDEX_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssistModel model;
-
-	/**
 	 * The cached value of the '{@link #getTask2CoreMap() <em>Task2 Core Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +126,16 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected HashMap<Task, Core> task2CoreMap;
+
+	/**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssistModel model;
 
 	/**
 	 * The cached value of the '{@link #getMetricAbsoluteScoresMap() <em>Metric Absolute Scores Map</em>}' map.
@@ -263,6 +263,27 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HashMap<Task, Core> getTask2CoreMap() {
+		return task2CoreMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTask2CoreMap(HashMap<Task, Core> newTask2CoreMap) {
+		HashMap<Task, Core> oldTask2CoreMap = task2CoreMap;
+		task2CoreMap = newTask2CoreMap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AssistModel getModel() {
 		if (model != null && model.eIsProxy()) {
 			InternalEObject oldModel = (InternalEObject)model;
@@ -294,27 +315,6 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 		model = newModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPING_RESULT__MODEL, oldModel, model));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HashMap<Task, Core> getTask2CoreMap() {
-		return task2CoreMap;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTask2CoreMap(HashMap<Task, Core> newTask2CoreMap) {
-		HashMap<Task, Core> oldTask2CoreMap = task2CoreMap;
-		task2CoreMap = newTask2CoreMap;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
 	}
 
 	/**
@@ -637,11 +637,11 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 				return getName();
 			case ModelPackage.MAPPING_RESULT__INDEX:
 				return getIndex();
+			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
+				return getTask2CoreMap();
 			case ModelPackage.MAPPING_RESULT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
-			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
-				return getTask2CoreMap();
 			case ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				if (coreType) return getMetricAbsoluteScoresMap();
 				else return getMetricAbsoluteScoresMap().map();
@@ -673,11 +673,11 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 			case ModelPackage.MAPPING_RESULT__INDEX:
 				setIndex((Integer)newValue);
 				return;
-			case ModelPackage.MAPPING_RESULT__MODEL:
-				setModel((AssistModel)newValue);
-				return;
 			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)newValue);
+				return;
+			case ModelPackage.MAPPING_RESULT__MODEL:
+				setModel((AssistModel)newValue);
 				return;
 			case ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				((EStructuralFeature.Setting)getMetricAbsoluteScoresMap()).set(newValue);
@@ -706,11 +706,11 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 			case ModelPackage.MAPPING_RESULT__INDEX:
 				setIndex(INDEX_EDEFAULT);
 				return;
-			case ModelPackage.MAPPING_RESULT__MODEL:
-				setModel((AssistModel)null);
-				return;
 			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)null);
+				return;
+			case ModelPackage.MAPPING_RESULT__MODEL:
+				setModel((AssistModel)null);
 				return;
 			case ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				getMetricAbsoluteScoresMap().clear();
@@ -737,10 +737,10 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.MAPPING_RESULT__INDEX:
 				return index != INDEX_EDEFAULT;
-			case ModelPackage.MAPPING_RESULT__MODEL:
-				return model != null;
 			case ModelPackage.MAPPING_RESULT__TASK2_CORE_MAP:
 				return task2CoreMap != null;
+			case ModelPackage.MAPPING_RESULT__MODEL:
+				return model != null;
 			case ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				return metricAbsoluteScoresMap != null && !metricAbsoluteScoresMap.isEmpty();
 			case ModelPackage.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP:

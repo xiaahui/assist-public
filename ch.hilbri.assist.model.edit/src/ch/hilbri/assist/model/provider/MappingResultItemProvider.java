@@ -65,8 +65,8 @@ public class MappingResultItemProvider
 
 			addNamePropertyDescriptor(object);
 			addIndexPropertyDescriptor(object);
-			addModelPropertyDescriptor(object);
 			addTask2CoreMapPropertyDescriptor(object);
+			addModelPropertyDescriptor(object);
 			addPartialSolutionPropertyDescriptor(object);
 			addAbsoluteTotalScorePropertyDescriptor(object);
 			addScaledTotalScorePropertyDescriptor(object);
@@ -119,28 +119,6 @@ public class MappingResultItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Model feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappingResult_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_model_feature", "_UI_MappingResult_type"),
-				 ModelPackage.Literals.MAPPING_RESULT__MODEL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Task2 Core Map feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +136,28 @@ public class MappingResultItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappingResult_model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingResult_model_feature", "_UI_MappingResult_type"),
+				 ModelPackage.Literals.MAPPING_RESULT__MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

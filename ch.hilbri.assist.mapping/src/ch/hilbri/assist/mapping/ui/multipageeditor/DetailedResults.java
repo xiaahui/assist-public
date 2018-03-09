@@ -138,20 +138,20 @@ public class DetailedResults extends Composite {
 		gd_compositeArchitecture.widthHint = 99;
 		compositeArchitecture.setLayoutData(gd_compositeArchitecture);
 
-		Graph graph = new Graph(compositeArchitecture, SWT.NONE);
-		GraphNode node1 = new GraphNode(graph, SWT.NONE, "Jim");
-		GraphNode node2 = new GraphNode(graph, SWT.NONE, "Jack");
-		GraphNode node3 = new GraphNode(graph, SWT.NONE, "Joe");
-		GraphNode node4 = new GraphNode(graph, SWT.NONE, "Bill");
-		new GraphConnection(graph, ZestStyles.CONNECTIONS_DIRECTED, node1, node2);
-		new GraphConnection(graph, ZestStyles.CONNECTIONS_DOT, node2, node3);
-		new GraphConnection(graph, SWT.NONE, node3, node1);
-		GraphConnection graphConnection = new GraphConnection(graph, SWT.NONE, node1, node4);
-		graphConnection.changeLineColor(parent.getDisplay().getSystemColor(SWT.COLOR_GREEN));
-		graphConnection.setText("This is a text");
-		graphConnection.setHighlightColor(parent.getDisplay().getSystemColor(SWT.COLOR_RED));
-		graphConnection.setLineWidth(3);
-		graph.setLayoutAlgorithm(new SpringLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+//		Graph graph = new Graph(compositeArchitecture, SWT.NONE);
+//		GraphNode node1 = new GraphNode(graph, SWT.NONE, "Jim");
+//		GraphNode node2 = new GraphNode(graph, SWT.NONE, "Jack");
+//		GraphNode node3 = new GraphNode(graph, SWT.NONE, "Joe");
+//		GraphNode node4 = new GraphNode(graph, SWT.NONE, "Bill");
+//		new GraphConnection(graph, ZestStyles.CONNECTIONS_DIRECTED, node1, node2);
+//		new GraphConnection(graph, ZestStyles.CONNECTIONS_DOT, node2, node3);
+//		new GraphConnection(graph, SWT.NONE, node3, node1);
+//		GraphConnection graphConnection = new GraphConnection(graph, SWT.NONE, node1, node4);
+//		graphConnection.changeLineColor(parent.getDisplay().getSystemColor(SWT.COLOR_GREEN));
+//		graphConnection.setText("This is a text");
+//		graphConnection.setHighlightColor(parent.getDisplay().getSystemColor(SWT.COLOR_RED));
+//		graphConnection.setLineWidth(3);
+//		graph.setLayoutAlgorithm(new SpringLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 
 		Composite compositeResultData = new Composite(this, SWT.NONE);
 		compositeResultData.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
