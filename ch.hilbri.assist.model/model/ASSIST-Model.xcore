@@ -94,10 +94,10 @@ class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 								ramCapacity 	= "0"
-	int 								romCapacity 	= "0"
+	int 							ramCapacity 	= "0"
+	int 							romCapacity 	= "0"
 	
-	container 	Box 				box 				opposite boards
+	container 	Box 				box 			opposite boards
 	contains 	Processor[1..*] 	processors 		opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
 	
@@ -176,22 +176,22 @@ class Task {
 }
 
 enum Color {
-	NONE				as "none"			= -1
+	NONE			as "none"			= -1
 	BLACK			as "black"			= 0
-	BLUE				as "blue" 			= 1
-	CYAN				as "cyan"			= 2
-	GRAY				as "gray"			= 3
+	BLUE			as "blue" 			= 1
+	CYAN			as "cyan"			= 2
+	GRAY			as "gray"			= 3
 	GREEN			as "green"			= 4
-	MAGENTA			as "magenta"			= 5
-	RED				as "red"				= 6
+	MAGENTA			as "magenta"		= 5
+	RED				as "red"			= 6
 	WHITE			as "white"			= 7
 	YELLOW			as "yellow"			= 8 
 	DARK_BLUE		as "darkblue"		= 9
 	DARK_CYAN		as "darkcyan"		= 10
 	DARK_GRAY		as "darkgray"		= 11
 	DARK_GREEN		as "darkgreen"		= 12
-	DARK_MAGENTA		as "darkmagenta"		= 13
-	DARK_RED			as "darkred"			= 14
+	DARK_MAGENTA	as "darkmagenta"	= 13
+	DARK_RED		as "darkred"		= 14
 	DARK_YELLOW		as "darkyellow"		= 15
 }
 
@@ -309,14 +309,14 @@ class RestrictionAlternatives {
 
 class RestrictionAlternative{
 	String name
-	contains DislocalityRelation[0..*] 	dislocalityRelations
-	contains ColocalityRelation[0..*] 	colocalityRelations
+	contains DislocalityRelation[0..*] 		dislocalityRelations
+	contains ColocalityRelation[0..*] 		colocalityRelations
 	contains DissimilarityRelation[0..*]	dissimilarityRelations
 }
 
 class ExplorationCandidate {
 	String name
-	refers BoardAlternative[0..*] 		boardAlternatives
+	refers BoardAlternative[0..*] 			boardAlternatives
 	refers ApplicationAlternative[0..*] 	applicationAlternatives
 	refers RestrictionAlternative[0..*] 	restrictionAlternatives
 }
@@ -396,10 +396,10 @@ class MappingResult extends Comparable {
 			/* Create the SingleMappingElement based on that data */
 			ModelFactory.eINSTANCE.createSingleMappingElement => [
 				it.application 	= application
-				it.task 			= task 
-				it.core 			= core
-				it.processor		= processor
-				it.board			= board
+				it.task 		= task 
+				it.core 		= core
+				it.processor	= processor
+				it.board		= board
 				it.box			= box
 				it.compartment	= compartment	
 			]

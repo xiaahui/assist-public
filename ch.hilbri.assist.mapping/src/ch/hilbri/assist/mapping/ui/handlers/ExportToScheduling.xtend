@@ -26,7 +26,7 @@ class ExportToScheduling {
 		if ((multiPageEditor.currentMappingResult === null) || (multiPageEditor.activePage != 1)) 	return false
 		
 		true
-	}
+	}	
 	
 	@Execute
 	def Object execute(@Active MPart part, IProgressMonitor monitor, Shell shell) {

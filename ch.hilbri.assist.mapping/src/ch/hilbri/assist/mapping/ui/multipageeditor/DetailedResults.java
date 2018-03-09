@@ -537,6 +537,10 @@ public class DetailedResults extends Composite {
 		lblSolutionName.setText(curResult.getName());
 		tblviewerResult.setInput(curResult.getMappingElements());
 
+		/* Update the graph (topology view) */
+		MappingResultTreeNode node = new MappingResultTreeNode(curResult);
+		
+		
 		/* Update the chart */
 		/* - delete the old selection */
 		if (scoreOverview.getSeriesSet().getSeries("selection") != null)
