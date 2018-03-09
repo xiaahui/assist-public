@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.draw2d.SWTEventDispatcher;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -107,17 +108,6 @@ public class DetailedResults extends Composite {
 	 */
 	public DetailedResults(MultiPageEditor e, Composite parent, int style) {
 		super(parent, style);
-		addControlListener(new ControlAdapter() {
-			@Override
-			public void controlResized(ControlEvent e) {
-				if (compositeArchitecture != null) {
-					if (architectureGraph != null) {
-						architectureGraph.applyLayout();
-						compositeArchitecture.layout();
-					}
-				}
-			}
-		});
 		multiPageEditor = e;
 		setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		setLayout(new GridLayout(3, false));
@@ -143,6 +133,15 @@ public class DetailedResults extends Composite {
 		textFilter.setLayoutData(gd_textFilter);
 
 		compositeArchitecture = new Composite(this, SWT.BORDER);
+		compositeArchitecture.addControlListener(new ControlAdapter() {
+			@Override
+			public void controlResized(ControlEvent e) {
+				if ((compositeArchitecture != null) && (architectureGraph != null)) {
+					architectureGraph.applyLayout();
+					compositeArchitecture.layout();
+				}
+			}
+		});
 		compositeArchitecture.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		compositeArchitecture.setLayout(new FillLayout(SWT.HORIZONTAL));
 		GridData gd_compositeArchitecture = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
@@ -536,17 +535,18 @@ public class DetailedResults extends Composite {
 		/* Update the graph (topology view) */
 		if (architectureGraph != null)
 			architectureGraph.getControl().dispose();
-		
 		architectureGraph = new GraphViewer(compositeArchitecture, SWT.NONE);
+		/* Prevents nodes from being moved with the mouse */
+		architectureGraph.getGraphControl().getLightweightSystem().setEventDispatcher(new SWTEventDispatcher() {
+			public void dispatchMouseMoved(org.eclipse.swt.events.MouseEvent me) {	/* do nothing */  }
+		});
 		architectureGraph.setContentProvider(new MappingResultTreeContentProvider());
 		architectureGraph.setLabelProvider(new MappingResultTreeLabelProvider());
-		MappingResultTreeNode node = new MappingResultTreeNode(curResult);
-		architectureGraph.setInput(node.getAllNodesIncludingRoot());
+		architectureGraph.setInput((new MappingResultTreeNode(curResult)).getAllNodesIncludingRoot());
 		architectureGraph.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 		architectureGraph.applyLayout();
 		compositeArchitecture.layout();
-		
-		
+
 		/* Update the chart */
 		/* - delete the old selection */
 		if (scoreOverview.getSeriesSet().getSeries("selection") != null)
