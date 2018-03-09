@@ -32,12 +32,9 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.zest.core.widgets.Graph;
-import org.eclipse.zest.core.widgets.GraphConnection;
-import org.eclipse.zest.core.widgets.GraphNode;
-import org.eclipse.zest.core.widgets.ZestStyles;
+import org.eclipse.zest.core.viewers.GraphViewer;
 import org.eclipse.zest.layouts.LayoutStyles;
-import org.eclipse.zest.layouts.algorithms.SpringLayoutAlgorithm;
+import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
 import org.swtchart.ILineSeries;
@@ -54,6 +51,8 @@ import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 
 public class DetailedResults extends Composite {
 
@@ -98,6 +97,7 @@ public class DetailedResults extends Composite {
 	private Button btnSortScore;
 	private Button btnSortName;
 	private Composite compositeArchitecture;
+	private GraphViewer architectureGraph;
 
 	/**
 	 * Create the composite.
@@ -137,21 +137,6 @@ public class DetailedResults extends Composite {
 		GridData gd_compositeArchitecture = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
 		gd_compositeArchitecture.widthHint = 99;
 		compositeArchitecture.setLayoutData(gd_compositeArchitecture);
-
-//		Graph graph = new Graph(compositeArchitecture, SWT.NONE);
-//		GraphNode node1 = new GraphNode(graph, SWT.NONE, "Jim");
-//		GraphNode node2 = new GraphNode(graph, SWT.NONE, "Jack");
-//		GraphNode node3 = new GraphNode(graph, SWT.NONE, "Joe");
-//		GraphNode node4 = new GraphNode(graph, SWT.NONE, "Bill");
-//		new GraphConnection(graph, ZestStyles.CONNECTIONS_DIRECTED, node1, node2);
-//		new GraphConnection(graph, ZestStyles.CONNECTIONS_DOT, node2, node3);
-//		new GraphConnection(graph, SWT.NONE, node3, node1);
-//		GraphConnection graphConnection = new GraphConnection(graph, SWT.NONE, node1, node4);
-//		graphConnection.changeLineColor(parent.getDisplay().getSystemColor(SWT.COLOR_GREEN));
-//		graphConnection.setText("This is a text");
-//		graphConnection.setHighlightColor(parent.getDisplay().getSystemColor(SWT.COLOR_RED));
-//		graphConnection.setLineWidth(3);
-//		graph.setLayoutAlgorithm(new SpringLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 
 		Composite compositeResultData = new Composite(this, SWT.NONE);
 		compositeResultData.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
@@ -538,7 +523,17 @@ public class DetailedResults extends Composite {
 		tblviewerResult.setInput(curResult.getMappingElements());
 
 		/* Update the graph (topology view) */
+		if (architectureGraph != null)
+			architectureGraph.getControl().dispose();
+		
+		architectureGraph = new GraphViewer(compositeArchitecture, SWT.NONE);
+		architectureGraph.setContentProvider(new MappingResultTreeContentProvider());
+		architectureGraph.setLabelProvider(new MappingResultTreeLabelProvider());
 		MappingResultTreeNode node = new MappingResultTreeNode(curResult);
+		architectureGraph.setInput(node.getAllNodesIncludingRoot());
+		architectureGraph.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+		architectureGraph.applyLayout();
+		compositeArchitecture.layout();
 		
 		
 		/* Update the chart */

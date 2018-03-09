@@ -13,6 +13,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 	@Accessors(PUBLIC_GETTER) Object data = null
 	List<MappingResultTreeNode> children = newArrayList
 
+
+
 	/* Simple Constructor */
 	new(Object o) {
 		data = o
@@ -57,6 +59,10 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 	override String toString() {
 		data.toString
+	}
+	
+	def List<MappingResultTreeNode> getAllNodesIncludingRoot() {
+		 (children.map[allNodesIncludingRoot].flatten + #[this]).toList
 	}
 	
 }
