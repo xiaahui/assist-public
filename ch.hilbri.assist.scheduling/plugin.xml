@@ -17,7 +17,7 @@
             default="true"
             extensions="sdsl"
             icon="icons/scheduling-specification.png"
-            id="ch.hilbri.assist.scheduling.editors.schedulingeditor"
+            id="ch.hilbri.assist.scheduling.dsl.SchedulingDsl"
             name="Scheduling Specification">
       </editor>
    </extension>
