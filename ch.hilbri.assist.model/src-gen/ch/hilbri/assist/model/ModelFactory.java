@@ -13,291 +13,291 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface ModelFactory extends EFactory {
-	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	ModelFactory eINSTANCE = ch.hilbri.assist.model.impl.ModelFactoryImpl.init();
+    /**
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    ModelFactory eINSTANCE = ch.hilbri.assist.model.impl.ModelFactoryImpl.init();
 
-	/**
-	 * Returns a new object of class '<em>Assist Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assist Model</em>'.
-	 * @generated
-	 */
-	AssistModel createAssistModel();
+    /**
+     * Returns a new object of class '<em>Assist Model</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Assist Model</em>'.
+     * @generated
+     */
+    AssistModel createAssistModel();
 
-	/**
-	 * Returns a new object of class '<em>Hardware Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Hardware Element</em>'.
-	 * @generated
-	 */
-	HardwareElement createHardwareElement();
+    /**
+     * Returns a new object of class '<em>Hardware Element</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Hardware Element</em>'.
+     * @generated
+     */
+    HardwareElement createHardwareElement();
 
-	/**
-	 * Returns a new object of class '<em>Compartment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compartment</em>'.
-	 * @generated
-	 */
-	Compartment createCompartment();
+    /**
+     * Returns a new object of class '<em>Compartment</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Compartment</em>'.
+     * @generated
+     */
+    Compartment createCompartment();
 
-	/**
-	 * Returns a new object of class '<em>Box</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Box</em>'.
-	 * @generated
-	 */
-	Box createBox();
+    /**
+     * Returns a new object of class '<em>Box</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Box</em>'.
+     * @generated
+     */
+    Box createBox();
 
-	/**
-	 * Returns a new object of class '<em>Board Alternatives</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Board Alternatives</em>'.
-	 * @generated
-	 */
-	BoardAlternatives createBoardAlternatives();
+    /**
+     * Returns a new object of class '<em>Board Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board Alternatives</em>'.
+     * @generated
+     */
+    BoardAlternatives createBoardAlternatives();
 
-	/**
-	 * Returns a new object of class '<em>Board Alternative</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Board Alternative</em>'.
-	 * @generated
-	 */
-	BoardAlternative createBoardAlternative();
+    /**
+     * Returns a new object of class '<em>Board Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board Alternative</em>'.
+     * @generated
+     */
+    BoardAlternative createBoardAlternative();
 
-	/**
-	 * Returns a new object of class '<em>Board</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Board</em>'.
-	 * @generated
-	 */
-	Board createBoard();
+    /**
+     * Returns a new object of class '<em>Board</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board</em>'.
+     * @generated
+     */
+    Board createBoard();
 
-	/**
-	 * Returns a new object of class '<em>Processor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Processor</em>'.
-	 * @generated
-	 */
-	Processor createProcessor();
+    /**
+     * Returns a new object of class '<em>Processor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Processor</em>'.
+     * @generated
+     */
+    Processor createProcessor();
 
-	/**
-	 * Returns a new object of class '<em>Core</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Core</em>'.
-	 * @generated
-	 */
-	Core createCore();
+    /**
+     * Returns a new object of class '<em>Core</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Core</em>'.
+     * @generated
+     */
+    Core createCore();
 
-	/**
-	 * Returns a new object of class '<em>IO Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>IO Adapter</em>'.
-	 * @generated
-	 */
-	IOAdapter createIOAdapter();
+    /**
+     * Returns a new object of class '<em>IO Adapter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>IO Adapter</em>'.
+     * @generated
+     */
+    IOAdapter createIOAdapter();
 
-	/**
-	 * Returns a new object of class '<em>Application Alternatives</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Application Alternatives</em>'.
-	 * @generated
-	 */
-	ApplicationAlternatives createApplicationAlternatives();
+    /**
+     * Returns a new object of class '<em>Application Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application Alternatives</em>'.
+     * @generated
+     */
+    ApplicationAlternatives createApplicationAlternatives();
 
-	/**
-	 * Returns a new object of class '<em>Application Alternative</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Application Alternative</em>'.
-	 * @generated
-	 */
-	ApplicationAlternative createApplicationAlternative();
+    /**
+     * Returns a new object of class '<em>Application Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application Alternative</em>'.
+     * @generated
+     */
+    ApplicationAlternative createApplicationAlternative();
 
-	/**
-	 * Returns a new object of class '<em>Application</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Application</em>'.
-	 * @generated
-	 */
-	Application createApplication();
+    /**
+     * Returns a new object of class '<em>Application</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application</em>'.
+     * @generated
+     */
+    Application createApplication();
 
-	/**
-	 * Returns a new object of class '<em>Task</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task</em>'.
-	 * @generated
-	 */
-	Task createTask();
+    /**
+     * Returns a new object of class '<em>Task</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Task</em>'.
+     * @generated
+     */
+    Task createTask();
 
-	/**
-	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>IO Adapter Requirement</em>'.
-	 * @generated
-	 */
-	IOAdapterRequirement createIOAdapterRequirement();
+    /**
+     * Returns a new object of class '<em>IO Adapter Requirement</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>IO Adapter Requirement</em>'.
+     * @generated
+     */
+    IOAdapterRequirement createIOAdapterRequirement();
 
-	/**
-	 * Returns a new object of class '<em>Dislocality Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dislocality Relation</em>'.
-	 * @generated
-	 */
-	DislocalityRelation createDislocalityRelation();
+    /**
+     * Returns a new object of class '<em>Dislocality Relation</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dislocality Relation</em>'.
+     * @generated
+     */
+    DislocalityRelation createDislocalityRelation();
 
-	/**
-	 * Returns a new object of class '<em>Colocality Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Colocality Relation</em>'.
-	 * @generated
-	 */
-	ColocalityRelation createColocalityRelation();
+    /**
+     * Returns a new object of class '<em>Colocality Relation</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Colocality Relation</em>'.
+     * @generated
+     */
+    ColocalityRelation createColocalityRelation();
 
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Relation</em>'.
-	 * @generated
-	 */
-	DissimilarityRelation createDissimilarityRelation();
+    /**
+     * Returns a new object of class '<em>Dissimilarity Relation</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dissimilarity Relation</em>'.
+     * @generated
+     */
+    DissimilarityRelation createDissimilarityRelation();
 
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Clause</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Clause</em>'.
-	 * @generated
-	 */
-	DissimilarityClause createDissimilarityClause();
+    /**
+     * Returns a new object of class '<em>Dissimilarity Clause</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dissimilarity Clause</em>'.
+     * @generated
+     */
+    DissimilarityClause createDissimilarityClause();
 
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Disjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Disjunction</em>'.
-	 * @generated
-	 */
-	DissimilarityDisjunction createDissimilarityDisjunction();
+    /**
+     * Returns a new object of class '<em>Dissimilarity Disjunction</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dissimilarity Disjunction</em>'.
+     * @generated
+     */
+    DissimilarityDisjunction createDissimilarityDisjunction();
 
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Conjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Conjunction</em>'.
-	 * @generated
-	 */
-	DissimilarityConjunction createDissimilarityConjunction();
+    /**
+     * Returns a new object of class '<em>Dissimilarity Conjunction</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dissimilarity Conjunction</em>'.
+     * @generated
+     */
+    DissimilarityConjunction createDissimilarityConjunction();
 
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Entry</em>'.
-	 * @generated
-	 */
-	DissimilarityEntry createDissimilarityEntry();
+    /**
+     * Returns a new object of class '<em>Dissimilarity Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dissimilarity Entry</em>'.
+     * @generated
+     */
+    DissimilarityEntry createDissimilarityEntry();
 
-	/**
-	 * Returns a new object of class '<em>Metric Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metric Parameter</em>'.
-	 * @generated
-	 */
-	MetricParameter createMetricParameter();
+    /**
+     * Returns a new object of class '<em>Metric Parameter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Metric Parameter</em>'.
+     * @generated
+     */
+    MetricParameter createMetricParameter();
 
-	/**
-	 * Returns a new object of class '<em>Restriction Alternatives</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Restriction Alternatives</em>'.
-	 * @generated
-	 */
-	RestrictionAlternatives createRestrictionAlternatives();
+    /**
+     * Returns a new object of class '<em>Restriction Alternatives</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Restriction Alternatives</em>'.
+     * @generated
+     */
+    RestrictionAlternatives createRestrictionAlternatives();
 
-	/**
-	 * Returns a new object of class '<em>Restriction Alternative</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Restriction Alternative</em>'.
-	 * @generated
-	 */
-	RestrictionAlternative createRestrictionAlternative();
+    /**
+     * Returns a new object of class '<em>Restriction Alternative</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Restriction Alternative</em>'.
+     * @generated
+     */
+    RestrictionAlternative createRestrictionAlternative();
 
-	/**
-	 * Returns a new object of class '<em>Exploration Candidate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exploration Candidate</em>'.
-	 * @generated
-	 */
-	ExplorationCandidate createExplorationCandidate();
+    /**
+     * Returns a new object of class '<em>Exploration Candidate</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exploration Candidate</em>'.
+     * @generated
+     */
+    ExplorationCandidate createExplorationCandidate();
 
-	/**
-	 * Returns a new object of class '<em>Mapping Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mapping Result</em>'.
-	 * @generated
-	 */
-	MappingResult createMappingResult();
+    /**
+     * Returns a new object of class '<em>Mapping Result</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Mapping Result</em>'.
+     * @generated
+     */
+    MappingResult createMappingResult();
 
-	/**
-	 * Returns a new object of class '<em>Single Mapping Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single Mapping Element</em>'.
-	 * @generated
-	 */
-	SingleMappingElement createSingleMappingElement();
+    /**
+     * Returns a new object of class '<em>Single Mapping Element</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Single Mapping Element</em>'.
+     * @generated
+     */
+    SingleMappingElement createSingleMappingElement();
 
-	/**
-	 * Returns a new object of class '<em>Assist Model Scheduling Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assist Model Scheduling Result</em>'.
-	 * @generated
-	 */
-	AssistModelSchedulingResult createAssistModelSchedulingResult();
+    /**
+     * Returns a new object of class '<em>Assist Model Scheduling Result</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Assist Model Scheduling Result</em>'.
+     * @generated
+     */
+    AssistModelSchedulingResult createAssistModelSchedulingResult();
 
-	/**
-	 * Returns a new object of class '<em>Task Execution Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task Execution Instance</em>'.
-	 * @generated
-	 */
-	TaskExecutionInstance createTaskExecutionInstance();
+    /**
+     * Returns a new object of class '<em>Task Execution Instance</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Task Execution Instance</em>'.
+     * @generated
+     */
+    TaskExecutionInstance createTaskExecutionInstance();
 
-	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
-	ModelPackage getModelPackage();
+    /**
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
+    ModelPackage getModelPackage();
 
 } //ModelFactory
