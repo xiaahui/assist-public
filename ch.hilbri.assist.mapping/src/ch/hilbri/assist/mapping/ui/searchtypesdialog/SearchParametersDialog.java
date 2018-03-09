@@ -10,6 +10,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -69,23 +70,22 @@ public class SearchParametersDialog extends TitleAreaDialog {
         setTitle("Mapping Generation");
         Composite area = (Composite) super.createDialogArea(parent);
         Composite container = new Composite(area, SWT.NONE);
-        container.setLayoutData(new GridData(GridData.FILL_BOTH));
+        container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+        container.setLayout(new GridLayout(1, false));
 
-        Composite composite_1 = new Composite(container, SWT.NONE);
-        composite_1.setBounds(0, 0, 604, 532);
-
-        /* selection */
-
-        Group grpSolverLimits = new Group(composite_1, SWT.NONE);
+        Group grpSolverLimits = new Group(container, SWT.NONE);
+        grpSolverLimits.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        grpSolverLimits.setSize(584, 60);
         grpSolverLimits.setText("Limits");
-        grpSolverLimits.setBounds(10, 198, 584, 60);
+        grpSolverLimits.setLayout(new GridLayout(6, false));
 
         Label lblMaxSolutions = new Label(grpSolverLimits, SWT.NONE);
-        lblMaxSolutions.setBounds(160, 23, 107, 21);
         lblMaxSolutions.setText("Max. solutions:");
 
         editMaxSolutions = new Text(grpSolverLimits, SWT.BORDER | SWT.RIGHT);
-        editMaxSolutions.setBounds(266, 20, 55, 26);
+        GridData gd_editMaxSolutions = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+        gd_editMaxSolutions.widthHint = 40;
+        editMaxSolutions.setLayoutData(gd_editMaxSolutions);
         editMaxSolutions.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -98,12 +98,18 @@ public class SearchParametersDialog extends TitleAreaDialog {
             }
         });
         editMaxSolutions.setText("" + maxSolutions);
+
+        Label spacerLabel_1 = new Label(grpSolverLimits, SWT.NONE);
+        GridData gd_spacerLabel_1 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+        gd_spacerLabel_1.widthHint = 60;
+        spacerLabel_1.setLayoutData(gd_spacerLabel_1);
         Label lblMaxSearchTime = new Label(grpSolverLimits, SWT.NONE);
-        lblMaxSearchTime.setBounds(361, 23, 73, 21);
         lblMaxSearchTime.setText("Time out:");
 
         editMaxSearchTime = new Text(grpSolverLimits, SWT.BORDER | SWT.RIGHT);
-        editMaxSearchTime.setBounds(440, 20, 55, 26);
+        GridData gd_editMaxSearchTime = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+        gd_editMaxSearchTime.widthHint = 40;
+        editMaxSearchTime.setLayoutData(gd_editMaxSearchTime);
         editMaxSearchTime.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -118,7 +124,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
         editMaxSearchTime.setText("" + searchTime);
 
         cbxMaxSearchTimeUnit = new Combo(grpSolverLimits, SWT.READ_ONLY);
-        cbxMaxSearchTimeUnit.setBounds(501, 20, 73, 26);
+        cbxMaxSearchTimeUnit.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
         cbxMaxSearchTimeUnit.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -129,16 +135,27 @@ public class SearchParametersDialog extends TitleAreaDialog {
         cbxMaxSearchTimeUnit.setItems(new String[] { "sec", "min" });
         cbxMaxSearchTimeUnit.select(0);
 
-        Group grpStrategy = new Group(composite_1, SWT.NONE);
+        searchTimeItem = cbxMaxSearchTimeUnit.getItem(0);
+
+        Group grpStrategy = new Group(container, SWT.NONE);
+        grpStrategy.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        grpStrategy.setSize(584, 191);
         grpStrategy.setText("Strategy");
-        grpStrategy.setBounds(10, 10, 584, 191);
+        grpStrategy.setLayout(new GridLayout(2, false));
 
         Label lblTaskSelection = new Label(grpStrategy, SWT.NONE);
-        lblTaskSelection.setBounds(22, 37, 131, 25);
         lblTaskSelection.setText("Task Selection:");
 
+        /* selection */
+        String[] taskSelectionStrategies = new String[VariableSelectorTypes.getSortedValues().size()];
+        for (int i = 0; i < VariableSelectorTypes.getSortedValues().size(); i++)
+            taskSelectionStrategies[i] = VariableSelectorTypes.getSortedValues().get(i).getHumanReadableName();
+        String[] coreSelectionStrategies = new String[ValueSelectorTypes.getSortedValues().size()];
+        for (int i = 0; i < ValueSelectorTypes.getSortedValues().size(); i++)
+            coreSelectionStrategies[i] = ValueSelectorTypes.getSortedValues().get(i).getHumanReadableName();
+
         cbxTaskSelection = new Combo(grpStrategy, SWT.READ_ONLY);
-        cbxTaskSelection.setBounds(159, 34, 415, 28);
+        cbxTaskSelection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
         cbxTaskSelection.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -160,23 +177,18 @@ public class SearchParametersDialog extends TitleAreaDialog {
                 }
             }
         });
-        String[] ifaceStrategies = new String[VariableSelectorTypes.getSortedValues().size()];
-        for (int i = 0; i < VariableSelectorTypes.getSortedValues().size(); i++)
-            ifaceStrategies[i] = VariableSelectorTypes.getSortedValues().get(i).getHumanReadableName();
-        cbxTaskSelection.setItems(ifaceStrategies);
+        cbxTaskSelection.setItems(taskSelectionStrategies);
+        new Label(grpStrategy, SWT.NONE);
 
         lblTaskExplanation = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
+        lblTaskExplanation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
         lblTaskExplanation.setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
-        lblTaskExplanation.setText(
-                "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ");
-        lblTaskExplanation.setBounds(167, 65, 398, 45);
 
         Label lblCoreselection = new Label(grpStrategy, SWT.NONE);
         lblCoreselection.setText("Core Selection:");
-        lblCoreselection.setBounds(22, 119, 131, 25);
 
         cbxCoreSelection = new Combo(grpStrategy, SWT.READ_ONLY);
-        cbxCoreSelection.setBounds(159, 116, 415, 28);
+        cbxCoreSelection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
         cbxCoreSelection.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -184,36 +196,25 @@ public class SearchParametersDialog extends TitleAreaDialog {
                 lblCoreExplanation.setText(variableSelector.getHumanReadableExplanation());
             }
         });
-        String[] pinStrategies = new String[ValueSelectorTypes.getSortedValues().size()];
-        for (int i = 0; i < ValueSelectorTypes.getSortedValues().size(); i++)
-            pinStrategies[i] = ValueSelectorTypes.getSortedValues().get(i).getHumanReadableName();
-        cbxCoreSelection.setItems(pinStrategies);
+        cbxCoreSelection.setItems(coreSelectionStrategies);
+        new Label(grpStrategy, SWT.NONE);
 
         lblCoreExplanation = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
+        lblCoreExplanation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
         lblCoreExplanation.setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
-        lblCoreExplanation.setText(
-                "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ");
-        lblCoreExplanation.setBounds(167, 147, 398, 37);
 
-        Group grpMiscOptions = new Group(composite_1, SWT.NONE);
-        grpMiscOptions.setText("Miscellaneous");
-        grpMiscOptions.setBounds(10, 264, 584, 191);
+        cbxTaskSelection.select(0);
+        cbxTaskSelection.notifyListeners(SWT.Selection, new Event());
 
-        Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
-        btnSavePartialSolution.setEnabled(false);
-        btnSavePartialSolution.setSelection(true);
-        btnSavePartialSolution.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                savePartialSolution = btnSavePartialSolution.getSelection();
-            }
-        });
-        btnSavePartialSolution.setBounds(35, 132, 539, 24);
-        btnSavePartialSolution.setText("Save the best partial solution, if no complete solutions are found");
+        Group grpMiscellaneousOptions = new Group(container, SWT.NONE);
+        grpMiscellaneousOptions.setLayout(new GridLayout(4, false));
+        GridData gd_grpMiscellaneousOptions = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+        gd_grpMiscellaneousOptions.heightHint = 190;
+        grpMiscellaneousOptions.setLayoutData(gd_grpMiscellaneousOptions);
+        grpMiscellaneousOptions.setText("Miscellaneous Options");
 
-        Button btnNoGoodRecordingRDC = new Button(grpMiscOptions, SWT.CHECK);
-        btnNoGoodRecordingRDC.setSelection(true);
-        btnNoGoodRecordingRDC.setBounds(35, 106, 539, 24);
+        Button btnNoGoodRecordingRDC = new Button(grpMiscellaneousOptions, SWT.CHECK);
+        btnNoGoodRecordingRDC.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 3, 1));
         btnNoGoodRecordingRDC.setText("Multiple solutions must differ in their mapping on the board-level");
         btnNoGoodRecordingRDC.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -221,22 +222,25 @@ public class SearchParametersDialog extends TitleAreaDialog {
                 noGoodRecordingBoard = btnNoGoodRecordingRDC.getSelection();
             }
         });
+        new Label(grpMiscellaneousOptions, SWT.NONE);
 
-        Button btnVerboseLoggingOutput = new Button(grpMiscOptions, SWT.CHECK);
-        btnVerboseLoggingOutput.setEnabled(false);
-        btnVerboseLoggingOutput.setSelection(false);
-        btnVerboseLoggingOutput.setBounds(35, 158, 539, 24);
-        btnVerboseLoggingOutput.setText("Detailed logging output");
-        btnVerboseLoggingOutput.addSelectionListener(new SelectionAdapter() {
+        Button btnEnableMinimization = new Button(grpMiscellaneousOptions, SWT.CHECK);
+        btnEnableMinimization.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 3, 1));
+        btnEnableMinimization.setEnabled(false);
+        btnEnableMinimization.setSelection(true);
+        btnEnableMinimization.setText("Enforce optimization during search");
+        btnEnableMinimization.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                verboseLogging = btnVerboseLoggingOutput.getSelection();
+                enableMinimization = btnEnableMinimization.getSelection();
             }
         });
+        new Label(grpMiscellaneousOptions, SWT.NONE);
 
-        Button btnEnableRestarts = new Button(grpMiscOptions, SWT.CHECK);
+        Button btnEnableRestarts = new Button(grpMiscellaneousOptions, SWT.CHECK);
+        btnEnableRestarts.setEnabled(false);
+        btnEnableRestarts.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 4, 1));
         btnEnableRestarts.setSelection(true);
-        btnEnableRestarts.setBounds(35, 51, 405, 24);
         btnEnableRestarts.setText("Allow restarts during search to improve result diversity");
         btnEnableRestarts.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -247,12 +251,20 @@ public class SearchParametersDialog extends TitleAreaDialog {
             }
         });
 
-        lblFailCount = new Label(grpMiscOptions, SWT.NONE);
-        lblFailCount.setBounds(63, 79, 203, 24);
+        Label spacerLabel_2 = new Label(grpMiscellaneousOptions, SWT.NONE);
+        GridData gd_spacerLabel_2 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+        gd_spacerLabel_2.widthHint = 40;
+        spacerLabel_2.setLayoutData(gd_spacerLabel_2);
+
+        lblFailCount = new Label(grpMiscellaneousOptions, SWT.NONE);
+        lblFailCount.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_NORMAL_SHADOW));
+        lblFailCount.setEnabled(false);
         lblFailCount.setText("Fail count to trigger a restart:");
 
-        txtFailCount = new Text(grpMiscOptions, SWT.BORDER | SWT.RIGHT);
-        txtFailCount.setBounds(266, 76, 56, 26);
+        txtFailCount = new Text(grpMiscellaneousOptions, SWT.BORDER | SWT.RIGHT);
+        txtFailCount.setEditable(false);
+        txtFailCount.setEnabled(false);
+        txtFailCount.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
         txtFailCount.setText("" + restartFailCount);
         txtFailCount.addKeyListener(new KeyAdapter() {
             @Override
@@ -265,24 +277,33 @@ public class SearchParametersDialog extends TitleAreaDialog {
                 }
             }
         });
+        new Label(grpMiscellaneousOptions, SWT.NONE);
 
-        Button btnEnableMinimization = new Button(grpMiscOptions, SWT.CHECK);
-        btnEnableMinimization.setEnabled(false);
-        btnEnableMinimization.setSelection(true);
-        btnEnableMinimization.setBounds(35, 25, 539, 24);
-        btnEnableMinimization.setText("Enforce optimization during search");
-        btnEnableMinimization.addSelectionListener(new SelectionAdapter() {
+        Button btnSavePartialSolution = new Button(grpMiscellaneousOptions, SWT.CHECK);
+        btnSavePartialSolution.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
+        btnSavePartialSolution.setEnabled(false);
+        btnSavePartialSolution.setSelection(true);
+        btnSavePartialSolution.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                enableMinimization = btnEnableMinimization.getSelection();
+                savePartialSolution = btnSavePartialSolution.getSelection();
             }
         });
+        btnSavePartialSolution.setText("Save the best partial solution, if no complete solutions are found");
+        new Label(grpMiscellaneousOptions, SWT.NONE);
 
-        searchTimeItem = cbxMaxSearchTimeUnit.getItem(0);
-
-        cbxTaskSelection.select(0);
-        cbxTaskSelection.notifyListeners(SWT.Selection, new Event());
-
+        Button btnVerboseLoggingOutput = new Button(grpMiscellaneousOptions, SWT.CHECK);
+        btnVerboseLoggingOutput.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
+        btnVerboseLoggingOutput.setEnabled(false);
+        btnVerboseLoggingOutput.setSelection(false);
+        btnVerboseLoggingOutput.setText("Detailed logging output");
+        new Label(grpMiscellaneousOptions, SWT.NONE);
+        btnVerboseLoggingOutput.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                verboseLogging = btnVerboseLoggingOutput.getSelection();
+            }
+        });
         return area;
     }
 
