@@ -70,7 +70,9 @@ public class SearchParametersDialog extends TitleAreaDialog {
         setTitle("Mapping Generation");
         Composite area = (Composite) super.createDialogArea(parent);
         Composite container = new Composite(area, SWT.NONE);
-        container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+        GridData gd_container = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+        gd_container.heightHint = 412;
+        container.setLayoutData(gd_container);
         container.setLayout(new GridLayout(1, false));
 
         Group grpSolverLimits = new Group(container, SWT.NONE);
@@ -208,9 +210,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 
         Group grpMiscellaneousOptions = new Group(container, SWT.NONE);
         grpMiscellaneousOptions.setLayout(new GridLayout(4, false));
-        GridData gd_grpMiscellaneousOptions = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-        gd_grpMiscellaneousOptions.heightHint = 190;
-        grpMiscellaneousOptions.setLayoutData(gd_grpMiscellaneousOptions);
+        grpMiscellaneousOptions.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
         grpMiscellaneousOptions.setText("Miscellaneous Options");
 
         Button btnNoGoodRecordingRDC = new Button(grpMiscellaneousOptions, SWT.CHECK);
