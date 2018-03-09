@@ -107,6 +107,17 @@ public class DetailedResults extends Composite {
 	 */
 	public DetailedResults(MultiPageEditor e, Composite parent, int style) {
 		super(parent, style);
+		addControlListener(new ControlAdapter() {
+			@Override
+			public void controlResized(ControlEvent e) {
+				if (compositeArchitecture != null) {
+					if (architectureGraph != null) {
+						architectureGraph.applyLayout();
+						compositeArchitecture.layout();
+					}
+				}
+			}
+		});
 		multiPageEditor = e;
 		setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		setLayout(new GridLayout(3, false));
