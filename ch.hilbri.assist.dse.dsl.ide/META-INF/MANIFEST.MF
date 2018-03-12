@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.dse.dsl.ide
+Bundle-Vendor: Robert Hilbrich
+Bundle-Version: 2.4.0.qualifier
+Bundle-SymbolicName: ch.hilbri.assist.dse.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ch.hilbri.assist.dse.dsl,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ch.hilbri.assist.dse.dsl.ide.contentassist.antlr.internal,
+ ch.hilbri.assist.dse.dsl.ide.contentassist.antlr
+
