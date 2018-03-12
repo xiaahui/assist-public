@@ -1,0 +1,53 @@
+Global {
+	System = "Example System";
+	MinimumHyperPeriod = 512;
+	TaskSwitchDelay = 1;
+}
+
+Hardware {
+	Compartment Comp1 {
+		Manufacturer = "Manufacturer 1";
+		Box Box1 {
+			Manufacturer = "Manufacturer 1";
+			Board Board1 {
+				Manufacturer = "Manufacturer 2";
+				DesignAssuranceLevel = A;
+				Processor P1 {
+					Core C0 {
+						Capacity = 100;
+					}
+					Core C1 {
+						Capacity = 100;
+					}
+				}
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			AssignedCore = Comp1.Box1.Board1.P1.C0;
+			Duration = 5;
+			Period = 20;
+			Color = blue;
+		}
+		Task A1_T2 {
+			AssignedCore = Comp1.Box1.Board1.P1.C0;
+			Duration = 7;
+			Period = 20;
+			Color = blue;
+		}
+	}
+	Application A2 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			AssignedCore = Comp1.Box1.Board1.P1.C0;
+			Duration = 4;
+			Period = 40;
+		}
+	}
+}
+
