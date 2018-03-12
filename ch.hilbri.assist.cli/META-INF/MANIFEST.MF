@@ -3,7 +3,7 @@ Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.cli
 Bundle-SymbolicName: ch.hilbri.assist.cli;singleton:=true
-Bundle-Version: 2.3.0.qualifier
+Bundle-Version: 2.4.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.cli
 Require-Bundle: ch.hilbri.assist.mapping;bundle-version="2.0.0",
