@@ -41,256 +41,256 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container implements RestrictionAlternative {
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-    /**
-     * The cached value of the '{@link #getDislocalityRelations() <em>Dislocality Relations</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDislocalityRelations()
-     * @generated
-     * @ordered
-     */
-    protected EList<DislocalityRelation> dislocalityRelations;
+	/**
+	 * The cached value of the '{@link #getDislocalityRelations() <em>Dislocality Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDislocalityRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DislocalityRelation> dislocalityRelations;
 
-    /**
-     * The cached value of the '{@link #getColocalityRelations() <em>Colocality Relations</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getColocalityRelations()
-     * @generated
-     * @ordered
-     */
-    protected EList<ColocalityRelation> colocalityRelations;
+	/**
+	 * The cached value of the '{@link #getColocalityRelations() <em>Colocality Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColocalityRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ColocalityRelation> colocalityRelations;
 
-    /**
-     * The cached value of the '{@link #getDissimilarityRelations() <em>Dissimilarity Relations</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDissimilarityRelations()
-     * @generated
-     * @ordered
-     */
-    protected EList<DissimilarityRelation> dissimilarityRelations;
+	/**
+	 * The cached value of the '{@link #getDissimilarityRelations() <em>Dissimilarity Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDissimilarityRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DissimilarityRelation> dissimilarityRelations;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestrictionAlternativeImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestrictionAlternativeImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ModelPackage.Literals.RESTRICTION_ALTERNATIVE;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ModelPackage.Literals.RESTRICTION_ALTERNATIVE;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESTRICTION_ALTERNATIVE__NAME, oldName, name));
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESTRICTION_ALTERNATIVE__NAME, oldName, name));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<DislocalityRelation> getDislocalityRelations() {
-        if (dislocalityRelations == null) {
-            dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
-        }
-        return dislocalityRelations;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DislocalityRelation> getDislocalityRelations() {
+		if (dislocalityRelations == null) {
+			dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
+		}
+		return dislocalityRelations;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<ColocalityRelation> getColocalityRelations() {
-        if (colocalityRelations == null) {
-            colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
-        }
-        return colocalityRelations;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ColocalityRelation> getColocalityRelations() {
+		if (colocalityRelations == null) {
+			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
+		}
+		return colocalityRelations;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<DissimilarityRelation> getDissimilarityRelations() {
-        if (dissimilarityRelations == null) {
-            dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS);
-        }
-        return dissimilarityRelations;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DissimilarityRelation> getDissimilarityRelations() {
+		if (dissimilarityRelations == null) {
+			dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS);
+		}
+		return dissimilarityRelations;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
-                return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
-            case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
-                return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
-                return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
+				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
+			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+				return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
-                return getName();
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
-                return getDislocalityRelations();
-            case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
-                return getColocalityRelations();
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
-                return getDissimilarityRelations();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
+				return getName();
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
+				return getDislocalityRelations();
+			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+				return getColocalityRelations();
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+				return getDissimilarityRelations();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
-                setName((String)newValue);
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
-                getDislocalityRelations().clear();
-                getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
-                getColocalityRelations().clear();
-                getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
-                getDissimilarityRelations().clear();
-                getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
+				setName((String)newValue);
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
+				getDislocalityRelations().clear();
+				getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+				getColocalityRelations().clear();
+				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+				getDissimilarityRelations().clear();
+				getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
-                setName(NAME_EDEFAULT);
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
-                getDislocalityRelations().clear();
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
-                getColocalityRelations().clear();
-                return;
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
-                getDissimilarityRelations().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
+				getDislocalityRelations().clear();
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+				getColocalityRelations().clear();
+				return;
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+				getDissimilarityRelations().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
-                return dislocalityRelations != null && !dislocalityRelations.isEmpty();
-            case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
-                return colocalityRelations != null && !colocalityRelations.isEmpty();
-            case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
-                return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ModelPackage.RESTRICTION_ALTERNATIVE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
+				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
+			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
+				return colocalityRelations != null && !colocalityRelations.isEmpty();
+			case ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS:
+				return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //RestrictionAlternativeImpl
