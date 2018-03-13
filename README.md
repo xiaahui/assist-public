@@ -18,7 +18,7 @@ Can be found [here](https://github.com/RobertHilbrich/assist-public/releases).
 
 ## Documentation
 
-Is part of the [GitHub Wiki](https://github.com/RobertHilbrich/assist-public/wiki) for this project. 
+Is contained in the [GitHub Wiki](https://github.com/RobertHilbrich/assist-public/wiki) for this project. 
 
 ## Benefits
 
