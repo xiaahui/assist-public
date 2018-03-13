@@ -16,6 +16,10 @@ ASSIST has been initially developed as a proof of concept for the dissertation o
 
 Can be found [here](https://github.com/RobertHilbrich/assist-public/releases).
 
+## Documentation
+
+Is part of the [GitHub Wiki](https://github.com/RobertHilbrich/assist-public/wiki) for this project. 
+
 ## Benefits
 
 The benefits for the systems engineer are:
@@ -44,3 +48,4 @@ The ASSIST Tool Suite aims to automate this challenging, error prone and complex
 in a textual domain specific language.
 
 This specification of a deployment problem is automatically transfered into Constraint Satisfaction Problem (CSP). Solutions for the CSP represent correct deployments. They are automatically generated with the constraint solver [Choco](http://www.choco-solver.org). Solutions can also be evaluated and optimized based on pre-defined or customizable metrics.
+
