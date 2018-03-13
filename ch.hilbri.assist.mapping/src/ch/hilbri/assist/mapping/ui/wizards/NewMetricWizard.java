@@ -87,7 +87,7 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 		packageName = packageName.length() > 0 ? "package " + packageName
 				+ ";\n\n" : "";
 		String contents = packageName
-				+ "import ch.hilbri.assist.model.Result;\n"
+				+ "import ch.hilbri.assist.model.MappingResult;\n"
 				+ "import ch.hilbri.assist.model.impl.AbstractMetricImpl;\n\n"
 				+
 
@@ -99,7 +99,7 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 				+ "\t}\n \n" +
 
 				"\t@Override\n"
-				+ "\tpublic double computeAbsoluteScore(Result result) {\n \n" +
+				+ "\tpublic double computeAbsoluteScore(MappingResult result) {\n \n" +
 
 				"\t\tdouble score = 0;\n \n" +
 
