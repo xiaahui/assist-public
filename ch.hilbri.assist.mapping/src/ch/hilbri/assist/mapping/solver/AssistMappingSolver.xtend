@@ -32,6 +32,7 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.model.MappingResult
+import ch.hilbri.assist.mapping.solver.constraints.RestrictDeploymentConstraint
 
 class AssistMappingSolver {
 	
@@ -76,6 +77,7 @@ class AssistMappingSolver {
 		
 		mappingConstraintsList 	= newArrayList
 		mappingConstraintsList.add(new SystemHierarchyConstraint(assistModel, chocoModel, solverVariables))
+		mappingConstraintsList.add(new RestrictDeploymentConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DesignAssuranceLevelConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
@@ -83,6 +85,7 @@ class AssistMappingSolver {
 		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DissimilarityConstraint(assistModel, chocoModel, solverVariables))
+		
 
 		mappingResults 			= newArrayList  
 		
