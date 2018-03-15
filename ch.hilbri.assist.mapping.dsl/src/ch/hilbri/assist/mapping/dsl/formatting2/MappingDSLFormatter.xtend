@@ -41,13 +41,40 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
-		app.defaultFormat(document)
+		app => [
+			/* General indention */
+			regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_8).forEach[interior[indent]]
+			regionFor.keywords(applicationAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
+			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
+			
+			/* Restricting deployments in one line */
+			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_5_1).surround[oneSpace]
+			regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_5_4).prepend[oneSpace]
+			
+			/* All assignments */
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+		]
 		app.tasks.forEach[format]
 	}
 
 	def dispatch void format(Task task, extension IFormattableDocument document) {
-		task.defaultFormat(document)
-		// no children
+		task => [
+			/* General indention */
+			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_9).forEach[interior[indent]]
+			regionFor.keywords(taskAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
+			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_9).forEach[append[newLine]]
+			
+			/* Restricting deployments in one line */
+			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_7_1).surround[oneSpace]
+			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_7_4).prepend[oneSpace]
+			
+			/* All assignments */
+			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+		]
 	}
 	
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
