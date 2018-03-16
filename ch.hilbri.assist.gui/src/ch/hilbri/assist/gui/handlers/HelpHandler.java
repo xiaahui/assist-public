@@ -1,12 +1,12 @@
 package ch.hilbri.assist.gui.handlers;
 
-import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.e4.ui.workbench.IWorkbench;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 
 public class HelpHandler {
 	@Execute
-	public void execute(IEclipseContext context, IWorkbench workbench) {
-		// run me
+	public void execute(final EPartService partService) {
+	    partService.showPart("ch.hilbri.assist.gui.part.helpbrowser", PartState.ACTIVATE);
 	}
 }

@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ASSIST
 Bundle-SymbolicName: ch.hilbri.assist.gui;singleton:=true
 Bundle-Version: 2.4.0.qualifier
+Bundle-Activator: ch.hilbri.assist.gui.splash.internal.SplashServicePlugin
 Bundle-Vendor: Robert Hilbrich
-Service-Component: OSGI-INF/osgi-ISplashService-component.xml
-Export-Package: ch.hilbri.assist.gui.splash, ch.hilbri.assist.gui.logging
+Export-Package: ch.hilbri.assist.gui.logging,
+  ch.hilbri.assist.gui.splash
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.e4.ui.workbench,
@@ -22,10 +23,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
  org.eclipse.jdt.ui,
- ch.hilbri.assist.libraries.logback
+ ch.hilbri.assist.libraries.logback,
+ org.eclipse.e4.ui.model.workbench
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: javax.inject;version="1.0.0",
- org.osgi.framework,
- org.osgi.service.component
-Bundle-Activator: ch.hilbri.assist.gui.splash.internal.SplashServicePlugin
+Service-Component: OSGI-INF/osgi-ISplashService-component.xml
 Bundle-ActivationPolicy: lazy
+Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
+  javax.inject;version="1.0.0",
+  org.osgi.framework,
+  org.osgi.service.component
