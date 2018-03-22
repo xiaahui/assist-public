@@ -37,4 +37,5 @@ Export-Package: ch.hilbri.assist.mapping.analysis,
  ch.hilbri.assist.mapping.solver.exceptions,
  ch.hilbri.assist.mapping.solver.monitors,
  ch.hilbri.assist.mapping.solver.strategies
+Automatic-Module-Name: ch.hilbri.assist.mapping
 

@@ -19,3 +19,4 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.forms,
  org.eclipse.xtext.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: ch.hilbri.assist.dse

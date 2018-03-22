@@ -209,3 +209,4 @@ Export-Package: com.beust.jcommander,
  org.yaml.snakeyaml.util
 Bundle-ClassPath: .,
  choco-solver-4.0.6-with-dependencies.jar
+Automatic-Module-Name: ch.hilbri.assist.libraries.choco-solver

@@ -29,3 +29,4 @@ Export-Package: org.jgrapht,
  org.jgrapht.graph.specifics,
  org.jgrapht.traverse,
  org.jgrapht.util
+Automatic-Module-Name: ch.hilbri.assist.libraries.jgrapht

@@ -15,23 +15,23 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class RelationStartAfterOtherTaskFinishedImpl extends RelationWithTwoTasksAndDelayImpl implements RelationStartAfterOtherTaskFinished {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RelationStartAfterOtherTaskFinishedImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RelationStartAfterOtherTaskFinishedImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ModelPackage.Literals.RELATION_START_AFTER_OTHER_TASK_FINISHED;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ModelPackage.Literals.RELATION_START_AFTER_OTHER_TASK_FINISHED;
+	}
 
 } //RelationStartAfterOtherTaskFinishedImpl

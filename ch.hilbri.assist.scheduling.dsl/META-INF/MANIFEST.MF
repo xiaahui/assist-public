@@ -25,3 +25,4 @@ Export-Package: ch.hilbri.assist.scheduling.dsl.serializer,
  ch.hilbri.assist.scheduling.dsl.validation,
  ch.hilbri.assist.scheduling.dsl.parser.antlr
 Import-Package: org.apache.log4j
+Automatic-Module-Name: ch.hilbri.assist.scheduling.dsl

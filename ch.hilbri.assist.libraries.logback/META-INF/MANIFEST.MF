@@ -12,3 +12,4 @@ Export-Package: ch.qos.logback.core,
  ch.qos.logback.core.encoder,
  org.slf4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: ch.hilbri.assist.libraries.logback

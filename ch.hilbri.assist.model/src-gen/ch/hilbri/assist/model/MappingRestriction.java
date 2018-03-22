@@ -28,49 +28,49 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface MappingRestriction extends EObject {
-    /**
-     * Returns the value of the '<em><b>Applications</b></em>' reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.Application}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Applications</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Applications</em>' reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_Applications()
-     * @model
-     * @generated
-     */
-    EList<Application> getApplications();
+	/**
+	 * Returns the value of the '<em><b>Applications</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.model.Application}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Applications</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Applications</em>' reference list.
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_Applications()
+	 * @model
+	 * @generated
+	 */
+	EList<Application> getApplications();
 
-    /**
-     * Returns the value of the '<em><b>Hardware Level</b></em>' attribute.
-     * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Hardware Level</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Hardware Level</em>' attribute.
-     * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
-     * @see #setHardwareLevel(HardwareArchitectureLevelType)
-     * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_HardwareLevel()
-     * @model unique="false"
-     * @generated
-     */
-    HardwareArchitectureLevelType getHardwareLevel();
+	/**
+	 * Returns the value of the '<em><b>Hardware Level</b></em>' attribute.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hardware Level</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hardware Level</em>' attribute.
+	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
+	 * @see #setHardwareLevel(HardwareArchitectureLevelType)
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_HardwareLevel()
+	 * @model unique="false"
+	 * @generated
+	 */
+	HardwareArchitectureLevelType getHardwareLevel();
 
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.MappingRestriction#getHardwareLevel <em>Hardware Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Hardware Level</em>' attribute.
-     * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
-     * @see #getHardwareLevel()
-     * @generated
-     */
-    void setHardwareLevel(HardwareArchitectureLevelType value);
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingRestriction#getHardwareLevel <em>Hardware Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hardware Level</em>' attribute.
+	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
+	 * @see #getHardwareLevel()
+	 * @generated
+	 */
+	void setHardwareLevel(HardwareArchitectureLevelType value);
 
 } // MappingRestriction

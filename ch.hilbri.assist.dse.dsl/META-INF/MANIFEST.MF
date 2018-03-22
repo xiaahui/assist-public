@@ -25,3 +25,4 @@ Export-Package: ch.hilbri.assist.dse.dsl.parser.antlr.internal,
  ch.hilbri.assist.dse.dsl.services,
  ch.hilbri.assist.dse.dsl.serializer
 Import-Package: org.apache.log4j
+Automatic-Module-Name: ch.hilbri.assist.dse.dsl

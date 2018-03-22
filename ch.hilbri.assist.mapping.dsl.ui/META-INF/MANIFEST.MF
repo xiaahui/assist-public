@@ -24,3 +24,4 @@ Export-Package: ch.hilbri.assist.mapping.dsl.ui.contentassist,
  ch.hilbri.assist.mapping.dsl.ui.internal,
  ch.hilbri.assist.mapping.dsl.ui.quickfix
 Bundle-Activator: ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator
+Automatic-Module-Name: ch.hilbri.assist.mapping.dsl.ui

@@ -12,4 +12,5 @@ Require-Bundle: ch.hilbri.assist.scheduling.dsl,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.scheduling.dsl.ide.contentassist.antlr.internal,
  ch.hilbri.assist.scheduling.dsl.ide.contentassist.antlr
+Automatic-Module-Name: ch.hilbri.assist.scheduling.dsl.ide
 

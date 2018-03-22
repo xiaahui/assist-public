@@ -15,4 +15,5 @@ Require-Bundle: com.google.guava,
  org.junit,
  org.eclipse.xtext.junit4
 Export-Package: ch.hilbri.assist.mapping.benchmarking.generator
+Automatic-Module-Name: ch.hilbri.assist.mapping.benchmarking
 

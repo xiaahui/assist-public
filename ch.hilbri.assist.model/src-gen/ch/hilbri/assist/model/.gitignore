@@ -1,0 +1,8 @@
+/MappingRestriction.java
+/RelationFinishAtTheSameTime.java
+/RelationStartAfterOtherTaskFinished.java
+/RelationStartAtTheSameTime.java
+/RelationWithManyTasks.java
+/RelationWithManyTasksAndDelay.java
+/RelationWithTwoTasksAndDelay.java
+/SchedulingRestriction.java
