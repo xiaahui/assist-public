@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Mapping Restriction</b></em>'.
+ * A representation of the model object '<em><b>Mapping Relation</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
@@ -19,15 +19,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.MappingRestriction#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.MappingRestriction#getHardwareLevel <em>Hardware Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingRelation#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingRelation#getHardwareLevel <em>Hardware Level</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction()
+ * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation()
  * @model
  * @generated
  */
-public interface MappingRestriction extends EObject {
+public interface MappingRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Applications</b></em>' reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.model.Application}.
@@ -38,7 +38,7 @@ public interface MappingRestriction extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Applications</em>' reference list.
-	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_Applications()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_Applications()
 	 * @model
 	 * @generated
 	 */
@@ -56,14 +56,14 @@ public interface MappingRestriction extends EObject {
 	 * @return the value of the '<em>Hardware Level</em>' attribute.
 	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
 	 * @see #setHardwareLevel(HardwareArchitectureLevelType)
-	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRestriction_HardwareLevel()
+	 * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_HardwareLevel()
 	 * @model unique="false"
 	 * @generated
 	 */
 	HardwareArchitectureLevelType getHardwareLevel();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingRestriction#getHardwareLevel <em>Hardware Level</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.model.MappingRelation#getHardwareLevel <em>Hardware Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Hardware Level</em>' attribute.
@@ -73,4 +73,4 @@ public interface MappingRestriction extends EObject {
 	 */
 	void setHardwareLevel(HardwareArchitectureLevelType value);
 
-} // MappingRestriction
+} // MappingRelation

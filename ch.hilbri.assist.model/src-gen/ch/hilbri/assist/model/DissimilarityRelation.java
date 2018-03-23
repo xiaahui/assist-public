@@ -19,7 +19,7 @@ package ch.hilbri.assist.model;
  * @model
  * @generated
  */
-public interface DissimilarityRelation extends MappingRestriction {
+public interface DissimilarityRelation extends MappingRelation {
 	/**
 	 * Returns the value of the '<em><b>Dissimilarity Clause</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

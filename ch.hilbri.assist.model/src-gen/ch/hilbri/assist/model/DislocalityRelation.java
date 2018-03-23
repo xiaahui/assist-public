@@ -13,5 +13,5 @@ package ch.hilbri.assist.model;
  * @model
  * @generated
  */
-public interface DislocalityRelation extends MappingRestriction {
+public interface DislocalityRelation extends MappingRelation {
 } // DislocalityRelation

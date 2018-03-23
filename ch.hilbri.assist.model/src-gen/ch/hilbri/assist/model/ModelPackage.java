@@ -1508,14 +1508,14 @@ public interface ModelPackage extends EPackage {
 	int IO_ADAPTER_REQUIREMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.MappingRestrictionImpl <em>Mapping Restriction</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.MappingRelationImpl <em>Mapping Relation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.MappingRestrictionImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRestriction()
+	 * @see ch.hilbri.assist.model.impl.MappingRelationImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
 	 * @generated
 	 */
-	int MAPPING_RESTRICTION = 15;
+	int MAPPING_RELATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' reference list.
@@ -1524,7 +1524,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_RESTRICTION__APPLICATIONS = 0;
+	int MAPPING_RELATION__APPLICATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1533,25 +1533,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_RESTRICTION__HARDWARE_LEVEL = 1;
+	int MAPPING_RELATION__HARDWARE_LEVEL = 1;
 
 	/**
-	 * The number of structural features of the '<em>Mapping Restriction</em>' class.
+	 * The number of structural features of the '<em>Mapping Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_RESTRICTION_FEATURE_COUNT = 2;
+	int MAPPING_RELATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Mapping Restriction</em>' class.
+	 * The number of operations of the '<em>Mapping Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_RESTRICTION_OPERATION_COUNT = 0;
+	int MAPPING_RELATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.
@@ -1570,7 +1570,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISLOCALITY_RELATION__APPLICATIONS = MAPPING_RESTRICTION__APPLICATIONS;
+	int DISLOCALITY_RELATION__APPLICATIONS = MAPPING_RELATION__APPLICATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1579,7 +1579,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISLOCALITY_RELATION__HARDWARE_LEVEL = MAPPING_RESTRICTION__HARDWARE_LEVEL;
+	int DISLOCALITY_RELATION__HARDWARE_LEVEL = MAPPING_RELATION__HARDWARE_LEVEL;
 
 	/**
 	 * The number of structural features of the '<em>Dislocality Relation</em>' class.
@@ -1588,7 +1588,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISLOCALITY_RELATION_FEATURE_COUNT = MAPPING_RESTRICTION_FEATURE_COUNT + 0;
+	int DISLOCALITY_RELATION_FEATURE_COUNT = MAPPING_RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Dislocality Relation</em>' class.
@@ -1597,7 +1597,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISLOCALITY_RELATION_OPERATION_COUNT = MAPPING_RESTRICTION_OPERATION_COUNT + 0;
+	int DISLOCALITY_RELATION_OPERATION_COUNT = MAPPING_RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ColocalityRelationImpl <em>Colocality Relation</em>}' class.
@@ -1616,7 +1616,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLOCALITY_RELATION__APPLICATIONS = MAPPING_RESTRICTION__APPLICATIONS;
+	int COLOCALITY_RELATION__APPLICATIONS = MAPPING_RELATION__APPLICATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1625,7 +1625,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLOCALITY_RELATION__HARDWARE_LEVEL = MAPPING_RESTRICTION__HARDWARE_LEVEL;
+	int COLOCALITY_RELATION__HARDWARE_LEVEL = MAPPING_RELATION__HARDWARE_LEVEL;
 
 	/**
 	 * The number of structural features of the '<em>Colocality Relation</em>' class.
@@ -1634,7 +1634,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLOCALITY_RELATION_FEATURE_COUNT = MAPPING_RESTRICTION_FEATURE_COUNT + 0;
+	int COLOCALITY_RELATION_FEATURE_COUNT = MAPPING_RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Colocality Relation</em>' class.
@@ -1643,7 +1643,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLOCALITY_RELATION_OPERATION_COUNT = MAPPING_RESTRICTION_OPERATION_COUNT + 0;
+	int COLOCALITY_RELATION_OPERATION_COUNT = MAPPING_RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.DissimilarityRelationImpl <em>Dissimilarity Relation</em>}' class.
@@ -1662,7 +1662,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_RELATION__APPLICATIONS = MAPPING_RESTRICTION__APPLICATIONS;
+	int DISSIMILARITY_RELATION__APPLICATIONS = MAPPING_RELATION__APPLICATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1671,7 +1671,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_RELATION__HARDWARE_LEVEL = MAPPING_RESTRICTION__HARDWARE_LEVEL;
+	int DISSIMILARITY_RELATION__HARDWARE_LEVEL = MAPPING_RELATION__HARDWARE_LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Clause</b></em>' containment reference.
@@ -1680,7 +1680,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE = MAPPING_RESTRICTION_FEATURE_COUNT + 0;
+	int DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE = MAPPING_RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Dissimilarity Relation</em>' class.
@@ -1689,7 +1689,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_RELATION_FEATURE_COUNT = MAPPING_RESTRICTION_FEATURE_COUNT + 1;
+	int DISSIMILARITY_RELATION_FEATURE_COUNT = MAPPING_RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Dissimilarity Relation</em>' class.
@@ -1698,7 +1698,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_RELATION_OPERATION_COUNT = MAPPING_RESTRICTION_OPERATION_COUNT + 0;
+	int DISSIMILARITY_RELATION_OPERATION_COUNT = MAPPING_RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.DissimilarityClauseImpl <em>Dissimilarity Clause</em>}' class.
@@ -1877,32 +1877,69 @@ public interface ModelPackage extends EPackage {
 	int SCHEDULING_RESTRICTION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationWithTwoTasksAndDelayImpl <em>Relation With Two Tasks And Delay</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.SimpleRelationImpl <em>Simple Relation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationWithTwoTasksAndDelayImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithTwoTasksAndDelay()
+	 * @see ch.hilbri.assist.model.impl.SimpleRelationImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
 	 * @generated
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY = 24;
+	int SIMPLE_RELATION = 24;
 
 	/**
-	 * The feature id for the '<em><b>Task1</b></em>' reference.
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY__TASK1 = SCHEDULING_RESTRICTION_FEATURE_COUNT + 0;
+	int SIMPLE_RELATION__TASKS = SCHEDULING_RESTRICTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Task2</b></em>' reference.
+	 * The number of structural features of the '<em>Simple Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY__TASK2 = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
+	int SIMPLE_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Simple Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_RELATION_OPERATION_COUNT = SCHEDULING_RESTRICTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ComplexRelationImpl <em>Complex Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.ComplexRelationImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
+	 * @generated
+	 */
+	int COMPLEX_RELATION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_RELATION__TASKS = SCHEDULING_RESTRICTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Other Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_RELATION__OTHER_TASK = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1911,35 +1948,35 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY__DELAY = SCHEDULING_RESTRICTION_FEATURE_COUNT + 2;
+	int COMPLEX_RELATION__DELAY = SCHEDULING_RESTRICTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Relation With Two Tasks And Delay</em>' class.
+	 * The number of structural features of the '<em>Complex Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 3;
+	int COMPLEX_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Relation With Two Tasks And Delay</em>' class.
+	 * The number of operations of the '<em>Complex Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_TWO_TASKS_AND_DELAY_OPERATION_COUNT = SCHEDULING_RESTRICTION_OPERATION_COUNT + 0;
+	int COMPLEX_RELATION_OPERATION_COUNT = SCHEDULING_RESTRICTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationWithManyTasksImpl <em>Relation With Many Tasks</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAtTheSameTimeImpl <em>Restriction Start At The Same Time</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationWithManyTasksImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithManyTasks()
+	 * @see ch.hilbri.assist.model.impl.RestrictionStartAtTheSameTimeImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
 	 * @generated
 	 */
-	int RELATION_WITH_MANY_TASKS = 25;
+	int RESTRICTION_START_AT_THE_SAME_TIME = 26;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -1948,35 +1985,35 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS__TASKS = SCHEDULING_RESTRICTION_FEATURE_COUNT + 0;
+	int RESTRICTION_START_AT_THE_SAME_TIME__TASKS = SIMPLE_RELATION__TASKS;
 
 	/**
-	 * The number of structural features of the '<em>Relation With Many Tasks</em>' class.
+	 * The number of structural features of the '<em>Restriction Start At The Same Time</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
+	int RESTRICTION_START_AT_THE_SAME_TIME_FEATURE_COUNT = SIMPLE_RELATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Relation With Many Tasks</em>' class.
+	 * The number of operations of the '<em>Restriction Start At The Same Time</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_OPERATION_COUNT = SCHEDULING_RESTRICTION_OPERATION_COUNT + 0;
+	int RESTRICTION_START_AT_THE_SAME_TIME_OPERATION_COUNT = SIMPLE_RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationWithManyTasksAndDelayImpl <em>Relation With Many Tasks And Delay</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionFinishAtTheSameTimeImpl <em>Restriction Finish At The Same Time</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationWithManyTasksAndDelayImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithManyTasksAndDelay()
+	 * @see ch.hilbri.assist.model.impl.RestrictionFinishAtTheSameTimeImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
 	 * @generated
 	 */
-	int RELATION_WITH_MANY_TASKS_AND_DELAY = 26;
+	int RESTRICTION_FINISH_AT_THE_SAME_TIME = 27;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -1985,7 +2022,53 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_AND_DELAY__TASKS = RELATION_WITH_MANY_TASKS__TASKS;
+	int RESTRICTION_FINISH_AT_THE_SAME_TIME__TASKS = SIMPLE_RELATION__TASKS;
+
+	/**
+	 * The number of structural features of the '<em>Restriction Finish At The Same Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_FINISH_AT_THE_SAME_TIME_FEATURE_COUNT = SIMPLE_RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Restriction Finish At The Same Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_FINISH_AT_THE_SAME_TIME_OPERATION_COUNT = SIMPLE_RELATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAfterOtherFinishedImpl <em>Restriction Start After Other Finished</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.impl.RestrictionStartAfterOtherFinishedImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
+	 * @generated
+	 */
+	int RESTRICTION_START_AFTER_OTHER_FINISHED = 28;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_START_AFTER_OTHER_FINISHED__TASKS = COMPLEX_RELATION__TASKS;
+
+	/**
+	 * The feature id for the '<em><b>Other Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_START_AFTER_OTHER_FINISHED__OTHER_TASK = COMPLEX_RELATION__OTHER_TASK;
 
 	/**
 	 * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1994,35 +2077,35 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_AND_DELAY__DELAY = RELATION_WITH_MANY_TASKS_FEATURE_COUNT + 0;
+	int RESTRICTION_START_AFTER_OTHER_FINISHED__DELAY = COMPLEX_RELATION__DELAY;
 
 	/**
-	 * The number of structural features of the '<em>Relation With Many Tasks And Delay</em>' class.
+	 * The number of structural features of the '<em>Restriction Start After Other Finished</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_AND_DELAY_FEATURE_COUNT = RELATION_WITH_MANY_TASKS_FEATURE_COUNT + 1;
+	int RESTRICTION_START_AFTER_OTHER_FINISHED_FEATURE_COUNT = COMPLEX_RELATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Relation With Many Tasks And Delay</em>' class.
+	 * The number of operations of the '<em>Restriction Start After Other Finished</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_WITH_MANY_TASKS_AND_DELAY_OPERATION_COUNT = RELATION_WITH_MANY_TASKS_OPERATION_COUNT + 0;
+	int RESTRICTION_START_AFTER_OTHER_FINISHED_OPERATION_COUNT = COMPLEX_RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationStartAtTheSameTimeImpl <em>Relation Start At The Same Time</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAfterOtherStartedImpl <em>Restriction Start After Other Started</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationStartAtTheSameTimeImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationStartAtTheSameTime()
+	 * @see ch.hilbri.assist.model.impl.RestrictionStartAfterOtherStartedImpl
+	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
 	 * @generated
 	 */
-	int RELATION_START_AT_THE_SAME_TIME = 27;
+	int RESTRICTION_START_AFTER_OTHER_STARTED = 29;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2031,90 +2114,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_START_AT_THE_SAME_TIME__TASKS = RELATION_WITH_MANY_TASKS__TASKS;
+	int RESTRICTION_START_AFTER_OTHER_STARTED__TASKS = COMPLEX_RELATION__TASKS;
 
 	/**
-	 * The number of structural features of the '<em>Relation Start At The Same Time</em>' class.
+	 * The feature id for the '<em><b>Other Task</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_START_AT_THE_SAME_TIME_FEATURE_COUNT = RELATION_WITH_MANY_TASKS_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Relation Start At The Same Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_START_AT_THE_SAME_TIME_OPERATION_COUNT = RELATION_WITH_MANY_TASKS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationFinishAtTheSameTimeImpl <em>Relation Finish At The Same Time</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationFinishAtTheSameTimeImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationFinishAtTheSameTime()
-	 * @generated
-	 */
-	int RELATION_FINISH_AT_THE_SAME_TIME = 28;
-
-	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_FINISH_AT_THE_SAME_TIME__TASKS = RELATION_WITH_MANY_TASKS__TASKS;
-
-	/**
-	 * The number of structural features of the '<em>Relation Finish At The Same Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_FINISH_AT_THE_SAME_TIME_FEATURE_COUNT = RELATION_WITH_MANY_TASKS_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Relation Finish At The Same Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_FINISH_AT_THE_SAME_TIME_OPERATION_COUNT = RELATION_WITH_MANY_TASKS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.RelationStartAfterOtherTaskFinishedImpl <em>Relation Start After Other Task Finished</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.impl.RelationStartAfterOtherTaskFinishedImpl
-	 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationStartAfterOtherTaskFinished()
-	 * @generated
-	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED = 29;
-
-	/**
-	 * The feature id for the '<em><b>Task1</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED__TASK1 = RELATION_WITH_TWO_TASKS_AND_DELAY__TASK1;
-
-	/**
-	 * The feature id for the '<em><b>Task2</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED__TASK2 = RELATION_WITH_TWO_TASKS_AND_DELAY__TASK2;
+	int RESTRICTION_START_AFTER_OTHER_STARTED__OTHER_TASK = COMPLEX_RELATION__OTHER_TASK;
 
 	/**
 	 * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -2123,25 +2132,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED__DELAY = RELATION_WITH_TWO_TASKS_AND_DELAY__DELAY;
+	int RESTRICTION_START_AFTER_OTHER_STARTED__DELAY = COMPLEX_RELATION__DELAY;
 
 	/**
-	 * The number of structural features of the '<em>Relation Start After Other Task Finished</em>' class.
+	 * The number of structural features of the '<em>Restriction Start After Other Started</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED_FEATURE_COUNT = RELATION_WITH_TWO_TASKS_AND_DELAY_FEATURE_COUNT + 0;
+	int RESTRICTION_START_AFTER_OTHER_STARTED_FEATURE_COUNT = COMPLEX_RELATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Relation Start After Other Task Finished</em>' class.
+	 * The number of operations of the '<em>Restriction Start After Other Started</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_START_AFTER_OTHER_TASK_FINISHED_OPERATION_COUNT = RELATION_WITH_TWO_TASKS_AND_DELAY_OPERATION_COUNT + 0;
+	int RESTRICTION_START_AFTER_OTHER_STARTED_OPERATION_COUNT = COMPLEX_RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
@@ -4185,36 +4194,36 @@ public interface ModelPackage extends EPackage {
 	EAttribute getIOAdapterRequirement_IsExclusiveOnly();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.MappingRestriction <em>Mapping Restriction</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.MappingRelation <em>Mapping Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mapping Restriction</em>'.
-	 * @see ch.hilbri.assist.model.MappingRestriction
+	 * @return the meta object for class '<em>Mapping Relation</em>'.
+	 * @see ch.hilbri.assist.model.MappingRelation
 	 * @generated
 	 */
-	EClass getMappingRestriction();
+	EClass getMappingRelation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.MappingRestriction#getApplications <em>Applications</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.MappingRelation#getApplications <em>Applications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Applications</em>'.
-	 * @see ch.hilbri.assist.model.MappingRestriction#getApplications()
-	 * @see #getMappingRestriction()
+	 * @see ch.hilbri.assist.model.MappingRelation#getApplications()
+	 * @see #getMappingRelation()
 	 * @generated
 	 */
-	EReference getMappingRestriction_Applications();
+	EReference getMappingRelation_Applications();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.MappingRestriction#getHardwareLevel <em>Hardware Level</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.MappingRelation#getHardwareLevel <em>Hardware Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Hardware Level</em>'.
-	 * @see ch.hilbri.assist.model.MappingRestriction#getHardwareLevel()
-	 * @see #getMappingRestriction()
+	 * @see ch.hilbri.assist.model.MappingRelation#getHardwareLevel()
+	 * @see #getMappingRelation()
 	 * @generated
 	 */
-	EAttribute getMappingRestriction_HardwareLevel();
+	EAttribute getMappingRelation_HardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.DislocalityRelation <em>Dislocality Relation</em>}'.
@@ -4352,119 +4361,108 @@ public interface ModelPackage extends EPackage {
 	EClass getSchedulingRestriction();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay <em>Relation With Two Tasks And Delay</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.SimpleRelation <em>Simple Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation With Two Tasks And Delay</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithTwoTasksAndDelay
+	 * @return the meta object for class '<em>Simple Relation</em>'.
+	 * @see ch.hilbri.assist.model.SimpleRelation
 	 * @generated
 	 */
-	EClass getRelationWithTwoTasksAndDelay();
+	EClass getSimpleRelation();
 
 	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getTask1 <em>Task1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Task1</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getTask1()
-	 * @see #getRelationWithTwoTasksAndDelay()
-	 * @generated
-	 */
-	EReference getRelationWithTwoTasksAndDelay_Task1();
-
-	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getTask2 <em>Task2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Task2</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getTask2()
-	 * @see #getRelationWithTwoTasksAndDelay()
-	 * @generated
-	 */
-	EReference getRelationWithTwoTasksAndDelay_Task2();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getDelay <em>Delay</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Delay</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithTwoTasksAndDelay#getDelay()
-	 * @see #getRelationWithTwoTasksAndDelay()
-	 * @generated
-	 */
-	EAttribute getRelationWithTwoTasksAndDelay_Delay();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationWithManyTasks <em>Relation With Many Tasks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation With Many Tasks</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasks
-	 * @generated
-	 */
-	EClass getRelationWithManyTasks();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.RelationWithManyTasks#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.SimpleRelation#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Tasks</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasks#getTasks()
-	 * @see #getRelationWithManyTasks()
+	 * @see ch.hilbri.assist.model.SimpleRelation#getTasks()
+	 * @see #getSimpleRelation()
 	 * @generated
 	 */
-	EReference getRelationWithManyTasks_Tasks();
+	EReference getSimpleRelation_Tasks();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationWithManyTasksAndDelay <em>Relation With Many Tasks And Delay</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.ComplexRelation <em>Complex Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation With Many Tasks And Delay</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasksAndDelay
+	 * @return the meta object for class '<em>Complex Relation</em>'.
+	 * @see ch.hilbri.assist.model.ComplexRelation
 	 * @generated
 	 */
-	EClass getRelationWithManyTasksAndDelay();
+	EClass getComplexRelation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.RelationWithManyTasksAndDelay#getDelay <em>Delay</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.ComplexRelation#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tasks</em>'.
+	 * @see ch.hilbri.assist.model.ComplexRelation#getTasks()
+	 * @see #getComplexRelation()
+	 * @generated
+	 */
+	EReference getComplexRelation_Tasks();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.model.ComplexRelation#getOtherTask <em>Other Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Other Task</em>'.
+	 * @see ch.hilbri.assist.model.ComplexRelation#getOtherTask()
+	 * @see #getComplexRelation()
+	 * @generated
+	 */
+	EReference getComplexRelation_OtherTask();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ComplexRelation#getDelay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Delay</em>'.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasksAndDelay#getDelay()
-	 * @see #getRelationWithManyTasksAndDelay()
+	 * @see ch.hilbri.assist.model.ComplexRelation#getDelay()
+	 * @see #getComplexRelation()
 	 * @generated
 	 */
-	EAttribute getRelationWithManyTasksAndDelay_Delay();
+	EAttribute getComplexRelation_Delay();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationStartAtTheSameTime <em>Relation Start At The Same Time</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime <em>Restriction Start At The Same Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation Start At The Same Time</em>'.
-	 * @see ch.hilbri.assist.model.RelationStartAtTheSameTime
+	 * @return the meta object for class '<em>Restriction Start At The Same Time</em>'.
+	 * @see ch.hilbri.assist.model.RestrictionStartAtTheSameTime
 	 * @generated
 	 */
-	EClass getRelationStartAtTheSameTime();
+	EClass getRestrictionStartAtTheSameTime();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationFinishAtTheSameTime <em>Relation Finish At The Same Time</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime <em>Restriction Finish At The Same Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation Finish At The Same Time</em>'.
-	 * @see ch.hilbri.assist.model.RelationFinishAtTheSameTime
+	 * @return the meta object for class '<em>Restriction Finish At The Same Time</em>'.
+	 * @see ch.hilbri.assist.model.RestrictionFinishAtTheSameTime
 	 * @generated
 	 */
-	EClass getRelationFinishAtTheSameTime();
+	EClass getRestrictionFinishAtTheSameTime();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished <em>Relation Start After Other Task Finished</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished <em>Restriction Start After Other Finished</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation Start After Other Task Finished</em>'.
-	 * @see ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished
+	 * @return the meta object for class '<em>Restriction Start After Other Finished</em>'.
+	 * @see ch.hilbri.assist.model.RestrictionStartAfterOtherFinished
 	 * @generated
 	 */
-	EClass getRelationStartAfterOtherTaskFinished();
+	EClass getRestrictionStartAfterOtherFinished();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted <em>Restriction Start After Other Started</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Restriction Start After Other Started</em>'.
+	 * @see ch.hilbri.assist.model.RestrictionStartAfterOtherStarted
+	 * @generated
+	 */
+	EClass getRestrictionStartAfterOtherStarted();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.MetricParameter <em>Metric Parameter</em>}'.
@@ -6147,14 +6145,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = eINSTANCE.getIOAdapterRequirement_IsExclusiveOnly();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MappingRestrictionImpl <em>Mapping Restriction</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MappingRelationImpl <em>Mapping Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.MappingRestrictionImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRestriction()
+		 * @see ch.hilbri.assist.model.impl.MappingRelationImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
 		 * @generated
 		 */
-		EClass MAPPING_RESTRICTION = eINSTANCE.getMappingRestriction();
+		EClass MAPPING_RELATION = eINSTANCE.getMappingRelation();
 
 		/**
 		 * The meta object literal for the '<em><b>Applications</b></em>' reference list feature.
@@ -6162,7 +6160,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAPPING_RESTRICTION__APPLICATIONS = eINSTANCE.getMappingRestriction_Applications();
+		EReference MAPPING_RELATION__APPLICATIONS = eINSTANCE.getMappingRelation_Applications();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
@@ -6170,7 +6168,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MAPPING_RESTRICTION__HARDWARE_LEVEL = eINSTANCE.getMappingRestriction_HardwareLevel();
+		EAttribute MAPPING_RELATION__HARDWARE_LEVEL = eINSTANCE.getMappingRelation_HardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.
@@ -6293,48 +6291,14 @@ public interface ModelPackage extends EPackage {
 		EClass SCHEDULING_RESTRICTION = eINSTANCE.getSchedulingRestriction();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationWithTwoTasksAndDelayImpl <em>Relation With Two Tasks And Delay</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.SimpleRelationImpl <em>Simple Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationWithTwoTasksAndDelayImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithTwoTasksAndDelay()
+		 * @see ch.hilbri.assist.model.impl.SimpleRelationImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
 		 * @generated
 		 */
-		EClass RELATION_WITH_TWO_TASKS_AND_DELAY = eINSTANCE.getRelationWithTwoTasksAndDelay();
-
-		/**
-		 * The meta object literal for the '<em><b>Task1</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION_WITH_TWO_TASKS_AND_DELAY__TASK1 = eINSTANCE.getRelationWithTwoTasksAndDelay_Task1();
-
-		/**
-		 * The meta object literal for the '<em><b>Task2</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION_WITH_TWO_TASKS_AND_DELAY__TASK2 = eINSTANCE.getRelationWithTwoTasksAndDelay_Task2();
-
-		/**
-		 * The meta object literal for the '<em><b>Delay</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RELATION_WITH_TWO_TASKS_AND_DELAY__DELAY = eINSTANCE.getRelationWithTwoTasksAndDelay_Delay();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationWithManyTasksImpl <em>Relation With Many Tasks</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationWithManyTasksImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithManyTasks()
-		 * @generated
-		 */
-		EClass RELATION_WITH_MANY_TASKS = eINSTANCE.getRelationWithManyTasks();
+		EClass SIMPLE_RELATION = eINSTANCE.getSimpleRelation();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
@@ -6342,17 +6306,33 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION_WITH_MANY_TASKS__TASKS = eINSTANCE.getRelationWithManyTasks_Tasks();
+		EReference SIMPLE_RELATION__TASKS = eINSTANCE.getSimpleRelation_Tasks();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationWithManyTasksAndDelayImpl <em>Relation With Many Tasks And Delay</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ComplexRelationImpl <em>Complex Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationWithManyTasksAndDelayImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationWithManyTasksAndDelay()
+		 * @see ch.hilbri.assist.model.impl.ComplexRelationImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
 		 * @generated
 		 */
-		EClass RELATION_WITH_MANY_TASKS_AND_DELAY = eINSTANCE.getRelationWithManyTasksAndDelay();
+		EClass COMPLEX_RELATION = eINSTANCE.getComplexRelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLEX_RELATION__TASKS = eINSTANCE.getComplexRelation_Tasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Other Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLEX_RELATION__OTHER_TASK = eINSTANCE.getComplexRelation_OtherTask();
 
 		/**
 		 * The meta object literal for the '<em><b>Delay</b></em>' attribute feature.
@@ -6360,37 +6340,47 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RELATION_WITH_MANY_TASKS_AND_DELAY__DELAY = eINSTANCE.getRelationWithManyTasksAndDelay_Delay();
+		EAttribute COMPLEX_RELATION__DELAY = eINSTANCE.getComplexRelation_Delay();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationStartAtTheSameTimeImpl <em>Relation Start At The Same Time</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAtTheSameTimeImpl <em>Restriction Start At The Same Time</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationStartAtTheSameTimeImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationStartAtTheSameTime()
+		 * @see ch.hilbri.assist.model.impl.RestrictionStartAtTheSameTimeImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
 		 * @generated
 		 */
-		EClass RELATION_START_AT_THE_SAME_TIME = eINSTANCE.getRelationStartAtTheSameTime();
+		EClass RESTRICTION_START_AT_THE_SAME_TIME = eINSTANCE.getRestrictionStartAtTheSameTime();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationFinishAtTheSameTimeImpl <em>Relation Finish At The Same Time</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionFinishAtTheSameTimeImpl <em>Restriction Finish At The Same Time</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationFinishAtTheSameTimeImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationFinishAtTheSameTime()
+		 * @see ch.hilbri.assist.model.impl.RestrictionFinishAtTheSameTimeImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
 		 * @generated
 		 */
-		EClass RELATION_FINISH_AT_THE_SAME_TIME = eINSTANCE.getRelationFinishAtTheSameTime();
+		EClass RESTRICTION_FINISH_AT_THE_SAME_TIME = eINSTANCE.getRestrictionFinishAtTheSameTime();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RelationStartAfterOtherTaskFinishedImpl <em>Relation Start After Other Task Finished</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAfterOtherFinishedImpl <em>Restriction Start After Other Finished</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.model.impl.RelationStartAfterOtherTaskFinishedImpl
-		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRelationStartAfterOtherTaskFinished()
+		 * @see ch.hilbri.assist.model.impl.RestrictionStartAfterOtherFinishedImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
 		 * @generated
 		 */
-		EClass RELATION_START_AFTER_OTHER_TASK_FINISHED = eINSTANCE.getRelationStartAfterOtherTaskFinished();
+		EClass RESTRICTION_START_AFTER_OTHER_FINISHED = eINSTANCE.getRestrictionStartAfterOtherFinished();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAfterOtherStartedImpl <em>Restriction Start After Other Started</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.model.impl.RestrictionStartAfterOtherStartedImpl
+		 * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
+		 * @generated
+		 */
+		EClass RESTRICTION_START_AFTER_OTHER_STARTED = eINSTANCE.getRestrictionStartAfterOtherStarted();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.

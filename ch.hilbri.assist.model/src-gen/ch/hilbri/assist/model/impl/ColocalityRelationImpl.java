@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ColocalityRelationImpl extends MappingRestrictionImpl implements ColocalityRelation {
+public class ColocalityRelationImpl extends MappingRelationImpl implements ColocalityRelation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

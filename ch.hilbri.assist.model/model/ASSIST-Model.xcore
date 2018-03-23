@@ -16,8 +16,8 @@ annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	String			systemName			= ""
-	int 				minHypPeriodLength 	= "-1"
-	int				taskSwitchDelay 		= "0"
+	int             minHypPeriodLength 	= "-1"
+	int				taskSwitchDelay     = "0"
 	
 	contains 		Compartment[1..*] 				compartments
 	
@@ -94,8 +94,8 @@ class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 								ramCapacity 	= "0"
-	int 								romCapacity 	= "0"
+	int                             ramCapacity 	= "0"
+	int                             romCapacity 	= "0"
 	
 	container 	Box 				box 			opposite boards
 	contains 	Processor[1..*] 	processors 		opposite board
@@ -151,27 +151,32 @@ class Application {
 }
 
 class Task {	
-	String name 													= ""
-	int coreUtilization 											= "0"
+	String name                                                 = ""
+	int coreUtilization                                         = "0"
 	int ramUtilization 											= "0"
 	int romUtilization											= "0"
 	int duration 												= "-1"
 	int period													= "-1"
 	int earlyTolerance											= "-1"
 	int lateTolerance											= "-1"
-	int maxStartTime												= "-1"
+	int maxStartTime                                            = "-1"
 	int maxEndTime												= "-1"
 	int addInitTime												= "-1"
 	int slices													= "-1"
-	int minSliceDuration											= "-1"
+	int minSliceDuration                                        = "-1"
 	PeriodicityType periodicity									= "strict"
 	Color color													= "none"
+	
 	container Application application opposite tasks
+	
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
+	
 	derived String fullName get { application.name + "." + name }
+	
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	refers Core[0..1] 	assignedCore
+	
 	op String 			toString() { name }
 }
 
@@ -186,16 +191,16 @@ class IOAdapterRequirement {
 /*   MAPPING: RESTRICTIONS                         */
 /* *********************************************** */
 
-class MappingRestriction{
+class MappingRelation{
 	refers Application[0..*] applications
 	HardwareArchitectureLevelType hardwareLevel
 }
 
-class DislocalityRelation   extends MappingRestriction {}
+class DislocalityRelation   extends MappingRelation {}
 
-class ColocalityRelation    extends MappingRestriction {}
+class ColocalityRelation    extends MappingRelation {}
 
-class DissimilarityRelation extends MappingRestriction {
+class DissimilarityRelation extends MappingRelation {
 	contains DissimilarityClause[1] dissimilarityClause
 }
 
@@ -215,28 +220,28 @@ class DissimilarityEntry extends DissimilarityClause {
 	DissimilarityAttributes dissimilarityAttribute
 	derived HardwareArchitectureLevelType hardwareLevel get {
 		switch (dissimilarityAttribute) {
-			case COMPARTMENT_MANUFACTURER: 	{ return HardwareArchitectureLevelType.COMPARTMENT 	}	
-			case COMPARTMENT_POWERSUPPLY: 	{ return HardwareArchitectureLevelType.COMPARTMENT	}
-			case BOX_MANUFACTURER: 			{ return HardwareArchitectureLevelType.BOX			}
-			case BOARD_MANUFACTURER: 		{ return HardwareArchitectureLevelType.BOARD		    }
-			case BOARD_BOARDTYPE: 			{ return HardwareArchitectureLevelType.BOARD		    }		
-			case BOARD_POWERSUPPLY: 		    { return HardwareArchitectureLevelType.BOARD		    }
-			case BOARD_ASSURANCELEVEL: 		{ return HardwareArchitectureLevelType.BOARD		    }
-			case PROCESSOR_MANUFACTURER: 	{ return HardwareArchitectureLevelType.PROCESSOR	    }
-			case PROCESSOR_PROCESSORTYPE: 	{ return HardwareArchitectureLevelType.PROCESSOR	    }
-			case CORE_ARCHITECTURE: 		    { return HardwareArchitectureLevelType.CORE			}
+			case COMPARTMENT_MANUFACTURER:  { return HardwareArchitectureLevelType.COMPARTMENT  }	
+			case COMPARTMENT_POWERSUPPLY:   { return HardwareArchitectureLevelType.COMPARTMENT  }
+			case BOX_MANUFACTURER:          { return HardwareArchitectureLevelType.BOX          }
+			case BOARD_MANUFACTURER:        { return HardwareArchitectureLevelType.BOARD        }
+			case BOARD_BOARDTYPE:           { return HardwareArchitectureLevelType.BOARD        }		
+			case BOARD_POWERSUPPLY:         { return HardwareArchitectureLevelType.BOARD        }
+			case BOARD_ASSURANCELEVEL:      { return HardwareArchitectureLevelType.BOARD        }
+			case PROCESSOR_MANUFACTURER:    { return HardwareArchitectureLevelType.PROCESSOR    }
+			case PROCESSOR_PROCESSORTYPE: 	{ return HardwareArchitectureLevelType.PROCESSOR    }
+			case CORE_ARCHITECTURE:         { return HardwareArchitectureLevelType.CORE         }
 		}
 	}
 }
 
 enum DissimilarityAttributes {
-	COMPARTMENT_MANUFACTURER	    as "Compartment.Manufacturer"
+	COMPARTMENT_MANUFACTURER    as "Compartment.Manufacturer"
 	COMPARTMENT_POWERSUPPLY		as "Compartment.PowerSupply"
-	BOX_MANUFACTURER			    as "Box.Manufacturer"
-	BOARD_MANUFACTURER			as "Board.Manufacturer"
-	BOARD_BOARDTYPE				as "Board.Type"
-	BOARD_POWERSUPPLY			as "Board.PowerSupply"
-	BOARD_ASSURANCELEVEL		    as "Board.DesignAssuranceLevel"
+	BOX_MANUFACTURER            as "Box.Manufacturer"
+	BOARD_MANUFACTURER          as "Board.Manufacturer"
+	BOARD_BOARDTYPE             as "Board.Type"
+	BOARD_POWERSUPPLY           as "Board.PowerSupply"
+	BOARD_ASSURANCELEVEL        as "Board.DesignAssuranceLevel"
 	PROCESSOR_MANUFACTURER		as "Processor.Manufacturer"
 	PROCESSOR_PROCESSORTYPE		as "Processor.Type"
 	CORE_ARCHITECTURE			as "Core.Architecture"
@@ -247,25 +252,31 @@ enum DissimilarityAttributes {
 /* ********************************************** */
 class SchedulingRestriction {}
 
-class RelationWithTwoTasksAndDelay extends SchedulingRestriction {
-	refers Task task1
-	refers Task task2
-	int delay
+// Basic kinds of relations
+class SimpleRelation extends SchedulingRestriction {
+	refers Task[2..*] tasks
 }
 
-class RelationWithManyTasks extends SchedulingRestriction {
-	refers Task[0..*] tasks
+class ComplexRelation extends SchedulingRestriction {
+	refers Task[1..*] tasks
+	refers Task       otherTask
+	int               delay	
 }
 
-class RelationWithManyTasksAndDelay extends RelationWithManyTasks {
-	int delay
-}
+// Conrete relations:
+// Task1, Task2, ... start at the same time;
+class RestrictionStartAtTheSameTime  extends SimpleRelation {}
 
-class RelationStartAtTheSameTime extends RelationWithManyTasks {}
+// Task1, Task2, ... finish at the same time;
+class RestrictionFinishAtTheSameTime extends SimpleRelation {}
 
-class RelationFinishAtTheSameTime extends RelationWithManyTasks {}
+// Task2 starts after Task1 has finished (with delay of X);
+// Task3, Task4, ...  start after Task1 has finished (with delay of X);
+class RestrictionStartAfterOtherFinished extends ComplexRelation {}
 
-class RelationStartAfterOtherTaskFinished extends RelationWithTwoTasksAndDelay {}
+// Task2 starts after Task1 has started (with delay of X);
+// Task3, Task4, ...  start after Task1 has started (with delay of X);
+class RestrictionStartAfterOtherStarted extends ComplexRelation {}
 
 
 /* ********************************************** */

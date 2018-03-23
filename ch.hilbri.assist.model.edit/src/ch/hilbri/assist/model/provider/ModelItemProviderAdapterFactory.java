@@ -348,29 +348,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingRestriction} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingRelation} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected MappingRestrictionItemProvider mappingRestrictionItemProvider;
+	protected MappingRelationItemProvider mappingRelationItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.MappingRestriction}.
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.MappingRelation}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createMappingRestrictionAdapter() {
-		if (mappingRestrictionItemProvider == null) {
-			mappingRestrictionItemProvider = new MappingRestrictionItemProvider(this);
+	@Override
+	public Adapter createMappingRelationAdapter() {
+		if (mappingRelationItemProvider == null) {
+			mappingRelationItemProvider = new MappingRelationItemProvider(this);
 		}
 
-		return mappingRestrictionItemProvider;
+		return mappingRelationItemProvider;
 	}
 
-    /**
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DislocalityRelation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -555,144 +555,144 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
     /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SimpleRelation} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationWithTwoTasksAndDelayItemProvider relationWithTwoTasksAndDelayItemProvider;
+	protected SimpleRelationItemProvider simpleRelationItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.SimpleRelation}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationWithTwoTasksAndDelayAdapter() {
-		if (relationWithTwoTasksAndDelayItemProvider == null) {
-			relationWithTwoTasksAndDelayItemProvider = new RelationWithTwoTasksAndDelayItemProvider(this);
+	@Override
+	public Adapter createSimpleRelationAdapter() {
+		if (simpleRelationItemProvider == null) {
+			simpleRelationItemProvider = new SimpleRelationItemProvider(this);
 		}
 
-		return relationWithTwoTasksAndDelayItemProvider;
+		return simpleRelationItemProvider;
 	}
 
-    /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationWithManyTasks} instances.
+				/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ComplexRelation} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationWithManyTasksItemProvider relationWithManyTasksItemProvider;
+	protected ComplexRelationItemProvider complexRelationItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationWithManyTasks}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.ComplexRelation}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationWithManyTasksAdapter() {
-		if (relationWithManyTasksItemProvider == null) {
-			relationWithManyTasksItemProvider = new RelationWithManyTasksItemProvider(this);
+	@Override
+	public Adapter createComplexRelationAdapter() {
+		if (complexRelationItemProvider == null) {
+			complexRelationItemProvider = new ComplexRelationItemProvider(this);
 		}
 
-		return relationWithManyTasksItemProvider;
+		return complexRelationItemProvider;
 	}
 
-    /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationWithManyTasksAndDelay} instances.
+				/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationWithManyTasksAndDelayItemProvider relationWithManyTasksAndDelayItemProvider;
+	protected RestrictionStartAtTheSameTimeItemProvider restrictionStartAtTheSameTimeItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationWithManyTasksAndDelay}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationWithManyTasksAndDelayAdapter() {
-		if (relationWithManyTasksAndDelayItemProvider == null) {
-			relationWithManyTasksAndDelayItemProvider = new RelationWithManyTasksAndDelayItemProvider(this);
+	@Override
+	public Adapter createRestrictionStartAtTheSameTimeAdapter() {
+		if (restrictionStartAtTheSameTimeItemProvider == null) {
+			restrictionStartAtTheSameTimeItemProvider = new RestrictionStartAtTheSameTimeItemProvider(this);
 		}
 
-		return relationWithManyTasksAndDelayItemProvider;
+		return restrictionStartAtTheSameTimeItemProvider;
 	}
 
-    /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationStartAtTheSameTime} instances.
+				/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationStartAtTheSameTimeItemProvider relationStartAtTheSameTimeItemProvider;
+	protected RestrictionFinishAtTheSameTimeItemProvider restrictionFinishAtTheSameTimeItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationStartAtTheSameTime}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationStartAtTheSameTimeAdapter() {
-		if (relationStartAtTheSameTimeItemProvider == null) {
-			relationStartAtTheSameTimeItemProvider = new RelationStartAtTheSameTimeItemProvider(this);
+	@Override
+	public Adapter createRestrictionFinishAtTheSameTimeAdapter() {
+		if (restrictionFinishAtTheSameTimeItemProvider == null) {
+			restrictionFinishAtTheSameTimeItemProvider = new RestrictionFinishAtTheSameTimeItemProvider(this);
 		}
 
-		return relationStartAtTheSameTimeItemProvider;
+		return restrictionFinishAtTheSameTimeItemProvider;
 	}
 
-    /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationFinishAtTheSameTime} instances.
+				/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationFinishAtTheSameTimeItemProvider relationFinishAtTheSameTimeItemProvider;
+	protected RestrictionStartAfterOtherStartedItemProvider restrictionStartAfterOtherStartedItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationFinishAtTheSameTime}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationFinishAtTheSameTimeAdapter() {
-		if (relationFinishAtTheSameTimeItemProvider == null) {
-			relationFinishAtTheSameTimeItemProvider = new RelationFinishAtTheSameTimeItemProvider(this);
+	@Override
+	public Adapter createRestrictionStartAfterOtherStartedAdapter() {
+		if (restrictionStartAfterOtherStartedItemProvider == null) {
+			restrictionStartAfterOtherStartedItemProvider = new RestrictionStartAfterOtherStartedItemProvider(this);
 		}
 
-		return relationFinishAtTheSameTimeItemProvider;
+		return restrictionStartAfterOtherStartedItemProvider;
 	}
 
-    /**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished} instances.
+				/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished} instances.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected RelationStartAfterOtherTaskFinishedItemProvider relationStartAfterOtherTaskFinishedItemProvider;
+	protected RestrictionStartAfterOtherFinishedItemProvider restrictionStartAfterOtherFinishedItemProvider;
 
-    /**
-	 * This creates an adapter for a {@link ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished}.
+				/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Adapter createRelationStartAfterOtherTaskFinishedAdapter() {
-		if (relationStartAfterOtherTaskFinishedItemProvider == null) {
-			relationStartAfterOtherTaskFinishedItemProvider = new RelationStartAfterOtherTaskFinishedItemProvider(this);
+	@Override
+	public Adapter createRestrictionStartAfterOtherFinishedAdapter() {
+		if (restrictionStartAfterOtherFinishedItemProvider == null) {
+			restrictionStartAfterOtherFinishedItemProvider = new RestrictionStartAfterOtherFinishedItemProvider(this);
 		}
 
-		return relationStartAfterOtherTaskFinishedItemProvider;
+		return restrictionStartAfterOtherFinishedItemProvider;
 	}
 
-    /**
+				/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1082,7 +1082,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
-		if (mappingRestrictionItemProvider != null) mappingRestrictionItemProvider.dispose();
+		if (mappingRelationItemProvider != null) mappingRelationItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
@@ -1091,12 +1091,12 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (schedulingRestrictionItemProvider != null) schedulingRestrictionItemProvider.dispose();
-		if (relationWithTwoTasksAndDelayItemProvider != null) relationWithTwoTasksAndDelayItemProvider.dispose();
-		if (relationWithManyTasksItemProvider != null) relationWithManyTasksItemProvider.dispose();
-		if (relationWithManyTasksAndDelayItemProvider != null) relationWithManyTasksAndDelayItemProvider.dispose();
-		if (relationStartAtTheSameTimeItemProvider != null) relationStartAtTheSameTimeItemProvider.dispose();
-		if (relationFinishAtTheSameTimeItemProvider != null) relationFinishAtTheSameTimeItemProvider.dispose();
-		if (relationStartAfterOtherTaskFinishedItemProvider != null) relationStartAfterOtherTaskFinishedItemProvider.dispose();
+		if (simpleRelationItemProvider != null) simpleRelationItemProvider.dispose();
+		if (complexRelationItemProvider != null) complexRelationItemProvider.dispose();
+		if (restrictionStartAtTheSameTimeItemProvider != null) restrictionStartAtTheSameTimeItemProvider.dispose();
+		if (restrictionFinishAtTheSameTimeItemProvider != null) restrictionFinishAtTheSameTimeItemProvider.dispose();
+		if (restrictionStartAfterOtherFinishedItemProvider != null) restrictionStartAfterOtherFinishedItemProvider.dispose();
+		if (restrictionStartAfterOtherStartedItemProvider != null) restrictionStartAfterOtherStartedItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
 		if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();

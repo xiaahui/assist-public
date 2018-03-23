@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.RelationWithManyTasks;
+import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.Task;
 
 import java.util.Collection;
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Relation With Many Tasks</b></em>'.
+ * An implementation of the model object '<em><b>Simple Relation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.RelationWithManyTasksImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SimpleRelationImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl implements RelationWithManyTasks {
+public class SimpleRelationImpl extends SchedulingRestrictionImpl implements SimpleRelation {
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RelationWithManyTasksImpl() {
+	protected SimpleRelationImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.RELATION_WITH_MANY_TASKS;
+		return ModelPackage.Literals.SIMPLE_RELATION;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	 */
 	public EList<Task> getTasks() {
 		if (tasks == null) {
-			tasks = new EObjectResolvingEList<Task>(Task.class, this, ModelPackage.RELATION_WITH_MANY_TASKS__TASKS);
+			tasks = new EObjectResolvingEList<Task>(Task.class, this, ModelPackage.SIMPLE_RELATION__TASKS);
 		}
 		return tasks;
 	}
@@ -77,7 +77,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.RELATION_WITH_MANY_TASKS__TASKS:
+			case ModelPackage.SIMPLE_RELATION__TASKS:
 				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -92,7 +92,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.RELATION_WITH_MANY_TASKS__TASKS:
+			case ModelPackage.SIMPLE_RELATION__TASKS:
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
@@ -108,7 +108,7 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RELATION_WITH_MANY_TASKS__TASKS:
+			case ModelPackage.SIMPLE_RELATION__TASKS:
 				getTasks().clear();
 				return;
 		}
@@ -123,10 +123,10 @@ public class RelationWithManyTasksImpl extends SchedulingRestrictionImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RELATION_WITH_MANY_TASKS__TASKS:
+			case ModelPackage.SIMPLE_RELATION__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //RelationWithManyTasksImpl
+} //SimpleRelationImpl

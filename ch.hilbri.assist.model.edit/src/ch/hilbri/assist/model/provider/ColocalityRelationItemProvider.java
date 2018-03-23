@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ColocalityRelationItemProvider 
-	extends MappingRestrictionItemProvider {
+	extends MappingRelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

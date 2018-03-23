@@ -4,7 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
-import ch.hilbri.assist.model.MappingRestriction;
+import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.ModelPackage;
 
 import java.util.Collection;
@@ -22,19 +22,19 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mapping Restriction</b></em>'.
+ * An implementation of the model object '<em><b>Mapping Relation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.MappingRestrictionImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.MappingRestrictionImpl#getHardwareLevel <em>Hardware Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getHardwareLevel <em>Hardware Level</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MappingRestrictionImpl extends MinimalEObjectImpl.Container implements MappingRestriction {
+public class MappingRelationImpl extends MinimalEObjectImpl.Container implements MappingRelation {
 	/**
 	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MappingRestrictionImpl() {
+	protected MappingRelationImpl() {
 		super();
 	}
 
@@ -81,7 +81,7 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.MAPPING_RESTRICTION;
+		return ModelPackage.Literals.MAPPING_RELATION;
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<Application> getApplications() {
 		if (applications == null) {
-			applications = new EObjectResolvingEList<Application>(Application.class, this, ModelPackage.MAPPING_RESTRICTION__APPLICATIONS);
+			applications = new EObjectResolvingEList<Application>(Application.class, this, ModelPackage.MAPPING_RELATION__APPLICATIONS);
 		}
 		return applications;
 	}
@@ -114,7 +114,7 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 		HardwareArchitectureLevelType oldHardwareLevel = hardwareLevel;
 		hardwareLevel = newHardwareLevel == null ? HARDWARE_LEVEL_EDEFAULT : newHardwareLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPING_RESTRICTION__HARDWARE_LEVEL, oldHardwareLevel, hardwareLevel));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL, oldHardwareLevel, hardwareLevel));
 	}
 
 	/**
@@ -125,9 +125,9 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.MAPPING_RESTRICTION__APPLICATIONS:
+			case ModelPackage.MAPPING_RELATION__APPLICATIONS:
 				return getApplications();
-			case ModelPackage.MAPPING_RESTRICTION__HARDWARE_LEVEL:
+			case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
 				return getHardwareLevel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -142,11 +142,11 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.MAPPING_RESTRICTION__APPLICATIONS:
+			case ModelPackage.MAPPING_RELATION__APPLICATIONS:
 				getApplications().clear();
 				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
-			case ModelPackage.MAPPING_RESTRICTION__HARDWARE_LEVEL:
+			case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
 				setHardwareLevel((HardwareArchitectureLevelType)newValue);
 				return;
 		}
@@ -161,10 +161,10 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.MAPPING_RESTRICTION__APPLICATIONS:
+			case ModelPackage.MAPPING_RELATION__APPLICATIONS:
 				getApplications().clear();
 				return;
-			case ModelPackage.MAPPING_RESTRICTION__HARDWARE_LEVEL:
+			case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
 				setHardwareLevel(HARDWARE_LEVEL_EDEFAULT);
 				return;
 		}
@@ -179,9 +179,9 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.MAPPING_RESTRICTION__APPLICATIONS:
+			case ModelPackage.MAPPING_RELATION__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
-			case ModelPackage.MAPPING_RESTRICTION__HARDWARE_LEVEL:
+			case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
 				return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -203,4 +203,4 @@ public class MappingRestrictionImpl extends MinimalEObjectImpl.Container impleme
 		return result.toString();
 	}
 
-} //MappingRestrictionImpl
+} //MappingRelationImpl

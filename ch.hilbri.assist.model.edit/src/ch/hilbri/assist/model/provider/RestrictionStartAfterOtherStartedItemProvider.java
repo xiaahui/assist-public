@@ -3,30 +3,30 @@
 package ch.hilbri.assist.model.provider;
 
 
-import ch.hilbri.assist.model.DislocalityRelation;
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.model.DislocalityRelation} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DislocalityRelationItemProvider 
-	extends MappingRelationItemProvider {
+public class RestrictionStartAfterOtherStartedItemProvider extends ComplexRelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DislocalityRelationItemProvider(AdapterFactory adapterFactory) {
+	public RestrictionStartAfterOtherStartedItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,14 +46,14 @@ public class DislocalityRelationItemProvider
 	}
 
 	/**
-	 * This returns DislocalityRelation.gif.
+	 * This returns RestrictionStartAfterOtherStarted.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DislocalityRelation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestrictionStartAfterOtherStarted"));
 	}
 
 	/**
@@ -64,11 +64,8 @@ public class DislocalityRelationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		HardwareArchitectureLevelType labelValue = ((DislocalityRelation)object).getHardwareLevel();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DislocalityRelation_type") :
-			getString("_UI_DislocalityRelation_type") + " " + label;
+		RestrictionStartAfterOtherStarted restrictionStartAfterOtherStarted = (RestrictionStartAfterOtherStarted)object;
+		return getString("_UI_RestrictionStartAfterOtherStarted_type") + " " + restrictionStartAfterOtherStarted.getDelay();
 	}
 	
 

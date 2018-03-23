@@ -15,6 +15,7 @@ import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.DislocalityRelation;
@@ -30,22 +31,21 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.IOAdapterType;
-import ch.hilbri.assist.model.MappingRestriction;
+import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
-import ch.hilbri.assist.model.RelationFinishAtTheSameTime;
-import ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished;
-import ch.hilbri.assist.model.RelationStartAtTheSameTime;
-import ch.hilbri.assist.model.RelationWithManyTasks;
-import ch.hilbri.assist.model.RelationWithManyTasksAndDelay;
-import ch.hilbri.assist.model.RelationWithTwoTasksAndDelay;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
+import ch.hilbri.assist.model.RestrictionStartAtTheSameTime;
 import ch.hilbri.assist.model.SchedulingRestriction;
+import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -122,7 +122,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.APPLICATION: return createApplication();
 			case ModelPackage.TASK: return createTask();
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
-			case ModelPackage.MAPPING_RESTRICTION: return createMappingRestriction();
+			case ModelPackage.MAPPING_RELATION: return createMappingRelation();
 			case ModelPackage.DISLOCALITY_RELATION: return createDislocalityRelation();
 			case ModelPackage.COLOCALITY_RELATION: return createColocalityRelation();
 			case ModelPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
@@ -131,12 +131,12 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.DISSIMILARITY_CONJUNCTION: return createDissimilarityConjunction();
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.SCHEDULING_RESTRICTION: return createSchedulingRestriction();
-			case ModelPackage.RELATION_WITH_TWO_TASKS_AND_DELAY: return createRelationWithTwoTasksAndDelay();
-			case ModelPackage.RELATION_WITH_MANY_TASKS: return createRelationWithManyTasks();
-			case ModelPackage.RELATION_WITH_MANY_TASKS_AND_DELAY: return createRelationWithManyTasksAndDelay();
-			case ModelPackage.RELATION_START_AT_THE_SAME_TIME: return createRelationStartAtTheSameTime();
-			case ModelPackage.RELATION_FINISH_AT_THE_SAME_TIME: return createRelationFinishAtTheSameTime();
-			case ModelPackage.RELATION_START_AFTER_OTHER_TASK_FINISHED: return createRelationStartAfterOtherTaskFinished();
+			case ModelPackage.SIMPLE_RELATION: return createSimpleRelation();
+			case ModelPackage.COMPLEX_RELATION: return createComplexRelation();
+			case ModelPackage.RESTRICTION_START_AT_THE_SAME_TIME: return createRestrictionStartAtTheSameTime();
+			case ModelPackage.RESTRICTION_FINISH_AT_THE_SAME_TIME: return createRestrictionFinishAtTheSameTime();
+			case ModelPackage.RESTRICTION_START_AFTER_OTHER_FINISHED: return createRestrictionStartAfterOtherFinished();
+			case ModelPackage.RESTRICTION_START_AFTER_OTHER_STARTED: return createRestrictionStartAfterOtherStarted();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
 			case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
@@ -368,9 +368,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingRestriction createMappingRestriction() {
-		MappingRestrictionImpl mappingRestriction = new MappingRestrictionImpl();
-		return mappingRestriction;
+	public MappingRelation createMappingRelation() {
+		MappingRelationImpl mappingRelation = new MappingRelationImpl();
+		return mappingRelation;
 	}
 
 	/**
@@ -458,9 +458,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationWithTwoTasksAndDelay createRelationWithTwoTasksAndDelay() {
-		RelationWithTwoTasksAndDelayImpl relationWithTwoTasksAndDelay = new RelationWithTwoTasksAndDelayImpl();
-		return relationWithTwoTasksAndDelay;
+	public SimpleRelation createSimpleRelation() {
+		SimpleRelationImpl simpleRelation = new SimpleRelationImpl();
+		return simpleRelation;
 	}
 
 	/**
@@ -468,9 +468,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationWithManyTasks createRelationWithManyTasks() {
-		RelationWithManyTasksImpl relationWithManyTasks = new RelationWithManyTasksImpl();
-		return relationWithManyTasks;
+	public ComplexRelation createComplexRelation() {
+		ComplexRelationImpl complexRelation = new ComplexRelationImpl();
+		return complexRelation;
 	}
 
 	/**
@@ -478,9 +478,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationWithManyTasksAndDelay createRelationWithManyTasksAndDelay() {
-		RelationWithManyTasksAndDelayImpl relationWithManyTasksAndDelay = new RelationWithManyTasksAndDelayImpl();
-		return relationWithManyTasksAndDelay;
+	public RestrictionStartAtTheSameTime createRestrictionStartAtTheSameTime() {
+		RestrictionStartAtTheSameTimeImpl restrictionStartAtTheSameTime = new RestrictionStartAtTheSameTimeImpl();
+		return restrictionStartAtTheSameTime;
 	}
 
 	/**
@@ -488,9 +488,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationStartAtTheSameTime createRelationStartAtTheSameTime() {
-		RelationStartAtTheSameTimeImpl relationStartAtTheSameTime = new RelationStartAtTheSameTimeImpl();
-		return relationStartAtTheSameTime;
+	public RestrictionFinishAtTheSameTime createRestrictionFinishAtTheSameTime() {
+		RestrictionFinishAtTheSameTimeImpl restrictionFinishAtTheSameTime = new RestrictionFinishAtTheSameTimeImpl();
+		return restrictionFinishAtTheSameTime;
 	}
 
 	/**
@@ -498,9 +498,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationFinishAtTheSameTime createRelationFinishAtTheSameTime() {
-		RelationFinishAtTheSameTimeImpl relationFinishAtTheSameTime = new RelationFinishAtTheSameTimeImpl();
-		return relationFinishAtTheSameTime;
+	public RestrictionStartAfterOtherFinished createRestrictionStartAfterOtherFinished() {
+		RestrictionStartAfterOtherFinishedImpl restrictionStartAfterOtherFinished = new RestrictionStartAfterOtherFinishedImpl();
+		return restrictionStartAfterOtherFinished;
 	}
 
 	/**
@@ -508,9 +508,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationStartAfterOtherTaskFinished createRelationStartAfterOtherTaskFinished() {
-		RelationStartAfterOtherTaskFinishedImpl relationStartAfterOtherTaskFinished = new RelationStartAfterOtherTaskFinishedImpl();
-		return relationStartAfterOtherTaskFinished;
+	public RestrictionStartAfterOtherStarted createRestrictionStartAfterOtherStarted() {
+		RestrictionStartAfterOtherStartedImpl restrictionStartAfterOtherStarted = new RestrictionStartAfterOtherStartedImpl();
+		return restrictionStartAfterOtherStarted;
 	}
 
 	/**

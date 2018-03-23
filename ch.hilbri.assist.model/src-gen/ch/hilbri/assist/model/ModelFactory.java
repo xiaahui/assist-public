@@ -157,13 +157,13 @@ public interface ModelFactory extends EFactory {
 	IOAdapterRequirement createIOAdapterRequirement();
 
 	/**
-	 * Returns a new object of class '<em>Mapping Restriction</em>'.
+	 * Returns a new object of class '<em>Mapping Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mapping Restriction</em>'.
+	 * @return a new object of class '<em>Mapping Relation</em>'.
 	 * @generated
 	 */
-	MappingRestriction createMappingRestriction();
+	MappingRelation createMappingRelation();
 
 	/**
 	 * Returns a new object of class '<em>Dislocality Relation</em>'.
@@ -238,58 +238,58 @@ public interface ModelFactory extends EFactory {
 	SchedulingRestriction createSchedulingRestriction();
 
 	/**
-	 * Returns a new object of class '<em>Relation With Two Tasks And Delay</em>'.
+	 * Returns a new object of class '<em>Simple Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation With Two Tasks And Delay</em>'.
+	 * @return a new object of class '<em>Simple Relation</em>'.
 	 * @generated
 	 */
-	RelationWithTwoTasksAndDelay createRelationWithTwoTasksAndDelay();
+	SimpleRelation createSimpleRelation();
 
 	/**
-	 * Returns a new object of class '<em>Relation With Many Tasks</em>'.
+	 * Returns a new object of class '<em>Complex Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation With Many Tasks</em>'.
+	 * @return a new object of class '<em>Complex Relation</em>'.
 	 * @generated
 	 */
-	RelationWithManyTasks createRelationWithManyTasks();
+	ComplexRelation createComplexRelation();
 
 	/**
-	 * Returns a new object of class '<em>Relation With Many Tasks And Delay</em>'.
+	 * Returns a new object of class '<em>Restriction Start At The Same Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation With Many Tasks And Delay</em>'.
+	 * @return a new object of class '<em>Restriction Start At The Same Time</em>'.
 	 * @generated
 	 */
-	RelationWithManyTasksAndDelay createRelationWithManyTasksAndDelay();
+	RestrictionStartAtTheSameTime createRestrictionStartAtTheSameTime();
 
 	/**
-	 * Returns a new object of class '<em>Relation Start At The Same Time</em>'.
+	 * Returns a new object of class '<em>Restriction Finish At The Same Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation Start At The Same Time</em>'.
+	 * @return a new object of class '<em>Restriction Finish At The Same Time</em>'.
 	 * @generated
 	 */
-	RelationStartAtTheSameTime createRelationStartAtTheSameTime();
+	RestrictionFinishAtTheSameTime createRestrictionFinishAtTheSameTime();
 
 	/**
-	 * Returns a new object of class '<em>Relation Finish At The Same Time</em>'.
+	 * Returns a new object of class '<em>Restriction Start After Other Finished</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation Finish At The Same Time</em>'.
+	 * @return a new object of class '<em>Restriction Start After Other Finished</em>'.
 	 * @generated
 	 */
-	RelationFinishAtTheSameTime createRelationFinishAtTheSameTime();
+	RestrictionStartAfterOtherFinished createRestrictionStartAfterOtherFinished();
 
 	/**
-	 * Returns a new object of class '<em>Relation Start After Other Task Finished</em>'.
+	 * Returns a new object of class '<em>Restriction Start After Other Started</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation Start After Other Task Finished</em>'.
+	 * @return a new object of class '<em>Restriction Start After Other Started</em>'.
 	 * @generated
 	 */
-	RelationStartAfterOtherTaskFinished createRelationStartAfterOtherTaskFinished();
+	RestrictionStartAfterOtherStarted createRestrictionStartAfterOtherStarted();
 
 	/**
 	 * Returns a new object of class '<em>Metric Parameter</em>'.

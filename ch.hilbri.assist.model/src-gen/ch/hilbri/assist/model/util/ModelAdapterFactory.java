@@ -14,6 +14,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityClause;
@@ -25,20 +26,19 @@ import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
-import ch.hilbri.assist.model.MappingRestriction;
+import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
-import ch.hilbri.assist.model.RelationFinishAtTheSameTime;
-import ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished;
-import ch.hilbri.assist.model.RelationStartAtTheSameTime;
-import ch.hilbri.assist.model.RelationWithManyTasks;
-import ch.hilbri.assist.model.RelationWithManyTasksAndDelay;
-import ch.hilbri.assist.model.RelationWithTwoTasksAndDelay;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
+import ch.hilbri.assist.model.RestrictionStartAtTheSameTime;
 import ch.hilbri.assist.model.SchedulingRestriction;
+import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -169,8 +169,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createIOAdapterRequirementAdapter();
 			}
 			@Override
-			public Adapter caseMappingRestriction(MappingRestriction object) {
-				return createMappingRestrictionAdapter();
+			public Adapter caseMappingRelation(MappingRelation object) {
+				return createMappingRelationAdapter();
 			}
 			@Override
 			public Adapter caseDislocalityRelation(DislocalityRelation object) {
@@ -205,28 +205,28 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createSchedulingRestrictionAdapter();
 			}
 			@Override
-			public Adapter caseRelationWithTwoTasksAndDelay(RelationWithTwoTasksAndDelay object) {
-				return createRelationWithTwoTasksAndDelayAdapter();
+			public Adapter caseSimpleRelation(SimpleRelation object) {
+				return createSimpleRelationAdapter();
 			}
 			@Override
-			public Adapter caseRelationWithManyTasks(RelationWithManyTasks object) {
-				return createRelationWithManyTasksAdapter();
+			public Adapter caseComplexRelation(ComplexRelation object) {
+				return createComplexRelationAdapter();
 			}
 			@Override
-			public Adapter caseRelationWithManyTasksAndDelay(RelationWithManyTasksAndDelay object) {
-				return createRelationWithManyTasksAndDelayAdapter();
+			public Adapter caseRestrictionStartAtTheSameTime(RestrictionStartAtTheSameTime object) {
+				return createRestrictionStartAtTheSameTimeAdapter();
 			}
 			@Override
-			public Adapter caseRelationStartAtTheSameTime(RelationStartAtTheSameTime object) {
-				return createRelationStartAtTheSameTimeAdapter();
+			public Adapter caseRestrictionFinishAtTheSameTime(RestrictionFinishAtTheSameTime object) {
+				return createRestrictionFinishAtTheSameTimeAdapter();
 			}
 			@Override
-			public Adapter caseRelationFinishAtTheSameTime(RelationFinishAtTheSameTime object) {
-				return createRelationFinishAtTheSameTimeAdapter();
+			public Adapter caseRestrictionStartAfterOtherFinished(RestrictionStartAfterOtherFinished object) {
+				return createRestrictionStartAfterOtherFinishedAdapter();
 			}
 			@Override
-			public Adapter caseRelationStartAfterOtherTaskFinished(RelationStartAfterOtherTaskFinished object) {
-				return createRelationStartAfterOtherTaskFinishedAdapter();
+			public Adapter caseRestrictionStartAfterOtherStarted(RestrictionStartAfterOtherStarted object) {
+				return createRestrictionStartAfterOtherStartedAdapter();
 			}
 			@Override
 			public Adapter caseMetricParameter(MetricParameter object) {
@@ -503,16 +503,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MappingRestriction <em>Mapping Restriction</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MappingRelation <em>Mapping Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.MappingRestriction
+	 * @see ch.hilbri.assist.model.MappingRelation
 	 * @generated
 	 */
-	public Adapter createMappingRestrictionAdapter() {
+	public Adapter createMappingRelationAdapter() {
 		return null;
 	}
 
@@ -629,86 +629,86 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationWithTwoTasksAndDelay <em>Relation With Two Tasks And Delay</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.SimpleRelation <em>Simple Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationWithTwoTasksAndDelay
+	 * @see ch.hilbri.assist.model.SimpleRelation
 	 * @generated
 	 */
-	public Adapter createRelationWithTwoTasksAndDelayAdapter() {
+	public Adapter createSimpleRelationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationWithManyTasks <em>Relation With Many Tasks</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ComplexRelation <em>Complex Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasks
+	 * @see ch.hilbri.assist.model.ComplexRelation
 	 * @generated
 	 */
-	public Adapter createRelationWithManyTasksAdapter() {
+	public Adapter createComplexRelationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationWithManyTasksAndDelay <em>Relation With Many Tasks And Delay</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime <em>Restriction Start At The Same Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationWithManyTasksAndDelay
+	 * @see ch.hilbri.assist.model.RestrictionStartAtTheSameTime
 	 * @generated
 	 */
-	public Adapter createRelationWithManyTasksAndDelayAdapter() {
+	public Adapter createRestrictionStartAtTheSameTimeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationStartAtTheSameTime <em>Relation Start At The Same Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime <em>Restriction Finish At The Same Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationStartAtTheSameTime
+	 * @see ch.hilbri.assist.model.RestrictionFinishAtTheSameTime
 	 * @generated
 	 */
-	public Adapter createRelationStartAtTheSameTimeAdapter() {
+	public Adapter createRestrictionFinishAtTheSameTimeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationFinishAtTheSameTime <em>Relation Finish At The Same Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished <em>Restriction Start After Other Finished</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationFinishAtTheSameTime
+	 * @see ch.hilbri.assist.model.RestrictionStartAfterOtherFinished
 	 * @generated
 	 */
-	public Adapter createRelationFinishAtTheSameTimeAdapter() {
+	public Adapter createRestrictionStartAfterOtherFinishedAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished <em>Relation Start After Other Task Finished</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted <em>Restriction Start After Other Started</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished
+	 * @see ch.hilbri.assist.model.RestrictionStartAfterOtherStarted
 	 * @generated
 	 */
-	public Adapter createRelationStartAfterOtherTaskFinishedAdapter() {
+	public Adapter createRestrictionStartAfterOtherStartedAdapter() {
 		return null;
 	}
 

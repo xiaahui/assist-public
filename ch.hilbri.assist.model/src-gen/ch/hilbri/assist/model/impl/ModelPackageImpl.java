@@ -15,6 +15,7 @@ import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.DislocalityRelation;
@@ -30,22 +31,21 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.IOAdapterType;
-import ch.hilbri.assist.model.MappingRestriction;
+import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
-import ch.hilbri.assist.model.RelationFinishAtTheSameTime;
-import ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished;
-import ch.hilbri.assist.model.RelationStartAtTheSameTime;
-import ch.hilbri.assist.model.RelationWithManyTasks;
-import ch.hilbri.assist.model.RelationWithManyTasksAndDelay;
-import ch.hilbri.assist.model.RelationWithTwoTasksAndDelay;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
+import ch.hilbri.assist.model.RestrictionStartAtTheSameTime;
 import ch.hilbri.assist.model.SchedulingRestriction;
+import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -184,7 +184,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass mappingRestrictionEClass = null;
+	private EClass mappingRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,42 +247,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationWithTwoTasksAndDelayEClass = null;
+	private EClass simpleRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationWithManyTasksEClass = null;
+	private EClass complexRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationWithManyTasksAndDelayEClass = null;
+	private EClass restrictionStartAtTheSameTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationStartAtTheSameTimeEClass = null;
+	private EClass restrictionFinishAtTheSameTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationFinishAtTheSameTimeEClass = null;
+	private EClass restrictionStartAfterOtherFinishedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass relationStartAfterOtherTaskFinishedEClass = null;
+	private EClass restrictionStartAfterOtherStartedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1519,8 +1519,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMappingRestriction() {
-		return mappingRestrictionEClass;
+	public EClass getMappingRelation() {
+		return mappingRelationEClass;
 	}
 
 	/**
@@ -1528,8 +1528,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMappingRestriction_Applications() {
-		return (EReference)mappingRestrictionEClass.getEStructuralFeatures().get(0);
+	public EReference getMappingRelation_Applications() {
+		return (EReference)mappingRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1537,8 +1537,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMappingRestriction_HardwareLevel() {
-		return (EAttribute)mappingRestrictionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getMappingRelation_HardwareLevel() {
+		return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1663,8 +1663,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRelationWithTwoTasksAndDelay() {
-		return relationWithTwoTasksAndDelayEClass;
+	public EClass getSimpleRelation() {
+		return simpleRelationEClass;
 	}
 
 	/**
@@ -1672,8 +1672,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelationWithTwoTasksAndDelay_Task1() {
-		return (EReference)relationWithTwoTasksAndDelayEClass.getEStructuralFeatures().get(0);
+	public EReference getSimpleRelation_Tasks() {
+		return (EReference)simpleRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1681,8 +1681,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelationWithTwoTasksAndDelay_Task2() {
-		return (EReference)relationWithTwoTasksAndDelayEClass.getEStructuralFeatures().get(1);
+	public EClass getComplexRelation() {
+		return complexRelationEClass;
 	}
 
 	/**
@@ -1690,8 +1690,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRelationWithTwoTasksAndDelay_Delay() {
-		return (EAttribute)relationWithTwoTasksAndDelayEClass.getEStructuralFeatures().get(2);
+	public EReference getComplexRelation_Tasks() {
+		return (EReference)complexRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1699,8 +1699,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRelationWithManyTasks() {
-		return relationWithManyTasksEClass;
+	public EReference getComplexRelation_OtherTask() {
+		return (EReference)complexRelationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1708,8 +1708,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelationWithManyTasks_Tasks() {
-		return (EReference)relationWithManyTasksEClass.getEStructuralFeatures().get(0);
+	public EAttribute getComplexRelation_Delay() {
+		return (EAttribute)complexRelationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1717,8 +1717,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRelationWithManyTasksAndDelay() {
-		return relationWithManyTasksAndDelayEClass;
+	public EClass getRestrictionStartAtTheSameTime() {
+		return restrictionStartAtTheSameTimeEClass;
 	}
 
 	/**
@@ -1726,8 +1726,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRelationWithManyTasksAndDelay_Delay() {
-		return (EAttribute)relationWithManyTasksAndDelayEClass.getEStructuralFeatures().get(0);
+	public EClass getRestrictionFinishAtTheSameTime() {
+		return restrictionFinishAtTheSameTimeEClass;
 	}
 
 	/**
@@ -1735,8 +1735,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRelationStartAtTheSameTime() {
-		return relationStartAtTheSameTimeEClass;
+	public EClass getRestrictionStartAfterOtherFinished() {
+		return restrictionStartAfterOtherFinishedEClass;
 	}
 
 	/**
@@ -1744,17 +1744,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRelationFinishAtTheSameTime() {
-		return relationFinishAtTheSameTimeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRelationStartAfterOtherTaskFinished() {
-		return relationStartAfterOtherTaskFinishedEClass;
+	public EClass getRestrictionStartAfterOtherStarted() {
+		return restrictionStartAfterOtherStartedEClass;
 	}
 
 	/**
@@ -2517,9 +2508,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY);
 
-		mappingRestrictionEClass = createEClass(MAPPING_RESTRICTION);
-		createEReference(mappingRestrictionEClass, MAPPING_RESTRICTION__APPLICATIONS);
-		createEAttribute(mappingRestrictionEClass, MAPPING_RESTRICTION__HARDWARE_LEVEL);
+		mappingRelationEClass = createEClass(MAPPING_RELATION);
+		createEReference(mappingRelationEClass, MAPPING_RELATION__APPLICATIONS);
+		createEAttribute(mappingRelationEClass, MAPPING_RELATION__HARDWARE_LEVEL);
 
 		dislocalityRelationEClass = createEClass(DISLOCALITY_RELATION);
 
@@ -2542,22 +2533,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		schedulingRestrictionEClass = createEClass(SCHEDULING_RESTRICTION);
 
-		relationWithTwoTasksAndDelayEClass = createEClass(RELATION_WITH_TWO_TASKS_AND_DELAY);
-		createEReference(relationWithTwoTasksAndDelayEClass, RELATION_WITH_TWO_TASKS_AND_DELAY__TASK1);
-		createEReference(relationWithTwoTasksAndDelayEClass, RELATION_WITH_TWO_TASKS_AND_DELAY__TASK2);
-		createEAttribute(relationWithTwoTasksAndDelayEClass, RELATION_WITH_TWO_TASKS_AND_DELAY__DELAY);
+		simpleRelationEClass = createEClass(SIMPLE_RELATION);
+		createEReference(simpleRelationEClass, SIMPLE_RELATION__TASKS);
 
-		relationWithManyTasksEClass = createEClass(RELATION_WITH_MANY_TASKS);
-		createEReference(relationWithManyTasksEClass, RELATION_WITH_MANY_TASKS__TASKS);
+		complexRelationEClass = createEClass(COMPLEX_RELATION);
+		createEReference(complexRelationEClass, COMPLEX_RELATION__TASKS);
+		createEReference(complexRelationEClass, COMPLEX_RELATION__OTHER_TASK);
+		createEAttribute(complexRelationEClass, COMPLEX_RELATION__DELAY);
 
-		relationWithManyTasksAndDelayEClass = createEClass(RELATION_WITH_MANY_TASKS_AND_DELAY);
-		createEAttribute(relationWithManyTasksAndDelayEClass, RELATION_WITH_MANY_TASKS_AND_DELAY__DELAY);
+		restrictionStartAtTheSameTimeEClass = createEClass(RESTRICTION_START_AT_THE_SAME_TIME);
 
-		relationStartAtTheSameTimeEClass = createEClass(RELATION_START_AT_THE_SAME_TIME);
+		restrictionFinishAtTheSameTimeEClass = createEClass(RESTRICTION_FINISH_AT_THE_SAME_TIME);
 
-		relationFinishAtTheSameTimeEClass = createEClass(RELATION_FINISH_AT_THE_SAME_TIME);
+		restrictionStartAfterOtherFinishedEClass = createEClass(RESTRICTION_START_AFTER_OTHER_FINISHED);
 
-		relationStartAfterOtherTaskFinishedEClass = createEClass(RELATION_START_AFTER_OTHER_TASK_FINISHED);
+		restrictionStartAfterOtherStartedEClass = createEClass(RESTRICTION_START_AFTER_OTHER_STARTED);
 
 		metricParameterEClass = createEClass(METRIC_PARAMETER);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
@@ -2678,18 +2668,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		boardEClass.getESuperTypes().add(this.getHardwareElement());
 		processorEClass.getESuperTypes().add(this.getHardwareElement());
 		coreEClass.getESuperTypes().add(this.getHardwareElement());
-		dislocalityRelationEClass.getESuperTypes().add(this.getMappingRestriction());
-		colocalityRelationEClass.getESuperTypes().add(this.getMappingRestriction());
-		dissimilarityRelationEClass.getESuperTypes().add(this.getMappingRestriction());
+		dislocalityRelationEClass.getESuperTypes().add(this.getMappingRelation());
+		colocalityRelationEClass.getESuperTypes().add(this.getMappingRelation());
+		dissimilarityRelationEClass.getESuperTypes().add(this.getMappingRelation());
 		dissimilarityDisjunctionEClass.getESuperTypes().add(this.getDissimilarityClause());
 		dissimilarityConjunctionEClass.getESuperTypes().add(this.getDissimilarityClause());
 		dissimilarityEntryEClass.getESuperTypes().add(this.getDissimilarityClause());
-		relationWithTwoTasksAndDelayEClass.getESuperTypes().add(this.getSchedulingRestriction());
-		relationWithManyTasksEClass.getESuperTypes().add(this.getSchedulingRestriction());
-		relationWithManyTasksAndDelayEClass.getESuperTypes().add(this.getRelationWithManyTasks());
-		relationStartAtTheSameTimeEClass.getESuperTypes().add(this.getRelationWithManyTasks());
-		relationFinishAtTheSameTimeEClass.getESuperTypes().add(this.getRelationWithManyTasks());
-		relationStartAfterOtherTaskFinishedEClass.getESuperTypes().add(this.getRelationWithTwoTasksAndDelay());
+		simpleRelationEClass.getESuperTypes().add(this.getSchedulingRestriction());
+		complexRelationEClass.getESuperTypes().add(this.getSchedulingRestriction());
+		restrictionStartAtTheSameTimeEClass.getESuperTypes().add(this.getSimpleRelation());
+		restrictionFinishAtTheSameTimeEClass.getESuperTypes().add(this.getSimpleRelation());
+		restrictionStartAfterOtherFinishedEClass.getESuperTypes().add(this.getComplexRelation());
+		restrictionStartAfterOtherStartedEClass.getESuperTypes().add(this.getComplexRelation());
 		mappingResultEClass.getESuperTypes().add(this.getComparable());
 
 		// Initialize classes, features, and operations; add parameters
@@ -2843,9 +2833,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getIOAdapterRequirement_IsSharedAllowed(), theEcorePackage.getEBoolean(), "isSharedAllowed", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapterRequirement_IsExclusiveOnly(), theEcorePackage.getEBoolean(), "isExclusiveOnly", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(mappingRestrictionEClass, MappingRestriction.class, "MappingRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMappingRestriction_Applications(), this.getApplication(), null, "applications", null, 0, -1, MappingRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMappingRestriction_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, MappingRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(mappingRelationEClass, MappingRelation.class, "MappingRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMappingRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappingRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dislocalityRelationEClass, DislocalityRelation.class, "DislocalityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2868,22 +2858,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(schedulingRestrictionEClass, SchedulingRestriction.class, "SchedulingRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(relationWithTwoTasksAndDelayEClass, RelationWithTwoTasksAndDelay.class, "RelationWithTwoTasksAndDelay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationWithTwoTasksAndDelay_Task1(), this.getTask(), null, "task1", null, 0, 1, RelationWithTwoTasksAndDelay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationWithTwoTasksAndDelay_Task2(), this.getTask(), null, "task2", null, 0, 1, RelationWithTwoTasksAndDelay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelationWithTwoTasksAndDelay_Delay(), theEcorePackage.getEInt(), "delay", null, 0, 1, RelationWithTwoTasksAndDelay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(simpleRelationEClass, SimpleRelation.class, "SimpleRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSimpleRelation_Tasks(), this.getTask(), null, "tasks", null, 2, -1, SimpleRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(relationWithManyTasksEClass, RelationWithManyTasks.class, "RelationWithManyTasks", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationWithManyTasks_Tasks(), this.getTask(), null, "tasks", null, 0, -1, RelationWithManyTasks.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(complexRelationEClass, ComplexRelation.class, "ComplexRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComplexRelation_Tasks(), this.getTask(), null, "tasks", null, 1, -1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComplexRelation_OtherTask(), this.getTask(), null, "otherTask", null, 0, 1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexRelation_Delay(), theEcorePackage.getEInt(), "delay", null, 0, 1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(relationWithManyTasksAndDelayEClass, RelationWithManyTasksAndDelay.class, "RelationWithManyTasksAndDelay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRelationWithManyTasksAndDelay_Delay(), theEcorePackage.getEInt(), "delay", null, 0, 1, RelationWithManyTasksAndDelay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(restrictionStartAtTheSameTimeEClass, RestrictionStartAtTheSameTime.class, "RestrictionStartAtTheSameTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(relationStartAtTheSameTimeEClass, RelationStartAtTheSameTime.class, "RelationStartAtTheSameTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(restrictionFinishAtTheSameTimeEClass, RestrictionFinishAtTheSameTime.class, "RestrictionFinishAtTheSameTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(relationFinishAtTheSameTimeEClass, RelationFinishAtTheSameTime.class, "RelationFinishAtTheSameTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(restrictionStartAfterOtherFinishedEClass, RestrictionStartAfterOtherFinished.class, "RestrictionStartAfterOtherFinished", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(relationStartAfterOtherTaskFinishedEClass, RelationStartAfterOtherTaskFinished.class, "RelationStartAfterOtherTaskFinished", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(restrictionStartAfterOtherStartedEClass, RestrictionStartAfterOtherStarted.class, "RestrictionStartAfterOtherStarted", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(metricParameterEClass, MetricParameter.class, "MetricParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

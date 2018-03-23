@@ -12,30 +12,30 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.model.RelationFinishAtTheSameTime} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RelationFinishAtTheSameTimeItemProvider extends RelationWithManyTasksItemProvider {
-    /**
+public class RestrictionFinishAtTheSameTimeItemProvider extends SimpleRelationItemProvider {
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    public RelationFinishAtTheSameTimeItemProvider(AdapterFactory adapterFactory) {
+	public RestrictionFinishAtTheSameTimeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
-    /**
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -43,51 +43,51 @@ public class RelationFinishAtTheSameTimeItemProvider extends RelationWithManyTas
 		return itemPropertyDescriptors;
 	}
 
-    /**
-	 * This returns RelationFinishAtTheSameTime.gif.
+	/**
+	 * This returns RestrictionFinishAtTheSameTime.gif.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationFinishAtTheSameTime"));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestrictionFinishAtTheSameTime"));
 	}
 
-    /**
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public String getText(Object object) {
-		return getString("_UI_RelationFinishAtTheSameTime_type");
+	@Override
+	public String getText(Object object) {
+		return getString("_UI_RestrictionFinishAtTheSameTime_type");
 	}
-    
+	
 
-    /**
+	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public void notifyChanged(Notification notification) {
+	@Override
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
 
-    /**
+	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

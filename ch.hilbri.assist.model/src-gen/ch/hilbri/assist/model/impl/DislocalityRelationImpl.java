@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DislocalityRelationImpl extends MappingRestrictionImpl implements DislocalityRelation {
+public class DislocalityRelationImpl extends MappingRelationImpl implements DislocalityRelation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

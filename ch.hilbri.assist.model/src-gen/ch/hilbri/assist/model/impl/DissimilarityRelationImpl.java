@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DissimilarityRelationImpl extends MappingRestrictionImpl implements DissimilarityRelation {
+public class DissimilarityRelationImpl extends MappingRelationImpl implements DissimilarityRelation {
 	/**
 	 * The cached value of the '{@link #getDissimilarityClause() <em>Dissimilarity Clause</em>}' containment reference.
 	 * <!-- begin-user-doc -->

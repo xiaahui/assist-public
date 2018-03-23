@@ -13,5 +13,5 @@ package ch.hilbri.assist.model;
  * @model
  * @generated
  */
-public interface ColocalityRelation extends MappingRestriction {
+public interface ColocalityRelation extends MappingRelation {
 } // ColocalityRelation

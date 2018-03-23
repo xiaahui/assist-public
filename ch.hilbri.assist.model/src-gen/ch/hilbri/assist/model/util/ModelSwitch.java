@@ -14,6 +14,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityClause;
@@ -25,20 +26,19 @@ import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterRequirement;
-import ch.hilbri.assist.model.MappingRestriction;
+import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
-import ch.hilbri.assist.model.RelationFinishAtTheSameTime;
-import ch.hilbri.assist.model.RelationStartAfterOtherTaskFinished;
-import ch.hilbri.assist.model.RelationStartAtTheSameTime;
-import ch.hilbri.assist.model.RelationWithManyTasks;
-import ch.hilbri.assist.model.RelationWithManyTasksAndDelay;
-import ch.hilbri.assist.model.RelationWithTwoTasksAndDelay;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
+import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
+import ch.hilbri.assist.model.RestrictionStartAtTheSameTime;
 import ch.hilbri.assist.model.SchedulingRestriction;
+import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
@@ -202,30 +202,30 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.MAPPING_RESTRICTION: {
-				MappingRestriction mappingRestriction = (MappingRestriction)theEObject;
-				T result = caseMappingRestriction(mappingRestriction);
+			case ModelPackage.MAPPING_RELATION: {
+				MappingRelation mappingRelation = (MappingRelation)theEObject;
+				T result = caseMappingRelation(mappingRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.DISLOCALITY_RELATION: {
 				DislocalityRelation dislocalityRelation = (DislocalityRelation)theEObject;
 				T result = caseDislocalityRelation(dislocalityRelation);
-				if (result == null) result = caseMappingRestriction(dislocalityRelation);
+				if (result == null) result = caseMappingRelation(dislocalityRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.COLOCALITY_RELATION: {
 				ColocalityRelation colocalityRelation = (ColocalityRelation)theEObject;
 				T result = caseColocalityRelation(colocalityRelation);
-				if (result == null) result = caseMappingRestriction(colocalityRelation);
+				if (result == null) result = caseMappingRelation(colocalityRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.DISSIMILARITY_RELATION: {
 				DissimilarityRelation dissimilarityRelation = (DissimilarityRelation)theEObject;
 				T result = caseDissimilarityRelation(dissimilarityRelation);
-				if (result == null) result = caseMappingRestriction(dissimilarityRelation);
+				if (result == null) result = caseMappingRelation(dissimilarityRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,49 +262,49 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_WITH_TWO_TASKS_AND_DELAY: {
-				RelationWithTwoTasksAndDelay relationWithTwoTasksAndDelay = (RelationWithTwoTasksAndDelay)theEObject;
-				T result = caseRelationWithTwoTasksAndDelay(relationWithTwoTasksAndDelay);
-				if (result == null) result = caseSchedulingRestriction(relationWithTwoTasksAndDelay);
+			case ModelPackage.SIMPLE_RELATION: {
+				SimpleRelation simpleRelation = (SimpleRelation)theEObject;
+				T result = caseSimpleRelation(simpleRelation);
+				if (result == null) result = caseSchedulingRestriction(simpleRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_WITH_MANY_TASKS: {
-				RelationWithManyTasks relationWithManyTasks = (RelationWithManyTasks)theEObject;
-				T result = caseRelationWithManyTasks(relationWithManyTasks);
-				if (result == null) result = caseSchedulingRestriction(relationWithManyTasks);
+			case ModelPackage.COMPLEX_RELATION: {
+				ComplexRelation complexRelation = (ComplexRelation)theEObject;
+				T result = caseComplexRelation(complexRelation);
+				if (result == null) result = caseSchedulingRestriction(complexRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_WITH_MANY_TASKS_AND_DELAY: {
-				RelationWithManyTasksAndDelay relationWithManyTasksAndDelay = (RelationWithManyTasksAndDelay)theEObject;
-				T result = caseRelationWithManyTasksAndDelay(relationWithManyTasksAndDelay);
-				if (result == null) result = caseRelationWithManyTasks(relationWithManyTasksAndDelay);
-				if (result == null) result = caseSchedulingRestriction(relationWithManyTasksAndDelay);
+			case ModelPackage.RESTRICTION_START_AT_THE_SAME_TIME: {
+				RestrictionStartAtTheSameTime restrictionStartAtTheSameTime = (RestrictionStartAtTheSameTime)theEObject;
+				T result = caseRestrictionStartAtTheSameTime(restrictionStartAtTheSameTime);
+				if (result == null) result = caseSimpleRelation(restrictionStartAtTheSameTime);
+				if (result == null) result = caseSchedulingRestriction(restrictionStartAtTheSameTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_START_AT_THE_SAME_TIME: {
-				RelationStartAtTheSameTime relationStartAtTheSameTime = (RelationStartAtTheSameTime)theEObject;
-				T result = caseRelationStartAtTheSameTime(relationStartAtTheSameTime);
-				if (result == null) result = caseRelationWithManyTasks(relationStartAtTheSameTime);
-				if (result == null) result = caseSchedulingRestriction(relationStartAtTheSameTime);
+			case ModelPackage.RESTRICTION_FINISH_AT_THE_SAME_TIME: {
+				RestrictionFinishAtTheSameTime restrictionFinishAtTheSameTime = (RestrictionFinishAtTheSameTime)theEObject;
+				T result = caseRestrictionFinishAtTheSameTime(restrictionFinishAtTheSameTime);
+				if (result == null) result = caseSimpleRelation(restrictionFinishAtTheSameTime);
+				if (result == null) result = caseSchedulingRestriction(restrictionFinishAtTheSameTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_FINISH_AT_THE_SAME_TIME: {
-				RelationFinishAtTheSameTime relationFinishAtTheSameTime = (RelationFinishAtTheSameTime)theEObject;
-				T result = caseRelationFinishAtTheSameTime(relationFinishAtTheSameTime);
-				if (result == null) result = caseRelationWithManyTasks(relationFinishAtTheSameTime);
-				if (result == null) result = caseSchedulingRestriction(relationFinishAtTheSameTime);
+			case ModelPackage.RESTRICTION_START_AFTER_OTHER_FINISHED: {
+				RestrictionStartAfterOtherFinished restrictionStartAfterOtherFinished = (RestrictionStartAfterOtherFinished)theEObject;
+				T result = caseRestrictionStartAfterOtherFinished(restrictionStartAfterOtherFinished);
+				if (result == null) result = caseComplexRelation(restrictionStartAfterOtherFinished);
+				if (result == null) result = caseSchedulingRestriction(restrictionStartAfterOtherFinished);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.RELATION_START_AFTER_OTHER_TASK_FINISHED: {
-				RelationStartAfterOtherTaskFinished relationStartAfterOtherTaskFinished = (RelationStartAfterOtherTaskFinished)theEObject;
-				T result = caseRelationStartAfterOtherTaskFinished(relationStartAfterOtherTaskFinished);
-				if (result == null) result = caseRelationWithTwoTasksAndDelay(relationStartAfterOtherTaskFinished);
-				if (result == null) result = caseSchedulingRestriction(relationStartAfterOtherTaskFinished);
+			case ModelPackage.RESTRICTION_START_AFTER_OTHER_STARTED: {
+				RestrictionStartAfterOtherStarted restrictionStartAfterOtherStarted = (RestrictionStartAfterOtherStarted)theEObject;
+				T result = caseRestrictionStartAfterOtherStarted(restrictionStartAfterOtherStarted);
+				if (result == null) result = caseComplexRelation(restrictionStartAfterOtherStarted);
+				if (result == null) result = caseSchedulingRestriction(restrictionStartAfterOtherStarted);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -605,17 +605,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mapping Restriction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mapping Restriction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Relation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMappingRestriction(MappingRestriction object) {
+	public T caseMappingRelation(MappingRelation object) {
 		return null;
 	}
 
@@ -740,92 +740,92 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation With Two Tasks And Delay</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation With Two Tasks And Delay</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Relation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationWithTwoTasksAndDelay(RelationWithTwoTasksAndDelay object) {
+	public T caseSimpleRelation(SimpleRelation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation With Many Tasks</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation With Many Tasks</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Relation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationWithManyTasks(RelationWithManyTasks object) {
+	public T caseComplexRelation(ComplexRelation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation With Many Tasks And Delay</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Restriction Start At The Same Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation With Many Tasks And Delay</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Restriction Start At The Same Time</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationWithManyTasksAndDelay(RelationWithManyTasksAndDelay object) {
+	public T caseRestrictionStartAtTheSameTime(RestrictionStartAtTheSameTime object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation Start At The Same Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Restriction Finish At The Same Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation Start At The Same Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Restriction Finish At The Same Time</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationStartAtTheSameTime(RelationStartAtTheSameTime object) {
+	public T caseRestrictionFinishAtTheSameTime(RestrictionFinishAtTheSameTime object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation Finish At The Same Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Restriction Start After Other Finished</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation Finish At The Same Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Restriction Start After Other Finished</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationFinishAtTheSameTime(RelationFinishAtTheSameTime object) {
+	public T caseRestrictionStartAfterOtherFinished(RestrictionStartAfterOtherFinished object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation Start After Other Task Finished</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Restriction Start After Other Started</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation Start After Other Task Finished</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Restriction Start After Other Started</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationStartAfterOtherTaskFinished(RelationStartAfterOtherTaskFinished object) {
+	public T caseRestrictionStartAfterOtherStarted(RestrictionStartAfterOtherStarted object) {
 		return null;
 	}
 
