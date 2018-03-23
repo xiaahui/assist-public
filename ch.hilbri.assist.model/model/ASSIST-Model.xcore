@@ -25,13 +25,15 @@ class AssistModel {
 	
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
 	contains 		ColocalityRelation[0..*] 		colocalityRelations
-	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
+	contains 		DissimilarityRelation[0..*] 	dissimilarityRelations
+	
+	contains        SchedulingRestriction[0..*]     schedulingRestrictions
 	
 	contains 		ApplicationAlternatives[0..*] 	applicationAlternatives
 	contains 		RestrictionAlternatives[0..*]	restrictionAlternatives
 	contains 		ExplorationCandidate[0..*]		explorationCandidates
 
-	op Compartment[] 	getAllCompartments() 	{ compartments										}
+	op Compartment[] 	getAllCompartments() 	{ compartments										    }
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList			}
 	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList			}
 	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList		}
@@ -270,12 +272,12 @@ class RestrictionStartAtTheSameTime  extends SimpleRelation {}
 // Task1, Task2, ... finish at the same time;
 class RestrictionFinishAtTheSameTime extends SimpleRelation {}
 
-// Task2 starts after Task1 has finished (with delay of X);
-// Task3, Task4, ...  start after Task1 has finished (with delay of X);
+// Task2 starts after Task1 has finished (with delay of min X);
+// Task3, Task4, ...  start after Task1 has finished (with delay of min X);
 class RestrictionStartAfterOtherFinished extends ComplexRelation {}
 
-// Task2 starts after Task1 has started (with delay of X);
-// Task3, Task4, ...  start after Task1 has started (with delay of X);
+// Task2 starts after Task1 has started (with delay of min X);
+// Task3, Task4, ...  start after Task1 has started (with delay of min X);
 class RestrictionStartAfterOtherStarted extends ComplexRelation {}
 
 

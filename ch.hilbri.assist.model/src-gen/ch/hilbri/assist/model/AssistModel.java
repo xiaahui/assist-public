@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getSchedulingRestrictions <em>Scheduling Restrictions</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getExplorationCandidates <em>Exploration Candidates</em>}</li>
@@ -193,6 +194,22 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	EList<DissimilarityRelation> getDissimilarityRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Scheduling Restrictions</b></em>' containment reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.model.SchedulingRestriction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduling Restrictions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scheduling Restrictions</em>' containment reference list.
+	 * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_SchedulingRestrictions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SchedulingRestriction> getSchedulingRestrictions();
 
 	/**
 	 * Returns the value of the '<em><b>Application Alternatives</b></em>' containment reference list.

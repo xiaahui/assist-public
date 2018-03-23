@@ -574,7 +574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_ApplicationAlternatives() {
+	public EReference getAssistModel_SchedulingRestrictions() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -583,7 +583,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_RestrictionAlternatives() {
+	public EReference getAssistModel_ApplicationAlternatives() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -592,8 +592,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_ExplorationCandidates() {
+	public EReference getAssistModel_RestrictionAlternatives() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_ExplorationCandidates() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2388,6 +2397,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+		createEReference(assistModelEClass, ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_ALTERNATIVES);
 		createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
 		createEReference(assistModelEClass, ASSIST_MODEL__EXPLORATION_CANDIDATES);
@@ -2692,6 +2702,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_SchedulingRestrictions(), this.getSchedulingRestriction(), null, "schedulingRestrictions", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_ApplicationAlternatives(), this.getApplicationAlternatives(), null, "applicationAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_RestrictionAlternatives(), this.getRestrictionAlternatives(), null, "restrictionAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_ExplorationCandidates(), this.getExplorationCandidate(), null, "explorationCandidates", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -17,6 +17,7 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.Task;
 
 import com.google.common.collect.Iterables;
@@ -60,6 +61,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getSchedulingRestrictions <em>Scheduling Restrictions</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getExplorationCandidates <em>Exploration Candidates</em>}</li>
@@ -177,6 +179,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected EList<DissimilarityRelation> dissimilarityRelations;
+
+	/**
+	 * The cached value of the '{@link #getSchedulingRestrictions() <em>Scheduling Restrictions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchedulingRestrictions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchedulingRestriction> schedulingRestrictions;
 
 	/**
 	 * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
@@ -348,6 +360,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
 		}
 		return dissimilarityRelations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SchedulingRestriction> getSchedulingRestrictions() {
+		if (schedulingRestrictions == null) {
+			schedulingRestrictions = new EObjectContainmentEList<SchedulingRestriction>(SchedulingRestriction.class, this, ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
+		}
+		return schedulingRestrictions;
 	}
 
 	/**
@@ -552,6 +576,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 				return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
+				return ((InternalEList<?>)getSchedulingRestrictions()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 				return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
@@ -586,6 +612,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getColocalityRelations();
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 				return getDissimilarityRelations();
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
+				return getSchedulingRestrictions();
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 				return getApplicationAlternatives();
 			case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
@@ -633,6 +661,10 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 				getDissimilarityRelations().clear();
 				getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
+				getSchedulingRestrictions().clear();
+				getSchedulingRestrictions().addAll((Collection<? extends SchedulingRestriction>)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 				getApplicationAlternatives().clear();
@@ -682,6 +714,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 				getDissimilarityRelations().clear();
 				return;
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
+				getSchedulingRestrictions().clear();
+				return;
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 				getApplicationAlternatives().clear();
 				return;
@@ -719,6 +754,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return colocalityRelations != null && !colocalityRelations.isEmpty();
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 				return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
+				return schedulingRestrictions != null && !schedulingRestrictions.isEmpty();
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
 			case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:

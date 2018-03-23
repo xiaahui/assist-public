@@ -4,167 +4,175 @@ import "ch.hilbri.assist.model"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel returns AssistModel:
-	'Global' 	'{' 
-					'System' 				'=' systemName=STRING 		';' 
-					('MinimumHyperPeriod' 	'=' minHypPeriodLength=INT 	';')?
-					('TaskSwitchDelay'		'=' taskSwitchDelay=INT		';')?
-	'}'
+    'Global'   '{' 
+                    'System'                 '=' systemName=STRING          ';' 
+                   ('MinimumHyperPeriod'     '=' minHypPeriodLength=INT     ';')?
+                   ('TaskSwitchDelay'        '=' taskSwitchDelay=INT        ';')?
+    '}'
 
-	'Hardware' 	'{'	
-					(compartments+=Compartment)*
-	'}'
+    'Hardware' '{'    
+                    (compartments+=Compartment)*
+    '}'
 
-	'Software' '{'
-					(applications+=Application)* 
-	'}';
+    'Software' '{'
+                    (applications+=Application)* 
+    '}'
+    
+    ('Restrictions' '{' (
+                          (
+                            schedulingRestrictions+=RestrictionFinishAtTheSameTime      |
+                            schedulingRestrictions+=RestrictionStartAfterOtherFinished  |
+                            schedulingRestrictions+=RestrictionStartAfterOtherStarted   |
+                            schedulingRestrictions+=RestrictionStartAtTheSameTime
+                          )
+                       )*
+    '}')?
+    ;
 
 
 Compartment: 
-	'Compartment' name=ID '{'
-		('Manufacturer' 		'=' manufacturer=STRING 	';')?
-		('PowerSupply' 		'=' powerSupply=STRING 	';')?
-		(boxes+=Box)+
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}'
+    'Compartment' name=ID '{'
+        ('Manufacturer'     '=' manufacturer=STRING  ';')?
+        ('PowerSupply'      '=' powerSupply=STRING   ';')?
+        (boxes+=Box)+
+        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+    '}'
 ;
 
 Box:
-	'Box' name=ID '{'
-		('Manufacturer' 	'=' manufacturer=STRING ';')?
-		(boards+=Board)*
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}'
+    'Box' name=ID '{'
+        ('Manufacturer'     '=' manufacturer=STRING ';')?
+        (boards+=Board)*
+        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+    '}'
 ;
-	
+    
 Board:
-	'Board' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('Type' 					'=' boardType=STRING ';')?
-		('PowerSupply' 			'=' powerSupply=STRING ';')?
-	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
-		('RAM'  					'=' ramCapacity=INT ';')?
-		('ROM'  					'=' romCapacity=INT ';')?
-		(processors+=Processor)+
-		(ioAdapters+=IOAdapter)*
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}'
+    'Board' name=ID '{'
+        ('Manufacturer'             '=' manufacturer=STRING ';')?
+        ('Type'                     '=' boardType=STRING ';')?
+        ('PowerSupply'              '=' powerSupply=STRING ';')?
+        ('DesignAssuranceLevel'     '=' assuranceLevel=DesignAssuranceLevelType';')?
+        ('RAM'                      '=' ramCapacity=INT ';')?
+        ('ROM'                      '=' romCapacity=INT ';')?
+        (processors+=Processor)+
+        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+    '}'
 ;
 
 Processor:
-	'Processor' name=ID '{'
-	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
-	    ('Type'         			'=' processorType=STRING ';')?
-		(cores+=Core)+
-		('Properties' '{'		(metricParameters+=MetricParameter)* '}')?
-	'}';
+    'Processor' name=ID '{'
+        ('Manufacturer'             '=' manufacturer=STRING ';')?
+        ('Type'                     '=' processorType=STRING ';')?
+        (cores+=Core)+
+        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+    '}';
 
 Core:
-	'Core' name=ID '{' 
-		('Capacity' 				'=' capacity=INT ';')?
-		('Architecture' 			'=' architecture=STRING ';')?
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
+    'Core' name=ID '{' 
+        ('Capacity'                 '=' capacity=INT ';')?
+        ('Architecture'             '=' architecture=STRING ';')?
+        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+    '}';
 
-IOAdapter:
-	'Adapter' name=ID '{' 	
-	 	'Type' '=' adapterType=IOAdapterType ';'
-	 	'Count' '=' totalCount=INT ';'
-	'}' 
-;
 
 /* SOFTWARE */
 
 Application:
-	'Application' name=ID '{'
-	    ('CriticalityLevel' 		'=' criticalityLevel=DesignAssuranceLevelType ';')?
-		('Developer'		 		'=' developedBy=STRING ';')?
-		(tasks+=Task)+
-		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
+    'Application' name=ID '{'
+        ('CriticalityLevel'         '=' criticalityLevel=DesignAssuranceLevelType ';'    )?
+        ('Developer'                '=' developedBy=STRING ';'                           )?
+        (tasks+=Task)+
+        ('Properties'             '{'    (metricParameters+=MetricParameter)* '}'        )?
+    '}';
 
 Task:
-	'Task' name=ID '{'
- 		('RequiredRAM' 				'=' ramUtilization=INT ';')? 
-		('RequiredROM'				'=' romUtilization=INT ';')? 
-		
-		 'AssignedCore'				'=' assignedCore=[Core|QualifiedName] ';'
-		 'Duration'					'=' duration=INT 				';'
-		 'Period'					'=' period=INT 					';'
-		('Periodicity'				'=' periodicity=PeriodicityType ';')? 
- 	    ('EarlyTolerance'			'=' earlyTolerance=INT 			';')?
-		('LateTolerance'			'=' lateTolerance=INT 			';')?
-		('MaxStartTime'				'=' maxStartTime=INT			';')?
-		('MaxEndTime'				'=' maxEndTime=INT				';')?
-		('InitTime'					'=' addInitTime=INT				';')?
-		('Slices'					'=' slices=INT					';')?
-		('MinSliceDuration'			'=' minSliceDuration=INT 		';')?
-		('Color'					'='	color=Color					';')?
-		
-		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
+    'Task' name=ID '{'
+        ('RequiredRAM'               '=' ramUtilization=INT ';'                          )? 
+        ('RequiredROM'               '=' romUtilization=INT ';'                          )? 
+         'AssignedCore'              '=' assignedCore=[Core|QualifiedName] ';'
+         'Duration'                  '=' duration=INT ';'
+         'Period'                    '=' period=INT ';'
+        ('Periodicity'               '=' periodicity=PeriodicityType ';'                 )? 
+        ('EarlyTolerance'            '=' earlyTolerance=INT ';'                          )?
+        ('LateTolerance'             '=' lateTolerance=INT ';'                           )?
+        ('MaxStartTime'              '=' maxStartTime=INT ';'                            )?
+        ('MaxEndTime'                '=' maxEndTime=INT ';'                              )?
+        ('InitTime'                  '=' addInitTime=INT ';'                             )?
+        ('Slices'                    '=' slices=INT ';'                                  )?
+        ('MinSliceDuration'          '=' minSliceDuration=INT ';'                        )?
+        ('Color'                     '=' color=Color ';'                                 )?
+        ('Properties'             '{'    (metricParameters+=MetricParameter)* '}')?
+    '}';
 
 enum Color:           
-	NONE			= 'none'			|
-	BLACK			= 'black'			|
-	BLUE			= 'blue' 			|
-	CYAN			= 'cyan'			|
-	GRAY			= 'gray'			|
-	GREEN			= 'green'			|
-	MAGENTA			= 'magenta'			|
-	RED				= 'red'				|
-	WHITE			= 'white'			|
-	YELLOW			= 'yellow'			|
-	DARK_BLUE		= 'darkblue'		|
-	DARK_CYAN		= 'darkcyan'		|
-	DARK_GRAY		= 'darkgray'		|
-	DARK_GREEN		= 'darkgreen'		|
-	DARK_MAGENTA	= 'darkmagenta'		|
-	DARK_RED		= 'darkred'			|
-	DARK_YELLOW		= 'darkyellow'		
+    NONE            = 'none'               |
+    BLACK           = 'black'              |
+    BLUE            = 'blue'               |
+    CYAN            = 'cyan'               |
+    GRAY            = 'gray'               |
+    GREEN           = 'green'              |
+    MAGENTA         = 'magenta'            |
+    RED             = 'red'                |
+    WHITE           = 'white'              |
+    YELLOW          = 'yellow'             |
+    DARK_BLUE       = 'darkblue'           |
+    DARK_CYAN       = 'darkcyan'           |
+    DARK_GRAY       = 'darkgray'           |
+    DARK_GREEN      = 'darkgreen'          |
+    DARK_MAGENTA    = 'darkmagenta'        |
+    DARK_RED        = 'darkred'            |
+    DARK_YELLOW     = 'darkyellow'        
 ;
 
-IOAdapterRequirement: 
-	'Requires' 	requiredAdapterCount=INT 
-				adapterType=IOAdapterType 'adapter' 
-  			 	(isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
-	';' 
+/* Restrictions */
+RestrictionStartAtTheSameTime:
+    tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'start'  'at' 'the' 'same' 'time' ';' ;
+
+RestrictionFinishAtTheSameTime:
+    tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'finish' 'at' 'the' 'same' 'time' ';' ;
+
+RestrictionStartAfterOtherFinished: 
+    ( 
+        (tasks+=[Task|QualifiedName]                                    'starts' 'after' otherTask=[Task|QualifiedName] 'has' 'finished') |
+        (tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'start'  'after' otherTask=[Task|QualifiedName] 'has' 'finished')
+    )
+    (    'with' 'delay' 'of' 'at' 'least' delay=INT    )?
+    ';'
 ;
+
+RestrictionStartAfterOtherStarted: 
+    ( 
+        (tasks+=[Task|QualifiedName]                                    'starts' 'after' otherTask=[Task|QualifiedName] 'has' 'started') |
+        (tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'start'  'after' otherTask=[Task|QualifiedName] 'has' 'started')
+    )
+    (   'with' 'delay' 'of' 'at' 'least' delay=INT   )?
+    ';'
+;
+
+/* Generic Stuff */
 
 MetricParameter:  
-	name=STRING '=' value=INT ';'
+    name=STRING '=' value=INT ';'
 ;
 
 QualifiedName:
-	ID ('.' ID)*
+    ID ('.' ID)*
 ;
 
 /* ENUMS */
 enum PeriodicityType:
-	STRICT 		= 'strict' 		|
-	FLEXIBLE		= 'flexible'
+    STRICT         = 'strict'         |
+    FLEXIBLE       = 'flexible'
 ;
 
-enum HardwareArchitectureLevelType:
-	CORE 		= 'Core'		|
-	PROCESSOR 	= 'Processor'	|
-	BOARD		= 'Board'		|
-	BOX			= 'Box'			|
-	COMPARTMENT	= 'Compartment'
-;
 
 enum DesignAssuranceLevelType returns DesignAssuranceLevelType: 
-	NONE= 'None' 	|
-	QS	= 'QS'	 	|
-	D	= 'D'		|
-	C	= 'C'		|
-	B	= 'B'		|
-	A 	= 'A'  
+    NONE  = 'None'     |
+    QS    = 'QS'       |
+    D     = 'D'        |
+    C     = 'C'        |
+    B     = 'B'        |
+    A     = 'A'  
 ;
 
-enum IOAdapterType:
-	CAN 		= 'Can'					|
-	ELB			= 'Enhanced Local Bus'	|
-	ETH			= 'Ethernet'			|
-	ANALOG 		= 'Analog'				|
-	DIGITAL		= 'Digital'				|
-	SERIAL		= 'Serial'				;

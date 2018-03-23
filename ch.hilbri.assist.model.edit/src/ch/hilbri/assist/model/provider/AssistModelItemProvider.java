@@ -153,6 +153,7 @@ public class AssistModelItemProvider
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EXPLORATION_CANDIDATES);
@@ -221,6 +222,7 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
 			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 			case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
 			case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
@@ -265,6 +267,41 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS,
 				 ModelFactory.eINSTANCE.createDissimilarityRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createSchedulingRestriction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createSimpleRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createComplexRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createRestrictionStartAtTheSameTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createRestrictionFinishAtTheSameTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createRestrictionStartAfterOtherFinished()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+				 ModelFactory.eINSTANCE.createRestrictionStartAfterOtherStarted()));
 
 		newChildDescriptors.add
 			(createChildParameter
