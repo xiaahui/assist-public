@@ -24,6 +24,7 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.scheduling.solver.constraints.SchedulingRestrictionsConstraint
 
 class AssistSchedulingSolver {
 	
@@ -67,6 +68,7 @@ class AssistSchedulingSolver {
 		schedulingConstraintsList.add(new OnlyOneTaskPerTimePerCoreConstraint(assistModel, chocoModel, solverVariables))
 		schedulingConstraintsList.add(new ExecutionInstanceOrderConstraint(assistModel, chocoModel, solverVariables))
 		schedulingConstraintsList.add(new EnforcePeriodicityConstraint(assistModel, chocoModel, solverVariables))
+		schedulingConstraintsList.add(new SchedulingRestrictionsConstraint(assistModel, chocoModel, solverVariables))
 
 		schedulingResults 			= newArrayList  
 	}	
