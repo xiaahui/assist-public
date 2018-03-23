@@ -21,7 +21,6 @@ class SchedulingDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		val bundle = FrameworkUtil.getBundle(class)
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
-//		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));
 		
 		/* ---------- HARDWARE ------------- */
 		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
@@ -30,8 +29,14 @@ class SchedulingDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- APPLICATIONS AND GROUPS --------- */
 		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
-		for (sw : model.applications) createNode(applicationsNode, sw)
+		for (sw : model.applications) 
+		    createNode(applicationsNode, sw)
 		
-		
+		/* --------- RESTRICTIONS -------------- */
+        if (!model.schedulingRestrictions.empty) {
+            val contraintsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
+            for (r : model.schedulingRestrictions) 
+                createNode(contraintsNode, r)
+        }
 	}
 }
