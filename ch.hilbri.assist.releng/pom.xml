@@ -71,6 +71,7 @@
 		<module>../ch.hilbri.assist.model</module>
 		<module>../ch.hilbri.assist.model.edit</module>
 		<module>../ch.hilbri.assist.model.editor</module>
+		<module>../ch.hilbri.assist.scheduling.tests</module>
 	</modules>
 
 	<dependencies>
