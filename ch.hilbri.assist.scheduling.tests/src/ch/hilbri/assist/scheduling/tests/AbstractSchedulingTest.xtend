@@ -1,7 +1,11 @@
 package ch.hilbri.assist.scheduling.tests
 
-import ch.hilbri.assist.scheduling.dsl.tests.SchedulingDslInjectorProvider
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.ModelPackage
+import ch.hilbri.assist.scheduling.dsl.tests.SchedulingDslInjectorProvider
+import ch.hilbri.assist.scheduling.solver.AssistSchedulingSolver
+import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
@@ -11,7 +15,6 @@ import org.junit.BeforeClass
 import org.junit.runner.RunWith
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.model.AssistModel
 
 @RunWith(XtextRunner)
 @InjectWith(SchedulingDslInjectorProvider)
@@ -33,4 +36,15 @@ class AbstractSchedulingTest {
 	@BeforeClass
 	def static void registerEPackage() { ModelPackage.eINSTANCE.eClass() }
 
+
+    protected def static AssistSchedulingSolver createAndRunSolver(AssistModel assistModel) {
+        val assistSolver = new AssistSchedulingSolver(assistModel)
+        assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+        assistSolver.solverMaxSolutions = 1
+        assistSolver.runInitialization
+        assistSolver.runConstraintGeneration
+        assistSolver.runSolutionSearch
+        assistSolver.createSolutions
+        return assistSolver
+    }
 }
