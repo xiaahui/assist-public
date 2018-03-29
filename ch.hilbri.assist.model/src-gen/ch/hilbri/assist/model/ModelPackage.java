@@ -2884,13 +2884,22 @@ public interface ModelPackage extends EPackage {
 	int TASK_EXECUTION_INSTANCE_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE___TO_STRING = 0;
+
+	/**
 	 * The number of operations of the '<em>Task Execution Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 0;
+	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
@@ -5107,6 +5116,16 @@ public interface ModelPackage extends EPackage {
 	EAttribute getTaskExecutionInstance_End();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.TaskExecutionInstance#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.model.TaskExecutionInstance#toString()
+	 * @generated
+	 */
+	EOperation getTaskExecutionInstance__ToString();
+
+	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6895,6 +6914,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK_EXECUTION_INSTANCE__END = eINSTANCE.getTaskExecutionInstance_End();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK_EXECUTION_INSTANCE___TO_STRING = eINSTANCE.getTaskExecutionInstance__ToString();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.

@@ -2284,6 +2284,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTaskExecutionInstance__ToString() {
+		return taskExecutionInstanceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDissimilarityAttributes() {
 		return dissimilarityAttributesEEnum;
 	}
@@ -2627,6 +2636,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		taskExecutionInstanceEClass = createEClass(TASK_EXECUTION_INSTANCE);
 		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__BEGIN);
 		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__END);
+		createEOperation(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE___TO_STRING);
 
 		// Create enums
 		dissimilarityAttributesEEnum = createEEnum(DISSIMILARITY_ATTRIBUTES);
@@ -2968,6 +2978,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(taskExecutionInstanceEClass, TaskExecutionInstance.class, "TaskExecutionInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskExecutionInstance_Begin(), theEcorePackage.getEInt(), "begin", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskExecutionInstance_End(), theEcorePackage.getEInt(), "end", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTaskExecutionInstance__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dissimilarityAttributesEEnum, DissimilarityAttributes.class, "DissimilarityAttributes");

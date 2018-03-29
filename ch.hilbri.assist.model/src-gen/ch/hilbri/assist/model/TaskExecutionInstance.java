@@ -76,4 +76,13 @@ public interface TaskExecutionInstance extends EObject {
 	 */
 	void setEnd(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='int _begin = this.getBegin();\n&lt;%java.lang.String%&gt; _plus = (\"[\" + &lt;%java.lang.Integer%&gt;.valueOf(_begin));\n&lt;%java.lang.String%&gt; _plus_1 = (_plus + \", \");\nint _end = this.getEnd();\n&lt;%java.lang.String%&gt; _plus_2 = (_plus_1 + &lt;%java.lang.Integer%&gt;.valueOf(_end));\nreturn (_plus_2 + \"]\");'"
+	 * @generated
+	 */
+	String toString();
+
 } // TaskExecutionInstance

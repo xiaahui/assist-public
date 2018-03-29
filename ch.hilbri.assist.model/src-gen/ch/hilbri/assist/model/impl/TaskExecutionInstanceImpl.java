@@ -5,7 +5,11 @@ package ch.hilbri.assist.model.impl;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -133,6 +137,20 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		int _begin = this.getBegin();
+		String _plus = ("[" + Integer.valueOf(_begin));
+		String _plus_1 = (_plus + ", ");
+		int _end = this.getEnd();
+		String _plus_2 = (_plus_1 + Integer.valueOf(_end));
+		return (_plus_2 + "]");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -202,16 +220,12 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (begin: ");
-		result.append(begin);
-		result.append(", end: ");
-		result.append(end);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE___TO_STRING:
+				return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TaskExecutionInstanceImpl
