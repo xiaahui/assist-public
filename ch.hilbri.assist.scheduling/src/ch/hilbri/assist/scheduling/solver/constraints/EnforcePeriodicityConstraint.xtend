@@ -40,6 +40,9 @@ class EnforcePeriodicityConstraint extends AbstractSchedulingConstraint {
                         chocoModel.arithm(beginCurVar, "-", beginPrevVar, "=", task.period).post()
                     }
                 }
+
+                // We did some work
+                worked = true
             }
 
         }
