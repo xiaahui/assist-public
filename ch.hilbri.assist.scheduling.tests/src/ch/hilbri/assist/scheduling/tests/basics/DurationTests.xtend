@@ -113,6 +113,69 @@ Software {
         }
     }
 
+    /* Check if the hyperperiod will be prolonged - if necessary */
+    @Test
+    def void longHyperPeriodTest1() {
+        val assistModel = parser.parse('''
+Global {
+    System = "Example System";
+    MinimumHyperPeriod = 10;
+}
+
+Hardware {
+    Compartment Comp1 {
+        Box Box1 {
+            Board Board1 {
+                Processor P1 {
+                    Core C0 {  }
+                }
+            }
+        }
+    }
+}
+
+Software {
+    Application A1 {
+        Task A1_T1 {
+            AssignedCore = Comp1.Box1.Board1.P1.C0;
+            Duration = 1;
+            Period = 4;
+        }
+    }
+}  
+         ''')
+        val assistSolver = createAndRunSolver(assistModel)
+
+        /* Basic Checks to make sure that we have some results */
+        Assert.assertNotNull(assistSolver.chocoSolutions)
+        Assert.assertEquals(1, assistSolver.chocoSolutions.size)
+        Assert.assertNotNull(assistSolver.results)
+        Assert.assertEquals(1, assistSolver.results.size)
+
+        /* Make sure that we have exactly one instance of the desired length */
+        val solution = assistSolver.results.head
+
+        Assert.assertEquals(12, solution.hyperPeriodLength)
+
+        /* Make sure that the solution is correct */
+        val task = assistModel.allTasks.get(0)
+        Assert.assertEquals(3, solution.schedule.get(task).size)
+
+        val taskExecutions = solution.schedule.get(task)
+        for (execIdx : 0 ..< taskExecutions.size) {
+
+            val taskExecution = taskExecutions.get(execIdx)
+            /* Check proper duration */
+            Assert.assertEquals(1, taskExecution.end - taskExecution.begin)
+
+            /* Check maximum bounds */
+            Assert.assertTrue(taskExecution.begin >= 0)
+            Assert.assertTrue(taskExecution.begin < 12)
+            Assert.assertTrue(taskExecution.end > 0)
+            Assert.assertTrue(taskExecution.end <= 12)
+        }
+    }
+
     @Test
     def void longHyperPeriodTest2() {
         val assistModel = parser.parse('''
