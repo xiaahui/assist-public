@@ -6,3 +6,10 @@
 /RelationWithManyTasksImpl.java
 /RelationWithTwoTasksAndDelayImpl.java
 /SchedulingRestrictionImpl.java
+/ComplexRelationImpl.java
+/MappingRelationImpl.java
+/RestrictionFinishAtTheSameTimeImpl.java
+/RestrictionStartAfterOtherFinishedImpl.java
+/RestrictionStartAfterOtherStartedImpl.java
+/RestrictionStartAtTheSameTimeImpl.java
+/SimpleRelationImpl.java
