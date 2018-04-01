@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.gui.tests
+Bundle-SymbolicName: ch.hilbri.assist.gui.tests
+Bundle-Version: 2.4.0.qualifier
+Bundle-Vendor: Robert Hilbrich
+Fragment-Host: ch.hilbri.assist.gui;bundle-version="2.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
