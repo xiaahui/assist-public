@@ -35,7 +35,7 @@ Compartment:
         ('Manufacturer'     '=' manufacturer=STRING  ';')?
         ('PowerSupply'      '=' powerSupply=STRING   ';')?
         (boxes+=Box)+
-        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
 
@@ -43,7 +43,7 @@ Box:
     'Box' name=ID '{'
         ('Manufacturer'     '=' manufacturer=STRING ';')?
         (boards+=Board)*
-        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
     
@@ -56,7 +56,7 @@ Board:
         ('RAM'                      '=' ramCapacity=INT ';')?
         ('ROM'                      '=' romCapacity=INT ';')?
         (processors+=Processor)+
-        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
 
@@ -65,14 +65,14 @@ Processor:
         ('Manufacturer'             '=' manufacturer=STRING ';')?
         ('Type'                     '=' processorType=STRING ';')?
         (cores+=Core)+
-        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
 Core:
     'Core' name=ID '{' 
         ('Capacity'                 '=' capacity=INT ';')?
         ('Architecture'             '=' architecture=STRING ';')?
-        ('Properties' '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
 
@@ -83,7 +83,7 @@ Application:
         ('CriticalityLevel'         '=' criticalityLevel=DesignAssuranceLevelType ';'    )?
         ('Developer'                '=' developedBy=STRING ';'                           )?
         (tasks+=Task)+
-        ('Properties'             '{'    (metricParameters+=MetricParameter)* '}'        )?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
 Task:
@@ -102,7 +102,7 @@ Task:
         ('Slices'                    '=' slices=INT ';'                                  )?
         ('MinSliceDuration'          '=' minSliceDuration=INT ';'                        )?
         ('Color'                     '=' color=Color ';'                                 )?
-        ('Properties'             '{'    (metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
 enum Color:           
@@ -152,8 +152,12 @@ RestrictionStartAfterOtherStarted:
 
 /* Generic Stuff */
 
-MetricParameter:  
+CustomIntProperty:  
     name=STRING '=' value=INT ';'
+;
+
+CustomStringProperty:
+    name=STRING '=' value=STRING ';'
 ;
 
 QualifiedName:

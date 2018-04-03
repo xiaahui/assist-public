@@ -14,6 +14,7 @@ import ch.hilbri.assist.mapping.tests.other.PropNoGoodTests
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
+import ch.hilbri.assist.mapping.tests.basics.CustomPropertiesTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -28,7 +29,8 @@ import org.junit.runners.Suite.SuiteClasses
 		DissimilarityConstraintTests,
 		DesignAssuranceLevelConstraintTests,
 		PropNoGoodTests,
-		RestrictDeploymentConstraintTests
+		RestrictDeploymentConstraintTests,
+		CustomPropertiesTests
 	]
 )
 

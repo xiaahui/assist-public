@@ -53,7 +53,7 @@ class AssistModel {
 class HardwareElement {
     String name                  = ""
     String manufacturer          = ""
-    contains MetricParameter[0..*] metricParameters
+    contains CustomProperty[0..*] customProperties
 }
 
 class Compartment extends HardwareElement {
@@ -142,12 +142,12 @@ class ApplicationAlternative {
 }
 
 class Application {
-    String                       name                = ""
-    String                       developedBy         = ""
-    DesignAssuranceLevelType     criticalityLevel    = "None"
+    String                          name                = ""
+    String                          developedBy         = ""
+    DesignAssuranceLevelType        criticalityLevel    = "None"
     
     contains Task[1..*]             tasks             opposite application
-    contains MetricParameter[0..*]  metricParameters
+    contains CustomProperty[0..*]   customProperties
     
     refers HardwareElement[0..*] restrictMappingToHardwareElements
     
@@ -174,22 +174,21 @@ class Task {
     
     container Application application opposite tasks
     
-    contains IOAdapterRequirement[0..*] ioAdapterRequirements
-    contains MetricParameter[0..*] metricParameters
+    contains IOAdapterRequirement[0..*]      ioAdapterRequirements
+    contains CustomProperty[0..*]            customProperties
+    
+    refers HardwareElement[0..*]             restrictMappingToHardwareElements
+    refers Core[0..1]                        assignedCore
     
     derived String fullName get { application.name + "." + name }
-    
-    refers HardwareElement[0..*] restrictMappingToHardwareElements
-    refers Core[0..1]     assignedCore
-    
-    op String             toString() { name }
+    op String      toString()   { name                          }
 }
 
 class IOAdapterRequirement {
-    IOAdapterType                 adapterType                = "None"
-    int                             requiredAdapterCount     = "0"
-    boolean                         isSharedAllowed          = "false"
-    boolean                         isExclusiveOnly          = "false"
+    IOAdapterType                 adapterType              = "None"
+    int                           requiredAdapterCount     = "0"
+    boolean                       isSharedAllowed          = "false"
+    boolean                       isExclusiveOnly          = "false"
 }
 
 /* *********************************************** */
@@ -287,9 +286,27 @@ class RestrictionStartAfterOtherStarted extends ComplexRelation {}
 /* ********************************************** */
 /* METRIC PARAMETERS                              */
 /* ********************************************** */
-class MetricParameter {
+class CustomProperty {
     String name = ""
+
+    derived String stringValue get { 
+        if (this instanceof CustomStringProperty)   return (this as CustomStringProperty).value
+        else if (this instanceof CustomIntProperty) return (this as CustomIntProperty).value.toString
+        else                                        return null
+    }
+    
+    derived Integer intValue get {
+        if (this instanceof CustomIntProperty)      return (this as CustomIntProperty).value
+        else return null
+    }
+}
+
+class CustomIntProperty extends CustomProperty {
     int value = "0"
+}
+
+class CustomStringProperty extends CustomProperty {
+    String value = ""
 }
 
 /* ********************************************** */

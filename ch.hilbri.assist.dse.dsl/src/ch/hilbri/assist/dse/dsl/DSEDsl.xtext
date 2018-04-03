@@ -36,7 +36,7 @@ Compartment:
 		('Manufacturer' 	'=' manufacturer=STRING 	';')?
 		('PowerSupply' 	'=' powerSupply=STRING 	';')?
 		(boxes+=Box)+
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}'
 ;
 
@@ -45,7 +45,7 @@ Box:
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		(boards+=Board)*
 		(boardAlternatives+=BoardAlternatives)?
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}'
 ;
 
@@ -71,7 +71,7 @@ Board:
 		('ROM'  					'=' romCapacity=INT ';')?
 		(processors+=Processor)+
 		(ioAdapters+=IOAdapter)*
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}'
 ;
 
@@ -80,14 +80,14 @@ Processor:
 	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
 	    ('Type'         			'=' processorType=STRING ';')?
 		(cores+=Core)+
-		('Properties' '{'		(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
 
 Core:
 	'Core' name=ID '{' 
 		('Capacity' 					'=' capacity=INT ';')?
 		('Architecture' 				'=' architecture=STRING ';')?
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
 
 IOAdapter:
@@ -106,7 +106,7 @@ Application returns Application:
 		('Developer'		 		'=' developedBy=STRING ';')?
 		('RestrictDeploymentTo' '{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')?
 		(tasks+=Task)+
-		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
 
 Task returns Task:
@@ -116,7 +116,7 @@ Task returns Task:
 		('RequiredROM'				'=' romUtilization=INT ';')? 
 		(ioAdapterRequirements+=IOAdapterRequirement)*
 		('RestrictDeploymentTo'	'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
-		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
+        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
 
 IOAdapterRequirement returns IOAdapterRequirement:
@@ -206,8 +206,12 @@ ExplorationCandidate returns ExplorationCandidate:
 /* Generic Stuff */
 /* ************* */
 
-MetricParameter returns MetricParameter:  
-	name=STRING '=' value=INT ';'
+CustomIntProperty:  
+    name=STRING '=' value=INT ';'
+;
+
+CustomStringProperty:
+    name=STRING '=' value=STRING ';'
 ;
 
 QualifiedName:
