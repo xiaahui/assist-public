@@ -12,3 +12,4 @@ Require-Bundle: org.eclipse.swt,
  org.eclipse.swtbot.junit4_x,
  org.eclipse.swtbot.swt.finder,
  org.eclipse.equinox.launcher
+Automatic-Module-Name: ch.hilbri.assist.gui.tests
