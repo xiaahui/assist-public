@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -38,7 +38,8 @@ public class Generate {
 			return false;
 
 		/*
-		 * If it is a scheduling problem, then we should check, whether the content is ok
+		 * If it is a scheduling problem, then we should check, whether the content is
+		 * ok
 		 */
 		IXtextDocument xtextDocument = EditorUtils.getActiveXtextEditor().getDocument();
 
@@ -72,28 +73,29 @@ public class Generate {
 	 * This handler processes the xtext file and starts the mapper
 	 */
 	@Execute
-	public void execute(MApplication application, EModelService service, IProgressMonitor monitor) {
+	public void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
 
 		/* Find the editors ... */
 		XtextEditor xtextEditor = EditorUtils.getActiveXtextEditor();
 		if (xtextEditor == null) {
-			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
-					"Could not locate the current Xtext editor.");
+			MessageDialog.openError(shell, "Error", "Could not locate the current Xtext editor.");
 			return;
 		}
-		
-		
+
+		/* Check if the editor needs saving */
+		if (xtextEditor.isDirty()) {
+			boolean saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
+					"Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?");
+			if (saveFirst)
+				xtextEditor.doSave(monitor);
+		}
 
 		MultiPageEditor multipageEditor = (MultiPageEditor) ((MultiPageEditorSite) xtextEditor.getSite())
 				.getMultiPageEditor();
 		if (multipageEditor == null) {
-			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
-					"Could not locate the MultiPageEditor.");
+			MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
 			return;
 		}
-
-//		/* Reset the views */
-//		// multipageEditor.resetView();
 
 		/* Retrieve the URI from the current model */
 		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
@@ -103,7 +105,7 @@ public class Generate {
 		});
 
 		if (modelURI == null) {
-			MessageDialog.openError(xtextEditor.getShell(), "Error", "Could not locate the URI for the input model.");
+			MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
 			return;
 		}
 

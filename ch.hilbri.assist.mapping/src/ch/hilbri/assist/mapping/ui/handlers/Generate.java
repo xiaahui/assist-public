@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -32,7 +32,7 @@ public class Generate {
 		 * Mapping generation should only be allowed, if we are actually looking at a
 		 * mapping problem
 		 */
-		XtextEditor editor = EditorUtils.getActiveXtextEditor(); 
+		XtextEditor editor = EditorUtils.getActiveXtextEditor();
 		if (editor != null && !editor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
 			return false;
 
@@ -71,26 +71,29 @@ public class Generate {
 	 * This handler processes the xtext file and starts the mapper
 	 */
 	@Execute
-	public void execute(MApplication application, EModelService service, IProgressMonitor monitor) {
+	public void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
 
 		/* Find the editors ... */
 		XtextEditor xtextEditor = EditorUtils.getActiveXtextEditor();
 		if (xtextEditor == null) {
-			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
-					"Could not locate the current Xtext editor.");
+			MessageDialog.openError(shell, "Error", "Could not locate the current Xtext editor.");
 			return;
 		}
 
-		MultiPageEditor multipageEditor = (MultiPageEditor) ((MultiPageEditorSite) xtextEditor.getSite())
-				.getMultiPageEditor();
+		/* Check if the editor needs saving */
+		if (xtextEditor.isDirty()) {
+			boolean saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
+					"Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?");
+			if (saveFirst)
+				xtextEditor.doSave(monitor);
+		}
+
+		MultiPageEditorSite editorSite = (MultiPageEditorSite) xtextEditor.getSite();
+		MultiPageEditor multipageEditor = (MultiPageEditor) editorSite.getMultiPageEditor();
 		if (multipageEditor == null) {
-			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
-					"Could not locate the MultiPageEditor.");
+			MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
 			return;
 		}
-
-		/* Reset the views */
-		// multipageEditor.resetView();
 
 		/* Retrieve the URI from the current model */
 		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
@@ -100,7 +103,7 @@ public class Generate {
 		});
 
 		if (modelURI == null) {
-			MessageDialog.openError(xtextEditor.getShell(), "Error", "Could not locate the URI for the input model.");
+			MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
 			return;
 		}
 
@@ -108,20 +111,19 @@ public class Generate {
 		 * Open the dialog to choose between simple and advanced mode for finding
 		 * solutions
 		 */
-		SearchParametersDialog searchParamDlg = new SearchParametersDialog(xtextEditor.getShell());
-		if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
+		SearchParametersDialog searchDialog = new SearchParametersDialog(shell);
+		if (searchDialog.open() == org.eclipse.jface.window.Window.OK) {
 
 			/* Create a new background Job for finding all solutions */
 			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
-			findSolutionsJob.setEnableVerboseLogging(searchParamDlg.getVerboseLogging());
-			findSolutionsJob.setSearchStrategy(searchParamDlg.getVariableSelector(), searchParamDlg.getValueSelector());
-			findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
-			findSolutionsJob.setMaxSearchTime(searchParamDlg.getSearchTime());
-			findSolutionsJob.setSavePartialSolution(searchParamDlg.getSavePartialSolution());
-			findSolutionsJob.setEnableRestarts(searchParamDlg.getEnableRestarts(),
-					searchParamDlg.getRestartFailCount());
-			findSolutionsJob.setNoGoodRecording(searchParamDlg.getNoGoodRecordingRDC());
-			findSolutionsJob.setEnableMinimization(searchParamDlg.getEnableMinimization());
+			findSolutionsJob.setEnableVerboseLogging(searchDialog.getVerboseLogging());
+			findSolutionsJob.setSearchStrategy(searchDialog.getVariableSelector(), searchDialog.getValueSelector());
+			findSolutionsJob.setMaxSolutions(searchDialog.getNumberOfSolutions());
+			findSolutionsJob.setMaxSearchTime(searchDialog.getSearchTime());
+			findSolutionsJob.setSavePartialSolution(searchDialog.getSavePartialSolution());
+			findSolutionsJob.setEnableRestarts(searchDialog.getEnableRestarts(), searchDialog.getRestartFailCount());
+			findSolutionsJob.setNoGoodRecording(searchDialog.getNoGoodRecordingRDC());
+			findSolutionsJob.setEnableMinimization(searchDialog.getEnableMinimization());
 			findSolutionsJob.setPriority(Job.LONG);
 			findSolutionsJob.setUser(true);
 			findSolutionsJob.schedule();
