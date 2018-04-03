@@ -13,3 +13,6 @@
 /RestrictionStartAfterOtherStartedImpl.java
 /RestrictionStartAtTheSameTimeImpl.java
 /SimpleRelationImpl.java
+/CustomIntPropertyImpl.java
+/CustomPropertyImpl.java
+/CustomStringPropertyImpl.java

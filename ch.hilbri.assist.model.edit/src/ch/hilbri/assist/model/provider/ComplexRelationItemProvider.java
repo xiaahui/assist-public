@@ -25,152 +25,152 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ComplexRelationItemProvider extends SchedulingRestrictionItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
+     * This constructs an instance from a factory and a notifier.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ComplexRelationItemProvider(AdapterFactory adapterFactory) {
-		super(adapterFactory);
-	}
+        super(adapterFactory);
+    }
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
+     * This returns the property descriptors for the adapted class.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+        if (itemPropertyDescriptors == null) {
+            super.getPropertyDescriptors(object);
 
-			addTasksPropertyDescriptor(object);
-			addOtherTaskPropertyDescriptor(object);
-			addDelayPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
+            addTasksPropertyDescriptor(object);
+            addOtherTaskPropertyDescriptor(object);
+            addDelayPropertyDescriptor(object);
+        }
+        return itemPropertyDescriptors;
+    }
 
 	/**
-	 * This adds a property descriptor for the Tasks feature.
-	 * <!-- begin-user-doc -->
+     * This adds a property descriptor for the Tasks feature.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected void addTasksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexRelation_tasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_tasks_feature", "_UI_ComplexRelation_type"),
-				 ModelPackage.Literals.COMPLEX_RELATION__TASKS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ComplexRelation_tasks_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_tasks_feature", "_UI_ComplexRelation_type"),
+                 ModelPackage.Literals.COMPLEX_RELATION__TASKS,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
 
 	/**
-	 * This adds a property descriptor for the Other Task feature.
-	 * <!-- begin-user-doc -->
+     * This adds a property descriptor for the Other Task feature.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected void addOtherTaskPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexRelation_otherTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_otherTask_feature", "_UI_ComplexRelation_type"),
-				 ModelPackage.Literals.COMPLEX_RELATION__OTHER_TASK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ComplexRelation_otherTask_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_otherTask_feature", "_UI_ComplexRelation_type"),
+                 ModelPackage.Literals.COMPLEX_RELATION__OTHER_TASK,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
 
 	/**
-	 * This adds a property descriptor for the Delay feature.
-	 * <!-- begin-user-doc -->
+     * This adds a property descriptor for the Delay feature.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected void addDelayPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexRelation_delay_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_delay_feature", "_UI_ComplexRelation_type"),
-				 ModelPackage.Literals.COMPLEX_RELATION__DELAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ComplexRelation_delay_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_delay_feature", "_UI_ComplexRelation_type"),
+                 ModelPackage.Literals.COMPLEX_RELATION__DELAY,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                 null,
+                 null));
+    }
 
 	/**
-	 * This returns ComplexRelation.gif.
-	 * <!-- begin-user-doc -->
+     * This returns ComplexRelation.gif.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexRelation"));
-	}
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexRelation"));
+    }
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+     * This returns the label text for the adapted class.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String getText(Object object) {
-		ComplexRelation complexRelation = (ComplexRelation)object;
-		return getString("_UI_ComplexRelation_type") + " " + complexRelation.getDelay();
-	}
+        ComplexRelation complexRelation = (ComplexRelation)object;
+        return getString("_UI_ComplexRelation_type") + " " + complexRelation.getDelay();
+    }
 	
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+        updateChildren(notification);
 
-		switch (notification.getFeatureID(ComplexRelation.class)) {
-			case ModelPackage.COMPLEX_RELATION__DELAY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
+        switch (notification.getFeatureID(ComplexRelation.class)) {
+            case ModelPackage.COMPLEX_RELATION__DELAY:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+        }
+        super.notifyChanged(notification);
+    }
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * that can be created under this object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
+        super.collectNewChildDescriptors(newChildDescriptors, object);
+    }
 
 }
