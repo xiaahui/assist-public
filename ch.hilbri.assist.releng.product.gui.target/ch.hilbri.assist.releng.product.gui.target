@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="ch.hilbri.assist.releng.product.gui" sequenceNumber="9">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201804011600"/>
+<repository location="http://download.eclipse.org/nebula/releases/latest"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.ecore.xcore.feature.group" version="1.5.0.v20170613-0242"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.3.v20180301-1149"/>
+<unit id="org.eclipse.platform.sdk" version="4.7.3.M20180301-0715"/>
+<unit id="org.eclipse.swtbot.eclipse.feature.group" version="2.6.0.201706141832"/>
+<unit id="org.eclipse.swtbot.feature.group" version="2.6.0.201706141832"/>
+<unit id="org.eclipse.swtbot.generator.feature.feature.group" version="2.6.0.201706141832"/>
+<unit id="org.eclipse.swtbot.ide.feature.group" version="2.6.0.201706141832"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.12.0.v20170519-1412"/>
+<unit id="org.eclipse.zest.feature.group" version="1.7.0.201606061308"/>
+<repository location="http://download.eclipse.org/releases/oxygen"/>
+</location>
+</locations>
+</target>
