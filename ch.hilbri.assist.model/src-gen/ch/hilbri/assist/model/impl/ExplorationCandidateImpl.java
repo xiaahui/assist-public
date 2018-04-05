@@ -38,238 +38,238 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container implements ExplorationCandidate {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
 
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
 
-	/**
-	 * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBoardAlternatives()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BoardAlternative> boardAlternatives;
+    /**
+     * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBoardAlternatives()
+     * @generated
+     * @ordered
+     */
+    protected EList<BoardAlternative> boardAlternatives;
 
-	/**
-	 * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplicationAlternatives()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ApplicationAlternative> applicationAlternatives;
+    /**
+     * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getApplicationAlternatives()
+     * @generated
+     * @ordered
+     */
+    protected EList<ApplicationAlternative> applicationAlternatives;
 
-	/**
-	 * The cached value of the '{@link #getRestrictionAlternatives() <em>Restriction Alternatives</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRestrictionAlternatives()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RestrictionAlternative> restrictionAlternatives;
+    /**
+     * The cached value of the '{@link #getRestrictionAlternatives() <em>Restriction Alternatives</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRestrictionAlternatives()
+     * @generated
+     * @ordered
+     */
+    protected EList<RestrictionAlternative> restrictionAlternatives;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExplorationCandidateImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExplorationCandidateImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ModelPackage.Literals.EXPLORATION_CANDIDATE;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ModelPackage.Literals.EXPLORATION_CANDIDATE;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPLORATION_CANDIDATE__NAME, oldName, name));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPLORATION_CANDIDATE__NAME, oldName, name));
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BoardAlternative> getBoardAlternatives() {
-		if (boardAlternatives == null) {
-			boardAlternatives = new EObjectResolvingEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES);
-		}
-		return boardAlternatives;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<BoardAlternative> getBoardAlternatives() {
+        if (boardAlternatives == null) {
+            boardAlternatives = new EObjectResolvingEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES);
+        }
+        return boardAlternatives;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ApplicationAlternative> getApplicationAlternatives() {
-		if (applicationAlternatives == null) {
-			applicationAlternatives = new EObjectResolvingEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
-		}
-		return applicationAlternatives;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<ApplicationAlternative> getApplicationAlternatives() {
+        if (applicationAlternatives == null) {
+            applicationAlternatives = new EObjectResolvingEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
+        }
+        return applicationAlternatives;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RestrictionAlternative> getRestrictionAlternatives() {
-		if (restrictionAlternatives == null) {
-			restrictionAlternatives = new EObjectResolvingEList<RestrictionAlternative>(RestrictionAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);
-		}
-		return restrictionAlternatives;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<RestrictionAlternative> getRestrictionAlternatives() {
+        if (restrictionAlternatives == null) {
+            restrictionAlternatives = new EObjectResolvingEList<RestrictionAlternative>(RestrictionAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);
+        }
+        return restrictionAlternatives;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ModelPackage.EXPLORATION_CANDIDATE__NAME:
-				return getName();
-			case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
-				return getBoardAlternatives();
-			case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
-				return getApplicationAlternatives();
-			case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
-				return getRestrictionAlternatives();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+        switch (featureID) {
+            case ModelPackage.EXPLORATION_CANDIDATE__NAME:
+                return getName();
+            case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
+                return getBoardAlternatives();
+            case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
+                return getApplicationAlternatives();
+            case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
+                return getRestrictionAlternatives();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ModelPackage.EXPLORATION_CANDIDATE__NAME:
-				setName((String)newValue);
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
-				getBoardAlternatives().clear();
-				getBoardAlternatives().addAll((Collection<? extends BoardAlternative>)newValue);
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
-				getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternative>)newValue);
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
-				getRestrictionAlternatives().clear();
-				getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternative>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
+        switch (featureID) {
+            case ModelPackage.EXPLORATION_CANDIDATE__NAME:
+                setName((String)newValue);
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
+                getBoardAlternatives().clear();
+                getBoardAlternatives().addAll((Collection<? extends BoardAlternative>)newValue);
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
+                getApplicationAlternatives().clear();
+                getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternative>)newValue);
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
+                getRestrictionAlternatives().clear();
+                getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternative>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ModelPackage.EXPLORATION_CANDIDATE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
-				getBoardAlternatives().clear();
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
-				return;
-			case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
-				getRestrictionAlternatives().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset(int featureID) {
+        switch (featureID) {
+            case ModelPackage.EXPLORATION_CANDIDATE__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
+                getBoardAlternatives().clear();
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
+                getApplicationAlternatives().clear();
+                return;
+            case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
+                getRestrictionAlternatives().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ModelPackage.EXPLORATION_CANDIDATE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
-				return boardAlternatives != null && !boardAlternatives.isEmpty();
-			case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
-				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
-			case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
-				return restrictionAlternatives != null && !restrictionAlternatives.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(int featureID) {
+        switch (featureID) {
+            case ModelPackage.EXPLORATION_CANDIDATE__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES:
+                return boardAlternatives != null && !boardAlternatives.isEmpty();
+            case ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES:
+                return applicationAlternatives != null && !applicationAlternatives.isEmpty();
+            case ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES:
+                return restrictionAlternatives != null && !restrictionAlternatives.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(')');
+        return result.toString();
+    }
 
 } //ExplorationCandidateImpl

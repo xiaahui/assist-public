@@ -21,7 +21,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-import ch.hilbri.assist.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Task;
@@ -31,7 +31,10 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 	@SuppressWarnings("unused")
 	private MultiPageEditor multiPageEditor;
 	private GanttChart ganttChart;
-	private Composite ganttComposite;	
+	private Composite ganttComposite;
+	
+	/* We want to store the result */
+	private SchedulingResult currentResult = null;
 	
 	/* We need to store the links between processors and sections */
 	private Map<Processor, GanttSection> processor2ganttsectionsMap;
@@ -57,8 +60,11 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 	
 	
 	
-	public void setResult(AssistModelSchedulingResult result) {
+	public void setResult(SchedulingResult result) {
 		
+	    /* Store the result for reference */
+	    currentResult = result;
+	    
 		/* Remove the old chart and create a new one */
 		ganttChart.dispose();
 		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
@@ -105,6 +111,10 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 		
 		/* This is necessary to avoid redraw problems */
 		layout(true, true);
+	}
+	
+	public SchedulingResult getCurrentResult() {
+	    return currentResult;
 	}
 	
 	private void createEventsForExecutionInstances(Task task, List<TaskExecutionInstance> schedule, GanttGroup coreGroup) {
