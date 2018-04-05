@@ -118,7 +118,7 @@
                     <target>
                         <artifact>
                             <groupId>assist</groupId>
-                            <artifactId>ch.hilbri.assist.releng.product.gui</artifactId>
+                            <artifactId>ch.hilbri.assist.releng.product.gui.target</artifactId>
                             <version>${project.version}</version>
                         </artifact>
                     </target>
