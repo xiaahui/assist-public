@@ -37,248 +37,248 @@ public class SingleMappingElementItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SingleMappingElementItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
-            super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addApplicationPropertyDescriptor(object);
-            addTaskPropertyDescriptor(object);
-            addCorePropertyDescriptor(object);
-            addProcessorPropertyDescriptor(object);
-            addBoardPropertyDescriptor(object);
-            addBoxPropertyDescriptor(object);
-            addCompartmentPropertyDescriptor(object);
-        }
-        return itemPropertyDescriptors;
-    }
+			addApplicationPropertyDescriptor(object);
+			addTaskPropertyDescriptor(object);
+			addCorePropertyDescriptor(object);
+			addProcessorPropertyDescriptor(object);
+			addBoardPropertyDescriptor(object);
+			addBoxPropertyDescriptor(object);
+			addCompartmentPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
 	/**
-     * This adds a property descriptor for the Application feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Application feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addApplicationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_application_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_application_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__APPLICATION,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_application_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_application_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__APPLICATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Task feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Task feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTaskPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_task_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_task_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__TASK,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_task_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_task_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__TASK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Core feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Core feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addCorePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_core_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_core_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__CORE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_core_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_core_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__CORE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Processor feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Processor feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addProcessorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_processor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_processor_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__PROCESSOR,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_processor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_processor_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__PROCESSOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Board feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Board feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addBoardPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_board_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_board_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__BOARD,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_board_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_board_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__BOARD,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Box feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Box feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addBoxPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_box_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_box_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__BOX,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_box_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_box_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__BOX,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Compartment feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Compartment feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addCompartmentPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SingleMappingElement_compartment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_compartment_feature", "_UI_SingleMappingElement_type"),
-                 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__COMPARTMENT,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleMappingElement_compartment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleMappingElement_compartment_feature", "_UI_SingleMappingElement_type"),
+				 ModelPackage.Literals.SINGLE_MAPPING_ELEMENT__COMPARTMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns SingleMappingElement.gif.
-     * <!-- begin-user-doc -->
+	 * This returns SingleMappingElement.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SingleMappingElement"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SingleMappingElement"));
+	}
 
 	/**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String getText(Object object) {
-        return getString("_UI_SingleMappingElement_type");
-    }
+		return getString("_UI_SingleMappingElement_type");
+	}
 	
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
-        super.notifyChanged(notification);
-    }
+		updateChildren(notification);
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-        return ModelEditPlugin.INSTANCE;
-    }
+		return ModelEditPlugin.INSTANCE;
+	}
 
 }

@@ -31,201 +31,201 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container implements TaskExecutionInstance {
-    /**
-     * The default value of the '{@link #getBegin() <em>Begin</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getBegin()
-     * @generated
-     * @ordered
-     */
-    protected static final int BEGIN_EDEFAULT = -1;
+	/**
+	 * The default value of the '{@link #getBegin() <em>Begin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBegin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BEGIN_EDEFAULT = -1;
 
-    /**
-     * The cached value of the '{@link #getBegin() <em>Begin</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getBegin()
-     * @generated
-     * @ordered
-     */
-    protected int begin = BEGIN_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getBegin() <em>Begin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBegin()
+	 * @generated
+	 * @ordered
+	 */
+	protected int begin = BEGIN_EDEFAULT;
 
-    /**
-     * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEnd()
-     * @generated
-     * @ordered
-     */
-    protected static final int END_EDEFAULT = -1;
+	/**
+	 * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnd()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int END_EDEFAULT = -1;
 
-    /**
-     * The cached value of the '{@link #getEnd() <em>End</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEnd()
-     * @generated
-     * @ordered
-     */
-    protected int end = END_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnd()
+	 * @generated
+	 * @ordered
+	 */
+	protected int end = END_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TaskExecutionInstanceImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskExecutionInstanceImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ModelPackage.Literals.TASK_EXECUTION_INSTANCE;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ModelPackage.Literals.TASK_EXECUTION_INSTANCE;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getBegin() {
-        return begin;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBegin() {
+		return begin;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setBegin(int newBegin) {
-        int oldBegin = begin;
-        begin = newBegin;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN, oldBegin, begin));
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBegin(int newBegin) {
+		int oldBegin = begin;
+		begin = newBegin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN, oldBegin, begin));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getEnd() {
-        return end;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getEnd() {
+		return end;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setEnd(int newEnd) {
-        int oldEnd = end;
-        end = newEnd;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK_EXECUTION_INSTANCE__END, oldEnd, end));
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnd(int newEnd) {
+		int oldEnd = end;
+		end = newEnd;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK_EXECUTION_INSTANCE__END, oldEnd, end));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String toString() {
-        int _begin = this.getBegin();
-        String _plus = ("[" + Integer.valueOf(_begin));
-        String _plus_1 = (_plus + ", ");
-        int _end = this.getEnd();
-        String _plus_2 = (_plus_1 + Integer.valueOf(_end));
-        return (_plus_2 + "]");
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		int _begin = this.getBegin();
+		String _plus = ("[" + Integer.valueOf(_begin));
+		String _plus_1 = (_plus + ", ");
+		int _end = this.getEnd();
+		String _plus_2 = (_plus_1 + Integer.valueOf(_end));
+		return (_plus_2 + "]");
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
-                return getBegin();
-            case ModelPackage.TASK_EXECUTION_INSTANCE__END:
-                return getEnd();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
+				return getBegin();
+			case ModelPackage.TASK_EXECUTION_INSTANCE__END:
+				return getEnd();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
-                setBegin((Integer)newValue);
-                return;
-            case ModelPackage.TASK_EXECUTION_INSTANCE__END:
-                setEnd((Integer)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
+				setBegin((Integer)newValue);
+				return;
+			case ModelPackage.TASK_EXECUTION_INSTANCE__END:
+				setEnd((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
-                setBegin(BEGIN_EDEFAULT);
-                return;
-            case ModelPackage.TASK_EXECUTION_INSTANCE__END:
-                setEnd(END_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
+				setBegin(BEGIN_EDEFAULT);
+				return;
+			case ModelPackage.TASK_EXECUTION_INSTANCE__END:
+				setEnd(END_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
-                return begin != BEGIN_EDEFAULT;
-            case ModelPackage.TASK_EXECUTION_INSTANCE__END:
-                return end != END_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE__BEGIN:
+				return begin != BEGIN_EDEFAULT;
+			case ModelPackage.TASK_EXECUTION_INSTANCE__END:
+				return end != END_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-        switch (operationID) {
-            case ModelPackage.TASK_EXECUTION_INSTANCE___TO_STRING:
-                return toString();
-        }
-        return super.eInvoke(operationID, arguments);
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.TASK_EXECUTION_INSTANCE___TO_STRING:
+				return toString();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
 } //TaskExecutionInstanceImpl
