@@ -54,6 +54,7 @@ class BasicTests {
         bot.button("Search").click();
         bot.waitUntil(Conditions.shellCloses(generateMappingShell)) 
         
+        
 
     /* Create a new scheduling specification */
     // bot.tree().getTreeItem("ExampleProject").select();
