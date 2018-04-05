@@ -7,6 +7,7 @@ import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.swtbot.swt.finder.waits.DefaultCondition
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
@@ -19,30 +20,42 @@ class BasicTests {
     }
 
     @Test
-    def void createNewProject() { 
-        
+    def void createNewProject() {
+
         /* Create a new project */
         bot.menu("File").menu("New Project").click
         val newProjectShell = bot.shell("New ASSIST Project")
         newProjectShell.activate
         bot.textWithLabel("&Project name:").setText("ExampleProject");
+        bot.waitUntil(new DefaultCondition() {
+            override getFailureMessage() { "unable to select" }
+            override test() { bot.button("Finish").isEnabled }
+        })
         bot.button("Finish").click();
         bot.waitUntil(Conditions.shellCloses(newProjectShell))
+
+        /* Create a new mapping specification */
+        bot.tree().getTreeItem("ExampleProject").select();
+        bot.toolbarButtonWithTooltip("New Mapping Specification").click();
+        val newMappingSpecShell = bot.shell("New Mapping Specification")
+        newMappingSpecShell.activate
+        bot.waitUntil(new DefaultCondition() {
+            override getFailureMessage() { "unable to select" }
+            override test() { bot.button("Finish").isEnabled }
+        })
+        bot.button("Finish").click();
+        bot.waitUntil(Conditions.shellCloses(newMappingSpecShell))
+
+        /* Generate Mappings */
+        bot.editorByTitle("newSpecification.mdsl").show();
+        bot.menu("Mapping").menu("Generate Mappings").click();
+        val generateMappingShell = bot.shell("Mapping Generation")
+        generateMappingShell.activate
+        bot.button("Search").click();
+        bot.waitUntil(Conditions.shellCloses(generateMappingShell)) 
         
-//         /* Create a new mapping specification */
-//         bot.tree().getTreeItem("ExampleProject").select();
-//         bot.toolbarButtonWithTooltip("New Mapping Specification").click();
-//         bot.waitUntil(Conditions.shellIsActive("New Mapping Specification"));
-//         bot.shell("New Mapping Specification").activate();
-//         bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Finish")));
-//         bot.button("Finish").click();
-    // /* Generate Mappings */
-    // bot.editorByTitle("newSpecification.mdsl").show();
-    // bot.menu("Mapping").menu("Generate Mappings").click();
-    // bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Search")));
-    // bot.button("Search").click();
-    //
-    // /* Create a new scheduling specification */
+
+    /* Create a new scheduling specification */
     // bot.tree().getTreeItem("ExampleProject").select();
     // bot.toolbarButtonWithTooltip("New Scheduling Specification").click();
     // bot.waitUntil(Conditions.shellIsActive("New Scheduling Specification"));
