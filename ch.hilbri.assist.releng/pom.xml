@@ -9,6 +9,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
+		<assist.version>2.4.0-SNAPSHOT</assist.version>
 		<tycho.version>1.0.0</tycho.version>
 		<xtextVersion>2.12.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -119,7 +120,7 @@
 						<artifact>
 							<groupId>assist</groupId>
 							<artifactId>ch.hilbri.assist.releng.targetplatform</artifactId>
-							<version>2.4.0-SNAPSHOT</version>
+							<version>${assist.version}</version>
 						</artifact>
 					</target>
 					<environments>

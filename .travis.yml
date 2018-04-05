@@ -24,6 +24,7 @@ script:
  - export
  - cd ch.hilbri.assist.releng
  - mvn clean verify -U
+ - sh -e /etc/init.d/xvfb stop
 
 notifications:
   email:
