@@ -3,11 +3,13 @@ package ch.hilbri.assist.gui.tests.basics
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
+import org.eclipse.swtbot.swt.finder.waits.DefaultCondition
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.eclipse.swtbot.swt.finder.waits.DefaultCondition
+
+import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
@@ -32,7 +34,7 @@ class BasicTests {
             override test() { bot.button("Finish").isEnabled }
         })
         bot.button("Finish").click();
-        bot.waitUntil(Conditions.shellCloses(newProjectShell))
+        bot.waitUntil(shellCloses(newProjectShell), 20000)
 
         /* Create a new mapping specification */
         bot.tree().getTreeItem("ExampleProject").select();
@@ -44,7 +46,7 @@ class BasicTests {
             override test() { bot.button("Finish").isEnabled }
         })
         bot.button("Finish").click();
-        bot.waitUntil(Conditions.shellCloses(newMappingSpecShell))
+        bot.waitUntil(shellCloses(newMappingSpecShell))
 
         /* Generate Mappings */
         bot.editorByTitle("newSpecification.mdsl").show();
@@ -52,7 +54,7 @@ class BasicTests {
         val generateMappingShell = bot.shell("Mapping Generation")
         generateMappingShell.activate
         bot.button("Search").click();
-        bot.waitUntil(Conditions.shellCloses(generateMappingShell)) 
+        bot.waitUntil(shellCloses(generateMappingShell)) 
         
         
 
