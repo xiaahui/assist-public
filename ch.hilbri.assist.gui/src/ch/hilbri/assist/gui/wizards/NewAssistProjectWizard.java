@@ -36,9 +36,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-
 		setNeedsProgressMonitor(true);
-		
 		setWindowTitle("New ASSIST Project");
 	}
 

@@ -31,22 +31,11 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	private NewMappingSpecificationWizardPage page;
 	private ISelection selection;
 
-	public NewMappingSpecificationWizard() {
-		super();
-		setNeedsProgressMonitor(true);
-	}
-
-	public NewMappingSpecificationWizard(IWorkbench workbench, IStructuredSelection selection) {
-		super();
-		init(workbench, selection);
-		setWindowTitle("New Mapping Specification");
-		setNeedsProgressMonitor(true);
-	}
-
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
-
+		setNeedsProgressMonitor(true);
+		setWindowTitle("New Mapping Specification");
 	}
 
 	/**

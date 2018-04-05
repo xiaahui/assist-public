@@ -31,21 +31,11 @@ public class NewSchedulingSpecificationWizard extends BasicNewResourceWizard imp
 	private NewSchedulingSpecificationWizardPage page;
 	private ISelection selection;
 
-	public NewSchedulingSpecificationWizard() {
-		super();
-		setNeedsProgressMonitor(true);
-	}
-
-	public NewSchedulingSpecificationWizard(IWorkbench workbench, IStructuredSelection selection) {
-		super();
-		init(workbench, selection);
-		setWindowTitle("New Scheduling Specification");
-		setNeedsProgressMonitor(true);
-	}
-
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
+		setNeedsProgressMonitor(true);
+		setWindowTitle("New Scheduling Specification");
 	}
 
 	/**
