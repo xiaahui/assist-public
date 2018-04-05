@@ -118,7 +118,7 @@
                     <target>
                         <artifact>
                             <groupId>assist</groupId>
-                            <artifactId>ch.hilbri.assist.releng.product.gui.target</artifactId>
+                            <artifactId>target-definition-id</artifactId>
                             <version>${project.version}</version>
                         </artifact>
                     </target>
@@ -281,26 +281,22 @@
     </build>
 
 
-    <repositories>
-
+<!--     <repositories> -->
 <!--         <repository> -->
 <!--             <id>Oxygen</id> -->
 <!--             <layout>p2</layout> -->
 <!--             <url>http://download.eclipse.org/releases/oxygen/</url> -->
 <!--         </repository> -->
-
 <!--         <repository> -->
 <!--             <id>Xtext Update Site</id> -->
 <!--             <layout>p2</layout> -->
 <!--             <url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url> -->
 <!--         </repository> -->
-
 <!--         <repository> -->
 <!--             <id>Nebula</id> -->
 <!--             <layout>p2</layout> -->
 <!--             <url>http://download.eclipse.org/nebula/releases/latest</url> -->
 <!--         </repository> -->
-
 <!--         <repository> -->
 <!--             <id>codehaus-snapshots</id> -->
 <!--             <name>disable dead 'Codehaus Snapshots' repository, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=481478</name> -->
@@ -312,8 +308,7 @@
 <!--                 <enabled>false</enabled> -->
 <!--             </snapshots> -->
 <!--         </repository> -->
-
-    </repositories>
+<!--     </repositories> -->
 
     <pluginRepositories>
         <pluginRepository>
