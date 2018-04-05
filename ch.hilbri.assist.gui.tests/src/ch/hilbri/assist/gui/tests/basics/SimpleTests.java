@@ -1,4 +1,4 @@
-package ch.hilbri.assist.gui.tests;
+package ch.hilbri.assist.gui.tests.basics;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
