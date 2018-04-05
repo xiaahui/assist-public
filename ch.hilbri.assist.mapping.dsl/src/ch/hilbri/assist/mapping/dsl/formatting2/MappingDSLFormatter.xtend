@@ -6,7 +6,6 @@ import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
-import ch.hilbri.assist.model.DissimilarityDisjunction
 import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.Task
