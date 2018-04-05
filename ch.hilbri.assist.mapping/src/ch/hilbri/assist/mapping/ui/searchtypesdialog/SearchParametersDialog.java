@@ -56,7 +56,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 * @param parentShell
 	 */
 	public SearchParametersDialog(Shell parentShell) {
-		super(parentShell);
+		super(parentShell);		
 	}
 
 	/**
@@ -68,6 +68,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	protected Control createDialogArea(Composite parent) {
 		setMessage("Please set the parameters for the search.");
 		setTitle("Mapping Generation");
+		getShell().setText("Mapping Generation");
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
 		GridData gd_container = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
