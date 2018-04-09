@@ -14,7 +14,6 @@ Require-Bundle: org.eclipse.swt,
  org.eclipse.equinox.launcher,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib
 Automatic-Module-Name: ch.hilbri.assist.gui.tests
 

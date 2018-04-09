@@ -1,13 +1,11 @@
 package ch.hilbri.assist.scheduling.dsl.validation
 
-import ch.hilbri.assist.model.SchedulingRestriction
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.ComplexRelation
+import ch.hilbri.assist.model.ModelPackage
 import ch.hilbri.assist.model.SimpleRelation
 import ch.hilbri.assist.model.Task
-import java.util.List
 import org.eclipse.xtext.validation.Check
-import ch.hilbri.assist.model.ComplexRelation
-import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.ModelPackage
 
 class SchedulingDslValidator extends AbstractSchedulingDslValidator {
 
