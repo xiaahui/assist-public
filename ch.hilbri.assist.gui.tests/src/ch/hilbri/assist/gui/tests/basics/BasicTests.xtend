@@ -3,7 +3,6 @@ package ch.hilbri.assist.gui.tests.basics
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
-import org.eclipse.swtbot.swt.finder.waits.DefaultCondition
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
@@ -26,14 +25,15 @@ class BasicTests {
 
         /* Create a new project */
         bot.menu("File").menu("New Project").click
+
         val newProjectShell = bot.shell("New ASSIST Project").activate
         val newProjectShellBot = newProjectShell.bot
         newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProject");
-        newProjectShellBot.waitUntil(new DefaultCondition() {
-            override getFailureMessage() { "unable to select" }
-            override test() { newProjectShellBot.button("Finish").isEnabled }
-        })
-        newProjectShellBot.activeShell.setFocus
+//        newProjectShellBot.waitUntil(new DefaultCondition() {
+//            override getFailureMessage() { "unable to select" }
+//            override test() { newProjectShellBot.button("Finish").isEnabled }
+//        })
+        newProjectShell.setFocus
         newProjectShellBot.button("Finish").click();
         bot.waitUntil(shellCloses(newProjectShell), 20000)
 
