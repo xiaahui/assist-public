@@ -29,12 +29,11 @@ class BasicTests {
 
         val newProjectShell = bot.shell("New ASSIST Project").activate
         val newProjectShellBot = newProjectShell.bot
+        
         newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProjectNew");
-        newProjectShellBot.waitUntil(new DefaultCondition() {
-            override getFailureMessage() { "unable to select" }
-            override test() { newProjectShellBot.button("Finish").isEnabled }
-        })
-        newProjectShellBot.button("Finish").click();
+        newProjectShellBot.button("Finish").setFocus
+        newProjectShellBot.button("Finish").click
+        
         bot.waitUntil(shellCloses(newProjectShell), 20000)
 
 //        /* Create a new mapping specification */
