@@ -5,15 +5,6 @@
 	<artifactId>ch.hilbri.assist.gui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-    <!-- 
-         By default, we are using the all AllGUItests Suite,
-         but these tests fail on travis, so we use an empty
-         testsuite for travis
-     -->
-    <properties>
-        <testClass>ch.hilbri.assist.gui.tests.TestSuiteAllGUITests</testClass>
-    </properties>
-
 	<parent>
 		<groupId>assist</groupId>
 		<artifactId>ch.hilbri.assist.releng</artifactId>
@@ -35,7 +26,7 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<testSuite>ch.hilbri.assist.gui.tests</testSuite>
-					<testClass>${testClass}</testClass>
+					<testClass>ch.hilbri.assist.gui.tests.TestSuiteAllGUITests</testClass>
 					<failIfNoTests>false</failIfNoTests>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
