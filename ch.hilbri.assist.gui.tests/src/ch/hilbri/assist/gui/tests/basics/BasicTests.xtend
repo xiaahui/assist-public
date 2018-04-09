@@ -33,6 +33,7 @@ class BasicTests {
             override getFailureMessage() { "unable to select" }
             override test() { newProjectShellBot.button("Finish").isEnabled }
         })
+        newProjectShellBot.activeShell.setFocus
         newProjectShellBot.button("Finish").click();
         bot.waitUntil(shellCloses(newProjectShell), 20000)
 
