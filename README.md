@@ -1,9 +1,7 @@
 Architecture Synthesis for Safety-Critical Systems - ASSIST 
 ==============================================================
 
-Travis: [![Build Status](https://travis-ci.org/RobertHilbrich/assist-public.svg?branch=master)](https://travis-ci.org/RobertHilbrich/assist-public)
-
-AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/20msijjx496em8do?svg=true)](https://ci.appveyor.com/project/RobertHilbrich/assist-public)
+Linux: [![Build Status](https://travis-ci.org/RobertHilbrich/assist-public.svg?branch=master)](https://travis-ci.org/RobertHilbrich/assist-public) &emsp; Windows: [![Build status](https://ci.appveyor.com/api/projects/status/20msijjx496em8do?svg=true)](https://ci.appveyor.com/project/RobertHilbrich/assist-public)
 
 ## Overview 
 
