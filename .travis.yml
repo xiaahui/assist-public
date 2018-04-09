@@ -1,3 +1,4 @@
+
 sudo: required
 
 language: java
@@ -24,10 +25,9 @@ before_script:
  - sleep 10         # give metacity some time to start
  
 script:
+ - export
  - cd ch.hilbri.assist.releng
- - mvn clean verify
-
-after_script:
+ - mvn clean verify -U
  - sh -e /etc/init.d/xvfb stop
 
 notifications:
@@ -37,13 +37,14 @@ notifications:
     on_success: always 
     on_failure: always 
     
- deploy:
+deploy:
   provider: releases
   api_key:
-    secure: UasB0wvz/o6Z+a3k0n3t6P1UhvnlgC3889WCuyKFbjs26U89ejXbHigJ62uEt8KkW1G#QyWkpFvu+AYP35Ctl2gP5bpkpAmrZD5OGmiPJd8JPVSj+ZhXdD/+eUGoxMsNTXFJzhP8lMnjXtsTk2O#2IqaZ+30twoTYzJve97qJVjTY=
+    secure: UasB0wvz/o6Z+a3k0n3t6P1UhvnlgC3889WCuyKFbjs26U89ejXbHigJ62uEt8KkW1GQyWkpFvu+AYP35Ctl2gP5bpkpAmrZD5OGmiPJd8JPVSj+ZhXdD/+eUGoxMsNTXFJzhP8lMnjXtsTk2O2IqaZ+30twoTYzJve97qJVjTY=
   file_glob: true
   file: ../ch.hilbri.assist.releng.product.gui/target/products/ASSIST-*
   skip_cleanup: true
   on:
     repo: RobertHilbrich/assist-public
     tags: true
+
