@@ -136,16 +136,19 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
 			javaProject.setRawClasspath(cpEntries, null);
 			
-		} catch (JavaModelException e) { e.printStackTrace(); }
+		} catch (Exception e) { e.printStackTrace(); }
+		
+		System.out.println("141");
+		
 		
 		// Create packages
 		try {
 			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
-		} catch (JavaModelException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("148");
+		System.out.println("151");
 		
 		return true;
 	}
