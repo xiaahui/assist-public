@@ -1,7 +1,6 @@
 package ch.hilbri.assist.scheduling.solver
 
 import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.AssistModelSchedulingResult
 import ch.hilbri.assist.scheduling.results.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.scheduling.solver.constraints.AbstractSchedulingConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.EnforcePeriodicityConstraint
@@ -25,6 +24,7 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.scheduling.solver.constraints.SchedulingRestrictionsConstraint
+import ch.hilbri.assist.model.SchedulingResult
 
 class AssistSchedulingSolver {
 	
@@ -40,7 +40,7 @@ class AssistSchedulingSolver {
 	private SolverVariablesContainer 				solverVariables
 	private List<AbstractModelPreprocessor> 		modelPreprocessors
 	private List<AbstractSchedulingConstraint>		schedulingConstraintsList
-	private List<AssistModelSchedulingResult> 		schedulingResults
+	private List<SchedulingResult> 		schedulingResults
 	
 	private boolean 									savePartialSolution 		= false
 	
@@ -182,7 +182,7 @@ class AssistSchedulingSolver {
 		}
 	}
 	
-	def List<AssistModelSchedulingResult> getResults() 	{ 
+	def List<SchedulingResult> getResults() 	{ 
 		schedulingResults
 	}
 	

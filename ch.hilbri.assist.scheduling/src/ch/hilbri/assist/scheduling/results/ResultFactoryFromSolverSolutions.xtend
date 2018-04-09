@@ -1,7 +1,6 @@
 package ch.hilbri.assist.scheduling.results
 
 import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.AssistModelSchedulingResult
 import ch.hilbri.assist.model.ModelFactory
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import java.util.HashMap
@@ -9,12 +8,13 @@ import java.util.List
 import org.chocosolver.solver.Solution
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.model.SchedulingResult
 
 class ResultFactoryFromSolverSolutions {
 	
 	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static def List<AssistModelSchedulingResult> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
+	static def List<SchedulingResult> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 
 		val results = newArrayList
 
@@ -23,7 +23,7 @@ class ResultFactoryFromSolverSolutions {
 			val solTotalCount  	= solverSolutions.length
 			
 			val f = ModelFactory.eINSTANCE
-			val result = f.createAssistModelSchedulingResult => [
+			val result = f.createSchedulingResult => [
 				name = "Solution "+ solNumber + " of " + solTotalCount
 				model = assistModel
 				hyperPeriodLength = solverVariables.hypLength
@@ -42,7 +42,7 @@ class ResultFactoryFromSolverSolutions {
 						task_schedule.add(f.createTaskExecutionInstance => [begin = beginValue; end = endValue])
 					}
 					
-					schedule.put(task, task_schedule)
+					getSchedule.put(task, task_schedule)
 				}			
 			]
 			

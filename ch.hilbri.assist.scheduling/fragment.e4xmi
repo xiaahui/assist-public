@@ -3,17 +3,18 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BDiuoPHzEeebxrQqvplQ4g" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Handler" xmi:id="_KiPdsPHzEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.handler.generate" contributionURI="bundleclass://ch.hilbri.assist.scheduling/ch.hilbri.assist.scheduling.ui.handlers.Generate" command="_qNXoIPHyEeebxrQqvplQ4g"/>
     <elements xsi:type="commands:Handler" xmi:id="_qgR44PH5EeebxrQqvplQ4g" elementId="ch.hilbri.assist.handler.scheduling.newspec" contributionURI="bundleclass://ch.hilbri.assist.scheduling/ch.hilbri.assist.scheduling.ui.handlers.OpenNewSchedulingSpecWizard" command="_5QZicPHyEeebxrQqvplQ4g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_J0LbADkGEeinvNEc9RR2DQ" elementId="ch.hilbri.assist.scheduling.handler.export.text" contributionURI="bundleclass://ch.hilbri.assist.scheduling/ch.hilbri.assist.scheduling.ui.handlers.ExportToText" command="_yAXDUPHyEeebxrQqvplQ4g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_kfh7kPHyEeebxrQqvplQ4g" featurename="commands" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Command" xmi:id="_qNXoIPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.generate" commandName="Generate schedules"/>
-    <elements xsi:type="commands:Command" xmi:id="_yAXDUPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.export.text" commandName="Export current schedule to text"/>
+    <elements xsi:type="commands:Command" xmi:id="_yAXDUPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.export.text" commandName="Export schedule to text file"/>
     <elements xsi:type="commands:Command" xmi:id="_5QZicPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.newschedulingspec" commandName="New Scheduling Specification"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BoyfcLSXEeemw6Ys4OcW_g" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="index:4">
     <elements xsi:type="menu:Menu" xmi:id="_gVby8LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.menu.scheduling" label="&amp;Scheduling">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_MYQS0LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.generateschedule" label="Generate Schedule" enabled="false" command="_qNXoIPHyEeebxrQqvplQ4g"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_MYQS0LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.generateschedule" label="Generate Schedule" iconURI="platform:/plugin/ch.hilbri.assist.scheduling/icons/run_scheduling.png" enabled="false" command="_qNXoIPHyEeebxrQqvplQ4g"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_PTQEULSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.menuseparator.0"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_QKvtALSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.exportschedule" label="Export Schedule" enabled="false" command="_yAXDUPHyEeebxrQqvplQ4g"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_QKvtALSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.exportschedule" label="Export schedule to TextFile" iconURI="platform:/plugin/ch.hilbri.assist.scheduling/icons/export.png" enabled="false" command="_yAXDUPHyEeebxrQqvplQ4g"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_wvmz0PH3EeebxrQqvplQ4g" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="">

@@ -511,7 +511,7 @@ abstract class AbstractMetric {
  * ************************************* */
 type Task2ExecutionInstancesMapType wraps HashMap<Task, List<TaskExecutionInstance>> 
 
-class AssistModelSchedulingResult {
+class SchedulingResult {
     String                             name                      = ""
     int                                hyperPeriodLength         = "-1"
     refers AssistModel                 model

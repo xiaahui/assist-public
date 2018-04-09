@@ -1,7 +1,7 @@
 package ch.hilbri.assist.scheduling.solver
 
 import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.AssistModelSchedulingResult
+import ch.hilbri.assist.model.SchedulingResult
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
@@ -120,7 +120,7 @@ Constraints: "«constraintName»"
 		assistSolver.setSolverTimeLimit(maxTimeInmsec)
 	}
 
-	def List<AssistModelSchedulingResult> getNewMappingResults() {
+	def List<SchedulingResult> getNewSchedulingResults() {
 		return assistSolver.getResults()
 	}
 

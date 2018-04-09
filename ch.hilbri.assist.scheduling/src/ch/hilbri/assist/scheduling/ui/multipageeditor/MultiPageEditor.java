@@ -14,89 +14,92 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Injector;
 
-import ch.hilbri.assist.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.scheduling.dsl.ui.internal.DslActivator;
 
-public class MultiPageEditor extends MultiPageEditorPart  {
+public class MultiPageEditor extends MultiPageEditorPart {
 
-	/** The text editor used in page 0. */
-	private XtextEditor tabEditor;
-	private DetailedResults tabResults;
+    /** The text editor used in page 0. */
+    private XtextEditor tabEditor;
+    private DetailedResults tabResults;
 
-	
-	/**
-	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
-	 */
-	void createPage0() {
-		try {
-			DslActivator activator = DslActivator.getInstance();
-			Injector injector = activator.getInjector("ch.hilbri.assist.scheduling.dsl.SchedulingDsl");
-			tabEditor = injector.getInstance(XtextEditor.class);
-			int index = addPage(tabEditor, getEditorInput());
-			setPageText(index, "Specification");
-			setPartName(tabEditor.getTitle());
+    /**
+     * Creates page 0 of the multi-page editor, which contains a Xtext editor.
+     */
+    void createPage0() {
+        try {
+            DslActivator activator = DslActivator.getInstance();
+            Injector injector = activator.getInjector("ch.hilbri.assist.scheduling.dsl.SchedulingDsl");
+            tabEditor = injector.getInstance(XtextEditor.class);
+            int index = addPage(tabEditor, getEditorInput());
+            setPageText(index, "Specification");
+            setPartName(tabEditor.getTitle());
 
-		} catch (PartInitException e) {
-			ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
-		}
-	}
+        } catch (PartInitException e) {
+            ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
+        }
+    }
 
-	/**
-	 * Creates page 2 of the multi-page editor, which shows the resultview.
-	 */
+    /**
+     * Creates page 2 of the multi-page editor, which shows the resultview.
+     */
 
-	void createPage1() {
-		tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
-		int index = addPage(tabResults);
-		setPageText(index, "Results");
-	}
+    void createPage1() {
+        tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
+        int index = addPage(tabResults);
+        setPageText(index, "Results");
+    }
 
-	/**
-	 * Creates the pages of the multi-page editor.
-	 */
-	protected void createPages() {
-		createPage0();
-		createPage1();
+    /**
+     * Creates the pages of the multi-page editor.
+     */
+    protected void createPages() {
+        createPage0();
+        createPage1();
 
-		this.setPartName(tabEditor.getTitle());
-		this.setActivePage(0);
-	}
+        this.setPartName(tabEditor.getTitle());
+        this.setActivePage(0);
+    }
 
-	/**
-	 * Saves the multi-page editor's document.
-	 */
-	public void doSave(IProgressMonitor monitor) {
-		getEditor(0).doSave(monitor);
-	}
+    /**
+     * Saves the multi-page editor's document.
+     */
+    public void doSave(IProgressMonitor monitor) {
+        getEditor(0).doSave(monitor);
+    }
 
-	/**
-	 * Saves the multi-page editor's document as another file. Also updates the
-	 * text for page 0's tab, and updates this multi-page editor's input to
-	 * correspond to the nested editor's.
-	 */
-	public void doSaveAs() {
-		IEditorPart editor = getEditor(0);
-		editor.doSaveAs();
-		setPageText(0, editor.getTitle());
-		setInput(editor.getEditorInput());
-	}
+    /**
+     * Saves the multi-page editor's document as another file. Also updates the text
+     * for page 0's tab, and updates this multi-page editor's input to correspond to
+     * the nested editor's.
+     */
+    public void doSaveAs() {
+        IEditorPart editor = getEditor(0);
+        editor.doSaveAs();
+        setPageText(0, editor.getTitle());
+        setInput(editor.getEditorInput());
+    }
 
-	public void gotoMarker(IMarker marker) {
-		setActivePage(0);
-		IDE.gotoMarker(getEditor(0), marker);
-	}
+    public void gotoMarker(IMarker marker) {
+        setActivePage(0);
+        IDE.gotoMarker(getEditor(0), marker);
+    }
 
-	@Override
-	public boolean isSaveAsAllowed() {
-		return true;
-	}
+    @Override
+    public boolean isSaveAsAllowed() {
+        return true;
+    }
 
-	public void showResultsTab() {
-		setActivePage(1);
-	}
-	
-	public void setAndShowResults(List<AssistModelSchedulingResult> results) {
-		tabResults.setResult(results.get(0));
-		showResultsTab();
-	}
+    public void showResultsTab() {
+        setActivePage(1);
+    }
+
+    public void setAndShowResults(List<SchedulingResult> results) {
+        tabResults.setResult(results.get(0));
+        showResultsTab();
+    }
+
+    public SchedulingResult getCurrentSchedulingResult() {
+        return tabResults.getCurrentResult();
+    }
 }
