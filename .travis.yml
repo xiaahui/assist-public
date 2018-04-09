@@ -26,7 +26,7 @@ before_script:
 script:
  - export
  - cd ch.hilbri.assist.releng
- - mvn clean verify -U
+ - mvn -DtestClass=ch.hilbri.assist.gui.tests.TestSuiteAllTravisTests clean verify -U  # do not run UI tests on travis
  - sh -e /etc/init.d/xvfb stop
 
 notifications:

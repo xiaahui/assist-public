@@ -15,23 +15,23 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class RestrictionStartAfterOtherFinishedImpl extends ComplexRelationImpl implements RestrictionStartAfterOtherFinished {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestrictionStartAfterOtherFinishedImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestrictionStartAfterOtherFinishedImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ModelPackage.Literals.RESTRICTION_START_AFTER_OTHER_FINISHED;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ModelPackage.Literals.RESTRICTION_START_AFTER_OTHER_FINISHED;
+	}
 
 } //RestrictionStartAfterOtherFinishedImpl

@@ -3,8 +3,8 @@
 package ch.hilbri.assist.model.provider;
 
 
-import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.SchedulingResult;
 
 import java.util.Collection;
 import java.util.List;
@@ -40,190 +40,190 @@ public class SchedulingResultItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SchedulingResultItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
-            super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addNamePropertyDescriptor(object);
-            addHyperPeriodLengthPropertyDescriptor(object);
-            addModelPropertyDescriptor(object);
-            addSchedulePropertyDescriptor(object);
-        }
-        return itemPropertyDescriptors;
-    }
+			addNamePropertyDescriptor(object);
+			addHyperPeriodLengthPropertyDescriptor(object);
+			addModelPropertyDescriptor(object);
+			addSchedulePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
 	/**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SchedulingResult_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_name_feature", "_UI_SchedulingResult_type"),
-                 ModelPackage.Literals.SCHEDULING_RESULT__NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingResult_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_name_feature", "_UI_SchedulingResult_type"),
+				 ModelPackage.Literals.SCHEDULING_RESULT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Hyper Period Length feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Hyper Period Length feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addHyperPeriodLengthPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SchedulingResult_hyperPeriodLength_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_hyperPeriodLength_feature", "_UI_SchedulingResult_type"),
-                 ModelPackage.Literals.SCHEDULING_RESULT__HYPER_PERIOD_LENGTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingResult_hyperPeriodLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_hyperPeriodLength_feature", "_UI_SchedulingResult_type"),
+				 ModelPackage.Literals.SCHEDULING_RESULT__HYPER_PERIOD_LENGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Model feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Model feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addModelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SchedulingResult_model_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_model_feature", "_UI_SchedulingResult_type"),
-                 ModelPackage.Literals.SCHEDULING_RESULT__MODEL,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingResult_model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_model_feature", "_UI_SchedulingResult_type"),
+				 ModelPackage.Literals.SCHEDULING_RESULT__MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Schedule feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Schedule feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSchedulePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SchedulingResult_schedule_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_schedule_feature", "_UI_SchedulingResult_type"),
-                 ModelPackage.Literals.SCHEDULING_RESULT__SCHEDULE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingResult_schedule_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingResult_schedule_feature", "_UI_SchedulingResult_type"),
+				 ModelPackage.Literals.SCHEDULING_RESULT__SCHEDULE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns SchedulingResult.gif.
-     * <!-- begin-user-doc -->
+	 * This returns SchedulingResult.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SchedulingResult"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchedulingResult"));
+	}
 
 	/**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String getText(Object object) {
-        String label = ((SchedulingResult)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_SchedulingResult_type") :
-            getString("_UI_SchedulingResult_type") + " " + label;
-    }
+		String label = ((SchedulingResult)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SchedulingResult_type") :
+			getString("_UI_SchedulingResult_type") + " " + label;
+	}
 	
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(SchedulingResult.class)) {
-            case ModelPackage.SCHEDULING_RESULT__NAME:
-            case ModelPackage.SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
-            case ModelPackage.SCHEDULING_RESULT__SCHEDULE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(SchedulingResult.class)) {
+			case ModelPackage.SCHEDULING_RESULT__NAME:
+			case ModelPackage.SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
+			case ModelPackage.SCHEDULING_RESULT__SCHEDULE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-        return ModelEditPlugin.INSTANCE;
-    }
+		return ModelEditPlugin.INSTANCE;
+	}
 
 }

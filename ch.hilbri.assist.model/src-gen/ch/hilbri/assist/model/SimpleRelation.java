@@ -21,20 +21,20 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface SimpleRelation extends SchedulingRestriction {
-    /**
-     * Returns the value of the '<em><b>Tasks</b></em>' reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.Task}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Tasks</em>' reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getSimpleRelation_Tasks()
-     * @model lower="2"
-     * @generated
-     */
-    EList<Task> getTasks();
+	/**
+	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.model.Task}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tasks</em>' reference list.
+	 * @see ch.hilbri.assist.model.ModelPackage#getSimpleRelation_Tasks()
+	 * @model lower="2"
+	 * @generated
+	 */
+	EList<Task> getTasks();
 
 } // SimpleRelation
