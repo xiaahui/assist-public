@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
 import org.chocosolver.solver.Model
 
@@ -15,10 +14,9 @@ class ColocalityConstraint extends AbstractMappingConstraint {
 		
 		for (relation : model.colocalityRelations) {
 			val level = relation.hardwareLevel.value
-			val tasks = relation.applications.filter[it instanceof Application]
-													.map[(it as Application).tasks]
-													.flatten
-													.toSet
+			val tasks = relation.applications.map[tasks]
+											 .flatten
+											 .toSet
 			val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 			
 			/* No we require all these variable to take the same value */

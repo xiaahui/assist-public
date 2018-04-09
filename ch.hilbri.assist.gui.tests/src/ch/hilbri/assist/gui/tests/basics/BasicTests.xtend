@@ -3,7 +3,6 @@ package ch.hilbri.assist.gui.tests.basics
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
-import org.eclipse.swtbot.swt.finder.waits.DefaultCondition
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test

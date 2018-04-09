@@ -14,7 +14,6 @@ import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.launching.LibraryLocation;
@@ -52,8 +51,6 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 	@Override
 	public boolean performFinish() {
 		
-		System.out.println("StartingPerformFinish");
-		
 		// First create a simple project of type org.eclipse.core.resources.IProject: 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IProject project = root.getProject(pageOne.getProjectName());
@@ -61,10 +58,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			project.create(null);
 			project.open(null);
 			
-		} catch (CoreException e) {	e.printStackTrace(); }
-		
-		
-		System.out.println("67");
+		} catch (Exception e) {	e.printStackTrace(); }
 		
 		// Because we need a java project, we have to set the Java nature to the created project: 
 		IProjectDescription description;
@@ -72,10 +66,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			description = project.getDescription();
 			description.setNatureIds(new String[] { JavaCore.NATURE_ID });
 			project.setDescription(description, null);
-		} catch (CoreException e) {	e.printStackTrace(); }
-		
-		System.out.println("77");
-		
+		} catch (Exception e) {	e.printStackTrace(); }
+				
 		// Now we can create our Java project
 		IJavaProject javaProject = JavaCore.create(project); 
 
@@ -86,9 +78,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			binFolder.create(false, true, null);
 			javaProject.setOutputLocation(binFolder.getFullPath(), null);
 		} catch (CoreException e) { e.printStackTrace(); }
-		
-		System.out.println("90");
-		
+				
 		// (2) Define the class path entries. 
 		//     Class path entries define the roots of package fragments. 
 		//     Note that you might have to include the necessary plugin "org.eclipse.jdt.launching". 
@@ -103,10 +93,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		//    add libs to project class path
 		try {
 			javaProject.setRawClasspath(entries.toArray(new IClasspathEntry[entries.size()]), null);
-		} catch (JavaModelException e) { e.printStackTrace(); }
-		
-		System.out.println("108");
-		
+		} catch (Exception e) { e.printStackTrace(); }
+				
 		// (3) We have not yet the source folder created: 
 		IFolder dseSourceFolder = project.getFolder("Exploration");
 		IFolder mappingSourceFolder = project.getFolder("Mapping");
@@ -116,10 +104,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			dseSourceFolder.create(false, true, null);
 			mappingSourceFolder.create(false, true, null);
 			schedulingSourceFolder.create(false, true, null);
-		} catch (CoreException e) {	e.printStackTrace(); }
-		
-		System.out.println("121");
-		
+		} catch (Exception e) {	e.printStackTrace(); }
+				
 		// (4) Now the created source folder should be added to the class entries of the project, otherwise compilation will fail:
 		try {
 			IPackageFragmentRoot dsePackageRoot = javaProject.getPackageFragmentRoot(dseSourceFolder);
@@ -137,18 +123,13 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			javaProject.setRawClasspath(cpEntries, null);
 			
 		} catch (Exception e) { e.printStackTrace(); }
-		
-		System.out.println("141");
-		
-		
+				
 		// Create packages
 		try {
 			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("151");
 		
 		return true;
 	}

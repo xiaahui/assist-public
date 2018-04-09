@@ -2,7 +2,6 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
 import java.util.ArrayList
 import java.util.List
@@ -49,10 +48,9 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 	 * to the location variables.
 		 	 * 
 		 	 * */
-		 	if (relation.applications.filter[!(it instanceof Application)].isNullOrEmpty &&
-		 		relation.applications.map[(it as Application).tasks].filter[size > 1].isNullOrEmpty) {
+		 	if (relation.applications.filter[tasks.size > 1].isNullOrEmpty) {
 				
-				val tasks = relation.applications.map[(it as Application).tasks].flatten.toSet
+				val tasks = relation.applications.map[tasks].flatten.toSet
 				val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 				
 				/* We want to make these vars take different values */
@@ -64,7 +62,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			 * 
 			 */
 			else {
-				val taskList = relation.applications.map[(it as Application).tasks]
+				val taskList = relation.applications.map[tasks]
 				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
 				
 				switch (mode) {
