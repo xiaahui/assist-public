@@ -31,7 +31,6 @@ class BasicTests {
         val newProjectShellBot = newProjectShell.bot
         
         newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProjectNew");
-        newProjectShellBot.button("Finish").setFocus
         newProjectShellBot.button("Finish").click
         
         bot.waitUntil(shellCloses(newProjectShell), 20000)

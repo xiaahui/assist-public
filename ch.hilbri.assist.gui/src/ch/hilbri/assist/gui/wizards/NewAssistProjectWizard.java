@@ -52,6 +52,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 	@Override
 	public boolean performFinish() {
 		
+		System.out.println("StartingPerformFinish");
+		
 		// First create a simple project of type org.eclipse.core.resources.IProject: 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IProject project = root.getProject(pageOne.getProjectName());
@@ -62,6 +64,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (CoreException e) {	e.printStackTrace(); }
 		
 		
+		System.out.println("67");
+		
 		// Because we need a java project, we have to set the Java nature to the created project: 
 		IProjectDescription description;
 		try {
@@ -69,6 +73,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			description.setNatureIds(new String[] { JavaCore.NATURE_ID });
 			project.setDescription(description, null);
 		} catch (CoreException e) {	e.printStackTrace(); }
+		
+		System.out.println("77");
 		
 		// Now we can create our Java project
 		IJavaProject javaProject = JavaCore.create(project); 
@@ -80,6 +86,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			binFolder.create(false, true, null);
 			javaProject.setOutputLocation(binFolder.getFullPath(), null);
 		} catch (CoreException e) { e.printStackTrace(); }
+		
+		System.out.println("90");
 		
 		// (2) Define the class path entries. 
 		//     Class path entries define the roots of package fragments. 
@@ -97,6 +105,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			javaProject.setRawClasspath(entries.toArray(new IClasspathEntry[entries.size()]), null);
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
+		System.out.println("108");
+		
 		// (3) We have not yet the source folder created: 
 		IFolder dseSourceFolder = project.getFolder("Exploration");
 		IFolder mappingSourceFolder = project.getFolder("Mapping");
@@ -107,6 +117,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			mappingSourceFolder.create(false, true, null);
 			schedulingSourceFolder.create(false, true, null);
 		} catch (CoreException e) {	e.printStackTrace(); }
+		
+		System.out.println("121");
 		
 		// (4) Now the created source folder should be added to the class entries of the project, otherwise compilation will fail:
 		try {
@@ -132,6 +144,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (JavaModelException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("148");
 		
 		return true;
 	}
