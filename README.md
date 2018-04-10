@@ -1,17 +1,7 @@
 Architecture Synthesis for Safety-Critical Systems - ASSIST 
 ==============================================================
 
-<style>
-table, th, td {
-   border: 1px solid black;
-}
-
-td {
-    vertical-align: middle;
-}
-</style>
-
-<table>
+<table border="0">
 	<tr>
 		<td>Linux</td>
 		<td>[![Build Status](https://travis-ci.org/RobertHilbrich/assist-public.svg?branch=master)](https://travis-ci.org/RobertHilbrich/assist-public)</td>
