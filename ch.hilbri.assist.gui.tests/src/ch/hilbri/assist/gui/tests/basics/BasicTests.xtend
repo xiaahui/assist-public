@@ -37,6 +37,7 @@ class BasicTests {
 
         /* Create a new mapping specification */
         bot.tree().getTreeItem("ExampleProject").select();
+        assistShell.setFocus
         bot.toolbarButtonWithTooltip("New Mapping Specification").click();
         val newMappingSpecShell = bot.shell("New Mapping Specification")
         bot.button("Finish").click();
