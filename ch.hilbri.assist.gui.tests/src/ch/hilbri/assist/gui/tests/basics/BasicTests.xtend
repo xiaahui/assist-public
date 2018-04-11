@@ -1,27 +1,26 @@
 package ch.hilbri.assist.gui.tests.basics
 
-import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
+import org.eclipse.e4.core.contexts.EclipseContextFactory
+import org.eclipse.e4.core.contexts.IEclipseContext
+import org.eclipse.e4.ui.workbench.IWorkbench
+import org.eclipse.swtbot.e4.finder.widgets.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
+import org.eclipse.swtbot.e4.finder.test.Activator
 import org.junit.AfterClass
-import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.osgi.framework.FrameworkUtil
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
 
-    static SWTWorkbenchBot bot
-
-    @BeforeClass
-    def static void beforeClass() throws Exception {
-        bot = new SWTWorkbenchBot()
-    }
+    static SWTWorkbenchBot bot = new SWTWorkbenchBot(getEclipseContext())
 
     @Test
-    def void createNewProject() {
+    def void checkFullWorkflow() {
 
         /* Create a new project */
         bot.menu("File").menu("New Project").click
@@ -29,45 +28,39 @@ class BasicTests {
         val newProjectShell = bot.shell("New ASSIST Project").activate
         val newProjectShellBot = newProjectShell.bot
         
-        newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProjectNew");
+        newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProject");
         newProjectShellBot.button("Finish").click
         
         bot.waitUntil(shellCloses(newProjectShell), 20000)
 
-//        /* Create a new mapping specification */
-//        bot.tree().getTreeItem("ExampleProject").select();
-//        bot.toolbarButtonWithTooltip("New Mapping Specification").click();
-//        val newMappingSpecShell = bot.shell("New Mapping Specification")
-//        newMappingSpecShell.activate
-//        bot.waitUntil(new DefaultCondition() {
-//            override getFailureMessage() { "unable to select" }
-//            override test() { bot.button("Finish").isEnabled }
-//        })
-//        bot.button("Finish").click();
-//        bot.waitUntil(shellCloses(newMappingSpecShell))
-//
-//        /* Generate Mappings */
-//        bot.editorByTitle("newSpecification.mdsl").show();
-//        bot.menu("Mapping").menu("Generate Mappings").click();
-//        val generateMappingShell = bot.shell("Mapping Generation")
-//        generateMappingShell.activate
-//        bot.button("Search").click();
-//        bot.waitUntil(shellCloses(generateMappingShell)) 
-        
-        
+        /* Create a new mapping specification */
+        bot.tree().getTreeItem("ExampleProject").select();
+        bot.toolbarButtonWithTooltip("New Mapping Specification").click();
+        val newMappingSpecShell = bot.shell("New Mapping Specification")
+        bot.button("Finish").click();
+        bot.waitUntil(shellCloses(newMappingSpecShell))
 
-    /* Create a new scheduling specification */
-    // bot.tree().getTreeItem("ExampleProject").select();
-    // bot.toolbarButtonWithTooltip("New Scheduling Specification").click();
-    // bot.waitUntil(Conditions.shellIsActive("New Scheduling Specification"));
-    // bot.shell("New Scheduling Specification").activate();
-    // bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Finish")));
-    // bot.button("Finish").click();
-    //
-    // /* Generate Schedule */
-    // bot.editorByTitle("newSpecification.sdsl").show();
-    // bot.menu("Scheduling").menu("Generate Schedule").click();
-    // }
+        /* Generate Mappings */
+        bot.("newSpecification.mdsl").show();
+        bot.menu("Mapping").menu("Generate Mappings").click();
+        val generateMappingShell = bot.shell("Mapping Generation")
+        bot.button("Search").click();
+        bot.waitUntil(shellCloses(generateMappingShell)) 
+        val list = bot.views
+        
+        bot.viewByTitle("Mapping - Evaluation").show();
+        bot.comboBox().setSelection("Random Score (built-in)");
+        bot.comboBox(1).setSelection("1");
+        bot.button("Add Metric").click();
+        bot.button("Evaluate results").click();
+        
+        bot.editorByTitle("newSpecification.mdsl").show();
+        bot.button("Sort by score").click();
+        bot.menu("Mapping").menu("Export current solution to Scheduling").click();
+        bot.button("Finish").click();
+        bot.editors.last.show();
+        bot.menu("Scheduling").menu("Generate Schedule").click();
+    
     }
 
     @Test
@@ -81,5 +74,11 @@ class BasicTests {
     @AfterClass
     def static void sleep() {
         bot.sleep(2000)
+    }
+    
+    
+    protected def static IEclipseContext getEclipseContext() {
+        val serviceContext = EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(Activator).getBundleContext());
+        return serviceContext.get(IWorkbench).getApplication().getContext();
     }
 }
