@@ -38,239 +38,239 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class HardwareElementImpl extends MinimalEObjectImpl.Container implements HardwareElement {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = "";
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = "";
 
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MANUFACTURER_EDEFAULT = "";
+    /**
+     * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getManufacturer()
+     * @generated
+     * @ordered
+     */
+    protected static final String MANUFACTURER_EDEFAULT = "";
 
-	/**
-	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected String manufacturer = MANUFACTURER_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getManufacturer()
+     * @generated
+     * @ordered
+     */
+    protected String manufacturer = MANUFACTURER_EDEFAULT;
 
-	/**
-	 * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCustomProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CustomProperty> customProperties;
+    /**
+     * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCustomProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<CustomProperty> customProperties;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HardwareElementImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HardwareElementImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ModelPackage.Literals.HARDWARE_ELEMENT;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ModelPackage.Literals.HARDWARE_ELEMENT;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__NAME, oldName, name));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__NAME, oldName, name));
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getManufacturer() {
-		return manufacturer;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getManufacturer() {
+        return manufacturer;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setManufacturer(String newManufacturer) {
-		String oldManufacturer = manufacturer;
-		manufacturer = newManufacturer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__MANUFACTURER, oldManufacturer, manufacturer));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setManufacturer(String newManufacturer) {
+        String oldManufacturer = manufacturer;
+        manufacturer = newManufacturer;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__MANUFACTURER, oldManufacturer, manufacturer));
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CustomProperty> getCustomProperties() {
-		if (customProperties == null) {
-			customProperties = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this, ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
-		}
-		return customProperties;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<CustomProperty> getCustomProperties() {
+        if (customProperties == null) {
+            customProperties = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this, ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+        }
+        return customProperties;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
-				return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+                return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-				return getName();
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-				return getManufacturer();
-			case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
-				return getCustomProperties();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+        switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__NAME:
+                return getName();
+            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+                return getManufacturer();
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+                return getCustomProperties();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-				setName((String)newValue);
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-				setManufacturer((String)newValue);
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
-				getCustomProperties().clear();
-				getCustomProperties().addAll((Collection<? extends CustomProperty>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
+        switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__NAME:
+                setName((String)newValue);
+                return;
+            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+                setManufacturer((String)newValue);
+                return;
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+                getCustomProperties().clear();
+                getCustomProperties().addAll((Collection<? extends CustomProperty>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-				setManufacturer(MANUFACTURER_EDEFAULT);
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
-				getCustomProperties().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset(int featureID) {
+        switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+                setManufacturer(MANUFACTURER_EDEFAULT);
+                return;
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+                getCustomProperties().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
-			case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
-				return customProperties != null && !customProperties.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(int featureID) {
+        switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+                return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+                return customProperties != null && !customProperties.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", manufacturer: ");
-		result.append(manufacturer);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(", manufacturer: ");
+        result.append(manufacturer);
+        result.append(')');
+        return result.toString();
+    }
 
 } //HardwareElementImpl
