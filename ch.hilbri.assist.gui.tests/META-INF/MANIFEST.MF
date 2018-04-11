@@ -15,6 +15,9 @@ Require-Bundle: org.eclipse.swt,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.swtbot.e4.finder
+ org.eclipse.swtbot.e4.finder,
+ ch.hilbri.assist.dse,
+ ch.hilbri.assist.mapping,
+ ch.hilbri.assist.scheduling
 Automatic-Module-Name: ch.hilbri.assist.gui.tests
 
