@@ -60,7 +60,8 @@ class BasicTests {
         
         /* Export solution to scheduling */
         assistShell.setFocus
-        bot.partByTitle("newSpecification.mdsl").show   
+        bot.partByTitle("newSpecification.mdsl").show()
+        bot.waitUntil(widgetIsEnabled(bot.menu("Mapping").menu("Export current solution to Scheduling")))
         bot.menu("Mapping").menu("Export current solution to Scheduling").click
         bot.button("Finish").click();
 
