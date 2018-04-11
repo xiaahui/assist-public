@@ -1,26 +1,28 @@
 package ch.hilbri.assist.gui.tests.basics
 
-import ch.hilbri.assist.gui.Application
-import org.eclipse.e4.core.contexts.EclipseContextFactory
 import org.eclipse.e4.core.contexts.IEclipseContext
-import org.eclipse.e4.ui.workbench.IWorkbench
 import org.eclipse.swtbot.e4.finder.widgets.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
+import org.eclipse.ui.PlatformUI
 import org.junit.AfterClass
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.osgi.framework.FrameworkUtil
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
 
-    static SWTWorkbenchBot bot = new SWTWorkbenchBot(getEclipseContext())
+    /* This is RCP3.x API style - but unfortunately, I have no idea,
+     * how to get the Eclipse Context in any other way               */
+    static SWTWorkbenchBot bot = new SWTWorkbenchBot(PlatformUI.workbench.getService(IEclipseContext))
 
+    /* Run the basic workflow of creating a mapping spec and exporting it to the scheduling */
     @Test
     def void checkFullWorkflow() {
+
+        val assistShell = bot.activeShell
 
         /* Create a new project */
         bot.menu("File").menu("New Project").click
@@ -45,22 +47,26 @@ class BasicTests {
         bot.menu("Mapping").menu("Generate Mappings").click();
         val generateMappingShell = bot.shell("Mapping Generation")
         bot.button("Search").click();
-        bot.waitUntil(shellCloses(generateMappingShell)) 
-        val list = bot.parts
+        bot.waitUntil(shellCloses(generateMappingShell))
+        bot.sleep(2000) 
 
+        /* Evaluate Mappings */
         bot.partByTitle("Mapping - Evaluation").show
-//        bot.comboBox().setSelection("Random Score (built-in)");
-//        bot.comboBox(1).setSelection("1");
-//        bot.button("Add Metric").click();
-//        bot.button("Evaluate results").click();
-//        
-//        bot.editorByTitle("newSpecification.mdsl").show();
-//        bot.button("Sort by score").click();
-//        bot.menu("Mapping").menu("Export current solution to Scheduling").click();
-//        bot.button("Finish").click();
-//        bot.editors.last.show();
-//        bot.menu("Scheduling").menu("Generate Schedule").click();
-    
+        bot.comboBox().setSelection("Random Score (built-in)")
+        bot.comboBox(1).setSelection("1")
+        bot.button("Add Metric").click
+        bot.button("Evaluate results").click
+        
+        /* Export solution to scheduling */
+        assistShell.setFocus
+        bot.partByTitle("newSpecification.mdsl").show   
+        bot.menu("Mapping").menu("Export current solution to Scheduling").click
+        bot.button("Finish").click();
+
+        /* Run Scheduling */
+        assistShell.setFocus
+        bot.partByTitle("newSpecification - Mapping Solution 1 of 2.sdsl").show
+        bot.menu("Scheduling").menu("Generate Schedule").click();
     }
 
     @Test
@@ -76,9 +82,4 @@ class BasicTests {
         bot.sleep(2000)
     }
     
-    
-    protected def static IEclipseContext getEclipseContext() {
-        val serviceContext = EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(Application).bundleContext)
-        return serviceContext.get(IWorkbench).application.context
-    }
 }
