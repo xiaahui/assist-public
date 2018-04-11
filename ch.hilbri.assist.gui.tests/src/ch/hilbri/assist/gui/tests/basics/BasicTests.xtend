@@ -52,16 +52,16 @@ class BasicTests {
         bot.sleep(2000) 
 
         /* Evaluate Mappings */
-        bot.partByTitle("Mapping - Evaluation").show
+        bot.partByTitle("Mapping - Evaluation").show()
         bot.comboBox().setSelection("Random Score (built-in)")
         bot.comboBox(1).setSelection("1")
         bot.button("Add Metric").click
         bot.button("Evaluate results").click
         
         /* Export solution to scheduling */
-        assistShell.setFocus
+        assistShell.activate
         bot.partByTitle("newSpecification.mdsl").show()
-        bot.waitUntil(widgetIsEnabled(bot.menu("Mapping").menu("Export current solution to Scheduling")))
+        bot.waitUntil(widgetIsEnabled(bot.menu("Mapping").menu("Export current solution to Scheduling")), 20000)
         bot.menu("Mapping").menu("Export current solution to Scheduling").click
         bot.button("Finish").click();
 
