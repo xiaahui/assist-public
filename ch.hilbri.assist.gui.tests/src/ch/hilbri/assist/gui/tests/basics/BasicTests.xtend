@@ -44,7 +44,7 @@ class BasicTests {
         bot.waitUntil(shellCloses(newMappingSpecShell))
 
         /* Generate Mappings */
-        bot.partByTitle("newSpecification.mdsl").show
+        bot.partByTitle("newSpecification.mdsl").show()
         bot.menu("Mapping").menu("Generate Mappings").click();
         val generateMappingShell = bot.shell("Mapping Generation")
         bot.button("Search").click();
