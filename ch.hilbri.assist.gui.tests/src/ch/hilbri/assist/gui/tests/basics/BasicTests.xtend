@@ -36,13 +36,20 @@ class BasicTests {
         bot.waitUntil(shellCloses(newProjectShell), 20000)
 
         /* Create a new mapping specification */
-        bot.tree().getTreeItem("ExampleProject").select();
-        assistShell.setFocus
-        bot.toolbarButtonWithTooltip("New Mapping Specification").click();
-        val newMappingSpecShell = bot.shell("New Mapping Specification")
-        bot.button("Finish").click();
+        bot.tree().getTreeItem("ExampleProject").select
+        bot.menu("File").menu("New ...").click
+        
+        val newMappingSpecShell = bot.shell("New").activate
+        val newMappingSpecBot = newMappingSpecShell.bot
+      
+        newMappingSpecBot.tree().getTreeItem("ASSIST").select
+        newMappingSpecBot.tree().getTreeItem("ASSIST").getNode("Mapping - Specification").select
+        newMappingSpecBot.button("Next >").click
+        newMappingSpecBot.button("Finish").click
+        
         bot.waitUntil(shellCloses(newMappingSpecShell))
-
+        assistShell.setFocus
+  
         /* Generate Mappings */
         bot.partByTitle("newSpecification.mdsl").show
         bot.menu("Mapping").menu("Generate Mappings").click();
