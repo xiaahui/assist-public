@@ -52,6 +52,7 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 	}
 
 	override performFinish() {
+		/* Retrieve the properties that were set in the wizard */
 		val projectName = page.containerName
 		val fileName = page.fileName + ".sdsl"
 		val systemName = page.systemName

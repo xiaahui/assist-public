@@ -21,6 +21,13 @@ class FactorySchedulingModelFromMappingSolution {
 			task.coreUtilization = 0 // set to default value
 		}
 
+        // Deployment Restrictions are also not supported in the scheduling spec - delete them
+        for (app : clonedModel.applications) {
+            app.restrictMappingToHardwareElements.clear
+            for (task : app.tasks)
+                task.restrictMappingToHardwareElements.clear
+        }
+
 		// Remove all relations
 		clonedModel => [
 			dislocalityRelations.clear
