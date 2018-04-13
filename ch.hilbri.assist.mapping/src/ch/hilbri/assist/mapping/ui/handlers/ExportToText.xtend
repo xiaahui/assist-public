@@ -43,20 +43,37 @@ class ExportToText {
         val result = multiPageEditor.currentMappingResult
 
         val dialog = new FileDialog(shell, SWT.SAVE)
-        dialog.setFilterExtensions(#["*.txt", "*.csv"]);
+        dialog.setFilterExtensions(#["*.txt"]);
         val fileName = dialog.open();
 
         if(fileName === null) return null;
 
         val out = new FileOutputStream(fileName)
         try {
-            out.write(DeploymentAsText.generate(result).getBytes());
-            out.close();
-            MessageDialog.openInformation(shell,
+            if (fileName.fileExtension == "txt") {
+                out.write(DeploymentAsText.generate(result).getBytes());
+                out.close();
+                MessageDialog.openInformation(shell,
                 "Export successful", 
                 '''The result with the name '«result.name»' was successfully exported to file '«fileName»'.''')
+            }
+            else {
+                MessageDialog.openError(shell,
+                "Export unsuccessful", 
+                '''The result with the name '«result.name»' could not be exported to '«fileName»', because the extension «fileName.fileExtension» is unknown.''')
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace
         }
+    }
+    
+    /** 
+     * Retrieves the file extension of a filename
+     * @param fileName Name of the file
+     * @returns extension or empty string
+     */
+    private def String getFileExtension(String fileName) {
+        if (fileName.lastIndexOf('.') > 0) fileName.substring(fileName.lastIndexOf('.')+1)
+        else ""  
     }
 }
