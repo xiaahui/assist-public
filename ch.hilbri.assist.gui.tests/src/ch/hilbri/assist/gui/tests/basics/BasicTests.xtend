@@ -62,7 +62,7 @@ class BasicTests {
         assistShell.activate
         bot.partByTitle("newSpecification.mdsl").show()
         bot.waitUntil(widgetIsEnabled(bot.menu("Mapping").menu("Export Solution to Scheduling")), 20000)
-        bot.menu("Mapping").menu("Export current solution to Scheduling").click
+        bot.menu("Mapping").menu("Export Solution to Scheduling").click
         bot.button("Finish").click();
 
         /* Run Scheduling */
