@@ -1,0 +1,18 @@
+version: '{build}'
+pull_requests:
+  do_not_increment_build_number: true
+clone_script:
+- cmd: git clone --recursive https://github.com/roberthilbrich/assist-public .
+build_script:
+- cmd: >-
+    cd ch.hilbri.assist.releng
+
+    mvn clean verify
+deploy: off
+notifications:
+- provider: Email
+  to:
+  - robert.hilbrich@dlr.de
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false
