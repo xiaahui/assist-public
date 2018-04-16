@@ -484,7 +484,7 @@ public interface Task extends EObject {
 
     /**
      * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.IOAdapterRequirement}.
+     * The list contents are of type {@link ch.hilbri.assist.model.FeatureRequirement}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Io Adapter Requirements</em>' containment reference list isn't clear,
@@ -496,7 +496,7 @@ public interface Task extends EObject {
      * @model containment="true"
      * @generated
      */
-    EList<IOAdapterRequirement> getIoAdapterRequirements();
+    EList<FeatureRequirement> getIoAdapterRequirements();
 
     /**
      * Returns the value of the '<em><b>Custom Properties</b></em>' containment reference list.

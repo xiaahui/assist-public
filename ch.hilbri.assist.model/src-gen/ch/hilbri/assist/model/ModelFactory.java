@@ -40,6 +40,15 @@ public interface ModelFactory extends EFactory {
     HardwareElement createHardwareElement();
 
     /**
+     * Returns a new object of class '<em>Feature</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Feature</em>'.
+     * @generated
+     */
+    Feature createFeature();
+
+    /**
      * Returns a new object of class '<em>Compartment</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -103,15 +112,6 @@ public interface ModelFactory extends EFactory {
     Core createCore();
 
     /**
-     * Returns a new object of class '<em>IO Adapter</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>IO Adapter</em>'.
-     * @generated
-     */
-    IOAdapter createIOAdapter();
-
-    /**
      * Returns a new object of class '<em>Application Alternatives</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -148,13 +148,13 @@ public interface ModelFactory extends EFactory {
     Task createTask();
 
     /**
-     * Returns a new object of class '<em>IO Adapter Requirement</em>'.
+     * Returns a new object of class '<em>Feature Requirement</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>IO Adapter Requirement</em>'.
+     * @return a new object of class '<em>Feature Requirement</em>'.
      * @generated
      */
-    IOAdapterRequirement createIOAdapterRequirement();
+    FeatureRequirement createFeatureRequirement();
 
     /**
      * Returns a new object of class '<em>Mapping Relation</em>'.

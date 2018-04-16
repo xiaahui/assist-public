@@ -125,6 +125,7 @@ public class HardwareElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
+            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES);
             childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
         }
         return childrenFeatures;
@@ -185,6 +186,7 @@ public class HardwareElementItemProvider
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
@@ -202,6 +204,11 @@ public class HardwareElementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES,
+                 ModelFactory.eINSTANCE.createFeature()));
 
         newChildDescriptors.add
             (createChildParameter

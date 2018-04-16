@@ -70,7 +70,6 @@ Board:
 		('RAM'  					'=' ramCapacity=INT ';')?
 		('ROM'  					'=' romCapacity=INT ';')?
 		(processors+=Processor)+
-		(ioAdapters+=IOAdapter)*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}'
 ;
@@ -90,13 +89,6 @@ Core:
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
 
-IOAdapter:
-	'Adapter' name=ID '{' 	
-	 	'Type' '=' adapterType=IOAdapterType ';'
-	 	'Count' '=' totalCount=INT ';'
-	'}' 
-;
-
 /* SOFTWARE */
 /* ******** */
 
@@ -114,17 +106,9 @@ Task returns Task:
 		('CoreUtilization' 			'=' coreUtilization=INT ';')? 
  		('RequiredRAM' 				'=' ramUtilization=INT ';')? 
 		('RequiredROM'				'=' romUtilization=INT ';')? 
-		(ioAdapterRequirements+=IOAdapterRequirement)*
 		('RestrictDeploymentTo'	'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
 	'}';
-
-IOAdapterRequirement returns IOAdapterRequirement:
-	'Requires' 	requiredAdapterCount=INT 
-				adapterType=IOAdapterType 'adapter' 
-  			 	(isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
-	';' 
-;
 
 ApplicationAlternatives: 
 	'Alternatives' '{'
@@ -237,12 +221,3 @@ enum DesignAssuranceLevelType returns DesignAssuranceLevelType:
 	B	= 'B'		|
 	A 	= 'A'  
 ;
-
-enum IOAdapterType returns IOAdapterType:
-	CAN 		= 'Can'					|
-	ELB			= 'Enhanced Local Bus'	|
-	ETH			= 'Ethernet'			|
-	ANALOG 		= 'Analog'				|
-	DIGITAL		= 'Digital'				|
-	SERIAL		= 'Serial'				;
-

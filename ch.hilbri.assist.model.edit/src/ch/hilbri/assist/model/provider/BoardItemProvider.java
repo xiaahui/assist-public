@@ -226,7 +226,6 @@ public class BoardItemProvider extends HardwareElementItemProvider {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.BOARD__PROCESSORS);
-            childrenFeatures.add(ModelPackage.Literals.BOARD__IO_ADAPTERS);
         }
         return childrenFeatures;
     }
@@ -291,7 +290,6 @@ public class BoardItemProvider extends HardwareElementItemProvider {
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.BOARD__PROCESSORS:
-            case ModelPackage.BOARD__IO_ADAPTERS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -313,11 +311,6 @@ public class BoardItemProvider extends HardwareElementItemProvider {
             (createChildParameter
                 (ModelPackage.Literals.BOARD__PROCESSORS,
                  ModelFactory.eINSTANCE.createProcessor()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.BOARD__IO_ADAPTERS,
-                 ModelFactory.eINSTANCE.createIOAdapter()));
     }
 
 }

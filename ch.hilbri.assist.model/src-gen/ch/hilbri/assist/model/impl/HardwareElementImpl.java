@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.CustomProperty;
+import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getManufacturer <em>Manufacturer</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getCustomProperties <em>Custom Properties</em>}</li>
  * </ul>
  *
@@ -77,6 +79,16 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected String manufacturer = MANUFACTURER_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFeatures()
+     * @generated
+     * @ordered
+     */
+    protected EList<Feature> features;
 
     /**
      * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
@@ -154,6 +166,18 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Feature> getFeatures() {
+        if (features == null) {
+            features = new EObjectContainmentEList<Feature>(Feature.class, this, ModelPackage.HARDWARE_ELEMENT__FEATURES);
+        }
+        return features;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<CustomProperty> getCustomProperties() {
         if (customProperties == null) {
             customProperties = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this, ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
@@ -169,6 +193,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
+                return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
         }
@@ -187,6 +213,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return getName();
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
                 return getManufacturer();
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
+                return getFeatures();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return getCustomProperties();
         }
@@ -207,6 +235,10 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return;
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
                 setManufacturer((String)newValue);
+                return;
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
+                getFeatures().clear();
+                getFeatures().addAll((Collection<? extends Feature>)newValue);
                 return;
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();
@@ -230,6 +262,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
                 setManufacturer(MANUFACTURER_EDEFAULT);
                 return;
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
+                getFeatures().clear();
+                return;
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();
                 return;
@@ -249,6 +284,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
                 return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
+                return features != null && !features.isEmpty();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return customProperties != null && !customProperties.isEmpty();
         }

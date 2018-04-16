@@ -2,8 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.IOAdapter;
-import ch.hilbri.assist.model.IOAdapterType;
+import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,20 +14,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>IO Adapter</b></em>'.
+ * An implementation of the model object '<em><b>Feature</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.IOAdapterImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.IOAdapterImpl#getTotalCount <em>Total Count</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.IOAdapterImpl#getAdapterType <em>Adapter Type</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#getUnits <em>Units</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isSynchronizedAccess <em>Synchronized Access</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isIsShared <em>Is Shared</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAdapter {
+public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -50,51 +50,61 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getTotalCount() <em>Total Count</em>}' attribute.
+     * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getTotalCount()
+     * @see #getUnits()
      * @generated
      * @ordered
      */
-    protected static final int TOTAL_COUNT_EDEFAULT = 0;
+    protected static final int UNITS_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getTotalCount() <em>Total Count</em>}' attribute.
+     * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getTotalCount()
+     * @see #getUnits()
      * @generated
      * @ordered
      */
-    protected int totalCount = TOTAL_COUNT_EDEFAULT;
+    protected int units = UNITS_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getAdapterType() <em>Adapter Type</em>}' attribute.
+     * The default value of the '{@link #isSynchronizedAccess() <em>Synchronized Access</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAdapterType()
+     * @see #isSynchronizedAccess()
      * @generated
      * @ordered
      */
-    protected static final IOAdapterType ADAPTER_TYPE_EDEFAULT = IOAdapterType.NONE;
+    protected static final boolean SYNCHRONIZED_ACCESS_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #getAdapterType() <em>Adapter Type</em>}' attribute.
+     * The cached value of the '{@link #isSynchronizedAccess() <em>Synchronized Access</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAdapterType()
+     * @see #isSynchronizedAccess()
      * @generated
      * @ordered
      */
-    protected IOAdapterType adapterType = ADAPTER_TYPE_EDEFAULT;
+    protected boolean synchronizedAccess = SYNCHRONIZED_ACCESS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isIsShared() <em>Is Shared</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIsShared()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean IS_SHARED_EDEFAULT = false;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IOAdapterImpl() {
+    protected FeatureImpl() {
         super();
     }
 
@@ -105,7 +115,7 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
      */
     @Override
     protected EClass eStaticClass() {
-        return ModelPackage.Literals.IO_ADAPTER;
+        return ModelPackage.Literals.FEATURE;
     }
 
     /**
@@ -126,7 +136,7 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.IO_ADAPTER__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__NAME, oldName, name));
     }
 
     /**
@@ -134,8 +144,8 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getTotalCount() {
-        return totalCount;
+    public int getUnits() {
+        return units;
     }
 
     /**
@@ -143,11 +153,11 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTotalCount(int newTotalCount) {
-        int oldTotalCount = totalCount;
-        totalCount = newTotalCount;
+    public void setUnits(int newUnits) {
+        int oldUnits = units;
+        units = newUnits;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.IO_ADAPTER__TOTAL_COUNT, oldTotalCount, totalCount));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__UNITS, oldUnits, units));
     }
 
     /**
@@ -155,8 +165,8 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
      * <!-- end-user-doc -->
      * @generated
      */
-    public IOAdapterType getAdapterType() {
-        return adapterType;
+    public boolean isSynchronizedAccess() {
+        return synchronizedAccess;
     }
 
     /**
@@ -164,11 +174,21 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAdapterType(IOAdapterType newAdapterType) {
-        IOAdapterType oldAdapterType = adapterType;
-        adapterType = newAdapterType == null ? ADAPTER_TYPE_EDEFAULT : newAdapterType;
+    public void setSynchronizedAccess(boolean newSynchronizedAccess) {
+        boolean oldSynchronizedAccess = synchronizedAccess;
+        synchronizedAccess = newSynchronizedAccess;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.IO_ADAPTER__ADAPTER_TYPE, oldAdapterType, adapterType));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__SYNCHRONIZED_ACCESS, oldSynchronizedAccess, synchronizedAccess));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isIsShared() {
+        int _units = this.getUnits();
+        return (_units == 0);
     }
 
     /**
@@ -179,12 +199,14 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.IO_ADAPTER__NAME:
+            case ModelPackage.FEATURE__NAME:
                 return getName();
-            case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-                return getTotalCount();
-            case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-                return getAdapterType();
+            case ModelPackage.FEATURE__UNITS:
+                return getUnits();
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                return isSynchronizedAccess();
+            case ModelPackage.FEATURE__IS_SHARED:
+                return isIsShared();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -197,14 +219,14 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.IO_ADAPTER__NAME:
+            case ModelPackage.FEATURE__NAME:
                 setName((String)newValue);
                 return;
-            case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-                setTotalCount((Integer)newValue);
+            case ModelPackage.FEATURE__UNITS:
+                setUnits((Integer)newValue);
                 return;
-            case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-                setAdapterType((IOAdapterType)newValue);
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                setSynchronizedAccess((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -218,14 +240,14 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.IO_ADAPTER__NAME:
+            case ModelPackage.FEATURE__NAME:
                 setName(NAME_EDEFAULT);
                 return;
-            case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-                setTotalCount(TOTAL_COUNT_EDEFAULT);
+            case ModelPackage.FEATURE__UNITS:
+                setUnits(UNITS_EDEFAULT);
                 return;
-            case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-                setAdapterType(ADAPTER_TYPE_EDEFAULT);
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                setSynchronizedAccess(SYNCHRONIZED_ACCESS_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -239,12 +261,14 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.IO_ADAPTER__NAME:
+            case ModelPackage.FEATURE__NAME:
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-            case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-                return totalCount != TOTAL_COUNT_EDEFAULT;
-            case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-                return adapterType != ADAPTER_TYPE_EDEFAULT;
+            case ModelPackage.FEATURE__UNITS:
+                return units != UNITS_EDEFAULT;
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                return synchronizedAccess != SYNCHRONIZED_ACCESS_EDEFAULT;
+            case ModelPackage.FEATURE__IS_SHARED:
+                return isIsShared() != IS_SHARED_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -261,12 +285,12 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (name: ");
         result.append(name);
-        result.append(", totalCount: ");
-        result.append(totalCount);
-        result.append(", adapterType: ");
-        result.append(adapterType);
+        result.append(", units: ");
+        result.append(units);
+        result.append(", synchronizedAccess: ");
+        result.append(synchronizedAccess);
         result.append(')');
         return result.toString();
     }
 
-} //IOAdapterImpl
+} //FeatureImpl

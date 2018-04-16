@@ -51,9 +51,17 @@ class AssistModel {
 }
 
 class HardwareElement {
-    String name                  = ""
-    String manufacturer          = ""
+    String                        name              = ""
+    String                        manufacturer      = ""
+    contains Feature[0..*]        features
     contains CustomProperty[0..*] customProperties
+}
+
+class Feature {
+    String   name               = ""
+    int      units              = "0"
+    boolean  synchronizedAccess = "false"
+    derived boolean isShared get { units == 0 }
 }
 
 class Compartment extends HardwareElement {
@@ -99,9 +107,8 @@ class Board extends HardwareElement {
     int                                ramCapacity     = "0"
     int                                romCapacity     = "0"
     
-    container    Box                 box             opposite boards
-    contains     Processor[1..*]     processors      opposite board
-    contains     IOAdapter[0..*]     ioAdapters
+    container    Box                   box             opposite boards
+    contains     Processor[1..*]       processors      opposite board
     
     derived String fullName get { if (box !== null) box.fullName + "." + name else name}
     
@@ -124,13 +131,6 @@ class Core extends HardwareElement {
     derived String fullName get { processor.fullName + "." + name }
     container Processor processor opposite cores
 }
-
-class IOAdapter {
-    String name                 = ""
-    int totalCount              = "0"
-    IOAdapterType adapterType   = "None"
-}
-
 
 class ApplicationAlternatives {  // XOR
     contains ApplicationAlternative[0..*] alternatives
@@ -174,7 +174,7 @@ class Task {
     
     container Application application opposite tasks
     
-    contains IOAdapterRequirement[0..*]      ioAdapterRequirements
+    contains FeatureRequirement[0..*]        ioAdapterRequirements
     contains CustomProperty[0..*]            customProperties
     
     refers HardwareElement[0..*]             restrictMappingToHardwareElements
@@ -184,11 +184,10 @@ class Task {
     op String      toString()   { name                          }
 }
 
-class IOAdapterRequirement {
-    IOAdapterType                 adapterType              = "None"
-    int                           requiredAdapterCount     = "0"
-    boolean                       isSharedAllowed          = "false"
-    boolean                       isExclusiveOnly          = "false"
+class FeatureRequirement {
+    String                          featurename    = ""
+    HardwareArchitectureLevelType   hardwareLevel
+    int                             units          = "0"
 }
 
 /* *********************************************** */
@@ -312,6 +311,7 @@ class CustomStringProperty extends CustomProperty {
 /* ********************************************** */
 /* GENERAL ENUMS                                  */
 /* ********************************************** */
+    
 enum HardwareArchitectureLevelType {
     CORE         as "Core"             = 0
     PROCESSOR    as "Processor"        = 1
@@ -327,16 +327,6 @@ enum DesignAssuranceLevelType {
     C            as "C"                = 3
     B            as "B"                = 4
     A            as "A"                = 5
-}
-
-enum IOAdapterType {
-    NONE         as "None"
-    CAN          as "Can"
-    ELB          as "Enhanced Local Bus"
-    ETH          as "Ethernet"
-    ANALOG       as "Analog"
-    DIGITAL      as "Digital"
-    SERIAL       as "Serial"
 }
 
 enum PeriodicityType {

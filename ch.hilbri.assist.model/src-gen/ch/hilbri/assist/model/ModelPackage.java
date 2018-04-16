@@ -289,13 +289,22 @@ public interface ModelPackage extends EPackage {
     int HARDWARE_ELEMENT__MANUFACTURER = 1;
 
     /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HARDWARE_ELEMENT__FEATURES = 2;
+
+    /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int HARDWARE_ELEMENT__CUSTOM_PROPERTIES = 2;
+    int HARDWARE_ELEMENT__CUSTOM_PROPERTIES = 3;
 
     /**
      * The number of structural features of the '<em>Hardware Element</em>' class.
@@ -304,7 +313,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HARDWARE_ELEMENT_FEATURE_COUNT = 3;
+    int HARDWARE_ELEMENT_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Hardware Element</em>' class.
@@ -316,6 +325,70 @@ public interface ModelPackage extends EPackage {
     int HARDWARE_ELEMENT_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.FeatureImpl <em>Feature</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.FeatureImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeature()
+     * @generated
+     */
+    int FEATURE = 2;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Units</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__UNITS = 1;
+
+    /**
+     * The feature id for the '<em><b>Synchronized Access</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__SYNCHRONIZED_ACCESS = 2;
+
+    /**
+     * The feature id for the '<em><b>Is Shared</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__IS_SHARED = 3;
+
+    /**
+     * The number of structural features of the '<em>Feature</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Feature</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -323,7 +396,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCompartment()
      * @generated
      */
-    int COMPARTMENT = 2;
+    int COMPARTMENT = 3;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -342,6 +415,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int COMPARTMENT__MANUFACTURER = HARDWARE_ELEMENT__MANUFACTURER;
+
+    /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPARTMENT__FEATURES = HARDWARE_ELEMENT__FEATURES;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -441,7 +523,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBox()
      * @generated
      */
-    int BOX = 3;
+    int BOX = 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -460,6 +542,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int BOX__MANUFACTURER = HARDWARE_ELEMENT__MANUFACTURER;
+
+    /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOX__FEATURES = HARDWARE_ELEMENT__FEATURES;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -559,7 +650,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
      * @generated
      */
-    int BOARD_ALTERNATIVES = 4;
+    int BOARD_ALTERNATIVES = 5;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -596,7 +687,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternative()
      * @generated
      */
-    int BOARD_ALTERNATIVE = 5;
+    int BOARD_ALTERNATIVE = 6;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -642,7 +733,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoard()
      * @generated
      */
-    int BOARD = 6;
+    int BOARD = 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -661,6 +752,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int BOARD__MANUFACTURER = HARDWARE_ELEMENT__MANUFACTURER;
+
+    /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD__FEATURES = HARDWARE_ELEMENT__FEATURES;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -735,22 +835,13 @@ public interface ModelPackage extends EPackage {
     int BOARD__PROCESSORS = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
 
     /**
-     * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
-
-    /**
      * The feature id for the '<em><b>Full Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BOARD__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
+    int BOARD__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Board</em>' class.
@@ -759,7 +850,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
+    int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>To String</em>' operation.
@@ -805,7 +896,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessor()
      * @generated
      */
-    int PROCESSOR = 7;
+    int PROCESSOR = 8;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -824,6 +915,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int PROCESSOR__MANUFACTURER = HARDWARE_ELEMENT__MANUFACTURER;
+
+    /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR__FEATURES = HARDWARE_ELEMENT__FEATURES;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -905,7 +1005,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCore()
      * @generated
      */
-    int CORE = 8;
+    int CORE = 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -924,6 +1024,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CORE__MANUFACTURER = HARDWARE_ELEMENT__MANUFACTURER;
+
+    /**
+     * The feature id for the '<em><b>Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE__FEATURES = HARDWARE_ELEMENT__FEATURES;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -987,61 +1096,6 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.IOAdapterImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapter()
-     * @generated
-     */
-    int IO_ADAPTER = 9;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER__NAME = 0;
-
-    /**
-     * The feature id for the '<em><b>Total Count</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER__TOTAL_COUNT = 1;
-
-    /**
-     * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER__ADAPTER_TYPE = 2;
-
-    /**
-     * The number of structural features of the '<em>IO Adapter</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER_FEATURE_COUNT = 3;
-
-    /**
-     * The number of operations of the '<em>IO Adapter</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER_OPERATION_COUNT = 0;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
@@ -1453,68 +1507,59 @@ public interface ModelPackage extends EPackage {
     int TASK_OPERATION_COUNT = 1;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl <em>Feature Requirement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.IOAdapterRequirementImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterRequirement()
+     * @see ch.hilbri.assist.model.impl.FeatureRequirementImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
      * @generated
      */
-    int IO_ADAPTER_REQUIREMENT = 14;
+    int FEATURE_REQUIREMENT = 14;
 
     /**
-     * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
+     * The feature id for the '<em><b>Featurename</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE = 0;
+    int FEATURE_REQUIREMENT__FEATURENAME = 0;
 
     /**
-     * The feature id for the '<em><b>Required Adapter Count</b></em>' attribute.
+     * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT = 1;
+    int FEATURE_REQUIREMENT__HARDWARE_LEVEL = 1;
 
     /**
-     * The feature id for the '<em><b>Is Shared Allowed</b></em>' attribute.
+     * The feature id for the '<em><b>Units</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED = 2;
+    int FEATURE_REQUIREMENT__UNITS = 2;
 
     /**
-     * The feature id for the '<em><b>Is Exclusive Only</b></em>' attribute.
+     * The number of structural features of the '<em>Feature Requirement</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = 3;
+    int FEATURE_REQUIREMENT_FEATURE_COUNT = 3;
 
     /**
-     * The number of structural features of the '<em>IO Adapter Requirement</em>' class.
+     * The number of operations of the '<em>Feature Requirement</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IO_ADAPTER_REQUIREMENT_FEATURE_COUNT = 4;
-
-    /**
-     * The number of operations of the '<em>IO Adapter Requirement</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int IO_ADAPTER_REQUIREMENT_OPERATION_COUNT = 0;
+    int FEATURE_REQUIREMENT_OPERATION_COUNT = 0;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.MappingRelationImpl <em>Mapping Relation</em>}' class.
@@ -3069,16 +3114,6 @@ public interface ModelPackage extends EPackage {
     int DESIGN_ASSURANCE_LEVEL_TYPE = 45;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.IOAdapterType
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterType()
-     * @generated
-     */
-    int IO_ADAPTER_TYPE = 46;
-
-    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3086,7 +3121,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 47;
+    int PERIODICITY_TYPE = 46;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -3096,7 +3131,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 48;
+    int COLOR = 47;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -3106,7 +3141,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 49;
+    int TASK2_CORE_MAP_TYPE = 48;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -3116,7 +3151,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 50;
+    int STRING_LIST = 49;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -3126,7 +3161,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 51;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 50;
 
 
     /**
@@ -3374,6 +3409,17 @@ public interface ModelPackage extends EPackage {
     EAttribute getHardwareElement_Manufacturer();
 
     /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.HardwareElement#getFeatures <em>Features</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Features</em>'.
+     * @see ch.hilbri.assist.model.HardwareElement#getFeatures()
+     * @see #getHardwareElement()
+     * @generated
+     */
+    EReference getHardwareElement_Features();
+
+    /**
      * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.HardwareElement#getCustomProperties <em>Custom Properties</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3383,6 +3429,60 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getHardwareElement_CustomProperties();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.Feature <em>Feature</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Feature</em>'.
+     * @see ch.hilbri.assist.model.Feature
+     * @generated
+     */
+    EClass getFeature();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see ch.hilbri.assist.model.Feature#getName()
+     * @see #getFeature()
+     * @generated
+     */
+    EAttribute getFeature_Name();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#getUnits <em>Units</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Units</em>'.
+     * @see ch.hilbri.assist.model.Feature#getUnits()
+     * @see #getFeature()
+     * @generated
+     */
+    EAttribute getFeature_Units();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isSynchronizedAccess <em>Synchronized Access</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Synchronized Access</em>'.
+     * @see ch.hilbri.assist.model.Feature#isSynchronizedAccess()
+     * @see #getFeature()
+     * @generated
+     */
+    EAttribute getFeature_SynchronizedAccess();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsShared <em>Is Shared</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Shared</em>'.
+     * @see ch.hilbri.assist.model.Feature#isIsShared()
+     * @see #getFeature()
+     * @generated
+     */
+    EAttribute getFeature_IsShared();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.Compartment <em>Compartment</em>}'.
@@ -3692,17 +3792,6 @@ public interface ModelPackage extends EPackage {
     EReference getBoard_Processors();
 
     /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.Board#getIoAdapters <em>Io Adapters</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Io Adapters</em>'.
-     * @see ch.hilbri.assist.model.Board#getIoAdapters()
-     * @see #getBoard()
-     * @generated
-     */
-    EReference getBoard_IoAdapters();
-
-    /**
      * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Board#getFullName <em>Full Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3860,49 +3949,6 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getCore_Processor();
-
-    /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.IOAdapter <em>IO Adapter</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>IO Adapter</em>'.
-     * @see ch.hilbri.assist.model.IOAdapter
-     * @generated
-     */
-    EClass getIOAdapter();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapter#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ch.hilbri.assist.model.IOAdapter#getName()
-     * @see #getIOAdapter()
-     * @generated
-     */
-    EAttribute getIOAdapter_Name();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapter#getTotalCount <em>Total Count</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Total Count</em>'.
-     * @see ch.hilbri.assist.model.IOAdapter#getTotalCount()
-     * @see #getIOAdapter()
-     * @generated
-     */
-    EAttribute getIOAdapter_TotalCount();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapter#getAdapterType <em>Adapter Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Adapter Type</em>'.
-     * @see ch.hilbri.assist.model.IOAdapter#getAdapterType()
-     * @see #getIOAdapter()
-     * @generated
-     */
-    EAttribute getIOAdapter_AdapterType();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
@@ -4306,58 +4352,47 @@ public interface ModelPackage extends EPackage {
     EOperation getTask__ToString();
 
     /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.FeatureRequirement <em>Feature Requirement</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>IO Adapter Requirement</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement
+     * @return the meta object for class '<em>Feature Requirement</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement
      * @generated
      */
-    EClass getIOAdapterRequirement();
+    EClass getFeatureRequirement();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapterRequirement#getAdapterType <em>Adapter Type</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getFeaturename <em>Featurename</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Adapter Type</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement#getAdapterType()
-     * @see #getIOAdapterRequirement()
+     * @return the meta object for the attribute '<em>Featurename</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#getFeaturename()
+     * @see #getFeatureRequirement()
      * @generated
      */
-    EAttribute getIOAdapterRequirement_AdapterType();
+    EAttribute getFeatureRequirement_Featurename();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapterRequirement#getRequiredAdapterCount <em>Required Adapter Count</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getHardwareLevel <em>Hardware Level</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Required Adapter Count</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement#getRequiredAdapterCount()
-     * @see #getIOAdapterRequirement()
+     * @return the meta object for the attribute '<em>Hardware Level</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#getHardwareLevel()
+     * @see #getFeatureRequirement()
      * @generated
      */
-    EAttribute getIOAdapterRequirement_RequiredAdapterCount();
+    EAttribute getFeatureRequirement_HardwareLevel();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapterRequirement#isIsSharedAllowed <em>Is Shared Allowed</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getUnits <em>Units</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Is Shared Allowed</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement#isIsSharedAllowed()
-     * @see #getIOAdapterRequirement()
+     * @return the meta object for the attribute '<em>Units</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#getUnits()
+     * @see #getFeatureRequirement()
      * @generated
      */
-    EAttribute getIOAdapterRequirement_IsSharedAllowed();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.IOAdapterRequirement#isIsExclusiveOnly <em>Is Exclusive Only</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Is Exclusive Only</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement#isIsExclusiveOnly()
-     * @see #getIOAdapterRequirement()
-     * @generated
-     */
-    EAttribute getIOAdapterRequirement_IsExclusiveOnly();
+    EAttribute getFeatureRequirement_Units();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.MappingRelation <em>Mapping Relation</em>}'.
@@ -5346,16 +5381,6 @@ public interface ModelPackage extends EPackage {
     EEnum getDesignAssuranceLevelType();
 
     /**
-     * Returns the meta object for enum '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>IO Adapter Type</em>'.
-     * @see ch.hilbri.assist.model.IOAdapterType
-     * @generated
-     */
-    EEnum getIOAdapterType();
-
-    /**
      * Returns the meta object for enum '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5620,12 +5645,62 @@ public interface ModelPackage extends EPackage {
         EAttribute HARDWARE_ELEMENT__MANUFACTURER = eINSTANCE.getHardwareElement_Manufacturer();
 
         /**
+         * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HARDWARE_ELEMENT__FEATURES = eINSTANCE.getHardwareElement_Features();
+
+        /**
          * The meta object literal for the '<em><b>Custom Properties</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EReference HARDWARE_ELEMENT__CUSTOM_PROPERTIES = eINSTANCE.getHardwareElement_CustomProperties();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.FeatureImpl <em>Feature</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.FeatureImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeature()
+         * @generated
+         */
+        EClass FEATURE = eINSTANCE.getFeature();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE__NAME = eINSTANCE.getFeature_Name();
+
+        /**
+         * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE__UNITS = eINSTANCE.getFeature_Units();
+
+        /**
+         * The meta object literal for the '<em><b>Synchronized Access</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE__SYNCHRONIZED_ACCESS = eINSTANCE.getFeature_SynchronizedAccess();
+
+        /**
+         * The meta object literal for the '<em><b>Is Shared</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE__IS_SHARED = eINSTANCE.getFeature_IsShared();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -5870,14 +5945,6 @@ public interface ModelPackage extends EPackage {
         EReference BOARD__PROCESSORS = eINSTANCE.getBoard_Processors();
 
         /**
-         * The meta object literal for the '<em><b>Io Adapters</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference BOARD__IO_ADAPTERS = eINSTANCE.getBoard_IoAdapters();
-
-        /**
          * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -6000,40 +6067,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference CORE__PROCESSOR = eINSTANCE.getCore_Processor();
-
-        /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.IOAdapterImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapter()
-         * @generated
-         */
-        EClass IO_ADAPTER = eINSTANCE.getIOAdapter();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute IO_ADAPTER__NAME = eINSTANCE.getIOAdapter_Name();
-
-        /**
-         * The meta object literal for the '<em><b>Total Count</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute IO_ADAPTER__TOTAL_COUNT = eINSTANCE.getIOAdapter_TotalCount();
-
-        /**
-         * The meta object literal for the '<em><b>Adapter Type</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute IO_ADAPTER__ADAPTER_TYPE = eINSTANCE.getIOAdapter_AdapterType();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
@@ -6340,46 +6373,38 @@ public interface ModelPackage extends EPackage {
         EOperation TASK___TO_STRING = eINSTANCE.getTask__ToString();
 
         /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl <em>Feature Requirement</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.IOAdapterRequirementImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterRequirement()
+         * @see ch.hilbri.assist.model.impl.FeatureRequirementImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
          * @generated
          */
-        EClass IO_ADAPTER_REQUIREMENT = eINSTANCE.getIOAdapterRequirement();
+        EClass FEATURE_REQUIREMENT = eINSTANCE.getFeatureRequirement();
 
         /**
-         * The meta object literal for the '<em><b>Adapter Type</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Featurename</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE = eINSTANCE.getIOAdapterRequirement_AdapterType();
+        EAttribute FEATURE_REQUIREMENT__FEATURENAME = eINSTANCE.getFeatureRequirement_Featurename();
 
         /**
-         * The meta object literal for the '<em><b>Required Adapter Count</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT = eINSTANCE.getIOAdapterRequirement_RequiredAdapterCount();
+        EAttribute FEATURE_REQUIREMENT__HARDWARE_LEVEL = eINSTANCE.getFeatureRequirement_HardwareLevel();
 
         /**
-         * The meta object literal for the '<em><b>Is Shared Allowed</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED = eINSTANCE.getIOAdapterRequirement_IsSharedAllowed();
-
-        /**
-         * The meta object literal for the '<em><b>Is Exclusive Only</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = eINSTANCE.getIOAdapterRequirement_IsExclusiveOnly();
+        EAttribute FEATURE_REQUIREMENT__UNITS = eINSTANCE.getFeatureRequirement_Units();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MappingRelationImpl <em>Mapping Relation</em>}' class.
@@ -7186,16 +7211,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EEnum DESIGN_ASSURANCE_LEVEL_TYPE = eINSTANCE.getDesignAssuranceLevelType();
-
-        /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.IOAdapterType
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIOAdapterType()
-         * @generated
-         */
-        EEnum IO_ADAPTER_TYPE = eINSTANCE.getIOAdapterType();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.

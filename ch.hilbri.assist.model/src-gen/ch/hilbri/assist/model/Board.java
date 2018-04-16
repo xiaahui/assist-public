@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.model.Board#getRomCapacity <em>Rom Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Board#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Board#getProcessors <em>Processors</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Board#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Board#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
@@ -212,22 +211,6 @@ public interface Board extends HardwareElement {
      * @generated
      */
     EList<Processor> getProcessors();
-
-    /**
-     * Returns the value of the '<em><b>Io Adapters</b></em>' containment reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.IOAdapter}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Io Adapters</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Io Adapters</em>' containment reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getBoard_IoAdapters()
-     * @model containment="true"
-     * @generated
-     */
-    EList<IOAdapter> getIoAdapters();
 
     /**
      * Returns the value of the '<em><b>Full Name</b></em>' attribute.

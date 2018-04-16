@@ -118,6 +118,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Feature} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected FeatureItemProvider featureItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.Feature}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createFeatureAdapter() {
+        if (featureItemProvider == null) {
+            featureItemProvider = new FeatureItemProvider(this);
+        }
+
+        return featureItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Compartment} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,29 +279,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.IOAdapter} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected IOAdapterItemProvider ioAdapterItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.IOAdapter}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createIOAdapterAdapter() {
-        if (ioAdapterItemProvider == null) {
-            ioAdapterItemProvider = new IOAdapterItemProvider(this);
-        }
-
-        return ioAdapterItemProvider;
-    }
-
-	/**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Application} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,29 +325,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.IOAdapterRequirement} instances.
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.FeatureRequirement} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected IOAdapterRequirementItemProvider ioAdapterRequirementItemProvider;
+    protected FeatureRequirementItemProvider featureRequirementItemProvider;
 
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.IOAdapterRequirement}.
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.FeatureRequirement}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createIOAdapterRequirementAdapter() {
-        if (ioAdapterRequirementItemProvider == null) {
-            ioAdapterRequirementItemProvider = new IOAdapterRequirementItemProvider(this);
+    @Override
+    public Adapter createFeatureRequirementAdapter() {
+        if (featureRequirementItemProvider == null) {
+            featureRequirementItemProvider = new FeatureRequirementItemProvider(this);
         }
 
-        return ioAdapterRequirementItemProvider;
+        return featureRequirementItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingRelation} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -762,6 +762,190 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternatives} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestrictionAlternativesItemProvider restrictionAlternativesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionAlternatives}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestrictionAlternativesAdapter() {
+        if (restrictionAlternativesItemProvider == null) {
+            restrictionAlternativesItemProvider = new RestrictionAlternativesItemProvider(this);
+        }
+
+        return restrictionAlternativesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternative} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestrictionAlternativeItemProvider restrictionAlternativeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionAlternative}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestrictionAlternativeAdapter() {
+        if (restrictionAlternativeItemProvider == null) {
+            restrictionAlternativeItemProvider = new RestrictionAlternativeItemProvider(this);
+        }
+
+        return restrictionAlternativeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ExplorationCandidate} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExplorationCandidateItemProvider explorationCandidateItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ExplorationCandidate}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExplorationCandidateAdapter() {
+        if (explorationCandidateItemProvider == null) {
+            explorationCandidateItemProvider = new ExplorationCandidateItemProvider(this);
+        }
+
+        return explorationCandidateItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MetricScorePairItemProvider metricScorePairItemProvider;
+
+    /**
+     * This creates an adapter for a {@link java.util.Map.Entry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMetricScorePairAdapter() {
+        if (metricScorePairItemProvider == null) {
+            metricScorePairItemProvider = new MetricScorePairItemProvider(this);
+        }
+
+        return metricScorePairItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingResult} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MappingResultItemProvider mappingResultItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.MappingResult}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMappingResultAdapter() {
+        if (mappingResultItemProvider == null) {
+            mappingResultItemProvider = new MappingResultItemProvider(this);
+        }
+
+        return mappingResultItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SingleMappingElement} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SingleMappingElementItemProvider singleMappingElementItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SingleMappingElement}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSingleMappingElementAdapter() {
+        if (singleMappingElementItemProvider == null) {
+            singleMappingElementItemProvider = new SingleMappingElementItemProvider(this);
+        }
+
+        return singleMappingElementItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SchedulingResult} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SchedulingResultItemProvider schedulingResultItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SchedulingResult}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSchedulingResultAdapter() {
+        if (schedulingResultItemProvider == null) {
+            schedulingResultItemProvider = new SchedulingResultItemProvider(this);
+        }
+
+        return schedulingResultItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.TaskExecutionInstance} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TaskExecutionInstanceItemProvider taskExecutionInstanceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.TaskExecutionInstance}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTaskExecutionInstanceAdapter() {
+        if (taskExecutionInstanceItemProvider == null) {
+            taskExecutionInstanceItemProvider = new TaskExecutionInstanceItemProvider(this);
+        }
+
+        return taskExecutionInstanceItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternative} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -828,190 +1012,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return applicationAlternativeItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternatives} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected RestrictionAlternativesItemProvider restrictionAlternativesItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionAlternatives}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createRestrictionAlternativesAdapter() {
-        if (restrictionAlternativesItemProvider == null) {
-            restrictionAlternativesItemProvider = new RestrictionAlternativesItemProvider(this);
-        }
-
-        return restrictionAlternativesItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternative} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected RestrictionAlternativeItemProvider restrictionAlternativeItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionAlternative}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createRestrictionAlternativeAdapter() {
-        if (restrictionAlternativeItemProvider == null) {
-            restrictionAlternativeItemProvider = new RestrictionAlternativeItemProvider(this);
-        }
-
-        return restrictionAlternativeItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ExplorationCandidate} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected ExplorationCandidateItemProvider explorationCandidateItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.ExplorationCandidate}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createExplorationCandidateAdapter() {
-        if (explorationCandidateItemProvider == null) {
-            explorationCandidateItemProvider = new ExplorationCandidateItemProvider(this);
-        }
-
-        return explorationCandidateItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected MetricScorePairItemProvider metricScorePairItemProvider;
-
-	/**
-     * This creates an adapter for a {@link java.util.Map.Entry}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createMetricScorePairAdapter() {
-        if (metricScorePairItemProvider == null) {
-            metricScorePairItemProvider = new MetricScorePairItemProvider(this);
-        }
-
-        return metricScorePairItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingResult} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected MappingResultItemProvider mappingResultItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.MappingResult}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createMappingResultAdapter() {
-        if (mappingResultItemProvider == null) {
-            mappingResultItemProvider = new MappingResultItemProvider(this);
-        }
-
-        return mappingResultItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SingleMappingElement} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected SingleMappingElementItemProvider singleMappingElementItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.SingleMappingElement}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createSingleMappingElementAdapter() {
-        if (singleMappingElementItemProvider == null) {
-            singleMappingElementItemProvider = new SingleMappingElementItemProvider(this);
-        }
-
-        return singleMappingElementItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SchedulingResult} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected SchedulingResultItemProvider schedulingResultItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.SchedulingResult}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createSchedulingResultAdapter() {
-        if (schedulingResultItemProvider == null) {
-            schedulingResultItemProvider = new SchedulingResultItemProvider(this);
-        }
-
-        return schedulingResultItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.TaskExecutionInstance} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected TaskExecutionInstanceItemProvider taskExecutionInstanceItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.TaskExecutionInstance}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createTaskExecutionInstanceAdapter() {
-        if (taskExecutionInstanceItemProvider == null) {
-            taskExecutionInstanceItemProvider = new TaskExecutionInstanceItemProvider(this);
-        }
-
-        return taskExecutionInstanceItemProvider;
     }
 
 	/**
@@ -1115,6 +1115,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
         if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
+        if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();
         if (boxItemProvider != null) boxItemProvider.dispose();
         if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
@@ -1122,12 +1123,11 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (boardItemProvider != null) boardItemProvider.dispose();
         if (processorItemProvider != null) processorItemProvider.dispose();
         if (coreItemProvider != null) coreItemProvider.dispose();
-        if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
         if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
         if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
         if (taskItemProvider != null) taskItemProvider.dispose();
-        if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
+        if (featureRequirementItemProvider != null) featureRequirementItemProvider.dispose();
         if (mappingRelationItemProvider != null) mappingRelationItemProvider.dispose();
         if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
         if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();

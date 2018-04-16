@@ -61,13 +61,13 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task => [
 			/* General indention */
-			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_9).forEach[interior[indent]]
+			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_8).forEach[interior[indent]]
 			regionFor.keywords(taskAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_9).forEach[append[newLine]]
+			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
 			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_7_1).surround[oneSpace]
-			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_7_4).prepend[oneSpace]
+			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_7_3).prepend[oneSpace]
 			
 			/* All assignments */
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]

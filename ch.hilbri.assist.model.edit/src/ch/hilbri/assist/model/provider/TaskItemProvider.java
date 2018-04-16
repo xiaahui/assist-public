@@ -613,7 +613,7 @@ public class TaskItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.TASK__IO_ADAPTER_REQUIREMENTS,
-                 ModelFactory.eINSTANCE.createIOAdapterRequirement()));
+                 ModelFactory.eINSTANCE.createFeatureRequirement()));
 
         newChildDescriptors.add
             (createChildParameter

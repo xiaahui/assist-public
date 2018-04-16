@@ -28,11 +28,10 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.Feature;
+import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
-import ch.hilbri.assist.model.IOAdapter;
-import ch.hilbri.assist.model.IOAdapterRequirement;
-import ch.hilbri.assist.model.IOAdapterType;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelFactory;
@@ -95,6 +94,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass featureEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass compartmentEClass = null;
 
     /**
@@ -144,13 +150,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass ioAdapterEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass applicationAlternativesEClass = null;
 
     /**
@@ -179,7 +178,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass ioAdapterRequirementEClass = null;
+    private EClass featureRequirementEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -397,13 +396,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EEnum designAssuranceLevelTypeEEnum = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EEnum ioAdapterTypeEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -716,8 +708,62 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getHardwareElement_CustomProperties() {
+    public EReference getHardwareElement_Features() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getHardwareElement_CustomProperties() {
+        return (EReference)hardwareElementEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getFeature() {
+        return featureEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeature_Name() {
+        return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeature_Units() {
+        return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeature_SynchronizedAccess() {
+        return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeature_IsShared() {
+        return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -986,17 +1032,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBoard_IoAdapters() {
-        return (EReference)boardEClass.getEStructuralFeatures().get(7);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getBoard_FullName() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(8);
+        return (EAttribute)boardEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -1123,42 +1160,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EReference getCore_Processor() {
         return (EReference)coreEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getIOAdapter() {
-        return ioAdapterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getIOAdapter_Name() {
-        return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getIOAdapter_TotalCount() {
-        return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getIOAdapter_AdapterType() {
-        return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1499,8 +1500,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getIOAdapterRequirement() {
-        return ioAdapterRequirementEClass;
+    public EClass getFeatureRequirement() {
+        return featureRequirementEClass;
     }
 
     /**
@@ -1508,8 +1509,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getIOAdapterRequirement_AdapterType() {
-        return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(0);
+    public EAttribute getFeatureRequirement_Featurename() {
+        return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1517,8 +1518,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getIOAdapterRequirement_RequiredAdapterCount() {
-        return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(1);
+    public EAttribute getFeatureRequirement_HardwareLevel() {
+        return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1526,17 +1527,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getIOAdapterRequirement_IsSharedAllowed() {
-        return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getIOAdapterRequirement_IsExclusiveOnly() {
-        return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(3);
+    public EAttribute getFeatureRequirement_Units() {
+        return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2381,15 +2373,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getIOAdapterType() {
-        return ioAdapterTypeEEnum;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EEnum getPeriodicityType() {
         return periodicityTypeEEnum;
     }
@@ -2482,7 +2465,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__MANUFACTURER);
+        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__FEATURES);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+
+        featureEClass = createEClass(FEATURE);
+        createEAttribute(featureEClass, FEATURE__NAME);
+        createEAttribute(featureEClass, FEATURE__UNITS);
+        createEAttribute(featureEClass, FEATURE__SYNCHRONIZED_ACCESS);
+        createEAttribute(featureEClass, FEATURE__IS_SHARED);
 
         compartmentEClass = createEClass(COMPARTMENT);
         createEAttribute(compartmentEClass, COMPARTMENT__POWER_SUPPLY);
@@ -2517,7 +2507,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(boardEClass, BOARD__ROM_CAPACITY);
         createEReference(boardEClass, BOARD__BOX);
         createEReference(boardEClass, BOARD__PROCESSORS);
-        createEReference(boardEClass, BOARD__IO_ADAPTERS);
         createEAttribute(boardEClass, BOARD__FULL_NAME);
         createEOperation(boardEClass, BOARD___TO_STRING);
         createEOperation(boardEClass, BOARD___GET_ALL_PROCESSORS);
@@ -2535,11 +2524,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(coreEClass, CORE__CAPACITY);
         createEAttribute(coreEClass, CORE__FULL_NAME);
         createEReference(coreEClass, CORE__PROCESSOR);
-
-        ioAdapterEClass = createEClass(IO_ADAPTER);
-        createEAttribute(ioAdapterEClass, IO_ADAPTER__NAME);
-        createEAttribute(ioAdapterEClass, IO_ADAPTER__TOTAL_COUNT);
-        createEAttribute(ioAdapterEClass, IO_ADAPTER__ADAPTER_TYPE);
 
         applicationAlternativesEClass = createEClass(APPLICATION_ALTERNATIVES);
         createEReference(applicationAlternativesEClass, APPLICATION_ALTERNATIVES__ALTERNATIVES);
@@ -2582,11 +2566,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(taskEClass, TASK__FULL_NAME);
         createEOperation(taskEClass, TASK___TO_STRING);
 
-        ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
-        createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE);
-        createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT);
-        createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED);
-        createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY);
+        featureRequirementEClass = createEClass(FEATURE_REQUIREMENT);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__FEATURENAME);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__HARDWARE_LEVEL);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__UNITS);
 
         mappingRelationEClass = createEClass(MAPPING_RELATION);
         createEReference(mappingRelationEClass, MAPPING_RELATION__APPLICATIONS);
@@ -2710,7 +2693,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         dissimilarityAttributesEEnum = createEEnum(DISSIMILARITY_ATTRIBUTES);
         hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
         designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
-        ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
         periodicityTypeEEnum = createEEnum(PERIODICITY_TYPE);
         colorEEnum = createEEnum(COLOR);
 
@@ -2805,7 +2787,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getHardwareElement_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getHardwareElement_Features(), this.getFeature(), null, "features", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getFeature_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_Units(), theEcorePackage.getEInt(), "units", "0", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_SynchronizedAccess(), theEcorePackage.getEBoolean(), "synchronizedAccess", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_IsShared(), theEcorePackage.getEBoolean(), "isShared", null, 0, 1, Feature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCompartment_PowerSupply(), theEcorePackage.getEString(), "powerSupply", "", 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2847,7 +2836,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getBoard_RomCapacity(), theEcorePackage.getEInt(), "romCapacity", "0", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBoard_Box(), this.getBox(), this.getBox_Boards(), "box", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBoard_Processors(), this.getProcessor(), this.getProcessor_Board(), "processors", null, 1, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBoard_IoAdapters(), this.getIOAdapter(), null, "ioAdapters", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getBoard_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Board.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEOperation(getBoard__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
@@ -2869,11 +2857,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getCore_Capacity(), theEcorePackage.getEInt(), "capacity", "0", 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getCore_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Core.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEReference(getCore_Processor(), this.getProcessor(), this.getProcessor_Cores(), "processor", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(ioAdapterEClass, IOAdapter.class, "IOAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getIOAdapter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getIOAdapter_TotalCount(), theEcorePackage.getEInt(), "totalCount", "0", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getIOAdapter_AdapterType(), this.getIOAdapterType(), "adapterType", "None", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(applicationAlternativesEClass, ApplicationAlternatives.class, "ApplicationAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getApplicationAlternatives_Alternatives(), this.getApplicationAlternative(), null, "alternatives", null, 0, -1, ApplicationAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2910,7 +2893,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "strict", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_Color(), this.getColor(), "color", "none", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getTask_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getTask_IoAdapterRequirements(), this.getFeatureRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2918,11 +2901,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEOperation(getTask__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-        initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getIOAdapterRequirement_AdapterType(), this.getIOAdapterType(), "adapterType", "None", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getIOAdapterRequirement_RequiredAdapterCount(), theEcorePackage.getEInt(), "requiredAdapterCount", "0", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getIOAdapterRequirement_IsSharedAllowed(), theEcorePackage.getEBoolean(), "isSharedAllowed", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getIOAdapterRequirement_IsExclusiveOnly(), theEcorePackage.getEBoolean(), "isExclusiveOnly", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getFeatureRequirement_Featurename(), theEcorePackage.getEString(), "featurename", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_Units(), theEcorePackage.getEInt(), "units", "0", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(mappingRelationEClass, MappingRelation.class, "MappingRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getMappingRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3085,15 +3067,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.C);
         addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.B);
         addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.A);
-
-        initEEnum(ioAdapterTypeEEnum, IOAdapterType.class, "IOAdapterType");
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.NONE);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CAN);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ELB);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ETH);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ANALOG);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.DIGITAL);
-        addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.SERIAL);
 
         initEEnum(periodicityTypeEEnum, PeriodicityType.class, "PeriodicityType");
         addEEnumLiteral(periodicityTypeEEnum, PeriodicityType.STRICT);

@@ -6,8 +6,8 @@ import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CustomProperty;
+import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
-import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Task;
@@ -374,7 +374,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
      * @generated
      * @ordered
      */
-    protected EList<IOAdapterRequirement> ioAdapterRequirements;
+    protected EList<FeatureRequirement> ioAdapterRequirements;
 
     /**
      * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
@@ -806,9 +806,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<IOAdapterRequirement> getIoAdapterRequirements() {
+    public EList<FeatureRequirement> getIoAdapterRequirements() {
         if (ioAdapterRequirements == null) {
-            ioAdapterRequirements = new EObjectContainmentEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS);
+            ioAdapterRequirements = new EObjectContainmentEList<FeatureRequirement>(FeatureRequirement.class, this, ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS);
         }
         return ioAdapterRequirements;
     }
@@ -1059,7 +1059,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
                 return;
             case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
                 getIoAdapterRequirements().clear();
-                getIoAdapterRequirements().addAll((Collection<? extends IOAdapterRequirement>)newValue);
+                getIoAdapterRequirements().addAll((Collection<? extends FeatureRequirement>)newValue);
                 return;
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();

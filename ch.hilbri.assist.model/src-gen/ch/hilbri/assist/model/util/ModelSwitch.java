@@ -25,9 +25,9 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.Feature;
+import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
-import ch.hilbri.assist.model.IOAdapter;
-import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
@@ -121,6 +121,12 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.FEATURE: {
+                Feature feature = (Feature)theEObject;
+                T result = caseFeature(feature);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.COMPARTMENT: {
                 Compartment compartment = (Compartment)theEObject;
                 T result = caseCompartment(compartment);
@@ -168,12 +174,6 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.IO_ADAPTER: {
-                IOAdapter ioAdapter = (IOAdapter)theEObject;
-                T result = caseIOAdapter(ioAdapter);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case ModelPackage.APPLICATION_ALTERNATIVES: {
                 ApplicationAlternatives applicationAlternatives = (ApplicationAlternatives)theEObject;
                 T result = caseApplicationAlternatives(applicationAlternatives);
@@ -198,9 +198,9 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.IO_ADAPTER_REQUIREMENT: {
-                IOAdapterRequirement ioAdapterRequirement = (IOAdapterRequirement)theEObject;
-                T result = caseIOAdapterRequirement(ioAdapterRequirement);
+            case ModelPackage.FEATURE_REQUIREMENT: {
+                FeatureRequirement featureRequirement = (FeatureRequirement)theEObject;
+                T result = caseFeatureRequirement(featureRequirement);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -426,6 +426,21 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFeature(Feature object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Compartment</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -531,21 +546,6 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>IO Adapter</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>IO Adapter</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseIOAdapter(IOAdapter object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -606,17 +606,17 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>IO Adapter Requirement</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Feature Requirement</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>IO Adapter Requirement</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Feature Requirement</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIOAdapterRequirement(IOAdapterRequirement object) {
+    public T caseFeatureRequirement(FeatureRequirement object) {
         return null;
     }
 

@@ -25,9 +25,9 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.Feature;
+import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
-import ch.hilbri.assist.model.IOAdapter;
-import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
@@ -119,6 +119,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createHardwareElementAdapter();
             }
             @Override
+            public Adapter caseFeature(Feature object) {
+                return createFeatureAdapter();
+            }
+            @Override
             public Adapter caseCompartment(Compartment object) {
                 return createCompartmentAdapter();
             }
@@ -147,10 +151,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createCoreAdapter();
             }
             @Override
-            public Adapter caseIOAdapter(IOAdapter object) {
-                return createIOAdapterAdapter();
-            }
-            @Override
             public Adapter caseApplicationAlternatives(ApplicationAlternatives object) {
                 return createApplicationAlternativesAdapter();
             }
@@ -167,8 +167,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createTaskAdapter();
             }
             @Override
-            public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
-                return createIOAdapterRequirementAdapter();
+            public Adapter caseFeatureRequirement(FeatureRequirement object) {
+                return createFeatureRequirementAdapter();
             }
             @Override
             public Adapter caseMappingRelation(MappingRelation object) {
@@ -331,6 +331,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.Feature <em>Feature</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.Feature
+     * @generated
+     */
+    public Adapter createFeatureAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.Compartment <em>Compartment</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -429,20 +443,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.IOAdapter <em>IO Adapter</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.IOAdapter
-     * @generated
-     */
-    public Adapter createIOAdapterAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -499,16 +499,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.FeatureRequirement <em>Feature Requirement</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ch.hilbri.assist.model.IOAdapterRequirement
+     * @see ch.hilbri.assist.model.FeatureRequirement
      * @generated
      */
-    public Adapter createIOAdapterRequirementAdapter() {
+    public Adapter createFeatureRequirementAdapter() {
         return null;
     }
 

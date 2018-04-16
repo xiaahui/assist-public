@@ -28,11 +28,10 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.Feature;
+import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
-import ch.hilbri.assist.model.IOAdapter;
-import ch.hilbri.assist.model.IOAdapterRequirement;
-import ch.hilbri.assist.model.IOAdapterType;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelFactory;
@@ -111,6 +110,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
         switch (eClass.getClassifierID()) {
             case ModelPackage.ASSIST_MODEL: return createAssistModel();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
+            case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
             case ModelPackage.BOX: return createBox();
             case ModelPackage.BOARD_ALTERNATIVES: return createBoardAlternatives();
@@ -118,12 +118,11 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.BOARD: return createBoard();
             case ModelPackage.PROCESSOR: return createProcessor();
             case ModelPackage.CORE: return createCore();
-            case ModelPackage.IO_ADAPTER: return createIOAdapter();
             case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
             case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
             case ModelPackage.APPLICATION: return createApplication();
             case ModelPackage.TASK: return createTask();
-            case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
+            case ModelPackage.FEATURE_REQUIREMENT: return createFeatureRequirement();
             case ModelPackage.MAPPING_RELATION: return createMappingRelation();
             case ModelPackage.DISLOCALITY_RELATION: return createDislocalityRelation();
             case ModelPackage.COLOCALITY_RELATION: return createColocalityRelation();
@@ -169,8 +168,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
                 return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
-            case ModelPackage.IO_ADAPTER_TYPE:
-                return createIOAdapterTypeFromString(eDataType, initialValue);
             case ModelPackage.PERIODICITY_TYPE:
                 return createPeriodicityTypeFromString(eDataType, initialValue);
             case ModelPackage.COLOR:
@@ -200,8 +197,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
                 return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
-            case ModelPackage.IO_ADAPTER_TYPE:
-                return convertIOAdapterTypeToString(eDataType, instanceValue);
             case ModelPackage.PERIODICITY_TYPE:
                 return convertPeriodicityTypeToString(eDataType, instanceValue);
             case ModelPackage.COLOR:
@@ -235,6 +230,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public HardwareElement createHardwareElement() {
         HardwareElementImpl hardwareElement = new HardwareElementImpl();
         return hardwareElement;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Feature createFeature() {
+        FeatureImpl feature = new FeatureImpl();
+        return feature;
     }
 
     /**
@@ -312,16 +317,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public IOAdapter createIOAdapter() {
-        IOAdapterImpl ioAdapter = new IOAdapterImpl();
-        return ioAdapter;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public ApplicationAlternatives createApplicationAlternatives() {
         ApplicationAlternativesImpl applicationAlternatives = new ApplicationAlternativesImpl();
         return applicationAlternatives;
@@ -362,9 +357,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public IOAdapterRequirement createIOAdapterRequirement() {
-        IOAdapterRequirementImpl ioAdapterRequirement = new IOAdapterRequirementImpl();
-        return ioAdapterRequirement;
+    public FeatureRequirement createFeatureRequirement() {
+        FeatureRequirementImpl featureRequirement = new FeatureRequirementImpl();
+        return featureRequirement;
     }
 
     /**
@@ -684,26 +679,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * @generated
      */
     public String convertDesignAssuranceLevelTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public IOAdapterType createIOAdapterTypeFromString(EDataType eDataType, String initialValue) {
-        IOAdapterType result = IOAdapterType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertIOAdapterTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

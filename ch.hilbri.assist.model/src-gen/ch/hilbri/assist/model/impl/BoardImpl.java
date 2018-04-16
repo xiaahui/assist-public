@@ -6,7 +6,6 @@ import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
-import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 
@@ -27,7 +26,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -51,7 +49,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getRomCapacity <em>Rom Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
@@ -167,16 +164,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * @ordered
      */
     protected EList<Processor> processors;
-
-    /**
-     * The cached value of the '{@link #getIoAdapters() <em>Io Adapters</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getIoAdapters()
-     * @generated
-     * @ordered
-     */
-    protected EList<IOAdapter> ioAdapters;
 
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
@@ -380,18 +367,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<IOAdapter> getIoAdapters() {
-        if (ioAdapters == null) {
-            ioAdapters = new EObjectContainmentEList<IOAdapter>(IOAdapter.class, this, ModelPackage.BOARD__IO_ADAPTERS);
-        }
-        return ioAdapters;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getFullName() {
         String _xifexpression = null;
         Box _box = this.getBox();
@@ -471,8 +446,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
                 return basicSetBox(null, msgs);
             case ModelPackage.BOARD__PROCESSORS:
                 return ((InternalEList<?>)getProcessors()).basicRemove(otherEnd, msgs);
-            case ModelPackage.BOARD__IO_ADAPTERS:
-                return ((InternalEList<?>)getIoAdapters()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -514,8 +487,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
                 return basicGetBox();
             case ModelPackage.BOARD__PROCESSORS:
                 return getProcessors();
-            case ModelPackage.BOARD__IO_ADAPTERS:
-                return getIoAdapters();
             case ModelPackage.BOARD__FULL_NAME:
                 return getFullName();
         }
@@ -553,10 +524,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
                 getProcessors().clear();
                 getProcessors().addAll((Collection<? extends Processor>)newValue);
                 return;
-            case ModelPackage.BOARD__IO_ADAPTERS:
-                getIoAdapters().clear();
-                getIoAdapters().addAll((Collection<? extends IOAdapter>)newValue);
-                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -590,9 +557,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
             case ModelPackage.BOARD__PROCESSORS:
                 getProcessors().clear();
                 return;
-            case ModelPackage.BOARD__IO_ADAPTERS:
-                getIoAdapters().clear();
-                return;
         }
         super.eUnset(featureID);
     }
@@ -619,8 +583,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
                 return basicGetBox() != null;
             case ModelPackage.BOARD__PROCESSORS:
                 return processors != null && !processors.isEmpty();
-            case ModelPackage.BOARD__IO_ADAPTERS:
-                return ioAdapters != null && !ioAdapters.isEmpty();
             case ModelPackage.BOARD__FULL_NAME:
                 return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
         }
