@@ -56,7 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getPeriodicity <em>Periodicity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFeatureRequirements <em>Feature Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getAssignedCore <em>Assigned Core</em>}</li>
@@ -367,14 +367,14 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
     protected Color color = COLOR_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' containment reference list.
+     * The cached value of the '{@link #getFeatureRequirements() <em>Feature Requirements</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getIoAdapterRequirements()
+     * @see #getFeatureRequirements()
      * @generated
      * @ordered
      */
-    protected EList<FeatureRequirement> ioAdapterRequirements;
+    protected EList<FeatureRequirement> featureRequirements;
 
     /**
      * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
@@ -806,11 +806,11 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<FeatureRequirement> getIoAdapterRequirements() {
-        if (ioAdapterRequirements == null) {
-            ioAdapterRequirements = new EObjectContainmentEList<FeatureRequirement>(FeatureRequirement.class, this, ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS);
+    public EList<FeatureRequirement> getFeatureRequirements() {
+        if (featureRequirements == null) {
+            featureRequirements = new EObjectContainmentEList<FeatureRequirement>(FeatureRequirement.class, this, ModelPackage.TASK__FEATURE_REQUIREMENTS);
         }
-        return ioAdapterRequirements;
+        return featureRequirements;
     }
 
     /**
@@ -922,8 +922,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
         switch (featureID) {
             case ModelPackage.TASK__APPLICATION:
                 return basicSetApplication(null, msgs);
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
-                return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
+                return ((InternalEList<?>)getFeatureRequirements()).basicRemove(otherEnd, msgs);
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
         }
@@ -985,8 +985,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
             case ModelPackage.TASK__APPLICATION:
                 if (resolve) return getApplication();
                 return basicGetApplication();
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
-                return getIoAdapterRequirements();
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
+                return getFeatureRequirements();
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 return getCustomProperties();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
@@ -1057,9 +1057,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
             case ModelPackage.TASK__APPLICATION:
                 setApplication((Application)newValue);
                 return;
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
-                getIoAdapterRequirements().clear();
-                getIoAdapterRequirements().addAll((Collection<? extends FeatureRequirement>)newValue);
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
+                getFeatureRequirements().clear();
+                getFeatureRequirements().addAll((Collection<? extends FeatureRequirement>)newValue);
                 return;
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();
@@ -1132,8 +1132,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
             case ModelPackage.TASK__APPLICATION:
                 setApplication((Application)null);
                 return;
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
-                getIoAdapterRequirements().clear();
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
+                getFeatureRequirements().clear();
                 return;
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();
@@ -1188,8 +1188,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
                 return color != COLOR_EDEFAULT;
             case ModelPackage.TASK__APPLICATION:
                 return basicGetApplication() != null;
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
-                return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
+                return featureRequirements != null && !featureRequirements.isEmpty();
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 return customProperties != null && !customProperties.isEmpty();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:

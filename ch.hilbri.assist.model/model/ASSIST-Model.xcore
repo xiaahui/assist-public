@@ -58,10 +58,11 @@ class HardwareElement {
 }
 
 class Feature {
-    String   name               = ""
-    int      units              = "0"
-    boolean  synchronizedAccess = "false"
-    derived boolean isShared get { units == 0 }
+    String   name                    = ""
+    int      units                   = "0"
+    boolean  isSynchronizedAccess    = "false"
+    derived boolean isShared get    { units == 0 }
+    derived boolean isExclusive get { !isShared  }
 }
 
 class Compartment extends HardwareElement {
@@ -174,7 +175,7 @@ class Task {
     
     container Application application opposite tasks
     
-    contains FeatureRequirement[0..*]        ioAdapterRequirements
+    contains FeatureRequirement[0..*]        featureRequirements
     contains CustomProperty[0..*]            customProperties
     
     refers HardwareElement[0..*]             restrictMappingToHardwareElements

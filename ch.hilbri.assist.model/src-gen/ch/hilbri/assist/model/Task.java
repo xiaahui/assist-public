@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.Task#getPeriodicity <em>Periodicity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Task#getFeatureRequirements <em>Feature Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getAssignedCore <em>Assigned Core</em>}</li>
@@ -483,20 +483,20 @@ public interface Task extends EObject {
     void setApplication(Application value);
 
     /**
-     * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Feature Requirements</b></em>' containment reference list.
      * The list contents are of type {@link ch.hilbri.assist.model.FeatureRequirement}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Io Adapter Requirements</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Feature Requirements</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Io Adapter Requirements</em>' containment reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_IoAdapterRequirements()
+     * @return the value of the '<em>Feature Requirements</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getTask_FeatureRequirements()
      * @model containment="true"
      * @generated
      */
-    EList<FeatureRequirement> getIoAdapterRequirements();
+    EList<FeatureRequirement> getFeatureRequirements();
 
     /**
      * Returns the value of the '<em><b>Custom Properties</b></em>' containment reference list.

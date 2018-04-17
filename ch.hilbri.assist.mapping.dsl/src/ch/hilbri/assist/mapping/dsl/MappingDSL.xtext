@@ -26,8 +26,9 @@ AssistModel:
 Compartment: 
     'Compartment' name=ID '{'
         ('Manufacturer' '=' manufacturer=STRING     ';')?
-        ('PowerSupply'  '=' powerSupply=STRING      ';')?
-        (boxes+=Box)+
+        ('PowerSupply'  '=' powerSupply=STRING      ';')?      
+        (features+=Feature                             )*
+        (boxes+=Box                                    )+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
@@ -35,38 +36,56 @@ Compartment:
 Box:
     'Box' name=ID '{'
         ('Manufacturer'             '=' manufacturer=STRING ';')?
-        (boards+=Board)*
+        (features+=Feature                                     )*
+        (boards+=Board                                         )*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
     
 Board:
     'Board' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';')?
-        ('Type'                     '=' boardType=STRING ';')?
-        ('PowerSupply'              '=' powerSupply=STRING ';')?
+        ('Manufacturer'             '=' manufacturer=STRING ';'                   )?
+        ('Type'                     '=' boardType=STRING ';'                      )?
+        ('PowerSupply'              '=' powerSupply=STRING ';'                    )?
         ('DesignAssuranceLevel'     '=' assuranceLevel=DesignAssuranceLevelType';')?
-        ('RAM'                      '=' ramCapacity=INT ';')?
-        ('ROM'                      '=' romCapacity=INT ';')?
-        (processors+=Processor)+
+        ('RAM'                      '=' ramCapacity=INT ';'                       )?
+        ('ROM'                      '=' romCapacity=INT ';'                       )?
+        (features+=Feature                                                        )*
+        (processors+=Processor                                                    )+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
 ;
 
 Processor:
     'Processor' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';')?
+        ('Manufacturer'             '=' manufacturer=STRING ';' )?
         ('Type'                     '=' processorType=STRING ';')?
+        (features+=Feature                                      )*
         (cores+=Core)+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
 Core:
     'Core' name=ID '{' 
-        ('Capacity'                  '=' capacity=INT ';')?
+        ('Capacity'                  '=' capacity=INT ';'       )?
         ('Architecture'              '=' architecture=STRING ';')?
+        (features+=Feature                                      )*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
+
+/* Features provide by the hardware */
+Feature:
+    FeatureSimple | FeatureSyncAccess | FeatureExclAccess;
+
+FeatureSimple returns Feature:
+    'Provides' 'shared' 'feature' name=STRING ';';
+
+FeatureSyncAccess returns Feature:
+    'Provides' 'shared' 'feature' name=STRING isSynchronizedAccess?='with' 'synchronized' 'access' ';';
+    
+FeatureExclAccess returns Feature:
+    'Provides' units=INT 'of' 'exclusive' 'feature' name=STRING ';';
+
 
 /* SOFTWARE */
 Application:
@@ -83,19 +102,29 @@ Application:
 Task:
     'Task' name=ID '{'
         ('CoreUtilization'             '=' coreUtilization=INT ';')? 
-        ('RequiredRAM'                 '=' ramUtilization=INT ';')? 
-        ('RequiredROM'                 '=' romUtilization=INT ';')? 
+        ('RequiredRAM'                 '=' ramUtilization=INT  ';')? 
+        ('RequiredROM'                 '=' romUtilization=INT  ';')? 
         ('RestrictDeploymentTo' '{' 
                   restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
             '}' ';'
         )? 
+        (featureRequirements+=FeatureRequirement)*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
+/* General Feature Requirements - see #38 */
+FeatureRequirement: 
+    SharedFeatureRequirement      |
+    ExclusiveFeatureRequirement;
+
+SharedFeatureRequirement returns FeatureRequirement:
+    'Requires' 'shared' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
+
+ExclusiveFeatureRequirement returns FeatureRequirement:
+    'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
 
 
-/* RELATIONEN */
-
+/* Safety Restrictions / Relations */
 DislocalityRelation:
     applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
     

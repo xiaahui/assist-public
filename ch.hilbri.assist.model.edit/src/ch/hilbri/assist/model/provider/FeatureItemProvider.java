@@ -61,8 +61,9 @@ public class FeatureItemProvider
 
             addNamePropertyDescriptor(object);
             addUnitsPropertyDescriptor(object);
-            addSynchronizedAccessPropertyDescriptor(object);
+            addIsSynchronizedAccessPropertyDescriptor(object);
             addIsSharedPropertyDescriptor(object);
+            addIsExclusivePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -112,19 +113,19 @@ public class FeatureItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Synchronized Access feature.
+     * This adds a property descriptor for the Is Synchronized Access feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addSynchronizedAccessPropertyDescriptor(Object object) {
+    protected void addIsSynchronizedAccessPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Feature_synchronizedAccess_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_synchronizedAccess_feature", "_UI_Feature_type"),
-                 ModelPackage.Literals.FEATURE__SYNCHRONIZED_ACCESS,
+                 getString("_UI_Feature_isSynchronizedAccess_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isSynchronizedAccess_feature", "_UI_Feature_type"),
+                 ModelPackage.Literals.FEATURE__IS_SYNCHRONIZED_ACCESS,
                  true,
                  false,
                  false,
@@ -147,6 +148,28 @@ public class FeatureItemProvider
                  getString("_UI_Feature_isShared_feature"),
                  getString("_UI_PropertyDescriptor_description", "_UI_Feature_isShared_feature", "_UI_Feature_type"),
                  ModelPackage.Literals.FEATURE__IS_SHARED,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Is Exclusive feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIsExclusivePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Feature_isExclusive_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isExclusive_feature", "_UI_Feature_type"),
+                 ModelPackage.Literals.FEATURE__IS_EXCLUSIVE,
                  false,
                  false,
                  false,
@@ -195,8 +218,9 @@ public class FeatureItemProvider
         switch (notification.getFeatureID(Feature.class)) {
             case ModelPackage.FEATURE__NAME:
             case ModelPackage.FEATURE__UNITS:
-            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
             case ModelPackage.FEATURE__IS_SHARED:
+            case ModelPackage.FEATURE__IS_EXCLUSIVE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

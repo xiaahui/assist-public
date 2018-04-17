@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Feature#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Feature#getUnits <em>Units</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Feature#isSynchronizedAccess <em>Synchronized Access</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Feature#isIsSynchronizedAccess <em>Is Synchronized Access</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Feature#isIsShared <em>Is Shared</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Feature#isIsExclusive <em>Is Exclusive</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getFeature()
@@ -79,31 +80,31 @@ public interface Feature extends EObject {
     void setUnits(int value);
 
     /**
-     * Returns the value of the '<em><b>Synchronized Access</b></em>' attribute.
+     * Returns the value of the '<em><b>Is Synchronized Access</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Synchronized Access</em>' attribute isn't clear,
+     * If the meaning of the '<em>Is Synchronized Access</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Synchronized Access</em>' attribute.
-     * @see #setSynchronizedAccess(boolean)
-     * @see ch.hilbri.assist.model.ModelPackage#getFeature_SynchronizedAccess()
+     * @return the value of the '<em>Is Synchronized Access</em>' attribute.
+     * @see #setIsSynchronizedAccess(boolean)
+     * @see ch.hilbri.assist.model.ModelPackage#getFeature_IsSynchronizedAccess()
      * @model default="false" unique="false"
      * @generated
      */
-    boolean isSynchronizedAccess();
+    boolean isIsSynchronizedAccess();
 
     /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Feature#isSynchronizedAccess <em>Synchronized Access</em>}' attribute.
+     * Sets the value of the '{@link ch.hilbri.assist.model.Feature#isIsSynchronizedAccess <em>Is Synchronized Access</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Synchronized Access</em>' attribute.
-     * @see #isSynchronizedAccess()
+     * @param value the new value of the '<em>Is Synchronized Access</em>' attribute.
+     * @see #isIsSynchronizedAccess()
      * @generated
      */
-    void setSynchronizedAccess(boolean value);
+    void setIsSynchronizedAccess(boolean value);
 
     /**
      * Returns the value of the '<em><b>Is Shared</b></em>' attribute.
@@ -120,5 +121,21 @@ public interface Feature extends EObject {
      * @generated
      */
     boolean isIsShared();
+
+    /**
+     * Returns the value of the '<em><b>Is Exclusive</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Is Exclusive</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Is Exclusive</em>' attribute.
+     * @see ch.hilbri.assist.model.ModelPackage#getFeature_IsExclusive()
+     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='boolean _isIsShared = this.isIsShared();\nreturn (!_isIsShared);'"
+     * @generated
+     */
+    boolean isIsExclusive();
 
 } // Feature

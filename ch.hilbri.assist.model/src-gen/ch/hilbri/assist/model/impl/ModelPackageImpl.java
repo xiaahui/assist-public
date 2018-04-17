@@ -753,7 +753,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getFeature_SynchronizedAccess() {
+    public EAttribute getFeature_IsSynchronizedAccess() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
     }
 
@@ -764,6 +764,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getFeature_IsShared() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeature_IsExclusive() {
+        return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1446,7 +1455,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getTask_IoAdapterRequirements() {
+    public EReference getTask_FeatureRequirements() {
         return (EReference)taskEClass.getEStructuralFeatures().get(16);
     }
 
@@ -2471,8 +2480,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         featureEClass = createEClass(FEATURE);
         createEAttribute(featureEClass, FEATURE__NAME);
         createEAttribute(featureEClass, FEATURE__UNITS);
-        createEAttribute(featureEClass, FEATURE__SYNCHRONIZED_ACCESS);
+        createEAttribute(featureEClass, FEATURE__IS_SYNCHRONIZED_ACCESS);
         createEAttribute(featureEClass, FEATURE__IS_SHARED);
+        createEAttribute(featureEClass, FEATURE__IS_EXCLUSIVE);
 
         compartmentEClass = createEClass(COMPARTMENT);
         createEAttribute(compartmentEClass, COMPARTMENT__POWER_SUPPLY);
@@ -2559,7 +2569,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(taskEClass, TASK__PERIODICITY);
         createEAttribute(taskEClass, TASK__COLOR);
         createEReference(taskEClass, TASK__APPLICATION);
-        createEReference(taskEClass, TASK__IO_ADAPTER_REQUIREMENTS);
+        createEReference(taskEClass, TASK__FEATURE_REQUIREMENTS);
         createEReference(taskEClass, TASK__CUSTOM_PROPERTIES);
         createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         createEReference(taskEClass, TASK__ASSIGNED_CORE);
@@ -2793,8 +2803,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeature_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeature_Units(), theEcorePackage.getEInt(), "units", "0", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getFeature_SynchronizedAccess(), theEcorePackage.getEBoolean(), "synchronizedAccess", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_IsSynchronizedAccess(), theEcorePackage.getEBoolean(), "isSynchronizedAccess", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeature_IsShared(), theEcorePackage.getEBoolean(), "isShared", null, 0, 1, Feature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_IsExclusive(), theEcorePackage.getEBoolean(), "isExclusive", null, 0, 1, Feature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCompartment_PowerSupply(), theEcorePackage.getEString(), "powerSupply", "", 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2893,7 +2904,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "strict", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_Color(), this.getColor(), "color", "none", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getTask_IoAdapterRequirements(), this.getFeatureRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getTask_FeatureRequirements(), this.getFeatureRequirement(), null, "featureRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

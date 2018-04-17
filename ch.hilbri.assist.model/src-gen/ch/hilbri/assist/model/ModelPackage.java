@@ -353,13 +353,13 @@ public interface ModelPackage extends EPackage {
     int FEATURE__UNITS = 1;
 
     /**
-     * The feature id for the '<em><b>Synchronized Access</b></em>' attribute.
+     * The feature id for the '<em><b>Is Synchronized Access</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE__SYNCHRONIZED_ACCESS = 2;
+    int FEATURE__IS_SYNCHRONIZED_ACCESS = 2;
 
     /**
      * The feature id for the '<em><b>Is Shared</b></em>' attribute.
@@ -371,13 +371,22 @@ public interface ModelPackage extends EPackage {
     int FEATURE__IS_SHARED = 3;
 
     /**
+     * The feature id for the '<em><b>Is Exclusive</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__IS_EXCLUSIVE = 4;
+
+    /**
      * The number of structural features of the '<em>Feature</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE_FEATURE_COUNT = 4;
+    int FEATURE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Feature</em>' class.
@@ -1435,13 +1444,13 @@ public interface ModelPackage extends EPackage {
     int TASK__APPLICATION = 15;
 
     /**
-     * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+     * The feature id for the '<em><b>Feature Requirements</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TASK__IO_ADAPTER_REQUIREMENTS = 16;
+    int TASK__FEATURE_REQUIREMENTS = 16;
 
     /**
      * The feature id for the '<em><b>Custom Properties</b></em>' containment reference list.
@@ -3463,15 +3472,15 @@ public interface ModelPackage extends EPackage {
     EAttribute getFeature_Units();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isSynchronizedAccess <em>Synchronized Access</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsSynchronizedAccess <em>Is Synchronized Access</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Synchronized Access</em>'.
-     * @see ch.hilbri.assist.model.Feature#isSynchronizedAccess()
+     * @return the meta object for the attribute '<em>Is Synchronized Access</em>'.
+     * @see ch.hilbri.assist.model.Feature#isIsSynchronizedAccess()
      * @see #getFeature()
      * @generated
      */
-    EAttribute getFeature_SynchronizedAccess();
+    EAttribute getFeature_IsSynchronizedAccess();
 
     /**
      * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsShared <em>Is Shared</em>}'.
@@ -3483,6 +3492,17 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getFeature_IsShared();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsExclusive <em>Is Exclusive</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Exclusive</em>'.
+     * @see ch.hilbri.assist.model.Feature#isIsExclusive()
+     * @see #getFeature()
+     * @generated
+     */
+    EAttribute getFeature_IsExclusive();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.Compartment <em>Compartment</em>}'.
@@ -4287,15 +4307,15 @@ public interface ModelPackage extends EPackage {
     EReference getTask_Application();
 
     /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.Task#getFeatureRequirements <em>Feature Requirements</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Io Adapter Requirements</em>'.
-     * @see ch.hilbri.assist.model.Task#getIoAdapterRequirements()
+     * @return the meta object for the containment reference list '<em>Feature Requirements</em>'.
+     * @see ch.hilbri.assist.model.Task#getFeatureRequirements()
      * @see #getTask()
      * @generated
      */
-    EReference getTask_IoAdapterRequirements();
+    EReference getTask_FeatureRequirements();
 
     /**
      * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.Task#getCustomProperties <em>Custom Properties</em>}'.
@@ -5687,12 +5707,12 @@ public interface ModelPackage extends EPackage {
         EAttribute FEATURE__UNITS = eINSTANCE.getFeature_Units();
 
         /**
-         * The meta object literal for the '<em><b>Synchronized Access</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Is Synchronized Access</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FEATURE__SYNCHRONIZED_ACCESS = eINSTANCE.getFeature_SynchronizedAccess();
+        EAttribute FEATURE__IS_SYNCHRONIZED_ACCESS = eINSTANCE.getFeature_IsSynchronizedAccess();
 
         /**
          * The meta object literal for the '<em><b>Is Shared</b></em>' attribute feature.
@@ -5701,6 +5721,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute FEATURE__IS_SHARED = eINSTANCE.getFeature_IsShared();
+
+        /**
+         * The meta object literal for the '<em><b>Is Exclusive</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE__IS_EXCLUSIVE = eINSTANCE.getFeature_IsExclusive();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -6325,12 +6353,12 @@ public interface ModelPackage extends EPackage {
         EReference TASK__APPLICATION = eINSTANCE.getTask_Application();
 
         /**
-         * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Feature Requirements</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference TASK__IO_ADAPTER_REQUIREMENTS = eINSTANCE.getTask_IoAdapterRequirements();
+        EReference TASK__FEATURE_REQUIREMENTS = eINSTANCE.getTask_FeatureRequirements();
 
         /**
          * The meta object literal for the '<em><b>Custom Properties</b></em>' containment reference list feature.

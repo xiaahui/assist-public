@@ -516,7 +516,7 @@ public class TaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ModelPackage.Literals.TASK__IO_ADAPTER_REQUIREMENTS);
+            childrenFeatures.add(ModelPackage.Literals.TASK__FEATURE_REQUIREMENTS);
             childrenFeatures.add(ModelPackage.Literals.TASK__CUSTOM_PROPERTIES);
         }
         return childrenFeatures;
@@ -591,7 +591,7 @@ public class TaskItemProvider
             case ModelPackage.TASK__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
-            case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
+            case ModelPackage.TASK__FEATURE_REQUIREMENTS:
             case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
@@ -612,7 +612,7 @@ public class TaskItemProvider
 
         newChildDescriptors.add
             (createChildParameter
-                (ModelPackage.Literals.TASK__IO_ADAPTER_REQUIREMENTS,
+                (ModelPackage.Literals.TASK__FEATURE_REQUIREMENTS,
                  ModelFactory.eINSTANCE.createFeatureRequirement()));
 
         newChildDescriptors.add
