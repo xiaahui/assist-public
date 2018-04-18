@@ -25,7 +25,3 @@ Export-Package: ch.hilbri.assist.mapping.dsl.serializer,
  ch.hilbri.assist.mapping.dsl.formatting2
 Import-Package: org.apache.log4j
 Automatic-Module-Name: ch.hilbri.assist.mapping.dsl
-Bundle-ClassPath: .,
- src/,
- src-gen/,
- xtend-gen/
