@@ -3,7 +3,7 @@ module ch.hilbri.assist.mapping.dsl.GenerateMappingDSL
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
-import ch.hilbri.assist.mapping.dsl.CreateGitKeepFiles
+import ch.hilbri.assist.gui.misc.*
 
 var rootPath = ".."
 

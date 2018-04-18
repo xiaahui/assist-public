@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.dsl
+package ch.hilbri.assist.gui.misc
 
 import java.nio.file.Files
 import java.nio.file.Paths

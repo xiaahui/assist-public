@@ -6,7 +6,8 @@ Bundle-Version: 2.4.0.qualifier
 Bundle-Activator: ch.hilbri.assist.gui.splash.internal.SplashServicePlugin
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.gui.logging,
-  ch.hilbri.assist.gui.splash
+ ch.hilbri.assist.gui.misc,
+ ch.hilbri.assist.gui.splash
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.e4.ui.workbench,
@@ -27,12 +28,17 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.browser,
  ch.hilbri.assist.model,
- ch.hilbri.assist.libraries.math
+ ch.hilbri.assist.libraries.math,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.emf.mwe2.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Service-Component: OSGI-INF/osgi-ISplashService-component.xml
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
-  javax.inject;version="1.0.0",
-  org.osgi.framework,
-  org.osgi.service.component
+ javax.inject;version="1.0.0",
+ org.osgi.framework,
+ org.osgi.service.component
 Automatic-Module-Name: ch.hilbri.assist.gui
