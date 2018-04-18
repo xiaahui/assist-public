@@ -2,53 +2,66 @@ module ch.hilbri.assist.mapping.dsl.GenerateMappingDSL
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
-
+import java.util.*
 import ch.hilbri.assist.gui.misc.*
 
 var rootPath = ".."
 
 Workflow {
-	
-	component = XtextGenerator {
-		configuration = {
-			project = StandardProjectConfig {
-				baseName = "ch.hilbri.assist.mapping.dsl"
-				rootPath = rootPath
-				runtimeTest = {
-					enabled = true
-				}
-				eclipsePlugin = {
-					enabled = true
-				}
-				eclipsePluginTest = {
-					enabled = true
-				}
-				createEclipseMetaData = true
-			}
-			code = {
-				encoding = "utf-8"
-				fileHeader = ""
-			}
-		}
-		language = StandardLanguage {
-			name = "ch.hilbri.assist.mapping.dsl.MappingDSL"
-			fileExtensions = "mdsl"
-			referencedResource = "platform:/resource/ch.hilbri.assist.model/model/ASSIST-Model.xcore"
-			
-			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
-			formatter = {
-				generateStub = true
-			}
+    component = XtextGenerator {
+        configuration = {
+            project = StandardProjectConfig {
+                baseName = "ch.hilbri.assist.mapping.dsl"
+                rootPath = rootPath
+                runtimeTest = {
+                    enabled = true
+                }
+                eclipsePlugin = {
+                    enabled = true
+                }
+                eclipsePluginTest = {
+                    enabled = true
+                }
+                createEclipseMetaData = true
+            }
+            code = {
+                encoding = "utf-8"
+                fileHeader = ""
+            }
+        }
+        language = StandardLanguage {
+            name = "ch.hilbri.assist.mapping.dsl.MappingDSL"
+            fileExtensions = "mdsl"
+            referencedResource = "platform:/resource/ch.hilbri.assist.model/model/ASSIST-Model.xcore"
+            fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
-			serializer = {
-				generateStub = false
-			}
-			validator = {
-				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
-		}
-	}
+            formatter = {
+                generateStub = true
+            }
 
-    component = CreateGitKeepFiles{}
+            serializer = {
+                generateStub = false
+            }
+            validator = {
+                composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+            }
+        }
+    }
+
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.mapping.dsl/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.mapping.dsl.ide/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.mapping.dsl.tests/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.mapping.dsl.ui/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.mapping.dsl.ui.tests/src-gen/.src-gen-keep"
+    }
 }
