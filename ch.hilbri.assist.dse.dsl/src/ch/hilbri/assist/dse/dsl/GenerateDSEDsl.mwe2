@@ -3,6 +3,8 @@ module ch.hilbri.assist.dse.dsl.GenerateDSEDsl
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
+import ch.hilbri.assist.gui.misc.*
+
 var rootPath = ".."
 
 Workflow {
@@ -47,4 +49,20 @@ Workflow {
 			}
 		}
 	}
+	
+	component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.dse.dsl/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.dse.dsl.ide/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.dse.dsl.tests/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.dse.dsl.ui/src-gen/.src-gen-keep"
+    }
+    component = CreateGitKeepFiles {
+        file = "../ch.hilbri.assist.dse.dsl.ui.tests/src-gen/.src-gen-keep"
+    }
 }
