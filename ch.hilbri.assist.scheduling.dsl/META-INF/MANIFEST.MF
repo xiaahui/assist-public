@@ -4,7 +4,8 @@ Bundle-Name: ch.hilbri.assist.scheduling.dsl
 Bundle-Version: 2.4.0.qualifier
 Bundle-SymbolicName: ch.hilbri.assist.scheduling.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: ch.hilbri.assist.gui,
+ org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.xtext.xbase.lib,
