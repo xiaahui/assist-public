@@ -33,6 +33,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.mapping.solver.constraints.RestrictDeploymentConstraint
+import ch.hilbri.assist.mapping.solver.constraints.FeatureConstraint
 
 class AssistMappingSolver {
 	
@@ -82,10 +83,10 @@ class AssistMappingSolver {
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))
+		mappingConstraintsList.add(new FeatureConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DissimilarityConstraint(assistModel, chocoModel, solverVariables))
-		
 
 		mappingResults 			= newArrayList  
 		
