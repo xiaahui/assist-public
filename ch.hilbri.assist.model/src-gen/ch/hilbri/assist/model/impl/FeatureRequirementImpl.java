@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getFeaturename <em>Featurename</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getHardwareLevel <em>Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getUnits <em>Units</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#isShared <em>Shared</em>}</li>
@@ -32,24 +32,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class FeatureRequirementImpl extends MinimalEObjectImpl.Container implements FeatureRequirement {
     /**
-     * The default value of the '{@link #getFeaturename() <em>Featurename</em>}' attribute.
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFeaturename()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected static final String FEATURENAME_EDEFAULT = "";
+    protected static final String NAME_EDEFAULT = "";
 
     /**
-     * The cached value of the '{@link #getFeaturename() <em>Featurename</em>}' attribute.
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFeaturename()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected String featurename = FEATURENAME_EDEFAULT;
+    protected String name = NAME_EDEFAULT;
 
     /**
      * The default value of the '{@link #getHardwareLevel() <em>Hardware Level</em>}' attribute.
@@ -145,8 +145,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFeaturename() {
-        return featurename;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -154,11 +154,11 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFeaturename(String newFeaturename) {
-        String oldFeaturename = featurename;
-        featurename = newFeaturename;
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_REQUIREMENT__FEATURENAME, oldFeaturename, featurename));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_REQUIREMENT__NAME, oldName, name));
     }
 
     /**
@@ -242,8 +242,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
-                return getFeaturename();
+            case ModelPackage.FEATURE_REQUIREMENT__NAME:
+                return getName();
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
                 return getHardwareLevel();
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
@@ -264,8 +264,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
-                setFeaturename((String)newValue);
+            case ModelPackage.FEATURE_REQUIREMENT__NAME:
+                setName((String)newValue);
                 return;
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
                 setHardwareLevel((HardwareArchitectureLevelType)newValue);
@@ -288,8 +288,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
-                setFeaturename(FEATURENAME_EDEFAULT);
+            case ModelPackage.FEATURE_REQUIREMENT__NAME:
+                setName(NAME_EDEFAULT);
                 return;
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
                 setHardwareLevel(HARDWARE_LEVEL_EDEFAULT);
@@ -312,8 +312,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
-                return FEATURENAME_EDEFAULT == null ? featurename != null : !FEATURENAME_EDEFAULT.equals(featurename);
+            case ModelPackage.FEATURE_REQUIREMENT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
                 return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
@@ -336,8 +336,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (featurename: ");
-        result.append(featurename);
+        result.append(" (name: ");
+        result.append(name);
         result.append(", hardwareLevel: ");
         result.append(hardwareLevel);
         result.append(", units: ");

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.FeatureRequirement#getFeaturename <em>Featurename</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.FeatureRequirement#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.FeatureRequirement#getHardwareLevel <em>Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.FeatureRequirement#getUnits <em>Units</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.FeatureRequirement#isShared <em>Shared</em>}</li>
@@ -26,31 +26,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FeatureRequirement extends EObject {
     /**
-     * Returns the value of the '<em><b>Featurename</b></em>' attribute.
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
      * The default value is <code>""</code>.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Featurename</em>' attribute isn't clear,
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Featurename</em>' attribute.
-     * @see #setFeaturename(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getFeatureRequirement_Featurename()
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see ch.hilbri.assist.model.ModelPackage#getFeatureRequirement_Name()
      * @model default="" unique="false"
      * @generated
      */
-    String getFeaturename();
+    String getName();
 
     /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.FeatureRequirement#getFeaturename <em>Featurename</em>}' attribute.
+     * Sets the value of the '{@link ch.hilbri.assist.model.FeatureRequirement#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Featurename</em>' attribute.
-     * @see #getFeaturename()
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
      * @generated
      */
-    void setFeaturename(String value);
+    void setName(String value);
 
     /**
      * Returns the value of the '<em><b>Hardware Level</b></em>' attribute.

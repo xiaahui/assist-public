@@ -1526,13 +1526,13 @@ public interface ModelPackage extends EPackage {
     int FEATURE_REQUIREMENT = 14;
 
     /**
-     * The feature id for the '<em><b>Featurename</b></em>' attribute.
+     * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE_REQUIREMENT__FEATURENAME = 0;
+    int FEATURE_REQUIREMENT__NAME = 0;
 
     /**
      * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -4400,15 +4400,15 @@ public interface ModelPackage extends EPackage {
     EClass getFeatureRequirement();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getFeaturename <em>Featurename</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Featurename</em>'.
-     * @see ch.hilbri.assist.model.FeatureRequirement#getFeaturename()
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#getName()
      * @see #getFeatureRequirement()
      * @generated
      */
-    EAttribute getFeatureRequirement_Featurename();
+    EAttribute getFeatureRequirement_Name();
 
     /**
      * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#getHardwareLevel <em>Hardware Level</em>}'.
@@ -6451,12 +6451,12 @@ public interface ModelPackage extends EPackage {
         EClass FEATURE_REQUIREMENT = eINSTANCE.getFeatureRequirement();
 
         /**
-         * The meta object literal for the '<em><b>Featurename</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FEATURE_REQUIREMENT__FEATURENAME = eINSTANCE.getFeatureRequirement_Featurename();
+        EAttribute FEATURE_REQUIREMENT__NAME = eINSTANCE.getFeatureRequirement_Name();
 
         /**
          * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.

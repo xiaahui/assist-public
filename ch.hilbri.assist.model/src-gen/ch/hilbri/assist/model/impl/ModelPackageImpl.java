@@ -1518,7 +1518,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getFeatureRequirement_Featurename() {
+    public EAttribute getFeatureRequirement_Name() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(0);
     }
 
@@ -2595,7 +2595,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(taskEClass, TASK___TO_STRING);
 
         featureRequirementEClass = createEClass(FEATURE_REQUIREMENT);
-        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__FEATURENAME);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__NAME);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__HARDWARE_LEVEL);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__UNITS);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__SHARED);
@@ -2933,7 +2933,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEOperation(getTask__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getFeatureRequirement_Featurename(), theEcorePackage.getEString(), "featurename", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeatureRequirement_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeatureRequirement_Units(), theEcorePackage.getEInt(), "units", "-1", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeatureRequirement_Shared(), theEcorePackage.getEBoolean(), "shared", "false", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -186,7 +186,7 @@ class Task {
 }
 
 class FeatureRequirement {
-    String                          featurename     = ""
+    String                          name            = ""
     HardwareArchitectureLevelType   hardwareLevel
     int                             units           = "-1"
     boolean                         shared          = "false"

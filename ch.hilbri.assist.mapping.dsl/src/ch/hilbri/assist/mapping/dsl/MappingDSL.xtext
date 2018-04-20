@@ -118,10 +118,10 @@ FeatureRequirement:
     ExclusiveFeatureRequirement;
 
 SharedFeatureRequirement returns FeatureRequirement:
-    'Requires' shared?='shared' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
+    'Requires' shared?='shared' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
 
 ExclusiveFeatureRequirement returns FeatureRequirement:
-    'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
+    'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
 
 
 /* Safety Restrictions / Relations */

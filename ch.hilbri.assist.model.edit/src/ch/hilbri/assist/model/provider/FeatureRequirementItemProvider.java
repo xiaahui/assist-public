@@ -60,7 +60,7 @@ public class FeatureRequirementItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addFeaturenamePropertyDescriptor(object);
+            addNamePropertyDescriptor(object);
             addHardwareLevelPropertyDescriptor(object);
             addUnitsPropertyDescriptor(object);
             addSharedPropertyDescriptor(object);
@@ -70,19 +70,19 @@ public class FeatureRequirementItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Featurename feature.
+     * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFeaturenamePropertyDescriptor(Object object) {
+    protected void addNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_FeatureRequirement_featurename_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FeatureRequirement_featurename_feature", "_UI_FeatureRequirement_type"),
-                 ModelPackage.Literals.FEATURE_REQUIREMENT__FEATURENAME,
+                 getString("_UI_FeatureRequirement_name_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_FeatureRequirement_name_feature", "_UI_FeatureRequirement_type"),
+                 ModelPackage.Literals.FEATURE_REQUIREMENT__NAME,
                  true,
                  false,
                  false,
@@ -198,7 +198,7 @@ public class FeatureRequirementItemProvider
      */
     @Override
     public String getText(Object object) {
-        String label = ((FeatureRequirement)object).getFeaturename();
+        String label = ((FeatureRequirement)object).getName();
         return label == null || label.length() == 0 ?
             getString("_UI_FeatureRequirement_type") :
             getString("_UI_FeatureRequirement_type") + " " + label;
@@ -217,7 +217,7 @@ public class FeatureRequirementItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(FeatureRequirement.class)) {
-            case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
+            case ModelPackage.FEATURE_REQUIREMENT__NAME:
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
             case ModelPackage.FEATURE_REQUIREMENT__SHARED:
