@@ -93,7 +93,7 @@ class FeatureConstraintTests extends AbstractMappingTest {
         Software {
             Application A1 {
                 Task A1_T1 {
-                    Requires shared Core feature "BoardFeature";
+                    Requires shared Board feature "BoardFeature";
                 }
             }
         }

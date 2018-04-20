@@ -3,6 +3,7 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.model.AssistModel
 import org.chocosolver.solver.Model
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class FeatureConstraint extends AbstractMappingConstraint {
 
@@ -11,15 +12,37 @@ class FeatureConstraint extends AbstractMappingConstraint {
 	}
 
 	override generate() {
-//		val minLevel = IOAdapterProtectionLevelType.values.min
-//		val usedTypes = IOAdapterType.values.filter[s|
-//			!model.allThreads.filter[getExclusiveAdapterRequestCount(s, minLevel) > 0].empty]
-//		if (usedTypes.empty) {
-//			return false
-//		}
-//		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
-//		generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(usedTypes)
-		return true
+	    var worked = false
+        for (task : model.allTasks) {
+            
+            /* Step 1: Simple shared requirements */
+            for (featureReq : task.featureRequirements.filter[isShared]) {
+                
+                // Retrieve all hardware components from the requested level (e.g. all boards)
+                val hwElements = model.getAllHardwareElements(featureReq.hardwareLevel.value)
+                
+                // Of those hardware elements, we want find those, that are providing at least one feature that is 
+                // "shared" and has a matching name
+                val allowedHwElements = hwElements.filter[
+                    !features.filter[isShared && it.name == featureReq.name].isEmpty
+                ]
+
+                // If there is no suitable hardware component, then we found an unsolvable problem
+                // TODO: Improve constraint message (better feedback to the user)
+                if (allowedHwElements.nullOrEmpty) throw new BasicConstraintsException(this)
+                
+                // Now, we need to find the index values for each hardware element
+                val possibleHwElementsIdx = allowedHwElements.map[hwElements.indexOf(it)]
+                    
+                // After we got these index values, we just need to restrict the location variable
+                val locVar = solverVariables.getLocationVariableForTaskAndLevel(task, featureReq.hardwareLevel)
+                chocoModel.member(locVar, possibleHwElementsIdx).post
+                worked = true    
+                
+            }
+        }
+
+		return worked
 	}
 
 //	def generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(IOAdapterType[] usedTypes) {
