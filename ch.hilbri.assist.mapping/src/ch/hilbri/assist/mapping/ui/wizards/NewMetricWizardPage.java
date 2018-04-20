@@ -13,7 +13,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
-@SuppressWarnings("restriction")
 public class NewMetricWizardPage extends NewTypeWizardPage {
 
     public NewMetricWizardPage() {

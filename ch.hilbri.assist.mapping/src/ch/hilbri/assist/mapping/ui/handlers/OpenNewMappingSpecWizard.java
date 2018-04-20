@@ -15,7 +15,6 @@ import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.ui.IWorkbenchCommandConstants;
 
-@SuppressWarnings("restriction")
 public class OpenNewMappingSpecWizard {
 	@CanExecute
 	public boolean canExecute(MApplication application, EModelService service) {
