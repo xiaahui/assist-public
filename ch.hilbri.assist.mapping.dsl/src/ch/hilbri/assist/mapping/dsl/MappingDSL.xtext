@@ -78,10 +78,10 @@ Feature:
     FeatureSimple | FeatureSyncAccess | FeatureExclAccess;
 
 FeatureSimple returns Feature:
-    'Provides' 'shared' 'feature' name=STRING ';';
+    'Provides' shared?='shared' 'feature' name=STRING ';';
 
 FeatureSyncAccess returns Feature:
-    'Provides' 'shared' 'feature' name=STRING isSynchronizedAccess?='with' 'synchronized' 'access' ';';
+    'Provides' shared?='shared' 'feature' name=STRING synchronizedAccess?='with' 'synchronized' 'access' ';';
     
 FeatureExclAccess returns Feature:
     'Provides' units=INT 'of' 'exclusive' 'feature' name=STRING ';';
@@ -118,7 +118,7 @@ FeatureRequirement:
     ExclusiveFeatureRequirement;
 
 SharedFeatureRequirement returns FeatureRequirement:
-    'Requires' 'shared' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
+    'Requires' shared?='shared' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';
 
 ExclusiveFeatureRequirement returns FeatureRequirement:
     'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' featurename=STRING ';';

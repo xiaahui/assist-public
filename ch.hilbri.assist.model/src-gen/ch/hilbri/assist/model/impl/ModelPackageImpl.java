@@ -753,7 +753,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getFeature_IsSynchronizedAccess() {
+    public EAttribute getFeature_SynchronizedAccess() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
     }
 
@@ -762,7 +762,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getFeature_IsShared() {
+    public EAttribute getFeature_Shared() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1538,6 +1538,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getFeatureRequirement_Units() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeatureRequirement_Shared() {
+        return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFeatureRequirement_IsExclusive() {
+        return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2480,8 +2498,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         featureEClass = createEClass(FEATURE);
         createEAttribute(featureEClass, FEATURE__NAME);
         createEAttribute(featureEClass, FEATURE__UNITS);
-        createEAttribute(featureEClass, FEATURE__IS_SYNCHRONIZED_ACCESS);
-        createEAttribute(featureEClass, FEATURE__IS_SHARED);
+        createEAttribute(featureEClass, FEATURE__SYNCHRONIZED_ACCESS);
+        createEAttribute(featureEClass, FEATURE__SHARED);
         createEAttribute(featureEClass, FEATURE__IS_EXCLUSIVE);
 
         compartmentEClass = createEClass(COMPARTMENT);
@@ -2580,6 +2598,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__FEATURENAME);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__HARDWARE_LEVEL);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__UNITS);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__SHARED);
+        createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__IS_EXCLUSIVE);
 
         mappingRelationEClass = createEClass(MAPPING_RELATION);
         createEReference(mappingRelationEClass, MAPPING_RELATION__APPLICATIONS);
@@ -2802,9 +2822,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeature_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getFeature_Units(), theEcorePackage.getEInt(), "units", "0", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getFeature_IsSynchronizedAccess(), theEcorePackage.getEBoolean(), "isSynchronizedAccess", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getFeature_IsShared(), theEcorePackage.getEBoolean(), "isShared", null, 0, 1, Feature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_Units(), theEcorePackage.getEInt(), "units", "-1", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_SynchronizedAccess(), theEcorePackage.getEBoolean(), "synchronizedAccess", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeature_Shared(), theEcorePackage.getEBoolean(), "shared", "false", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeature_IsExclusive(), theEcorePackage.getEBoolean(), "isExclusive", null, 0, 1, Feature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2915,7 +2935,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeatureRequirement_Featurename(), theEcorePackage.getEString(), "featurename", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFeatureRequirement_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getFeatureRequirement_Units(), theEcorePackage.getEInt(), "units", "0", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_Units(), theEcorePackage.getEInt(), "units", "-1", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_Shared(), theEcorePackage.getEBoolean(), "shared", "false", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFeatureRequirement_IsExclusive(), theEcorePackage.getEBoolean(), "isExclusive", null, 0, 1, FeatureRequirement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(mappingRelationEClass, MappingRelation.class, "MappingRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getMappingRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

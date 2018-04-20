@@ -353,22 +353,22 @@ public interface ModelPackage extends EPackage {
     int FEATURE__UNITS = 1;
 
     /**
-     * The feature id for the '<em><b>Is Synchronized Access</b></em>' attribute.
+     * The feature id for the '<em><b>Synchronized Access</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE__IS_SYNCHRONIZED_ACCESS = 2;
+    int FEATURE__SYNCHRONIZED_ACCESS = 2;
 
     /**
-     * The feature id for the '<em><b>Is Shared</b></em>' attribute.
+     * The feature id for the '<em><b>Shared</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE__IS_SHARED = 3;
+    int FEATURE__SHARED = 3;
 
     /**
      * The feature id for the '<em><b>Is Exclusive</b></em>' attribute.
@@ -1553,13 +1553,31 @@ public interface ModelPackage extends EPackage {
     int FEATURE_REQUIREMENT__UNITS = 2;
 
     /**
+     * The feature id for the '<em><b>Shared</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE_REQUIREMENT__SHARED = 3;
+
+    /**
+     * The feature id for the '<em><b>Is Exclusive</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE_REQUIREMENT__IS_EXCLUSIVE = 4;
+
+    /**
      * The number of structural features of the '<em>Feature Requirement</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FEATURE_REQUIREMENT_FEATURE_COUNT = 3;
+    int FEATURE_REQUIREMENT_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Feature Requirement</em>' class.
@@ -3472,26 +3490,26 @@ public interface ModelPackage extends EPackage {
     EAttribute getFeature_Units();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsSynchronizedAccess <em>Is Synchronized Access</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isSynchronizedAccess <em>Synchronized Access</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Is Synchronized Access</em>'.
-     * @see ch.hilbri.assist.model.Feature#isIsSynchronizedAccess()
+     * @return the meta object for the attribute '<em>Synchronized Access</em>'.
+     * @see ch.hilbri.assist.model.Feature#isSynchronizedAccess()
      * @see #getFeature()
      * @generated
      */
-    EAttribute getFeature_IsSynchronizedAccess();
+    EAttribute getFeature_SynchronizedAccess();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsShared <em>Is Shared</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isShared <em>Shared</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Is Shared</em>'.
-     * @see ch.hilbri.assist.model.Feature#isIsShared()
+     * @return the meta object for the attribute '<em>Shared</em>'.
+     * @see ch.hilbri.assist.model.Feature#isShared()
      * @see #getFeature()
      * @generated
      */
-    EAttribute getFeature_IsShared();
+    EAttribute getFeature_Shared();
 
     /**
      * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Feature#isIsExclusive <em>Is Exclusive</em>}'.
@@ -4413,6 +4431,28 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getFeatureRequirement_Units();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#isShared <em>Shared</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Shared</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#isShared()
+     * @see #getFeatureRequirement()
+     * @generated
+     */
+    EAttribute getFeatureRequirement_Shared();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.FeatureRequirement#isIsExclusive <em>Is Exclusive</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Exclusive</em>'.
+     * @see ch.hilbri.assist.model.FeatureRequirement#isIsExclusive()
+     * @see #getFeatureRequirement()
+     * @generated
+     */
+    EAttribute getFeatureRequirement_IsExclusive();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.MappingRelation <em>Mapping Relation</em>}'.
@@ -5707,20 +5747,20 @@ public interface ModelPackage extends EPackage {
         EAttribute FEATURE__UNITS = eINSTANCE.getFeature_Units();
 
         /**
-         * The meta object literal for the '<em><b>Is Synchronized Access</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Synchronized Access</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FEATURE__IS_SYNCHRONIZED_ACCESS = eINSTANCE.getFeature_IsSynchronizedAccess();
+        EAttribute FEATURE__SYNCHRONIZED_ACCESS = eINSTANCE.getFeature_SynchronizedAccess();
 
         /**
-         * The meta object literal for the '<em><b>Is Shared</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Shared</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FEATURE__IS_SHARED = eINSTANCE.getFeature_IsShared();
+        EAttribute FEATURE__SHARED = eINSTANCE.getFeature_Shared();
 
         /**
          * The meta object literal for the '<em><b>Is Exclusive</b></em>' attribute feature.
@@ -6433,6 +6473,22 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute FEATURE_REQUIREMENT__UNITS = eINSTANCE.getFeatureRequirement_Units();
+
+        /**
+         * The meta object literal for the '<em><b>Shared</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE_REQUIREMENT__SHARED = eINSTANCE.getFeatureRequirement_Shared();
+
+        /**
+         * The meta object literal for the '<em><b>Is Exclusive</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FEATURE_REQUIREMENT__IS_EXCLUSIVE = eINSTANCE.getFeatureRequirement_IsExclusive();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MappingRelationImpl <em>Mapping Relation</em>}' class.

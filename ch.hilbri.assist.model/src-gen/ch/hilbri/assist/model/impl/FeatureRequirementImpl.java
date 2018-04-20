@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getFeaturename <em>Featurename</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getHardwareLevel <em>Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#getUnits <em>Units</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#isShared <em>Shared</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl#isIsExclusive <em>Is Exclusive</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,7 +79,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * @generated
      * @ordered
      */
-    protected static final int UNITS_EDEFAULT = 0;
+    protected static final int UNITS_EDEFAULT = -1;
 
     /**
      * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
@@ -88,6 +90,36 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * @ordered
      */
     protected int units = UNITS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isShared() <em>Shared</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isShared()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean SHARED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isShared() <em>Shared</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isShared()
+     * @generated
+     * @ordered
+     */
+    protected boolean shared = SHARED_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isIsExclusive() <em>Is Exclusive</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIsExclusive()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean IS_EXCLUSIVE_EDEFAULT = false;
 
     /**
      * <!-- begin-user-doc -->
@@ -176,6 +208,37 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isShared() {
+        return shared;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setShared(boolean newShared) {
+        boolean oldShared = shared;
+        shared = newShared;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_REQUIREMENT__SHARED, oldShared, shared));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isIsExclusive() {
+        boolean _isShared = this.isShared();
+        return (!_isShared);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -185,6 +248,10 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
                 return getHardwareLevel();
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
                 return getUnits();
+            case ModelPackage.FEATURE_REQUIREMENT__SHARED:
+                return isShared();
+            case ModelPackage.FEATURE_REQUIREMENT__IS_EXCLUSIVE:
+                return isIsExclusive();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -205,6 +272,9 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
                 return;
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
                 setUnits((Integer)newValue);
+                return;
+            case ModelPackage.FEATURE_REQUIREMENT__SHARED:
+                setShared((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -227,6 +297,9 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
                 setUnits(UNITS_EDEFAULT);
                 return;
+            case ModelPackage.FEATURE_REQUIREMENT__SHARED:
+                setShared(SHARED_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -245,6 +318,10 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
                 return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
                 return units != UNITS_EDEFAULT;
+            case ModelPackage.FEATURE_REQUIREMENT__SHARED:
+                return shared != SHARED_EDEFAULT;
+            case ModelPackage.FEATURE_REQUIREMENT__IS_EXCLUSIVE:
+                return isIsExclusive() != IS_EXCLUSIVE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -265,6 +342,8 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
         result.append(hardwareLevel);
         result.append(", units: ");
         result.append(units);
+        result.append(", shared: ");
+        result.append(shared);
         result.append(')');
         return result.toString();
     }

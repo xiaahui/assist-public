@@ -59,9 +59,9 @@ class HardwareElement {
 
 class Feature {
     String   name                    = ""
-    int      units                   = "0"
-    boolean  isSynchronizedAccess    = "false"
-    derived boolean isShared get    { units == 0 }
+    int      units                   = "-1"
+    boolean  synchronizedAccess      = "false"
+    boolean  shared                  = "false"  
     derived boolean isExclusive get { !isShared  }
 }
 
@@ -186,9 +186,11 @@ class Task {
 }
 
 class FeatureRequirement {
-    String                          featurename    = ""
+    String                          featurename     = ""
     HardwareArchitectureLevelType   hardwareLevel
-    int                             units          = "0"
+    int                             units           = "-1"
+    boolean                         shared          = "false"
+    derived boolean isExclusive get { !isShared }
 }
 
 /* *********************************************** */

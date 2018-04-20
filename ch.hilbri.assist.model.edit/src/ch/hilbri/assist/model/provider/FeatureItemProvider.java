@@ -61,8 +61,8 @@ public class FeatureItemProvider
 
             addNamePropertyDescriptor(object);
             addUnitsPropertyDescriptor(object);
-            addIsSynchronizedAccessPropertyDescriptor(object);
-            addIsSharedPropertyDescriptor(object);
+            addSynchronizedAccessPropertyDescriptor(object);
+            addSharedPropertyDescriptor(object);
             addIsExclusivePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -113,19 +113,19 @@ public class FeatureItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Is Synchronized Access feature.
+     * This adds a property descriptor for the Synchronized Access feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIsSynchronizedAccessPropertyDescriptor(Object object) {
+    protected void addSynchronizedAccessPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Feature_isSynchronizedAccess_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isSynchronizedAccess_feature", "_UI_Feature_type"),
-                 ModelPackage.Literals.FEATURE__IS_SYNCHRONIZED_ACCESS,
+                 getString("_UI_Feature_synchronizedAccess_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_synchronizedAccess_feature", "_UI_Feature_type"),
+                 ModelPackage.Literals.FEATURE__SYNCHRONIZED_ACCESS,
                  true,
                  false,
                  false,
@@ -135,20 +135,20 @@ public class FeatureItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Is Shared feature.
+     * This adds a property descriptor for the Shared feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIsSharedPropertyDescriptor(Object object) {
+    protected void addSharedPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Feature_isShared_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isShared_feature", "_UI_Feature_type"),
-                 ModelPackage.Literals.FEATURE__IS_SHARED,
-                 false,
+                 getString("_UI_Feature_shared_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Feature_shared_feature", "_UI_Feature_type"),
+                 ModelPackage.Literals.FEATURE__SHARED,
+                 true,
                  false,
                  false,
                  ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
@@ -218,8 +218,8 @@ public class FeatureItemProvider
         switch (notification.getFeatureID(Feature.class)) {
             case ModelPackage.FEATURE__NAME:
             case ModelPackage.FEATURE__UNITS:
-            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
-            case ModelPackage.FEATURE__IS_SHARED:
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+            case ModelPackage.FEATURE__SHARED:
             case ModelPackage.FEATURE__IS_EXCLUSIVE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

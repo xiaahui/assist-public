@@ -63,6 +63,8 @@ public class FeatureRequirementItemProvider
             addFeaturenamePropertyDescriptor(object);
             addHardwareLevelPropertyDescriptor(object);
             addUnitsPropertyDescriptor(object);
+            addSharedPropertyDescriptor(object);
+            addIsExclusivePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -134,6 +136,50 @@ public class FeatureRequirementItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Shared feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSharedPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_FeatureRequirement_shared_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_FeatureRequirement_shared_feature", "_UI_FeatureRequirement_type"),
+                 ModelPackage.Literals.FEATURE_REQUIREMENT__SHARED,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Is Exclusive feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIsExclusivePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_FeatureRequirement_isExclusive_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_FeatureRequirement_isExclusive_feature", "_UI_FeatureRequirement_type"),
+                 ModelPackage.Literals.FEATURE_REQUIREMENT__IS_EXCLUSIVE,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns FeatureRequirement.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -174,6 +220,8 @@ public class FeatureRequirementItemProvider
             case ModelPackage.FEATURE_REQUIREMENT__FEATURENAME:
             case ModelPackage.FEATURE_REQUIREMENT__HARDWARE_LEVEL:
             case ModelPackage.FEATURE_REQUIREMENT__UNITS:
+            case ModelPackage.FEATURE_REQUIREMENT__SHARED:
+            case ModelPackage.FEATURE_REQUIREMENT__IS_EXCLUSIVE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

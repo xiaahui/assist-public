@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#getUnits <em>Units</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isIsSynchronizedAccess <em>Is Synchronized Access</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isIsShared <em>Is Shared</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isSynchronizedAccess <em>Synchronized Access</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isShared <em>Shared</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.FeatureImpl#isIsExclusive <em>Is Exclusive</em>}</li>
  * </ul>
  *
@@ -58,7 +58,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * @generated
      * @ordered
      */
-    protected static final int UNITS_EDEFAULT = 0;
+    protected static final int UNITS_EDEFAULT = -1;
 
     /**
      * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
@@ -71,34 +71,44 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     protected int units = UNITS_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isIsSynchronizedAccess() <em>Is Synchronized Access</em>}' attribute.
+     * The default value of the '{@link #isSynchronizedAccess() <em>Synchronized Access</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isIsSynchronizedAccess()
+     * @see #isSynchronizedAccess()
      * @generated
      * @ordered
      */
-    protected static final boolean IS_SYNCHRONIZED_ACCESS_EDEFAULT = false;
+    protected static final boolean SYNCHRONIZED_ACCESS_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isIsSynchronizedAccess() <em>Is Synchronized Access</em>}' attribute.
+     * The cached value of the '{@link #isSynchronizedAccess() <em>Synchronized Access</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isIsSynchronizedAccess()
+     * @see #isSynchronizedAccess()
      * @generated
      * @ordered
      */
-    protected boolean isSynchronizedAccess = IS_SYNCHRONIZED_ACCESS_EDEFAULT;
+    protected boolean synchronizedAccess = SYNCHRONIZED_ACCESS_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isIsShared() <em>Is Shared</em>}' attribute.
+     * The default value of the '{@link #isShared() <em>Shared</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isIsShared()
+     * @see #isShared()
      * @generated
      * @ordered
      */
-    protected static final boolean IS_SHARED_EDEFAULT = false;
+    protected static final boolean SHARED_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isShared() <em>Shared</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isShared()
+     * @generated
+     * @ordered
+     */
+    protected boolean shared = SHARED_EDEFAULT;
 
     /**
      * The default value of the '{@link #isIsExclusive() <em>Is Exclusive</em>}' attribute.
@@ -176,8 +186,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isIsSynchronizedAccess() {
-        return isSynchronizedAccess;
+    public boolean isSynchronizedAccess() {
+        return synchronizedAccess;
     }
 
     /**
@@ -185,11 +195,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setIsSynchronizedAccess(boolean newIsSynchronizedAccess) {
-        boolean oldIsSynchronizedAccess = isSynchronizedAccess;
-        isSynchronizedAccess = newIsSynchronizedAccess;
+    public void setSynchronizedAccess(boolean newSynchronizedAccess) {
+        boolean oldSynchronizedAccess = synchronizedAccess;
+        synchronizedAccess = newSynchronizedAccess;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS, oldIsSynchronizedAccess, isSynchronizedAccess));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__SYNCHRONIZED_ACCESS, oldSynchronizedAccess, synchronizedAccess));
     }
 
     /**
@@ -197,9 +207,20 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isIsShared() {
-        int _units = this.getUnits();
-        return (_units == 0);
+    public boolean isShared() {
+        return shared;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setShared(boolean newShared) {
+        boolean oldShared = shared;
+        shared = newShared;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE__SHARED, oldShared, shared));
     }
 
     /**
@@ -208,8 +229,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * @generated
      */
     public boolean isIsExclusive() {
-        boolean _isIsShared = this.isIsShared();
-        return (!_isIsShared);
+        boolean _isShared = this.isShared();
+        return (!_isShared);
     }
 
     /**
@@ -224,10 +245,10 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
                 return getName();
             case ModelPackage.FEATURE__UNITS:
                 return getUnits();
-            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
-                return isIsSynchronizedAccess();
-            case ModelPackage.FEATURE__IS_SHARED:
-                return isIsShared();
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                return isSynchronizedAccess();
+            case ModelPackage.FEATURE__SHARED:
+                return isShared();
             case ModelPackage.FEATURE__IS_EXCLUSIVE:
                 return isIsExclusive();
         }
@@ -248,8 +269,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
             case ModelPackage.FEATURE__UNITS:
                 setUnits((Integer)newValue);
                 return;
-            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
-                setIsSynchronizedAccess((Boolean)newValue);
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                setSynchronizedAccess((Boolean)newValue);
+                return;
+            case ModelPackage.FEATURE__SHARED:
+                setShared((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -269,8 +293,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
             case ModelPackage.FEATURE__UNITS:
                 setUnits(UNITS_EDEFAULT);
                 return;
-            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
-                setIsSynchronizedAccess(IS_SYNCHRONIZED_ACCESS_EDEFAULT);
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                setSynchronizedAccess(SYNCHRONIZED_ACCESS_EDEFAULT);
+                return;
+            case ModelPackage.FEATURE__SHARED:
+                setShared(SHARED_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -288,10 +315,10 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case ModelPackage.FEATURE__UNITS:
                 return units != UNITS_EDEFAULT;
-            case ModelPackage.FEATURE__IS_SYNCHRONIZED_ACCESS:
-                return isSynchronizedAccess != IS_SYNCHRONIZED_ACCESS_EDEFAULT;
-            case ModelPackage.FEATURE__IS_SHARED:
-                return isIsShared() != IS_SHARED_EDEFAULT;
+            case ModelPackage.FEATURE__SYNCHRONIZED_ACCESS:
+                return synchronizedAccess != SYNCHRONIZED_ACCESS_EDEFAULT;
+            case ModelPackage.FEATURE__SHARED:
+                return shared != SHARED_EDEFAULT;
             case ModelPackage.FEATURE__IS_EXCLUSIVE:
                 return isIsExclusive() != IS_EXCLUSIVE_EDEFAULT;
         }
@@ -312,8 +339,10 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
         result.append(name);
         result.append(", units: ");
         result.append(units);
-        result.append(", isSynchronizedAccess: ");
-        result.append(isSynchronizedAccess);
+        result.append(", synchronizedAccess: ");
+        result.append(synchronizedAccess);
+        result.append(", shared: ");
+        result.append(shared);
         result.append(')');
         return result.toString();
     }
