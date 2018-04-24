@@ -42,6 +42,8 @@ class FeatureConstraint extends AbstractMappingConstraint {
             }
         }
 
+        propagate()
+
 		return worked
 	}
 
