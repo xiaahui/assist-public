@@ -85,11 +85,17 @@ class FeatureConstraint extends AbstractMappingConstraint {
                     // Find out, how many units of this feature is required by each task
                     // Please note, that the grammar prevents double feature requirements with the same name in the spec
                     val taskRequests = model.allTasks.map[
-                        // Does this task require this exclusive feature? If
+                        
+                        // Does this task require this exclusive feature?
+                        val applicableFeatureReqs = featureRequirements.filter[isExclusive && 
+                                                                               it.name == featureName &&
+                                                                               it.hardwareLevel == HardwareArchitectureLevelType.get(hardwareLevel)]
+
                         // If there is no matching feature requirement, then 0
-                        if (featureRequirements.filter[isExclusive && it.name == featureName].isNullOrEmpty) 0
+                        if (applicableFeatureReqs.isNullOrEmpty)        0
+                        
                         // Otherwise return the number of units required
-                        else featureRequirements.filter[isExclusive && it.name == featureName].head.units
+                        else                                            applicableFeatureReqs.head.units
                     ]
                     
                     // Find out, how many units of this feature is provided by this hardware element

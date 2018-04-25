@@ -118,6 +118,70 @@ class FeatureConstraintTests extends AbstractMappingTest {
         Assert.assertEquals(assistModel.allCores.filter[name == "C0"].head, result.task2CoreMap.get(assistModel.allTasks.head))   
     }
     
+    /* We need to test, that constraints with similar names on different levels are treated accordingly  */
+    @Test
+    def void Test3Simple() {
+        val assistModel = parser.parse('''
+        Global {
+            System = "Example System";
+        }
+        
+        Hardware {
+            Compartment Comp1 {
+                Box Box1 {
+                    Board Board1 {
+                        Provides shared feature "Feature"; 
+                        Processor P1 {
+                            Core C0 {}
+                        }
+                    }
+                    Board Board2 {
+                        Processor P1 {
+                            Provides shared feature "Feature";
+                            Core C1 {}
+                        }
+                    }
+                    Board Board3 {
+                        Processor P1 {
+                            Core C2 {
+                                Provides shared feature "Feature";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        Software {
+            Application A1 {
+                Task A1_T1 {
+                    Requires shared Processor feature "Feature";
+                }
+            }
+        }
+        ''')
+        
+        Assert.assertNotNull(assistModel)
+        Assert.assertTrue(assistModel.eResource.errors.isEmpty)
+
+        val assistSolver = new AssistMappingSolver(assistModel)
+        assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+        assistSolver.solverMaxSolutions = 1000
+        assistSolver.runInitialization
+        assistSolver.runConstraintGeneration
+        assistSolver.runSolutionSearch
+        assistSolver.createSolutions
+        
+        /* There should only be 1 solution */
+        Assert.assertEquals(1, assistSolver.results.size)
+     
+        /* Check that Task A1_T1 is mapped to Core CO in this result */
+        val result = assistSolver.results.head
+        Assert.assertEquals(assistModel.allCores.filter[name == "C1"].head, result.task2CoreMap.get(assistModel.allTasks.head))   
+    }
+    
+    
+    
     /* We need to test, that the capacity of an exclusive ressource is being properly respected */
     @Test
     def void Test1Exclusive() {
