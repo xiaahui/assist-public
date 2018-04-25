@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.result
+package ch.hilbri.assist.mapping.export
 
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Core
@@ -6,10 +6,11 @@ import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.model.Task
 import java.util.Map.Entry
 import org.eclipse.emf.ecore.util.EcoreUtil
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
 
-class FactorySchedulingModelFromMappingSolution {
+class DeploymentAsSchedulingModel {
 	
-	static def AssistModel createAssistModel(MappingResult mappingResult) {
+	static def AssistModel create(MappingResult mappingResult) {
 		val oldModel = mappingResult.getModel
 		val clonedModel = EcoreUtil.copy(oldModel)
 	
@@ -34,6 +35,15 @@ class FactorySchedulingModelFromMappingSolution {
 			colocalityRelations.clear
 			dissimilarityRelations.clear
 		]		
+		
+		// Remove all features provided by the hardware (for now)
+		for (i : HardwareArchitectureLevelType.VALUES.map[value])
+		  for (hwElem : clonedModel.getAllHardwareElements(i))
+		      hwElem.features.clear
+		
+		// Remove all featureRequirements from the tasks (for now)
+		for (task : clonedModel.allTasks)
+		  task.featureRequirements.clear
 	
 		// Now we apply the mapping result to the model
 		for (Entry<Task, Core> entry : mappingResult.getTask2CoreMap.entrySet) {

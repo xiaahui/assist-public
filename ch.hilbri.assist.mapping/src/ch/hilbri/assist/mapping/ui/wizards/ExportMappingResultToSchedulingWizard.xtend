@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.wizards
 
-import ch.hilbri.assist.mapping.result.FactorySchedulingModelFromMappingSolution
+import ch.hilbri.assist.mapping.export.DeploymentAsSchedulingModel
 import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.scheduling.dsl.SchedulingDslStandaloneSetup
 import java.io.IOException
@@ -85,7 +85,7 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 		monitor.beginTask("Exporting mapping solution to scheduling", 3);
 		
 		monitor.setTaskName("Creating scheduling model")
-		val schedulingModel = FactorySchedulingModelFromMappingSolution.createAssistModel(mappingResult)
+		val schedulingModel = DeploymentAsSchedulingModel.create(mappingResult)
 		schedulingModel.systemName = systemName
 		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName, true)
 		
