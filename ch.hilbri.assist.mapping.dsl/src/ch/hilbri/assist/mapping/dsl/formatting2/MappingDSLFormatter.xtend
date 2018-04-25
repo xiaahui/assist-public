@@ -7,12 +7,15 @@ import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityRelation
+import ch.hilbri.assist.model.Feature
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import ch.hilbri.assist.model.ModelPackage
+import ch.hilbri.assist.model.FeatureRequirement
 
 class MappingDSLFormatter extends AbstractFormatter2 {
 
@@ -37,7 +40,23 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
 		hwElem.defaultFormat(document)
 		hwElem.eContents.forEach[format]
+		hwElem.features.forEach[format]
 	}
+
+    def dispatch void format(Feature feature, extension IFormattableDocument document) {
+        feature => [
+            for (kw : #['Provides', 'shared', 'feature', 'with', 'synchronized', 'access', 'of', 'exclusive']) 
+                regionFor.keywords(kw).forEach[prepend[oneSpace]]
+           
+           regionFor.assignment(featureSimpleAccess.nameAssignment_3).prepend[oneSpace]
+           regionFor.assignment(featureSyncAccessAccess.nameAssignment_3).surround[oneSpace]
+           regionFor.assignment(featureExclAccessAccess.nameAssignment_5).prepend[oneSpace]
+           regionFor.assignment(featureExclAccessAccess.unitsAssignment_1).surround[oneSpace]
+                      
+           regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+        ]
+        
+    }
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
 		app => [
@@ -73,7 +92,10 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
 			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
+			
 		]
+
+        task.featureRequirements.forEach[format]
 	}
 	
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
@@ -116,6 +138,22 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 			regionFor.keywords('OR').forEach[surround[oneSpace]]
 		]		
 	}
+	
+	def dispatch void format(FeatureRequirement featureRequirement, extension IFormattableDocument document) {
+	   featureRequirement => [
+            for (kw : #['Requires', 'shared', 'feature', 'of', 'exclusive']) 
+                regionFor.keywords(kw).forEach[prepend[oneSpace]]
+           
+           regionFor.assignment(sharedFeatureRequirementAccess.hardwareLevelAssignment_2).surround[oneSpace]
+           regionFor.assignment(sharedFeatureRequirementAccess.nameAssignment_4).prepend[oneSpace]
+           
+           regionFor.assignment(exclusiveFeatureRequirementAccess.unitsAssignment_1).surround[oneSpace]
+           regionFor.assignment(exclusiveFeatureRequirementAccess.hardwareLevelAssignment_4).surround[oneSpace]
+           regionFor.assignment(exclusiveFeatureRequirementAccess.nameAssignment_6).prepend[oneSpace]
+           
+           regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
+        ]
+ 	}
 	
 	private def defaultFormat(EObject obj, extension IFormattableDocument document) {
 		obj => [
