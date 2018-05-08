@@ -34,6 +34,7 @@ Compartment:
     'Compartment' name=ID '{'
         ('Manufacturer'     '=' manufacturer=STRING  ';')?
         ('PowerSupply'      '=' powerSupply=STRING   ';')?
+        (features+=Feature                              )*
         (boxes+=Box)+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
@@ -41,7 +42,8 @@ Compartment:
 
 Box:
     'Box' name=ID '{'
-        ('Manufacturer'     '=' manufacturer=STRING ';')?
+        ('Manufacturer'     '=' manufacturer=STRING ';' )?
+        (features+=Feature                              )*
         (boards+=Board)*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
@@ -49,12 +51,13 @@ Box:
     
 Board:
     'Board' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';')?
-        ('Type'                     '=' boardType=STRING ';')?
-        ('PowerSupply'              '=' powerSupply=STRING ';')?
+        ('Manufacturer'             '=' manufacturer=STRING ';'                   )?
+        ('Type'                     '=' boardType=STRING ';'                      )?
+        ('PowerSupply'              '=' powerSupply=STRING ';'                    )?
         ('DesignAssuranceLevel'     '=' assuranceLevel=DesignAssuranceLevelType';')?
-        ('RAM'                      '=' ramCapacity=INT ';')?
-        ('ROM'                      '=' romCapacity=INT ';')?
+        ('RAM'                      '=' ramCapacity=INT ';'                       )?
+        ('ROM'                      '=' romCapacity=INT ';'                       )?
+        (features+=Feature                                                        )*
         (processors+=Processor)+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}'
@@ -62,8 +65,9 @@ Board:
 
 Processor:
     'Processor' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';')?
+        ('Manufacturer'             '=' manufacturer=STRING ';' )?
         ('Type'                     '=' processorType=STRING ';')?
+        (features+=Feature                                      )*
         (cores+=Core)+
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
@@ -71,10 +75,23 @@ Processor:
 Core:
     'Core' name=ID '{' 
         ('Capacity'                 '=' capacity=INT ';')?
-        ('Architecture'             '=' architecture=STRING ';')?
+        ('Architecture'             '=' architecture=STRING ';' )?
+        (features+=Feature                                      )*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
+/* Features provide by the hardware */
+Feature:
+    FeatureSimple | FeatureSyncAccess | FeatureExclAccess;
+
+FeatureSimple returns Feature:
+    'Provides' shared?='shared' 'feature' name=STRING ';';
+
+FeatureSyncAccess returns Feature:
+    'Provides' shared?='shared' 'feature' name=STRING synchronizedAccess?='with' 'synchronized' 'access' ';';
+    
+FeatureExclAccess returns Feature:
+    'Provides' units=INT 'of' 'exclusive' 'feature' name=STRING ';';
 
 /* SOFTWARE */
 
@@ -102,28 +119,21 @@ Task:
         ('Slices'                    '=' slices=INT ';'                                  )?
         ('MinSliceDuration'          '=' minSliceDuration=INT ';'                        )?
         ('Color'                     '=' color=Color ';'                                 )?
+        (featureRequirements+=FeatureRequirement                                         )*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
     '}';
 
-enum Color:           
-    NONE            = 'none'               |
-    BLACK           = 'black'              |
-    BLUE            = 'blue'               |
-    CYAN            = 'cyan'               |
-    GRAY            = 'gray'               |
-    GREEN           = 'green'              |
-    MAGENTA         = 'magenta'            |
-    RED             = 'red'                |
-    WHITE           = 'white'              |
-    YELLOW          = 'yellow'             |
-    DARK_BLUE       = 'darkblue'           |
-    DARK_CYAN       = 'darkcyan'           |
-    DARK_GRAY       = 'darkgray'           |
-    DARK_GREEN      = 'darkgreen'          |
-    DARK_MAGENTA    = 'darkmagenta'        |
-    DARK_RED        = 'darkred'            |
-    DARK_YELLOW     = 'darkyellow'        
-;
+/* General Feature Requirements - see #38 */
+FeatureRequirement: 
+    SharedFeatureRequirement      |
+    ExclusiveFeatureRequirement;
+
+SharedFeatureRequirement returns FeatureRequirement:
+    'Requires' shared?='shared' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
+
+ExclusiveFeatureRequirement returns FeatureRequirement:
+    'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
+
 
 /* Restrictions */
 RestrictionStartAtTheSameTime:
@@ -178,5 +188,33 @@ enum DesignAssuranceLevelType returns DesignAssuranceLevelType:
     C     = 'C'        |
     B     = 'B'        |
     A     = 'A'  
+;
+
+enum Color:           
+    NONE            = 'none'               |
+    BLACK           = 'black'              |
+    BLUE            = 'blue'               |
+    CYAN            = 'cyan'               |
+    GRAY            = 'gray'               |
+    GREEN           = 'green'              |
+    MAGENTA         = 'magenta'            |
+    RED             = 'red'                |
+    WHITE           = 'white'              |
+    YELLOW          = 'yellow'             |
+    DARK_BLUE       = 'darkblue'           |
+    DARK_CYAN       = 'darkcyan'           |
+    DARK_GRAY       = 'darkgray'           |
+    DARK_GREEN      = 'darkgreen'          |
+    DARK_MAGENTA    = 'darkmagenta'        |
+    DARK_RED        = 'darkred'            |
+    DARK_YELLOW     = 'darkyellow'        
+;
+
+enum HardwareArchitectureLevelType:
+    CORE         = 'Core'           |
+    PROCESSOR    = 'Processor'      |
+    BOARD        = 'Board'          |
+    BOX          = 'Box'            |
+    COMPARTMENT  = 'Compartment'
 ;
 
