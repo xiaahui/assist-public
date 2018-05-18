@@ -252,13 +252,22 @@ public interface ModelPackage extends EPackage {
     int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
 
     /**
+     * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = 7;
+
+    /**
      * The number of operations of the '<em>Assist Model</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL_OPERATION_COUNT = 7;
+    int ASSIST_MODEL_OPERATION_COUNT = 8;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -307,13 +316,22 @@ public interface ModelPackage extends EPackage {
     int HARDWARE_ELEMENT__CUSTOM_PROPERTIES = 3;
 
     /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HARDWARE_ELEMENT__GET_HARDWARE_LEVEL = 4;
+
+    /**
      * The number of structural features of the '<em>Hardware Element</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int HARDWARE_ELEMENT_FEATURE_COUNT = 4;
+    int HARDWARE_ELEMENT_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Hardware Element</em>' class.
@@ -444,6 +462,15 @@ public interface ModelPackage extends EPackage {
     int COMPARTMENT__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
 
     /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPARTMENT__GET_HARDWARE_LEVEL = HARDWARE_ELEMENT__GET_HARDWARE_LEVEL;
+
+    /**
      * The feature id for the '<em><b>Power Supply</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -569,6 +596,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int BOX__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOX__GET_HARDWARE_LEVEL = HARDWARE_ELEMENT__GET_HARDWARE_LEVEL;
 
     /**
      * The feature id for the '<em><b>Compartment</b></em>' container reference.
@@ -781,6 +817,15 @@ public interface ModelPackage extends EPackage {
     int BOARD__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
 
     /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD__GET_HARDWARE_LEVEL = HARDWARE_ELEMENT__GET_HARDWARE_LEVEL;
+
+    /**
      * The feature id for the '<em><b>Board Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -944,6 +989,15 @@ public interface ModelPackage extends EPackage {
     int PROCESSOR__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
 
     /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR__GET_HARDWARE_LEVEL = HARDWARE_ELEMENT__GET_HARDWARE_LEVEL;
+
+    /**
      * The feature id for the '<em><b>Processor Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1051,6 +1105,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CORE__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE__GET_HARDWARE_LEVEL = HARDWARE_ELEMENT__GET_HARDWARE_LEVEL;
 
     /**
      * The feature id for the '<em><b>Architecture</b></em>' attribute.
@@ -3404,6 +3467,16 @@ public interface ModelPackage extends EPackage {
     EOperation getAssistModel__GetAllHardwareElements__int();
 
     /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements() <em>Get All Hardware Elements</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllHardwareElements();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElement <em>Hardware Element</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3456,6 +3529,17 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getHardwareElement_CustomProperties();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel <em>Get Hardware Level</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Get Hardware Level</em>'.
+     * @see ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel()
+     * @see #getHardwareElement()
+     * @generated
+     */
+    EAttribute getHardwareElement_GetHardwareLevel();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.Feature <em>Feature</em>}'.
@@ -5679,6 +5763,14 @@ public interface ModelPackage extends EPackage {
         EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
 
         /**
+         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = eINSTANCE.getAssistModel__GetAllHardwareElements();
+
+        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5719,6 +5811,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference HARDWARE_ELEMENT__CUSTOM_PROPERTIES = eINSTANCE.getHardwareElement_CustomProperties();
+
+        /**
+         * The meta object literal for the '<em><b>Get Hardware Level</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute HARDWARE_ELEMENT__GET_HARDWARE_LEVEL = eINSTANCE.getHardwareElement_GetHardwareLevel();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.FeatureImpl <em>Feature</em>}' class.

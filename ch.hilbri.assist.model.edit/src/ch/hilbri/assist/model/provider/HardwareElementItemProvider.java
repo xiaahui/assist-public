@@ -65,6 +65,7 @@ public class HardwareElementItemProvider
 
             addNamePropertyDescriptor(object);
             addManufacturerPropertyDescriptor(object);
+            addGetHardwareLevelPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -114,6 +115,28 @@ public class HardwareElementItemProvider
     }
 
 	/**
+     * This adds a property descriptor for the Get Hardware Level feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addGetHardwareLevelPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_HardwareElement_getHardwareLevel_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_getHardwareLevel_feature", "_UI_HardwareElement_type"),
+                 ModelPackage.Literals.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -184,6 +207,7 @@ public class HardwareElementItemProvider
         switch (notification.getFeatureID(HardwareElement.class)) {
             case ModelPackage.HARDWARE_ELEMENT__NAME:
             case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+            case ModelPackage.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:

@@ -42,6 +42,7 @@ class OnlyOneTaskPerTimePerCoreConstraint extends AbstractSchedulingConstraint {
 			worked = true
 		}
 		
+		propagate()
 		return worked
 	}
 	

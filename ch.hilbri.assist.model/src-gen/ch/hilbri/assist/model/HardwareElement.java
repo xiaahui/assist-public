@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getCustomProperties <em>Custom Properties</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel <em>Get Hardware Level</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getHardwareElement()
@@ -111,5 +112,23 @@ public interface HardwareElement extends EObject {
      * @generated
      */
     EList<CustomProperty> getCustomProperties();
+
+    /**
+     * Returns the value of the '<em><b>Get Hardware Level</b></em>' attribute.
+     * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Get Hardware Level</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Get Hardware Level</em>' attribute.
+     * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
+     * @see ch.hilbri.assist.model.ModelPackage#getHardwareElement_GetHardwareLevel()
+     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt; _xifexpression = null;\nif ((this instanceof &lt;%ch.hilbri.assist.model.Compartment%&gt;))\n{\n\t_xifexpression = &lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt;.COMPARTMENT;\n}\nelse\n{\n\t&lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt; _xifexpression_1 = null;\n\tif ((this instanceof &lt;%ch.hilbri.assist.model.Box%&gt;))\n\t{\n\t\t_xifexpression_1 = &lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt;.BOX;\n\t}\n\telse\n\t{\n\t\t&lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt; _xifexpression_2 = null;\n\t\tif ((this instanceof &lt;%ch.hilbri.assist.model.Board%&gt;))\n\t\t{\n\t\t\t_xifexpression_2 = &lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt;.BOARD;\n\t\t}\n\t\telse\n\t\t{\n\t\t\t&lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt; _xifexpression_3 = null;\n\t\t\tif ((this instanceof &lt;%ch.hilbri.assist.model.Processor%&gt;))\n\t\t\t{\n\t\t\t\t_xifexpression_3 = &lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt;.PROCESSOR;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\t&lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt; _xifexpression_4 = null;\n\t\t\t\tif ((this instanceof &lt;%ch.hilbri.assist.model.Core%&gt;))\n\t\t\t\t{\n\t\t\t\t\t_xifexpression_4 = &lt;%ch.hilbri.assist.model.HardwareArchitectureLevelType%&gt;.CORE;\n\t\t\t\t}\n\t\t\t\t_xifexpression_3 = _xifexpression_4;\n\t\t\t}\n\t\t\t_xifexpression_2 = _xifexpression_3;\n\t\t}\n\t\t_xifexpression_1 = _xifexpression_2;\n\t}\n\t_xifexpression = _xifexpression_1;\n}\nreturn _xifexpression;'"
+     * @generated
+     */
+    HardwareArchitectureLevelType getGetHardwareLevel();
 
 } // HardwareElement

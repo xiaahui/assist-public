@@ -97,19 +97,19 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	/**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.HardwareElement} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected HardwareElementItemProvider hardwareElementItemProvider;
+    protected HardwareElementItemProvider hardwareElementItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.HardwareElement}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createHardwareElementAdapter() {
+    @Override
+    public Adapter createHardwareElementAdapter() {
         if (hardwareElementItemProvider == null) {
             hardwareElementItemProvider = new HardwareElementItemProvider(this);
         }
@@ -117,7 +117,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return hardwareElementItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Feature} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -143,19 +143,19 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Compartment} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CompartmentItemProvider compartmentItemProvider;
+    protected CompartmentItemProvider compartmentItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Compartment}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createCompartmentAdapter() {
+    @Override
+    public Adapter createCompartmentAdapter() {
         if (compartmentItemProvider == null) {
             compartmentItemProvider = new CompartmentItemProvider(this);
         }
@@ -163,22 +163,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return compartmentItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Box} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BoxItemProvider boxItemProvider;
+    protected BoxItemProvider boxItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Box}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createBoxAdapter() {
+    @Override
+    public Adapter createBoxAdapter() {
         if (boxItemProvider == null) {
             boxItemProvider = new BoxItemProvider(this);
         }
@@ -186,7 +186,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return boxItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternatives} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -210,21 +210,44 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternative} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BoardAlternativeItemProvider boardAlternativeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardAlternative}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBoardAlternativeAdapter() {
+        if (boardAlternativeItemProvider == null) {
+            boardAlternativeItemProvider = new BoardAlternativeItemProvider(this);
+        }
+
+        return boardAlternativeItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Board} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BoardItemProvider boardItemProvider;
+    protected BoardItemProvider boardItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Board}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createBoardAdapter() {
+    @Override
+    public Adapter createBoardAdapter() {
         if (boardItemProvider == null) {
             boardItemProvider = new BoardItemProvider(this);
         }
@@ -232,22 +255,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return boardItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Processor} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ProcessorItemProvider processorItemProvider;
+    protected ProcessorItemProvider processorItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Processor}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createProcessorAdapter() {
+    @Override
+    public Adapter createProcessorAdapter() {
         if (processorItemProvider == null) {
             processorItemProvider = new ProcessorItemProvider(this);
         }
@@ -255,22 +278,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return processorItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Core} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CoreItemProvider coreItemProvider;
+    protected CoreItemProvider coreItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Core}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createCoreAdapter() {
+    @Override
+    public Adapter createCoreAdapter() {
         if (coreItemProvider == null) {
             coreItemProvider = new CoreItemProvider(this);
         }
@@ -278,22 +301,68 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return coreItemProvider;
     }
 
-	/**
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ApplicationAlternatives} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ApplicationAlternatives}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createApplicationAlternativesAdapter() {
+        if (applicationAlternativesItemProvider == null) {
+            applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
+        }
+
+        return applicationAlternativesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ApplicationAlternative} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ApplicationAlternativeItemProvider applicationAlternativeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ApplicationAlternative}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createApplicationAlternativeAdapter() {
+        if (applicationAlternativeItemProvider == null) {
+            applicationAlternativeItemProvider = new ApplicationAlternativeItemProvider(this);
+        }
+
+        return applicationAlternativeItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Application} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ApplicationItemProvider applicationItemProvider;
+    protected ApplicationItemProvider applicationItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Application}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createApplicationAdapter() {
+    @Override
+    public Adapter createApplicationAdapter() {
         if (applicationItemProvider == null) {
             applicationItemProvider = new ApplicationItemProvider(this);
         }
@@ -301,22 +370,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return applicationItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Task} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected TaskItemProvider taskItemProvider;
+    protected TaskItemProvider taskItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.Task}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createTaskAdapter() {
+    @Override
+    public Adapter createTaskAdapter() {
         if (taskItemProvider == null) {
             taskItemProvider = new TaskItemProvider(this);
         }
@@ -324,7 +393,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return taskItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.FeatureRequirement} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -350,19 +419,19 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MappingRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected MappingRelationItemProvider mappingRelationItemProvider;
+    protected MappingRelationItemProvider mappingRelationItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.MappingRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createMappingRelationAdapter() {
+    @Override
+    public Adapter createMappingRelationAdapter() {
         if (mappingRelationItemProvider == null) {
             mappingRelationItemProvider = new MappingRelationItemProvider(this);
         }
@@ -370,22 +439,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return mappingRelationItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DislocalityRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DislocalityRelationItemProvider dislocalityRelationItemProvider;
+    protected DislocalityRelationItemProvider dislocalityRelationItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DislocalityRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDislocalityRelationAdapter() {
+    @Override
+    public Adapter createDislocalityRelationAdapter() {
         if (dislocalityRelationItemProvider == null) {
             dislocalityRelationItemProvider = new DislocalityRelationItemProvider(this);
         }
@@ -393,22 +462,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dislocalityRelationItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ColocalityRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ColocalityRelationItemProvider colocalityRelationItemProvider;
+    protected ColocalityRelationItemProvider colocalityRelationItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.ColocalityRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createColocalityRelationAdapter() {
+    @Override
+    public Adapter createColocalityRelationAdapter() {
         if (colocalityRelationItemProvider == null) {
             colocalityRelationItemProvider = new ColocalityRelationItemProvider(this);
         }
@@ -416,22 +485,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return colocalityRelationItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DissimilarityRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DissimilarityRelationItemProvider dissimilarityRelationItemProvider;
+    protected DissimilarityRelationItemProvider dissimilarityRelationItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DissimilarityRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDissimilarityRelationAdapter() {
+    @Override
+    public Adapter createDissimilarityRelationAdapter() {
         if (dissimilarityRelationItemProvider == null) {
             dissimilarityRelationItemProvider = new DissimilarityRelationItemProvider(this);
         }
@@ -439,22 +508,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dissimilarityRelationItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DissimilarityClause} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DissimilarityClauseItemProvider dissimilarityClauseItemProvider;
+    protected DissimilarityClauseItemProvider dissimilarityClauseItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DissimilarityClause}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDissimilarityClauseAdapter() {
+    @Override
+    public Adapter createDissimilarityClauseAdapter() {
         if (dissimilarityClauseItemProvider == null) {
             dissimilarityClauseItemProvider = new DissimilarityClauseItemProvider(this);
         }
@@ -462,22 +531,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dissimilarityClauseItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DissimilarityDisjunction} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DissimilarityDisjunctionItemProvider dissimilarityDisjunctionItemProvider;
+    protected DissimilarityDisjunctionItemProvider dissimilarityDisjunctionItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DissimilarityDisjunction}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDissimilarityDisjunctionAdapter() {
+    @Override
+    public Adapter createDissimilarityDisjunctionAdapter() {
         if (dissimilarityDisjunctionItemProvider == null) {
             dissimilarityDisjunctionItemProvider = new DissimilarityDisjunctionItemProvider(this);
         }
@@ -485,22 +554,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dissimilarityDisjunctionItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DissimilarityConjunction} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DissimilarityConjunctionItemProvider dissimilarityConjunctionItemProvider;
+    protected DissimilarityConjunctionItemProvider dissimilarityConjunctionItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DissimilarityConjunction}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDissimilarityConjunctionAdapter() {
+    @Override
+    public Adapter createDissimilarityConjunctionAdapter() {
         if (dissimilarityConjunctionItemProvider == null) {
             dissimilarityConjunctionItemProvider = new DissimilarityConjunctionItemProvider(this);
         }
@@ -508,22 +577,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dissimilarityConjunctionItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DissimilarityEntry} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DissimilarityEntryItemProvider dissimilarityEntryItemProvider;
+    protected DissimilarityEntryItemProvider dissimilarityEntryItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.DissimilarityEntry}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createDissimilarityEntryAdapter() {
+    @Override
+    public Adapter createDissimilarityEntryAdapter() {
         if (dissimilarityEntryItemProvider == null) {
             dissimilarityEntryItemProvider = new DissimilarityEntryItemProvider(this);
         }
@@ -531,7 +600,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return dissimilarityEntryItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SchedulingRestriction} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -557,19 +626,19 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SimpleRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected SimpleRelationItemProvider simpleRelationItemProvider;
+    protected SimpleRelationItemProvider simpleRelationItemProvider;
 
-				/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.SimpleRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createSimpleRelationAdapter() {
+    @Override
+    public Adapter createSimpleRelationAdapter() {
         if (simpleRelationItemProvider == null) {
             simpleRelationItemProvider = new SimpleRelationItemProvider(this);
         }
@@ -577,22 +646,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return simpleRelationItemProvider;
     }
 
-				/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ComplexRelation} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ComplexRelationItemProvider complexRelationItemProvider;
+    protected ComplexRelationItemProvider complexRelationItemProvider;
 
-				/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.ComplexRelation}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createComplexRelationAdapter() {
+    @Override
+    public Adapter createComplexRelationAdapter() {
         if (complexRelationItemProvider == null) {
             complexRelationItemProvider = new ComplexRelationItemProvider(this);
         }
@@ -600,22 +669,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return complexRelationItemProvider;
     }
 
-				/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected RestrictionStartAtTheSameTimeItemProvider restrictionStartAtTheSameTimeItemProvider;
+    protected RestrictionStartAtTheSameTimeItemProvider restrictionStartAtTheSameTimeItemProvider;
 
-				/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createRestrictionStartAtTheSameTimeAdapter() {
+    @Override
+    public Adapter createRestrictionStartAtTheSameTimeAdapter() {
         if (restrictionStartAtTheSameTimeItemProvider == null) {
             restrictionStartAtTheSameTimeItemProvider = new RestrictionStartAtTheSameTimeItemProvider(this);
         }
@@ -623,22 +692,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return restrictionStartAtTheSameTimeItemProvider;
     }
 
-				/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected RestrictionFinishAtTheSameTimeItemProvider restrictionFinishAtTheSameTimeItemProvider;
+    protected RestrictionFinishAtTheSameTimeItemProvider restrictionFinishAtTheSameTimeItemProvider;
 
-				/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionFinishAtTheSameTime}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createRestrictionFinishAtTheSameTimeAdapter() {
+    @Override
+    public Adapter createRestrictionFinishAtTheSameTimeAdapter() {
         if (restrictionFinishAtTheSameTimeItemProvider == null) {
             restrictionFinishAtTheSameTimeItemProvider = new RestrictionFinishAtTheSameTimeItemProvider(this);
         }
@@ -646,45 +715,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return restrictionFinishAtTheSameTimeItemProvider;
     }
 
-				/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected RestrictionStartAfterOtherStartedItemProvider restrictionStartAfterOtherStartedItemProvider;
-
-				/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createRestrictionStartAfterOtherStartedAdapter() {
-        if (restrictionStartAfterOtherStartedItemProvider == null) {
-            restrictionStartAfterOtherStartedItemProvider = new RestrictionStartAfterOtherStartedItemProvider(this);
-        }
-
-        return restrictionStartAfterOtherStartedItemProvider;
-    }
-
-				/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected RestrictionStartAfterOtherFinishedItemProvider restrictionStartAfterOtherFinishedItemProvider;
+    protected RestrictionStartAfterOtherFinishedItemProvider restrictionStartAfterOtherFinishedItemProvider;
 
-				/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherFinished}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createRestrictionStartAfterOtherFinishedAdapter() {
+    @Override
+    public Adapter createRestrictionStartAfterOtherFinishedAdapter() {
         if (restrictionStartAfterOtherFinishedItemProvider == null) {
             restrictionStartAfterOtherFinishedItemProvider = new RestrictionStartAfterOtherFinishedItemProvider(this);
         }
@@ -692,22 +738,45 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return restrictionStartAfterOtherFinishedItemProvider;
     }
 
-				/**
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestrictionStartAfterOtherStartedItemProvider restrictionStartAfterOtherStartedItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionStartAfterOtherStarted}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestrictionStartAfterOtherStartedAdapter() {
+        if (restrictionStartAfterOtherStartedItemProvider == null) {
+            restrictionStartAfterOtherStartedItemProvider = new RestrictionStartAfterOtherStartedItemProvider(this);
+        }
+
+        return restrictionStartAfterOtherStartedItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CustomPropertyItemProvider customPropertyItemProvider;
+    protected CustomPropertyItemProvider customPropertyItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.CustomProperty}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createCustomPropertyAdapter() {
+    @Override
+    public Adapter createCustomPropertyAdapter() {
         if (customPropertyItemProvider == null) {
             customPropertyItemProvider = new CustomPropertyItemProvider(this);
         }
@@ -715,22 +784,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return customPropertyItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomIntProperty} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CustomIntPropertyItemProvider customIntPropertyItemProvider;
+    protected CustomIntPropertyItemProvider customIntPropertyItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.CustomIntProperty}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createCustomIntPropertyAdapter() {
+    @Override
+    public Adapter createCustomIntPropertyAdapter() {
         if (customIntPropertyItemProvider == null) {
             customIntPropertyItemProvider = new CustomIntPropertyItemProvider(this);
         }
@@ -738,22 +807,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return customIntPropertyItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomStringProperty} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CustomStringPropertyItemProvider customStringPropertyItemProvider;
+    protected CustomStringPropertyItemProvider customStringPropertyItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.CustomStringProperty}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createCustomStringPropertyAdapter() {
+    @Override
+    public Adapter createCustomStringPropertyAdapter() {
         if (customStringPropertyItemProvider == null) {
             customStringPropertyItemProvider = new CustomStringPropertyItemProvider(this);
         }
@@ -761,7 +830,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return customStringPropertyItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternatives} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -946,75 +1015,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternative} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected BoardAlternativeItemProvider boardAlternativeItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardAlternative}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createBoardAlternativeAdapter() {
-        if (boardAlternativeItemProvider == null) {
-            boardAlternativeItemProvider = new BoardAlternativeItemProvider(this);
-        }
-
-        return boardAlternativeItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ApplicationAlternatives} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.ApplicationAlternatives}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createApplicationAlternativesAdapter() {
-        if (applicationAlternativesItemProvider == null) {
-            applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
-        }
-
-        return applicationAlternativesItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ApplicationAlternative} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected ApplicationAlternativeItemProvider applicationAlternativeItemProvider;
-
-	/**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.ApplicationAlternative}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createApplicationAlternativeAdapter() {
-        if (applicationAlternativeItemProvider == null) {
-            applicationAlternativeItemProvider = new ApplicationAlternativeItemProvider(this);
-        }
-
-        return applicationAlternativeItemProvider;
-    }
-
-	/**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

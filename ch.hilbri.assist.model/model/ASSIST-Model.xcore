@@ -48,6 +48,15 @@ class AssistModel {
         else if (level == 4)    allCompartments.map[it as HardwareElement] 
         else                    null
     }
+    
+    op HardwareElement[] getAllHardwareElements() {
+        val iterables = allCompartments.map[it as HardwareElement] +
+                        allBoxes.map[it as HardwareElement] +
+                        allBoards.map[it as HardwareElement] +  
+                        allProcessors.map[it as HardwareElement] + 
+                        allCores.map[it as HardwareElement]
+        return iterables.toEList
+    }
 }
 
 class HardwareElement {
@@ -55,6 +64,14 @@ class HardwareElement {
     String                        manufacturer      = ""
     contains Feature[0..*]        features
     contains CustomProperty[0..*] customProperties
+    
+    derived HardwareArchitectureLevelType getHardwareLevel get {
+        if (this instanceof Compartment) HardwareArchitectureLevelType.COMPARTMENT
+        else if (this instanceof Box) HardwareArchitectureLevelType.BOX
+        else if (this instanceof Board) HardwareArchitectureLevelType.BOARD
+        else if (this instanceof Processor) HardwareArchitectureLevelType.PROCESSOR
+        else if (this instanceof Core) HardwareArchitectureLevelType.CORE
+    }
 }
 
 class Feature {

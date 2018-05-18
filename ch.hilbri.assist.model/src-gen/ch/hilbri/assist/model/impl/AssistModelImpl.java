@@ -22,6 +22,8 @@ import ch.hilbri.assist.model.Task;
 
 import com.google.common.collect.Iterables;
 
+import java.lang.Iterable;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -563,6 +565,49 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<HardwareElement> getAllHardwareElements() {
+        final Function1<Compartment, HardwareElement> _function = new Function1<Compartment, HardwareElement>() {
+            public HardwareElement apply(final Compartment it) {
+                return ((HardwareElement) it);
+            }
+        };
+        EList<HardwareElement> _map = XcoreEListExtensions.<Compartment, HardwareElement>map(this.getAllCompartments(), _function);
+        final Function1<Box, HardwareElement> _function_1 = new Function1<Box, HardwareElement>() {
+            public HardwareElement apply(final Box it) {
+                return ((HardwareElement) it);
+            }
+        };
+        EList<HardwareElement> _map_1 = XcoreEListExtensions.<Box, HardwareElement>map(this.getAllBoxes(), _function_1);
+        Iterable<HardwareElement> _plus = Iterables.<HardwareElement>concat(_map, _map_1);
+        final Function1<Board, HardwareElement> _function_2 = new Function1<Board, HardwareElement>() {
+            public HardwareElement apply(final Board it) {
+                return ((HardwareElement) it);
+            }
+        };
+        EList<HardwareElement> _map_2 = XcoreEListExtensions.<Board, HardwareElement>map(this.getAllBoards(), _function_2);
+        Iterable<HardwareElement> _plus_1 = Iterables.<HardwareElement>concat(_plus, _map_2);
+        final Function1<Processor, HardwareElement> _function_3 = new Function1<Processor, HardwareElement>() {
+            public HardwareElement apply(final Processor it) {
+                return ((HardwareElement) it);
+            }
+        };
+        EList<HardwareElement> _map_3 = XcoreEListExtensions.<Processor, HardwareElement>map(this.getAllProcessors(), _function_3);
+        Iterable<HardwareElement> _plus_2 = Iterables.<HardwareElement>concat(_plus_1, _map_3);
+        final Function1<Core, HardwareElement> _function_4 = new Function1<Core, HardwareElement>() {
+            public HardwareElement apply(final Core it) {
+                return ((HardwareElement) it);
+            }
+        };
+        EList<HardwareElement> _map_4 = XcoreEListExtensions.<Core, HardwareElement>map(this.getAllCores(), _function_4);
+        final Iterable<HardwareElement> iterables = Iterables.<HardwareElement>concat(_plus_2, _map_4);
+        return ECollections.<HardwareElement>toEList(iterables);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -788,6 +833,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return getAllTasks();
             case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
                 return getAllHardwareElements((Integer)arguments.get(0));
+            case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS:
+                return getAllHardwareElements();
         }
         return super.eInvoke(operationID, arguments);
     }
