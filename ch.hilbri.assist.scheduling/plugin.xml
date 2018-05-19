@@ -21,20 +21,24 @@
             name="Scheduling Specification">
       </editor>
    </extension>
-     
-   <extension point="org.eclipse.ui.newWizards">
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="ch.hilbri.assist.scheduling.category"
+            name="Scheduling"
+            parentCategory="ch.hilbri.assist.gui.category.main">
+      </category>
       <wizard
-            canFinishEarly="false"
-            category="ch.hilbri.assist.categories.main"
-            class="ch.hilbri.assist.scheduling.ui.wizards.NewSchedulingSpecificationWizard"
-            icon="icons/scheduling-specification.png"
-            id="ch.hilbri.assist.scheduling.wizards.newSchedulingSpecification"
-            name="Scheduling - Specification"
-            project="false">
+            category="ch.hilbri.assist.gui.category.main/ch.hilbri.assist.scheduling.category"
+            class="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
+            icon="icons/app4mc-logo-16.png"
+            id="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
+            name="APP4MC Model">
          <description>
-            This wizard creates a new scheduling specification file with *.sdsl extension.
+            Import a file from the local file system into the workspace.
          </description>
       </wizard>
    </extension>
+     
 
 </plugin>

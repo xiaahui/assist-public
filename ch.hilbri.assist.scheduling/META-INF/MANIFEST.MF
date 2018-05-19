@@ -25,6 +25,7 @@ Require-Bundle: ch.hilbri.assist.gui,
  org.eclipse.ui.forms,
  org.eclipse.xtext.ui,
  org.eclipse.nebula.widgets.ganttchart,
- org.eclipse.e4.core.contexts
+ org.eclipse.e4.core.contexts,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: ch.hilbri.assist.scheduling

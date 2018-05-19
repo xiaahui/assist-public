@@ -90,4 +90,11 @@
            id="ch.hilbri.assist.gui.classpathContainer">
      </classpathContainerInitializer>
   </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <category
+           id="ch.hilbri.assist.gui.category.main"
+           name="ASSIST">
+     </category>
+  </extension>
  </plugin>

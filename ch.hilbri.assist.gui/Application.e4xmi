@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-128x128.png" bindingContexts="_SdnD4JyjEeeMRoGz8_M2mg">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-16x16.png" bindingContexts="_SdnD4JyjEeeMRoGz8_M2mg">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_NehnYBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_OeDxwBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspective" label="ASSIST - Main">
         <children xsi:type="basic:PartSashContainer" xmi:id="_qXym0BR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.0" horizontal="true">
@@ -38,6 +38,8 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_289BgBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.saveas" label="Save As" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveas_edit.png" command="_KcBi8BOyEeeXZoKubOdysQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_5vs18BO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.saveall" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveall_edit.png" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_yXxmIBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.2"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_kTY2MFtfEei_3NOnIFPD1A" elementId="ch.hilbri.assist.gui.handledmenuitem.import" label="Import ..." iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/import.png" command="_NGIFYFtfEei_3NOnIFPD1A"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_i2lhAFtfEei_3NOnIFPD1A" elementId="ch.hilbri.assist.gui.menuseparator.6"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Myc84BO0EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.exit" label="Exit" command="_bAtdQBOyEeeXZoKubOdysQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_IB3iwBO0EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menu.edit" label="Edit">
@@ -122,6 +124,7 @@
   <commands xmi:id="_QQ4o0BRHEeeXZoKubOdysQ" elementId="org.eclipse.ui.edit.findReplace" commandName="Find/Replace"/>
   <commands xmi:id="_cE1GEBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.about" commandName="About"/>
   <commands xmi:id="__xJasCj9EeiRxef0JMhTnA" elementId="ch.hilbri.assist.gui.commands.help" commandName="Help"/>
+  <commands xmi:id="_NGIFYFtfEei_3NOnIFPD1A" elementId="org.eclipse.ui.file.import" commandName="Import" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <addons xmi:id="_75jaERLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_75jaEhLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_75jaExLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

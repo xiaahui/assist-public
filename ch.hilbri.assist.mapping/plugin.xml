@@ -50,4 +50,22 @@
          </description>
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="ch.hilbri.assist.mapping.category"
+            name="Mapping"
+            parentCategory="ch.hilbri.assist.gui.category.main">
+      </category>
+      <wizard
+            category="ch.hilbri.assist.gui.category.main/ch.hilbri.assist.mapping.category"
+            class="ch.hilbri.assist.mapping.ui.wizards.importAPP4MCWizard"
+            icon="icons/app4mc-logo-16.png"
+            id="ch.hilbri.assist.mapping.ui.wizards.importAPP4MCWizard"
+            name="APP4MC Model">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
 </plugin>
