@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
-import ch.hilbri.assist.mapping.export.DeploymentAsText
+import ch.hilbri.assist.mapping.exporter.DeploymentAsText
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -9,11 +9,11 @@ import org.eclipse.e4.core.contexts.Active
 import org.eclipse.e4.core.di.annotations.CanExecute
 import org.eclipse.e4.core.di.annotations.Execute
 import org.eclipse.e4.ui.model.application.ui.basic.MPart
+import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.swt.SWT
 import org.eclipse.swt.widgets.FileDialog
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor
-import org.eclipse.jface.dialogs.MessageDialog
 
 /** 
  * @author Robert Hilbrich

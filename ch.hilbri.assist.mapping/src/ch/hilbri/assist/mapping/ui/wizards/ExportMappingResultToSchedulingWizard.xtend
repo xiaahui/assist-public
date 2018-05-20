@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.wizards
 
-import ch.hilbri.assist.mapping.export.DeploymentAsSchedulingModel
+import ch.hilbri.assist.mapping.exporter.DeploymentAsSchedulingModel
 import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.scheduling.dsl.SchedulingDslStandaloneSetup
 import java.io.IOException

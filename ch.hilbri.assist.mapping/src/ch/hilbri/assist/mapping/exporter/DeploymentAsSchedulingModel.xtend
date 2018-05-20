@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.export
+package ch.hilbri.assist.mapping.exporter
 
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Core
