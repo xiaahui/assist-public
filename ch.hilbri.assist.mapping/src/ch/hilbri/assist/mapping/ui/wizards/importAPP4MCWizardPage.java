@@ -1,7 +1,5 @@
 package ch.hilbri.assist.mapping.ui.wizards;
 
-import java.io.InputStream;
-
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -15,7 +13,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import org.eclipse.xtext.util.StringInputStream;
 
 public class importAPP4MCWizardPage extends WizardNewFileCreationPage {
 
@@ -59,23 +56,16 @@ public class importAPP4MCWizardPage extends WizardNewFileCreationPage {
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#createLinkTarget()
-     */
-    protected void createLinkTarget() {
+    public String getAPP4MCModel() {
+        return editor.getStringValue();
     }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#getInitialContents()
-     */
-    protected InputStream getInitialContents() {
-        //return new FileInputStream(new File(editor.getStringValue()));
-        return new StringInputStream("Hallo Welt");
-    }
+    
+    /* (non-Javadoc)
+    * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#createLinkTarget()
+    */
+   protected void createLinkTarget() {
+   }
+    
 
     /*
      * (non-Javadoc)

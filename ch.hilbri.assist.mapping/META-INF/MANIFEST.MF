@@ -11,7 +11,9 @@ Require-Bundle: ch.hilbri.assist.gui,
  ch.hilbri.assist.libraries.choco-solver,
  ch.hilbri.assist.libraries.swtchart,
  ch.hilbri.assist.model,
+ ch.hilbri.assist.mapping.dsl,
  ch.hilbri.assist.mapping.dsl.ui,
+ org.eclipse.core.resources,
  org.eclipse.xtend.lib,
  org.eclipse.e4.core.commands,
  org.eclipse.ui.ide,
@@ -30,7 +32,7 @@ Require-Bundle: ch.hilbri.assist.gui,
  ch.hilbri.assist.scheduling.dsl.ui,
  org.eclipse.zest.core;bundle-version="1.5.300",
  org.eclipse.zest.layouts;bundle-version="1.1.300",
- org.eclipse.core.resources
+ org.eclipse.emf.ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.analysis,
  ch.hilbri.assist.mapping.analysis.metrics.builtin,
