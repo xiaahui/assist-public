@@ -39,10 +39,10 @@ public class importAPP4MCWizard extends Wizard implements IImportWizard {
             return false;
 
         // Load the APP4MC Model
-//        String app4mcModel = mainPage.getAPP4MCModel();
+        String app4mcModel = mainPage.getAPP4MCModel();
         
         // Create the new ASSIST model
-        AssistModel model = ImportAPP4MCModel.createAssistModel(null); // Add APP4MC Model here
+        AssistModel model = ImportAPP4MCModel.createAssistModel(app4mcModel); // Add APP4MC Model here
 
         // Serialize the model to the file
         URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
