@@ -95,9 +95,9 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (aog : r.applications) {
-			if (aog instanceof Application) output.append(aog.name)
-			if (r.applications.last != aog) output.append(", ")
+		for (app : r.applications) {
+			output.append(app.name)
+			if (r.applications.last != app) output.append(", ")
 		}
 		output.append("]")
 		output.append(" dislocal up to ")
@@ -115,9 +115,9 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (aog : r.applications) {
-			if (aog instanceof Application) output.append(aog.name)
-			if (r.applications.last != aog) output.append(", ")
+		for (app : r.applications) {
+			output.append(app.name)
+			if (r.applications.last != app) output.append(", ")
 		}
 		output.append("]")
 		output.append(" dissimilar ")
@@ -133,9 +133,9 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (aog : r.applications) {
-			if (aog instanceof Application) output.append(aog.name)
-			if (r.applications.last != aog) output.append(", ")
+		for (app : r.applications) {
+			output.append(app.name)
+			if (r.applications.last != app) output.append(", ")
 		}
 		output.append("]")
 		output.append(" on same ")
