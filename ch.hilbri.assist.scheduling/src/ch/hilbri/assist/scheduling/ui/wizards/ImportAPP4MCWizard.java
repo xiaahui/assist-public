@@ -30,7 +30,7 @@ public class ImportAPP4MCWizard extends Wizard implements IImportWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		setWindowTitle("File Import Wizard"); //NON-NLS-1
 		setNeedsProgressMonitor(true);
-		mainPage = new ImportAPP4MCWizardPage("Import APP4MC to Scheduling",selection); //NON-NLS-1
+		mainPage = new ImportAPP4MCWizardPage("Import AMALTHEA 0.9.0 Model to Scheduling",selection); //NON-NLS-1
 	}
 	
 	/* (non-Javadoc)

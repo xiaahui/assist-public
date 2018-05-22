@@ -26,7 +26,7 @@ public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
 	public ImportAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
 		super(pageName, selection);
 		setTitle(pageName); //NON-NLS-1
-		setDescription("Import a file from the local file system into the workspace"); //NON-NLS-1
+		setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST scheduling specification."); //NON-NLS-1
 	}
 
 	/* (non-Javadoc)
@@ -79,7 +79,7 @@ public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
 	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#getNewFileLabel()
 	 */
 	protected String getNewFileLabel() {
-		return "New File Name:"; //NON-NLS-1
+		return "New ASSIST Model:"; //NON-NLS-1
 	}
 
 	/* (non-Javadoc)

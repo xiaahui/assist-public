@@ -14,14 +14,14 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-public class importAPP4MCWizardPage extends WizardNewFileCreationPage {
+public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
 
     protected FileFieldEditor editor;
 
-    public importAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
+    public ImportAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
         super(pageName, selection);
         setTitle(pageName); // NON-NLS-1
-        setDescription("Import an APP4MC model from the local file system into the workspace"); // NON-NLS-1
+        setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST mapping specification."); // NON-NLS-1
         setFileExtension("mdsl");
     }
 
@@ -46,11 +46,11 @@ public class importAPP4MCWizardPage extends WizardNewFileCreationPage {
         editor = new FileFieldEditor("fileSelect", "Select File: ", fileSelectionArea); // NON-NLS-1 //NON-NLS-2
         editor.getTextControl(fileSelectionArea).addModifyListener(new ModifyListener() {
             public void modifyText(ModifyEvent e) {
-                IPath path = new Path(importAPP4MCWizardPage.this.editor.getStringValue());
+                IPath path = new Path(ImportAPP4MCWizardPage.this.editor.getStringValue());
                 setFileName(path.lastSegment());
             }
         });
-        String[] extensions = new String[] { "*.amxmi", "*.zip" }; // NON-NLS-1
+        String[] extensions = new String[] { "*.amxmi" }; // NON-NLS-1
         editor.setFileExtensions(extensions);
         fileSelectionArea.moveAbove(null);
 

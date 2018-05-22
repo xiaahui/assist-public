@@ -18,11 +18,11 @@ import ch.hilbri.assist.mapping.dsl.MappingDSLStandaloneSetup;
 import ch.hilbri.assist.mapping.importer.ImportAPP4MCModel;
 import ch.hilbri.assist.model.AssistModel;
 
-public class importAPP4MCWizard extends Wizard implements IImportWizard {
+public class ImportAPP4MCWizard extends Wizard implements IImportWizard {
 
-    importAPP4MCWizardPage mainPage;
+    ImportAPP4MCWizardPage mainPage;
 
-    public importAPP4MCWizard() {
+    public ImportAPP4MCWizard() {
         super();
     }
 
@@ -69,7 +69,7 @@ public class importAPP4MCWizard extends Wizard implements IImportWizard {
     public void init(IWorkbench workbench, IStructuredSelection selection) {
         setWindowTitle("File Import Wizard"); // NON-NLS-1
         setNeedsProgressMonitor(true);
-        mainPage = new importAPP4MCWizardPage("Import APP4MC to Mapping", selection); // NON-NLS-1
+        mainPage = new ImportAPP4MCWizardPage("Import AMALTHEA 0.9 Model to Mapping", selection); // NON-NLS-1
     }
 
     /*

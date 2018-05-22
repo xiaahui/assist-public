@@ -33,9 +33,9 @@
             class="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
             icon="icons/app4mc-logo-16.png"
             id="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
-            name="APP4MC Model">
+            name="AMALTHEA 0.9.0 Model">
          <description>
-            Import a file from the local file system into the workspace.
+            Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST scheduling specification.
          </description>
       </wizard>
    </extension>
