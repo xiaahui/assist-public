@@ -34,11 +34,17 @@
       <import plugin="org.eclipse.jdt.launching"/>
       <import plugin="org.eclipse.jdt.ui"/>
       <import plugin="ch.hilbri.assist.libraries.logback"/>
-      <import plugin="javax.inject"/>
-      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.e4.ui.model.workbench"/>
       <import plugin="org.eclipse.ui.browser"/>
+      <import plugin="javax.inject"/>
+      <import plugin="org.eclipse.osgi"/>
       <import plugin="javax.annotation"/>
+      <import plugin="ch.hilbri.assist.model"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="org.eclipse.xtend.lib.macro"/>
+      <import plugin="org.eclipse.emf.mwe2.runtime"/>
    </requires>
 
    <plugin

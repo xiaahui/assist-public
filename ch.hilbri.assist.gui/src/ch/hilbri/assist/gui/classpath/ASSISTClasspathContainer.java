@@ -27,7 +27,7 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistModelBundle), null, null);
 				
 		// Reference to Math Commons
-		Bundle assistMathBundle = Platform.getBundle("ch.hilbri.assist.libraries.math");
+		Bundle assistMathBundle = Platform.getBundle("org.apache.commons.math3");
 		cpEntries[1] = JavaCore.newLibraryEntry(getLibraryPath(assistMathBundle), null, null);
 
 		// Reference to EMF Jars

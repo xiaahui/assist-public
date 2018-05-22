@@ -11,10 +11,6 @@
       GPL
    </license>
 
-   <requires>
-      <import plugin="org.eclipse.swt" version="3.105.3" match="greaterOrEqual"/>
-   </requires>
-
    <plugin
          id="ch.hilbri.assist.libraries.jgrapht"
          download-size="0"
