@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.importer
 
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.ModelFactory
+import org.eclipse.app4mc.amalthea.model.impl.AmaltheaPackageImpl
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
@@ -26,11 +27,16 @@ public class MyXMIFactoryImpl extends XMIResourceFactoryImpl {
 class ImportAPP4MCModel {
     
     static def AssistModel createAssistModel(String filePath) {
+        
+        AmaltheaPackageImpl.init();
+                
         val reg = Resource.Factory.Registry.INSTANCE
         val m = reg.getExtensionToFactoryMap()
         m.put("amxmi", MyXMIFactoryImpl)
         val resSet = new ResourceSetImpl()
-        val resource = resSet.getResource(URI.createFileURI(filePath), true)
+        val uri = URI.createFileURI(filePath)
+        val resource = resSet.getResource(uri, true)
+        
         return createAssistModel(resource)
     }
     
