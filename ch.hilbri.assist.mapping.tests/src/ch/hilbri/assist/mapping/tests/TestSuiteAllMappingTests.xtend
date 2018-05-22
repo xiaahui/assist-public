@@ -15,6 +15,7 @@ import ch.hilbri.assist.mapping.tests.other.PropNoGoodTests
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
+import ch.hilbri.assist.mapping.tests.importer.AmaltheaImporterTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -31,7 +32,8 @@ import org.junit.runners.Suite.SuiteClasses
 		PropNoGoodTests,
 		RestrictDeploymentConstraintTests,
 		CustomPropertiesTests,
-		FeatureConstraintTests
+		FeatureConstraintTests,
+		AmaltheaImporterTests
 	]
 )
 
