@@ -6,10 +6,8 @@ Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
 Bundle-Version: 2.4.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Require-Bundle: ch.hilbri.assist.gui,
- ch.hilbri.assist.libraries.math,
  ch.hilbri.assist.libraries.logback,
  ch.hilbri.assist.libraries.choco-solver,
- ch.hilbri.assist.libraries.swtchart,
  ch.hilbri.assist.model,
  ch.hilbri.assist.mapping.dsl,
  ch.hilbri.assist.mapping.dsl.ui,
@@ -32,7 +30,9 @@ Require-Bundle: ch.hilbri.assist.gui,
  ch.hilbri.assist.scheduling.dsl.ui,
  org.eclipse.zest.core;bundle-version="1.5.300",
  org.eclipse.zest.layouts;bundle-version="1.1.300",
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.apache.commons.math3;bundle-version="3.5.0",
+ org.swtchart;bundle-version="0.10.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.analysis,
  ch.hilbri.assist.mapping.analysis.metrics.builtin,

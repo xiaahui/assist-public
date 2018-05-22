@@ -17,10 +17,8 @@
       <import plugin="ch.hilbri.assist.model"/>
       <import plugin="ch.hilbri.assist.model.edit"/>
       <import plugin="ch.hilbri.assist.model.editor"/>
-      <import plugin="ch.hilbri.assist.libraries.math"/>
       <import plugin="ch.hilbri.assist.libraries.logback"/>
       <import plugin="ch.hilbri.assist.libraries.choco-solver"/>
-      <import plugin="ch.hilbri.assist.libraries.swtchart"/>
       <import plugin="org.eclipse.xtend.lib"/>
       <import plugin="org.eclipse.e4.core.commands"/>
       <import plugin="org.eclipse.ui.ide"/>
@@ -54,9 +52,12 @@
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.compare"/>
       <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.xtext.junit4"/>
       <import plugin="org.eclipse.xtext.xbase.junit"/>
-      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.e4.core.contexts"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.apache.commons.math3" version="3.5.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
