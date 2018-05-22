@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension id="application" point="org.eclipse.core.runtime.applications">
-      <application cardinality="singleton-global" icon="icons/ASSIST-icon-64x64.png" thread="main" visible="true">
+      <application cardinality="singleton-global" thread="main" visible="true">
          <run
                class="ch.hilbri.assist.gui.Application">
          </run></application>
