@@ -56,6 +56,12 @@
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.xtend.examples.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.e4.tools.*"></activityPatternBinding> 
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.wb.*"></activityPatternBinding> 
+ 	    <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.team.ui.ProjectSetImportWizard"></activityPatternBinding> 
+ 	    <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.equinox.p2.replication.importfrominstallation"></activityPatternBinding> 
+ 	    <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.equinox.p2.replication.import"></activityPatternBinding> 
+ 	    <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.wizards.import.Preferences"></activityPatternBinding> 
+ 	    <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.wizards.import.ZipFile"></activityPatternBinding> 
+        <activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.e4.ui.importer.wizard"></activityPatternBinding> 
  	</extension>
  	
  	<extension
