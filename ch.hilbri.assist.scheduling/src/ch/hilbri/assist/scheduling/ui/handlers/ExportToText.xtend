@@ -1,6 +1,6 @@
 package ch.hilbri.assist.scheduling.ui.handlers
 
-import ch.hilbri.assist.scheduling.export.ScheduleAsText
+import ch.hilbri.assist.scheduling.exporter.ScheduleAsText
 import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor
 import java.io.FileNotFoundException
 import java.io.FileOutputStream

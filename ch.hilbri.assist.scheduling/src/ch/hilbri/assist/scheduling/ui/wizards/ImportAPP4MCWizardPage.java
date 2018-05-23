@@ -1,9 +1,5 @@
 package ch.hilbri.assist.scheduling.ui.wizards;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -18,74 +14,76 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-
 public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
-	
-	protected FileFieldEditor editor;
 
-	public ImportAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
-		super(pageName, selection);
-		setTitle(pageName); //NON-NLS-1
-		setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST scheduling specification."); //NON-NLS-1
-	}
+    protected FileFieldEditor editor;
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#createAdvancedControls(org.eclipse.swt.widgets.Composite)
-	 */	
-	protected void createAdvancedControls(Composite parent) {
-		Composite fileSelectionArea = new Composite(parent, SWT.NONE);
-		GridData fileSelectionData = new GridData(GridData.GRAB_HORIZONTAL
-				| GridData.FILL_HORIZONTAL);
-		fileSelectionArea.setLayoutData(fileSelectionData);
+    public ImportAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
+        super(pageName, selection);
+        setTitle(pageName); 
+        setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST scheduling specification."); 
+        setFileExtension("sdsl");
+    }
 
-		GridLayout fileSelectionLayout = new GridLayout();
-		fileSelectionLayout.numColumns = 3;
-		fileSelectionLayout.makeColumnsEqualWidth = false;
-		fileSelectionLayout.marginWidth = 0;
-		fileSelectionLayout.marginHeight = 0;
-		fileSelectionArea.setLayout(fileSelectionLayout);
-		
-		editor = new FileFieldEditor("fileSelect","Select File: ",fileSelectionArea); //NON-NLS-1 //NON-NLS-2
-		editor.getTextControl(fileSelectionArea).addModifyListener(new ModifyListener(){
-			public void modifyText(ModifyEvent e) {
-				IPath path = new Path(ImportAPP4MCWizardPage.this.editor.getStringValue());
-				setFileName(path.lastSegment());
-			}
-		});
-		String[] extensions = new String[] { "*.*" }; //NON-NLS-1
-		editor.setFileExtensions(extensions);
-		fileSelectionArea.moveAbove(null);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.ui.dialogs.WizardNewFileCreationPage#createAdvancedControls(org.
+     * eclipse.swt.widgets.Composite)
+     */
+    protected void createAdvancedControls(Composite parent) {
+        Composite fileSelectionArea = new Composite(parent, SWT.NONE);
+        GridData fileSelectionData = new GridData(GridData.GRAB_HORIZONTAL | GridData.FILL_HORIZONTAL);
+        fileSelectionArea.setLayoutData(fileSelectionData);
 
-	}
-	
-	 /* (non-Javadoc)
-	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#createLinkTarget()
-	 */
-	protected void createLinkTarget() {
-	}
+        GridLayout fileSelectionLayout = new GridLayout();
+        fileSelectionLayout.numColumns = 3;
+        fileSelectionLayout.makeColumnsEqualWidth = false;
+        fileSelectionLayout.marginWidth = 0;
+        fileSelectionLayout.marginHeight = 0;
+        fileSelectionArea.setLayout(fileSelectionLayout);
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#getInitialContents()
-	 */
-	protected InputStream getInitialContents() {
-		try {
-			return new FileInputStream(new File(editor.getStringValue()));
-		} catch (FileNotFoundException e) {
-			return null;
-		}
-	}
+        editor = new FileFieldEditor("fileSelect", "Select AMALTHEA File: ", fileSelectionArea);                                                                                                  
+        editor.getTextControl(fileSelectionArea).addModifyListener(new ModifyListener() {
+            public void modifyText(ModifyEvent e) {
+                IPath path = new Path(ImportAPP4MCWizardPage.this.editor.getStringValue());
+                setFileName(path.lastSegment());
+            }
+        });
+        String[] extensions = new String[] { "*.amxmi" }; // NON-NLS-1
+        editor.setFileExtensions(extensions);
+        fileSelectionArea.moveAbove(null);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#getNewFileLabel()
-	 */
-	protected String getNewFileLabel() {
-		return "New ASSIST Model:"; //NON-NLS-1
-	}
+    public String getAPP4MCModel() {
+        return editor.getStringValue();
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#validateLinkedResource()
-	 */
-	protected IStatus validateLinkedResource() {
-		return new Status(IStatus.OK, "ch.hilbri.assist.scheduling", IStatus.OK, "", null); //NON-NLS-1 //NON-NLS-2
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#createLinkTarget()
+     */
+    protected void createLinkTarget() {
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#getNewFileLabel()
+     */
+    protected String getNewFileLabel() {
+        return "New ASSIST Model:"; // NON-NLS-1
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.ui.dialogs.WizardNewFileCreationPage#validateLinkedResource()
+     */
+    protected IStatus validateLinkedResource() {
+        return new Status(IStatus.OK, "ch.hilbri.assist.scheduling", IStatus.OK, "", null); // NON-NLS-1 //NON-NLS-2
+    }
 }

@@ -20,8 +20,8 @@ public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
 
     public ImportAPP4MCWizardPage(String pageName, IStructuredSelection selection) {
         super(pageName, selection);
-        setTitle(pageName); // NON-NLS-1
-        setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST mapping specification."); // NON-NLS-1
+        setTitle(pageName); 
+        setDescription("Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST mapping specification.");
         setFileExtension("mdsl");
     }
 
@@ -43,7 +43,7 @@ public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
         fileSelectionLayout.marginHeight = 0;
         fileSelectionArea.setLayout(fileSelectionLayout);
 
-        editor = new FileFieldEditor("fileSelect", "Select File: ", fileSelectionArea); // NON-NLS-1 //NON-NLS-2
+        editor = new FileFieldEditor("fileSelect", "Select AMALTHEA File: ", fileSelectionArea); 
         editor.getTextControl(fileSelectionArea).addModifyListener(new ModifyListener() {
             public void modifyText(ModifyEvent e) {
                 IPath path = new Path(ImportAPP4MCWizardPage.this.editor.getStringValue());
@@ -53,7 +53,6 @@ public class ImportAPP4MCWizardPage extends WizardNewFileCreationPage {
         String[] extensions = new String[] { "*.amxmi" }; // NON-NLS-1
         editor.setFileExtensions(extensions);
         fileSelectionArea.moveAbove(null);
-
     }
 
     public String getAPP4MCModel() {
