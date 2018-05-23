@@ -9,6 +9,7 @@ import ch.hilbri.assist.scheduling.tests.basics.TaskSwitchingTimeTests
 import ch.hilbri.assist.scheduling.tests.basics.PeriodicityTests
 import ch.hilbri.assist.scheduling.tests.basics.TaskRelationTests
 import ch.hilbri.assist.scheduling.tests.basics.SynchronizedResourcesTests
+import ch.hilbri.assist.scheduling.tests.importer.AmaltheaImporterTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -18,7 +19,8 @@ import ch.hilbri.assist.scheduling.tests.basics.SynchronizedResourcesTests
 		TaskSwitchingTimeTests,
 		PeriodicityTests,
 		TaskRelationTests, 
-		SynchronizedResourcesTests
+		SynchronizedResourcesTests,
+		AmaltheaImporterTests
 	]
 )
 
