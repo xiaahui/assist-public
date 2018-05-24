@@ -57,6 +57,9 @@
       </children>
       <children xsi:type="menu:Menu" xmi:id="_iTjSIBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menu.help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6xfCwCj9EeiRxef0JMhTnA" elementId="ch.hilbri.assist.gui.handledmenuitem.onlinehelp" label="Online Help" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/help.gif" command="__xJasCj9EeiRxef0JMhTnA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_pPl_oF9_EeiwwrmDUEzKcA" elementId="ch.hilbri.assist.gui.menuseparator.7"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_PPwO8F9-EeiwwrmDUEzKcA" elementId="ch.hilbri.assist.gui.handledmenuitem.preferences" label="Preferences" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/settings.png" command="_WMmsUF9-EeiwwrmDUEzKcA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_p4ytoF9_EeiwwrmDUEzKcA" elementId="ch.hilbri.assist.gui.menuseparator.8"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_jubUsBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.about" label="About" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-16x16.png" command="_cE1GEBRJEeeXZoKubOdysQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_bADcIBYGEeeStdjmp5U5EA" elementId="org.eclipse.ui.run" toBeRendered="false" visible="false" label="&amp;Run"/>
@@ -125,6 +128,7 @@
   <commands xmi:id="_cE1GEBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.about" commandName="About"/>
   <commands xmi:id="__xJasCj9EeiRxef0JMhTnA" elementId="ch.hilbri.assist.gui.commands.help" commandName="Help"/>
   <commands xmi:id="_NGIFYFtfEei_3NOnIFPD1A" elementId="org.eclipse.ui.file.import" commandName="Import" category="_3K1eACuKEeeS6a68AYSGxg"/>
+  <commands xmi:id="_WMmsUF9-EeiwwrmDUEzKcA" elementId="org.eclipse.ui.window.preferences" commandName="Preferences" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <addons xmi:id="_75jaERLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_75jaEhLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_75jaExLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
