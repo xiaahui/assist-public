@@ -6,11 +6,11 @@ Bundle-SymbolicName: ch.hilbri.assist.cli;singleton:=true
 Bundle-Version: 2.4.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.cli
-Require-Bundle: ch.hilbri.assist.mapping;bundle-version="2.0.0",
- com.google.inject;bundle-version="3.0.0",
- org.apache.commons.cli;bundle-version="1.2.0",
- org.eclipse.xtext.testing;bundle-version="2.12.0",
+Require-Bundle: ch.hilbri.assist.model,
+ ch.hilbri.assist.mapping,
  ch.hilbri.assist.mapping.dsl.tests,
- ch.hilbri.assist.model;bundle-version="2.1.0"
+ com.google.inject,
+ org.apache.commons.cli,
+ org.eclipse.xtext.testing
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: ch.hilbri.assist.cli
