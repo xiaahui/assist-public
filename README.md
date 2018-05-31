@@ -18,7 +18,11 @@ Can be found [here](https://github.com/RobertHilbrich/assist-public/releases).
 
 ## Documentation
 
-Is contained in the [GitHub Wiki](https://github.com/RobertHilbrich/assist-public/wiki) for this project. 
+The documentation is contained in the [GitHub Wiki](https://github.com/RobertHilbrich/assist-public/wiki) for this project. 
+
+More background information about ASSIST and its underlying engineering approach can be obtained in this [book](https://www.springer.com/de/book/9783658111724).
+
+![Book](https://images.springer.com/sgw/books/medium/9783658111724.jpg)
 
 ## Benefits
 
