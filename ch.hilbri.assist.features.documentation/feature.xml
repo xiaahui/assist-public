@@ -2,7 +2,7 @@
 <feature
       id="ch.hilbri.assist.features.documentation"
       label="Documentation"
-      version="2.4.0.qualifier"
+      version="2.5.0.qualifier"
       provider-name="Robert Hilbrich">
 
    <description url="http://www.example.com/description">

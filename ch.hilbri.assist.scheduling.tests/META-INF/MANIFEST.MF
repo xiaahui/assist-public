@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.scheduling.tests
 Bundle-SymbolicName: ch.hilbri.assist.scheduling.tests
-Bundle-Version: 2.4.0.qualifier
+Bundle-Version: 2.5.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Require-Bundle: 
  org.junit,

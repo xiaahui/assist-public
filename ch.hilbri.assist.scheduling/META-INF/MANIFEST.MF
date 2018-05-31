@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.scheduling
 Bundle-SymbolicName: ch.hilbri.assist.scheduling;singleton:=true
-Bundle-Version: 2.4.0.qualifier
+Bundle-Version: 2.5.0.qualifier
 Require-Bundle: ch.hilbri.assist.gui,
  ch.hilbri.assist.model,
  ch.hilbri.assist.model.edit,
