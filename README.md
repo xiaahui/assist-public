@@ -10,7 +10,9 @@ The ASSIST Tool Suite is designed for system engineers and system architects of 
 
 ASSIST has been initially developed as a proof of concept for the dissertation of Robert Hilbrich. Since its availability it was successfully used within several research projects with industrial partners from the aerospace and automotive domain.
 
-![ASSIST Screenshot](ch.hilbri.assist.releng.product.gui/icons/ASSIST-Screenshot.jpg)
+![ASSIST Screenshot Mapping](.github/wiki/images/ASSIST-screenshot-big-mapping.png) 
+
+![ASSIST Screenshot Scheduling](.github/wiki/images/ASSIST-screenshot-big-scheduling.png)
 
 ## Downloads
 
