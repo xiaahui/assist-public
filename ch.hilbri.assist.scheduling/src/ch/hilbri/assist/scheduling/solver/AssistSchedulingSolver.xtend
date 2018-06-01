@@ -119,7 +119,7 @@ class AssistSchedulingSolver {
     def runConstraintGeneration() throws BasicConstraintsException {
 
         logger.info("Checking the length of the hyperperiod ...")
-        if (solverVariables.hypLength < 0 || solverVariables.hypLength > 3000)
+        if (solverVariables.hypLength < 0)
             throw new HyperPeriodLengthException(solverVariables.hypLength)
 
         logger.info("Starting to generate constraints for the choco-solver ...")
