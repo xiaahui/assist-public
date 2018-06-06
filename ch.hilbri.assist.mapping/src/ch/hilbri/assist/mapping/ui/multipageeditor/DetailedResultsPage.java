@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.ui.multipageeditor;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -25,6 +26,9 @@ public class DetailedResultsPage extends Composite {
         
         ScrolledForm mainForm = formToolkit.createScrolledForm(this);
         formToolkit.decorateFormHeading(mainForm.getForm());
+        
+        FontDescriptor fontDescriptor = FontDescriptor.createFrom(mainForm.getFont()).setStyle(SWT.BOLD).increaseHeight(2);
+        mainForm.setFont(fontDescriptor.createFont(mainForm.getDisplay()));
         mainForm.setText("Solutions:");
         
         IToolBarManager toolbarManager = mainForm.getToolBarManager();  
