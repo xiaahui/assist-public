@@ -51,12 +51,18 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		setPageText(index, "Results");
 	}
 
+	void createPage2() {
+	    int index = addPage(new DetailedResultsPage(this.getContainer(), SWT.NULL));
+	    setPageText(index, "New Results");
+	}
+	
 	/**
 	 * Creates the pages of the multi-page editor.
 	 */
 	protected void createPages() {
 		createPage0();
 		createPage1();
+		createPage2();
 
 		this.setPartName(tabEditor.getTitle());
 		this.setActivePage(0);
