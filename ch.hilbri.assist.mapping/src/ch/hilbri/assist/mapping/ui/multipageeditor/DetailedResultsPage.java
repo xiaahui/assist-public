@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -24,15 +25,47 @@ public class DetailedResultsPage extends Composite {
         
         ScrolledForm mainForm = formToolkit.createScrolledForm(this);
         formToolkit.decorateFormHeading(mainForm.getForm());
-        mainForm.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/mapping-specification.png"));
         mainForm.setText("Solutions:");
         
-        IToolBarManager toolbarManager = mainForm.getToolBarManager();   
+        IToolBarManager toolbarManager = mainForm.getToolBarManager();  
+        fillToolBar(toolbarManager);
         
         mainForm.getBody().setLayout(new GridLayout(1, false));
-
-        
-        
+    }
+    
+    
+    /**
+     * Fill the items into the toolbar
+     * 
+     * @param toolbarManager
+     */
+    private void fillToolBar(IToolBarManager toolbarManager) {
+        toolbarManager.add(new Action("<", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_prev.gif")) {
+            @Override
+            public void run() {
+            }
+        });
+        toolbarManager.add(new Action(">", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_next.gif")) {
+            @Override
+            public void run() {
+            }
+        });
+        toolbarManager.add(new Action("<<", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/first_result.png")) {
+            @Override
+            public void run() {
+            }
+        });
+        toolbarManager.add(new Action(">>", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/last_result.png")) {
+            @Override
+            public void run() {
+            }
+        });
+        toolbarManager.add(new Action("Goto", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/goto_input.png")) {
+            @Override
+            public void run() {
+            }
+        });
+        toolbarManager.update(true);
     }
 
     @Override
