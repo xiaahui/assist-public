@@ -283,6 +283,9 @@ public class DetailedResultsPage extends Composite {
             tbtmScoreview.setControl(compositeScoreview);
             compositeScoreview.setLayout(new GridLayout(1, false));
             
+            // Set the tab that should be display first
+            tabViews.setSelection(tbtmTabularView);
+            
             /* ************** SECTION: Evaluation ******************** */
             Section sctnEvaluation = formToolkit.createSection(mainForm.getBody(), Section.TWISTIE | Section.TITLE_BAR);
             sctnEvaluation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
