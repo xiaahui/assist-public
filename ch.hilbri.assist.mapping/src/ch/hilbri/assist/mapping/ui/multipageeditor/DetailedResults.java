@@ -130,9 +130,10 @@ public class DetailedResults extends Composite {
 		tabViews = new CTabFolder(this, SWT.BORDER | SWT.FLAT);
 		tabViews.setHighlightEnabled(false);
 		tabViews.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-		tabViews.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		tabViews.setSelectionBackground(
-				Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+		GridData gd_tabViews = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_tabViews.heightHint = 100;
+		tabViews.setLayoutData(gd_tabViews);
+		tabViews.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 
 		tbtmTabularView = new CTabItem(tabViews, SWT.NONE);
 		tbtmTabularView.setText("Tabular View");
