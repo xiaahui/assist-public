@@ -3,8 +3,9 @@ package ch.hilbri.assist.mapping.ui.multipageeditor;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.eclipse.jface.action.Action;
+import org.eclipse.draw2d.SWTEventDispatcher;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
@@ -44,51 +45,236 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.zest.core.viewers.GraphViewer;
+import org.eclipse.zest.layouts.LayoutStyles;
+import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
+import org.swtchart.ILineSeries;
+import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
 import org.swtchart.Range;
 
 import ch.hilbri.assist.mapping.ui.metrics.MetricTableContentProvider;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoFirstSolution;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoLastSolution;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoNextSolution;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoPreviousSolution;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoSpecificSolution;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.SortSolutionsByName;
+import ch.hilbri.assist.mapping.ui.multipageeditor.actions.SortSolutionsByScore;
 import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
 
 public class DetailedResultsPage extends Composite {
+    /* Major data elements */
+    private int curResultIndex = -1;
+    private MappingResult curResult = null;
+
+    /* Defining all UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
     private Chart scoreOverview;
     private GraphViewer architectureGraph;
     private TableViewer tblviewerResult;
     private MappingViewerFilter tableFilter = new MappingViewerFilter();
-   
-        /**
-         * Create the composite.
-         * @param parent
-         * @param style
-         */
-        public DetailedResultsPage(Composite parent, int style) {
-            super(parent, style);
-            setLayout(new FillLayout(SWT.HORIZONTAL));
-            
-            ScrolledForm mainForm = formToolkit.createScrolledForm(this);
-            formToolkit.decorateFormHeading(mainForm.getForm());
-            FontDescriptor fontDescriptor = FontDescriptor.createFrom(mainForm.getFont()).setStyle(SWT.BOLD).increaseHeight(1);
-            mainForm.setFont(fontDescriptor.createFont(mainForm.getDisplay()));
-            mainForm.setText("Mapping Results");
-            IToolBarManager toolbarManager = mainForm.getToolBarManager();  
-            fillToolBar(toolbarManager);
-            mainForm.getBody().setLayout(new GridLayout(1, false));
-    
-            // Create the section "All Solutions"
-            createSectionAllSolutions(mainForm.getBody());
-            
-            // Create the section "Current Solution"
-            createSectionCurrentSolution(mainForm.getBody());
-            
-            // Create the section "Evaluation"
-            createSectionEvaluation(mainForm.getBody());
+    private Composite compositeArchitecture;
+
+    /* Defining all actions */
+    private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution();
+    private GotoLastSolution gotoLastSolutionAction = new GotoLastSolution();
+    private GotoNextSolution gotoNextSolutionAction = new GotoNextSolution();
+    private GotoPreviousSolution gotoPreviousSolutionAction = new GotoPreviousSolution();
+    private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution();
+    private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName();
+    private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore();
+
+    /** Holds a reference to the list of results that are currently displayed */
+    private List<MappingResult> mappingResults;
+
+    /**
+     * Create the composite.
+     * 
+     * @param parent
+     * @param style
+     */
+    public DetailedResultsPage(Composite parent, int style) {
+        super(parent, style);
+        setLayout(new FillLayout(SWT.HORIZONTAL));
+
+        ScrolledForm mainForm = formToolkit.createScrolledForm(this);
+        formToolkit.decorateFormHeading(mainForm.getForm());
+        FontDescriptor fontDescriptor = FontDescriptor.createFrom(mainForm.getFont());
+        fontDescriptor.setStyle(SWT.BOLD).increaseHeight(1);
+        mainForm.setFont(fontDescriptor.createFont(mainForm.getDisplay()));
+        mainForm.setText("Mapping Results");
+
+        IToolBarManager toolbarManager = mainForm.getToolBarManager();
+        fillToolBar(toolbarManager);
+
+        mainForm.getBody().setLayout(new GridLayout(1, false));
+
+        // Create the section "All Solutions"
+        createSectionAllSolutions(mainForm.getBody());
+
+        // Create the section "Current Solution"
+        createSectionCurrentSolution(mainForm.getBody());
+
+        // Create the section "Evaluation"
+        createSectionEvaluation(mainForm.getBody());
+    }
+
+    /**
+     * Sets a new list of results to display in this view
+     * 
+     * @param list
+     */
+
+    public void setResultsList(List<MappingResult> list) {
+        clearResults();
+
+        assert (mappingResults == null);
+        mappingResults = list;
+
+        if ((mappingResults != null) && (mappingResults.size() > 0)) {
+
+            /* Update the score chart */
+            double[] xValues = new double[mappingResults.size()];
+            for (int i = 1; i <= mappingResults.size(); i++)
+                xValues[i - 1] = i;
+            List<Double> yValueList = mappingResults.stream().map(r -> r.getScaledTotalScore())
+                    .collect(Collectors.toList());
+            double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
+
+            ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
+            lineSeries.setYSeries(yValues);
+            lineSeries.setXSeries(xValues);
+            lineSeries.setSymbolSize(3);
+            lineSeries.setSymbolColor(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+            lineSeries.setLineColor(SWTResourceManager.getColor(227, 234, 243));
+            lineSeries.setLineWidth(4);
+
+            scoreOverview.getLegend().setVisible(false);
+            scoreOverview.getAxisSet().adjustRange();
+
+            // Let the y range start from 0
+            Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
+            scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
+
+            // Update the status of the actions
+            gotoSpecificSolutionAction.setEnabled(true);
+            sortSolutionsByNameAction.setEnabled(true);
+            sortSolutionsByScore.setEnabled(true);
+
+            showResult(0);
         }
-    
-    
+
+    }
+
+    /**
+     * Shows a specific result out of the mapping results in the current view
+     * 
+     * @param index
+     */
+    public void showResult(int index) {
+
+        if (index < 0)
+            index = 0;
+        if (index > mappingResults.size() - 1)
+            index = mappingResults.size() - 1;
+
+        curResultIndex = index;
+        curResult = mappingResults.get(curResultIndex);
+
+        /* Update our own text fields */
+        // FIXME: lblSolutionName.setText(curResult.getName());
+        tblviewerResult.setInput(curResult.getMappingElements());
+
+        /* Update the graph (topology view) */
+        if (architectureGraph != null)
+            architectureGraph.getControl().dispose();
+        architectureGraph = new GraphViewer(compositeArchitecture, SWT.NONE);
+
+        /* Prevents nodes from being moved with the mouse */
+        architectureGraph.getGraphControl().getLightweightSystem().setEventDispatcher(new SWTEventDispatcher() {
+            public void dispatchMouseMoved(org.eclipse.swt.events.MouseEvent me) {
+            }
+        });
+        architectureGraph.setContentProvider(new MappingResultTreeContentProvider());
+        architectureGraph.setLabelProvider(new MappingResultTreeLabelProvider());
+        architectureGraph.setInput((new MappingResultTreeNode(curResult)).getAllNodesIncludingRoot());
+        architectureGraph.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+        architectureGraph.applyLayout();
+        compositeArchitecture.layout();
+
+        /* Update the chart */
+        /* - delete the old selection */
+        if (scoreOverview.getSeriesSet().getSeries("selection") != null)
+            scoreOverview.getSeriesSet().deleteSeries("selection");
+        
+        /* - create a new selection */
+        double[] xValues = { curResultIndex + 1 };
+        double[] yValues = { curResult.getScaledTotalScore() };
+        ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "selection");
+        lineSeries.setYSeries(yValues);
+        lineSeries.setXSeries(xValues);
+        lineSeries.setSymbolSize(4);
+        lineSeries.setSymbolColor(SWTResourceManager.getColor(SWT.COLOR_RED));
+        scoreOverview.redraw();
+
+        /* Update the navigation buttons */
+        /* We have just one result */
+        if (mappingResults.size() == 1) {
+            gotoFirstSolutionAction.setEnabled(false);
+            gotoPreviousSolutionAction.setEnabled(false);
+            gotoNextSolutionAction.setEnabled(false);
+            gotoLastSolutionAction.setEnabled(false);
+        }
+        /* We are at the beginning with more than 1 result in total */
+        else if (curResultIndex == 0) {
+            gotoFirstSolutionAction.setEnabled(false);
+            gotoPreviousSolutionAction.setEnabled(false);
+            gotoNextSolutionAction.setEnabled(true);
+            gotoLastSolutionAction.setEnabled(true);
+        }
+        /* We are at the end with more than 1 result in total */
+        else if (curResultIndex == mappingResults.size() - 1) {
+            gotoFirstSolutionAction.setEnabled(true);
+            gotoPreviousSolutionAction.setEnabled(true);
+            gotoNextSolutionAction.setEnabled(false);
+            gotoLastSolutionAction.setEnabled(false);
+        }
+        /* All other cases */
+        else {
+            gotoFirstSolutionAction.setEnabled(true);
+            gotoPreviousSolutionAction.setEnabled(true);
+            gotoNextSolutionAction.setEnabled(true);
+            gotoLastSolutionAction.setEnabled(true);
+        }
+    }
+
+    /**
+     * Clears the results
+     * 
+     */
+    private void clearResults() {
+        curResultIndex = -1;
+        // FIXME: lblSolutionName.setText("-- No Solution --");
+
+        tblviewerResult.setInput(null);
+
+        // Disable all actions
+        gotoFirstSolutionAction.setEnabled(false);
+        gotoPreviousSolutionAction.setEnabled(false);
+        gotoNextSolutionAction.setEnabled(false);
+        gotoLastSolutionAction.setEnabled(false);
+        gotoSpecificSolutionAction.setEnabled(false);
+        sortSolutionsByNameAction.setEnabled(false);
+        sortSolutionsByScore.setEnabled(false);
+
+        // Delete the list of current results
+        mappingResults = null;
+    }
+
     /**
      * Creates the section "All Solutions"
      * 
@@ -111,11 +297,10 @@ public class DetailedResultsPage extends Composite {
         gl_compAllSolutions.verticalSpacing = 0;
         gl_compAllSolutions.marginWidth = 0;
         compAllSolutions.setLayout(gl_compAllSolutions);
-        
+
         createScoreChart(compAllSolutions);
     }
-    
-    
+
     /**
      * Creates the section "Current Solution"
      * 
@@ -124,7 +309,7 @@ public class DetailedResultsPage extends Composite {
         Section sctnCurrentSolution = formToolkit.createSection(parent, Section.TITLE_BAR);
         sctnCurrentSolution.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
         formToolkit.paintBordersFor(sctnCurrentSolution);
-        sctnCurrentSolution.setText("Current Solution");   
+        sctnCurrentSolution.setText("Current Solution");
         Composite compCurrentSolution = formToolkit.createComposite(sctnCurrentSolution, SWT.NONE);
         formToolkit.paintBordersFor(compCurrentSolution);
         sctnCurrentSolution.setClient(compCurrentSolution);
@@ -135,14 +320,15 @@ public class DetailedResultsPage extends Composite {
         gl_compCurrentSolution.verticalSpacing = 0;
         gl_compCurrentSolution.marginWidth = 0;
         compCurrentSolution.setLayout(gl_compCurrentSolution);
-        
+
         CTabFolder tabViews = new CTabFolder(compCurrentSolution, SWT.BORDER | SWT.FLAT);
         tabViews.setHighlightEnabled(false);
         tabViews.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         GridData gd_tabViews = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
         gd_tabViews.heightHint = 100;
         tabViews.setLayoutData(gd_tabViews);
-        tabViews.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+        tabViews.setSelectionBackground(
+                Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 
         // Tab "Tabular View"
         CTabItem tbtmTabularView = new CTabItem(tabViews, SWT.NONE);
@@ -282,7 +468,7 @@ public class DetailedResultsPage extends Composite {
         tbtmTopologyview.setControl(compositeTopologyView);
         compositeTopologyView.setLayout(new GridLayout(1, false));
 
-        Composite compositeArchitecture = new Composite(compositeTopologyView, SWT.NONE);
+        compositeArchitecture = new Composite(compositeTopologyView, SWT.NONE);
         compositeArchitecture.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
         compositeArchitecture.setSize(4, 165);
         compositeArchitecture.addControlListener(new ControlAdapter() {
@@ -296,7 +482,7 @@ public class DetailedResultsPage extends Composite {
         });
         compositeArchitecture.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         compositeArchitecture.setLayout(new FillLayout(SWT.HORIZONTAL));
-        
+
         // Tab "Scores"
         CTabItem tbtmScoreview = new CTabItem(tabViews, SWT.NONE);
         tbtmScoreview.setText("Score Details");
@@ -305,10 +491,12 @@ public class DetailedResultsPage extends Composite {
         tbtmScoreview.setControl(compositeScoreview);
         FillLayout fl_compositeScoreview = new FillLayout(SWT.HORIZONTAL);
         compositeScoreview.setLayout(fl_compositeScoreview);
-        
-        TableViewer tblViewerResultMetrics = new TableViewer(compositeScoreview, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
+
+        TableViewer tblViewerResultMetrics = new TableViewer(compositeScoreview,
+                SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
         tblViewerResultMetrics.setContentProvider(ArrayContentProvider.getInstance());
-//      tblViewerResultMetrics.setLabelProvider(new MetricScoresTableLabelProvider());
+        // tblViewerResultMetrics.setLabelProvider(new
+        // MetricScoresTableLabelProvider());
 
         Table tblResultMetrics = tblViewerResultMetrics.getTable();
         tblResultMetrics.setLinesVisible(true);
@@ -319,7 +507,7 @@ public class DetailedResultsPage extends Composite {
         TableColumn tblclmnMetricName = scoresColumn1.getColumn();
         tblclmnMetricName.setWidth(125);
         tblclmnMetricName.setText("Name");
-        
+
         TableViewerColumn scoresColumn2 = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
         TableColumn tblclmnScorescaled = scoresColumn2.getColumn();
         tblclmnScorescaled.setWidth(80);
@@ -329,12 +517,11 @@ public class DetailedResultsPage extends Composite {
         TableColumn tblclmnScore = scoresColumn3.getColumn();
         tblclmnScore.setWidth(80);
         tblclmnScore.setText("Score (abs.)");
-        
-        
+
         // Set the tab that should be display first
         tabViews.setSelection(tbtmTabularView);
     }
-    
+
     private void createSectionEvaluation(Composite parent) {
         Section sctnEvaluation = formToolkit.createSection(parent, Section.TWISTIE | Section.TITLE_BAR);
         sctnEvaluation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
@@ -396,20 +583,22 @@ public class DetailedResultsPage extends Composite {
                 // Create a new metrics instance
                 // we need to do this since we do not know the specific
                 // class of the abstract metric - could be custom!
-//                List<AbstractMetric> availMetrics = currentEditor.getAvailableMetricsList();
-//                Class<? extends AbstractMetric> metricClass = availMetrics.get(selectedMetricIndex).getClass();
-//                Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
+                // List<AbstractMetric> availMetrics = currentEditor.getAvailableMetricsList();
+                // Class<? extends AbstractMetric> metricClass =
+                // availMetrics.get(selectedMetricIndex).getClass();
+                // Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
 
                 try {
                     // Create a new instance
-//                    AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
-//                    newMetricObject.setWeight(selectedWeight);
+                    // AbstractMetric newMetricObject = (AbstractMetric)
+                    // metricClassConstructor.newInstance();
+                    // newMetricObject.setWeight(selectedWeight);
 
                     // Add new entry to data
-//                    currentEditor.getSelectedMetricsList().add(newMetricObject);
+                    // currentEditor.getSelectedMetricsList().add(newMetricObject);
 
                     // Add input to table
-//                    tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
+                    // tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -420,8 +609,7 @@ public class DetailedResultsPage extends Composite {
                 cbxWeight.deselectAll();
             }
         });
-        
-        
+
         Button btnEvaluateResults = new Button(compEvaluation, SWT.NONE);
         btnEvaluateResults.setEnabled(false);
         btnEvaluateResults.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -436,25 +624,24 @@ public class DetailedResultsPage extends Composite {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-//                if (currentEditor != null && currentEditor.getMappingResultsCount() > 0) {
-//                    ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(
-//                            currentEditor.getSite().getShell());
-//                    try {
-//                        progressDialog.run(true, false, new EvaluateJob(currentEditor));
-//                    } catch (InvocationTargetException | InterruptedException e1) {
-//                        e1.printStackTrace();
-//                    }
-//                }
-//
-//                else {
-//                    MessageDialog dlg = new MessageDialog(null, "No results found", null,
-//                            "No results were found for analysis. Please generate valid deployments.",
-//                            MessageDialog.INFORMATION, new String[] { "OK" }, 0);
-//                    dlg.open();
-//                }
+                // if (currentEditor != null && currentEditor.getMappingResultsCount() > 0) {
+                // ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(
+                // currentEditor.getSite().getShell());
+                // try {
+                // progressDialog.run(true, false, new EvaluateJob(currentEditor));
+                // } catch (InvocationTargetException | InterruptedException e1) {
+                // e1.printStackTrace();
+                // }
+                // }
+                //
+                // else {
+                // MessageDialog dlg = new MessageDialog(null, "No results found", null,
+                // "No results were found for analysis. Please generate valid deployments.",
+                // MessageDialog.INFORMATION, new String[] { "OK" }, 0);
+                // dlg.open();
+                // }
             }
         });
-        
 
         Button btnReloadMetrics = new Button(compEvaluation, SWT.NONE);
         btnReloadMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -469,93 +656,97 @@ public class DetailedResultsPage extends Composite {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-//                if (currentEditor == null) {
-//                    MessageDialog dlg = new MessageDialog(null, "Current editor contains no mapping specification",
-//                            null,
-//                            "The current editor window does not contain a mapping specification. "
-//                                    + "Please open or select an editor tab with a mapping specification. "
-//                                    + "New custom metrics will be added to the currently active editor only.",
-//                            MessageDialog.INFORMATION, new String[] { "OK" }, 0);
-//                    dlg.open();
-//                    return;
-//                }
+                // if (currentEditor == null) {
+                // MessageDialog dlg = new MessageDialog(null, "Current editor contains no
+                // mapping specification",
+                // null,
+                // "The current editor window does not contain a mapping specification. "
+                // + "Please open or select an editor tab with a mapping specification. "
+                // + "New custom metrics will be added to the currently active editor only.",
+                // MessageDialog.INFORMATION, new String[] { "OK" }, 0);
+                // dlg.open();
+                // return;
+                // }
 
                 // This will hold our new metrics
                 List<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
 
                 // Determine the location where we have to look for new metrics
-//                IFileEditorInput input = (IFileEditorInput) currentEditor.getEditorInput();
-//                IProject activeProject = input.getFile().getProject();
-//                IPath activeProjectPath = activeProject.getLocation();
-//                IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
-//
-//                // Triggering a build for this project
-//                try {
-//                    activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);
-//                } catch (CoreException e2) {
-//                    // ConsoleCommands.writeErrorLineToConsole("Build error");
-//                    return;
-//                }
+                // IFileEditorInput input = (IFileEditorInput) currentEditor.getEditorInput();
+                // IProject activeProject = input.getFile().getProject();
+                // IPath activeProjectPath = activeProject.getLocation();
+                // IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
+                //
+                // // Triggering a build for this project
+                // try {
+                // activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);
+                // } catch (CoreException e2) {
+                // // ConsoleCommands.writeErrorLineToConsole("Build error");
+                // return;
+                // }
 
                 // Asking the user which metric is to be imported and preselect
                 // all entries
-//                ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(),
-//                        metricsPath.append("metrics"), new CompiledMetricsProvider(), new LabelProvider(),
-//                        "Select the metrics which you want to import:");
-//                dialog.setTitle("Metric selection");
-//                dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
-//                if (dialog.open() != Window.OK)
-//                    return;
+                // ListSelectionDialog dialog = new
+                // ListSelectionDialog(currentEditor.getSite().getShell(),
+                // metricsPath.append("metrics"), new CompiledMetricsProvider(), new
+                // LabelProvider(),
+                // "Select the metrics which you want to import:");
+                // dialog.setTitle("Metric selection");
+                // dialog.setInitialSelections((new
+                // CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
+                // if (dialog.open() != Window.OK)
+                // return;
 
                 // Clear old custom metrics in the currentModel
-//                List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
-//                for (AbstractMetric m : currentEditor.getAvailableMetricsList())
-//                    if (!m.isBuiltIn())
-//                        removalList.add(m);
-//                currentEditor.getAvailableMetricsList().removeAll(removalList);
-//
-//                try {
-//
-//                    // Create the classloader for our new metrics
-//                    URL url = new URL("file://" + metricsPath.toPortableString());
-//                    URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] { url },
-//                            getClass().getClassLoader());
-//
-//                    for (Object obj : dialog.getResult()) {
-//                        // Get the class name
-//                        String className = (String) obj;
-//
-//                        // Get the new class
-//                        Class<? extends AbstractMetricImpl> metricClass = Class
-//                                .forName("metrics." + className, true, classLoader)
-//                                .asSubclass(AbstractMetricImpl.class);
-//                        classLoader.close();
-//
-//                        // Create a new instance of this metric
-//                        AbstractMetric metric = metricClass.getDeclaredConstructor().newInstance();
-//
-//                        // Add the newly created metric to the temporary list of
-//                        // found metrics
-//                        newCustomMetrics.add(metric);
-//                    }
-//
-//                    // Add the new metrics
-//                    currentEditor.getAvailableMetricsList().addAll(newCustomMetrics);
-//
-//                } catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException
-//                        | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-//                        | SecurityException e1) {
-//                    e1.printStackTrace();
-//                }
+                // List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
+                // for (AbstractMetric m : currentEditor.getAvailableMetricsList())
+                // if (!m.isBuiltIn())
+                // removalList.add(m);
+                // currentEditor.getAvailableMetricsList().removeAll(removalList);
+                //
+                // try {
+                //
+                // // Create the classloader for our new metrics
+                // URL url = new URL("file://" + metricsPath.toPortableString());
+                // URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] { url },
+                // getClass().getClassLoader());
+                //
+                // for (Object obj : dialog.getResult()) {
+                // // Get the class name
+                // String className = (String) obj;
+                //
+                // // Get the new class
+                // Class<? extends AbstractMetricImpl> metricClass = Class
+                // .forName("metrics." + className, true, classLoader)
+                // .asSubclass(AbstractMetricImpl.class);
+                // classLoader.close();
+                //
+                // // Create a new instance of this metric
+                // AbstractMetric metric = metricClass.getDeclaredConstructor().newInstance();
+                //
+                // // Add the newly created metric to the temporary list of
+                // // found metrics
+                // newCustomMetrics.add(metric);
+                // }
+                //
+                // // Add the new metrics
+                // currentEditor.getAvailableMetricsList().addAll(newCustomMetrics);
+                //
+                // } catch (ClassNotFoundException | IOException | InstantiationException |
+                // IllegalAccessException
+                // | IllegalArgumentException | InvocationTargetException |
+                // NoSuchMethodException
+                // | SecurityException e1) {
+                // e1.printStackTrace();
+                // }
 
                 // Refresh UI with updated data from the UI model
-//                refreshEntries(currentEditor);
+                // refreshEntries(currentEditor);
                 // restoreTableFromCurrentModel();
                 // fillComboBoxWithAvailableMetrics();
             }
         });
-
-
 
         Label lblOverflow = new Label(compEvaluation, SWT.NONE);
         lblOverflow.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
@@ -582,45 +773,51 @@ public class DetailedResultsPage extends Composite {
         tblSelectedMetrics.setLinesVisible(true);
 
         TableViewerColumn tableViewerMetricsColumn = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-//        tableViewerMetricsColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        // tableViewerMetricsColumn.setLabelProvider(new
+        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnIndex = tableViewerMetricsColumn.getColumn();
         tcl_composite.setColumnData(tblclmnIndex, new ColumnPixelData(60, true, true));
         tblclmnIndex.setText("Index");
 
         TableViewerColumn tableViewerMetricsColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-//        tableViewerMetricsColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        // tableViewerMetricsColumn_1.setLabelProvider(new
+        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnMetric = tableViewerMetricsColumn_1.getColumn();
         tcl_composite.setColumnData(tblclmnMetric, new ColumnPixelData(260, true, true));
         tblclmnMetric.setText("Metric");
 
         TableViewerColumn tableViewerMetricsColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-//        tableViewerMetricsColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        // tableViewerMetricsColumn_2.setLabelProvider(new
+        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnType = tableViewerMetricsColumn_2.getColumn();
         tcl_composite.setColumnData(tblclmnType, new ColumnPixelData(90, true, true));
         tblclmnType.setText("Type");
 
         TableViewerColumn tableViewerMetricsColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-//        tableViewerMetricsColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        // tableViewerMetricsColumn_3.setLabelProvider(new
+        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnWeight = tableViewerMetricsColumn_3.getColumn();
         tcl_composite.setColumnData(tblclmnWeight, new ColumnPixelData(60, true, true));
         tblclmnWeight.setText("Weight");
 
         TableViewerColumn tableViewerMetricsColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-//        tableViewerMetricsColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        // tableViewerMetricsColumn_4.setLabelProvider(new
+        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnRemove = tableViewerMetricsColumn_4.getColumn();
         tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
         tblclmnRemove.setText("Remove");
         tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
 
-//        // We could have been created lazyly - so we should try to find out
-//        // about the current editor
-//        refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
+        // // We could have been created lazyly - so we should try to find out
+        // // about the current editor
+        // refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
     }
-    
+
     /**
      * Creates the score chart
      * 
-     * @param composite parent composite
+     * @param composite
+     *            parent composite
      */
     private void createScoreChart(Composite composite) {
         scoreOverview = new Chart(composite, SWT.NONE);
@@ -629,20 +826,20 @@ public class DetailedResultsPage extends Composite {
         scoreOverview.setLayoutData(gd_scoreOverview);
         scoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
         scoreOverview.getTitle().setVisible(false);
-        
+
         IAxis xaxes = scoreOverview.getAxisSet().getXAxes()[0];
         IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
-        
+
         scoreOverview.getAxisSet().adjustRange();
         xaxes.setRange(new Range(0, 10));
-        
+
         xaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
         xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
         xaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
         xaxes.getGrid().setStyle(LineStyle.NONE);
         xaxes.getTitle().setText("Solutions");
         xaxes.getTick().setFormat(new DecimalFormat("#"));
-        
+
         yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
         yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
         yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -651,61 +848,41 @@ public class DetailedResultsPage extends Composite {
         yaxes.getTick().setTickMarkStepHint(30);
 
         Display display = composite.getDisplay();
-        Font smallFont = FontDescriptor.createFrom(xaxes.getTick().getFont()).setStyle(SWT.BOLD).increaseHeight(-1).createFont(display);
+        Font smallFont = FontDescriptor.createFrom(xaxes.getTick().getFont()).setStyle(SWT.BOLD).increaseHeight(-1)
+                .createFont(display);
         Font xsmallFont = FontDescriptor.createFrom(xaxes.getTick().getFont()).increaseHeight(-2).createFont(display);
-        
+
         xaxes.getTitle().setFont(smallFont);
         yaxes.getTitle().setFont(smallFont);
         xaxes.getTick().setFont(xsmallFont);
         yaxes.getTick().setFont(smallFont);
     }
-    
+
     /**
      * Fill the items into the toolbar
      * 
      * @param toolbarManager
      */
     private void fillToolBar(IToolBarManager toolbarManager) {
-        toolbarManager.add(new Action("Previous Solution", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_prev.gif")) {
-            @Override
-            public void run() {
-            }
-        });
-        toolbarManager.add(new Action("Next Solution", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_next.gif")) {
-            @Override
-            public void run() {
-            }
-        });
-        toolbarManager.add(new Action("First Solution", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/first_result.png")) {
-            @Override
-            public void run() {
-            }
-        });
-        toolbarManager.add(new Action("Last Solution", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/last_result.png")) {
-            @Override
-            public void run() {
-            }
-        });
-        toolbarManager.add(new Action("Goto Solution", ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/goto_input.png")) {
-            @Override
-            public void run() {
-            }
-        });
+        toolbarManager.add(gotoPreviousSolutionAction);
+        toolbarManager.add(gotoNextSolutionAction);
+        toolbarManager.add(gotoFirstSolutionAction);
+        toolbarManager.add(gotoLastSolutionAction);
+        toolbarManager.add(gotoSpecificSolutionAction);
         toolbarManager.update(true);
     }
 
     private void removeEntryFromTable(AbstractMetric entry) {
-            // Remove the entry (and the delete button)
-    //        currentEditor.getSelectedMetricsList().remove(entry);
-    //        lblProvider.clearButton(entry);
-    
-            // Update the viewer with the new data
-    //        tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
-    
-            // Update the UI model
-            // saveTableToCurrentModel();
-        }
+        // Remove the entry (and the delete button)
+        // currentEditor.getSelectedMetricsList().remove(entry);
+        // lblProvider.clearButton(entry);
 
+        // Update the viewer with the new data
+        // tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
+
+        // Update the UI model
+        // saveTableToCurrentModel();
+    }
 
     @Override
     protected void checkSubclass() {

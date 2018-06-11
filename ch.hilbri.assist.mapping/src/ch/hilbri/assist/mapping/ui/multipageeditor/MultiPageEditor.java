@@ -23,6 +23,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	/** The text editor used in page 0. */
 	private XtextEditor tabEditor;
 	private DetailedResults tabResults;
+	private DetailedResultsPage tabDetailedResults;
 	
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
@@ -52,7 +53,8 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	}
 
 	void createPage2() {
-	    int index = addPage(new DetailedResultsPage(this.getContainer(), SWT.NULL));
+	    tabDetailedResults = new DetailedResultsPage(this.getContainer(), SWT.NULL);
+	    int index = addPage(tabDetailedResults);
 	    setPageText(index, "New Results");
 	}
 	
@@ -111,6 +113,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	
 	public void setMappingResultsList(List<MappingResult> l) {
 		tabResults.setResultsList(l);
+		tabDetailedResults.setResultsList(l);
 	}
 
 	public List<MappingResult> getMappingResultsList() {
