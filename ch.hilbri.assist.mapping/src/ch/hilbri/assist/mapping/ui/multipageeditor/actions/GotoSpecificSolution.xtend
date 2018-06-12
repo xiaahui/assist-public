@@ -1,16 +1,23 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import org.eclipse.jface.action.Action
-import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
+import ch.hilbri.assist.mapping.ui.multipageeditor.GotoSolutionDialog
+import org.eclipse.jface.window.Window
 
-class GotoSpecificSolution extends Action {
+/**
+ * Goes to a specific result - a dialog is opened to ask the user about the number of
+ * the desired solution
+ */
+class GotoSpecificSolution extends AbstractResultsPageAction {
 
-     new() {
-        super("Goto Solution",
-            ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/goto_input.png"))
+    new(DetailedResultsPage resultsView) {
+        super(resultsView, "Goto Solution", "icons/goto_input.png")
     }
 
     override run() {
-        
+        val dlg = new GotoSolutionDialog(resultsView.display.activeShell, resultsView.curResultIndex + 1)
+        if (dlg.open() == Window.OK)
+            resultsView.showResult(dlg.getGotoSolutionIdx)
+
     }
 }

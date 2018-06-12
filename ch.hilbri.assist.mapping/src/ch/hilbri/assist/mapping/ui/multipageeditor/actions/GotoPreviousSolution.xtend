@@ -1,16 +1,19 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import org.eclipse.jface.action.Action
-import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
 
-class GotoPreviousSolution extends Action {
-    new() {
-        super("Previous Solution",
-            ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_prev.gif"))
+/**
+ * Goes to the previous result in the view - if there are any results
+ */
+class GotoPreviousSolution extends AbstractResultsPageAction {
+
+    new(DetailedResultsPage resultsView) {
+        super(resultsView, "Previous Solution", "icons/result_prev.gif")
     }
 
     override run() {
-        
+        if (resultsView.curResultIndex > 0)
+            resultsView.showResult(resultsView.curResultIndex - 1)
     }
 
 }

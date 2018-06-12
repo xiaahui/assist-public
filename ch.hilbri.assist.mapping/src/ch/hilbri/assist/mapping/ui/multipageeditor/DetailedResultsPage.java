@@ -70,7 +70,8 @@ public class DetailedResultsPage extends Composite {
     /* Major data elements */
     private int curResultIndex = -1;
     private MappingResult curResult = null;
-
+    private List<MappingResult> mappingResults;
+    
     /* Defining all UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
     private Chart scoreOverview;
@@ -80,16 +81,15 @@ public class DetailedResultsPage extends Composite {
     private Composite compositeArchitecture;
 
     /* Defining all actions */
-    private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution();
-    private GotoLastSolution gotoLastSolutionAction = new GotoLastSolution();
-    private GotoNextSolution gotoNextSolutionAction = new GotoNextSolution();
-    private GotoPreviousSolution gotoPreviousSolutionAction = new GotoPreviousSolution();
-    private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution();
-    private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName();
-    private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore();
+    private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution(this);
+    private GotoLastSolution gotoLastSolutionAction = new GotoLastSolution(this);
+    private GotoNextSolution gotoNextSolutionAction = new GotoNextSolution(this);
+    private GotoPreviousSolution gotoPreviousSolutionAction = new GotoPreviousSolution(this);
+    private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution(this);
+    private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName(this);
+    private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore(this);
 
-    /** Holds a reference to the list of results that are currently displayed */
-    private List<MappingResult> mappingResults;
+
 
     /**
      * Create the composite.
@@ -882,6 +882,18 @@ public class DetailedResultsPage extends Composite {
 
         // Update the UI model
         // saveTableToCurrentModel();
+    }
+
+    public int getCurResultIndex() {
+        return curResultIndex;
+    }
+
+    public MappingResult getCurResult() {
+        return curResult;
+    }
+
+    public List<MappingResult> getMappingResults() {
+        return mappingResults;
     }
 
     @Override

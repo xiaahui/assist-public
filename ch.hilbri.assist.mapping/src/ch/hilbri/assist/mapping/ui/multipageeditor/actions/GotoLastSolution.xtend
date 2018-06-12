@@ -1,15 +1,17 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import org.eclipse.jface.action.Action
-import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
 
-class GotoLastSolution extends Action {
-     new() {
-        super("Last Solution",
-            ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/last_result.png"))
+/**
+ * Goes to the last solution of the available data set
+ */
+class GotoLastSolution extends AbstractResultsPageAction {
+
+    new(DetailedResultsPage resultsView) {
+        super(resultsView, "Last Solution", "icons/last_result.png")
     }
 
     override run() {
-        
+        resultsView.showResult(resultsView.mappingResults.size - 1)
     }
 }

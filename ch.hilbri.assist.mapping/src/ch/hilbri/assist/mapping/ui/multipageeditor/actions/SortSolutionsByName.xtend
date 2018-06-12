@@ -1,15 +1,13 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import org.eclipse.jface.action.Action
-import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
 
-class SortSolutionsByName extends Action {
-     new() {
-        super("Sort Solutions by Name",
-            ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/results_sort_id.png"))
+class SortSolutionsByName extends AbstractResultsPageAction {
+    
+    new(DetailedResultsPage resultsView) {
+        super(resultsView, "Sort Solutions by Name", "icons/results_sort_id.png")
     }
 
     override run() {
-        
     }
 }

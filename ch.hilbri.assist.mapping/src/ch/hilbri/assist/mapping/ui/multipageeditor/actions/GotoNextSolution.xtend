@@ -1,15 +1,17 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import org.eclipse.jface.action.Action
-import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
 
-class GotoNextSolution extends Action {
-     new() {
-        super("Next Solution",
-            ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", "icons/result_next.gif"))
+/**
+ * Goes to the next solution
+ */
+class GotoNextSolution extends AbstractResultsPageAction {
+    new(DetailedResultsPage resultsView) {
+        super(resultsView, "Next Solution", "icons/result_next.gif")
     }
 
     override run() {
-        
+        if ((resultsView.curResultIndex + 1) < resultsView.mappingResults.size)
+            resultsView.showResult(resultsView.curResultIndex + 1)
     }
 }
