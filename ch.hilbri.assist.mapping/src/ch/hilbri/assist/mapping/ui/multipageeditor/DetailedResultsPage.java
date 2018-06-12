@@ -72,7 +72,7 @@ public class DetailedResultsPage extends Composite {
     private MappingResult curResult = null;
     private List<MappingResult> mappingResults;
     
-    /* Defining all UI elements */
+    /* Declaring all relevant UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
     private Chart scoreOverview;
     private GraphViewer architectureGraph;
@@ -80,7 +80,7 @@ public class DetailedResultsPage extends Composite {
     private MappingViewerFilter tableFilter = new MappingViewerFilter();
     private Composite compositeArchitecture;
 
-    /* Defining all actions */
+    /* Declaring all actions */
     private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution(this);
     private GotoLastSolution gotoLastSolutionAction = new GotoLastSolution(this);
     private GotoNextSolution gotoNextSolutionAction = new GotoNextSolution(this);
@@ -88,8 +88,6 @@ public class DetailedResultsPage extends Composite {
     private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution(this);
     private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName(this);
     private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore(this);
-
-
 
     /**
      * Create the composite.
@@ -130,9 +128,11 @@ public class DetailedResultsPage extends Composite {
      */
 
     public void setResultsList(List<MappingResult> list) {
+        /* Clear the old data */
         clearResults();
-
         assert (mappingResults == null);
+
+        /* Store the new data */
         mappingResults = list;
 
         if ((mappingResults != null) && (mappingResults.size() > 0)) {
@@ -165,6 +165,7 @@ public class DetailedResultsPage extends Composite {
             sortSolutionsByNameAction.setEnabled(true);
             sortSolutionsByScore.setEnabled(true);
 
+            // Go to the first result
             showResult(0);
         }
 
@@ -177,6 +178,7 @@ public class DetailedResultsPage extends Composite {
      */
     public void showResult(int index) {
 
+        // Check if the parameter is within the expected bounds
         if (index < 0)
             index = 0;
         if (index > mappingResults.size() - 1)
