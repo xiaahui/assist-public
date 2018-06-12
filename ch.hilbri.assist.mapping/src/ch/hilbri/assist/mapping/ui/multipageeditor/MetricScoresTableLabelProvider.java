@@ -1,10 +1,10 @@
-package ch.hilbri.assist.mapping.ui.infosheet;
+package ch.hilbri.assist.mapping.ui.multipageeditor;
 
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-class MetricScoresTableLabelProvider extends LabelProvider implements ITableLabelProvider {
+public class MetricScoresTableLabelProvider extends LabelProvider implements ITableLabelProvider {
 	public Image getColumnImage(Object element, int columnIndex) {
 		return null;
 	}

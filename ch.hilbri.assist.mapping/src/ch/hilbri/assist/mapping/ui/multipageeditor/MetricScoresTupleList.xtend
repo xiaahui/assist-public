@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.infosheet
+package ch.hilbri.assist.mapping.ui.multipageeditor
 
 import ch.hilbri.assist.model.AbstractMetric
 import java.util.ArrayList

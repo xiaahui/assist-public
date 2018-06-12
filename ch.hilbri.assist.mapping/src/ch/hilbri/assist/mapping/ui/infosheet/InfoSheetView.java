@@ -24,7 +24,9 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 
+import ch.hilbri.assist.mapping.ui.multipageeditor.MetricScoresTupleList;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.mapping.ui.multipageeditor.MetricScoresTableLabelProvider;
 import ch.hilbri.assist.model.MappingResult;
 
 /* Needs to implement IPartListener2 to get notified, if the active editor changes */

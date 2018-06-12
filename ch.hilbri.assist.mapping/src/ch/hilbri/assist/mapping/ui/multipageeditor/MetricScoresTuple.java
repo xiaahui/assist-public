@@ -1,7 +1,14 @@
-package ch.hilbri.assist.mapping.ui.infosheet;
+package ch.hilbri.assist.mapping.ui.multipageeditor;
 
 import ch.hilbri.assist.model.AbstractMetric;
 
+/**
+ * This class represents a single entry in the list of metrics that
+ * have been used to evaluate a single result
+ * 
+ * @author hilb_ro
+ *
+ */
 public class MetricScoresTuple {
 	private AbstractMetric metric;
 	private Double absoluteScore;

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.draw2d.SWTEventDispatcher;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
@@ -71,7 +72,7 @@ public class DetailedResultsPage extends Composite {
     private int curResultIndex = -1;
     private MappingResult curResult = null;
     private List<MappingResult> mappingResults;
-    
+
     /* Declaring all relevant UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
     private Chart scoreOverview;
@@ -79,6 +80,7 @@ public class DetailedResultsPage extends Composite {
     private TableViewer tblviewerResult;
     private MappingViewerFilter tableFilter = new MappingViewerFilter();
     private Composite compositeArchitecture;
+    private TableViewer tblViewerResultMetrics;
 
     /* Declaring all actions */
     private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution(this);
@@ -212,7 +214,7 @@ public class DetailedResultsPage extends Composite {
         /* - delete the old selection */
         if (scoreOverview.getSeriesSet().getSeries("selection") != null)
             scoreOverview.getSeriesSet().deleteSeries("selection");
-        
+
         /* - create a new selection */
         double[] xValues = { curResultIndex + 1 };
         double[] yValues = { curResult.getScaledTotalScore() };
@@ -252,6 +254,20 @@ public class DetailedResultsPage extends Composite {
             gotoNextSolutionAction.setEnabled(true);
             gotoLastSolutionAction.setEnabled(true);
         }
+
+        /* FIXME: Update the properties of the solution */
+
+        // lblName.setText(result.getName());
+        // lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
+        // lblScaledScore.setText(String.format("%.3f", result.getScaledTotalScore()));
+        // lblAbsoluteScore.setText(String.format("%.3f",
+        // result.getAbsoluteTotalScore()));
+        // lblSpecification.setText(currentEditor.getTitle());
+        // lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
+
+        EMap<AbstractMetric, Double> absScores = curResult.getMetricAbsoluteScoresMap();
+        EMap<AbstractMetric, Double> scaledScores = curResult.getMetricScaledScoresMap();
+        tblViewerResultMetrics.setInput(new MetricScoresTupleList(absScores, scaledScores));
     }
 
     /**
@@ -494,12 +510,8 @@ public class DetailedResultsPage extends Composite {
         FillLayout fl_compositeScoreview = new FillLayout(SWT.HORIZONTAL);
         compositeScoreview.setLayout(fl_compositeScoreview);
 
-        TableViewer tblViewerResultMetrics = new TableViewer(compositeScoreview,
-                SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
+        tblViewerResultMetrics = new TableViewer(compositeScoreview, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
         tblViewerResultMetrics.setContentProvider(ArrayContentProvider.getInstance());
-        // tblViewerResultMetrics.setLabelProvider(new
-        // MetricScoresTableLabelProvider());
-
         Table tblResultMetrics = tblViewerResultMetrics.getTable();
         tblResultMetrics.setLinesVisible(true);
         tblResultMetrics.setHeaderVisible(true);
@@ -520,6 +532,8 @@ public class DetailedResultsPage extends Composite {
         tblclmnScore.setWidth(80);
         tblclmnScore.setText("Score (abs.)");
 
+        tblViewerResultMetrics.setLabelProvider(new MetricScoresTableLabelProvider());
+        
         // Set the tab that should be display first
         tabViews.setSelection(tbtmTabularView);
     }

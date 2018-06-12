@@ -3,7 +3,6 @@ package ch.hilbri.assist.mapping.ui.multipageeditor;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
@@ -70,12 +69,12 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 				btnRemove.addSelectionListener(new SelectionListener() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
-						MessageDialog metricRemoveDialog = new MessageDialog(
-								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
-								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
-						
-						if (metricRemoveDialog.open() == 0) 
-							metricsView.removeEntryFromTable(metricTableEntry);
+//						MessageDialog metricRemoveDialog = new MessageDialog(
+//								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
+//								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
+//						
+//FIXME 				if (metricRemoveDialog.open() == 0) 
+//							metricsView.removeEntryFromTable(metricTableEntry);
 						
 					}
 
