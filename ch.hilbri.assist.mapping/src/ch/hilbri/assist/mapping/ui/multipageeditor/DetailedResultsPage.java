@@ -1,21 +1,34 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.draw2d.SWTEventDispatcher;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnPixelData;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -40,6 +53,9 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
@@ -55,7 +71,10 @@ import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
 import org.swtchart.Range;
 
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableContentProvider;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinOrganizationsPerBoard;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoFirstSolution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoLastSolution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoNextSolution;
@@ -66,12 +85,15 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.actions.SortSolutionsByScore;
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.impl.AbstractMetricImpl;
 
 public class DetailedResultsPage extends Composite {
     /* Major data elements */
     private int curResultIndex = -1;
     private MappingResult curResult = null;
     private List<MappingResult> mappingResults;
+    private List<AbstractMetric> selectedMetricsList = new ArrayList<AbstractMetric>();
+    private List<AbstractMetric> availableMetricsList = new ArrayList<AbstractMetric>();
 
     /* Declaring all relevant UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
@@ -90,12 +112,15 @@ public class DetailedResultsPage extends Composite {
     private GotoPreviousSolution gotoPreviousSolutionAction = new GotoPreviousSolution(this);
     private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution(this);
     private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName(this);
-    private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore(this);
+    private SortSolutionsByScore sortSolutionsByScoreAction = new SortSolutionsByScore(this);
     private Label lblComplete;
     private Label lblAssignments;
     private Label lblTotalScoreScaled;
     private Label lblTaskCount;
     private Composite compositeSolutionProperties;
+    private TableViewer tblSelectedMetricsViewer;
+    private Combo cbxAvailableMetrics;
+    private Button btnEvaluateResults;
 
     /**
      * Create the composite.
@@ -130,6 +155,14 @@ public class DetailedResultsPage extends Composite {
 
         // Update the current labels
         updateCurrentSolutionProperties();
+
+        // We need to react to resize events properly
+        addControlListener(new ControlAdapter() {
+            @Override
+            public void controlResized(ControlEvent e) {
+                ((DetailedResultsPage) e.widget).layout();
+            }
+        });
     }
 
     /**
@@ -170,6 +203,9 @@ public class DetailedResultsPage extends Composite {
             Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
             scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
 
+            // If we have at least one result, we should allow to evaluate these
+            btnEvaluateResults.setEnabled(true);
+            
             // Go to the first result
             showResult(0);
         }
@@ -282,7 +318,10 @@ public class DetailedResultsPage extends Composite {
         gotoLastSolutionAction.setEnabled(false);
         gotoSpecificSolutionAction.setEnabled(false);
         sortSolutionsByNameAction.setEnabled(false);
-        sortSolutionsByScore.setEnabled(false);
+        sortSolutionsByScoreAction.setEnabled(false);
+        
+        // Disable the evaluation button
+        btnEvaluateResults.setEnabled(false);
     }
 
     /**
@@ -608,7 +647,8 @@ public class DetailedResultsPage extends Composite {
     }
 
     private void createSectionEvaluation(Composite parent) {
-        Section sctnEvaluation = formToolkit.createSection(parent, Section.TWISTIE | Section.TITLE_BAR);
+        Section sctnEvaluation = formToolkit.createSection(parent,
+                Section.TWISTIE | Section.TITLE_BAR);
         sctnEvaluation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
         formToolkit.paintBordersFor(sctnEvaluation);
         sctnEvaluation.setText("Evaluation");
@@ -626,12 +666,20 @@ public class DetailedResultsPage extends Composite {
         lblSelectMetricType.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         lblSelectMetricType.setText("Metric:");
 
-        Combo cbxAvailableMetrics = new Combo(compEvaluation, SWT.READ_ONLY);
+        cbxAvailableMetrics = new Combo(compEvaluation, SWT.READ_ONLY);
         GridData gd_cbxAvailableMetrics = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-        gd_cbxAvailableMetrics.widthHint = 241;
+        gd_cbxAvailableMetrics.widthHint = 240;
         cbxAvailableMetrics.setLayoutData(gd_cbxAvailableMetrics);
         cbxAvailableMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 
+        /* Create the list of available (= builtin) metrics */
+        availableMetricsList.add(new MaxFreeCapacity());
+        availableMetricsList.add(new UniformCoreLoadDistribution());
+        availableMetricsList.add(new MinOrganizationsPerBoard());
+        availableMetricsList.add(new RandomScore());
+        
+        fillAvailableMetricsCbx();
+        
         Label lblWeight = new Label(compEvaluation, SWT.NONE);
         lblWeight.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         lblWeight.setText("Weight:");
@@ -640,6 +688,7 @@ public class DetailedResultsPage extends Composite {
         cbxWeight.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         cbxWeight.setItems(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
         cbxWeight.setVisibleItemCount(5);
+
         Button btnAddMetric = new Button(compEvaluation, SWT.NONE);
         btnAddMetric.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
         btnAddMetric.setText("Add");
@@ -651,7 +700,6 @@ public class DetailedResultsPage extends Composite {
             }
 
             public void widgetSelected(SelectionEvent event) {
-
                 // Do nothing, if nothing is selected
                 if ((cbxAvailableMetrics.getSelectionIndex() == -1) || (cbxWeight.getSelectionIndex() == -1)) {
                     MessageDialog dlg = new MessageDialog(null, "Selection of metric and weight required", null,
@@ -667,23 +715,20 @@ public class DetailedResultsPage extends Composite {
 
                 // Create a new metrics instance
                 // we need to do this since we do not know the specific
-                // class of the abstract metric - could be custom!
-                // List<AbstractMetric> availMetrics = currentEditor.getAvailableMetricsList();
-                // Class<? extends AbstractMetric> metricClass =
-                // availMetrics.get(selectedMetricIndex).getClass();
-                // Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
+                // class of the abstract metric could be custom!
+                Class<? extends AbstractMetric> metricClass = availableMetricsList.get(selectedMetricIndex).getClass();
+                Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
 
                 try {
                     // Create a new instance
-                    // AbstractMetric newMetricObject = (AbstractMetric)
-                    // metricClassConstructor.newInstance();
-                    // newMetricObject.setWeight(selectedWeight);
+                    AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
+                    newMetricObject.setWeight(selectedWeight);
 
                     // Add new entry to data
-                    // currentEditor.getSelectedMetricsList().add(newMetricObject);
+                    selectedMetricsList.add(newMetricObject);
 
                     // Add input to table
-                    // tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
+                    tblSelectedMetricsViewer.setInput(selectedMetricsList);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -695,11 +740,12 @@ public class DetailedResultsPage extends Composite {
             }
         });
 
-        Button btnEvaluateResults = new Button(compEvaluation, SWT.NONE);
+        btnEvaluateResults = new Button(compEvaluation, SWT.NONE);
         btnEvaluateResults.setEnabled(false);
         btnEvaluateResults.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
         btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
         btnEvaluateResults.setText("Evaluate");
+        DetailedResultsPage currentView = this;
         btnEvaluateResults.addSelectionListener(new SelectionListener() {
 
             @Override
@@ -709,22 +755,21 @@ public class DetailedResultsPage extends Composite {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-                // if (currentEditor != null && currentEditor.getMappingResultsCount() > 0) {
-                // ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(
-                // currentEditor.getSite().getShell());
-                // try {
-                // progressDialog.run(true, false, new EvaluateJob(currentEditor));
-                // } catch (InvocationTargetException | InterruptedException e1) {
-                // e1.printStackTrace();
-                // }
-                // }
-                //
-                // else {
-                // MessageDialog dlg = new MessageDialog(null, "No results found", null,
-                // "No results were found for analysis. Please generate valid deployments.",
-                // MessageDialog.INFORMATION, new String[] { "OK" }, 0);
-                // dlg.open();
-                // }
+                if (mappingResults.size() > 0) {
+                    ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(e.display.getActiveShell());
+                    try {
+                        progressDialog.run(true, false, new EvaluateJob(currentView, selectedMetricsList));
+                    } catch (InvocationTargetException | InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+
+                else {
+                    MessageDialog dlg = new MessageDialog(null, "No results found", null,
+                            "No results were found for analysis. Please generate valid deployments.",
+                            MessageDialog.INFORMATION, new String[] { "OK" }, 0);
+                    dlg.open();
+                }
             }
         });
 
@@ -741,95 +786,78 @@ public class DetailedResultsPage extends Composite {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-                // if (currentEditor == null) {
-                // MessageDialog dlg = new MessageDialog(null, "Current editor contains no
-                // mapping specification",
-                // null,
-                // "The current editor window does not contain a mapping specification. "
-                // + "Please open or select an editor tab with a mapping specification. "
-                // + "New custom metrics will be added to the currently active editor only.",
-                // MessageDialog.INFORMATION, new String[] { "OK" }, 0);
-                // dlg.open();
-                // return;
-                // }
 
                 // This will hold our new metrics
                 List<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
 
                 // Determine the location where we have to look for new metrics
-                // IFileEditorInput input = (IFileEditorInput) currentEditor.getEditorInput();
-                // IProject activeProject = input.getFile().getProject();
-                // IPath activeProjectPath = activeProject.getLocation();
-                // IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
-                //
-                // // Triggering a build for this project
-                // try {
-                // activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);
-                // } catch (CoreException e2) {
-                // // ConsoleCommands.writeErrorLineToConsole("Build error");
-                // return;
-                // }
+                MultiPageEditor currentEditor = (MultiPageEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+                        .getActivePage().getActiveEditor();
+                IFileEditorInput input = (IFileEditorInput) currentEditor.getEditorInput();
+                IProject activeProject = input.getFile().getProject();
+                IPath activeProjectPath = activeProject.getLocation();
+                IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
+
+                // Triggering a build for this project
+                try {
+                    activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);
+                } catch (CoreException e2) {
+                    e2.printStackTrace();
+                    return;
+                }
 
                 // Asking the user which metric is to be imported and preselect
                 // all entries
-                // ListSelectionDialog dialog = new
-                // ListSelectionDialog(currentEditor.getSite().getShell(),
-                // metricsPath.append("metrics"), new CompiledMetricsProvider(), new
-                // LabelProvider(),
-                // "Select the metrics which you want to import:");
-                // dialog.setTitle("Metric selection");
-                // dialog.setInitialSelections((new
-                // CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
-                // if (dialog.open() != Window.OK)
-                // return;
+                ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(),
+                        metricsPath.append("metrics"), new CompiledMetricsProvider(), new LabelProvider(),
+                        "Select the metrics which you want to import:");
+                dialog.setTitle("Metric selection");
+                dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
+                if (dialog.open() != Window.OK)
+                    return;
 
                 // Clear old custom metrics in the currentModel
-                // List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
-                // for (AbstractMetric m : currentEditor.getAvailableMetricsList())
-                // if (!m.isBuiltIn())
-                // removalList.add(m);
-                // currentEditor.getAvailableMetricsList().removeAll(removalList);
-                //
-                // try {
-                //
-                // // Create the classloader for our new metrics
-                // URL url = new URL("file://" + metricsPath.toPortableString());
-                // URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] { url },
-                // getClass().getClassLoader());
-                //
-                // for (Object obj : dialog.getResult()) {
-                // // Get the class name
-                // String className = (String) obj;
-                //
-                // // Get the new class
-                // Class<? extends AbstractMetricImpl> metricClass = Class
-                // .forName("metrics." + className, true, classLoader)
-                // .asSubclass(AbstractMetricImpl.class);
-                // classLoader.close();
-                //
-                // // Create a new instance of this metric
-                // AbstractMetric metric = metricClass.getDeclaredConstructor().newInstance();
-                //
-                // // Add the newly created metric to the temporary list of
-                // // found metrics
-                // newCustomMetrics.add(metric);
-                // }
-                //
-                // // Add the new metrics
-                // currentEditor.getAvailableMetricsList().addAll(newCustomMetrics);
-                //
-                // } catch (ClassNotFoundException | IOException | InstantiationException |
-                // IllegalAccessException
-                // | IllegalArgumentException | InvocationTargetException |
-                // NoSuchMethodException
-                // | SecurityException e1) {
-                // e1.printStackTrace();
-                // }
+                List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
+                for (AbstractMetric m : currentEditor.getAvailableMetricsList())
+                    if (!m.isBuiltIn())
+                        removalList.add(m);
+                currentEditor.getAvailableMetricsList().removeAll(removalList);
+
+                try {
+                    // Create the classloader for our new metrics
+                    URL url = new URL("file://" + metricsPath.toPortableString());
+                    URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] { url },
+                            getClass().getClassLoader());
+
+                    for (Object obj : dialog.getResult()) {
+                        // Get the class name
+                        String className = (String) obj;
+
+                        // Get the new class
+                        Class<? extends AbstractMetricImpl> metricClass = Class
+                                .forName("metrics." + className, true, classLoader)
+                                .asSubclass(AbstractMetricImpl.class);
+                        classLoader.close();
+
+                        // Create a new instance of this metric
+                        AbstractMetric metric = metricClass.getDeclaredConstructor().newInstance();
+
+                        // Add the newly created metric to the temporary list of
+                        // found metrics
+                        newCustomMetrics.add(metric);
+                    }
+
+                    // Add the new metrics
+                    availableMetricsList.addAll(newCustomMetrics);
+
+                } catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException
+                        | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+                        | SecurityException e1) {
+                    e1.printStackTrace();
+                }
 
                 // Refresh UI with updated data from the UI model
-                // refreshEntries(currentEditor);
-                // restoreTableFromCurrentModel();
-                // fillComboBoxWithAvailableMetrics();
+                fillAvailableMetricsCbx();
             }
         });
 
@@ -839,7 +867,7 @@ public class DetailedResultsPage extends Composite {
 
         Group grpSelectedMetrics = new Group(compEvaluation, SWT.NONE);
         GridData gd_grpSelectedMetrics = new GridData(SWT.FILL, SWT.FILL, true, true, 8, 1);
-        gd_grpSelectedMetrics.heightHint = 75;
+        gd_grpSelectedMetrics.heightHint = 125;
         grpSelectedMetrics.setLayoutData(gd_grpSelectedMetrics);
         grpSelectedMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         FillLayout fl_grpSelectedMetrics = new FillLayout(SWT.HORIZONTAL);
@@ -852,45 +880,41 @@ public class DetailedResultsPage extends Composite {
         TableColumnLayout tcl_composite = new TableColumnLayout();
         composite.setLayout(tcl_composite);
 
-        TableViewer tblSelectedMetricsViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
+        tblSelectedMetricsViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
         Table tblSelectedMetrics = tblSelectedMetricsViewer.getTable();
         tblSelectedMetrics.setHeaderVisible(true);
         tblSelectedMetrics.setLinesVisible(true);
 
         TableViewerColumn tableViewerMetricsColumn = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-        // tableViewerMetricsColumn.setLabelProvider(new
-        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        tableViewerMetricsColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnIndex = tableViewerMetricsColumn.getColumn();
         tcl_composite.setColumnData(tblclmnIndex, new ColumnPixelData(60, true, true));
         tblclmnIndex.setText("Index");
 
         TableViewerColumn tableViewerMetricsColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-        // tableViewerMetricsColumn_1.setLabelProvider(new
-        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        tableViewerMetricsColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnMetric = tableViewerMetricsColumn_1.getColumn();
         tcl_composite.setColumnData(tblclmnMetric, new ColumnPixelData(260, true, true));
         tblclmnMetric.setText("Metric");
 
         TableViewerColumn tableViewerMetricsColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-        // tableViewerMetricsColumn_2.setLabelProvider(new
-        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        tableViewerMetricsColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnType = tableViewerMetricsColumn_2.getColumn();
         tcl_composite.setColumnData(tblclmnType, new ColumnPixelData(90, true, true));
         tblclmnType.setText("Type");
 
         TableViewerColumn tableViewerMetricsColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-        // tableViewerMetricsColumn_3.setLabelProvider(new
-        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        tableViewerMetricsColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnWeight = tableViewerMetricsColumn_3.getColumn();
         tcl_composite.setColumnData(tblclmnWeight, new ColumnPixelData(60, true, true));
         tblclmnWeight.setText("Weight");
 
         TableViewerColumn tableViewerMetricsColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-        // tableViewerMetricsColumn_4.setLabelProvider(new
-        // MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+        tableViewerMetricsColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
         TableColumn tblclmnRemove = tableViewerMetricsColumn_4.getColumn();
         tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
         tblclmnRemove.setText("Remove");
+
         tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
     }
 
@@ -960,17 +984,17 @@ public class DetailedResultsPage extends Composite {
             lblAssignments.setText(Integer.toString(curResult.getTask2CoreMap().keySet().size()));
             lblTotalScoreScaled.setText(String.format("%.3f", curResult.getScaledTotalScore()));
             compositeSolutionProperties.layout();
-            
+
             // Update the status of the actions
             // - the other actions are enabled in the showSolutions
             gotoSpecificSolutionAction.setEnabled(true);
             sortSolutionsByNameAction.setEnabled(true);
-            sortSolutionsByScore.setEnabled(true);
+            sortSolutionsByScoreAction.setEnabled(true);
         }
     }
 
     /**
-     * Fill the items into the toolbar
+     * Fill the items into the toolbar; is just run once, after creation
      * 
      * @param toolbarManager
      */
@@ -980,8 +1004,12 @@ public class DetailedResultsPage extends Composite {
         toolbarManager.add(gotoFirstSolutionAction);
         toolbarManager.add(gotoLastSolutionAction);
         toolbarManager.add(gotoSpecificSolutionAction);
-        toolbarManager.update(true);
+        toolbarManager.add(new Separator());
+        toolbarManager.add(sortSolutionsByNameAction);
+        toolbarManager.add(sortSolutionsByScoreAction);
         
+        toolbarManager.update(true);
+
         // After creation, all actions should be disabled
         // because there is no dataset loaded
         gotoPreviousSolutionAction.setEnabled(false);
@@ -989,18 +1017,28 @@ public class DetailedResultsPage extends Composite {
         gotoFirstSolutionAction.setEnabled(false);
         gotoLastSolutionAction.setEnabled(false);
         gotoSpecificSolutionAction.setEnabled(false);
+        sortSolutionsByScoreAction.setEnabled(false);
+        sortSolutionsByNameAction.setEnabled(false);
     }
 
-    private void removeEntryFromTable(AbstractMetric entry) {
+    /**
+     * 
+     * @param entry
+     */
+    private void fillAvailableMetricsCbx() {
+        /* Preload these metrics into the combo box */
+        String[] newItems = availableMetricsList.stream()
+                .map(m -> m.getName() + " (" + (m.isBuiltIn() ? "built-in" : "custom") + ")")
+                .collect(Collectors.toList()).toArray(new String[0]);
+        cbxAvailableMetrics.setItems(newItems);
+    }
+
+    public void removeSelectedMetric(AbstractMetric entry) {
         // Remove the entry (and the delete button)
-        // currentEditor.getSelectedMetricsList().remove(entry);
-        // lblProvider.clearButton(entry);
+        selectedMetricsList.remove(entry);
 
         // Update the viewer with the new data
-        // tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
-
-        // Update the UI model
-        // saveTableToCurrentModel();
+        tblSelectedMetricsViewer.setInput(selectedMetricsList);
     }
 
     public int getCurResultIndex() {

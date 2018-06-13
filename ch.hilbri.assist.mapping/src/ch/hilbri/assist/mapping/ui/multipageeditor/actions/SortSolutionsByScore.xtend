@@ -9,5 +9,6 @@ class SortSolutionsByScore extends AbstractResultsPageAction {
     }
 
     override run() {
+        // FIXME
     }
 }

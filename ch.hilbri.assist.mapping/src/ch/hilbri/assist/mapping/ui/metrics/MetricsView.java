@@ -45,6 +45,7 @@ import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import ch.hilbri.assist.mapping.ui.multipageeditor.CompiledMetricsProvider;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.impl.AbstractMetricImpl;
