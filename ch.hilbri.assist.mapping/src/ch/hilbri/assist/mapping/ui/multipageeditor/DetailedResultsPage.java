@@ -818,10 +818,10 @@ public class DetailedResultsPage extends Composite {
 
                 // Clear old custom metrics in the currentModel
                 List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
-                for (AbstractMetric m : currentEditor.getAvailableMetricsList())
+                for (AbstractMetric m : availableMetricsList)
                     if (!m.isBuiltIn())
                         removalList.add(m);
-                currentEditor.getAvailableMetricsList().removeAll(removalList);
+                availableMetricsList.removeAll(removalList);
 
                 try {
                     // Create the classloader for our new metrics

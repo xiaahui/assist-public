@@ -15,15 +15,13 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
-import ch.hilbri.assist.model.AbstractMetric;
 import ch.hilbri.assist.model.MappingResult;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 
 	/** The text editor used in page 0. */
 	private XtextEditor tabEditor;
-	private DetailedResults tabResults;
-	private DetailedResultsPage tabDetailedResults;
+	private DetailedResultsPage tabResults;
 	
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
@@ -47,15 +45,9 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	 */
 
 	void createPage1() {
-		tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
-		int index = addPage(tabResults);
-		setPageText(index, "Results");
-	}
-
-	void createPage2() {
-	    tabDetailedResults = new DetailedResultsPage(this.getContainer(), SWT.NULL);
-	    int index = addPage(tabDetailedResults);
-	    setPageText(index, "New Results");
+	    tabResults = new DetailedResultsPage(this.getContainer(), SWT.NULL);
+	    int index = addPage(tabResults);
+	    setPageText(index, "Results");
 	}
 	
 	/**
@@ -64,7 +56,6 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	protected void createPages() {
 		createPage0();
 		createPage1();
-		createPage2();
 
 		this.setPartName(tabEditor.getTitle());
 		this.setActivePage(0);
@@ -104,31 +95,15 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	}
 
 	public MappingResult getCurrentMappingResult() {
-		return tabResults.getCurrentResult();
-	}
-	
-	public Object getSelectedComponent() {
-		return tabResults.getSelectedComponent();
+		return tabResults.getCurResult();
 	}
 	
 	public void setMappingResultsList(List<MappingResult> l) {
 		tabResults.setResultsList(l);
-		tabDetailedResults.setResultsList(l);
+		tabResults.setResultsList(l);
 	}
 
 	public List<MappingResult> getMappingResultsList() {
 		return tabResults.getMappingResults();
-	}
-	
-	public int getMappingResultsCount() {
-		return tabResults.getMappingResultsCount();
-	}
-	
-	public List<AbstractMetric> getSelectedMetricsList() {
-		return tabResults.getSelectedMetricsList();
-	}
-	
-	public List<AbstractMetric> getAvailableMetricsList() {
-		return tabResults.getAvailableMetricsList();
 	}
 }
