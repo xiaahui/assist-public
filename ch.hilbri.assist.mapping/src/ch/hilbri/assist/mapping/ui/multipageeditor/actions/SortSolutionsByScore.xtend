@@ -9,6 +9,8 @@ class SortSolutionsByScore extends AbstractResultsPageAction {
     }
 
     override run() {
-        // FIXME
+        // We want decending sort order
+        val sortedResults = resultsView.mappingResults.sortBy[-scaledTotalScore]
+        resultsView.resultsList = sortedResults
     }
 }

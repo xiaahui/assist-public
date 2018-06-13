@@ -9,6 +9,7 @@ class SortSolutionsByName extends AbstractResultsPageAction {
     }
 
     override run() {
-        // FIXME
+        val sortedResults = resultsView.mappingResults.sortBy[index]
+        resultsView.resultsList = sortedResults
     }
 }
