@@ -81,6 +81,7 @@ public class DetailedResultsPage extends Composite {
     private MappingViewerFilter tableFilter = new MappingViewerFilter();
     private Composite compositeArchitecture;
     private TableViewer tblViewerResultMetrics;
+    private Section sctnCurrentSolution;
 
     /* Declaring all actions */
     private GotoFirstSolution gotoFirstSolutionAction = new GotoFirstSolution(this);
@@ -190,7 +191,7 @@ public class DetailedResultsPage extends Composite {
         curResult = mappingResults.get(curResultIndex);
 
         /* Update our own text fields */
-        // FIXME: lblSolutionName.setText(curResult.getName());
+        updateCurrentSolutionProperties();
         tblviewerResult.setInput(curResult.getMappingElements());
 
         /* Update the graph (topology view) */
@@ -255,16 +256,6 @@ public class DetailedResultsPage extends Composite {
             gotoLastSolutionAction.setEnabled(true);
         }
 
-        /* FIXME: Update the properties of the solution */
-
-        // lblName.setText(result.getName());
-        // lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
-        // lblScaledScore.setText(String.format("%.3f", result.getScaledTotalScore()));
-        // lblAbsoluteScore.setText(String.format("%.3f",
-        // result.getAbsoluteTotalScore()));
-        // lblSpecification.setText(currentEditor.getTitle());
-        // lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
-
         EMap<AbstractMetric, Double> absScores = curResult.getMetricAbsoluteScoresMap();
         EMap<AbstractMetric, Double> scaledScores = curResult.getMetricScaledScoresMap();
         tblViewerResultMetrics.setInput(new MetricScoresTupleList(absScores, scaledScores));
@@ -276,7 +267,9 @@ public class DetailedResultsPage extends Composite {
      */
     private void clearResults() {
         curResultIndex = -1;
-        // FIXME: lblSolutionName.setText("-- No Solution --");
+        curResult = null;
+
+        updateCurrentSolutionProperties();
 
         tblviewerResult.setInput(null);
 
@@ -324,7 +317,7 @@ public class DetailedResultsPage extends Composite {
      * 
      */
     private void createSectionCurrentSolution(Composite parent) {
-        Section sctnCurrentSolution = formToolkit.createSection(parent, Section.TITLE_BAR);
+        sctnCurrentSolution = formToolkit.createSection(parent, Section.TITLE_BAR);
         sctnCurrentSolution.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
         formToolkit.paintBordersFor(sctnCurrentSolution);
         sctnCurrentSolution.setText("Current Solution");
@@ -533,7 +526,7 @@ public class DetailedResultsPage extends Composite {
         tblclmnScore.setText("Score (abs.)");
 
         tblViewerResultMetrics.setLabelProvider(new MetricScoresTableLabelProvider());
-        
+
         // Set the tab that should be display first
         tabViews.setSelection(tbtmTabularView);
     }
@@ -823,10 +816,6 @@ public class DetailedResultsPage extends Composite {
         tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
         tblclmnRemove.setText("Remove");
         tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
-
-        // // We could have been created lazyly - so we should try to find out
-        // // about the current editor
-        // refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
     }
 
     /**
@@ -872,6 +861,27 @@ public class DetailedResultsPage extends Composite {
         yaxes.getTitle().setFont(smallFont);
         xaxes.getTick().setFont(xsmallFont);
         yaxes.getTick().setFont(smallFont);
+    }
+
+    /**
+     * Refreshes some properties of the currently selected solution (e.g. the name
+     * of the section "Current Solution" to contain the name of the current result
+     * or "-- No Solution --")
+     */
+    private void updateCurrentSolutionProperties() {
+        if (curResult == null) {
+            sctnCurrentSolution.setText("-- No Solution --");
+            /* FIXME: Update the properties of the solution */
+        } else {
+            sctnCurrentSolution.setText(curResult.getName());
+            /* FIXME: Update the properties of the solution */
+            // lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
+            // lblScaledScore.setText(String.format("%.3f", result.getScaledTotalScore()));
+            // lblAbsoluteScore.setText(String.format("%.3f",
+            // result.getAbsoluteTotalScore()));
+            // lblSpecification.setText(currentEditor.getTitle());
+            // lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
+        }
     }
 
     /**
