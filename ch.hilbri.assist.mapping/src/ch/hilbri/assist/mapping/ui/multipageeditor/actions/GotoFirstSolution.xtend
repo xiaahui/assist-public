@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResults
 
 /**
  * Moves the view to the first solution
@@ -8,7 +8,7 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
  */
 class GotoFirstSolution extends AbstractResultsPageAction {
    
-    new(DetailedResultsPage resultsView) {
+    new(DetailedResults resultsView) {
         super(resultsView, "First Solution", "icons/first_result.png")
     }
 

@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.actions
 
-import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResultsPage
 import org.eclipse.jface.action.Action
 import org.eclipse.wb.swt.ResourceManager
+import ch.hilbri.assist.mapping.ui.multipageeditor.DetailedResults
 
 class AbstractResultsPageAction extends Action {
-    protected DetailedResultsPage resultsView
+    protected DetailedResults resultsView
 
-    new(DetailedResultsPage view, String name, String iconPath) {
+    new(DetailedResults view, String name, String iconPath) {
         super(name, ResourceManager.getPluginImageDescriptor("ch.hilbri.assist.mapping", iconPath))
         this.resultsView = view
     }

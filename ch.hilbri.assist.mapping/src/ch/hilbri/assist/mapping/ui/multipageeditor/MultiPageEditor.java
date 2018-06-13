@@ -19,9 +19,8 @@ import ch.hilbri.assist.model.MappingResult;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 
-	/** The text editor used in page 0. */
 	private XtextEditor tabEditor;
-	private DetailedResultsPage tabResults;
+	private DetailedResults tabResults;
 	
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
@@ -34,7 +33,6 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 			int index = addPage(tabEditor, getEditorInput());
 			setPageText(index, "Specification");
 			setPartName(tabEditor.getTitle());
-
 		} catch (PartInitException e) {
 			ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
 		}
@@ -43,9 +41,8 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	/**
 	 * Creates page 2 of the multi-page editor, which shows the resultview.
 	 */
-
 	void createPage1() {
-	    tabResults = new DetailedResultsPage(this.getContainer(), SWT.NULL);
+	    tabResults = new DetailedResults(this.getContainer(), SWT.NULL);
 	    int index = addPage(tabResults);
 	    setPageText(index, "Results");
 	}
@@ -56,7 +53,6 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	protected void createPages() {
 		createPage0();
 		createPage1();
-
 		this.setPartName(tabEditor.getTitle());
 		this.setActivePage(0);
 	}
@@ -99,7 +95,6 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	}
 	
 	public void setMappingResultsList(List<MappingResult> l) {
-		tabResults.setResultsList(l);
 		tabResults.setResultsList(l);
 	}
 

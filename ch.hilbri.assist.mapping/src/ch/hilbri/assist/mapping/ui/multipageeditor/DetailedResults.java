@@ -87,7 +87,7 @@ import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.impl.AbstractMetricImpl;
 
-public class DetailedResultsPage extends Composite {
+public class DetailedResults extends Composite {
     /* Major data elements */
     private int curResultIndex = -1;
     private MappingResult curResult = null;
@@ -128,7 +128,7 @@ public class DetailedResultsPage extends Composite {
      * @param parent
      * @param style
      */
-    public DetailedResultsPage(Composite parent, int style) {
+    public DetailedResults(Composite parent, int style) {
         super(parent, style);
         setLayout(new FillLayout(SWT.HORIZONTAL));
 
@@ -160,7 +160,7 @@ public class DetailedResultsPage extends Composite {
         addControlListener(new ControlAdapter() {
             @Override
             public void controlResized(ControlEvent e) {
-                ((DetailedResultsPage) e.widget).layout();
+                ((DetailedResults) e.widget).layout();
             }
         });
     }
@@ -205,7 +205,7 @@ public class DetailedResultsPage extends Composite {
 
             // If we have at least one result, we should allow to evaluate these
             btnEvaluateResults.setEnabled(true);
-            
+
             // Go to the first result
             showResult(0);
         }
@@ -319,7 +319,7 @@ public class DetailedResultsPage extends Composite {
         gotoSpecificSolutionAction.setEnabled(false);
         sortSolutionsByNameAction.setEnabled(false);
         sortSolutionsByScoreAction.setEnabled(false);
-        
+
         // Disable the evaluation button
         btnEvaluateResults.setEnabled(false);
     }
@@ -647,8 +647,7 @@ public class DetailedResultsPage extends Composite {
     }
 
     private void createSectionEvaluation(Composite parent) {
-        Section sctnEvaluation = formToolkit.createSection(parent,
-                Section.TWISTIE | Section.TITLE_BAR);
+        Section sctnEvaluation = formToolkit.createSection(parent, Section.TWISTIE | Section.TITLE_BAR);
         sctnEvaluation.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
         formToolkit.paintBordersFor(sctnEvaluation);
         sctnEvaluation.setText("Evaluation");
@@ -677,9 +676,9 @@ public class DetailedResultsPage extends Composite {
         availableMetricsList.add(new UniformCoreLoadDistribution());
         availableMetricsList.add(new MinOrganizationsPerBoard());
         availableMetricsList.add(new RandomScore());
-        
+
         fillAvailableMetricsCbx();
-        
+
         Label lblWeight = new Label(compEvaluation, SWT.NONE);
         lblWeight.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         lblWeight.setText("Weight:");
@@ -745,7 +744,7 @@ public class DetailedResultsPage extends Composite {
         btnEvaluateResults.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
         btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
         btnEvaluateResults.setText("Evaluate");
-        DetailedResultsPage currentView = this;
+        DetailedResults currentView = this;
         btnEvaluateResults.addSelectionListener(new SelectionListener() {
 
             @Override
@@ -1007,7 +1006,7 @@ public class DetailedResultsPage extends Composite {
         toolbarManager.add(new Separator());
         toolbarManager.add(sortSolutionsByNameAction);
         toolbarManager.add(sortSolutionsByScoreAction);
-        
+
         toolbarManager.update(true);
 
         // After creation, all actions should be disabled

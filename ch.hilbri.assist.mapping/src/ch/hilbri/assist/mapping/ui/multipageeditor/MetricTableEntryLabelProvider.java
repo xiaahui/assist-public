@@ -21,7 +21,7 @@ import ch.hilbri.assist.model.AbstractMetric;
 public class MetricTableEntryLabelProvider extends CellLabelProvider {
 
     private Table tblSelectedMetrics;
-    private DetailedResultsPage metricsView;
+    private DetailedResults metricsView;
 
     /*
      * Stores all remove-buttons; we have to store them, so they can be accessed and
@@ -29,7 +29,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
      */
     private Map<Object, Button> allRemoveButtons = new HashMap<Object, Button>();
 
-    public MetricTableEntryLabelProvider(Table tblSelectedMetrics, DetailedResultsPage metricsView) {
+    public MetricTableEntryLabelProvider(Table tblSelectedMetrics, DetailedResults metricsView) {
         super();
         this.tblSelectedMetrics = tblSelectedMetrics;
         this.metricsView = metricsView;

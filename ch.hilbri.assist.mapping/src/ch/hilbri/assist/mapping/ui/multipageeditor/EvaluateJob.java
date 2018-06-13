@@ -14,9 +14,9 @@ public class EvaluateJob implements IRunnableWithProgress {
 
     private List<MappingResult> allResults;
     private List<AbstractMetric> selectedMetrics;
-    private DetailedResultsPage resultsView;
+    private DetailedResults resultsView;
 
-    public EvaluateJob(DetailedResultsPage v, List<AbstractMetric> metrics) {
+    public EvaluateJob(DetailedResults v, List<AbstractMetric> metrics) {
         this.allResults = v.getMappingResults();
         this.selectedMetrics = metrics;
         this.resultsView = v;
