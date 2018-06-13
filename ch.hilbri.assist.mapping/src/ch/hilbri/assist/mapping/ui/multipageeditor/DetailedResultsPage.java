@@ -91,6 +91,11 @@ public class DetailedResultsPage extends Composite {
     private GotoSpecificSolution gotoSpecificSolutionAction = new GotoSpecificSolution(this);
     private SortSolutionsByName sortSolutionsByNameAction = new SortSolutionsByName(this);
     private SortSolutionsByScore sortSolutionsByScore = new SortSolutionsByScore(this);
+    private Label lblComplete;
+    private Label lblAssignments;
+    private Label lblTotalScoreScaled;
+    private Label lblTaskCount;
+    private Composite compositeSolutionProperties;
 
     /**
      * Create the composite.
@@ -122,6 +127,9 @@ public class DetailedResultsPage extends Composite {
 
         // Create the section "Evaluation"
         createSectionEvaluation(mainForm.getBody());
+
+        // Update the current labels
+        updateCurrentSolutionProperties();
     }
 
     /**
@@ -133,7 +141,6 @@ public class DetailedResultsPage extends Composite {
     public void setResultsList(List<MappingResult> list) {
         /* Clear the old data */
         clearResults();
-        assert (mappingResults == null);
 
         /* Store the new data */
         mappingResults = list;
@@ -162,11 +169,6 @@ public class DetailedResultsPage extends Composite {
             // Let the y range start from 0
             Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
             scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
-
-            // Update the status of the actions
-            gotoSpecificSolutionAction.setEnabled(true);
-            sortSolutionsByNameAction.setEnabled(true);
-            sortSolutionsByScore.setEnabled(true);
 
             // Go to the first result
             showResult(0);
@@ -268,10 +270,10 @@ public class DetailedResultsPage extends Composite {
     private void clearResults() {
         curResultIndex = -1;
         curResult = null;
+        mappingResults = null;
+        tblviewerResult.setInput(null);
 
         updateCurrentSolutionProperties();
-
-        tblviewerResult.setInput(null);
 
         // Disable all actions
         gotoFirstSolutionAction.setEnabled(false);
@@ -281,9 +283,6 @@ public class DetailedResultsPage extends Composite {
         gotoSpecificSolutionAction.setEnabled(false);
         sortSolutionsByNameAction.setEnabled(false);
         sortSolutionsByScore.setEnabled(false);
-
-        // Delete the list of current results
-        mappingResults = null;
     }
 
     /**
@@ -325,12 +324,89 @@ public class DetailedResultsPage extends Composite {
         formToolkit.paintBordersFor(compCurrentSolution);
         sctnCurrentSolution.setClient(compCurrentSolution);
         GridLayout gl_compCurrentSolution = new GridLayout(1, false);
-        gl_compCurrentSolution.marginTop = 5;
         gl_compCurrentSolution.horizontalSpacing = 0;
         gl_compCurrentSolution.marginHeight = 0;
         gl_compCurrentSolution.verticalSpacing = 0;
         gl_compCurrentSolution.marginWidth = 0;
         compCurrentSolution.setLayout(gl_compCurrentSolution);
+
+        compositeSolutionProperties = new Composite(compCurrentSolution, SWT.NONE);
+        GridLayout gl_compositeSolutionProperties = new GridLayout(4, false);
+        gl_compositeSolutionProperties.marginLeft = 5;
+        gl_compositeSolutionProperties.horizontalSpacing = 15;
+        gl_compositeSolutionProperties.marginBottom = 10;
+        gl_compositeSolutionProperties.marginHeight = 0;
+        gl_compositeSolutionProperties.marginWidth = 0;
+        gl_compositeSolutionProperties.verticalSpacing = 0;
+        compositeSolutionProperties.setLayout(gl_compositeSolutionProperties);
+        compositeSolutionProperties.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        formToolkit.adapt(compositeSolutionProperties);
+        formToolkit.paintBordersFor(compositeSolutionProperties);
+
+        Composite compositeComplete = new Composite(compositeSolutionProperties, SWT.NONE);
+        formToolkit.adapt(compositeComplete);
+        formToolkit.paintBordersFor(compositeComplete);
+        GridLayout gl_compositeComplete = new GridLayout(2, false);
+        gl_compositeComplete.marginWidth = 0;
+        gl_compositeComplete.marginHeight = 0;
+        compositeComplete.setLayout(gl_compositeComplete);
+
+        Label lblCompleteHeading = new Label(compositeComplete, SWT.NONE);
+        formToolkit.adapt(lblCompleteHeading, true, true);
+        lblCompleteHeading.setText("Complete:");
+
+        lblComplete = new Label(compositeComplete, SWT.NONE);
+        formToolkit.adapt(lblComplete, true, true);
+        lblComplete.setText("n/a");
+
+        Composite compositeTaskCount = new Composite(compositeSolutionProperties, SWT.NONE);
+        formToolkit.adapt(compositeTaskCount);
+        formToolkit.paintBordersFor(compositeTaskCount);
+        GridLayout gl_compositeTaskCount = new GridLayout(2, false);
+        gl_compositeTaskCount.marginWidth = 0;
+        gl_compositeTaskCount.marginHeight = 0;
+        compositeTaskCount.setLayout(gl_compositeTaskCount);
+
+        Label lblTaskCountHeading = new Label(compositeTaskCount, SWT.NONE);
+        lblTaskCountHeading.setBounds(0, 0, 55, 15);
+        formToolkit.adapt(lblTaskCountHeading, true, true);
+        lblTaskCountHeading.setText("Tasks:");
+
+        lblTaskCount = new Label(compositeTaskCount, SWT.NONE);
+        formToolkit.adapt(lblTaskCount, true, true);
+        lblTaskCount.setText("0");
+
+        Composite compositeAssignments = new Composite(compositeSolutionProperties, SWT.NONE);
+        formToolkit.adapt(compositeAssignments);
+        formToolkit.paintBordersFor(compositeAssignments);
+        GridLayout gl_compositeAssignments = new GridLayout(2, false);
+        gl_compositeAssignments.marginWidth = 0;
+        gl_compositeAssignments.marginHeight = 0;
+        compositeAssignments.setLayout(gl_compositeAssignments);
+
+        Label lblAssignmentsHeading = new Label(compositeAssignments, SWT.NONE);
+        formToolkit.adapt(lblAssignmentsHeading, true, true);
+        lblAssignmentsHeading.setText("Assignments:");
+
+        lblAssignments = new Label(compositeAssignments, SWT.NONE);
+        formToolkit.adapt(lblAssignments, true, true);
+        lblAssignments.setText("0");
+
+        Composite compositeTotalScoreScaled = new Composite(compositeSolutionProperties, SWT.NONE);
+        formToolkit.adapt(compositeTotalScoreScaled);
+        formToolkit.paintBordersFor(compositeTotalScoreScaled);
+        GridLayout gl_compositeTotalScoreScaled = new GridLayout(2, false);
+        gl_compositeTotalScoreScaled.marginWidth = 0;
+        gl_compositeTotalScoreScaled.marginHeight = 0;
+        compositeTotalScoreScaled.setLayout(gl_compositeTotalScoreScaled);
+
+        Label lblTotalScoreScaledHeading = new Label(compositeTotalScoreScaled, SWT.NONE);
+        formToolkit.adapt(lblTotalScoreScaledHeading, true, true);
+        lblTotalScoreScaledHeading.setText("Total Score:");
+
+        lblTotalScoreScaled = new Label(compositeTotalScoreScaled, SWT.NONE);
+        formToolkit.adapt(lblTotalScoreScaled, true, true);
+        lblTotalScoreScaled.setText("0.0");
 
         CTabFolder tabViews = new CTabFolder(compCurrentSolution, SWT.BORDER | SWT.FLAT);
         tabViews.setHighlightEnabled(false);
@@ -871,16 +947,25 @@ public class DetailedResultsPage extends Composite {
     private void updateCurrentSolutionProperties() {
         if (curResult == null) {
             sctnCurrentSolution.setText("-- No Solution --");
-            /* FIXME: Update the properties of the solution */
+            lblComplete.setText("n/a");
+            lblTaskCount.setText("n/a");
+            lblAssignments.setText("n/a");
+            lblTotalScoreScaled.setText("n/a");
+            compositeSolutionProperties.layout();
+
         } else {
             sctnCurrentSolution.setText(curResult.getName());
-            /* FIXME: Update the properties of the solution */
-            // lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
-            // lblScaledScore.setText(String.format("%.3f", result.getScaledTotalScore()));
-            // lblAbsoluteScore.setText(String.format("%.3f",
-            // result.getAbsoluteTotalScore()));
-            // lblSpecification.setText(currentEditor.getTitle());
-            // lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
+            lblComplete.setText(curResult.isPartialSolution() ? "No" : "Yes");
+            lblTaskCount.setText(Integer.toString(curResult.getModel().getAllTasks().size()));
+            lblAssignments.setText(Integer.toString(curResult.getTask2CoreMap().keySet().size()));
+            lblTotalScoreScaled.setText(String.format("%.3f", curResult.getScaledTotalScore()));
+            compositeSolutionProperties.layout();
+            
+            // Update the status of the actions
+            // - the other actions are enabled in the showSolutions
+            gotoSpecificSolutionAction.setEnabled(true);
+            sortSolutionsByNameAction.setEnabled(true);
+            sortSolutionsByScore.setEnabled(true);
         }
     }
 
@@ -896,6 +981,14 @@ public class DetailedResultsPage extends Composite {
         toolbarManager.add(gotoLastSolutionAction);
         toolbarManager.add(gotoSpecificSolutionAction);
         toolbarManager.update(true);
+        
+        // After creation, all actions should be disabled
+        // because there is no dataset loaded
+        gotoPreviousSolutionAction.setEnabled(false);
+        gotoNextSolutionAction.setEnabled(false);
+        gotoFirstSolutionAction.setEnabled(false);
+        gotoLastSolutionAction.setEnabled(false);
+        gotoSpecificSolutionAction.setEnabled(false);
     }
 
     private void removeEntryFromTable(AbstractMetric entry) {
