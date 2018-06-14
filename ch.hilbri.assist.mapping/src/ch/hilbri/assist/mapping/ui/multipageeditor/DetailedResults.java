@@ -616,6 +616,8 @@ public class DetailedResults extends Composite {
         compositeScoreview.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
         tbtmScoreview.setControl(compositeScoreview);
         FillLayout fl_compositeScoreview = new FillLayout(SWT.HORIZONTAL);
+        fl_compositeScoreview.marginWidth = 5;
+        fl_compositeScoreview.marginHeight = 5;
         compositeScoreview.setLayout(fl_compositeScoreview);
 
         tblViewerResultMetrics = new TableViewer(compositeScoreview, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
