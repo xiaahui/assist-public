@@ -47,7 +47,7 @@ public class HelpBrowserView {
 		tltmGoHome.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				browser.setUrl("https://github.com/roberthilbrich/assist-public/wiki");
+				browser.setUrl("https://github.com/roberthilbrich/assist-public/wiki", "", new String[]{"user-agent: custom"});
 			}
 		});
 		tltmGoHome.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.gui", "icons/home.gif"));
