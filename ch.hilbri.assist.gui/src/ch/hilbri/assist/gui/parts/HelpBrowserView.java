@@ -47,7 +47,9 @@ public class HelpBrowserView {
 		tltmGoHome.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				browser.setUrl("https://github.com/roberthilbrich/assist-public/wiki", "", new String[]{"user-agent: custom"});
+			    // Add a custom user-agent to prevent warning about incompatible browser on github
+			    // especially when used on windows with internet explorer (GitHub claims it to be incompatible and recommends edge)
+				browser.setUrl("https://github.com/roberthilbrich/assist-public/wiki", null, new String[]{"user-agent: custom"});
 			}
 		});
 		tltmGoHome.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.gui", "icons/home.gif"));
