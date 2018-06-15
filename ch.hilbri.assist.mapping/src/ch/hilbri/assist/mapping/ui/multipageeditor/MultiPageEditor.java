@@ -101,4 +101,10 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	public List<MappingResult> getMappingResultsList() {
 		return tabResults.getMappingResults();
 	}
+
+    public XtextEditor getTabEditor() {
+        return tabEditor;
+    }
+	
+	
 }

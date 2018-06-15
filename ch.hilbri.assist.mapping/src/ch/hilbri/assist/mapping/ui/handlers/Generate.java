@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -32,14 +34,24 @@ public class Generate {
 		 * Mapping generation should only be allowed, if we are actually looking at a
 		 * mapping problem
 		 */
-		XtextEditor editor = EditorUtils.getActiveXtextEditor();
-		if (editor != null && !editor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
+	    IEditorPart currentEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+	    
+	    if (currentEditor == null) 
+	        return false;
+	    
+	    if (!(currentEditor instanceof MultiPageEditor))
+	        return false;
+	    
+	    MultiPageEditor multiPageEditor = (MultiPageEditor) currentEditor;
+	    
+		XtextEditor xtextEditor = multiPageEditor.getTabEditor();
+		if (!xtextEditor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
 			return false;
 
 		/*
 		 * If it is a mapping problem, then we should check, whether the content is ok
 		 */
-		IXtextDocument xtextDocument = EditorUtils.getActiveXtextEditor().getDocument();
+		IXtextDocument xtextDocument = xtextEditor.getDocument();
 
 		boolean result = xtextDocument.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
 			public Boolean exec(XtextResource resource) throws Exception {
