@@ -52,11 +52,10 @@ class BasicTests {
         bot.sleep(2000) 
 
         /* Evaluate Mappings */
-        bot.partByTitle("Mapping - Evaluation").show()
         bot.comboBox().setSelection("Random Score (built-in)")
         bot.comboBox(1).setSelection("1")
-        bot.button("Add Metric").click
-        bot.button("Evaluate results").click
+        bot.button("Add").click
+        bot.button("Evaluate").click
         
         /* Export solution to scheduling */
         assistShell.activate
