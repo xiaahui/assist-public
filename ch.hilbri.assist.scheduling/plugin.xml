@@ -21,6 +21,22 @@
             name="Scheduling Specification">
       </editor>
    </extension>
+   
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.scheduling.ui.wizards.NewSchedulingSpecificationWizard"
+            icon="icons/scheduling-specification.png"
+            id="ch.hilbri.assist.scheduling.wizards.newSchedulingSpecification"
+            name="Scheduling - Specification"
+            project="false">
+         <description>
+            This wizard creates a new scheduling specification file with *.sdsl extension.
+         </description>
+      </wizard>
+   </extension>
+   
    <extension
          point="org.eclipse.ui.importWizards">
       <category
