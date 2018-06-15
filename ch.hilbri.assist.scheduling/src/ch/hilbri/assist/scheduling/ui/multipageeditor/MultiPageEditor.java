@@ -19,6 +19,10 @@ import ch.hilbri.assist.scheduling.dsl.ui.internal.DslActivator;
 
 public class MultiPageEditor extends MultiPageEditorPart {
 
+    public XtextEditor getTabEditor() {
+        return tabEditor;
+    }
+
     /** The text editor used in page 0. */
     private XtextEditor tabEditor;
     private DetailedResults tabResults;
