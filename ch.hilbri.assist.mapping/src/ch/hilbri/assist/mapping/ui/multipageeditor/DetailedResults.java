@@ -156,6 +156,10 @@ public class DetailedResults extends Composite {
         // Update the current labels
         updateCurrentSolutionProperties();
 
+        // Put the focus to the mainForm - otherwise the first button in the toolbar looks weird when 
+        // it is disabled but has the focus
+        mainForm.setFocus();
+        
         // We need to react to resize events properly
         addControlListener(new ControlAdapter() {
             @Override
