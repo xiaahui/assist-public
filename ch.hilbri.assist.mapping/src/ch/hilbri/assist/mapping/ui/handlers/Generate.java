@@ -18,7 +18,6 @@ import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
@@ -27,118 +26,127 @@ import ch.hilbri.assist.mapping.ui.searchtypesdialog.SearchParametersDialog;
 
 public class Generate {
 
-	@CanExecute
-	public boolean canExecute(MApplication application, EModelService service) {
+    @CanExecute
+    public boolean canExecute(MApplication application, EModelService service) {
 
-		/*
-		 * Mapping generation should only be allowed, if we are actually looking at a
-		 * mapping problem
-		 */
-	    IEditorPart currentEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-	    
-	    if (currentEditor == null) 
-	        return false;
-	    
-	    if (!(currentEditor instanceof MultiPageEditor))
-	        return false;
-	    
-	    MultiPageEditor multiPageEditor = (MultiPageEditor) currentEditor;
-	    
-		XtextEditor xtextEditor = multiPageEditor.getTabEditor();
-		if (!xtextEditor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
-			return false;
+        /*
+         * Mapping generation should only be allowed, if we are actually looking at a
+         * mapping problem
+         */
+        IEditorPart currentEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                .getActiveEditor();
 
-		/*
-		 * If it is a mapping problem, then we should check, whether the content is ok
-		 */
-		IXtextDocument xtextDocument = xtextEditor.getDocument();
+        if (currentEditor == null)
+            return false;
 
-		boolean result = xtextDocument.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
-			public Boolean exec(XtextResource resource) throws Exception {
-				EcoreUtil.resolveAll(resource);
+        if (!(currentEditor instanceof MultiPageEditor))
+            return false;
 
-				/* Searching for errors inside the document? */
-				/* - Error with the syntax of the dsl */
-				if (resource.getErrors().size() > 0)
-					return false;
+        MultiPageEditor multiPageEditor = (MultiPageEditor) currentEditor;
 
-				/* - Size of the document is empty */
-				if (resource.getContents().size() == 0)
-					return false;
+        XtextEditor xtextEditor = multiPageEditor.getTabEditor();
+        if (!xtextEditor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
+            return false;
 
-				/* - Custom validation rule errors */
-				Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
-				if (diagnostic.getSeverity() == Diagnostic.ERROR)
-					return false;
+        /*
+         * If it is a mapping problem, then we should check, whether the content is ok
+         */
+        IXtextDocument xtextDocument = xtextEditor.getDocument();
 
-				/* Else */
-				return true;
-			}
-		});
+        boolean result = xtextDocument.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
+            public Boolean exec(XtextResource resource) throws Exception {
+                EcoreUtil.resolveAll(resource);
 
-		return result;
-	}
+                /* Searching for errors inside the document? */
+                /* - Error with the syntax of the dsl */
+                if (resource.getErrors().size() > 0)
+                    return false;
 
-	/**
-	 * This handler processes the xtext file and starts the mapper
-	 */
-	@Execute
-	public void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
+                /* - Size of the document is empty */
+                if (resource.getContents().size() == 0)
+                    return false;
 
-		/* Find the editors ... */
-		XtextEditor xtextEditor = EditorUtils.getActiveXtextEditor();
-		if (xtextEditor == null) {
-			MessageDialog.openError(shell, "Error", "Could not locate the current Xtext editor.");
-			return;
-		}
+                /* - Custom validation rule errors */
+                Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
+                if (diagnostic.getSeverity() == Diagnostic.ERROR)
+                    return false;
 
-		/* Check if the editor needs saving */
-		if (xtextEditor.isDirty()) {
-			boolean saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
-					"Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?");
-			if (saveFirst)
-				xtextEditor.doSave(monitor);
-		}
+                /* Else */
+                return true;
+            }
+        });
 
-		MultiPageEditorSite editorSite = (MultiPageEditorSite) xtextEditor.getSite();
-		MultiPageEditor multipageEditor = (MultiPageEditor) editorSite.getMultiPageEditor();
-		if (multipageEditor == null) {
-			MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
-			return;
-		}
+        return result;
+    }
 
-		/* Retrieve the URI from the current model */
-		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
-			public URI exec(XtextResource model) throws Exception {
-				return model.getURI();
-			}
-		});
+    /**
+     * This handler processes the xtext file and starts the mapper
+     */
+    @Execute
+    public void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
 
-		if (modelURI == null) {
-			MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
-			return;
-		}
+        /* Find the editors ... */
+        IEditorPart currentEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
-		/*
-		 * Open the dialog to choose between simple and advanced mode for finding
-		 * solutions
-		 */
-		SearchParametersDialog searchDialog = new SearchParametersDialog(shell);
-		if (searchDialog.open() == org.eclipse.jface.window.Window.OK) {
+        if (currentEditor == null)
+            return;
 
-			/* Create a new background Job for finding all solutions */
-			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
-			findSolutionsJob.setEnableVerboseLogging(searchDialog.getVerboseLogging());
-			findSolutionsJob.setSearchStrategy(searchDialog.getVariableSelector(), searchDialog.getValueSelector());
-			findSolutionsJob.setMaxSolutions(searchDialog.getNumberOfSolutions());
-			findSolutionsJob.setMaxSearchTime(searchDialog.getSearchTime());
-			findSolutionsJob.setSavePartialSolution(searchDialog.getSavePartialSolution());
-			findSolutionsJob.setEnableRestarts(searchDialog.getEnableRestarts(), searchDialog.getRestartFailCount());
-			findSolutionsJob.setNoGoodRecording(searchDialog.getNoGoodRecordingRDC());
-			findSolutionsJob.setEnableMinimization(searchDialog.getEnableMinimization());
-			findSolutionsJob.setPriority(Job.LONG);
-			findSolutionsJob.setUser(true);
-			findSolutionsJob.schedule();
-		}
-	}
+        if (!(currentEditor instanceof MultiPageEditor))
+            return;
+
+        MultiPageEditor multiPageEditor = (MultiPageEditor) currentEditor;
+
+        XtextEditor xtextEditor = multiPageEditor.getTabEditor();
+        if (xtextEditor == null || !xtextEditor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
+            return;
+
+        /* Check if the editor needs saving */
+        if (xtextEditor.isDirty()) {
+            boolean saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
+                    "Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?");
+            if (saveFirst)
+                xtextEditor.doSave(monitor);
+        }
+
+        MultiPageEditorSite editorSite = (MultiPageEditorSite) xtextEditor.getSite();
+        MultiPageEditor multipageEditor = (MultiPageEditor) editorSite.getMultiPageEditor();
+        if (multipageEditor == null) {
+            MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
+            return;
+        }
+
+        /* Retrieve the URI from the current model */
+        URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
+            public URI exec(XtextResource model) throws Exception {
+                return model.getURI();
+            }
+        });
+
+        if (modelURI == null) {
+            MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
+            return;
+        }
+
+        /*
+         * Open the dialog to choose between simple and advanced mode for finding
+         * solutions
+         */
+        SearchParametersDialog searchDialog = new SearchParametersDialog(shell);
+        if (searchDialog.open() == org.eclipse.jface.window.Window.OK) {
+
+            /* Create a new background Job for finding all solutions */
+            GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
+            findSolutionsJob.setEnableVerboseLogging(searchDialog.getVerboseLogging());
+            findSolutionsJob.setSearchStrategy(searchDialog.getVariableSelector(), searchDialog.getValueSelector());
+            findSolutionsJob.setMaxSolutions(searchDialog.getNumberOfSolutions());
+            findSolutionsJob.setMaxSearchTime(searchDialog.getSearchTime());
+            findSolutionsJob.setSavePartialSolution(searchDialog.getSavePartialSolution());
+            findSolutionsJob.setEnableRestarts(searchDialog.getEnableRestarts(), searchDialog.getRestartFailCount());
+            findSolutionsJob.setNoGoodRecording(searchDialog.getNoGoodRecordingRDC());
+            findSolutionsJob.setEnableMinimization(searchDialog.getEnableMinimization());
+            findSolutionsJob.setPriority(Job.LONG);
+            findSolutionsJob.setUser(true);
+            findSolutionsJob.schedule();
+        }
+    }
 }

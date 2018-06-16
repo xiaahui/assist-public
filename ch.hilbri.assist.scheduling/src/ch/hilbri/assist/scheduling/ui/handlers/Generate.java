@@ -18,7 +18,6 @@ import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import ch.hilbri.assist.scheduling.solver.GuiSolverJob;
@@ -87,12 +86,19 @@ public class Generate {
     @Execute
     public void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
 
-        /* Find the editors ... */
-        XtextEditor xtextEditor = EditorUtils.getActiveXtextEditor();
-        if (xtextEditor == null) {
-            MessageDialog.openError(shell, "Error", "Could not locate the current Xtext editor.");
+        IEditorPart currentEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+        
+        if (currentEditor == null) 
             return;
-        }
+        
+        if (!(currentEditor instanceof MultiPageEditor))
+            return;
+        
+        MultiPageEditor multiPageEditor = (MultiPageEditor) currentEditor;
+        
+        XtextEditor xtextEditor = multiPageEditor.getTabEditor();
+        if (xtextEditor == null || !xtextEditor.getLanguageName().equals("ch.hilbri.assist.scheduling.dsl.SchedulingDsl"))
+            return;
 
         /* Check if the editor needs saving */
         if (xtextEditor.isDirty()) {
