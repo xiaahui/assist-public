@@ -103,4 +103,11 @@
            name="ASSIST">
      </category>
   </extension>
+  <extension
+        point="org.eclipse.ui.exportWizards">
+     <category
+           id="ch.hilbri.assist.gui.category.main"
+           name="ASSIST">
+     </category>
+  </extension>
  </plugin>

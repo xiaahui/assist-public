@@ -38,6 +38,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_5vs18BO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.saveall" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveall_edit.png" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_yXxmIBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.2"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_kTY2MFtfEei_3NOnIFPD1A" elementId="ch.hilbri.assist.gui.handledmenuitem.import" label="Import ..." iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/import.png" command="_NGIFYFtfEei_3NOnIFPD1A"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_reQq4HLsEeih0f87n5fEqQ" elementId="ch.hilbri.assist.gui.handledmenuitem.export" label="Export ..." iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/export.png" command="_kS0X4HLsEeih0f87n5fEqQ"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_i2lhAFtfEei_3NOnIFPD1A" elementId="ch.hilbri.assist.gui.menuseparator.6"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Myc84BO0EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.exit" label="Exit" command="_bAtdQBOyEeeXZoKubOdysQ"/>
       </children>
@@ -128,6 +129,7 @@
   <commands xmi:id="__xJasCj9EeiRxef0JMhTnA" elementId="ch.hilbri.assist.gui.commands.help" commandName="Help"/>
   <commands xmi:id="_NGIFYFtfEei_3NOnIFPD1A" elementId="org.eclipse.ui.file.import" commandName="Import" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <commands xmi:id="_WMmsUF9-EeiwwrmDUEzKcA" elementId="org.eclipse.ui.window.preferences" commandName="Preferences" category="_3K1eACuKEeeS6a68AYSGxg"/>
+  <commands xmi:id="_kS0X4HLsEeih0f87n5fEqQ" elementId="org.eclipse.ui.file.export" commandName="Export" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <addons xmi:id="_75jaERLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_75jaEhLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_75jaExLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
