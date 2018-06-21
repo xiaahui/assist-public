@@ -10,6 +10,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.xtext.resource.SaveOptions;
 
 import com.google.inject.Injector;
@@ -57,6 +61,14 @@ public class ImportAPP4MCWizard extends Wizard implements IImportWizard {
             e.printStackTrace();
         }
 
+        // Open the newly created file in the editor
+        IWorkbenchPage workbenchPage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+        try {
+            IDE.openEditor(workbenchPage, file, true);
+        } catch (PartInitException e) {
+            e.printStackTrace();
+        }
+        
         return true;
     }
 
