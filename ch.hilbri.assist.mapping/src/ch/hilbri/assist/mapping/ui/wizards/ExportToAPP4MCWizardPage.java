@@ -46,6 +46,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     private Combo cbxSolutions;
 
     private MultiPageEditor selectedMultiPageEditor;
+    private MappingResult selectedMappingResult;
 
     /**
      * Create the wizard.
@@ -86,7 +87,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                 int selectionIdx = cbxMultiPageEditors.getSelectionIndex();
 
                 /* Which editors are available? */
-                IEditorReference[] allEditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+                IEditorReference[] allEditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                        .getEditorReferences();
                 List<MultiPageEditor> allMappingEditors = new ArrayList<MultiPageEditor>();
                 for (IEditorReference editorRef : allEditors) {
                     IEditorPart editor = editorRef.getEditor(true);
@@ -151,6 +153,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         cbxSolutions.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
+                selectedMappingResult = selectedMultiPageEditor.getMappingResultsList()
+                        .get(cbxSolutions.getSelectionIndex());
                 checkPageComplete();
             }
         });
@@ -289,4 +293,20 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         /* Apparently, all other checks were passed, so we are complete! */
         setPageComplete(true);
     }
+
+    public MappingResult getSelectedMappingResult() {
+        return selectedMappingResult;
+    }
+
+    public String getSelectedAmaltheaTemplate() {
+        if (exportMode == ExportTemplateMode.EMPTY_MODEL)
+            return null;
+        else
+            return txtExportTemplateFileName.getText();
+    }
+
+    public String getSelectedExportFilename() {
+        return txtExportToFileName.getText();
+    }
+
 }
