@@ -68,6 +68,14 @@ class BasicTests {
         assistShell.setFocus
         bot.partByTitle("newSpecification - Mapping Solution 1 of 2.sdsl").show
         bot.menu("Scheduling").menu("Generate Schedule").click();
+        
+        /* Remove Project */
+        bot.tree().getTreeItem("ExampleProject").select();
+        bot.menu("Edit").menu("Delete").click();
+        val deleteConfirmation = bot.shell("Delete Resources")
+        bot.checkBox(0).select()
+        bot.button("OK").click()
+        bot.waitUntil(shellCloses(deleteConfirmation))
     }
 
     @Test
