@@ -99,14 +99,14 @@
   <extension
         point="org.eclipse.ui.importWizards">
      <category
-           id="ch.hilbri.assist.gui.category.main"
+           id="ch.hilbri.assist.gui.import.category.main"
            name="ASSIST">
      </category>
   </extension>
   <extension
         point="org.eclipse.ui.exportWizards">
      <category
-           id="ch.hilbri.assist.gui.category.main"
+           id="ch.hilbri.assist.gui.export.category.main"
            name="ASSIST">
      </category>
   </extension>

@@ -52,35 +52,25 @@
    </extension>
    <extension
          point="org.eclipse.ui.importWizards">
-      <category
-            id="ch.hilbri.assist.mapping.category"
-            name="Mapping"
-            parentCategory="ch.hilbri.assist.gui.category.main">
-      </category>
       <wizard
-            category="ch.hilbri.assist.gui.category.main/ch.hilbri.assist.mapping.category"
+            category="ch.hilbri.assist.gui.import.category.main"
             class="ch.hilbri.assist.mapping.ui.wizards.ImportAPP4MCWizard"
             icon="icons/app4mc-logo-16.png"
             id="ch.hilbri.assist.mapping.ui.wizards.importAPP4MCWizard"
-            name="AMALTHEA 0.9.0 Model">
+            name="Mapping Specification from AMALTHEA Model">
          <description>
             Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST mapping specification.
          </description>
       </wizard>
-   </extension>
+   </extension>  
    <extension
          point="org.eclipse.ui.exportWizards">
-      <category
-            id="ch.hilbri.assist.mapping.category"
-            name="Mapping"
-            parentCategory="ch.hilbri.assist.gui.category.main">
-      </category>
       <wizard
-            category="ch.hilbri.assist.gui.category.main/ch.hilbri.assist.mapping.category"
+            category="ch.hilbri.assist.gui.export.category.main"
             class="ch.hilbri.assist.mapping.ui.wizards.ExportToAPP4MCWizard"
             icon="icons/app4mc-logo-16.png"
             id="ch.hilbri.assist.mapping.ui.wizards.exportAPP4MCWizard"
-            name="AMALTHEA 0.9.0 Model">
+            name="Mapping Solution to AMALTHEA Model">
          <description>
             Export an ASSIST solution to an AMALTHEA 0.9.0 model
          </description>

@@ -39,22 +39,17 @@
    
    <extension
          point="org.eclipse.ui.importWizards">
-      <category
-            id="ch.hilbri.assist.scheduling.category"
-            name="Scheduling"
-            parentCategory="ch.hilbri.assist.gui.category.main">
-      </category>
       <wizard
-            category="ch.hilbri.assist.gui.category.main/ch.hilbri.assist.scheduling.category"
+            category="ch.hilbri.assist.gui.import.category.main"
             class="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
             icon="icons/app4mc-logo-16.png"
             id="ch.hilbri.assist.scheduling.ui.wizards.ImportAPP4MCWizard"
-            name="AMALTHEA 0.9.0 Model">
+            name="Scheduling Specification from AMALTHEA Model">
          <description>
             Import an AMALTHEA 0.9.0 model from the local file system into the workspace as a new ASSIST scheduling specification.
          </description>
       </wizard>
-   </extension>
+   </extension> 
      
 
 </plugin>
