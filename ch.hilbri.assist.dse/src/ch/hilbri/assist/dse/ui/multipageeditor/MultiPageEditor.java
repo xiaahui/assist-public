@@ -3,6 +3,7 @@ package ch.hilbri.assist.dse.ui.multipageeditor;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.swt.SWT;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
@@ -15,8 +16,8 @@ import ch.hilbri.assist.dse.dsl.ui.internal.DslActivator;
 
 public class MultiPageEditor extends MultiPageEditorPart {
 
-    /** The text editor used in page 0. */
     private XtextEditor tabEditor;
+    private DetailedResults tabResults;
 
     /**
      * Creates page 0 of the multi-page editor, which contains a Xtext editor.
@@ -35,12 +36,19 @@ public class MultiPageEditor extends MultiPageEditorPart {
         }
     }
 
+    void createPage1() {
+            tabResults = new DetailedResults(this.getContainer(), SWT.NULL);
+            int index = addPage(tabResults);
+            setPageText(index, "Results");
+        
+    }
+    
     /**
      * Creates the pages of the multi-page editor.
      */
     protected void createPages() {
         createPage0();
-
+        createPage1();
         this.setPartName(tabEditor.getTitle());
         this.setActivePage(0);
     }
@@ -73,7 +81,7 @@ public class MultiPageEditor extends MultiPageEditorPart {
     }
 
     public void showResultsTab() {
-//        setActivePage(1);
+        setActivePage(1);
     }
     
     @Override
