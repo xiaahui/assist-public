@@ -15,6 +15,8 @@ Require-Bundle:
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
  ch.hilbri.assist.mapping.benchmarking,
- ch.hilbri.assist.model
+ ch.hilbri.assist.model,
+ ch.qos.logback.classic,
+ ch.qos.logback.core
 Fragment-Host: ch.hilbri.assist.mapping
 Automatic-Module-Name: ch.hilbri.assist.mapping.tests
