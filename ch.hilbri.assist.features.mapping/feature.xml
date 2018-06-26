@@ -13,9 +13,10 @@
 
    <requires>
       <import plugin="ch.hilbri.assist.gui"/>
-      <import plugin="ch.hilbri.assist.libraries.logback"/>
       <import plugin="ch.hilbri.assist.libraries.choco-solver"/>
       <import plugin="ch.hilbri.assist.model"/>
+      <import plugin="ch.hilbri.assist.scheduling.dsl"/>
+      <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.xtend.lib"/>
       <import plugin="org.eclipse.e4.core.commands"/>
       <import plugin="org.eclipse.ui.ide" version="3.12.2" match="greaterOrEqual"/>
@@ -29,11 +30,11 @@
       <import plugin="org.eclipse.jdt.ui" version="3.12.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.forms" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.scheduling.dsl"/>
-      <import plugin="ch.hilbri.assist.scheduling.dsl.ide"/>
-      <import plugin="ch.hilbri.assist.scheduling.dsl.ui"/>
       <import plugin="org.eclipse.zest.core" version="1.5.300" match="greaterOrEqual"/>
       <import plugin="org.eclipse.zest.layouts" version="1.1.300" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.apache.commons.math3" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.swtchart" version="0.10.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.xtext.xbase"/>
       <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
@@ -60,10 +61,8 @@
       <import plugin="org.eclipse.xtend.lib.macro"/>
       <import plugin="ch.hilbri.assist.model.edit"/>
       <import plugin="ch.hilbri.assist.model.editor"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.apache.commons.math3" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.swtchart" version="0.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.app4mc.amalthea.model" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.slf4j.api"/>
    </requires>
 
    <plugin

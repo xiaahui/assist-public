@@ -6,7 +6,6 @@ Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
 Bundle-Version: 2.5.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Require-Bundle: ch.hilbri.assist.gui,
- ch.hilbri.assist.libraries.logback,
  ch.hilbri.assist.libraries.choco-solver,
  ch.hilbri.assist.model,
  ch.hilbri.assist.mapping.dsl,
@@ -31,7 +30,8 @@ Require-Bundle: ch.hilbri.assist.gui,
  org.eclipse.emf.ecore,
  org.apache.commons.math3;bundle-version="3.5.0",
  org.swtchart;bundle-version="0.10.0",
- org.eclipse.app4mc.amalthea.model;bundle-version="0.9.0"
+ org.eclipse.app4mc.amalthea.model;bundle-version="0.9.0",
+ org.slf4j.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.analysis,
  ch.hilbri.assist.mapping.analysis.metrics.builtin,

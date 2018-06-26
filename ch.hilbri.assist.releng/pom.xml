@@ -26,7 +26,7 @@
     <modules>
         <module>../ch.hilbri.assist.libraries.jgrapht</module>
         <module>../ch.hilbri.assist.libraries.jxl</module>
-        <module>../ch.hilbri.assist.libraries.logback</module>
+        
         <module>../ch.hilbri.assist.cli</module>
         <module>../ch.hilbri.assist.mapping</module>
         <module>../ch.hilbri.assist.mapping.tests</module>
@@ -63,7 +63,8 @@
 		<module>../ch.hilbri.assist.gui.tests</module>
 		<module>../ch.hilbri.assist.releng.product.gui</module>
 		<module>../ch.hilbri.assist.releng.targetplatform</module>
-	</modules>
+		<module>../ch.hilbri.assist.gui.logging</module>
+    </modules>
 
 	<dependencies>
 

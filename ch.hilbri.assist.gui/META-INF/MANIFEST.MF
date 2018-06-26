@@ -4,8 +4,7 @@ Bundle-Name: ASSIST
 Bundle-SymbolicName: ch.hilbri.assist.gui;singleton:=true
 Bundle-Version: 2.5.0.qualifier
 Bundle-Vendor: Robert Hilbrich
-Export-Package: ch.hilbri.assist.gui.logging,
- ch.hilbri.assist.gui.misc,
+Export-Package: ch.hilbri.assist.gui.misc,
  ch.hilbri.assist.gui.splash
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
@@ -23,7 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
  org.eclipse.jdt.ui,
- ch.hilbri.assist.libraries.logback,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui.browser,
  ch.hilbri.assist.model,
@@ -31,10 +29,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.eclipse.emf.mwe2.runtime
+ org.eclipse.emf.mwe2.runtime,
+ ch.qos.logback.core,
+ ch.qos.logback.classic
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0",
  org.osgi.framework,
- org.osgi.service.component
+ org.osgi.service.component,
+ org.slf4j;version="1.7.10"
 Automatic-Module-Name: ch.hilbri.assist.gui
