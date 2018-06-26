@@ -10,16 +10,18 @@ import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.ui.PlatformUI
 import org.junit.AfterClass
+import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.slf4j.LoggerFactory
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
-import org.slf4j.LoggerFactory
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
 
-    new() {
+    @BeforeClass
+    def void configureLogback() {
         /* Configure Logback programmatically to use logback-test.xml */
         val iLoggerFactory = LoggerFactory.getILoggerFactory
         val loggerContext = iLoggerFactory as LoggerContext
