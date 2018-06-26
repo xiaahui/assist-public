@@ -105,7 +105,6 @@ public class GuiSolverJob extends Job {
 			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
 			logger.info("\"" + message + "\"");
 			showMessageInUI(constraintName, message);
-			resetView();
 		}
 		return Status.OK_STATUS;
 	}
@@ -123,17 +122,6 @@ public class GuiSolverJob extends Job {
 			}
 		});
 
-	}
-
-	private void resetView() {
-		if (multiPageEditor != null) {
-			Display.getDefault().asyncExec(new Runnable() {
-				@Override
-				public void run() {
-//					multiPageEditor.resetView();
-				}
-			});
-		}
 	}
 
 	public void setMaxSolutions(int maxSolutions) {
