@@ -4,7 +4,10 @@ Bundle-Name: ch.hilbri.assist.dse
 Bundle-SymbolicName: ch.hilbri.assist.dse;singleton:=true
 Bundle-Version: 2.5.0.qualifier
 Bundle-Vendor: Robert Hilbrich
-Require-Bundle: org.eclipse.e4.ui.model.workbench,
+Require-Bundle: ch.hilbri.assist.dse.dsl.ui,
+ ch.hilbri.assist.libraries.logback,
+ ch.hilbri.assist.model,
+ org.eclipse.e4.ui.model.workbench,
  org.eclipse.ui,
  org.eclipse.xtend.lib,
  org.eclipse.e4.core.commands,

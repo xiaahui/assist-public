@@ -8,6 +8,17 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="ch.hilbri.assist.dse.ui.multipageeditor.MultiPageEditor"
+            contributorClass="ch.hilbri.assist.dse.ui.multipageeditor.MultiPageEditorContributor"
+            default="true"
+            extensions="ddsl"
+            icon="icons/dse-specification.png"
+            id="ch.hilbri.assist.dse.dsl.DSEDsl"
+            name="Design Space Exploration Specification">
+      </editor>
+   </extension>
    <extension
          point="org.eclipse.ui.newWizards">
          <wizard

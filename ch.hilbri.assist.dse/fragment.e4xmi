@@ -17,5 +17,6 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UvG_gCK1Eeikw4OBE8icBA" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Handler" xmi:id="_W3PJoCK1Eeikw4OBE8icBA" elementId="ch.hilbri.assist.handler.dse.newspec" contributionURI="bundleclass://ch.hilbri.assist.dse/ch.hilbri.assist.dse.ui.handlers.OpenNewDSESpecWizard" command="_PW0sMCK1Eeikw4OBE8icBA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_V9TgAHkwEeiJv58v4jCSDw" elementId="ch.hilbri.assist.handler.dse.eval" contributionURI="bundleclass://ch.hilbri.assist.dse/ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace" command="_3BgsMPH2EeebxrQqvplQ4g"/>
   </fragments>
 </fragment:ModelFragments>
