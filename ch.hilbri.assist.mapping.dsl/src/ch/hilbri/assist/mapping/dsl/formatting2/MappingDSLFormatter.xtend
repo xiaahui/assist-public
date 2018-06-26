@@ -8,14 +8,13 @@ import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.Feature
+import ch.hilbri.assist.model.FeatureRequirement
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import ch.hilbri.assist.model.ModelPackage
-import ch.hilbri.assist.model.FeatureRequirement
 
 class MappingDSLFormatter extends AbstractFormatter2 {
 
