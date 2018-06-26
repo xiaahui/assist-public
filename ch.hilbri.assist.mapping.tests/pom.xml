@@ -33,6 +33,18 @@
                             <type>eclipse-plugin</type>
                             <artifactId>org.eclipse.xtext.logging</artifactId>
                         </dependency>
+                        <dependency>
+                            <type>eclipse-plugin</type>
+                            <artifactId>ch.qos.logback.classic</artifactId>
+                        </dependency>
+                        <dependency>
+                            <type>eclipse-plugin</type>
+                            <artifactId>ch.qos.logback.core</artifactId>
+                        </dependency>
+                        <dependency>
+                            <type>eclipse-plugin</type>
+                            <artifactId>ch.qos.logback.slf4j</artifactId>
+                        </dependency>
                     </dependencies>
                 </configuration>
             </plugin>
