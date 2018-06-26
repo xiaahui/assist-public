@@ -26,16 +26,16 @@ class AbstractMappingTest {
 
     new() {
 
-        /* Configure Logback programmatically */
+        /* Configure Logback programmatically to use logback-test.xml */
         val iLoggerFactory = LoggerFactory.getILoggerFactory
         val loggerContext = iLoggerFactory as LoggerContext
         loggerContext.reset
         val configurator = new JoranConfigurator
         configurator.setContext(loggerContext)
         try {
-            configurator.doConfigure(getClass().getResourceAsStream("/logback-test.xml"));
+            configurator.doConfigure(class.getResourceAsStream("/logback-test.xml"))
         } catch (JoranException e) {
-            throw new IOException(e.getMessage(), e);
+            throw new IOException(e.getMessage(), e)
         }
 
         logger = LoggerFactory.getLogger(this.class)

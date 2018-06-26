@@ -1,5 +1,9 @@
 package ch.hilbri.assist.gui.tests.basics
 
+import ch.qos.logback.classic.LoggerContext
+import ch.qos.logback.classic.joran.JoranConfigurator
+import ch.qos.logback.core.joran.spi.JoranException
+import java.io.IOException
 import org.eclipse.e4.core.contexts.IEclipseContext
 import org.eclipse.swtbot.e4.finder.widgets.SWTWorkbenchBot
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions
@@ -10,9 +14,24 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
+import org.slf4j.LoggerFactory
 
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
+
+    new() {
+        /* Configure Logback programmatically to use logback-test.xml */
+        val iLoggerFactory = LoggerFactory.getILoggerFactory
+        val loggerContext = iLoggerFactory as LoggerContext
+        loggerContext.reset
+        val configurator = new JoranConfigurator
+        configurator.setContext(loggerContext)
+        try {
+            configurator.doConfigure(class.getResourceAsStream("/logback-test.xml"))
+        } catch (JoranException e) {
+            throw new IOException(e.getMessage(), e)
+        }
+    }
 
     /* This is RCP3.x API style - but unfortunately, I have no idea,
      * how to get the Eclipse Context in any other way               */

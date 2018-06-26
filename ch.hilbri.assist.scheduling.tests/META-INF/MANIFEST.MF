@@ -13,7 +13,9 @@ Require-Bundle:
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
- ch.hilbri.assist.model
+ ch.hilbri.assist.model,
+ ch.qos.logback.classic;bundle-version="1.1.2",
+ ch.qos.logback.core;bundle-version="1.1.2"
 Fragment-Host: ch.hilbri.assist.scheduling;bundle-version="2.4.0"
 Automatic-Module-Name: ch.hilbri.assist.scheduling.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
