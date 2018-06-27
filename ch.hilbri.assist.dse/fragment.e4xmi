@@ -12,7 +12,7 @@
     <elements xsi:type="commands:Command" xmi:id="_PW0sMCK1Eeikw4OBE8icBA" elementId="ch.hilbri.assist.dse.command.newspec" commandName="New DSE Specification"/>
     <elements xsi:type="commands:Command" xmi:id="_5v3v4PH2EeebxrQqvplQ4g" elementId="ch.hilbri.assist.dse.command.generate" commandName="Generate Configurations"/>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_sjFngCK0Eeikw4OBE8icBA" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_sjFngCK0Eeikw4OBE8icBA" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="before:ch.hilbri.assist.mapping.handledtoolitem.newspec">
     <elements xsi:type="menu:HandledToolItem" xmi:id="_1qi7QCK0Eeikw4OBE8icBA" elementId="ch.hilbri.assist.dse.handledtoolitem.newspec" label="New DSE Specification" iconURI="platform:/plugin/ch.hilbri.assist.dse/icons/new-dse-specification.png" command="_PW0sMCK1Eeikw4OBE8icBA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UvG_gCK1Eeikw4OBE8icBA" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
