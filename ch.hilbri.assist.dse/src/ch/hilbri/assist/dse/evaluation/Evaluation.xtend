@@ -2,6 +2,7 @@ package ch.hilbri.assist.dse.evaluation
 
 import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.model.AssistModel
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.LoggerContext
@@ -67,7 +68,10 @@ class Evaluation {
                 mappingSolver.runConstraintGeneration
                 mappingSolver.runSolutionSearch
                 mappingSolver.createSolutions
+            } catch (BasicConstraintsException e) {
+                logger.info('''  - Mapping failed (conflicting constraint "«e.constraintName»")''')
             } catch (Exception e) {
+                logger.info('''  - Mapping failed - unknown reason''')
                 e.printStackTrace
             }
 

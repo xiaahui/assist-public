@@ -50,7 +50,7 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
                     allButtons.put(cell.element, button)
                 }
                 val editor = new TableEditor(table)
-                editor.minimumWidth = 25
+                editor.minimumWidth = 75
                 editor.grabVertical = true
                 editor.setEditor(button, item, 2)
                 editor.layout
