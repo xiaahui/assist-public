@@ -19,4 +19,9 @@
     <elements xsi:type="commands:Handler" xmi:id="_W3PJoCK1Eeikw4OBE8icBA" elementId="ch.hilbri.assist.handler.dse.newspec" contributionURI="bundleclass://ch.hilbri.assist.dse/ch.hilbri.assist.dse.ui.handlers.OpenNewDSESpecWizard" command="_PW0sMCK1Eeikw4OBE8icBA"/>
     <elements xsi:type="commands:Handler" xmi:id="_V9TgAHkwEeiJv58v4jCSDw" elementId="ch.hilbri.assist.handler.dse.eval" contributionURI="bundleclass://ch.hilbri.assist.dse/ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace" command="_3BgsMPH2EeebxrQqvplQ4g"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6kK0gHoHEeitgZdtTrhCLg" featurename="children" parentElementId="ch.hilbri.assist.gui.trimbar.main" positionInList="before:ch.hilbri.assist.mapping.toolbar.mapping">
+    <elements xsi:type="menu:ToolBar" xmi:id="_BEgVAHoIEeitgZdtTrhCLg" elementId="ch.hilbri.assist.dse.toolbar.dse">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_D1f18HoIEeitgZdtTrhCLg" elementId="ch.hilbri.assist.dse.handledtoolitem.runevaluation" label="Evaluate Design Space" iconURI="platform:/plugin/ch.hilbri.assist.dse/icons/run_evaluation.png" command="_3BgsMPH2EeebxrQqvplQ4g"/>
+    </elements>
+  </fragments>
 </fragment:ModelFragments>
