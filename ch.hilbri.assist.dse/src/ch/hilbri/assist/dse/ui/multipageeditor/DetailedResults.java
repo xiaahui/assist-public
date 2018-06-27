@@ -1,6 +1,11 @@
 package ch.hilbri.assist.dse.ui.multipageeditor;
 
+import java.util.List;
+
 import org.eclipse.jface.resource.FontDescriptor;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -8,13 +13,17 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 
+import ch.hilbri.assist.dse.results.ExplorationResult;
+
 public class DetailedResults extends Composite {
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
-    private Table table;
+    private Table tblResults;
+    private TableViewer tblViewerResults;
 
     /**
      * Create the composite.
@@ -43,12 +52,36 @@ public class DetailedResults extends Composite {
         sctnOverview.setClient(compOverview);
         compOverview.setLayout(new GridLayout(1, false));
         
-        table = new Table(compOverview, SWT.BORDER | SWT.FULL_SELECTION);
-        table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-        formToolkit.adapt(table);
-        formToolkit.paintBordersFor(table);
-        table.setHeaderVisible(true);
-        table.setLinesVisible(true);
+        tblViewerResults = new TableViewer(compOverview, SWT.BORDER | SWT.FULL_SELECTION);
+        tblResults = tblViewerResults.getTable();
+        tblResults.setLinesVisible(true);
+        tblResults.setHeaderVisible(true);
+        tblResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+        formToolkit.paintBordersFor(tblResults);
+        
+        TableViewerColumn tblViewerColumnCandidate = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        TableColumn tblclmnCandidate = tblViewerColumnCandidate.getColumn();
+        tblclmnCandidate.setWidth(100);
+        tblclmnCandidate.setText("Candidate");
+        
+        
+        TableViewerColumn tblViewerColumnFeasible = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tblViewerColumnFeasible.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        TableColumn tblclmnFeasible = tblViewerColumnFeasible.getColumn();
+        tblclmnFeasible.setWidth(100);
+        tblclmnFeasible.setText("Feasible");
+        
+        TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        TableColumn tblclmnGenerate = tblViewerColumnGenerate.getColumn();
+        tblclmnGenerate.setWidth(100);
+        tblclmnGenerate.setText("Generate");
+        tblViewerResults.setContentProvider(new ArrayContentProvider());
+    }
+    
+    public void setExplorationResults(List<ExplorationResult> results) {
+        tblViewerResults.setInput(results);
     }
 
     @Override

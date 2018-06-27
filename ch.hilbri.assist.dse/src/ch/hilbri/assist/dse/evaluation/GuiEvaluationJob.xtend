@@ -38,6 +38,7 @@ class GuiEvaluationJob extends Job {
         monitor.beginTask("Presenting the results", 1);
         Display.getDefault().asyncExec(new Runnable() {
             override void run() {
+                multiPageEditor.explorationResults = evaluation.explorationResults
                 multiPageEditor.showResultsTab();
             }
         });

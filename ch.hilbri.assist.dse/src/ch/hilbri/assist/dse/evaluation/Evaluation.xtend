@@ -1,17 +1,21 @@
 package ch.hilbri.assist.dse.evaluation
 
+import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.model.AssistModel
+import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.LoggerContext
+import java.util.List
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.qos.logback.classic.Level
 
 class Evaluation {
 
-    private Logger logger = LoggerFactory.getLogger(this.class)
-    private AssistModel assistModel
+    AssistModel assistModel
+    Logger logger = LoggerFactory.getLogger(this.class)
+    @Accessors(PUBLIC_GETTER) List<ExplorationResult> explorationResults = newArrayList()
 
     new(AssistModel input) {
 
@@ -70,11 +74,14 @@ class Evaluation {
             /* Of course, we have to re-enable the logging output from the mapping part */
             mappingLogger.setLevel(Level.DEBUG)
             
-            if (mappingSolver.results !== null && mappingSolver.results.size > 0)
+            if (mappingSolver.results !== null && mappingSolver.results.size > 0) {
                 logger.info('''Candidate "«candidate.name»" seems feasible''')
-            else
+                explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, true))    
+            }
+            else {
                 logger.info('''Candidate "«candidate.name»" seems NOT feasible''')
-
+                explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, false))
+            }
         }
     }
 }

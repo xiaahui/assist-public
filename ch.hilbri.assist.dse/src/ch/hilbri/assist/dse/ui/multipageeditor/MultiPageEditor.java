@@ -1,5 +1,7 @@
 package ch.hilbri.assist.dse.ui.multipageeditor;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -13,6 +15,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.dse.dsl.ui.internal.DslActivator;
+import ch.hilbri.assist.dse.results.ExplorationResult;
 
 public class MultiPageEditor extends MultiPageEditorPart {
 
@@ -82,6 +85,10 @@ public class MultiPageEditor extends MultiPageEditorPart {
 
     public void showResultsTab() {
         setActivePage(1);
+    }
+    
+    public void setExplorationResults(List<ExplorationResult> results) {
+        tabResults.setExplorationResults(results);
     }
     
     @Override
