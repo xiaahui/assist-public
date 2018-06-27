@@ -34,28 +34,9 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-/* This encapsulates the generic logger and allows us to
- * turn it on or off */
-class MyLogger {
-    private boolean enabled
-    private Logger logger = LoggerFactory.getLogger(AssistMappingSolver)
-
-    new(boolean s) {
-        enabled = s
-    }
-
-    def info(String msg) {
-        if(enabled) logger.info(msg)
-    }
-
-    def debug(String msg) {
-        if(enabled) logger.debug(msg)
-    }
-}
-
 class AssistMappingSolver {
 
-    private MyLogger logger
+    private Logger logger = LoggerFactory.getLogger(AssistMappingSolver)
     private boolean verboseLogging = false
 
     private AssistModel assistModel
@@ -74,11 +55,6 @@ class AssistMappingSolver {
     private PartialSolutionSaveMonitor monPartialSolutionSave
 
     new(AssistModel input) {
-        this(input, true)
-    }
-
-    new(AssistModel input, boolean logEnabled) {
-        logger = new MyLogger(logEnabled)
 
         logger.info('''******************************''')
         logger.info('''        ASSIST Solver         ''')

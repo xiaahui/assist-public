@@ -1,10 +1,12 @@
 package ch.hilbri.assist.dse.evaluation
 
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.model.AssistModel
+import ch.qos.logback.classic.LoggerContext
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.AssistMappingSolver
+import ch.qos.logback.classic.Level
 
 class Evaluation {
 
@@ -21,13 +23,12 @@ class Evaluation {
     }
 
     def run() {
-        logger.info('''Running''')
 
         /* Go through all exploration candidates */
         for (i : 0 ..< assistModel.explorationCandidates.size) {
             val explorationCandidateModel = EcoreUtil.copy(assistModel)
             val candidate = explorationCandidateModel.explorationCandidates.get(i)
-            logger.info('''Exploring Candidate «candidate.name»''')
+            logger.info('''Exploring Candidate "«candidate.name»"''')
 
             /* Remove the variance points in the hardware architecture, which are not needed */
             for (box : explorationCandidateModel.allBoxes) {
@@ -48,10 +49,14 @@ class Evaluation {
             if (!explorationCandidateModel.allBoxes.map[boardAlternatives].flatten.isEmpty)
                 logger.info('''There seem to be some hardware variance points still in the model''')
 
-            logger.info('''Checking mapping feasibility''')
+            logger.info('''  - Checking mapping feasibility''')
 
+            /* We do not want see all the output from the mapping, so we mute it */
+            val loggerContext = LoggerFactory.getILoggerFactory() as LoggerContext
+            val mappingLogger = loggerContext.getLogger("ch.hilbri.assist.mapping")
+            mappingLogger.setLevel(Level.OFF)
             
-            val mappingSolver = new AssistMappingSolver(explorationCandidateModel, false)
+            val mappingSolver = new AssistMappingSolver(explorationCandidateModel)
             try {
                 mappingSolver.runInitialization
                 mappingSolver.solverMaxSolutions = 1
@@ -59,13 +64,16 @@ class Evaluation {
                 mappingSolver.runSolutionSearch
                 mappingSolver.createSolutions
             } catch (Exception e) {
+                e.printStackTrace
             }
-            
+
+            /* Of course, we have to re-enable the logging output from the mapping part */
+            mappingLogger.setLevel(Level.DEBUG)
             
             if (mappingSolver.results !== null && mappingSolver.results.size > 0)
-                logger.info('''Candidate «candidate.name» seems feasible''')
+                logger.info('''Candidate "«candidate.name»" seems feasible''')
             else
-                logger.info('''Candidate «candidate.name» seems NOT feasible''')
+                logger.info('''Candidate "«candidate.name»" seems NOT feasible''')
 
         }
     }
