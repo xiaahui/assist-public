@@ -61,10 +61,7 @@ public class MultiPageEditor extends MultiPageEditorPart {
      * Saves the multi-page editor's document.
      */
     public void doSave(IProgressMonitor monitor) {
-        IEditorPart editor = getEditor(0);
-        editor.doSaveAs();
-        setPageText(0, editor.getTitle());
-        setInput(editor.getEditorInput());
+        getEditor(0).doSave(monitor);
     }
 
     /**
