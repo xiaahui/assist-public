@@ -42,10 +42,11 @@
       <import plugin="org.eclipse.xtend.lib.macro"/>
       <import plugin="org.eclipse.emf.mwe2.runtime"/>
       <import plugin="ch.qos.logback.core" version="1.1.2" match="greaterOrEqual"/>
+      <import plugin="ch.qos.logback.classic"/>
       <import plugin="javax.inject"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="javax.annotation"/>
-      <import plugin="ch.qos.logback.classic"/>
+      <import plugin="org.slf4j.api"/>
    </requires>
 
    <plugin

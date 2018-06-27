@@ -21,6 +21,6 @@ Require-Bundle: ch.hilbri.assist.mapping,
  org.eclipse.jdt.ui,
  org.eclipse.ui.forms,
  org.eclipse.xtext.ui,
- org.slf4j.api
+ org.slf4j.api;bundle-version="1.7.10"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: ch.hilbri.assist.dse
