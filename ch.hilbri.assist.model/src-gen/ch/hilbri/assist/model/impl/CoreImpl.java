@@ -343,7 +343,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (architecture: ");
         result.append(architecture);
         result.append(", capacity: ");

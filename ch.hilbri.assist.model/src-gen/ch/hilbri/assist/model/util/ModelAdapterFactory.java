@@ -807,13 +807,13 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link java.lang.Comparable<ch.hilbri.assist.model.MappingResult> <em>Comparable</em>}'.
+     * Creates a new adapter for an object of class '{@link java.lang.Comparable <em>Comparable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see java.lang.Comparable<ch.hilbri.assist.model.MappingResult>
+     * @see java.lang.Comparable
      * @generated
      */
     public Adapter createComparableAdapter() {

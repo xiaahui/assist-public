@@ -460,7 +460,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
+     *
      * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
@@ -474,7 +474,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
         // Obtain or create and register package
-        ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModelPackageImpl());
+        Object registeredModelPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+        ModelPackageImpl theModelPackage = registeredModelPackage instanceof ModelPackageImpl ? (ModelPackageImpl)registeredModelPackage : new ModelPackageImpl();
 
         isInited = true;
 
@@ -490,7 +491,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         // Mark meta-data to indicate it can't be changed
         theModelPackage.freeze();
 
-  
         // Update the registry and return the package
         EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, theModelPackage);
         return theModelPackage;
@@ -3167,12 +3167,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     protected void createXcoreAnnotations() {
-        String source = "http://www.eclipse.org/emf/2011/Xcore";	
+        String source = "http://www.eclipse.org/emf/2011/Xcore";
         addAnnotation
-          (this, 
-           source, 
+          (this,
+           source,
            new String[] {
-             "GenModel", "http://www.eclipse.org/emf/2002/GenModel"
+               "GenModel", "http://www.eclipse.org/emf/2002/GenModel"
            });
     }
 

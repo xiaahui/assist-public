@@ -22,8 +22,6 @@ import ch.hilbri.assist.model.Task;
 
 import com.google.common.collect.Iterables;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -848,7 +846,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (systemName: ");
         result.append(systemName);
         result.append(", minHypPeriodLength: ");

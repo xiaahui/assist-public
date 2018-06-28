@@ -2645,10 +2645,10 @@ public interface ModelPackage extends EPackage {
     int EXPLORATION_CANDIDATE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link java.lang.Comparable<ch.hilbri.assist.model.MappingResult> <em>Comparable</em>}' class.
+     * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see java.lang.Comparable<ch.hilbri.assist.model.MappingResult>
+     * @see java.lang.Comparable
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
@@ -5024,11 +5024,11 @@ public interface ModelPackage extends EPackage {
     EReference getExplorationCandidate_RestrictionAlternatives();
 
     /**
-     * Returns the meta object for class '{@link java.lang.Comparable<ch.hilbri.assist.model.MappingResult> <em>Comparable</em>}'.
+     * Returns the meta object for class '{@link java.lang.Comparable <em>Comparable</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for class '<em>Comparable</em>'.
-     * @see java.lang.Comparable<ch.hilbri.assist.model.MappingResult>
+     * @see java.lang.Comparable
      * @model instanceClass="java.lang.Comparable&lt;ch.hilbri.assist.model.MappingResult&gt;"
      * @generated
      */
@@ -5548,6 +5548,11 @@ public interface ModelPackage extends EPackage {
      * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Core Map Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     *  **************************************
+     * RESULTS - MAPPING
+     * **************************************
+     * <!-- end-model-doc -->
      * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
      * @see java.util.HashMap
      * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.model.Task, ch.hilbri.assist.model.Core&gt;"
@@ -5570,6 +5575,11 @@ public interface ModelPackage extends EPackage {
      * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Execution Instances Map Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     *  **************************************
+     * RESULTS - SCHEDULING
+     * *************************************
+     * <!-- end-model-doc -->
      * @return the meta object for data type '<em>Task2 Execution Instances Map Type</em>'.
      * @see java.util.HashMap
      * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.model.Task, java.util.List&lt;ch.hilbri.assist.model.TaskExecutionInstance&gt;&gt;"
@@ -7001,10 +7011,10 @@ public interface ModelPackage extends EPackage {
         EReference EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES = eINSTANCE.getExplorationCandidate_RestrictionAlternatives();
 
         /**
-         * The meta object literal for the '{@link java.lang.Comparable<ch.hilbri.assist.model.MappingResult> <em>Comparable</em>}' class.
+         * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see java.lang.Comparable<ch.hilbri.assist.model.MappingResult>
+         * @see java.lang.Comparable
          * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
          * @generated
          */

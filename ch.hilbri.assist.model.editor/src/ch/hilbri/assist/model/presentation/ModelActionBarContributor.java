@@ -163,6 +163,7 @@ public class ModelActionBarContributor
      */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+        super.contributeToToolBar(toolBarManager);
         toolBarManager.add(new Separator("model-settings"));
         toolBarManager.add(new Separator("model-additions"));
     }
