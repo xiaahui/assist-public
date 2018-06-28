@@ -4,7 +4,7 @@ import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 
 class BasicConstraintsException extends Exception {
 
-	private AbstractMappingConstraint constraint
+	AbstractMappingConstraint constraint
 
 	new(AbstractMappingConstraint constraint) {
 		this.constraint = constraint

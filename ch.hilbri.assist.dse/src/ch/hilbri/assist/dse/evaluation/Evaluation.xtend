@@ -70,10 +70,7 @@ class Evaluation {
                 mappingSolver.createSolutions
             } catch (BasicConstraintsException e) {
                 logger.info('''  - Mapping failed (conflicting constraint "«e.constraintName»")''')
-            } catch (Exception e) {
-                logger.info('''  - Mapping failed - unknown reason''')
-                e.printStackTrace
-            }
+            } 
 
             /* Of course, we have to re-enable the logging output from the mapping part */
             mappingLogger.setLevel(Level.DEBUG)

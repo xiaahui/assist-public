@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory
 
 class GuiSolverJob extends Job {
 
-	private AssistSchedulingSolver assistSolver
-	private MultiPageEditor multiPageEditor
-	private Logger logger = LoggerFactory::getLogger(class)
+	AssistSchedulingSolver assistSolver
+	MultiPageEditor multiPageEditor
+	Logger logger = LoggerFactory::getLogger(class)
 
 	new(String name, URI modelURI, MultiPageEditor editor) {
 		super(name)
@@ -126,9 +126,5 @@ Constraints: "«constraintName»"
 
 	def void setEnableRestarts(boolean value, int failCounter) {
 		if(value) assistSolver.setEnableRestarts(failCounter)
-	}
-
-	def void setEnableVerboseLogging(boolean value) {
-		if(value) assistSolver.setEnableVerboseLogging()
 	}
 }

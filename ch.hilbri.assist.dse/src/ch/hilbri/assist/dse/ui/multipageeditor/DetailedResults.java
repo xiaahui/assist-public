@@ -60,20 +60,20 @@ public class DetailedResults extends Composite {
         formToolkit.paintBordersFor(tblResults);
         
         TableViewerColumn tblViewerColumnCandidate = new TableViewerColumn(tblViewerResults, SWT.NONE);
-        tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
         TableColumn tblclmnCandidate = tblViewerColumnCandidate.getColumn();
         tblclmnCandidate.setWidth(100);
         tblclmnCandidate.setText("Candidate");
         
         
         TableViewerColumn tblViewerColumnFeasible = new TableViewerColumn(tblViewerResults, SWT.NONE);
-        tblViewerColumnFeasible.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        tblViewerColumnFeasible.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
         TableColumn tblclmnFeasible = tblViewerColumnFeasible.getColumn();
         tblclmnFeasible.setWidth(100);
         tblclmnFeasible.setText("Feasible");
         
         TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
-        tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, this));
+        tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
         TableColumn tblclmnGenerate = tblViewerColumnGenerate.getColumn();
         tblclmnGenerate.setWidth(100);
         tblclmnGenerate.setText("Generate");

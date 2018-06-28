@@ -294,19 +294,6 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		});
 		btnSavePartialSolution.setText("Save the best partial solution, if no complete solutions are found");
 		new Label(grpMiscellaneousOptions, SWT.NONE);
-
-		Button btnVerboseLoggingOutput = new Button(grpMiscellaneousOptions, SWT.CHECK);
-		btnVerboseLoggingOutput.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
-		btnVerboseLoggingOutput.setEnabled(false);
-		btnVerboseLoggingOutput.setSelection(false);
-		btnVerboseLoggingOutput.setText("Detailed logging output");
-		new Label(grpMiscellaneousOptions, SWT.NONE);
-		btnVerboseLoggingOutput.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				verboseLogging = btnVerboseLoggingOutput.getSelection();
-			}
-		});
 		return area;
 	}
 

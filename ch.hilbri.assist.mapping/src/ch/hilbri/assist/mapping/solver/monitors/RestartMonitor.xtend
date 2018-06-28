@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory
 
 class RestartMonitor implements IMonitorRestart {
 	
-	private Logger logger
+	Logger logger
 	
 	new() {
 		this.logger = LoggerFactory.getLogger(this.class) 

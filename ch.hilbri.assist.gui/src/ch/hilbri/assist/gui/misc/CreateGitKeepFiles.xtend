@@ -7,7 +7,7 @@ import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowContext
 
 class CreateGitKeepFiles implements IWorkflowComponent {
 
-    private String file
+    String file
 
     /* The MWE2 Workflow for the Xtext grammar removes the entire src-gen folder,
      * but we want to keep the folder and need a special file for this purpose .src-gen-keep

@@ -12,7 +12,7 @@ import ch.hilbri.assist.model.SchedulingResult
 
 class ResultFactoryFromSolverSolutions {
 	
-	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
+	static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
 	static def List<SchedulingResult> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 

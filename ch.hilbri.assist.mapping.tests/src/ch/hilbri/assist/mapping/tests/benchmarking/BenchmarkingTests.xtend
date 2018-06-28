@@ -23,9 +23,9 @@ class BenchmarkingEntry {
 	@Accessors long backtrackCount	
 	@Accessors long resolutionTimeInNS
 
-	public override String toString() {
+	override String toString() {
 		'''«name»: «constraintCount» constraints, «variableCount» variables, «failCount» fails, «backtrackCount» backtracks, «resolutionTimeInNS / 1000000.0» resolution time (ms)'''
-	}	
+	}
 }
 
 class BenchmarkingTests extends AbstractMappingTest {

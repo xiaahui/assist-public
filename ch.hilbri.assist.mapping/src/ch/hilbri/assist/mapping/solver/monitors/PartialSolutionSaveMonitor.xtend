@@ -6,20 +6,14 @@ import java.util.Map
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.search.loop.monitors.IMonitorDownBranch
 import org.chocosolver.solver.variables.IntVar
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 class PartialSolutionSaveMonitor implements IMonitorDownBranch {
-	private Model 				 solverModel
-	private IntVar[] 			 locationVariables
-	private Logger 				 logger
-	private int 				 bestProgress = 0
-	private Map<IntVar, Integer> bestSolution
+	IntVar[] locationVariables
+	int bestProgress = 0
+	Map<IntVar, Integer> bestSolution
 	
 	new(Model solverModel, SolverVariablesContainer solverVariables) {
-		this.solverModel 		= solverModel
 		this.locationVariables 	= solverVariables.allLocationVariables
-		this.logger 			= LoggerFactory.getLogger(this.class)
 		this.bestSolution		= new HashMap
 	}
 	

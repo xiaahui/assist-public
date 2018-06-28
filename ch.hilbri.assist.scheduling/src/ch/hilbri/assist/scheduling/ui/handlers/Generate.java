@@ -129,7 +129,6 @@ public class Generate {
 
         /* Create a new background job for finding solutions */
         GuiSolverJob findSolutionsJob = new GuiSolverJob("Find a schedule", modelURI, multipageEditor);
-        findSolutionsJob.setEnableVerboseLogging(true);
         findSolutionsJob.setSearchStrategy(VariableSelectorTypes.getDefault(), ValueSelectorTypes.getDefault());
         findSolutionsJob.setMaxSolutions(1);
         findSolutionsJob.setMaxSearchTime(50000);

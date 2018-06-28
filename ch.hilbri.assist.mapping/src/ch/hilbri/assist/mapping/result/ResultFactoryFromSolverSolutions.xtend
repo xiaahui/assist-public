@@ -13,7 +13,7 @@ import ch.hilbri.assist.model.MappingResult
 
 class ResultFactoryFromSolverSolutions {
 	
-	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
+	static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
 	static def ArrayList<MappingResult> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 

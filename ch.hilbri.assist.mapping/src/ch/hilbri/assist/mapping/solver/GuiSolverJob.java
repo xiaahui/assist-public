@@ -158,11 +158,4 @@ public class GuiSolverJob extends Job {
 		if (value)
 			assistSolver.setEnableMinimization();
 	}
-	
-	public void setEnableVerboseLogging(boolean value) {
-		if (value)
-			assistSolver.setEnableVerboseLogging();
-	}
-	
-	
 }

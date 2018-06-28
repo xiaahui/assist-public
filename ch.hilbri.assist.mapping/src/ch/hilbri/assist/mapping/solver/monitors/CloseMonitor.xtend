@@ -5,7 +5,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class CloseMonitor implements IMonitorClose {
-	private Logger logger
+	Logger logger
 	
 	new() {
 		this.logger = LoggerFactory.getLogger(this.class) 

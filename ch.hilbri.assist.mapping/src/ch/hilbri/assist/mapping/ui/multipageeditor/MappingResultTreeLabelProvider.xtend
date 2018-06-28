@@ -23,8 +23,8 @@ import org.eclipse.zest.core.widgets.ZestStyles
 
 class MappingResultTreeLabelProvider extends LabelProvider implements IEntityStyleProvider, IEntityConnectionStyleProvider, ISelfStyleProvider {
 
-	private Color lightblue = new Color(Display.getCurrent, 230, 238, 255)
-	private Color lightgreen = new Color(Display.getCurrent, 242, 255, 230)
+	Color lightblue = new Color(Display.getCurrent, 230, 238, 255)
+	Color lightgreen = new Color(Display.getCurrent, 242, 255, 230)
 
 	override String getText(Object element) {
 		if (element instanceof MappingResultTreeNode) {

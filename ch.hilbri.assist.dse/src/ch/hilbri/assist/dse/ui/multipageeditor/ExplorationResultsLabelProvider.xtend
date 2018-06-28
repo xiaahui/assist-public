@@ -13,19 +13,12 @@ import org.eclipse.swt.SWT
 import org.eclipse.swt.custom.TableEditor
 
 class ExplorationResultsLabelProvider extends CellLabelProvider {
-    private Table table
-    private DetailedResults view
+	Table table
+    Map<Object, Button> allButtons = new HashMap<Object, Button>();
 
-    /*
-     * Stores all generate-buttons; we have to store them, so they can be accessed and
-     * disposed, after their parent (entry) has been removed
-     */
-    private Map<Object, Button> allButtons = new HashMap<Object, Button>();
-
-    new(Table t, DetailedResults v) {
+    new(Table t) {
         super()
         table = t
-        view = v
     }
 
     override update(ViewerCell cell) {

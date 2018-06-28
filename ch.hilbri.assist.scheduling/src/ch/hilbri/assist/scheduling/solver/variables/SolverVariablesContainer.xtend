@@ -13,23 +13,13 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 class SolverVariablesContainer {
 
-	/** Store a reference to the ASSIST Input model */
-	private AssistModel assistModel
-
-	/** Store a reference to the choco solver */
-	private Model solverModel
-
 	/** Length of the hyperPeriod */
 	@Accessors(PUBLIC_GETTER) int hypLength = -1
 
-	/** Store a reference to the variables */
-	private Map<ch.hilbri.assist.model.Task, List<Task>> task2executionInstancesMap = new HashMap
+	Map<ch.hilbri.assist.model.Task, List<Task>> task2executionInstancesMap = new HashMap
 
 	/* CONSTRUCTOR */
 	new(AssistModel assistModel, Model solverModel) {
-
-		this.assistModel = assistModel
-		this.solverModel = solverModel
 
 		solverModel.solver.propagate()
 

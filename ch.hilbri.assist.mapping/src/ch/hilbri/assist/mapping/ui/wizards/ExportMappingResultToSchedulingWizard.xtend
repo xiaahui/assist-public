@@ -26,9 +26,9 @@ import org.eclipse.xtext.resource.SaveOptions
 
 class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard implements INewWizard {
 
-	private ExportMappingResultToSchedulingWizardPage page
-	private MappingResult mappingResult
-	private ISelection selection
+	ExportMappingResultToSchedulingWizardPage page
+	MappingResult mappingResult
+	ISelection selection
 
 	new(MappingResult r) {
 		super()

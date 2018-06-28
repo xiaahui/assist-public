@@ -136,7 +136,6 @@ public class Generate {
 
             /* Create a new background Job for finding all solutions */
             GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
-            findSolutionsJob.setEnableVerboseLogging(searchDialog.getVerboseLogging());
             findSolutionsJob.setSearchStrategy(searchDialog.getVariableSelector(), searchDialog.getValueSelector());
             findSolutionsJob.setMaxSolutions(searchDialog.getNumberOfSolutions());
             findSolutionsJob.setMaxSearchTime(searchDialog.getSearchTime());

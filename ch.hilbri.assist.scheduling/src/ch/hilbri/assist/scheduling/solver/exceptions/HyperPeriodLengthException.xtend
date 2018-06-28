@@ -2,7 +2,7 @@ package ch.hilbri.assist.scheduling.solver.exceptions
 
 class HyperPeriodLengthException extends BasicConstraintsException {
 	
-	private int hypLength
+	int hypLength
 	
 	new(int hypLength) {
 		super(null)

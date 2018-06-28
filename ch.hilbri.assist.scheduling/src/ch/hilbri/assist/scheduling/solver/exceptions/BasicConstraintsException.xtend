@@ -4,7 +4,7 @@ import ch.hilbri.assist.scheduling.solver.constraints.AbstractSchedulingConstrai
 
 class BasicConstraintsException extends Exception {
 
-	private AbstractSchedulingConstraint constraint
+	AbstractSchedulingConstraint constraint
 
 	new(AbstractSchedulingConstraint constraint) {
 		this.constraint = constraint

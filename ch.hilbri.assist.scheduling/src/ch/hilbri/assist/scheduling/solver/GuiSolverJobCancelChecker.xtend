@@ -6,10 +6,10 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class GuiSolverJobCancelChecker extends Thread implements Criterion {
-	private volatile IProgressMonitor monitor
-	private volatile boolean quitCancelChecker = false
-	private volatile boolean abortSolver = false
-	private Logger logger
+	volatile IProgressMonitor monitor
+	volatile boolean quitCancelChecker = false
+	volatile boolean abortSolver = false
+	Logger logger
 	
 	new(IProgressMonitor monitor) {
 		this.monitor = monitor

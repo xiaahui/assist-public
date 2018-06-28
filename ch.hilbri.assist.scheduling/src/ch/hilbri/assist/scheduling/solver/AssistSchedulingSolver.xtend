@@ -29,19 +29,15 @@ import org.slf4j.LoggerFactory
 
 class AssistSchedulingSolver {
 
-    private Logger logger = LoggerFactory.getLogger(this.class)
-    private boolean verboseLogging = false
-
-    private AssistModel assistModel
-
-    private Model chocoModel
-    private Solver chocoSolver
-    private List<Solution> chocoSolutions
-
-    private SolverVariablesContainer solverVariables
-    private List<AbstractModelPreprocessor> modelPreprocessors
-    private List<AbstractSchedulingConstraint> schedulingConstraintsList
-    private List<SchedulingResult> schedulingResults
+    Logger logger = LoggerFactory.getLogger(this.class)
+    AssistModel assistModel
+    Model chocoModel
+	Solver chocoSolver
+	List<Solution> chocoSolutions
+    SolverVariablesContainer solverVariables
+	List<AbstractModelPreprocessor> modelPreprocessors
+	List<AbstractSchedulingConstraint> schedulingConstraintsList
+	List<SchedulingResult> schedulingResults
 
     new(AssistModel input) {
 
@@ -94,10 +90,6 @@ class AssistSchedulingSolver {
             strategy,
             Search.lastConflict(strategy)
         )
-    }
-
-    def setEnableVerboseLogging() {
-        verboseLogging = true
     }
 
     def setEnableRestarts(int maxFailCount) {

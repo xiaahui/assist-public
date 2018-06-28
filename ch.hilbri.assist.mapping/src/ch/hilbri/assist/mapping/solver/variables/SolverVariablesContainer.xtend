@@ -19,11 +19,9 @@ import org.chocosolver.solver.variables.IntVar
 
 class SolverVariablesContainer {
 
-	/** A map with the tasks as keys and the list of location variables as values */
-	private Map<String, List<IntVar>> taskToLocationVariablesMap = new HashMap
+	Map<String, List<IntVar>> taskToLocationVariablesMap = new HashMap
 
-	/** A map with the task for each locationVariable */
-	private Map<IntVar, String> locationVariableToTaskMap = new HashMap
+	Map<IntVar, String> locationVariableToTaskMap = new HashMap
 
 	/** A 3d matrix of variables as indicators for each task
 	 * 	
@@ -37,19 +35,14 @@ class SolverVariablesContainer {
 	 * We could not use a 3D array because of limitations in xtend, 
 	 * therefore, we had to resort to Lists of Lists of Lists
 	 * */
-	private var List<List<List<BoolVar>>> indVars
+	var List<List<List<BoolVar>>> indVars
 
-	/** Store a reference to the ASSIST Input model */
-	private AssistModel assistModel
-
-	/** Store a reference to the choco solver */
-	private Model solverModel
+	AssistModel assistModel
 
 	/* CONSTRUCTOR */
 	new(AssistModel assistModel, Model solverModel) {
 
 		this.assistModel = assistModel
-		this.solverModel = solverModel
 
 		/* Initialize the hash map for all task-related location variables */
 		for (t : assistModel.allTasks) {

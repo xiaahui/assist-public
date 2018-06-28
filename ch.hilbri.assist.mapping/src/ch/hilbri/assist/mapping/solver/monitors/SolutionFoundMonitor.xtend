@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory
 
 class SolutionFoundMonitor implements IMonitorSolution {
 	
-	private Logger logger
-	private int counter = 1 
+	Logger logger
+	int counter = 1 
 	
 	new() {
 		logger = LoggerFactory.getLogger(this.class)

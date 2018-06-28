@@ -8,7 +8,7 @@ class RAMorROMCapacityConstraint extends AbstractMappingConstraint {
 	
 	enum RessourceType { RAM, ROM }  
 	
-	private RessourceType type
+	RessourceType type
 	
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables, RessourceType type) {
 		super(type.name.toLowerCase + " capacity", model, chocoModel, solverVariables)

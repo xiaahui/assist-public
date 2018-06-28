@@ -10,22 +10,12 @@ import java.util.HashMap
 
 class RateMonotonicVarSelector implements VariableSelector<IntVar> {
 
-    private AssistModel assistModel
-    private SolverVariablesContainer solverVariables
 
-    /* Provide a link from the IntVar to the AssistModel Task */    
-    private Map<IntVar, Task> var2taskMap = new HashMap
-
-    /* Provide a link from the IntVar to the index of the execution instance of that task */
-    private Map<IntVar, Integer> var2taskExecIdx = new HashMap
-
-    /* Provide a link from the IntVar to a boolean stating, whether it is a "beginning" var */
-    private Map<IntVar, Boolean> var2isBeginVar = new HashMap
+    Map<IntVar, Task> var2taskMap = new HashMap
+    Map<IntVar, Integer> var2taskExecIdx = new HashMap
+    Map<IntVar, Boolean> var2isBeginVar = new HashMap
 
     new(AssistModel assistModel, SolverVariablesContainer solverVariables, IntVar[] vars) {
-        this.assistModel = assistModel
-        this.solverVariables = solverVariables
-        
 
         /* Fill the caches */
         for (task : assistModel.allTasks) {

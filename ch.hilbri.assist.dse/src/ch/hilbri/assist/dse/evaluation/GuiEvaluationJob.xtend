@@ -11,9 +11,8 @@ import org.eclipse.swt.widgets.Display
 
 class GuiEvaluationJob extends Job {
 
-    private MultiPageEditor multiPageEditor
-    private Evaluation evaluation
-//    private Logger logger = LoggerFactory.getLogger(GuiEvaluationJob)
+    MultiPageEditor multiPageEditor
+	Evaluation evaluation //    private Logger logger = LoggerFactory.getLogger(GuiEvaluationJob)
 
     new(String name, URI modelURI, MultiPageEditor editor) {
         super(name);

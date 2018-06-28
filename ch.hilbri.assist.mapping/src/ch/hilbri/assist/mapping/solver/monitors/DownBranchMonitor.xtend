@@ -8,13 +8,11 @@ import org.slf4j.LoggerFactory
 
 class DownBranchMonitor implements IMonitorDownBranch {
 	
-	private SolverVariablesContainer solverVariables
-	private IntVar[] locationVariables
-	private Logger logger
-	private int bestProgress = 0
+	IntVar[] locationVariables
+	Logger logger
+	int bestProgress = 0
 	
 	new(SolverVariablesContainer solverVariables) {
-		this.solverVariables = solverVariables
 		this.locationVariables = solverVariables.locationVariablesForCoreLevel
 		this.logger = LoggerFactory.getLogger(this.class)
 	}
