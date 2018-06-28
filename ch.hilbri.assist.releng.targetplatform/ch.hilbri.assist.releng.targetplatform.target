@@ -17,6 +17,14 @@
 		<unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.6.0.v20180527-1213"/>
 		<unit id="org.eclipse.sdk.feature.group" version="4.8.0.v20180611-0826"/>
 		<unit id="org.eclipse.e4.core.tools.feature.source.feature.group" version="4.8.0.v20180512-1132"/>
+		<unit id="org.eclipse.wb.core.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.core.java.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.core.ui.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.doc.user.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.layout.group.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.rcp.doc.user.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.rcp.feature.feature.group" version="1.9.0"/>
+		<unit id="org.eclipse.wb.swt.feature.feature.group" version="1.9.0"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="ch.qos.logback.classic" version="1.1.2.v20171220-1825"/>
