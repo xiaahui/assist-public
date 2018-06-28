@@ -9,8 +9,7 @@ class InsufficientTotalROMException extends BasicConstraintsException {
 		super(constraint)
 	}
 	
-	override def String getExplanation() { 
+	override String getExplanation() {
 		'''There is not enough total ROM in the system for all applications.'''
 	}
-	
 }

@@ -13,7 +13,7 @@ class TwoThreadsCannotBeDeployedToSameBoard extends BasicConstraintsException {
 		this.t2 = t2
 	}
 	
-	override def String getExplanation() { 
+	override String getExplanation() {
 		'''The threads could not be mapped to the same board.'''
-	} 
+	}
 }
