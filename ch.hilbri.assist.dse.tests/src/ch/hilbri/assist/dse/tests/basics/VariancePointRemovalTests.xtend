@@ -47,8 +47,28 @@ class VariancePointRemovalTests extends AbstractDSETest {
 		evalJob.run
 		
 		val explorationCandidates = evalJob.explorationResults
-		
 		assertEquals(2, explorationCandidates.size)
+		
+		for (candidate : explorationCandidates) {
+			/* Check that there are no variance points left */
+			assertTrue(candidate.model.allBoxes.map[boardAlternatives].flatten.isNullOrEmpty)
+			assertTrue(candidate.model.applicationAlternatives.isNullOrEmpty)
+			assertTrue(candidate.model.restrictionAlternatives.isNullOrEmpty)
+
+			if (candidate.candidate.name == "Cheap") {
+				assertEquals(2, candidate.model.allBoards.size)
+				assertEquals("Board2", candidate.model.allBoards.get(1).name)	
+				assertEquals(3, candidate.model.applications.size)
+				assertEquals(1, candidate.model.dislocalityRelations.size)
+			} else if (candidate.candidate.name == "Expensive") {
+				assertEquals(2, candidate.model.allBoards.size)
+				assertEquals("Board3", candidate.model.allBoards.get(1).name)	
+				assertEquals(2, candidate.model.applications.size)
+				assertEquals(0, candidate.model.dislocalityRelations.size)
+			} else {
+				fail
+			}
+		}
 	}
 
 }
