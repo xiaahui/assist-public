@@ -62,15 +62,8 @@ public class DetailedResults extends Composite {
         TableViewerColumn tblViewerColumnCandidate = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
         TableColumn tblclmnCandidate = tblViewerColumnCandidate.getColumn();
-        tblclmnCandidate.setWidth(100);
+        tblclmnCandidate.setWidth(127);
         tblclmnCandidate.setText("Candidate");
-        
-        
-        TableViewerColumn tblViewerColumnFeasible = new TableViewerColumn(tblViewerResults, SWT.NONE);
-        tblViewerColumnFeasible.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
-        TableColumn tblclmnFeasible = tblViewerColumnFeasible.getColumn();
-        tblclmnFeasible.setWidth(100);
-        tblclmnFeasible.setText("Feasible");
         
         TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults));
