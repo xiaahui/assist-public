@@ -50,14 +50,22 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				editor.setEditor(button, tableItem, 2)
 				editor.layout
 			}
-			case 3:
-				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString
+			case 3: 
+				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString.toNicerList
 			case 4:
-				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString
+				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString.toNicerList
 			case 5:
-				cell.text = explorationResult.candidate.restrictionAlternatives.map[name].toString
+				cell.text = explorationResult.candidate.restrictionAlternatives.map[name].toString.toNicerList
 			
 		}
+	}
+	
+	def String toNicerList(String s) {
+		if (s == "[]")
+			return "-- none --"
+			
+		// Remove the [ and ]
+		return s.substring(1, s.length-1)
 	}
 
 }

@@ -102,7 +102,7 @@ public class DetailedResults extends Composite {
         tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnCandidate = tblViewerColumnCandidate.getColumn();
         tblclmnCandidate.setWidth(100);
-        tblclmnCandidate.setText("Name");
+        tblclmnCandidate.setText("Candidate Name");
         
         TableViewerColumn tableViewerColumnResult = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnResult.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
@@ -116,7 +116,7 @@ public class DetailedResults extends Composite {
         TableColumn tblclmnGenerate = tblViewerColumnGenerate.getColumn();
         tblclmnGenerate.setAlignment(SWT.CENTER);
         tblclmnGenerate.setWidth(100);
-        tblclmnGenerate.setText("Generate");
+        tblclmnGenerate.setText("Mapping Spec.");
         
         TableViewerColumn tableViewerColumnHardware = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnHardware.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
