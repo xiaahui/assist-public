@@ -11,45 +11,52 @@ import org.eclipse.swt.widgets.Button
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Table
 import org.eclipse.swt.widgets.TableItem
-import org.eclipse.wb.swt.ResourceManager
+import org.eclipse.ui.forms.widgets.FormToolkit
 
 class ExplorationResultsLabelProvider extends CellLabelProvider {
 	Table table
 	Map<Object, Button> allButtons = new HashMap<Object, Button>();
+	FormToolkit formToolkit
 
-	new(Table t) {
+	new(Table t, FormToolkit f) {
 		super()
 		table = t
+		formToolkit = f
 	}
 
 	override update(ViewerCell cell) {
 		val explorationResult = cell.element as ExplorationResult
 
 		switch (cell.columnIndex) {
-			case 0: {
+			case 0:
 				cell.text = explorationResult.candidate.name
-				if (explorationResult.isFeasible)
-					cell.image = ResourceManager.getPluginImage("ch.hilbri.assist.dse", "icons/yes-green.gif")
-				else
-					cell.image = ResourceManager.getPluginImage("ch.hilbri.assist.dse", "icons/no-red.gif")
-
-			}
 			case 1: {
+				// This is handled in the paintEvent listener 
+			}
+			case 2: {
 				var Button button
 				if (allButtons.containsKey(cell.element))
 					button = allButtons.get(cell.element)
 				else {
-					button = new Button(cell.viewerRow.control as Composite, SWT.NONE)
+					button = new Button(cell.viewerRow.control as Composite, SWT.FLAT)
 					button.text = "Generate"
+					formToolkit.adapt(button, true, true)
 					allButtons.put(cell.element, button)
 				}
 				val tableItem = cell.item as TableItem
 				val editor = new TableEditor(table)
 				editor.minimumWidth = 75
 				editor.grabVertical = true
-				editor.setEditor(button, tableItem, 1)
+				editor.setEditor(button, tableItem, 2)
 				editor.layout
 			}
+			case 3:
+				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString
+			case 4:
+				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString
+			case 5:
+				cell.text = explorationResult.candidate.restrictionAlternatives.map[name].toString
+			
 		}
 	}
 
