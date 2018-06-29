@@ -36,6 +36,7 @@ class Evaluation {
             logger.info('''Exploring Candidate "«candidate.name»"''')
 
             /* Remove the variance points in the hardware architecture, which are not needed */
+            logger.info(''' - Preparing hardware model (removing alternatives)''')
             for (box : explorationCandidateModel.allBoxes) {
                 for (boardAlternative : box.boardAlternatives) {
                     for (alternative : boardAlternative.alternatives) {
@@ -48,11 +49,31 @@ class Evaluation {
                 box.boardAlternatives.clear
             }
 
-            /* Software Architecture */
-            /* Restrictions */
-            /* Some sanity checks before continuing */
-            if (!explorationCandidateModel.allBoxes.map[boardAlternatives].flatten.isEmpty)
-                logger.info('''There seem to be some hardware variance points still in the model''')
+            /* Remove the variance points in the software architecture, which are not needed in the current candidate */
+            logger.info(''' - Preparing software model (removing alternatives)''')
+            for (applicationAlternative : explorationCandidateModel.applicationAlternatives) {
+            	for (alternative : applicationAlternative.alternatives) {
+            		if (candidate.applicationAlternatives.contains(alternative)) {
+            			// The candidate wants these applications
+            			explorationCandidateModel.applications.addAll(alternative.applications)
+            		}
+            	}
+            }
+            explorationCandidateModel.applicationAlternatives.clear
+            
+			/* Remove the variance points in the restrictions */
+			logger.info(''' - Preparing the restrictions model (removing alternatives)''')
+			for (restrictionAlternative : explorationCandidateModel.restrictionAlternatives) {
+				for (alternative : restrictionAlternative.alternatives) {
+					if (candidate.restrictionAlternatives.contains(alternative)) {
+						// The candidate wants these restrictions 
+						explorationCandidateModel.colocalityRelations.addAll(alternative.colocalityRelations)
+						explorationCandidateModel.dislocalityRelations.addAll(alternative.dislocalityRelations)
+						explorationCandidateModel.dissimilarityRelations.addAll(alternative.dissimilarityRelations)	
+					}
+				}
+			}
+			explorationCandidateModel.restrictionAlternatives.clear
 
             logger.info('''  - Checking mapping feasibility''')
 

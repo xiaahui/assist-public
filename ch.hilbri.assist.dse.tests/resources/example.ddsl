@@ -1,0 +1,106 @@
+Global {
+	System = "Example System";
+}
+
+Hardware { 
+	Compartment Comp1 {
+		Manufacturer = "Manufacturer 1";
+		Box Box1 {
+			Manufacturer = "Manufacturer 1";
+			Board Board1 {
+				Manufacturer = "Manufacturer 2";
+				DesignAssuranceLevel = A;
+				Processor P1 {
+					Core C0 {
+						Capacity = 100;
+					}
+					Core C1 {
+						Capacity = 100;
+					}
+				}
+			}
+			Alternatives {
+				Alternative CheapBoard1 {
+				Board Board2 {
+					Manufacturer = "Cheap Manufacturer";
+					DesignAssuranceLevel = B;
+					Processor P1 {
+						Core C0 {
+							Capacity = 80;
+						}
+					}
+				}
+			}
+			Alternative ExpensiveBoard {
+				Board Board3 {
+					Manufacturer = "Expensive Manufacturer";
+					DesignAssuranceLevel = A;
+					Processor P1 {
+						Core C0 {
+							Capacity = 100;
+						}
+						Core C1 {
+							Capacity = 100;
+						}
+					}
+				}
+			}
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			CoreUtilization = 1000;
+		}
+	}
+	Alternatives {
+		Alternative MultipleRedundantApplications {
+			Application B1 {
+				CriticalityLevel = B;
+				Task B1_T1 {
+					CoreUtilization = 20;
+				}
+			}
+			Application B2 {
+				CriticalityLevel = B;
+				Task B1_T1 {
+					CoreUtilization = 20;
+				}
+			}
+		}
+		Alternative SingleCriticalApplication {
+			Application C1 {
+				CriticalityLevel = A;
+				Task C1_T1 {
+					CoreUtilization = 40;
+				}
+			}
+		}
+	}
+}
+
+Restrictions {
+	Alternatives {
+		Alternative MultipleRedundantApplications {
+		B1, B2 dislocal up to Board;
+	}
+	}
+}
+
+Candidates {
+	Candidate Cheap {
+		Boards = CheapBoard1;
+		Applications = MultipleRedundantApplications;
+		Restrictions = MultipleRedundantApplications;
+	}
+	
+	Candidate Expensive {
+		Boards = ExpensiveBoard;
+		Applications = SingleCriticalApplication;
+	}
+}
+

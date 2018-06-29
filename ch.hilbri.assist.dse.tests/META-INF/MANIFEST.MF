@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.dse.tests
+Bundle-SymbolicName: ch.hilbri.assist.dse.tests
+Bundle-Version: 2.5.0.qualifier
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: 
+ org.junit,
+ org.eclipse.xtext.junit4,
+ org.eclipse.core.runtime,
+ ch.hilbri.assist.dse.dsl.tests,
+ org.eclipse.xtext.xbase.junit,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ ch.hilbri.assist.model,
+ ch.qos.logback.classic,
+ ch.qos.logback.core
+Fragment-Host: ch.hilbri.assist.dse;bundle-version="2.5.0"
+Automatic-Module-Name: ch.hilbri.assist.dse.tests

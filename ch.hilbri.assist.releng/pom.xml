@@ -48,6 +48,7 @@
 		<module>../ch.hilbri.assist.features.dse</module>
 		<module>../ch.hilbri.assist.features.scheduling</module>
 		<module>../ch.hilbri.assist.dse</module>
+		<module>../ch.hilbri.assist.dse.tests</module>
 		<module>../ch.hilbri.assist.scheduling</module>
 		<module>../ch.hilbri.assist.mapping.benchmarking</module>
 		<module>../ch.hilbri.assist.scheduling.dsl</module>
