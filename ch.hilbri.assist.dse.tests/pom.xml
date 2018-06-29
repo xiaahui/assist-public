@@ -24,8 +24,8 @@
                 <artifactId>tycho-surefire-plugin</artifactId>
                 <version>${tycho.version}</version>
                 <configuration>
-                    <testSuite>ch.hilbri.assist.mapping.tests</testSuite>
-                    <testClass>ch.hilbri.assist.mapping.tests.TestSuiteAllMappingTests</testClass>
+                    <testSuite>ch.hilbri.assist.dse.tests</testSuite>
+                    <testClass>ch.hilbri.assist.dse.tests.TestSuiteAllDSETests</testClass>
                     <failIfNoTests>false</failIfNoTests>
                     <useUIHarness>false</useUIHarness>
                     <dependencies>
