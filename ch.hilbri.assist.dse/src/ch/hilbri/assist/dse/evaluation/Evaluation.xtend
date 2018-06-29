@@ -75,7 +75,7 @@ class Evaluation {
 			}
 			explorationCandidateModel.restrictionAlternatives.clear
 
-            logger.info('''  - Checking mapping feasibility''')
+            logger.info(''' - Checking mapping feasibility''')
 
             /* We do not want see all the output from the mapping, so we mute it */
             val loggerContext = LoggerFactory.getILoggerFactory() as LoggerContext
@@ -90,7 +90,7 @@ class Evaluation {
                 mappingSolver.runSolutionSearch
                 mappingSolver.createSolutions
             } catch (BasicConstraintsException e) {
-                logger.info('''  - Mapping failed (conflicting constraint "«e.constraintName»")''')
+                logger.info(''' - Mapping failed (conflicting constraint "«e.constraintName»")''')
             } 
 
             /* Of course, we have to re-enable the logging output from the mapping part */
