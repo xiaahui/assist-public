@@ -21,8 +21,8 @@ Require-Bundle: ch.hilbri.assist.mapping,
  org.eclipse.jdt.ui,
  org.eclipse.ui.forms,
  org.eclipse.xtext.ui,
- org.slf4j.api;bundle-version="1.7.10",
- ch.qos.logback.core;bundle-version="1.1.2",
- ch.qos.logback.classic;bundle-version="1.1.2"
+ org.slf4j.api,
+ ch.qos.logback.core,
+ ch.qos.logback.classic
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: ch.hilbri.assist.dse
