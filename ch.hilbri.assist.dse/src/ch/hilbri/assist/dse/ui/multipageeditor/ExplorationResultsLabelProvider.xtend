@@ -62,6 +62,7 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				val tableItem = cell.item as TableItem
 				val editor = new TableEditor(table)
 				editor.minimumWidth = 75
+				editor.minimumHeight = 20
 				editor.grabVertical = true
 				editor.setEditor(button, tableItem, 2)
 				editor.layout

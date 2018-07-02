@@ -29,6 +29,7 @@ public class DetailedResults extends Composite {
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
     private Table tblResults;
     private TableViewer tblViewerResults;
+    private ScrolledForm mainForm;
 
     /**
      * Create the composite.
@@ -39,7 +40,7 @@ public class DetailedResults extends Composite {
         super(parent, style);
         setLayout(new FillLayout(SWT.HORIZONTAL));
         
-        ScrolledForm mainForm = formToolkit.createScrolledForm(this);
+        mainForm = formToolkit.createScrolledForm(this);
         formToolkit.decorateFormHeading(mainForm.getForm());
         FontDescriptor fontDescriptor = FontDescriptor.createFrom(mainForm.getFont());
         fontDescriptor.setStyle(SWT.BOLD).increaseHeight(1);
@@ -102,7 +103,7 @@ public class DetailedResults extends Composite {
         tblViewerColumnCandidate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnCandidate = tblViewerColumnCandidate.getColumn();
         tblclmnCandidate.setWidth(100);
-        tblclmnCandidate.setText("Candidate Name");
+        tblclmnCandidate.setText("Candidate");
         
         TableViewerColumn tableViewerColumnResult = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnResult.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
