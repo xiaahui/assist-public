@@ -1,12 +1,16 @@
 package ch.hilbri.assist.dse.ui.multipageeditor
 
 import ch.hilbri.assist.dse.results.ExplorationResult
+import ch.hilbri.assist.dse.ui.wizards.GenerateMappingSpecificationWizard
 import java.util.HashMap
 import java.util.Map
 import org.eclipse.jface.viewers.CellLabelProvider
 import org.eclipse.jface.viewers.ViewerCell
+import org.eclipse.jface.wizard.WizardDialog
 import org.eclipse.swt.SWT
 import org.eclipse.swt.custom.TableEditor
+import org.eclipse.swt.events.SelectionAdapter
+import org.eclipse.swt.events.SelectionEvent
 import org.eclipse.swt.widgets.Button
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Table
@@ -35,12 +39,24 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 			}
 			case 2: {
 				var Button button
+
+				/* Check if we already created this button	 */
 				if (allButtons.containsKey(cell.element))
 					button = allButtons.get(cell.element)
+
+				/* Otherwise, we have to create it */
 				else {
 					button = new Button(cell.viewerRow.control as Composite, SWT.FLAT)
+					val finalButton = button
 					button.text = "Generate"
 					formToolkit.adapt(button, true, true)
+					button.addSelectionListener(new SelectionAdapter() {
+						override widgetSelected(SelectionEvent e) {
+							val dialog = new WizardDialog(finalButton.shell, new GenerateMappingSpecificationWizard(null, null, ""))
+							dialog.open
+						}
+       				})
+       					
 					allButtons.put(cell.element, button)
 				}
 				val tableItem = cell.item as TableItem
