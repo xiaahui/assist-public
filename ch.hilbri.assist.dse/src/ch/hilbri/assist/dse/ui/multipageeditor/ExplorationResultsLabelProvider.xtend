@@ -15,7 +15,10 @@ import org.eclipse.swt.widgets.Button
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Table
 import org.eclipse.swt.widgets.TableItem
+import org.eclipse.ui.IFileEditorInput
+import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.forms.widgets.FormToolkit
+import org.apache.commons.io.FilenameUtils
 
 class ExplorationResultsLabelProvider extends CellLabelProvider {
 	Table table
@@ -52,7 +55,11 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 					formToolkit.adapt(button, true, true)
 					button.addSelectionListener(new SelectionAdapter() {
 						override widgetSelected(SelectionEvent e) {
-							val dialog = new WizardDialog(finalButton.shell, new GenerateMappingSpecificationWizard(null, null, ""))
+							val activeEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
+							val inputFile = (activeEditor.editorInput as IFileEditorInput).file
+							val preselectedProject = inputFile.project
+							val preselectedFilename = FilenameUtils.removeExtension(inputFile.name) + '''-«explorationResult.candidate.name».mdsl''' 
+							val dialog = new WizardDialog(finalButton.shell, new GenerateMappingSpecificationWizard(explorationResult.model, preselectedProject, preselectedFilename))
 							dialog.open
 						}
        				})
