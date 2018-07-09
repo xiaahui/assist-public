@@ -74,7 +74,12 @@ class Evaluation {
 				}
 			}
 			explorationCandidateModel.restrictionAlternatives.clear
+			
+			/* Remove the exploration candidates from the model */
+			logger.info(''' - Preparing the list of exploration candidates (removing all candidates)''')
+			explorationCandidateModel.explorationCandidates.clear
 
+			/* Now we have a pristine model */			
             logger.info(''' - Checking mapping feasibility''')
 
             /* We do not want see all the output from the mapping, so we mute it */
