@@ -37,7 +37,7 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			createNode(applicationsNode, a)
 
 		/* --------- CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty) {
+		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty || !model.dissimilarityRelations.empty || !model.restrictionAlternatives.empty) {
 			val restrictionsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
 			if (!model.dislocalityRelations.empty) {
