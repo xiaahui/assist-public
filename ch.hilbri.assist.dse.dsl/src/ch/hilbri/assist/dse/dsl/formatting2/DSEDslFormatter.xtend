@@ -6,6 +6,7 @@ import ch.hilbri.assist.model.ApplicationAlternative
 import ch.hilbri.assist.model.ApplicationAlternatives
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.BoardAlternative
+import ch.hilbri.assist.model.BoardAlternatives
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
@@ -14,6 +15,7 @@ import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.ExplorationCandidate
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.RestrictionAlternative
+import ch.hilbri.assist.model.RestrictionAlternatives
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
@@ -48,10 +50,15 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		box.boards.forEach[format]
 		box.boardAlternatives.forEach[format]
 	}
-	
+
+	def dispatch void format(BoardAlternatives alternatives, extension IFormattableDocument document) {
+		alternatives.defaultFormat(document)
+		alternatives.alternatives.forEach[format]	
+	}
+
 	def dispatch void format(BoardAlternative alternative, extension IFormattableDocument document) {
 		alternative.defaultFormat(document)
-		alternative.boards.forEach[format]		
+		alternative.boards.forEach[format]
 	}
 
 	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
@@ -66,7 +73,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(ApplicationAlternative alternative, extension IFormattableDocument document) {
 		alternative.defaultFormat(document)
-		alternative.applications.forEach[format]	
+		alternative.applications.forEach[format]
 	}
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
@@ -78,9 +85,9 @@ class DSEDslFormatter extends AbstractFormatter2 {
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task.defaultFormat(document)
 		task.regionFor.assignment(taskAccess.nameAssignment_1).surround[oneSpace]
-		// no children
+	// no children
 	}
-	
+
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
 		relation => [
 			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
@@ -91,7 +98,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.assignment(dislocalityRelationAccess.hardwareLevelAssignment_5).prepend[oneSpace]
 		]
 	}
-	
+
 	def dispatch void format(ColocalityRelation relation, extension IFormattableDocument document) {
 		relation => [
 			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
@@ -101,7 +108,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.assignment(colocalityRelationAccess.hardwareLevelAssignment_4).prepend[oneSpace]
 		]
 	}
-	
+
 	def dispatch void format(DissimilarityRelation relation, extension IFormattableDocument document) {
 		relation => [
 			regionFor.keywords(';').forEach[prepend[noSpace].append[setNewLines(1, 1, 2)]]
@@ -112,16 +119,21 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			dissimilarityClause.format
 		]
 	}
-	
+
 	def dispatch void format(DissimilarityClause clause, extension IFormattableDocument document) {
 		clause => [
 			regionFor.keywords('(').forEach[append[noSpace]]
 			regionFor.keywords(')').forEach[prepend[noSpace]]
 			regionFor.keywords('AND').forEach[surround[oneSpace]]
 			regionFor.keywords('OR').forEach[surround[oneSpace]]
-		]		
+		]
 	}
-	
+
+	def dispatch void format(RestrictionAlternatives alternatives, extension IFormattableDocument document) {
+		alternatives.defaultFormat(document)
+		alternatives.alternatives.forEach[format]	
+	}
+
 	def dispatch void format(RestrictionAlternative alternative, extension IFormattableDocument document) {
 		alternative => [
 			defaultFormat(document)
@@ -130,14 +142,14 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			dissimilarityRelations.forEach[format]
 		]
 	}
-	
+
 	def dispatch void format(ExplorationCandidate candidate, extension IFormattableDocument document) {
 		candidate => [
 			defaultFormat(document)
 			regionFor.assignment(explorationCandidateAccess.nameAssignment_1).surround[oneSpace]
 		]
 	}
-	
+
 	private def defaultFormat(EObject obj, extension IFormattableDocument document) {
 		obj => [
 			regionFor.keywordPairs('{', '}').forEach[interior[indent]]
