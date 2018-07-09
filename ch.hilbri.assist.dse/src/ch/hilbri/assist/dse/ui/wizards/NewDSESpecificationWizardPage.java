@@ -30,7 +30,7 @@ public class NewDSESpecificationWizardPage extends WizardPage {
 
 	public NewDSESpecificationWizardPage(ISelection selection) {
 		super("Create Specification");
-		setTitle("Create a new DSE specification");
+		setTitle("Create new DSE specification");
 		setDescription("This wizard creates a new design space exploration specification file with *.ddsl extension.");
 		this.selection = selection;
 	}

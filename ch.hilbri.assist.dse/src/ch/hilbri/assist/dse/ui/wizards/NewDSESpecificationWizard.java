@@ -31,16 +31,11 @@ public class NewDSESpecificationWizard extends BasicNewResourceWizard implements
 	private ISelection selection;
 	private NewDSESpecificationWizardPage page;
 
-	public NewDSESpecificationWizard() {
-		super();
-		setNeedsProgressMonitor(true);
-	}
-
-	public NewDSESpecificationWizard(IWorkbench workbench, IStructuredSelection selection) {
-		super();
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
-		setWindowTitle("New Mapping Specification");
-		setNeedsProgressMonitor(true);
+        setNeedsProgressMonitor(true);
+		setWindowTitle("New DSE Specification");
 	}
 
 	public void addPages() {
