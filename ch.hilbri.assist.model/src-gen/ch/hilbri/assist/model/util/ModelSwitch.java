@@ -34,6 +34,7 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
@@ -307,6 +308,14 @@ public class ModelSwitch<T> extends Switch<T> {
                 T result = caseRestrictionStartAfterOtherStarted(restrictionStartAfterOtherStarted);
                 if (result == null) result = caseComplexRelation(restrictionStartAfterOtherStarted);
                 if (result == null) result = caseSchedulingRestriction(restrictionStartAfterOtherStarted);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.RESTRICTION_DISJOINT_EXECUTION: {
+                RestrictionDisjointExecution restrictionDisjointExecution = (RestrictionDisjointExecution)theEObject;
+                T result = caseRestrictionDisjointExecution(restrictionDisjointExecution);
+                if (result == null) result = caseSimpleRelation(restrictionDisjointExecution);
+                if (result == null) result = caseSchedulingRestriction(restrictionDisjointExecution);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -842,6 +851,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseRestrictionStartAfterOtherStarted(RestrictionStartAfterOtherStarted object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Restriction Disjoint Execution</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Restriction Disjoint Execution</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRestrictionDisjointExecution(RestrictionDisjointExecution object) {
         return null;
     }
 

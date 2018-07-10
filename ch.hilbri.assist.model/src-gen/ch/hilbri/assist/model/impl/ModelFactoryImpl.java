@@ -40,6 +40,7 @@ import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
@@ -138,6 +139,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.RESTRICTION_FINISH_AT_THE_SAME_TIME: return createRestrictionFinishAtTheSameTime();
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_FINISHED: return createRestrictionStartAfterOtherFinished();
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_STARTED: return createRestrictionStartAfterOtherStarted();
+            case ModelPackage.RESTRICTION_DISJOINT_EXECUTION: return createRestrictionDisjointExecution();
             case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
@@ -510,6 +512,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public RestrictionStartAfterOtherStarted createRestrictionStartAfterOtherStarted() {
         RestrictionStartAfterOtherStartedImpl restrictionStartAfterOtherStarted = new RestrictionStartAfterOtherStartedImpl();
         return restrictionStartAfterOtherStarted;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RestrictionDisjointExecution createRestrictionDisjointExecution() {
+        RestrictionDisjointExecutionImpl restrictionDisjointExecution = new RestrictionDisjointExecutionImpl();
+        return restrictionDisjointExecution;
     }
 
     /**

@@ -2297,6 +2297,43 @@ public interface ModelPackage extends EPackage {
     int RESTRICTION_START_AFTER_OTHER_STARTED_OPERATION_COUNT = COMPLEX_RELATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionDisjointExecutionImpl <em>Restriction Disjoint Execution</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.RestrictionDisjointExecutionImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
+     * @generated
+     */
+    int RESTRICTION_DISJOINT_EXECUTION = 30;
+
+    /**
+     * The feature id for the '<em><b>Tasks</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_DISJOINT_EXECUTION__TASKS = SIMPLE_RELATION__TASKS;
+
+    /**
+     * The number of structural features of the '<em>Restriction Disjoint Execution</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_DISJOINT_EXECUTION_FEATURE_COUNT = SIMPLE_RELATION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Restriction Disjoint Execution</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_DISJOINT_EXECUTION_OPERATION_COUNT = SIMPLE_RELATION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2304,7 +2341,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomProperty()
      * @generated
      */
-    int CUSTOM_PROPERTY = 30;
+    int CUSTOM_PROPERTY = 31;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2359,7 +2396,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomIntProperty()
      * @generated
      */
-    int CUSTOM_INT_PROPERTY = 31;
+    int CUSTOM_INT_PROPERTY = 32;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2423,7 +2460,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomStringProperty()
      * @generated
      */
-    int CUSTOM_STRING_PROPERTY = 32;
+    int CUSTOM_STRING_PROPERTY = 33;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2487,7 +2524,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVES = 33;
+    int RESTRICTION_ALTERNATIVES = 34;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -2524,7 +2561,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternative()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVE = 34;
+    int RESTRICTION_ALTERNATIVE = 35;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2588,7 +2625,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationCandidate()
      * @generated
      */
-    int EXPLORATION_CANDIDATE = 35;
+    int EXPLORATION_CANDIDATE = 36;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2652,7 +2689,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 36;
+    int COMPARABLE = 37;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -2680,7 +2717,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 37;
+    int METRIC_SCORE_PAIR = 38;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -2726,7 +2763,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 38;
+    int MAPPING_RESULT = 39;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2898,7 +2935,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 39;
+    int SINGLE_MAPPING_ELEMENT = 40;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -2989,7 +3026,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMetric()
      * @generated
      */
-    int ABSTRACT_METRIC = 40;
+    int ABSTRACT_METRIC = 41;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3062,7 +3099,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 41;
+    int SCHEDULING_RESULT = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3126,7 +3163,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 42;
+    int TASK_EXECUTION_INSTANCE = 43;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -3181,7 +3218,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 43;
+    int DISSIMILARITY_ATTRIBUTES = 44;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -3191,7 +3228,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 44;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 45;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -3201,7 +3238,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 45;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 46;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -3211,7 +3248,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 46;
+    int PERIODICITY_TYPE = 47;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -3221,7 +3258,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 47;
+    int COLOR = 48;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -3231,7 +3268,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 48;
+    int TASK2_CORE_MAP_TYPE = 49;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -3241,7 +3278,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 49;
+    int STRING_LIST = 50;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -3251,7 +3288,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 50;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 51;
 
 
     /**
@@ -4808,6 +4845,16 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EClass getRestrictionStartAfterOtherStarted();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionDisjointExecution <em>Restriction Disjoint Execution</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Restriction Disjoint Execution</em>'.
+     * @see ch.hilbri.assist.model.RestrictionDisjointExecution
+     * @generated
+     */
+    EClass getRestrictionDisjointExecution();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.CustomProperty <em>Custom Property</em>}'.
@@ -6837,6 +6884,16 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EClass RESTRICTION_START_AFTER_OTHER_STARTED = eINSTANCE.getRestrictionStartAfterOtherStarted();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionDisjointExecutionImpl <em>Restriction Disjoint Execution</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.RestrictionDisjointExecutionImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
+         * @generated
+         */
+        EClass RESTRICTION_DISJOINT_EXECUTION = eINSTANCE.getRestrictionDisjointExecution();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.

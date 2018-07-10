@@ -762,6 +762,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionDisjointExecution} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestrictionDisjointExecutionItemProvider restrictionDisjointExecutionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionDisjointExecution}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestrictionDisjointExecutionAdapter() {
+        if (restrictionDisjointExecutionItemProvider == null) {
+            restrictionDisjointExecutionItemProvider = new RestrictionDisjointExecutionItemProvider(this);
+        }
+
+        return restrictionDisjointExecutionItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1143,6 +1166,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (restrictionFinishAtTheSameTimeItemProvider != null) restrictionFinishAtTheSameTimeItemProvider.dispose();
         if (restrictionStartAfterOtherFinishedItemProvider != null) restrictionStartAfterOtherFinishedItemProvider.dispose();
         if (restrictionStartAfterOtherStartedItemProvider != null) restrictionStartAfterOtherStartedItemProvider.dispose();
+        if (restrictionDisjointExecutionItemProvider != null) restrictionDisjointExecutionItemProvider.dispose();
         if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
         if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();

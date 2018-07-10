@@ -40,6 +40,7 @@ import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
@@ -284,6 +285,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass restrictionStartAfterOtherStartedEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass restrictionDisjointExecutionEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1815,6 +1823,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getRestrictionDisjointExecution() {
+        return restrictionDisjointExecutionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getCustomProperty() {
         return customPropertyEClass;
     }
@@ -2662,6 +2679,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         restrictionStartAfterOtherStartedEClass = createEClass(RESTRICTION_START_AFTER_OTHER_STARTED);
 
+        restrictionDisjointExecutionEClass = createEClass(RESTRICTION_DISJOINT_EXECUTION);
+
         customPropertyEClass = createEClass(CUSTOM_PROPERTY);
         createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
         createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__STRING_VALUE);
@@ -2800,6 +2819,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         restrictionFinishAtTheSameTimeEClass.getESuperTypes().add(this.getSimpleRelation());
         restrictionStartAfterOtherFinishedEClass.getESuperTypes().add(this.getComplexRelation());
         restrictionStartAfterOtherStartedEClass.getESuperTypes().add(this.getComplexRelation());
+        restrictionDisjointExecutionEClass.getESuperTypes().add(this.getSimpleRelation());
         customIntPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         customStringPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         mappingResultEClass.getESuperTypes().add(this.getComparable());
@@ -3002,6 +3022,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(restrictionStartAfterOtherFinishedEClass, RestrictionStartAfterOtherFinished.class, "RestrictionStartAfterOtherFinished", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(restrictionStartAfterOtherStartedEClass, RestrictionStartAfterOtherStarted.class, "RestrictionStartAfterOtherStarted", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(restrictionDisjointExecutionEClass, RestrictionDisjointExecution.class, "RestrictionDisjointExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

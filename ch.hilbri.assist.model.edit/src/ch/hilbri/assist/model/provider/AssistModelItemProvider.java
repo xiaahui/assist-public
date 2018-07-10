@@ -305,6 +305,11 @@ public class AssistModelItemProvider
 
         newChildDescriptors.add
             (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS,
+                 ModelFactory.eINSTANCE.createRestrictionDisjointExecution()));
+
+        newChildDescriptors.add
+            (createChildParameter
                 (ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES,
                  ModelFactory.eINSTANCE.createApplicationAlternatives()));
 

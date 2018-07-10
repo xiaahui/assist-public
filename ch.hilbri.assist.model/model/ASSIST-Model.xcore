@@ -286,7 +286,7 @@ class ComplexRelation extends SchedulingRestriction {
     int               delay    
 }
 
-// Conrete relations:
+// Concrete relations:
 // Task1, Task2, ... start at the same time;
 class RestrictionStartAtTheSameTime  extends SimpleRelation {}
 
@@ -301,6 +301,8 @@ class RestrictionStartAfterOtherFinished extends ComplexRelation {}
 // Task3, Task4, ...  start after Task1 has started (with delay of min X);
 class RestrictionStartAfterOtherStarted extends ComplexRelation {}
 
+// Task1, Task2, ... require disjoint execution;
+class RestrictionDisjointExecution extends SimpleRelation {}
 
 /* ********************************************** */
 /* METRIC PARAMETERS                              */

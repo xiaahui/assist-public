@@ -292,6 +292,15 @@ public interface ModelFactory extends EFactory {
     RestrictionStartAfterOtherStarted createRestrictionStartAfterOtherStarted();
 
     /**
+     * Returns a new object of class '<em>Restriction Disjoint Execution</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Restriction Disjoint Execution</em>'.
+     * @generated
+     */
+    RestrictionDisjointExecution createRestrictionDisjointExecution();
+
+    /**
      * Returns a new object of class '<em>Custom Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

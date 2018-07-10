@@ -34,6 +34,7 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherStarted;
@@ -229,6 +230,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseRestrictionStartAfterOtherStarted(RestrictionStartAfterOtherStarted object) {
                 return createRestrictionStartAfterOtherStartedAdapter();
+            }
+            @Override
+            public Adapter caseRestrictionDisjointExecution(RestrictionDisjointExecution object) {
+                return createRestrictionDisjointExecutionAdapter();
             }
             @Override
             public Adapter caseCustomProperty(CustomProperty object) {
@@ -719,6 +724,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createRestrictionStartAfterOtherStartedAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionDisjointExecution <em>Restriction Disjoint Execution</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.RestrictionDisjointExecution
+     * @generated
+     */
+    public Adapter createRestrictionDisjointExecutionAdapter() {
         return null;
     }
 

@@ -23,7 +23,8 @@ AssistModel returns AssistModel:
                             schedulingRestrictions+=RestrictionFinishAtTheSameTime      |
                             schedulingRestrictions+=RestrictionStartAfterOtherFinished  |
                             schedulingRestrictions+=RestrictionStartAfterOtherStarted   |
-                            schedulingRestrictions+=RestrictionStartAtTheSameTime
+                            schedulingRestrictions+=RestrictionStartAtTheSameTime		|
+                            schedulingRestrictions+=RestrictionDisjointExecution
                           )
                        )*
     '}')?
@@ -159,6 +160,10 @@ RestrictionStartAfterOtherStarted:
     (   'with' 'delay' 'of' 'at' 'least' delay=INT   )?
     ';'
 ;
+
+RestrictionDisjointExecution: 
+    tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'require' 'disjoint' 'execution' ';' ;
+
 
 /* Generic Stuff */
 
