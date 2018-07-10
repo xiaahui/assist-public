@@ -872,5 +872,75 @@ Restrictions {
             Assert.assertTrue(task2Execs.get(i).begin >= (task4Execs.get(i).begin + 1))
         }
     }
+    
+     @Test
+    def void testRestrictionDisjointExecution() {
+        val assistModel = parser.parse('''
+Global {
+    System = "Example System";
+    MinimumHyperPeriod = 100;
+}
+
+Hardware {
+    Compartment Comp1 {
+        Box Box1 {
+            Board Board1 {
+                Processor P1 {
+                    Core C0 {}
+                    Core C1 {}
+                }
+            }
+        }
+    }
+}
+
+Software {
+    Application A1 {
+        Task A1_T1 {
+            AssignedCore = Comp1.Box1.Board1.P1.C0;
+            Duration = 1;
+            Period = 10;
+        }
+        Task A1_T2 {
+            AssignedCore = Comp1.Box1.Board1.P1.C1;
+            Duration = 1;
+            Period = 10;
+        }
+    }
+}
+
+Restrictions {
+    A1.A1_T1, A1.A1_T2 require disjoint execution;
+}
+        ''')
+        val assistSolver = createAndRunSolver(assistModel)
+
+        /* Basic Checks to make sure that we have some results */
+        Assert.assertNotNull(assistSolver.chocoSolutions)
+        Assert.assertEquals(1, assistSolver.chocoSolutions.size)
+        Assert.assertNotNull(assistSolver.results)
+        Assert.assertEquals(1, assistSolver.results.size)
+
+        /* Make sure that we have exactly one instance of the desired length */
+        val solution = assistSolver.results.head
+        val task1 = assistModel.allTasks.get(0)
+        val task2 = assistModel.allTasks.get(1)
+
+        val task1Execs = solution.schedule.get(task1)
+        val task2Execs = solution.schedule.get(task2)
+
+		/* Make sure that each task has the same execution instance count */
+        Assert.assertEquals(task1Execs.size, task2Execs.size)
+
+        // Check that the execution instances of task1 and task2 are not overlapping
+        for (i : 0 ..< task1Execs.size) {
+            Assert.assertTrue("Tasks in execution unit " + i + " should not overlap", 
+            	// Task 1 is before task 2 ---> task1.end <= task2.begin
+            	task1Execs.get(i).end <= task2Execs.get(i).begin ||
+            	// Task 2 is before task 1 --> task2.end <= task1.begin
+            	task2Execs.get(i).end <= task1Execs.get(i).begin
+            )
+        }
+    }
 
 }
