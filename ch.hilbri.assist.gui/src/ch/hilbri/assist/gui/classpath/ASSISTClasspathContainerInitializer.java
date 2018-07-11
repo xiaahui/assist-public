@@ -11,11 +11,9 @@ public class ASSISTClasspathContainerInitializer extends ClasspathContainerIniti
 
 	@Override
 	public void initialize(IPath containerPath, IJavaProject project) throws CoreException {
-
 		ASSISTClasspathContainer c = new ASSISTClasspathContainer();
 		JavaCore.setClasspathContainer(containerPath, new IJavaProject[] { project }, new IClasspathContainer[] { c },
 				null);
-
 	}
 
 }

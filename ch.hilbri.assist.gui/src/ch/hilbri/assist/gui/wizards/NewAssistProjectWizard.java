@@ -57,7 +57,6 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		try {
 			project.create(null);
 			project.open(null);
-			
 		} catch (Exception e) {	e.printStackTrace(); }
 		
 		// Because we need a java project, we have to set the Java nature to the created project: 
@@ -121,12 +120,12 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			cpEntries[4] = JavaRuntime.getDefaultJREContainerEntry();
 
 			javaProject.setRawClasspath(cpEntries, null);
-			
 		} catch (Exception e) { e.printStackTrace(); }
 				
 		// Create packages
 		try {
-			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
+			javaProject.getPackageFragmentRoot(dseSourceFolder).createPackageFragment("metrics.dse", false, null);
+			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics.mapping", false, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
