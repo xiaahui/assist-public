@@ -8,6 +8,7 @@ import ch.hilbri.assist.model.RestrictionStartAtTheSameTime
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
+import ch.hilbri.assist.model.RestrictionDisjointExecution
 
 class SchedulingRestrictionsConstraint extends AbstractSchedulingConstraint {
     
@@ -106,6 +107,24 @@ class SchedulingRestrictionsConstraint extends AbstractSchedulingConstraint {
                 }
                 worked = true
                 
+            }
+            
+            /* All tasks of this restriction cannot be executed at the same time (no overlap) */
+            else if (restriction instanceof RestrictionDisjointExecution) {
+            	/* Retrieve all execution instances for each task */
+                /* --> [ [chocoTask1, chocoTask2, ...], [chocoTask2.1, chocoTask2.2, ...], ... ] --> flatten */
+            	val allChocoTasks = restriction.tasks.map[solverVariables.getSolverTasks(it)].flatten
+            	
+            	/* How much capacity do we have */		
+				val capacityVar = chocoModel.intVar(1)
+
+            	/* How many "units" does each task consume from this "capacity"? 1!         	 */ 
+				val heightsVar = chocoModel.intVar(1)
+				val heightsVarList = allChocoTasks.map[heightsVar]
+            	            	
+            	/* Posting the constraint */
+				chocoModel.cumulative(allChocoTasks, heightsVarList, capacityVar, true).post()
+            	worked = true
             }
         }
         return worked
