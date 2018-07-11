@@ -8,4 +8,5 @@ import ch.hilbri.assist.model.ExplorationCandidate
     ExplorationCandidate candidate
     AssistModel model
     boolean isFeasible
+    Double score
 }

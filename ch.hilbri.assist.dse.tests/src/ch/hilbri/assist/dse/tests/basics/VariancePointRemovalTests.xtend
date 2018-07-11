@@ -2,6 +2,7 @@ package ch.hilbri.assist.dse.tests.basics
 
 import ch.hilbri.assist.dse.evaluation.Evaluation
 import ch.hilbri.assist.dse.tests.AbstractDSETest
+import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
 import ch.hilbri.assist.model.AssistModel
 import java.io.File
 import java.nio.file.Files
@@ -43,7 +44,7 @@ class VariancePointRemovalTests extends AbstractDSETest {
 		val r = resourceHelper.resource(input) 
 		val assistModel = r.contents.get(0) as AssistModel
 		
-		val evalJob = new Evaluation(assistModel)
+		val evalJob = new Evaluation(assistModel, Mode.FEASIBILITY_ONLY)
 		evalJob.run
 		
 		val explorationCandidates = evalJob.explorationResults

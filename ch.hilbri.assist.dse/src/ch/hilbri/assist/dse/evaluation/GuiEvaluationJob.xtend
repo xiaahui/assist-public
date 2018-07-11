@@ -1,6 +1,8 @@
 package ch.hilbri.assist.dse.evaluation
 
+import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
 import ch.hilbri.assist.dse.ui.multipageeditor.MultiPageEditor
+import ch.hilbri.assist.model.AbstractMetric
 import ch.hilbri.assist.model.AssistModel
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.core.runtime.Status
@@ -14,7 +16,7 @@ class GuiEvaluationJob extends Job {
     MultiPageEditor multiPageEditor
 	Evaluation evaluation //    private Logger logger = LoggerFactory.getLogger(GuiEvaluationJob)
 
-    new(String name, URI modelURI, MultiPageEditor editor) {
+    new(String name, URI modelURI, MultiPageEditor editor, Mode mode, AbstractMetric metric) {
         super(name);
 
         /* Who is asking to get the results back? */
@@ -25,7 +27,7 @@ class GuiEvaluationJob extends Job {
         val resource = rs.getResource(modelURI, true)
         val assistModel = resource.contents.get(0) as AssistModel
 
-        evaluation = new Evaluation(assistModel)
+        evaluation = new Evaluation(assistModel, mode, metric)
     }
 
     override protected run(IProgressMonitor monitor) {

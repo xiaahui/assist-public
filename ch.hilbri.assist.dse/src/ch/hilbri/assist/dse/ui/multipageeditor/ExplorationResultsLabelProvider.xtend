@@ -2,8 +2,10 @@ package ch.hilbri.assist.dse.ui.multipageeditor
 
 import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.dse.ui.wizards.GenerateMappingSpecificationWizard
+import java.text.DecimalFormat
 import java.util.HashMap
 import java.util.Map
+import org.apache.commons.io.FilenameUtils
 import org.eclipse.jface.viewers.CellLabelProvider
 import org.eclipse.jface.viewers.ViewerCell
 import org.eclipse.jface.wizard.WizardDialog
@@ -18,7 +20,6 @@ import org.eclipse.swt.widgets.TableItem
 import org.eclipse.ui.IFileEditorInput
 import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.forms.widgets.FormToolkit
-import org.apache.commons.io.FilenameUtils
 
 class ExplorationResultsLabelProvider extends CellLabelProvider {
 	Table table
@@ -41,6 +42,11 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				// This is handled in the paintEvent listener 
 			}
 			case 2: {
+				if (explorationResult.score === null) { cell.text = "n/a" }
+				else								  { cell.text = (new DecimalFormat("#.##").format(explorationResult.score)) }
+				
+			}
+			case 3: {
 				var Button button
 
 				/* Check if we already created this button	 */
@@ -71,14 +77,14 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				editor.minimumWidth = 75
 				editor.minimumHeight = 20
 				editor.grabVertical = true
-				editor.setEditor(button, tableItem, 2)
+				editor.setEditor(button, tableItem, 3)
 				editor.layout
 			}
-			case 3: 
+			case 4: 
 				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString.toNicerList
-			case 4:
-				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString.toNicerList
 			case 5:
+				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString.toNicerList
+			case 6:
 				cell.text = explorationResult.candidate.restrictionAlternatives.map[name].toString.toNicerList
 			
 		}

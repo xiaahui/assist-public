@@ -109,34 +109,37 @@ public class DetailedResults extends Composite {
         tableViewerColumnResult.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnResult = tableViewerColumnResult.getColumn();
         tblclmnResult.setAlignment(SWT.CENTER);
-        tblclmnResult.setWidth(70);
+        tblclmnResult.setWidth(60);
         tblclmnResult.setText("Feasible");
+        
+        TableViewerColumn tableViewerColumnScore = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tableViewerColumnScore.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit)); 
+        TableColumn tblclmnScore = tableViewerColumnScore.getColumn();
+        tblclmnScore.setAlignment(SWT.RIGHT);
+        tblclmnScore.setWidth(60);
+        tblclmnScore.setText("Score");
         
         TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnGenerate = tblViewerColumnGenerate.getColumn();
-        tblclmnGenerate.setAlignment(SWT.CENTER);
         tblclmnGenerate.setWidth(100);
         tblclmnGenerate.setText("Mapping Spec.");
         
         TableViewerColumn tableViewerColumnHardware = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnHardware.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnHardware = tableViewerColumnHardware.getColumn();
-        tblclmnHardware.setAlignment(SWT.CENTER);
         tblclmnHardware.setWidth(150);
         tblclmnHardware.setText("Selected Boards");
         
         TableViewerColumn tableViewerColumnSoftware = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnSoftware.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnSoftware = tableViewerColumnSoftware.getColumn();
-        tblclmnSoftware.setAlignment(SWT.CENTER);
         tblclmnSoftware.setWidth(150);
         tblclmnSoftware.setText("Selected Applications");
         
         TableViewerColumn tableViewerColumnRestrictions = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tableViewerColumnRestrictions.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));
         TableColumn tblclmnRestrictions = tableViewerColumnRestrictions.getColumn();
-        tblclmnRestrictions.setAlignment(SWT.CENTER);
         tblclmnRestrictions.setWidth(150);
         tblclmnRestrictions.setText("Selected Restrictions");
         

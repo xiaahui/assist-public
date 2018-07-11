@@ -18,102 +18,114 @@ import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.part.MultiPageEditorSite
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.util.concurrent.IUnitOfWork
+import ch.hilbri.assist.dse.ui.evaluatesettings.EvaluateDesignSpaceSettingsDialog
 
 class EvalDesignSpace {
 
-    @CanExecute
-    def boolean canExecute(MApplication application, EModelService service) {
-        /*
-         * Mapping generation should only be allowed, if we are actually looking at a
-         * mapping problem
-         */
-        val currentEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
-        if (currentEditor === null)
-            return false;
+	enum Mode {
+		FEASIBILITY_ONLY,
+		FEASIBILITY_AND_SCORING
+	}
 
-        if (!(currentEditor instanceof MultiPageEditor))
-            return false;
+	@CanExecute
+	def boolean canExecute(MApplication application, EModelService service) {
+		/*
+		 * Mapping generation should only be allowed, if we are actually looking at a
+		 * mapping problem
+		 */
+		val currentEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
+		if (currentEditor === null)
+			return false;
 
-        val multiPageEditor = currentEditor as MultiPageEditor
-        val xtextEditor = multiPageEditor.tabEditor
-        if (!xtextEditor.languageName.equals("ch.hilbri.assist.dse.dsl.DSEDsl"))
-            return false;
+		if (!(currentEditor instanceof MultiPageEditor))
+			return false;
 
-        /*
-         * If it is a mapping problem, then we should check, whether the content is ok
-         */
-        val xtextDocument = xtextEditor.document
-        val result = xtextDocument.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
-            override Boolean exec(XtextResource resource) throws Exception {
-                EcoreUtil.resolveAll(resource);
+		val multiPageEditor = currentEditor as MultiPageEditor
+		val xtextEditor = multiPageEditor.tabEditor
+		if (!xtextEditor.languageName.equals("ch.hilbri.assist.dse.dsl.DSEDsl"))
+			return false;
 
-                /* Searching for errors inside the document? */
-                /* - Error with the syntax of the dsl */
-                if (resource.errors.size > 0)
-                    return false;
+		/*
+		 * If it is a mapping problem, then we should check, whether the content is ok
+		 */
+		val xtextDocument = xtextEditor.document
+		val result = xtextDocument.readOnly(new IUnitOfWork<Boolean, XtextResource>() {
+			override Boolean exec(XtextResource resource) throws Exception {
+				EcoreUtil.resolveAll(resource);
 
-                /* - Size of the document is empty */
-                if (resource.contents.size == 0)
-                    return false;
+				/* Searching for errors inside the document? */
+				/* - Error with the syntax of the dsl */
+				if (resource.errors.size > 0)
+					return false;
 
-                /* - Custom validation rule errors */
-                val diagnostic = Diagnostician.INSTANCE.validate(resource.contents.get(0));
-                if (diagnostic.severity == Diagnostic.ERROR)
-                    return false;
+				/* - Size of the document is empty */
+				if (resource.contents.size == 0)
+					return false;
 
-                /* Else */
-                return true;
-            }
-        });
+				/* - Custom validation rule errors */
+				val diagnostic = Diagnostician.INSTANCE.validate(resource.contents.get(0));
+				if (diagnostic.severity == Diagnostic.ERROR)
+					return false;
 
-        return result;
-    }
+				/* Else */
+				return true;
+			}
+		});
 
-    @Execute
-    def void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
+		return result;
+	}
 
-        val currentEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
-        if (currentEditor === null)
-            return;
+	@Execute
+	def void execute(Shell shell, MApplication application, EModelService service, IProgressMonitor monitor) {
 
-        if (!(currentEditor instanceof MultiPageEditor))
-            return;
+		val currentEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
+		if (currentEditor === null)
+			return;
 
-        val multiPageEditor = currentEditor as MultiPageEditor
-        val xtextEditor = multiPageEditor.tabEditor
-        if (!xtextEditor.languageName.equals("ch.hilbri.assist.dse.dsl.DSEDsl"))
-            return;
+		if (!(currentEditor instanceof MultiPageEditor))
+			return;
 
-        /* Check if the editor needs saving */
-        if (xtextEditor.isDirty()) {
-            val saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
-                "Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?")
-            if (saveFirst)
-                xtextEditor.doSave(monitor)
-        }
+		val multiPageEditor = currentEditor as MultiPageEditor
+		val xtextEditor = multiPageEditor.tabEditor
+		if (!xtextEditor.languageName.equals("ch.hilbri.assist.dse.dsl.DSEDsl"))
+			return;
 
-        val editorSite = xtextEditor.site as MultiPageEditorSite
-        val multipageEditor = editorSite.multiPageEditor as MultiPageEditor
-        if (multipageEditor === null) {
-            MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
-            return;
-        }
+		/* Check if the editor needs saving */
+		if (xtextEditor.isDirty()) {
+			val saveFirst = MessageDialog.openQuestion(shell, "Save Specification",
+				"Your specification contains parts which have not been saved yet. These parts will not be considered during the generation process.\n\nSave the specification now?")
+			if (saveFirst)
+				xtextEditor.doSave(monitor)
+		}
 
-        /* Retrieve the URI from the current model */
-        val modelURI = xtextEditor.document.priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
-            override URI exec(XtextResource model) throws Exception {
-                return model.getURI();
-            }
-        });
+		val editorSite = xtextEditor.site as MultiPageEditorSite
+		val multipageEditor = editorSite.multiPageEditor as MultiPageEditor
+		if (multipageEditor === null) {
+			MessageDialog.openError(shell, "Error", "Could not locate the MultiPageEditor.");
+			return;
+		}
 
-        if (modelURI === null) {
-            MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
-            return;
-        }
+		/* Retrieve the URI from the current model */
+		val modelURI = xtextEditor.document.priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
+			override URI exec(XtextResource model) throws Exception {
+				return model.getURI();
+			}
+		});
 
-        val evalJob = new GuiEvaluationJob("Evaluate Design Space", modelURI, multipageEditor)
-        evalJob.priority = Job.LONG
-        evalJob.user = true
-        evalJob.schedule
-    }
+		if (modelURI === null) {
+			MessageDialog.openError(shell, "Error", "Could not locate the URI for the input model.");
+			return;
+		}
+
+		val dialog = new EvaluateDesignSpaceSettingsDialog(shell)
+		if (dialog.open == org.eclipse.jface.window.Window.OK) {
+			val mode = dialog.mode
+			val metric = dialog.scoringMetric
+			val evalJob = new GuiEvaluationJob("Evaluate Design Space", modelURI, multipageEditor, mode, metric)
+			evalJob.priority = Job.LONG
+			evalJob.user = true
+			evalJob.schedule
+		}
+
+	}
 }
