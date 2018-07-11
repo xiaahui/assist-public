@@ -138,22 +138,33 @@ class BasicTests {
 		val newProjectShell = bot.shell("New ASSIST Project").activate
 		val newProjectShellBot = newProjectShell.bot
 		newProjectShellBot.textWithLabel("&Project name:").setText("ExampleProject");
+		newProjectShellBot.waitUntil(Conditions.widgetIsEnabled(newProjectShellBot.button("Finish")))
 		newProjectShellBot.button("Finish").click
-		bot.waitUntil(shellCloses(newProjectShell), 20000)
+		newProjectShellBot.waitUntil(shellCloses(newProjectShell), 20000)
 		
 		/* Create a new DSE Spec */		
 		assistShell.setFocus
 		bot.tree().getTreeItem("ExampleProject").select();
 		bot.toolbarButtonWithTooltip("New DSE Specification").click();
 		val newDSESpecShell = bot.shell("New DSE Specification")
-		bot.button("Finish").click();
-		bot.waitUntil(shellCloses(newDSESpecShell))
+		val newDSESpecBot = newDSESpecShell.bot
+		newDSESpecBot.waitUntil(Conditions.shellIsActive("New DSE Specification"))
+		newDSESpecShell.setFocus
+		newDSESpecBot.waitUntil(Conditions.widgetIsEnabled(newDSESpecBot.button("Finish")))
+		newDSESpecBot.button("Finish").click()
+		newDSESpecBot.waitUntil(shellCloses(newDSESpecShell))
 
 		/* Exploration */		
-		bot.menu("Exploration").menu("Evaluate Design Space").click();
-		bot.sleep(2000)
-		bot.button("Generate", 1).click();
-		bot.button("Finish").click();
+		bot.menu("Exploration").menu("Evaluate Design Space").click()
+		bot.waitUntil(Conditions.shellIsActive("Design Space Exploration"))
+		bot.waitUntil(Conditions.widgetIsEnabled(bot.button("OK")))
+		bot.button("OK").click()
+		assistShell.setFocus
+		bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Generate", 1)))
+		bot.button("Generate", 1).click()
+		bot.waitUntil(Conditions.shellIsActive("Generate Mapping Specification"))
+		bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Finish")))
+		bot.button("Finish").click()
 
 		/* Mapping the candidate */
 		bot.toolbarButtonWithTooltip("Generate mappings (Ctrl+M)").click();
