@@ -814,10 +814,10 @@ public class DetailedResults extends Composite {
                 // Asking the user which metric is to be imported and preselect
                 // all entries
                 ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(),
-                        metricsPath.append("metrics"), new CompiledMetricsProvider(), new LabelProvider(),
+                        metricsPath.append("metrics/mapping"), new CompiledMetricsProvider(), new LabelProvider(),
                         "Select the metrics which you want to import:");
                 dialog.setTitle("Metric selection");
-                dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
+                dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics/mapping")));
                 if (dialog.open() != Window.OK)
                     return;
 
@@ -840,7 +840,7 @@ public class DetailedResults extends Composite {
 
                         // Get the new class
                         Class<? extends AbstractMetricImpl> metricClass = Class
-                                .forName("metrics." + className, true, classLoader)
+                                .forName("metrics.mapping." + className, true, classLoader)
                                 .asSubclass(AbstractMetricImpl.class);
                         classLoader.close();
 
