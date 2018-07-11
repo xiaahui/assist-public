@@ -4,7 +4,7 @@ import ch.hilbri.assist.scheduling.tests.AbstractSchedulingTest
 import org.junit.Assert
 import org.junit.Test
 
-class TaskRelationTests extends AbstractSchedulingTest {
+class SchedulingRestrictionTests extends AbstractSchedulingTest {
 
     @Test
     def void testRestrictionStartAtTheSameTime1() {
