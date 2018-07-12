@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -589,7 +589,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Map.Entry<AbstractMetric, Double> createMetricScorePair() {
+    public Map.Entry<AbstractMappingMetric, Double> createMetricScorePair() {
         MetricScorePairImpl metricScorePair = new MetricScorePairImpl();
         return metricScorePair;
     }

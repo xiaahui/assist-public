@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -368,7 +368,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass abstractMetricEClass = null;
+    private EClass abstractMappingMetricEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -2273,8 +2273,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getAbstractMetric() {
-        return abstractMetricEClass;
+    public EClass getAbstractMappingMetric() {
+        return abstractMappingMetricEClass;
     }
 
     /**
@@ -2282,8 +2282,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAbstractMetric_Name() {
-        return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(0);
+    public EAttribute getAbstractMappingMetric_Name() {
+        return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2291,8 +2291,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAbstractMetric_BuiltIn() {
-        return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(1);
+    public EAttribute getAbstractMappingMetric_BuiltIn() {
+        return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2300,8 +2300,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAbstractMetric_HigherScoreIsBetter() {
-        return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(2);
+    public EAttribute getAbstractMappingMetric_HigherScoreIsBetter() {
+        return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2309,8 +2309,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAbstractMetric_Weight() {
-        return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(3);
+    public EAttribute getAbstractMappingMetric_Weight() {
+        return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2318,8 +2318,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getAbstractMetric__ComputeAbsoluteScore__MappingResult() {
-        return abstractMetricEClass.getEOperations().get(0);
+    public EOperation getAbstractMappingMetric__ComputeAbsoluteScore__MappingResult() {
+        return abstractMappingMetricEClass.getEOperations().get(0);
     }
 
     /**
@@ -2740,12 +2740,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__BOX);
         createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__COMPARTMENT);
 
-        abstractMetricEClass = createEClass(ABSTRACT_METRIC);
-        createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__NAME);
-        createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__BUILT_IN);
-        createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER);
-        createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__WEIGHT);
-        createEOperation(abstractMetricEClass, ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT);
+        abstractMappingMetricEClass = createEClass(ABSTRACT_MAPPING_METRIC);
+        createEAttribute(abstractMappingMetricEClass, ABSTRACT_MAPPING_METRIC__NAME);
+        createEAttribute(abstractMappingMetricEClass, ABSTRACT_MAPPING_METRIC__BUILT_IN);
+        createEAttribute(abstractMappingMetricEClass, ABSTRACT_MAPPING_METRIC__HIGHER_SCORE_IS_BETTER);
+        createEAttribute(abstractMappingMetricEClass, ABSTRACT_MAPPING_METRIC__WEIGHT);
+        createEOperation(abstractMappingMetricEClass, ABSTRACT_MAPPING_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT);
 
         schedulingResultEClass = createEClass(SCHEDULING_RESULT);
         createEAttribute(schedulingResultEClass, SCHEDULING_RESULT__NAME);
@@ -3054,7 +3054,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.lang.Comparable<ch.hilbri.assist.model.MappingResult>");
 
         initEClass(metricScorePairEClass, Map.Entry.class, "MetricScorePair", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getMetricScorePair_Key(), this.getAbstractMetric(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getMetricScorePair_Key(), this.getAbstractMappingMetric(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getMetricScorePair_Value(), theEcorePackage.getEDoubleObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(mappingResultEClass, MappingResult.class, "MappingResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3097,13 +3097,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getSingleMappingElement_Box(), this.getBox(), null, "box", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSingleMappingElement_Compartment(), this.getCompartment(), null, "compartment", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(abstractMetricEClass, AbstractMetric.class, "AbstractMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getAbstractMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAbstractMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAbstractMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAbstractMetric_Weight(), theEcorePackage.getEInt(), "weight", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(abstractMappingMetricEClass, AbstractMappingMetric.class, "AbstractMappingMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getAbstractMappingMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMappingMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractMappingMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractMappingMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractMappingMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractMappingMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractMappingMetric_Weight(), theEcorePackage.getEInt(), "weight", null, 0, 1, AbstractMappingMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        op = initEOperation(getAbstractMetric__ComputeAbsoluteScore__MappingResult(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        op = initEOperation(getAbstractMappingMetric__ComputeAbsoluteScore__MappingResult(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, this.getMappingResult(), "result", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(schedulingResultEClass, SchedulingResult.class, "SchedulingResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

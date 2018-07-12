@@ -142,7 +142,7 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
 
     /**
      * Returns the value of the '<em><b>Metric Absolute Scores Map</b></em>' map.
-     * The key is of type {@link ch.hilbri.assist.model.AbstractMetric},
+     * The key is of type {@link ch.hilbri.assist.model.AbstractMappingMetric},
      * and the value is of type {@link java.lang.Double},
      * <!-- begin-user-doc -->
      * <p>
@@ -152,14 +152,14 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Metric Absolute Scores Map</em>' map.
      * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_MetricAbsoluteScoresMap()
-     * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
+     * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMappingMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
      * @generated
      */
-    EMap<AbstractMetric, Double> getMetricAbsoluteScoresMap();
+    EMap<AbstractMappingMetric, Double> getMetricAbsoluteScoresMap();
 
     /**
      * Returns the value of the '<em><b>Metric Scaled Scores Map</b></em>' map.
-     * The key is of type {@link ch.hilbri.assist.model.AbstractMetric},
+     * The key is of type {@link ch.hilbri.assist.model.AbstractMappingMetric},
      * and the value is of type {@link java.lang.Double},
      * <!-- begin-user-doc -->
      * <p>
@@ -169,10 +169,10 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Metric Scaled Scores Map</em>' map.
      * @see ch.hilbri.assist.model.ModelPackage#getMappingResult_MetricScaledScoresMap()
-     * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
+     * @model mapType="ch.hilbri.assist.model.MetricScorePair&lt;ch.hilbri.assist.model.AbstractMappingMetric, org.eclipse.emf.ecore.EDoubleObject&gt;"
      * @generated
      */
-    EMap<AbstractMetric, Double> getMetricScaledScoresMap();
+    EMap<AbstractMappingMetric, Double> getMetricScaledScoresMap();
 
     /**
      * Returns the value of the '<em><b>Partial Solution</b></em>' attribute.

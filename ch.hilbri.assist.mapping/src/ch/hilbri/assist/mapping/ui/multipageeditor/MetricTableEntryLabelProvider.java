@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.ResourceManager;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 
 public class MetricTableEntryLabelProvider extends CellLabelProvider {
 
@@ -38,7 +38,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
     @Override
     public void update(final ViewerCell cell) {
 
-        final AbstractMetric metricTableEntry = (AbstractMetric) cell.getElement();
+        final AbstractMappingMetric metricTableEntry = (AbstractMappingMetric) cell.getElement();
 
         switch (cell.getColumnIndex()) {
 
@@ -104,7 +104,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
         }
     }
 
-    public void clearButton(AbstractMetric metric) {
+    public void clearButton(AbstractMappingMetric metric) {
         Button btn = (Button) allRemoveButtons.get(metric);
         if (btn != null)
             btn.dispose();

@@ -1,10 +1,10 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin
 
 import ch.hilbri.assist.model.Application
-import ch.hilbri.assist.model.impl.AbstractMetricImpl
 import ch.hilbri.assist.model.MappingResult
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl
 
-class MinOrganizationsPerBoard extends AbstractMetricImpl {
+class MinOrganizationsPerBoard extends AbstractMappingMetricImpl {
 	new() {
 		setName("MinOrganizationsPerBoard")
 		setBuiltIn(true)

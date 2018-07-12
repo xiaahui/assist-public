@@ -7,16 +7,16 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Display;
 
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.MappingResult;
 
 public class EvaluateJob implements IRunnableWithProgress {
 
     private List<MappingResult> allResults;
-    private List<AbstractMetric> selectedMetrics;
+    private List<AbstractMappingMetric> selectedMetrics;
     private DetailedResults resultsView;
 
-    public EvaluateJob(DetailedResults v, List<AbstractMetric> metrics) {
+    public EvaluateJob(DetailedResults v, List<AbstractMappingMetric> metrics) {
         this.allResults = v.getMappingResults();
         this.selectedMetrics = metrics;
         this.resultsView = v;

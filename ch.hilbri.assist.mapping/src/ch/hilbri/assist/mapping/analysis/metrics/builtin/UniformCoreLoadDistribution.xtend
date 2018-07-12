@@ -1,10 +1,10 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin
 
-import ch.hilbri.assist.model.impl.AbstractMetricImpl
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics
 import ch.hilbri.assist.model.MappingResult
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl
 
-class UniformCoreLoadDistribution extends AbstractMetricImpl {
+class UniformCoreLoadDistribution extends AbstractMappingMetricImpl {
 	new() {
 		setName("UniformLoadDistribution")
 		setBuiltIn(true)

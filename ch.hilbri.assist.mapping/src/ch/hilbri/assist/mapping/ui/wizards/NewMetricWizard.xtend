@@ -77,9 +77,9 @@ class NewMetricWizard extends Wizard implements INewWizard {
 package «pageOne.getPackageText»;
 
 import ch.hilbri.assist.model.MappingResult;
-import ch.hilbri.assist.model.impl.AbstractMetricImpl;
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl;
 
-public class «fileName» extends AbstractMetricImpl { 
+public class «fileName» extends AbstractMappingMetricImpl { 
 	public «fileName»() {
 		setName("Metric Name");
 		setHigherScoreIsBetter(true);

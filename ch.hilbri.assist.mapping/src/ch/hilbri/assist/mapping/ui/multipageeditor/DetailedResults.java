@@ -82,18 +82,18 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoPreviousSolution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.GotoSpecificSolution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.SortSolutionsByName;
 import ch.hilbri.assist.mapping.ui.multipageeditor.actions.SortSolutionsByScore;
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.SingleMappingElement;
-import ch.hilbri.assist.model.impl.AbstractMetricImpl;
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl;
 
 public class DetailedResults extends Composite {
     /* Major data elements */
     private int curResultIndex = -1;
     private MappingResult curResult = null;
     private List<MappingResult> mappingResults;
-    private List<AbstractMetric> selectedMetricsList = new ArrayList<AbstractMetric>();
-    private List<AbstractMetric> availableMetricsList = new ArrayList<AbstractMetric>();
+    private List<AbstractMappingMetric> selectedMetricsList = new ArrayList<AbstractMappingMetric>();
+    private List<AbstractMappingMetric> availableMetricsList = new ArrayList<AbstractMappingMetric>();
 
     /* Declaring all relevant UI elements */
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
@@ -298,8 +298,8 @@ public class DetailedResults extends Composite {
             gotoLastSolutionAction.setEnabled(true);
         }
 
-        EMap<AbstractMetric, Double> absScores = curResult.getMetricAbsoluteScoresMap();
-        EMap<AbstractMetric, Double> scaledScores = curResult.getMetricScaledScoresMap();
+        EMap<AbstractMappingMetric, Double> absScores = curResult.getMetricAbsoluteScoresMap();
+        EMap<AbstractMappingMetric, Double> scaledScores = curResult.getMetricScaledScoresMap();
         tblViewerResultMetrics.setInput(new MetricScoresTupleList(absScores, scaledScores));
     }
 
@@ -721,12 +721,12 @@ public class DetailedResults extends Composite {
                 // Create a new metrics instance
                 // we need to do this since we do not know the specific
                 // class of the abstract metric could be custom!
-                Class<? extends AbstractMetric> metricClass = availableMetricsList.get(selectedMetricIndex).getClass();
+                Class<? extends AbstractMappingMetric> metricClass = availableMetricsList.get(selectedMetricIndex).getClass();
                 Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
 
                 try {
                     // Create a new instance
-                    AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
+                    AbstractMappingMetric newMetricObject = (AbstractMappingMetric) metricClassConstructor.newInstance();
                     newMetricObject.setWeight(selectedWeight);
 
                     // Add new entry to data
@@ -793,7 +793,7 @@ public class DetailedResults extends Composite {
             public void widgetSelected(SelectionEvent e) {
 
                 // This will hold our new metrics
-                List<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
+                List<AbstractMappingMetric> newCustomMetrics = new ArrayList<AbstractMappingMetric>();
 
                 // Determine the location where we have to look for new metrics
                 MultiPageEditor currentEditor = (MultiPageEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -822,8 +822,8 @@ public class DetailedResults extends Composite {
                     return;
 
                 // Clear old custom metrics in the currentModel
-                List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
-                for (AbstractMetric m : availableMetricsList)
+                List<AbstractMappingMetric> removalList = new ArrayList<AbstractMappingMetric>();
+                for (AbstractMappingMetric m : availableMetricsList)
                     if (!m.isBuiltIn())
                         removalList.add(m);
                 availableMetricsList.removeAll(removalList);
@@ -839,13 +839,13 @@ public class DetailedResults extends Composite {
                         String className = (String) obj;
 
                         // Get the new class
-                        Class<? extends AbstractMetricImpl> metricClass = Class
+                        Class<? extends AbstractMappingMetricImpl> metricClass = Class
                                 .forName("metrics.mapping." + className, true, classLoader)
-                                .asSubclass(AbstractMetricImpl.class);
+                                .asSubclass(AbstractMappingMetricImpl.class);
                         classLoader.close();
 
                         // Create a new instance of this metric
-                        AbstractMetric metric = metricClass.getDeclaredConstructor().newInstance();
+                        AbstractMappingMetric metric = metricClass.getDeclaredConstructor().newInstance();
 
                         // Add the newly created metric to the temporary list of
                         // found metrics
@@ -1038,7 +1038,7 @@ public class DetailedResults extends Composite {
         cbxAvailableMetrics.setItems(newItems);
     }
 
-    public void removeSelectedMetric(AbstractMetric entry) {
+    public void removeSelectedMetric(AbstractMappingMetric entry) {
         // Remove the entry (and the delete button)
         selectedMetricsList.remove(entry);
 

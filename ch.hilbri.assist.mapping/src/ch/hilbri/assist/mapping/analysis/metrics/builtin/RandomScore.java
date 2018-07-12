@@ -2,9 +2,9 @@ package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 import java.util.Random;
 
 import ch.hilbri.assist.model.MappingResult;
-import ch.hilbri.assist.model.impl.AbstractMetricImpl;
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl;
 
-public class RandomScore extends AbstractMetricImpl {
+public class RandomScore extends AbstractMappingMetricImpl {
 
 	public RandomScore() {
 		setName("Random Score");

@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.model.util;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -364,7 +364,7 @@ public class ModelSwitch<T> extends Switch<T> {
                 return result;
             }
             case ModelPackage.METRIC_SCORE_PAIR: {
-                @SuppressWarnings("unchecked") Map.Entry<AbstractMetric, Double> metricScorePair = (Map.Entry<AbstractMetric, Double>)theEObject;
+                @SuppressWarnings("unchecked") Map.Entry<AbstractMappingMetric, Double> metricScorePair = (Map.Entry<AbstractMappingMetric, Double>)theEObject;
                 T result = caseMetricScorePair(metricScorePair);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -382,9 +382,9 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.ABSTRACT_METRIC: {
-                AbstractMetric abstractMetric = (AbstractMetric)theEObject;
-                T result = caseAbstractMetric(abstractMetric);
+            case ModelPackage.ABSTRACT_MAPPING_METRIC: {
+                AbstractMappingMetric abstractMappingMetric = (AbstractMappingMetric)theEObject;
+                T result = caseAbstractMappingMetric(abstractMappingMetric);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -985,7 +985,7 @@ public class ModelSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseMetricScorePair(Map.Entry<AbstractMetric, Double> object) {
+    public T caseMetricScorePair(Map.Entry<AbstractMappingMetric, Double> object) {
         return null;
     }
 
@@ -1020,17 +1020,17 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Mapping Metric</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Mapping Metric</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractMetric(AbstractMetric object) {
+    public T caseAbstractMappingMetric(AbstractMappingMetric object) {
         return null;
     }
 

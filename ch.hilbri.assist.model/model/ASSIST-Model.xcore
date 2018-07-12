@@ -408,7 +408,7 @@ interface Comparable wraps Comparable<MappingResult>{}
 // Hack to get a Map in Xcore
 // https://stackoverflow.com/questions/41387196/how-to-define-a-map-in-xcore
 class MetricScorePair wraps java.util.Map$Entry {
-    refers AbstractMetric key
+    refers AbstractMappingMetric key
     Double value
 }
 
@@ -509,7 +509,7 @@ class SingleMappingElement {
     refers    Compartment        compartment
 }
 
-abstract class AbstractMetric {
+abstract class AbstractMappingMetric {
     String  name
     boolean builtIn
     boolean higherScoreIsBetter

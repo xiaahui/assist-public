@@ -3019,14 +3019,14 @@ public interface ModelPackage extends EPackage {
     int SINGLE_MAPPING_ELEMENT_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AbstractMappingMetricImpl <em>Abstract Mapping Metric</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.AbstractMetricImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMetric()
+     * @see ch.hilbri.assist.model.impl.AbstractMappingMetricImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_METRIC = 41;
+    int ABSTRACT_MAPPING_METRIC = 41;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3035,7 +3035,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC__NAME = 0;
+    int ABSTRACT_MAPPING_METRIC__NAME = 0;
 
     /**
      * The feature id for the '<em><b>Built In</b></em>' attribute.
@@ -3044,7 +3044,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC__BUILT_IN = 1;
+    int ABSTRACT_MAPPING_METRIC__BUILT_IN = 1;
 
     /**
      * The feature id for the '<em><b>Higher Score Is Better</b></em>' attribute.
@@ -3053,7 +3053,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = 2;
+    int ABSTRACT_MAPPING_METRIC__HIGHER_SCORE_IS_BETTER = 2;
 
     /**
      * The feature id for the '<em><b>Weight</b></em>' attribute.
@@ -3062,16 +3062,16 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC__WEIGHT = 3;
+    int ABSTRACT_MAPPING_METRIC__WEIGHT = 3;
 
     /**
-     * The number of structural features of the '<em>Abstract Metric</em>' class.
+     * The number of structural features of the '<em>Abstract Mapping Metric</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC_FEATURE_COUNT = 4;
+    int ABSTRACT_MAPPING_METRIC_FEATURE_COUNT = 4;
 
     /**
      * The operation id for the '<em>Compute Absolute Score</em>' operation.
@@ -3080,16 +3080,16 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT = 0;
+    int ABSTRACT_MAPPING_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT = 0;
 
     /**
-     * The number of operations of the '<em>Abstract Metric</em>' class.
+     * The number of operations of the '<em>Abstract Mapping Metric</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_METRIC_OPERATION_COUNT = 1;
+    int ABSTRACT_MAPPING_METRIC_OPERATION_COUNT = 1;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.SchedulingResultImpl <em>Scheduling Result</em>}' class.
@@ -5087,7 +5087,7 @@ public interface ModelPackage extends EPackage {
      * <!-- end-user-doc -->
      * @return the meta object for class '<em>Metric Score Pair</em>'.
      * @see java.util.Map.Entry
-     * @model keyType="ch.hilbri.assist.model.AbstractMetric"
+     * @model keyType="ch.hilbri.assist.model.AbstractMappingMetric"
      *        valueUnique="false" valueDataType="org.eclipse.emf.ecore.EDoubleObject"
      * @generated
      */
@@ -5382,68 +5382,68 @@ public interface ModelPackage extends EPackage {
     EReference getSingleMappingElement_Compartment();
 
     /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.AbstractMetric <em>Abstract Metric</em>}'.
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.AbstractMappingMetric <em>Abstract Mapping Metric</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Abstract Metric</em>'.
-     * @see ch.hilbri.assist.model.AbstractMetric
+     * @return the meta object for class '<em>Abstract Mapping Metric</em>'.
+     * @see ch.hilbri.assist.model.AbstractMappingMetric
      * @generated
      */
-    EClass getAbstractMetric();
+    EClass getAbstractMappingMetric();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMappingMetric#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Name</em>'.
-     * @see ch.hilbri.assist.model.AbstractMetric#getName()
-     * @see #getAbstractMetric()
+     * @see ch.hilbri.assist.model.AbstractMappingMetric#getName()
+     * @see #getAbstractMappingMetric()
      * @generated
      */
-    EAttribute getAbstractMetric_Name();
+    EAttribute getAbstractMappingMetric_Name();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#isBuiltIn <em>Built In</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMappingMetric#isBuiltIn <em>Built In</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Built In</em>'.
-     * @see ch.hilbri.assist.model.AbstractMetric#isBuiltIn()
-     * @see #getAbstractMetric()
+     * @see ch.hilbri.assist.model.AbstractMappingMetric#isBuiltIn()
+     * @see #getAbstractMappingMetric()
      * @generated
      */
-    EAttribute getAbstractMetric_BuiltIn();
+    EAttribute getAbstractMappingMetric_BuiltIn();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMappingMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Higher Score Is Better</em>'.
-     * @see ch.hilbri.assist.model.AbstractMetric#isHigherScoreIsBetter()
-     * @see #getAbstractMetric()
+     * @see ch.hilbri.assist.model.AbstractMappingMetric#isHigherScoreIsBetter()
+     * @see #getAbstractMappingMetric()
      * @generated
      */
-    EAttribute getAbstractMetric_HigherScoreIsBetter();
+    EAttribute getAbstractMappingMetric_HigherScoreIsBetter();
 
     /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMetric#getWeight <em>Weight</em>}'.
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractMappingMetric#getWeight <em>Weight</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Weight</em>'.
-     * @see ch.hilbri.assist.model.AbstractMetric#getWeight()
-     * @see #getAbstractMetric()
+     * @see ch.hilbri.assist.model.AbstractMappingMetric#getWeight()
+     * @see #getAbstractMappingMetric()
      * @generated
      */
-    EAttribute getAbstractMetric_Weight();
+    EAttribute getAbstractMappingMetric_Weight();
 
     /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.model.MappingResult) <em>Compute Absolute Score</em>}' operation.
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AbstractMappingMetric#computeAbsoluteScore(ch.hilbri.assist.model.MappingResult) <em>Compute Absolute Score</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the '<em>Compute Absolute Score</em>' operation.
-     * @see ch.hilbri.assist.model.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.model.MappingResult)
+     * @see ch.hilbri.assist.model.AbstractMappingMetric#computeAbsoluteScore(ch.hilbri.assist.model.MappingResult)
      * @generated
      */
-    EOperation getAbstractMetric__ComputeAbsoluteScore__MappingResult();
+    EOperation getAbstractMappingMetric__ComputeAbsoluteScore__MappingResult();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.SchedulingResult <em>Scheduling Result</em>}'.
@@ -7308,14 +7308,14 @@ public interface ModelPackage extends EPackage {
         EReference SINGLE_MAPPING_ELEMENT__COMPARTMENT = eINSTANCE.getSingleMappingElement_Compartment();
 
         /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AbstractMappingMetricImpl <em>Abstract Mapping Metric</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.AbstractMetricImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMetric()
+         * @see ch.hilbri.assist.model.impl.AbstractMappingMetricImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
          * @generated
          */
-        EClass ABSTRACT_METRIC = eINSTANCE.getAbstractMetric();
+        EClass ABSTRACT_MAPPING_METRIC = eINSTANCE.getAbstractMappingMetric();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -7323,7 +7323,7 @@ public interface ModelPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ABSTRACT_METRIC__NAME = eINSTANCE.getAbstractMetric_Name();
+        EAttribute ABSTRACT_MAPPING_METRIC__NAME = eINSTANCE.getAbstractMappingMetric_Name();
 
         /**
          * The meta object literal for the '<em><b>Built In</b></em>' attribute feature.
@@ -7331,7 +7331,7 @@ public interface ModelPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ABSTRACT_METRIC__BUILT_IN = eINSTANCE.getAbstractMetric_BuiltIn();
+        EAttribute ABSTRACT_MAPPING_METRIC__BUILT_IN = eINSTANCE.getAbstractMappingMetric_BuiltIn();
 
         /**
          * The meta object literal for the '<em><b>Higher Score Is Better</b></em>' attribute feature.
@@ -7339,7 +7339,7 @@ public interface ModelPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMetric_HigherScoreIsBetter();
+        EAttribute ABSTRACT_MAPPING_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMappingMetric_HigherScoreIsBetter();
 
         /**
          * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
@@ -7347,7 +7347,7 @@ public interface ModelPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ABSTRACT_METRIC__WEIGHT = eINSTANCE.getAbstractMetric_Weight();
+        EAttribute ABSTRACT_MAPPING_METRIC__WEIGHT = eINSTANCE.getAbstractMappingMetric_Weight();
 
         /**
          * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
@@ -7355,7 +7355,7 @@ public interface ModelPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT = eINSTANCE.getAbstractMetric__ComputeAbsoluteScore__MappingResult();
+        EOperation ABSTRACT_MAPPING_METRIC___COMPUTE_ABSOLUTE_SCORE__MAPPINGRESULT = eINSTANCE.getAbstractMappingMetric__ComputeAbsoluteScore__MappingResult();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.SchedulingResultImpl <em>Scheduling Result</em>}' class.

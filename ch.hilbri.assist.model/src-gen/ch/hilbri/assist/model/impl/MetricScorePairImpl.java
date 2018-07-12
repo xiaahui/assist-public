@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<AbstractMetric,Double> {
+public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<AbstractMappingMetric,Double> {
     /**
      * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference.
      * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected AbstractMetric key;
+    protected AbstractMappingMetric key;
 
     /**
      * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute.
@@ -86,10 +86,10 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public AbstractMetric getTypedKey() {
+    public AbstractMappingMetric getTypedKey() {
         if (key != null && key.eIsProxy()) {
             InternalEObject oldKey = (InternalEObject)key;
-            key = (AbstractMetric)eResolveProxy(oldKey);
+            key = (AbstractMappingMetric)eResolveProxy(oldKey);
             if (key != oldKey) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
@@ -103,7 +103,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public AbstractMetric basicGetTypedKey() {
+    public AbstractMappingMetric basicGetTypedKey() {
         return key;
     }
 
@@ -112,8 +112,8 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTypedKey(AbstractMetric newKey) {
-        AbstractMetric oldKey = key;
+    public void setTypedKey(AbstractMappingMetric newKey) {
+        AbstractMappingMetric oldKey = key;
         key = newKey;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.METRIC_SCORE_PAIR__KEY, oldKey, key));
@@ -166,7 +166,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case ModelPackage.METRIC_SCORE_PAIR__KEY:
-                setTypedKey((AbstractMetric)newValue);
+                setTypedKey((AbstractMappingMetric)newValue);
                 return;
             case ModelPackage.METRIC_SCORE_PAIR__VALUE:
                 setTypedValue((Double)newValue);
@@ -184,7 +184,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
     public void eUnset(int featureID) {
         switch (featureID) {
             case ModelPackage.METRIC_SCORE_PAIR__KEY:
-                setTypedKey((AbstractMetric)null);
+                setTypedKey((AbstractMappingMetric)null);
                 return;
             case ModelPackage.METRIC_SCORE_PAIR__VALUE:
                 setTypedValue(VALUE_EDEFAULT);
@@ -259,7 +259,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public AbstractMetric getKey() {
+    public AbstractMappingMetric getKey() {
         return getTypedKey();
     }
 
@@ -268,7 +268,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setKey(AbstractMetric key) {
+    public void setKey(AbstractMappingMetric key) {
         setTypedKey(key);
     }
 
@@ -298,9 +298,9 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @SuppressWarnings("unchecked")
-    public EMap<AbstractMetric, Double> getEMap() {
+    public EMap<AbstractMappingMetric, Double> getEMap() {
         EObject container = eContainer();
-        return container == null ? null : (EMap<AbstractMetric, Double>)container.eGet(eContainmentFeature());
+        return container == null ? null : (EMap<AbstractMappingMetric, Double>)container.eGet(eContainmentFeature());
     }
 
 } //MetricScorePairImpl

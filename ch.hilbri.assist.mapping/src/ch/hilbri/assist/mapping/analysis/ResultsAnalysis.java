@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.MappingResult;
 
 public class ResultsAnalysis {
 
-	public static void evaluate(List<MappingResult> results, List<AbstractMetric> metrics) {
+	public static void evaluate(List<MappingResult> results, List<AbstractMappingMetric> metrics) {
 
 		// Delete results from previous evaluations
 		for (MappingResult result : results) {
@@ -18,7 +18,7 @@ public class ResultsAnalysis {
 		}
 
 		// Execute each metric for the results and store the results
-		for (AbstractMetric metric : metrics) {
+		for (AbstractMappingMetric metric : metrics) {
 			DescriptiveStatistics statistics = new DescriptiveStatistics();
 
 			/* 1) Calculate the absolute score for each result */

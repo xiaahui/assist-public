@@ -1,9 +1,9 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin
 
-import ch.hilbri.assist.model.impl.AbstractMetricImpl
 import ch.hilbri.assist.model.MappingResult
+import ch.hilbri.assist.model.impl.AbstractMappingMetricImpl
 
-class MaxFreeCapacity extends AbstractMetricImpl {
+class MaxFreeCapacity extends AbstractMappingMetricImpl {
 	new() {
 		setName("Max free Core Capacity")
 		setBuiltIn(true)

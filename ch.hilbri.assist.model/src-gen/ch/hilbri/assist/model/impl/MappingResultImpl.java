@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
@@ -145,7 +145,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * @generated
      * @ordered
      */
-    protected EMap<AbstractMetric, Double> metricAbsoluteScoresMap;
+    protected EMap<AbstractMappingMetric, Double> metricAbsoluteScoresMap;
 
     /**
      * The cached value of the '{@link #getMetricScaledScoresMap() <em>Metric Scaled Scores Map</em>}' map.
@@ -155,7 +155,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * @generated
      * @ordered
      */
-    protected EMap<AbstractMetric, Double> metricScaledScoresMap;
+    protected EMap<AbstractMappingMetric, Double> metricScaledScoresMap;
 
     /**
      * The default value of the '{@link #isPartialSolution() <em>Partial Solution</em>}' attribute.
@@ -322,9 +322,9 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
-    public EMap<AbstractMetric, Double> getMetricAbsoluteScoresMap() {
+    public EMap<AbstractMappingMetric, Double> getMetricAbsoluteScoresMap() {
         if (metricAbsoluteScoresMap == null) {
-            metricAbsoluteScoresMap = new EcoreEMap<AbstractMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP);
+            metricAbsoluteScoresMap = new EcoreEMap<AbstractMappingMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP);
         }
         return metricAbsoluteScoresMap;
     }
@@ -334,9 +334,9 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
-    public EMap<AbstractMetric, Double> getMetricScaledScoresMap() {
+    public EMap<AbstractMappingMetric, Double> getMetricScaledScoresMap() {
         if (metricScaledScoresMap == null) {
-            metricScaledScoresMap = new EcoreEMap<AbstractMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP);
+            metricScaledScoresMap = new EcoreEMap<AbstractMappingMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP);
         }
         return metricScaledScoresMap;
     }

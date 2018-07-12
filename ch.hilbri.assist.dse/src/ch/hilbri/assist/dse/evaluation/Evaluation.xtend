@@ -6,7 +6,6 @@ import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.model.AbstractMetric
 import ch.hilbri.assist.model.AssistModel
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.LoggerContext
@@ -15,6 +14,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.model.AbstractMappingMetric
 
 class Evaluation {
 
@@ -22,13 +22,13 @@ class Evaluation {
 	Logger logger = LoggerFactory.getLogger(this.class)
 	@Accessors(PUBLIC_GETTER) List<ExplorationResult> explorationResults = newArrayList()
 	Mode mode
-	AbstractMetric metric
+	AbstractMappingMetric metric
 
 	new(AssistModel input, Mode mo) {
 		this(input, mo, null)
 	}
 
-	new(AssistModel input, Mode mo, AbstractMetric me) {
+	new(AssistModel input, Mode mo, AbstractMappingMetric me) {
 
 		logger.info('''************************************************''')
 		logger.info('''        ASSIST Design Space Exploration''')

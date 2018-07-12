@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 
 /**
  * This class represents a single entry in the list of metrics that
@@ -10,17 +10,17 @@ import ch.hilbri.assist.model.AbstractMetric;
  *
  */
 public class MetricScoresTuple {
-	private AbstractMetric metric;
+	private AbstractMappingMetric metric;
 	private Double absoluteScore;
 	private Double scaledScore;
 	
-	public MetricScoresTuple(AbstractMetric m, Double a, Double s) {
+	public MetricScoresTuple(AbstractMappingMetric m, Double a, Double s) {
 		metric = m;
 		absoluteScore = a;
 		scaledScore = s;
 	}
 
-	public AbstractMetric getMetric() {
+	public AbstractMappingMetric getMetric() {
 		return metric;
 	}
 

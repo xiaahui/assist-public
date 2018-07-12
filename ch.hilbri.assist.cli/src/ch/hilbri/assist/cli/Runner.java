@@ -26,7 +26,7 @@ import ch.hilbri.assist.mapping.solver.AssistMappingSolver;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.MappingResult;
@@ -107,24 +107,24 @@ public class Runner {
 				System.out.println(results.size() + " solutions found.");
 				
 				if (cmd.hasOption("u")) {
-					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
-					AbstractMetric metric = new UniformCoreLoadDistribution();
+					List<AbstractMappingMetric> list = new ArrayList<AbstractMappingMetric>();
+					AbstractMappingMetric metric = new UniformCoreLoadDistribution();
 					metric.setWeight(1);
 					list.add(metric);
 					System.out.println("Evaluating solutions according to uniform core load metric");
 					ResultsAnalysis.evaluate(results, list);
 				}
 				else if (cmd.hasOption("c")) {
-					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
-					AbstractMetric metric = new MaxFreeCapacity();
+					List<AbstractMappingMetric> list = new ArrayList<AbstractMappingMetric>();
+					AbstractMappingMetric metric = new MaxFreeCapacity();
 					metric.setWeight(1);
 					list.add(metric);
 					System.out.println("Evaluating solutions according to max free capacity metric");
 					ResultsAnalysis.evaluate(results, list);
 				}
 				else if (cmd.hasOption("r")) {
-					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
-					AbstractMetric metric = new RandomScore();
+					List<AbstractMappingMetric> list = new ArrayList<AbstractMappingMetric>();
+					AbstractMappingMetric metric = new RandomScore();
 					metric.setWeight(1);
 					list.add(metric);
 					System.out.println("Evaluating solutions according to random score metric");

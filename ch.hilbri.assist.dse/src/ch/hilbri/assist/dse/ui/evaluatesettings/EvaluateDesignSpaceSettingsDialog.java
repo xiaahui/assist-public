@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
-import ch.hilbri.assist.model.AbstractMetric;
+import ch.hilbri.assist.model.AbstractMappingMetric;
 
 public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
 
@@ -28,9 +28,9 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
     private Combo cbxSelectMetric;
     private Button btnFeasibilityCheckOnly;
     private Button btnFeasibilityAndScoring;
-    private List<AbstractMetric> availableMetrics = new ArrayList<AbstractMetric>();
+    private List<AbstractMappingMetric> availableMetrics = new ArrayList<AbstractMappingMetric>();
     private Mode currentMode = Mode.FEASIBILITY_ONLY;
-    private AbstractMetric currentMetric;
+    private AbstractMappingMetric currentMetric;
 
     
     public EvaluateDesignSpaceSettingsDialog(Shell parentShell) {
@@ -82,7 +82,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
                 currentMode = Mode.FEASIBILITY_AND_SCORING;
                 lblSelectMetric.setEnabled(true);
                 cbxSelectMetric.setEnabled(true);
-                for (AbstractMetric metric : availableMetrics) {
+                for (AbstractMappingMetric metric : availableMetrics) {
                     cbxSelectMetric.add(metric.getName());
                 }
                 cbxSelectMetric.select(0);
@@ -120,7 +120,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
         return currentMode;
     }
     
-    public AbstractMetric getScoringMetric() {
+    public AbstractMappingMetric getScoringMetric() {
         return currentMetric;
     }
 }
