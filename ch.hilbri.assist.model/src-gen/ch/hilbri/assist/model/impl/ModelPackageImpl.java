@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.model.impl;
 
+import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
@@ -334,6 +335,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass explorationCandidateEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractDSEMetricEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -2012,6 +2020,51 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getAbstractDSEMetric() {
+        return abstractDSEMetricEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractDSEMetric_Name() {
+        return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractDSEMetric_BuiltIn() {
+        return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractDSEMetric_HigherScoreIsBetter() {
+        return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel() {
+        return abstractDSEMetricEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getComparable() {
         return comparableEClass;
     }
@@ -2707,6 +2760,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
         createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);
 
+        abstractDSEMetricEClass = createEClass(ABSTRACT_DSE_METRIC);
+        createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__NAME);
+        createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__BUILT_IN);
+        createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__HIGHER_SCORE_IS_BETTER);
+        createEOperation(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__ASSISTMODEL);
+
         comparableEClass = createEClass(COMPARABLE);
 
         metricScorePairEClass = createEClass(METRIC_SCORE_PAIR);
@@ -3050,6 +3109,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getExplorationCandidate_BoardAlternatives(), this.getBoardAlternative(), null, "boardAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getExplorationCandidate_ApplicationAlternatives(), this.getApplicationAlternative(), null, "applicationAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getExplorationCandidate_RestrictionAlternatives(), this.getRestrictionAlternative(), null, "restrictionAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(abstractDSEMetricEClass, AbstractDSEMetric.class, "AbstractDSEMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getAbstractDSEMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractDSEMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractDSEMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        op = initEOperation(getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getAssistModel(), "candidateModel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.lang.Comparable<ch.hilbri.assist.model.MappingResult>");
 

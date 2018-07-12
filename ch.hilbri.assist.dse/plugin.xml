@@ -33,6 +33,20 @@
             This wizard creates a new design space exploration specification file with *.ddsl extension.
          </description>
       </wizard>
+      
+      <wizard
+            canFinishEarly="true"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.dse.ui.wizards.NewMetricWizard"
+            hasPages="true"
+            icon="icons/class_obj.png"
+            id="ch.hilbri.assist.dse.wizards.newMetric"
+            name="Design Space Exploration - Evaluation Metric"
+            project="false">
+         <description>
+            Add a custom metric class
+         </description>
+      </wizard>
    </extension>on>
 
 </plugin>

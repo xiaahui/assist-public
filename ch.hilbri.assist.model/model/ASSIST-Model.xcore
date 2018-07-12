@@ -397,6 +397,14 @@ class ExplorationCandidate {
     refers RestrictionAlternative[0..*]     restrictionAlternatives
 }
 
+abstract class AbstractDSEMetric {
+    String  name
+    boolean builtIn
+    boolean higherScoreIsBetter
+    
+    op double computeAbsoluteScore(AssistModel candidateModel)
+}
+
 /* **************************************
  * RESULTS - MAPPING
  * ************************************** */

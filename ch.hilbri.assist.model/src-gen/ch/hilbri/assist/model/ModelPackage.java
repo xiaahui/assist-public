@@ -2682,6 +2682,70 @@ public interface ModelPackage extends EPackage {
     int EXPLORATION_CANDIDATE_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AbstractDSEMetricImpl <em>Abstract DSE Metric</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.AbstractDSEMetricImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
+     * @generated
+     */
+    int ABSTRACT_DSE_METRIC = 37;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Built In</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC__BUILT_IN = 1;
+
+    /**
+     * The feature id for the '<em><b>Higher Score Is Better</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC__HIGHER_SCORE_IS_BETTER = 2;
+
+    /**
+     * The number of structural features of the '<em>Abstract DSE Metric</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC_FEATURE_COUNT = 3;
+
+    /**
+     * The operation id for the '<em>Compute Absolute Score</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__ASSISTMODEL = 0;
+
+    /**
+     * The number of operations of the '<em>Abstract DSE Metric</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_DSE_METRIC_OPERATION_COUNT = 1;
+
+    /**
      * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2689,7 +2753,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 37;
+    int COMPARABLE = 38;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -2717,7 +2781,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 38;
+    int METRIC_SCORE_PAIR = 39;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -2763,7 +2827,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 39;
+    int MAPPING_RESULT = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2935,7 +2999,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 40;
+    int SINGLE_MAPPING_ELEMENT = 41;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -3026,7 +3090,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_MAPPING_METRIC = 41;
+    int ABSTRACT_MAPPING_METRIC = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3099,7 +3163,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 42;
+    int SCHEDULING_RESULT = 43;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3163,7 +3227,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 43;
+    int TASK_EXECUTION_INSTANCE = 44;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -3218,7 +3282,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 44;
+    int DISSIMILARITY_ATTRIBUTES = 45;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -3228,7 +3292,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 45;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 46;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -3238,7 +3302,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 46;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 47;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -3248,7 +3312,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 47;
+    int PERIODICITY_TYPE = 48;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -3258,7 +3322,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 48;
+    int COLOR = 49;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -3268,7 +3332,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 49;
+    int TASK2_CORE_MAP_TYPE = 50;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -3278,7 +3342,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 50;
+    int STRING_LIST = 51;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -3288,7 +3352,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 51;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 52;
 
 
     /**
@@ -5069,6 +5133,59 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getExplorationCandidate_RestrictionAlternatives();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.AbstractDSEMetric <em>Abstract DSE Metric</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Abstract DSE Metric</em>'.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric
+     * @generated
+     */
+    EClass getAbstractDSEMetric();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractDSEMetric#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric#getName()
+     * @see #getAbstractDSEMetric()
+     * @generated
+     */
+    EAttribute getAbstractDSEMetric_Name();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractDSEMetric#isBuiltIn <em>Built In</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Built In</em>'.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric#isBuiltIn()
+     * @see #getAbstractDSEMetric()
+     * @generated
+     */
+    EAttribute getAbstractDSEMetric_BuiltIn();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AbstractDSEMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Higher Score Is Better</em>'.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric#isHigherScoreIsBetter()
+     * @see #getAbstractDSEMetric()
+     * @generated
+     */
+    EAttribute getAbstractDSEMetric_HigherScoreIsBetter();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AbstractDSEMetric#computeAbsoluteScore(ch.hilbri.assist.model.AssistModel) <em>Compute Absolute Score</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Compute Absolute Score</em>' operation.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric#computeAbsoluteScore(ch.hilbri.assist.model.AssistModel)
+     * @generated
+     */
+    EOperation getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel();
 
     /**
      * Returns the meta object for class '{@link java.lang.Comparable <em>Comparable</em>}'.
@@ -7066,6 +7183,48 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES = eINSTANCE.getExplorationCandidate_RestrictionAlternatives();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AbstractDSEMetricImpl <em>Abstract DSE Metric</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.AbstractDSEMetricImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
+         * @generated
+         */
+        EClass ABSTRACT_DSE_METRIC = eINSTANCE.getAbstractDSEMetric();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_DSE_METRIC__NAME = eINSTANCE.getAbstractDSEMetric_Name();
+
+        /**
+         * The meta object literal for the '<em><b>Built In</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_DSE_METRIC__BUILT_IN = eINSTANCE.getAbstractDSEMetric_BuiltIn();
+
+        /**
+         * The meta object literal for the '<em><b>Higher Score Is Better</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_DSE_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractDSEMetric_HigherScoreIsBetter();
+
+        /**
+         * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__ASSISTMODEL = eINSTANCE.getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel();
 
         /**
          * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.

@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.model.util;
 
+import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
@@ -258,6 +259,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseExplorationCandidate(ExplorationCandidate object) {
                 return createExplorationCandidateAdapter();
+            }
+            @Override
+            public Adapter caseAbstractDSEMetric(AbstractDSEMetric object) {
+                return createAbstractDSEMetricAdapter();
             }
             @Override
             public Adapter caseComparable(Comparable<MappingResult> object) {
@@ -822,6 +827,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createExplorationCandidateAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AbstractDSEMetric <em>Abstract DSE Metric</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.AbstractDSEMetric
+     * @generated
+     */
+    public Adapter createAbstractDSEMetricAdapter() {
         return null;
     }
 

@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.model.util;
 
+import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
@@ -354,6 +355,12 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.EXPLORATION_CANDIDATE: {
                 ExplorationCandidate explorationCandidate = (ExplorationCandidate)theEObject;
                 T result = caseExplorationCandidate(explorationCandidate);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.ABSTRACT_DSE_METRIC: {
+                AbstractDSEMetric abstractDSEMetric = (AbstractDSEMetric)theEObject;
+                T result = caseAbstractDSEMetric(abstractDSEMetric);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -956,6 +963,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseExplorationCandidate(ExplorationCandidate object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract DSE Metric</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract DSE Metric</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractDSEMetric(AbstractDSEMetric object) {
         return null;
     }
 
