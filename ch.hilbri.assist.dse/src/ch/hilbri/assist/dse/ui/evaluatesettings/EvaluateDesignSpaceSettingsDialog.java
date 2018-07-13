@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Shell;
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import org.eclipse.wb.swt.ResourceManager;
 
 public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
 
@@ -31,6 +32,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
     private List<AbstractMappingMetric> availableMetrics = new ArrayList<AbstractMappingMetric>();
     private Mode currentMode = Mode.FEASIBILITY_ONLY;
     private AbstractMappingMetric currentMetric;
+    private Button btnLoadCustomMetrics;
 
     
     public EvaluateDesignSpaceSettingsDialog(Shell parentShell) {
@@ -54,11 +56,16 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
         setMessage("Please set the parameters for the design space exploration");
         setTitle("Design Space Exploration");
         getShell().setText("Design Space Exploration");
+        
         Composite area = (Composite) super.createDialogArea(parent);
-        area.setLayout(new GridLayout(1, false));
-
-        Group grpMode = new Group(area, SWT.NONE);
-        grpMode.setLayout(new GridLayout(1, false));
+        Composite container = new Composite(area, SWT.NONE);
+        GridData gd_container = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+        gd_container.heightHint = 412;
+        container.setLayoutData(gd_container);
+        container.setLayout(new GridLayout(1, false));
+        
+        Group grpMode = new Group(container, SWT.NONE);
+        grpMode.setLayout(new GridLayout(2, false));
         grpMode.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
         grpMode.setText("Mode");
 
@@ -69,11 +76,13 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
                 currentMode = Mode.FEASIBILITY_ONLY;
                 lblSelectMetric.setEnabled(false);
                 cbxSelectMetric.setEnabled(false);
+                btnLoadCustomMetrics.setEnabled(false);
                 cbxSelectMetric.removeAll();
             }
         });
         btnFeasibilityCheckOnly.setSelection(true);
         btnFeasibilityCheckOnly.setText("Feasibility check only");
+        new Label(grpMode, SWT.NONE);
 
         btnFeasibilityAndScoring = new Button(grpMode, SWT.RADIO);
         btnFeasibilityAndScoring.addSelectionListener(new SelectionAdapter() {
@@ -82,6 +91,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
                 currentMode = Mode.FEASIBILITY_AND_SCORING;
                 lblSelectMetric.setEnabled(true);
                 cbxSelectMetric.setEnabled(true);
+                btnLoadCustomMetrics.setEnabled(true);
                 for (AbstractMappingMetric metric : availableMetrics) {
                     cbxSelectMetric.add(metric.getName());
                 }
@@ -93,6 +103,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
         gd_btnFeasibilityAndScoring.verticalIndent = 10;
         btnFeasibilityAndScoring.setLayoutData(gd_btnFeasibilityAndScoring);
         btnFeasibilityAndScoring.setText("Feasibility and Scoring");
+        new Label(grpMode, SWT.NONE);
 
         lblSelectMetric = new Label(grpMode, SWT.NONE);
         lblSelectMetric.setEnabled(false);
@@ -100,6 +111,7 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
         gd_lblSelectMetric.horizontalIndent = 20;
         lblSelectMetric.setLayoutData(gd_lblSelectMetric);
         lblSelectMetric.setText("Please select metric for scoring:");
+        new Label(grpMode, SWT.NONE);
 
         cbxSelectMetric = new Combo(grpMode, SWT.READ_ONLY);
         cbxSelectMetric.addSelectionListener(new SelectionAdapter() {
@@ -112,6 +124,11 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
         GridData gd_cbxSelectMetric = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
         gd_cbxSelectMetric.horizontalIndent = 20;
         cbxSelectMetric.setLayoutData(gd_cbxSelectMetric);
+        
+        btnLoadCustomMetrics = new Button(grpMode, SWT.NONE);
+        btnLoadCustomMetrics.setEnabled(false);
+        btnLoadCustomMetrics.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.dse", "icons/refresh.gif"));
+        btnLoadCustomMetrics.setText("Load custom metrics");
 
         return area;
     }
