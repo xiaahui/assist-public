@@ -42,8 +42,8 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				// This is handled in the paintEvent listener 
 			}
 			case 2: {
-				if (explorationResult.score === null) { cell.text = "n/a" }
-				else								  { cell.text = (new DecimalFormat("#.##").format(explorationResult.score)) }
+				if (explorationResult.getAbsoluteScore === null) { cell.text = "n/a" }
+				else								  { cell.text = (new DecimalFormat("#.##").format(explorationResult.getAbsoluteScore)) }
 				
 			}
 			case 3: {

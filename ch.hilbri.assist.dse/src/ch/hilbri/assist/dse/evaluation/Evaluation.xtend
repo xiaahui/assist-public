@@ -14,24 +14,25 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.dse.analysis.CandidateScoring
 
 class Evaluation {
 
 	/** The model without variance points that is used for the evaluation */
 	AssistModel assistModel
-	
+
 	/** Do we just need a feasibility check or scoring also? */
 	Mode mode
-	
+
 	/** In case we want scoring, which metric should we apply? */
-	AbstractDSEMetric metric
-	
-	/** Results from the exploration */	
+	AbstractDSEMetric scoringMetric
+
+	/** Results from the exploration */
 	@Accessors(PUBLIC_GETTER) List<ExplorationResult> explorationResults = newArrayList()
 
 	/** Generic logger */
 	Logger logger = LoggerFactory.getLogger(this.class)
-	
+
 	/** Simple constructor without any metric */
 	new(AssistModel input, Mode mode) {
 		this(input, mode, null)
@@ -44,13 +45,14 @@ class Evaluation {
 		logger.info('''************************************************''')
 		this.assistModel = input
 		this.mode = mode
-		this.metric = metric
+		this.scoringMetric = metric
 	}
 
 	def run() {
 
 		/* Go through all exploration candidates */
 		for (i : 0 ..< assistModel.explorationCandidates.size) {
+
 			val explorationCandidateModel = EcoreUtil.copy(assistModel)
 			val candidate = explorationCandidateModel.explorationCandidates.get(i)
 			logger.info('''Exploring Candidate "«candidate.name»"''')
@@ -121,29 +123,22 @@ class Evaluation {
 			/* Of course, we have to re-enable the logging output from the mapping part */
 			mappingLogger.setLevel(Level.DEBUG)
 
-			if (mappingSolver.results !== null && mappingSolver.results.size > 0) {
+			/* Create a new result which contains the info if feasible or not */
+			val explorationResult = new ExplorationResult => [
+				it.candidate = candidate
+				it.model = explorationCandidateModel
+				it.isFeasible = (mappingSolver.results !== null && mappingSolver.results.size > 0)
+			]
 
-				// Candidate is feasible and we want scoring too
-				if (mode == EvalDesignSpace.Mode.FEASIBILITY_AND_SCORING) {
-					val result = mappingSolver.results.head
-					logger.info(''' - Scoring the result''')
-					if (metric === null) {
-						logger.info('''   Scoring is not possible, because we did not get a valid metric''')
-					} else {
-//						ResultsAnalysis.evaluate(#[result], #[metric])
-						explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, true, result.absoluteTotalScore))
-					}
-				} // Candidate is not feasible and we do not want any scoring
-				else {
-					explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, true, null))
-				}
-				logger.info('''Candidate "«candidate.name»" seems feasible''')
+			explorationResults.add(explorationResult)
+			logger.info('''Candidate "«candidate.name»" seems «IF !explorationResult.feasible»NOT «ENDIF»feasible''')
+		
+		} /* End of loop for all exploration candidates */
 
-			} else {
-				explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, false, null))
-				logger.info('''Candidate "«candidate.name»" seems NOT feasible''')
-			}
-
+		/* We may also want a scoring of the results */
+		if (mode == EvalDesignSpace.Mode.FEASIBILITY_AND_SCORING && scoringMetric !== null) {
+			logger.info('''Scoring all results with metric "«scoringMetric.name»"''')
+			CandidateScoring.evaluateCandidate(explorationResults, scoringMetric)
 		}
 	}
 }
