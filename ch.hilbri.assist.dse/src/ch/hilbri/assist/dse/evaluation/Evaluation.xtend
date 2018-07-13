@@ -3,9 +3,9 @@ package ch.hilbri.assist.dse.evaluation
 import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
-import ch.hilbri.assist.mapping.analysis.ResultsAnalysis
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.model.AbstractDSEMetric
 import ch.hilbri.assist.model.AssistModel
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.LoggerContext
@@ -14,29 +14,37 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.model.AbstractMappingMetric
 
 class Evaluation {
 
+	/** The model without variance points that is used for the evaluation */
 	AssistModel assistModel
-	Logger logger = LoggerFactory.getLogger(this.class)
-	@Accessors(PUBLIC_GETTER) List<ExplorationResult> explorationResults = newArrayList()
+	
+	/** Do we just need a feasibility check or scoring also? */
 	Mode mode
-	AbstractMappingMetric metric
+	
+	/** In case we want scoring, which metric should we apply? */
+	AbstractDSEMetric metric
+	
+	/** Results from the exploration */	
+	@Accessors(PUBLIC_GETTER) List<ExplorationResult> explorationResults = newArrayList()
 
-	new(AssistModel input, Mode mo) {
-		this(input, mo, null)
+	/** Generic logger */
+	Logger logger = LoggerFactory.getLogger(this.class)
+	
+	/** Simple constructor without any metric */
+	new(AssistModel input, Mode mode) {
+		this(input, mode, null)
 	}
 
-	new(AssistModel input, Mode mo, AbstractMappingMetric me) {
-
+	/** Advanced constructor with a scoring metric */
+	new(AssistModel input, Mode mode, AbstractDSEMetric metric) {
 		logger.info('''************************************************''')
 		logger.info('''        ASSIST Design Space Exploration''')
 		logger.info('''************************************************''')
-
-		assistModel = input
-		mode = mo
-		metric = me
+		this.assistModel = input
+		this.mode = mode
+		this.metric = metric
 	}
 
 	def run() {
@@ -122,7 +130,7 @@ class Evaluation {
 					if (metric === null) {
 						logger.info('''   Scoring is not possible, because we did not get a valid metric''')
 					} else {
-						ResultsAnalysis.evaluate(#[result], #[metric])
+//						ResultsAnalysis.evaluate(#[result], #[metric])
 						explorationResults.add(new ExplorationResult(candidate, explorationCandidateModel, true, result.absoluteTotalScore))
 					}
 				} // Candidate is not feasible and we do not want any scoring

@@ -2,6 +2,7 @@ package ch.hilbri.assist.dse.evaluation
 
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
 import ch.hilbri.assist.dse.ui.multipageeditor.MultiPageEditor
+import ch.hilbri.assist.model.AbstractDSEMetric
 import ch.hilbri.assist.model.AssistModel
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.core.runtime.Status
@@ -9,14 +10,13 @@ import org.eclipse.core.runtime.jobs.Job
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.swt.widgets.Display
-import ch.hilbri.assist.model.AbstractMappingMetric
 
 class GuiEvaluationJob extends Job {
 
     MultiPageEditor multiPageEditor
 	Evaluation evaluation //    private Logger logger = LoggerFactory.getLogger(GuiEvaluationJob)
 
-    new(String name, URI modelURI, MultiPageEditor editor, Mode mode, AbstractMappingMetric metric) {
+    new(String name, URI modelURI, MultiPageEditor editor, Mode mode, AbstractDSEMetric metric) {
         super(name);
 
         /* Who is asking to get the results back? */
