@@ -7,7 +7,7 @@ import ch.hilbri.assist.gui.tests.basics.BasicTests
 
 @RunWith(Suite)
 @SuiteClasses(#[
-    BasicTests
+    // BasicTests
 ])
 class TestSuiteAllGUITests {
 }
