@@ -1,8 +1,8 @@
 package ch.hilbri.assist.gui.tests.basics
 
 import org.eclipse.e4.core.contexts.IEclipseContext
+import org.eclipse.swtbot.e4.finder.waits.Conditions
 import org.eclipse.swtbot.e4.finder.widgets.SWTWorkbenchBot
-import org.eclipse.swtbot.eclipse.finder.waits.Conditions
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.ui.PlatformUI
 import org.junit.AfterClass
@@ -14,12 +14,15 @@ import static org.eclipse.swtbot.swt.finder.waits.Conditions.*
 @RunWith(SWTBotJunit4ClassRunner)
 class BasicTests {
 
+	
+
 	/* This is RCP3.x API style - but unfortunately, I have no idea,
 	 * how to get the Eclipse Context in any other way               */
 	static SWTWorkbenchBot bot = new SWTWorkbenchBot(PlatformUI.workbench.getService(IEclipseContext))
 
 	@Test
 	def void checkToolBar() {
+		
 		val assistShell = bot.activeShell
 
 		/* Create a new project */
@@ -34,9 +37,13 @@ class BasicTests {
 		/* Trigger a default DSE spec */
 		bot.tree().getTreeItem("ExampleProject").select()
 		bot.toolbarButtonWithTooltip("New DSE Specification").click()
+		bot.shell("New DSE Specification").activate()
+		bot.waitUntil(shellIsActive("New DSE Specification"))
+		bot.waitUntil(Conditions.widgetIsEnabled(bot.button("Finish")))
 		bot.button("Finish").click()
+		
+		bot.waitUntil(shellIsActive("ASSIST"))
 		bot.partByTitle("newSpecification.ddsl").show()
-		assistShell.activate
 
 		/* Trigger a default Mapping spec */
 		bot.tree().getTreeItem("ExampleProject").select()
@@ -51,7 +58,6 @@ class BasicTests {
 		bot.button("Finish").click()
 		bot.partByTitle("newSpecification.sdsl").show()
 		assistShell.activate
-
 		/* Remove Project */
 		bot.tree().getTreeItem("ExampleProject").select();
 		bot.menu("Edit").menu("Delete").click();
@@ -132,7 +138,7 @@ class BasicTests {
 	@Test
 	def void checkDSEWorkflow() {
 		val assistShell = bot.activeShell
-		
+
 		/* Create a new project */
 		bot.menu("File").menu("New Project").click
 		val newProjectShell = bot.shell("New ASSIST Project").activate
@@ -141,8 +147,8 @@ class BasicTests {
 		newProjectShellBot.waitUntil(Conditions.widgetIsEnabled(newProjectShellBot.button("Finish")))
 		newProjectShellBot.button("Finish").click
 		newProjectShellBot.waitUntil(shellCloses(newProjectShell), 20000)
-		
-		/* Create a new DSE Spec */		
+
+		/* Create a new DSE Spec */
 		assistShell.setFocus
 		bot.tree().getTreeItem("ExampleProject").select();
 		bot.toolbarButtonWithTooltip("New DSE Specification").click();
@@ -154,7 +160,7 @@ class BasicTests {
 		newDSESpecBot.button("Finish").click()
 		newDSESpecBot.waitUntil(shellCloses(newDSESpecShell))
 
-		/* Exploration */		
+		/* Exploration */
 		bot.menu("Exploration").menu("Evaluate Design Space").click()
 		bot.waitUntil(Conditions.shellIsActive("Design Space Exploration"))
 		bot.waitUntil(Conditions.widgetIsEnabled(bot.button("OK")))
@@ -169,7 +175,7 @@ class BasicTests {
 		/* Mapping the candidate */
 		bot.toolbarButtonWithTooltip("Generate mappings (Ctrl+M)").click();
 		bot.button("Search").click();
-		
+
 		/* Remove Project */
 		bot.tree().getTreeItem("ExampleProject").select();
 		bot.menu("Edit").menu("Delete").click();
