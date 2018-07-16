@@ -33,6 +33,8 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 			chocoModel.member(taskVar, suitableBoardsIdx).post()
 		}
 		
+		propagate()
+		
 		return true
 	}
 }

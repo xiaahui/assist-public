@@ -116,8 +116,15 @@ public class DetailedResults extends Composite {
         tableViewerColumnScore.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit)); 
         TableColumn tblclmnScore = tableViewerColumnScore.getColumn();
         tblclmnScore.setAlignment(SWT.RIGHT);
-        tblclmnScore.setWidth(60);
+        tblclmnScore.setWidth(110);
         tblclmnScore.setText("Score");
+        
+        TableViewerColumn tableViewerColumnScoreAbs = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tableViewerColumnScoreAbs.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit)); 
+        TableColumn tblclmnScoreAbs = tableViewerColumnScoreAbs.getColumn();
+        tblclmnScoreAbs.setAlignment(SWT.RIGHT);
+        tblclmnScoreAbs.setWidth(110);
+        tblclmnScoreAbs.setText("Score (absolute)");
         
         TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));

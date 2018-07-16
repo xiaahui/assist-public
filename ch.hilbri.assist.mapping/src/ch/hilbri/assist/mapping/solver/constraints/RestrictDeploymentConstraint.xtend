@@ -25,7 +25,7 @@ class RestrictDeploymentConstraint extends AbstractMappingConstraint {
 
 			/* Check if we need to do anything - is at least one restriction specified? */
 			if (!task.restrictMappingToHardwareElements.empty ||
-				task.application.restrictMappingToHardwareElements.empty) {
+				!task.application.restrictMappingToHardwareElements.empty) {
 
 				/* Retrieve the list of valid cores */
 				/* - application-level              */
@@ -65,6 +65,8 @@ class RestrictDeploymentConstraint extends AbstractMappingConstraint {
 			}
 		}
 
+		propagate()
+		
 		return worked
 	}
 

@@ -19,9 +19,9 @@ import org.chocosolver.solver.variables.IntVar
 
 class SolverVariablesContainer {
 
-	Map<String, List<IntVar>> taskToLocationVariablesMap = new HashMap
+	Map<Task, List<IntVar>> taskToLocationVariablesMap = new HashMap
 
-	Map<IntVar, String> locationVariableToTaskMap = new HashMap
+	Map<IntVar, Task> locationVariableToTaskMap = new HashMap
 
 	/** A 3d matrix of variables as indicators for each task
 	 * 	
@@ -55,13 +55,12 @@ class SolverVariablesContainer {
 			val locVarComp = solverModel.intVar(t.name + "-L4", 0, assistModel.allCompartments.length - 1, false)
 
 			/* Store these variables in the maps for easy retrieval later */
-			taskToLocationVariablesMap.put(t.name, #[locVarCore, locVarProc, locVarBoard, locVarBox, locVarComp])
-
-			locationVariableToTaskMap.put(locVarCore, t.name)
-			locationVariableToTaskMap.put(locVarProc, t.name)
-			locationVariableToTaskMap.put(locVarBoard, t.name)
-			locationVariableToTaskMap.put(locVarBox, t.name)
-			locationVariableToTaskMap.put(locVarComp, t.name)
+			taskToLocationVariablesMap.put(t, #[locVarCore, locVarProc, locVarBoard, locVarBox, locVarComp])
+			locationVariableToTaskMap.put(locVarCore, t)
+			locationVariableToTaskMap.put(locVarProc, t)
+			locationVariableToTaskMap.put(locVarBoard, t)
+			locationVariableToTaskMap.put(locVarBox, t)
+			locationVariableToTaskMap.put(locVarComp, t)
 		}
 
 		/* 	d[i][l][j] = {0,1}
@@ -136,7 +135,7 @@ class SolverVariablesContainer {
 	}
 
 	def IntVar[] getLocationVariablesForTask(Task task) {
-		taskToLocationVariablesMap.get(task.name)
+		taskToLocationVariablesMap.get(task)
 	}
 	
 	def IntVar getLocationVariableForTaskAndLevel(Task task, HardwareArchitectureLevelType level) {

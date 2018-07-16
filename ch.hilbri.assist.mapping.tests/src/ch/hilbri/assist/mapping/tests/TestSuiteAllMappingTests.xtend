@@ -16,6 +16,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 import ch.hilbri.assist.mapping.tests.importer.AmaltheaImporterTests
+import ch.hilbri.assist.mapping.tests.basics.MiscTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -33,7 +34,8 @@ import ch.hilbri.assist.mapping.tests.importer.AmaltheaImporterTests
 		RestrictDeploymentConstraintTests,
 		CustomPropertiesTests,
 		FeatureConstraintTests,
-		AmaltheaImporterTests
+		AmaltheaImporterTests,
+		MiscTests
 	]
 )
 

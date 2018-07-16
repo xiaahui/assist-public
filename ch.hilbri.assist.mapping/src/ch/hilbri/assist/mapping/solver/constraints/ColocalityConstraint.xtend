@@ -7,24 +7,25 @@ import org.chocosolver.solver.Model
 class ColocalityConstraint extends AbstractMappingConstraint {
 
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
-		super("core capacity", model, chocoModel, solverVariables)
+		super("colocality", model, chocoModel, solverVariables)
 	}
 	
 	override generate() {
-		
+		var worked = false
 		for (relation : model.colocalityRelations) {
 			val level = relation.hardwareLevel.value
 			val tasks = relation.applications.map[tasks]
 											 .flatten
-											 .toSet
+											 
 			val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 			
 			/* No we require all these variable to take the same value */
 			chocoModel.allEqual(taskVars).post
+			worked = true
 		}
 		
 		propagate()
 		
-		true
+		return worked
 	}
 }

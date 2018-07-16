@@ -42,17 +42,28 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				// This is handled in the paintEvent listener 
 			}
 			case 2: {
-				if (explorationResult.getAbsoluteScore === null) { cell.text = "n/a" }
-				else								  { cell.text = (new DecimalFormat("#.##").format(explorationResult.getAbsoluteScore)) }
-				
+				if (explorationResult.getAbsoluteScore === null) {
+					cell.text = "n/a"
+				} else {
+					cell.text = (new DecimalFormat("#.##").format(explorationResult.scaledScore))
+				}
+
 			}
 			case 3: {
+				if (explorationResult.getAbsoluteScore === null) {
+					cell.text = "n/a"
+				} else {
+					cell.text = (new DecimalFormat("#.##").format(explorationResult.absoluteScore))
+				}
+
+			}
+			
+			case 4: {
 				var Button button
 
 				/* Check if we already created this button	 */
 				if (allButtons.containsKey(cell.element))
 					button = allButtons.get(cell.element)
-
 				/* Otherwise, we have to create it */
 				else {
 					button = new Button(cell.viewerRow.control as Composite, SWT.FLAT)
@@ -64,12 +75,15 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 							val activeEditor = PlatformUI.workbench.activeWorkbenchWindow.activePage.activeEditor
 							val inputFile = (activeEditor.editorInput as IFileEditorInput).file
 							val preselectedProject = inputFile.project
-							val preselectedFilename = FilenameUtils.removeExtension(inputFile.name) + '''-«explorationResult.candidate.name».mdsl''' 
-							val dialog = new WizardDialog(finalButton.shell, new GenerateMappingSpecificationWizard(explorationResult.model, preselectedProject, preselectedFilename))
+							val preselectedFilename = FilenameUtils.removeExtension(inputFile.name) +
+								'''-«explorationResult.candidate.name».mdsl'''
+							val dialog = new WizardDialog(finalButton.shell,
+								new GenerateMappingSpecificationWizard(explorationResult.model, preselectedProject,
+									preselectedFilename))
 							dialog.open
 						}
-       				})
-       					
+					})
+
 					allButtons.put(cell.element, button)
 				}
 				val tableItem = cell.item as TableItem
@@ -77,25 +91,24 @@ class ExplorationResultsLabelProvider extends CellLabelProvider {
 				editor.minimumWidth = 75
 				editor.minimumHeight = 20
 				editor.grabVertical = true
-				editor.setEditor(button, tableItem, 3)
+				editor.setEditor(button, tableItem, 4)
 				editor.layout
 			}
-			case 4: 
-				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString.toNicerList
 			case 5:
-				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString.toNicerList
+				cell.text = explorationResult.candidate.boardAlternatives.map[name].toString.toNicerList
 			case 6:
+				cell.text = explorationResult.candidate.applicationAlternatives.map[name].toString.toNicerList
+			case 7:
 				cell.text = explorationResult.candidate.restrictionAlternatives.map[name].toString.toNicerList
-			
 		}
 	}
-	
+
 	def String toNicerList(String s) {
 		if (s == "[]")
 			return "-- none --"
-			
+
 		// Remove the [ and ]
-		return s.substring(1, s.length-1)
+		return s.substring(1, s.length - 1)
 	}
 
 }
