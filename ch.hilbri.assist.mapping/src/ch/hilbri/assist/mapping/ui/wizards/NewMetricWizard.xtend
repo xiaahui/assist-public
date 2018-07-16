@@ -37,7 +37,7 @@ class NewMetricWizard extends Wizard implements INewWizard {
 		/* Create the new file */
 		val IResource resource = pageOne.getModifiedResource()
 		if (resource instanceof IFile) {
-			val IFile file = (resource as IFile)
+			val file = resource
 			var InputStream stream = openContentStream()
 			try {
 				/* Fill the file with some default content */
