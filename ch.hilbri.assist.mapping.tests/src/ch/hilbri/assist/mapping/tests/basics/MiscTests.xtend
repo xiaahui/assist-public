@@ -10,6 +10,7 @@ import static org.junit.Assert.*
 
 class MiscTests extends AbstractMappingTest {
 
+	/* Makes sure that tasks with identical names will also be handled properly */
 	@Test
 	def void testMultipleTasksWithIdenticalName() {
 		val assistModel = parser.parse('''
