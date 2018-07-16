@@ -397,12 +397,21 @@ class ExplorationCandidate {
     refers RestrictionAlternative[0..*]     restrictionAlternatives
 }
 
+class ExplorationResult {
+    refers ExplorationCandidate candidate
+    refers AssistModel model
+    refers MappingResult mappingResult
+    boolean feasible
+    Double absoluteScore
+    Double scaledScore
+}
+
 abstract class AbstractDSEMetric {
     String  name
     boolean builtIn
     boolean higherScoreIsBetter
     
-    op double computeAbsoluteScore(AssistModel candidateModel)
+    op double computeAbsoluteScore(ExplorationResult result)
 }
 
 /* **************************************
@@ -424,10 +433,30 @@ class MappingResult extends Comparable {
     String                             name
     int                                index
     Task2CoreMapType                   task2CoreMap
-    refers      AssistModel            model    
-     contains MetricScorePair[]        metricAbsoluteScoresMap 
-     contains MetricScorePair[]        metricScaledScoresMap
-     boolean                           partialSolution = "false"
+    refers   AssistModel               model    
+    contains MetricScorePair[]         metricAbsoluteScoresMap 
+    contains MetricScorePair[]         metricScaledScoresMap
+    boolean                            partialSolution = "false"
+    
+    op boolean isUsed(Core core) {
+    	return !getMappedTasksForCore(core).isNullOrEmpty
+    }
+    
+    op boolean isUsed(Processor processor) {
+    	return !processor.cores.filter[isUsed(it)].isNullOrEmpty
+    }
+    
+    op boolean isUsed(Board board) {
+    	return !board.processors.filter[isUsed(it)].isNullOrEmpty
+    }
+    
+    op boolean isUsed(Box box) {
+    	return !box.boards.filter[isUsed(it)].isNullOrEmpty
+    }
+    
+    op boolean isUsed(Compartment compartment) {
+    	return !compartment.boxes.filter[isUsed(it)].isNullOrEmpty
+    }
     
     derived double absoluteTotalScore get {
         if (metricAbsoluteScoresMap.keySet.empty)     0.0

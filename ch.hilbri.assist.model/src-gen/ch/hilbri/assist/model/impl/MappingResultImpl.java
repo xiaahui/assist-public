@@ -411,6 +411,76 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isUsed(final Core core) {
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(this.getMappedTasksForCore(core));
+        return (!_isNullOrEmpty);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isUsed(final Processor processor) {
+        final Function1<Core, Boolean> _function = new Function1<Core, Boolean>() {
+            public Boolean apply(final Core it) {
+                return Boolean.valueOf(MappingResultImpl.this.isUsed(it));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Core>filter(processor.getCores(), _function));
+        return (!_isNullOrEmpty);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isUsed(final Board board) {
+        final Function1<Processor, Boolean> _function = new Function1<Processor, Boolean>() {
+            public Boolean apply(final Processor it) {
+                return Boolean.valueOf(MappingResultImpl.this.isUsed(it));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Processor>filter(board.getProcessors(), _function));
+        return (!_isNullOrEmpty);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isUsed(final Box box) {
+        final Function1<Board, Boolean> _function = new Function1<Board, Boolean>() {
+            public Boolean apply(final Board it) {
+                return Boolean.valueOf(MappingResultImpl.this.isUsed(it));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Board>filter(box.getBoards(), _function));
+        return (!_isNullOrEmpty);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isUsed(final Compartment compartment) {
+        final Function1<Box, Boolean> _function = new Function1<Box, Boolean>() {
+            public Boolean apply(final Box it) {
+                return Boolean.valueOf(MappingResultImpl.this.isUsed(it));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Box>filter(compartment.getBoxes(), _function));
+        return (!_isNullOrEmpty);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<Task> getMappedTasksForCore(final Core core) {
         final Function1<Task, Boolean> _function = new Function1<Task, Boolean>() {
             public Boolean apply(final Task it) {
@@ -763,6 +833,16 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
     @Override
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
+            case ModelPackage.MAPPING_RESULT___IS_USED__CORE:
+                return isUsed((Core)arguments.get(0));
+            case ModelPackage.MAPPING_RESULT___IS_USED__PROCESSOR:
+                return isUsed((Processor)arguments.get(0));
+            case ModelPackage.MAPPING_RESULT___IS_USED__BOARD:
+                return isUsed((Board)arguments.get(0));
+            case ModelPackage.MAPPING_RESULT___IS_USED__BOX:
+                return isUsed((Box)arguments.get(0));
+            case ModelPackage.MAPPING_RESULT___IS_USED__COMPARTMENT:
+                return isUsed((Compartment)arguments.get(0));
             case ModelPackage.MAPPING_RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
                 return getMappedTasksForCore((Core)arguments.get(0));
             case ModelPackage.MAPPING_RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE:

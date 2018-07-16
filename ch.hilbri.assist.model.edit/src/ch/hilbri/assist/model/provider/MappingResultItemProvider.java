@@ -187,10 +187,10 @@ public class MappingResultItemProvider
 	/**
      * This adds a property descriptor for the Absolute Total Score feature.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected void addAbsoluteTotalScorePropertyDescriptor(Object object) {
+    protected void addAbsoluteTotalScorePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -206,13 +206,13 @@ public class MappingResultItemProvider
                  null));
     }
 
-	/**
+    /**
      * This adds a property descriptor for the Scaled Total Score feature.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected void addScaledTotalScorePropertyDescriptor(Object object) {
+    protected void addScaledTotalScorePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -228,7 +228,7 @@ public class MappingResultItemProvider
                  null));
     }
 
-	/**
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.

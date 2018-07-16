@@ -26,6 +26,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
@@ -259,6 +260,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseExplorationCandidate(ExplorationCandidate object) {
                 return createExplorationCandidateAdapter();
+            }
+            @Override
+            public Adapter caseExplorationResult(ExplorationResult object) {
+                return createExplorationResultAdapter();
             }
             @Override
             public Adapter caseAbstractDSEMetric(AbstractDSEMetric object) {
@@ -827,6 +832,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createExplorationCandidateAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ExplorationResult <em>Exploration Result</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.ExplorationResult
+     * @generated
+     */
+    public Adapter createExplorationResultAdapter() {
         return null;
     }
 

@@ -237,6 +237,51 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model unique="false" coreUnique="false"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='boolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(this.getMappedTasksForCore(core));\nreturn (!_isNullOrEmpty);'"
+     * @generated
+     */
+    boolean isUsed(Core core);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" processorUnique="false"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.model.Core%&gt; it)\n\t{\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%this%&gt;.isUsed(it));\n\t}\n};\nboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;filter(processor.getCores(), _function));\nreturn (!_isNullOrEmpty);'"
+     * @generated
+     */
+    boolean isUsed(Processor processor);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" boardUnique="false"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.model.Processor%&gt; it)\n\t{\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%this%&gt;.isUsed(it));\n\t}\n};\nboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;filter(board.getProcessors(), _function));\nreturn (!_isNullOrEmpty);'"
+     * @generated
+     */
+    boolean isUsed(Board board);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" boxUnique="false"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.model.Board%&gt; it)\n\t{\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%this%&gt;.isUsed(it));\n\t}\n};\nboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Board%&gt;&gt;filter(box.getBoards(), _function));\nreturn (!_isNullOrEmpty);'"
+     * @generated
+     */
+    boolean isUsed(Box box);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" compartmentUnique="false"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Box%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Box%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.model.Box%&gt; it)\n\t{\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%this%&gt;.isUsed(it));\n\t}\n};\nboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Box%&gt;&gt;filter(compartment.getBoxes(), _function));\nreturn (!_isNullOrEmpty);'"
+     * @generated
+     */
+    boolean isUsed(Compartment compartment);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" coreUnique="false"
      *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Task%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Task%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.model.Task%&gt; it)\n\t{\n\t\t&lt;%ch.hilbri.assist.model.Core%&gt; _get = &lt;%this%&gt;.getTask2CoreMap().get(it);\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%com.google.common.base.Objects%&gt;.equal(_get, core));\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.model.Task%&gt;&gt;toEList(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Task%&gt;&gt;filter(this.getTask2CoreMap().keySet(), _function));'"
      * @generated
      */

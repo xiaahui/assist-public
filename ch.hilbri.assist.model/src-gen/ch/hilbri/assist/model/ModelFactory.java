@@ -355,6 +355,15 @@ public interface ModelFactory extends EFactory {
     ExplorationCandidate createExplorationCandidate();
 
     /**
+     * Returns a new object of class '<em>Exploration Result</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exploration Result</em>'.
+     * @generated
+     */
+    ExplorationResult createExplorationResult();
+
+    /**
      * Returns a new object of class '<em>Mapping Result</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

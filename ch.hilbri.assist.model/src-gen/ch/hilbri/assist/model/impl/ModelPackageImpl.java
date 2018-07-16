@@ -29,6 +29,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
@@ -335,6 +336,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass explorationCandidateEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass explorationResultEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -2020,6 +2028,69 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getExplorationResult() {
+        return explorationResultEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExplorationResult_Candidate() {
+        return (EReference)explorationResultEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExplorationResult_Model() {
+        return (EReference)explorationResultEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExplorationResult_MappingResult() {
+        return (EReference)explorationResultEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExplorationResult_Feasible() {
+        return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExplorationResult_AbsoluteScore() {
+        return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExplorationResult_ScaledScore() {
+        return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getAbstractDSEMetric() {
         return abstractDSEMetricEClass;
     }
@@ -2056,7 +2127,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel() {
+    public EOperation getAbstractDSEMetric__ComputeAbsoluteScore__ExplorationResult() {
         return abstractDSEMetricEClass.getEOperations().get(0);
     }
 
@@ -2191,7 +2262,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__GetMappedTasksForCore__Core() {
+    public EOperation getMappingResult__IsUsed__Core() {
         return mappingResultEClass.getEOperations().get(0);
     }
 
@@ -2200,7 +2271,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__GetAbsoluteCoreUtilization__Core() {
+    public EOperation getMappingResult__IsUsed__Processor() {
         return mappingResultEClass.getEOperations().get(1);
     }
 
@@ -2209,7 +2280,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__GetRelativeCoreUtilization__Core() {
+    public EOperation getMappingResult__IsUsed__Board() {
         return mappingResultEClass.getEOperations().get(2);
     }
 
@@ -2218,7 +2289,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__GetHardwareElementForTask__Task_int() {
+    public EOperation getMappingResult__IsUsed__Box() {
         return mappingResultEClass.getEOperations().get(3);
     }
 
@@ -2227,7 +2298,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__GetMappingElements() {
+    public EOperation getMappingResult__IsUsed__Compartment() {
         return mappingResultEClass.getEOperations().get(4);
     }
 
@@ -2236,7 +2307,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__CompareTo__MappingResult() {
+    public EOperation getMappingResult__GetMappedTasksForCore__Core() {
         return mappingResultEClass.getEOperations().get(5);
     }
 
@@ -2245,8 +2316,53 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getMappingResult__ToString() {
+    public EOperation getMappingResult__GetAbsoluteCoreUtilization__Core() {
         return mappingResultEClass.getEOperations().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getMappingResult__GetRelativeCoreUtilization__Core() {
+        return mappingResultEClass.getEOperations().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getMappingResult__GetHardwareElementForTask__Task_int() {
+        return mappingResultEClass.getEOperations().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getMappingResult__GetMappingElements() {
+        return mappingResultEClass.getEOperations().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getMappingResult__CompareTo__MappingResult() {
+        return mappingResultEClass.getEOperations().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getMappingResult__ToString() {
+        return mappingResultEClass.getEOperations().get(11);
     }
 
     /**
@@ -2760,11 +2876,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
         createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);
 
+        explorationResultEClass = createEClass(EXPLORATION_RESULT);
+        createEReference(explorationResultEClass, EXPLORATION_RESULT__CANDIDATE);
+        createEReference(explorationResultEClass, EXPLORATION_RESULT__MODEL);
+        createEReference(explorationResultEClass, EXPLORATION_RESULT__MAPPING_RESULT);
+        createEAttribute(explorationResultEClass, EXPLORATION_RESULT__FEASIBLE);
+        createEAttribute(explorationResultEClass, EXPLORATION_RESULT__ABSOLUTE_SCORE);
+        createEAttribute(explorationResultEClass, EXPLORATION_RESULT__SCALED_SCORE);
+
         abstractDSEMetricEClass = createEClass(ABSTRACT_DSE_METRIC);
         createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__NAME);
         createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__BUILT_IN);
         createEAttribute(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC__HIGHER_SCORE_IS_BETTER);
-        createEOperation(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__ASSISTMODEL);
+        createEOperation(abstractDSEMetricEClass, ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__EXPLORATIONRESULT);
 
         comparableEClass = createEClass(COMPARABLE);
 
@@ -2782,6 +2906,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(mappingResultEClass, MAPPING_RESULT__PARTIAL_SOLUTION);
         createEAttribute(mappingResultEClass, MAPPING_RESULT__ABSOLUTE_TOTAL_SCORE);
         createEAttribute(mappingResultEClass, MAPPING_RESULT__SCALED_TOTAL_SCORE);
+        createEOperation(mappingResultEClass, MAPPING_RESULT___IS_USED__CORE);
+        createEOperation(mappingResultEClass, MAPPING_RESULT___IS_USED__PROCESSOR);
+        createEOperation(mappingResultEClass, MAPPING_RESULT___IS_USED__BOARD);
+        createEOperation(mappingResultEClass, MAPPING_RESULT___IS_USED__BOX);
+        createEOperation(mappingResultEClass, MAPPING_RESULT___IS_USED__COMPARTMENT);
         createEOperation(mappingResultEClass, MAPPING_RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE);
         createEOperation(mappingResultEClass, MAPPING_RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE);
         createEOperation(mappingResultEClass, MAPPING_RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE);
@@ -3110,13 +3239,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getExplorationCandidate_ApplicationAlternatives(), this.getApplicationAlternative(), null, "applicationAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getExplorationCandidate_RestrictionAlternatives(), this.getRestrictionAlternative(), null, "restrictionAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(explorationResultEClass, ExplorationResult.class, "ExplorationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getExplorationResult_Candidate(), this.getExplorationCandidate(), null, "candidate", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getExplorationResult_Model(), this.getAssistModel(), null, "model", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getExplorationResult_MappingResult(), this.getMappingResult(), null, "mappingResult", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExplorationResult_Feasible(), theEcorePackage.getEBoolean(), "feasible", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExplorationResult_AbsoluteScore(), theEcorePackage.getEDoubleObject(), "absoluteScore", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getExplorationResult_ScaledScore(), theEcorePackage.getEDoubleObject(), "scaledScore", null, 0, 1, ExplorationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         initEClass(abstractDSEMetricEClass, AbstractDSEMetric.class, "AbstractDSEMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getAbstractDSEMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAbstractDSEMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAbstractDSEMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractDSEMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        op = initEOperation(getAbstractDSEMetric__ComputeAbsoluteScore__AssistModel(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, this.getAssistModel(), "candidateModel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        op = initEOperation(getAbstractDSEMetric__ComputeAbsoluteScore__ExplorationResult(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getExplorationResult(), "result", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS, "java.lang.Comparable<ch.hilbri.assist.model.MappingResult>");
 
@@ -3134,6 +3271,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getMappingResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, MappingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getMappingResult_AbsoluteTotalScore(), theEcorePackage.getEDouble(), "absoluteTotalScore", null, 0, 1, MappingResult.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEAttribute(getMappingResult_ScaledTotalScore(), theEcorePackage.getEDouble(), "scaledTotalScore", null, 0, 1, MappingResult.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+        op = initEOperation(getMappingResult__IsUsed__Core(), theEcorePackage.getEBoolean(), "isUsed", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getMappingResult__IsUsed__Processor(), theEcorePackage.getEBoolean(), "isUsed", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getProcessor(), "processor", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getMappingResult__IsUsed__Board(), theEcorePackage.getEBoolean(), "isUsed", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getBoard(), "board", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getMappingResult__IsUsed__Box(), theEcorePackage.getEBoolean(), "isUsed", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getBox(), "box", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getMappingResult__IsUsed__Compartment(), theEcorePackage.getEBoolean(), "isUsed", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getCompartment(), "compartment", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         op = initEOperation(getMappingResult__GetMappedTasksForCore__Core(), this.getTask(), "getMappedTasksForCore", 0, -1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, this.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);

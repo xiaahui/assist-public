@@ -28,6 +28,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
@@ -146,6 +147,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
             case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
             case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
+            case ModelPackage.EXPLORATION_RESULT: return createExplorationResult();
             case ModelPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
             case ModelPackage.MAPPING_RESULT: return createMappingResult();
             case ModelPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
@@ -582,6 +584,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public ExplorationCandidate createExplorationCandidate() {
         ExplorationCandidateImpl explorationCandidate = new ExplorationCandidateImpl();
         return explorationCandidate;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExplorationResult createExplorationResult() {
+        ExplorationResultImpl explorationResult = new ExplorationResultImpl();
+        return explorationResult;
     }
 
     /**

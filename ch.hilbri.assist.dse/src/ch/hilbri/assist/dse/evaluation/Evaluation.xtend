@@ -1,12 +1,14 @@
 package ch.hilbri.assist.dse.evaluation
 
-import ch.hilbri.assist.dse.results.ExplorationResult
+import ch.hilbri.assist.dse.analysis.CandidateScoring
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.model.AbstractDSEMetric
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.ExplorationResult
+import ch.hilbri.assist.model.ModelFactory
 import ch.qos.logback.classic.Level
 import ch.qos.logback.classic.LoggerContext
 import java.util.List
@@ -14,7 +16,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.dse.analysis.CandidateScoring
 
 class Evaluation {
 
@@ -124,10 +125,13 @@ class Evaluation {
 			mappingLogger.setLevel(Level.DEBUG)
 
 			/* Create a new result which contains the info if feasible or not */
-			val explorationResult = new ExplorationResult => [
+			val factory = ModelFactory.eINSTANCE
+			val explorationResult = factory.createExplorationResult =>	[
 				it.candidate = candidate
 				it.model = explorationCandidateModel
-				it.isFeasible = (mappingSolver.results !== null && mappingSolver.results.size > 0)
+				it.feasible = (mappingSolver.results !== null && mappingSolver.results.size > 0)
+				if (feasible)
+					it.mappingResult = mappingSolver.results.get(0)
 			]
 
 			explorationResults.add(explorationResult)

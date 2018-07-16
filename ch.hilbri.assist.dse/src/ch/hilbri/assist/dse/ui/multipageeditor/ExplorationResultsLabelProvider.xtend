@@ -1,7 +1,7 @@
 package ch.hilbri.assist.dse.ui.multipageeditor
 
-import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.dse.ui.wizards.GenerateMappingSpecificationWizard
+import ch.hilbri.assist.model.ExplorationResult
 import java.text.DecimalFormat
 import java.util.HashMap
 import java.util.Map

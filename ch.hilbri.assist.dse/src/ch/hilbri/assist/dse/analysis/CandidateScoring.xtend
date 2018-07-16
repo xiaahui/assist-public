@@ -1,7 +1,7 @@
 package ch.hilbri.assist.dse.analysis
 
-import ch.hilbri.assist.dse.results.ExplorationResult
 import ch.hilbri.assist.model.AbstractDSEMetric
+import ch.hilbri.assist.model.ExplorationResult
 import java.util.List
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics
 
@@ -19,7 +19,7 @@ class CandidateScoring {
 		/* Execute the metric for each result */
 		val statistics = new DescriptiveStatistics()
 		for (result : results) {
-			val score = metric.computeAbsoluteScore(result.model)
+			val score = metric.computeAbsoluteScore(result)
 			result.absoluteScore = score
 			statistics.addValue(score)
 		}
