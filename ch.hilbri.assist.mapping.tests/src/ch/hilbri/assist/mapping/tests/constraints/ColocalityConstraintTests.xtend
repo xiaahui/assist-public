@@ -6,6 +6,8 @@ import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import org.junit.Assert
 import org.junit.Test
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
+import org.eclipse.emf.common.util.Diagnostic
+import org.eclipse.emf.ecore.util.Diagnostician
 
 class ColocalityConstraintTests extends AbstractMappingTest {
 	@Test
@@ -294,9 +296,13 @@ Software {
 Restrictions {
 	A1, A2_T1 on same Compartment;
 	B1, B2_T1, B3 on same Box;
-}		''')
+}		
+		''')
 		Assert.assertNotNull(assistModel)
 		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
+
+		val diagnostic = Diagnostician.INSTANCE.validate(assistModel);
+        if (diagnostic.getSeverity() == Diagnostic.ERROR) Assert.fail
 
 		val assistSolver = new AssistMappingSolver(assistModel)
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
