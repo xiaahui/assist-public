@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -160,6 +161,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseApplicationAlternative(ApplicationAlternative object) {
                 return createApplicationAlternativeAdapter();
+            }
+            @Override
+            public Adapter caseAbstractSoftwareElement(AbstractSoftwareElement object) {
+                return createAbstractSoftwareElementAdapter();
             }
             @Override
             public Adapter caseApplication(Application object) {
@@ -482,6 +487,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createApplicationAlternativeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AbstractSoftwareElement <em>Abstract Software Element</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.AbstractSoftwareElement
+     * @generated
+     */
+    public Adapter createAbstractSoftwareElementAdapter() {
         return null;
     }
 

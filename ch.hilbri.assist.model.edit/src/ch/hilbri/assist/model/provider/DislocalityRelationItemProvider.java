@@ -4,7 +4,6 @@ package ch.hilbri.assist.model.provider;
 
 
 import ch.hilbri.assist.model.DislocalityRelation;
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import java.util.Collection;
 import java.util.List;
 
@@ -64,8 +63,7 @@ public class DislocalityRelationItemProvider
      */
 	@Override
 	public String getText(Object object) {
-        HardwareArchitectureLevelType labelValue = ((DislocalityRelation)object).getHardwareLevel();
-        String label = labelValue == null ? null : labelValue.toString();
+        String label = ((DislocalityRelation)object).getSoftwareElementNames();
         return label == null || label.length() == 0 ?
             getString("_UI_DislocalityRelation_type") :
             getString("_UI_DislocalityRelation_type") + " " + label;

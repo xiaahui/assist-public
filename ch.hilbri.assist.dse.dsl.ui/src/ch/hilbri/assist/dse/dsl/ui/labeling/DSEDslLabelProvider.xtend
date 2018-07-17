@@ -102,10 +102,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if(r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" dislocal up to ")
 		output.append(r.hardwareLevel)
@@ -122,10 +119,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if (r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" dissimilar ")
 		
@@ -139,10 +133,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if(r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" on same ")
 		output.append(r.hardwareLevel)

@@ -348,6 +348,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AbstractSoftwareElement} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AbstractSoftwareElementItemProvider abstractSoftwareElementItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.AbstractSoftwareElement}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAbstractSoftwareElementAdapter() {
+        if (abstractSoftwareElementItemProvider == null) {
+            abstractSoftwareElementItemProvider = new AbstractSoftwareElementItemProvider(this);
+        }
+
+        return abstractSoftwareElementItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Application} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1171,6 +1194,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (coreItemProvider != null) coreItemProvider.dispose();
         if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
         if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
+        if (abstractSoftwareElementItemProvider != null) abstractSoftwareElementItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
         if (taskItemProvider != null) taskItemProvider.dispose();
         if (featureRequirementItemProvider != null) featureRequirementItemProvider.dispose();

@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -59,6 +60,8 @@ import java.lang.Comparable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -161,6 +164,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass applicationAlternativeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractSoftwareElementEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -434,6 +444,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EEnum colorEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType listOfTaskListsEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1263,6 +1280,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getAbstractSoftwareElement() {
+        return abstractSoftwareElementEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getApplication() {
         return applicationEClass;
     }
@@ -1614,7 +1640,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getMappingRelation_Applications() {
+    public EReference getMappingRelation_AbstractSoftwareElements() {
         return (EReference)mappingRelationEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1625,6 +1651,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getMappingRelation_HardwareLevel() {
         return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMappingRelation_AllTasks() {
+        return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMappingRelation_SoftwareElementNames() {
+        return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2622,6 +2666,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getListOfTaskLists() {
+        return listOfTaskListsEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getTask2CoreMapType() {
         return task2CoreMapTypeEDataType;
     }
@@ -2766,6 +2819,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(applicationAlternativeEClass, APPLICATION_ALTERNATIVE__NAME);
         createEReference(applicationAlternativeEClass, APPLICATION_ALTERNATIVE__APPLICATIONS);
 
+        abstractSoftwareElementEClass = createEClass(ABSTRACT_SOFTWARE_ELEMENT);
+
         applicationEClass = createEClass(APPLICATION);
         createEAttribute(applicationEClass, APPLICATION__NAME);
         createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
@@ -2808,8 +2863,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__IS_EXCLUSIVE);
 
         mappingRelationEClass = createEClass(MAPPING_RELATION);
-        createEReference(mappingRelationEClass, MAPPING_RELATION__APPLICATIONS);
+        createEReference(mappingRelationEClass, MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS);
         createEAttribute(mappingRelationEClass, MAPPING_RELATION__HARDWARE_LEVEL);
+        createEAttribute(mappingRelationEClass, MAPPING_RELATION__ALL_TASKS);
+        createEAttribute(mappingRelationEClass, MAPPING_RELATION__SOFTWARE_ELEMENT_NAMES);
 
         dislocalityRelationEClass = createEClass(DISLOCALITY_RELATION);
 
@@ -2954,6 +3011,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         colorEEnum = createEEnum(COLOR);
 
         // Create data types
+        listOfTaskListsEDataType = createEDataType(LIST_OF_TASK_LISTS);
         task2CoreMapTypeEDataType = createEDataType(TASK2_CORE_MAP_TYPE);
         stringListEDataType = createEDataType(STRING_LIST);
         task2ExecutionInstancesMapTypeEDataType = createEDataType(TASK2_EXECUTION_INSTANCES_MAP_TYPE);
@@ -2995,6 +3053,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         boardEClass.getESuperTypes().add(this.getHardwareElement());
         processorEClass.getESuperTypes().add(this.getHardwareElement());
         coreEClass.getESuperTypes().add(this.getHardwareElement());
+        applicationEClass.getESuperTypes().add(this.getAbstractSoftwareElement());
+        taskEClass.getESuperTypes().add(this.getAbstractSoftwareElement());
         dislocalityRelationEClass.getESuperTypes().add(this.getMappingRelation());
         colocalityRelationEClass.getESuperTypes().add(this.getMappingRelation());
         dissimilarityRelationEClass.getESuperTypes().add(this.getMappingRelation());
@@ -3127,6 +3187,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getApplicationAlternative_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getApplicationAlternative_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(abstractSoftwareElementEClass, AbstractSoftwareElement.class, "AbstractSoftwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", "", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3171,8 +3233,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getFeatureRequirement_IsExclusive(), theEcorePackage.getEBoolean(), "isExclusive", null, 0, 1, FeatureRequirement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(mappingRelationEClass, MappingRelation.class, "MappingRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getMappingRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getMappingRelation_AbstractSoftwareElements(), this.getAbstractSoftwareElement(), null, "abstractSoftwareElements", null, 0, -1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getMappingRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, MappingRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMappingRelation_AllTasks(), this.getListOfTaskLists(), "allTasks", null, 0, 1, MappingRelation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMappingRelation_SoftwareElementNames(), theEcorePackage.getEString(), "softwareElementNames", null, 0, 1, MappingRelation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(dislocalityRelationEClass, DislocalityRelation.class, "DislocalityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3389,6 +3453,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         addEEnumLiteral(colorEEnum, Color.DARK_YELLOW);
 
         // Initialize data types
+        initEDataType(listOfTaskListsEDataType, EList.class, "ListOfTaskLists", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "org.eclipse.emf.common.util.EList<org.eclipse.emf.common.util.EList<ch.hilbri.assist.model.Task>>");
         initEDataType(task2CoreMapTypeEDataType, HashMap.class, "Task2CoreMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.model.Task, ch.hilbri.assist.model.Core>");
         initEDataType(stringListEDataType, List.class, "StringList", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<java.lang.String>");
         initEDataType(task2ExecutionInstancesMapTypeEDataType, HashMap.class, "Task2ExecutionInstancesMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.model.Task, java.util.List<ch.hilbri.assist.model.TaskExecutionInstance>>");

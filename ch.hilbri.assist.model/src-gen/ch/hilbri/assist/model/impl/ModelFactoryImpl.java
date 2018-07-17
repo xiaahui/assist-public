@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -56,6 +57,8 @@ import ch.hilbri.assist.model.TaskExecutionInstance;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -122,6 +125,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CORE: return createCore();
             case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
             case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
+            case ModelPackage.ABSTRACT_SOFTWARE_ELEMENT: return createAbstractSoftwareElement();
             case ModelPackage.APPLICATION: return createApplication();
             case ModelPackage.TASK: return createTask();
             case ModelPackage.FEATURE_REQUIREMENT: return createFeatureRequirement();
@@ -176,6 +180,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return createPeriodicityTypeFromString(eDataType, initialValue);
             case ModelPackage.COLOR:
                 return createColorFromString(eDataType, initialValue);
+            case ModelPackage.LIST_OF_TASK_LISTS:
+                return createListOfTaskListsFromString(eDataType, initialValue);
             case ModelPackage.TASK2_CORE_MAP_TYPE:
                 return createTask2CoreMapTypeFromString(eDataType, initialValue);
             case ModelPackage.STRING_LIST:
@@ -205,6 +211,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return convertPeriodicityTypeToString(eDataType, instanceValue);
             case ModelPackage.COLOR:
                 return convertColorToString(eDataType, instanceValue);
+            case ModelPackage.LIST_OF_TASK_LISTS:
+                return convertListOfTaskListsToString(eDataType, instanceValue);
             case ModelPackage.TASK2_CORE_MAP_TYPE:
                 return convertTask2CoreMapTypeToString(eDataType, instanceValue);
             case ModelPackage.STRING_LIST:
@@ -334,6 +342,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public ApplicationAlternative createApplicationAlternative() {
         ApplicationAlternativeImpl applicationAlternative = new ApplicationAlternativeImpl();
         return applicationAlternative;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractSoftwareElement createAbstractSoftwareElement() {
+        AbstractSoftwareElementImpl abstractSoftwareElement = new AbstractSoftwareElementImpl();
+        return abstractSoftwareElement;
     }
 
     /**
@@ -744,6 +762,25 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      */
     public String convertColorToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    public EList<EList<Task>> createListOfTaskListsFromString(EDataType eDataType, String initialValue) {
+        return (EList<EList<Task>>)super.createFromString(initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertListOfTaskListsToString(EDataType eDataType, Object instanceValue) {
+        return super.convertToString(instanceValue);
     }
 
     /**

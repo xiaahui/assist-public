@@ -14,9 +14,7 @@ class ColocalityConstraint extends AbstractMappingConstraint {
 		var worked = false
 		for (relation : model.colocalityRelations) {
 			val level = relation.hardwareLevel.value
-			val tasks = relation.applications.map[tasks]
-											 .flatten
-											 
+			val tasks = relation.allTasks.flatten
 			val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 			
 			/* No we require all these variable to take the same value */

@@ -49,9 +49,9 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 	 * to the location variables.
 		 	 * 
 		 	 * */
-		 	if (relation.applications.filter[tasks.size > 1].isNullOrEmpty) {
+		 	if (relation.allTasks.filter[size > 1].isNullOrEmpty) {
 				
-				val tasks = relation.applications.map[tasks].flatten.toSet
+				val tasks = relation.allTasks.flatten.toSet
 				val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 				
 				/* We want to make these vars take different values */
@@ -64,7 +64,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			 * 
 			 */
 			else {
-				val taskList = relation.applications.map[tasks]
+				val taskList = relation.allTasks
 				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
 				
 				switch (mode) {

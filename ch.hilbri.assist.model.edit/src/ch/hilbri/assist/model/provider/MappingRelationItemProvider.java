@@ -3,7 +3,6 @@
 package ch.hilbri.assist.model.provider;
 
 
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.ModelPackage;
 
@@ -61,26 +60,28 @@ public class MappingRelationItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addApplicationsPropertyDescriptor(object);
+            addAbstractSoftwareElementsPropertyDescriptor(object);
             addHardwareLevelPropertyDescriptor(object);
+            addAllTasksPropertyDescriptor(object);
+            addSoftwareElementNamesPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
 	/**
-     * This adds a property descriptor for the Applications feature.
+     * This adds a property descriptor for the Abstract Software Elements feature.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected void addApplicationsPropertyDescriptor(Object object) {
+    protected void addAbstractSoftwareElementsPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_MappingRelation_applications_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_applications_feature", "_UI_MappingRelation_type"),
-                 ModelPackage.Literals.MAPPING_RELATION__APPLICATIONS,
+                 getString("_UI_MappingRelation_abstractSoftwareElements_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_abstractSoftwareElements_feature", "_UI_MappingRelation_type"),
+                 ModelPackage.Literals.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS,
                  true,
                  false,
                  true,
@@ -89,13 +90,13 @@ public class MappingRelationItemProvider
                  null));
     }
 
-	/**
+    /**
      * This adds a property descriptor for the Hardware Level feature.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected void addHardwareLevelPropertyDescriptor(Object object) {
+    protected void addHardwareLevelPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -111,7 +112,51 @@ public class MappingRelationItemProvider
                  null));
     }
 
-	/**
+    /**
+     * This adds a property descriptor for the All Tasks feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAllTasksPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_MappingRelation_allTasks_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_allTasks_feature", "_UI_MappingRelation_type"),
+                 ModelPackage.Literals.MAPPING_RELATION__ALL_TASKS,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Software Element Names feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSoftwareElementNamesPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_MappingRelation_softwareElementNames_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_softwareElementNames_feature", "_UI_MappingRelation_type"),
+                 ModelPackage.Literals.MAPPING_RELATION__SOFTWARE_ELEMENT_NAMES,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns MappingRelation.gif.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,8 +175,7 @@ public class MappingRelationItemProvider
      */
 	@Override
 	public String getText(Object object) {
-        HardwareArchitectureLevelType labelValue = ((MappingRelation)object).getHardwareLevel();
-        String label = labelValue == null ? null : labelValue.toString();
+        String label = ((MappingRelation)object).getSoftwareElementNames();
         return label == null || label.length() == 0 ?
             getString("_UI_MappingRelation_type") :
             getString("_UI_MappingRelation_type") + " " + label;
@@ -151,6 +195,8 @@ public class MappingRelationItemProvider
 
         switch (notification.getFeatureID(MappingRelation.class)) {
             case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
+            case ModelPackage.MAPPING_RELATION__ALL_TASKS:
+            case ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENT_NAMES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

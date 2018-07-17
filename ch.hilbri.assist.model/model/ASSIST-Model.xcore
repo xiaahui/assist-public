@@ -11,6 +11,8 @@ package ch.hilbri.assist.model
 
 import java.util.HashMap
 import java.util.List
+import java.lang.StringBuilder
+import org.eclipse.emf.common.util.EList
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
@@ -159,7 +161,9 @@ class ApplicationAlternative {
     contains Application[0..*] applications
 }
 
-class Application {
+class AbstractSoftwareElement {}
+
+class Application extends AbstractSoftwareElement {
     String                          name                = ""
     String                          developedBy         = ""
     DesignAssuranceLevelType        criticalityLevel    = "None"
@@ -173,7 +177,7 @@ class Application {
     derived String        fullName get { name }
 }
 
-class Task {    
+class Task extends AbstractSoftwareElement {    
     String name                               = ""
     int coreUtilization                       = "0"
     int ramUtilization                        = "0"
@@ -213,10 +217,36 @@ class FeatureRequirement {
 /* *********************************************** */
 /*   MAPPING: RESTRICTIONS                         */
 /* *********************************************** */
+type ListOfTaskLists wraps EList<EList<Task>>
 
 class MappingRelation{
-    refers Application[0..*] applications
+    refers AbstractSoftwareElement[0..*] abstractSoftwareElements
     HardwareArchitectureLevelType hardwareLevel
+    
+    derived ListOfTaskLists allTasks get {
+    	val List<EList<Task>> list = newArrayList
+    	for (ase : abstractSoftwareElements) {
+    		if (ase instanceof Application)
+    			list.add(ase.tasks)
+    		if (ase instanceof Task)
+    			list.add(#[ase].toEList)
+    	}
+    	return list.toEList
+    }
+    
+    derived String softwareElementNames get {
+    	val output = new StringBuilder()
+    	for (ase : abstractSoftwareElements) {
+    		if (ase instanceof Application) 
+    			output.append(ase.name)
+    		if (ase instanceof Task)
+    			output.append(ase.name)
+    		if (ase != abstractSoftwareElements.last)
+    			output.append(", ")
+    	}
+    	
+    	return output.toString
+    }
 }
 
 class DislocalityRelation   extends MappingRelation {}

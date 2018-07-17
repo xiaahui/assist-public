@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -189,15 +190,23 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.ABSTRACT_SOFTWARE_ELEMENT: {
+                AbstractSoftwareElement abstractSoftwareElement = (AbstractSoftwareElement)theEObject;
+                T result = caseAbstractSoftwareElement(abstractSoftwareElement);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.APPLICATION: {
                 Application application = (Application)theEObject;
                 T result = caseApplication(application);
+                if (result == null) result = caseAbstractSoftwareElement(application);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case ModelPackage.TASK: {
                 Task task = (Task)theEObject;
                 T result = caseTask(task);
+                if (result == null) result = caseAbstractSoftwareElement(task);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -595,6 +604,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseApplicationAlternative(ApplicationAlternative object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Software Element</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Software Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractSoftwareElement(AbstractSoftwareElement object) {
         return null;
     }
 

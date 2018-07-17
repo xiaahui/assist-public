@@ -4,7 +4,6 @@ package ch.hilbri.assist.model.provider;
 
 
 import ch.hilbri.assist.model.DissimilarityRelation;
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 
@@ -99,8 +98,7 @@ public class DissimilarityRelationItemProvider
      */
 	@Override
 	public String getText(Object object) {
-        HardwareArchitectureLevelType labelValue = ((DissimilarityRelation)object).getHardwareLevel();
-        String label = labelValue == null ? null : labelValue.toString();
+        String label = ((DissimilarityRelation)object).getSoftwareElementNames();
         return label == null || label.length() == 0 ?
             getString("_UI_DissimilarityRelation_type") :
             getString("_UI_DissimilarityRelation_type") + " " + label;

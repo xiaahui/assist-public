@@ -4,8 +4,6 @@ package ch.hilbri.assist.model;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Application</b></em>'.
@@ -28,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Application extends EObject {
+public interface Application extends AbstractSoftwareElement {
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * The default value is <code>""</code>.
