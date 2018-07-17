@@ -348,26 +348,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AbstractSoftwareElement} instances.
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SoftwareElement} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected AbstractSoftwareElementItemProvider abstractSoftwareElementItemProvider;
+    protected SoftwareElementItemProvider softwareElementItemProvider;
 
     /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.AbstractSoftwareElement}.
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SoftwareElement}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createAbstractSoftwareElementAdapter() {
-        if (abstractSoftwareElementItemProvider == null) {
-            abstractSoftwareElementItemProvider = new AbstractSoftwareElementItemProvider(this);
+    public Adapter createSoftwareElementAdapter() {
+        if (softwareElementItemProvider == null) {
+            softwareElementItemProvider = new SoftwareElementItemProvider(this);
         }
 
-        return abstractSoftwareElementItemProvider;
+        return softwareElementItemProvider;
     }
 
     /**
@@ -1194,7 +1194,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (coreItemProvider != null) coreItemProvider.dispose();
         if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
         if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
-        if (abstractSoftwareElementItemProvider != null) abstractSoftwareElementItemProvider.dispose();
+        if (softwareElementItemProvider != null) softwareElementItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
         if (taskItemProvider != null) taskItemProvider.dispose();
         if (featureRequirementItemProvider != null) featureRequirementItemProvider.dispose();

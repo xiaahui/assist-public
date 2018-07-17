@@ -204,7 +204,7 @@ Software {
         val solution = assistSolver.results.head
 
         /* Retrieve all execution instances for T1 and T2 */
-        val allExecutionInstances = assistModel.allTasks.filter[name == "A1_T1" || name == "A1_T2"]
+        val allExecutionInstances = assistModel.allTasks.filter[getName == "A1_T1" || getName == "A1_T2"]
                                                         .map[solution.schedule.get(it)].flatten
 
         /* We need to iterate over every pair of execution instance and check that it is not overlapping */

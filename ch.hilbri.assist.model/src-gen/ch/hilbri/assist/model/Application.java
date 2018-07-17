@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getTasks <em>Tasks</em>}</li>
@@ -26,34 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Application extends AbstractSoftwareElement {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getApplication_Name()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
-
+public interface Application extends SoftwareElement {
     /**
      * Returns the value of the '<em><b>Developed By</b></em>' attribute.
      * The default value is <code>""</code>.
@@ -176,14 +148,5 @@ public interface Application extends AbstractSoftwareElement {
      * @generated
      */
     String getFullName();
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
-     * @generated
-     */
-    String toString();
 
 } // Application

@@ -140,15 +140,15 @@ RestrictionAlternative:
 ;
 
 DislocalityRelation:
-	abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
     'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
     
 ColocalityRelation:
-   	abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+   	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
    	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
-    abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+    softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
     'dissimilar' 'based' 'on'
     dissimilarityClause=DissimilarityClause ';';
 

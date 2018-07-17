@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Task#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getRomUtilization <em>Rom Utilization</em>}</li>
@@ -40,34 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Task extends AbstractSoftwareElement {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_Name()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Task#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
-
+public interface Task extends SoftwareElement {
     /**
      * Returns the value of the '<em><b>Core Utilization</b></em>' attribute.
      * The default value is <code>"0"</code>.
@@ -569,14 +541,5 @@ public interface Task extends AbstractSoftwareElement {
      * @generated
      */
     String getFullName();
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
-     * @generated
-     */
-    String toString();
 
 } // Task

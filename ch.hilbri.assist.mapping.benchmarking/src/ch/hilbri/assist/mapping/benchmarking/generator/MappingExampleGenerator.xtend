@@ -166,8 +166,8 @@ class MappingExampleGenerator {
 				var boolean applicationAdded = false
 				while (!applicationAdded) {
 					val selectedApplication = assistModel.applications.get(rng.nextInt(0, assistModel.applications.size))
-					if (!dislocality.abstractSoftwareElements.contains(selectedApplication)) 
-						applicationAdded = dislocality.abstractSoftwareElements.add(selectedApplication)
+					if (!dislocality.softwareElements.contains(selectedApplication)) 
+						applicationAdded = dislocality.softwareElements.add(selectedApplication)
 				}
 			}
 		}	
@@ -175,7 +175,7 @@ class MappingExampleGenerator {
 		/* Enforce all applications to have their tasks on the same board */
 		for (app : assistModel.applications) {
 			val colocality = factory.createColocalityRelation
-			colocality.abstractSoftwareElements.add(app)
+			colocality.softwareElements.add(app)
 			colocality.hardwareLevel = HardwareArchitectureLevelType.BOARD
 			assistModel.colocalityRelations.add(colocality)
 		}

@@ -2,11 +2,11 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 
 import com.google.common.base.Objects;
@@ -37,7 +37,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getAbstractSoftwareElements <em>Abstract Software Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getSoftwareElements <em>Software Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getHardwareLevel <em>Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getAllTasks <em>All Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.MappingRelationImpl#getSoftwareElementNames <em>Software Element Names</em>}</li>
@@ -47,14 +47,14 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 public class MappingRelationImpl extends MinimalEObjectImpl.Container implements MappingRelation {
     /**
-     * The cached value of the '{@link #getAbstractSoftwareElements() <em>Abstract Software Elements</em>}' reference list.
+     * The cached value of the '{@link #getSoftwareElements() <em>Software Elements</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAbstractSoftwareElements()
+     * @see #getSoftwareElements()
      * @generated
      * @ordered
      */
-    protected EList<AbstractSoftwareElement> abstractSoftwareElements;
+    protected EList<SoftwareElement> softwareElements;
 
     /**
      * The default value of the '{@link #getHardwareLevel() <em>Hardware Level</em>}' attribute.
@@ -110,11 +110,11 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<AbstractSoftwareElement> getAbstractSoftwareElements() {
-        if (abstractSoftwareElements == null) {
-            abstractSoftwareElements = new EObjectResolvingEList<AbstractSoftwareElement>(AbstractSoftwareElement.class, this, ModelPackage.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS);
+    public EList<SoftwareElement> getSoftwareElements() {
+        if (softwareElements == null) {
+            softwareElements = new EObjectResolvingEList<SoftwareElement>(SoftwareElement.class, this, ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS);
         }
-        return abstractSoftwareElements;
+        return softwareElements;
     }
 
     /**
@@ -145,14 +145,14 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      */
     public EList<EList<Task>> getAllTasks() {
         final List<EList<Task>> list = CollectionLiterals.<EList<Task>>newArrayList();
-        EList<AbstractSoftwareElement> _abstractSoftwareElements = this.getAbstractSoftwareElements();
-        for (final AbstractSoftwareElement ase : _abstractSoftwareElements) {
+        EList<SoftwareElement> _softwareElements = this.getSoftwareElements();
+        for (final SoftwareElement se : _softwareElements) {
             {
-                if ((ase instanceof Application)) {
-                    list.add(((Application)ase).getTasks());
+                if ((se instanceof Application)) {
+                    list.add(((Application)se).getTasks());
                 }
-                if ((ase instanceof Task)) {
-                    list.add(ECollections.<Task>toEList(java.util.Collections.<Task>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<Task>newArrayList(((Task)ase)))));
+                if ((se instanceof Task)) {
+                    list.add(ECollections.<Task>toEList(java.util.Collections.<Task>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<Task>newArrayList(((Task)se)))));
                 }
             }
         }
@@ -166,17 +166,17 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      */
     public String getSoftwareElementNames() {
         final StringBuilder output = new StringBuilder();
-        EList<AbstractSoftwareElement> _abstractSoftwareElements = this.getAbstractSoftwareElements();
-        for (final AbstractSoftwareElement ase : _abstractSoftwareElements) {
+        EList<SoftwareElement> _softwareElements = this.getSoftwareElements();
+        for (final SoftwareElement se : _softwareElements) {
             {
-                if ((ase instanceof Application)) {
-                    output.append(((Application)ase).getName());
+                if ((se instanceof Application)) {
+                    output.append(((Application)se).getName());
                 }
-                if ((ase instanceof Task)) {
-                    output.append(((Task)ase).getName());
+                if ((se instanceof Task)) {
+                    output.append(((Task)se).getName());
                 }
-                AbstractSoftwareElement _last = IterableExtensions.<AbstractSoftwareElement>last(this.getAbstractSoftwareElements());
-                boolean _notEquals = (!Objects.equal(ase, _last));
+                SoftwareElement _last = IterableExtensions.<SoftwareElement>last(this.getSoftwareElements());
+                boolean _notEquals = (!Objects.equal(se, _last));
                 if (_notEquals) {
                     output.append(", ");
                 }
@@ -193,8 +193,8 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS:
-                return getAbstractSoftwareElements();
+            case ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS:
+                return getSoftwareElements();
             case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
                 return getHardwareLevel();
             case ModelPackage.MAPPING_RELATION__ALL_TASKS:
@@ -214,9 +214,9 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS:
-                getAbstractSoftwareElements().clear();
-                getAbstractSoftwareElements().addAll((Collection<? extends AbstractSoftwareElement>)newValue);
+            case ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS:
+                getSoftwareElements().clear();
+                getSoftwareElements().addAll((Collection<? extends SoftwareElement>)newValue);
                 return;
             case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
                 setHardwareLevel((HardwareArchitectureLevelType)newValue);
@@ -233,8 +233,8 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS:
-                getAbstractSoftwareElements().clear();
+            case ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS:
+                getSoftwareElements().clear();
                 return;
             case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
                 setHardwareLevel(HARDWARE_LEVEL_EDEFAULT);
@@ -251,8 +251,8 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS:
-                return abstractSoftwareElements != null && !abstractSoftwareElements.isEmpty();
+            case ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS:
+                return softwareElements != null && !softwareElements.isEmpty();
             case ModelPackage.MAPPING_RELATION__HARDWARE_LEVEL:
                 return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
             case ModelPackage.MAPPING_RELATION__ALL_TASKS:

@@ -130,13 +130,13 @@ public interface ModelFactory extends EFactory {
     ApplicationAlternative createApplicationAlternative();
 
     /**
-     * Returns a new object of class '<em>Abstract Software Element</em>'.
+     * Returns a new object of class '<em>Software Element</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Abstract Software Element</em>'.
+     * @return a new object of class '<em>Software Element</em>'.
      * @generated
      */
-    AbstractSoftwareElement createAbstractSoftwareElement();
+    SoftwareElement createSoftwareElement();
 
     /**
      * Returns a new object of class '<em>Application</em>'.

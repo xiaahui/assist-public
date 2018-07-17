@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TaskItemProvider 
-	extends AbstractSoftwareElementItemProvider {
+	extends SoftwareElementItemProvider {
 	/**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -48,7 +48,6 @@ public class TaskItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addNamePropertyDescriptor(object);
             addCoreUtilizationPropertyDescriptor(object);
             addRamUtilizationPropertyDescriptor(object);
             addRomUtilizationPropertyDescriptor(object);
@@ -69,28 +68,6 @@ public class TaskItemProvider
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Task_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Task_name_feature", "_UI_Task_type"),
-                 ModelPackage.Literals.TASK__NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -558,7 +535,6 @@ public class TaskItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(Task.class)) {
-            case ModelPackage.TASK__NAME:
             case ModelPackage.TASK__CORE_UTILIZATION:
             case ModelPackage.TASK__RAM_UTILIZATION:
             case ModelPackage.TASK__ROM_UTILIZATION:

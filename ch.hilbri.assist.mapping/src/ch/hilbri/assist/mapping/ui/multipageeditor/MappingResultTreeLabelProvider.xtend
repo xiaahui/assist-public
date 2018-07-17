@@ -35,7 +35,7 @@ class MappingResultTreeLabelProvider extends LabelProvider implements IEntitySty
 			if(data instanceof Board) return data.name
 			if(data instanceof Processor) return data.name
 			if(data instanceof Core) return data.name
-			if(data instanceof Task) return data.name
+			if(data instanceof Task) return data.getName
 
 			throw new RuntimeException("Unexpected data type: " + data.class)
 		}

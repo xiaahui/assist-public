@@ -17,8 +17,8 @@ class MappingViewerFilter extends ViewerFilter {
 		if (filterString.isNullOrEmpty) return true
 
 		else if (element instanceof SingleMappingElement) {
-				if (element.application.name.matches(filterString) 	||
-					element.task.name.matches(filterString) 		||
+				if (element.application.getName.matches(filterString) 	||
+					element.task.getName.matches(filterString) 		||
 					element.core.name.matches(filterString) 		||
 					element.processor.name.matches(filterString)	||
 					element.board.name.matches(filterString)		||

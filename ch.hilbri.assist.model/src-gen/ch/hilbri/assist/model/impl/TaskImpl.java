@@ -12,8 +12,6 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Task;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -39,7 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRomUtilization <em>Rom Utilization</em>}</li>
@@ -64,27 +61,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
+public class TaskImpl extends SoftwareElementImpl implements Task {
     /**
      * The default value of the '{@link #getCoreUtilization() <em>Core Utilization</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -432,27 +409,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.TASK;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__NAME, oldName, name));
     }
 
     /**
@@ -891,15 +847,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String toString() {
-        return this.getName();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -951,8 +898,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.TASK__NAME:
-                return getName();
             case ModelPackage.TASK__CORE_UTILIZATION:
                 return getCoreUtilization();
             case ModelPackage.TASK__RAM_UTILIZATION:
@@ -1008,9 +953,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.TASK__NAME:
-                setName((String)newValue);
-                return;
             case ModelPackage.TASK__CORE_UTILIZATION:
                 setCoreUtilization((Integer)newValue);
                 return;
@@ -1083,9 +1025,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__NAME:
-                setName(NAME_EDEFAULT);
-                return;
             case ModelPackage.TASK__CORE_UTILIZATION:
                 setCoreUtilization(CORE_UTILIZATION_EDEFAULT);
                 return;
@@ -1155,8 +1094,6 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case ModelPackage.TASK__CORE_UTILIZATION:
                 return coreUtilization != CORE_UTILIZATION_EDEFAULT;
             case ModelPackage.TASK__RAM_UTILIZATION:
@@ -1207,12 +1144,40 @@ public class TaskImpl extends AbstractSoftwareElementImpl implements Task {
      * @generated
      */
     @Override
-    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-        switch (operationID) {
-            case ModelPackage.TASK___TO_STRING:
-                return toString();
-        }
-        return super.eInvoke(operationID, arguments);
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuilder result = new StringBuilder(super.toString());
+        result.append(" (coreUtilization: ");
+        result.append(coreUtilization);
+        result.append(", ramUtilization: ");
+        result.append(ramUtilization);
+        result.append(", romUtilization: ");
+        result.append(romUtilization);
+        result.append(", duration: ");
+        result.append(duration);
+        result.append(", period: ");
+        result.append(period);
+        result.append(", earlyTolerance: ");
+        result.append(earlyTolerance);
+        result.append(", lateTolerance: ");
+        result.append(lateTolerance);
+        result.append(", maxStartTime: ");
+        result.append(maxStartTime);
+        result.append(", maxEndTime: ");
+        result.append(maxEndTime);
+        result.append(", addInitTime: ");
+        result.append(addInitTime);
+        result.append(", slices: ");
+        result.append(slices);
+        result.append(", minSliceDuration: ");
+        result.append(minSliceDuration);
+        result.append(", periodicity: ");
+        result.append(periodicity);
+        result.append(", color: ");
+        result.append(color);
+        result.append(')');
+        return result.toString();
     }
 
 } //TaskImpl

@@ -3,7 +3,6 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractMappingMetric;
-import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -51,6 +50,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -125,7 +125,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CORE: return createCore();
             case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
             case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
-            case ModelPackage.ABSTRACT_SOFTWARE_ELEMENT: return createAbstractSoftwareElement();
+            case ModelPackage.SOFTWARE_ELEMENT: return createSoftwareElement();
             case ModelPackage.APPLICATION: return createApplication();
             case ModelPackage.TASK: return createTask();
             case ModelPackage.FEATURE_REQUIREMENT: return createFeatureRequirement();
@@ -349,9 +349,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public AbstractSoftwareElement createAbstractSoftwareElement() {
-        AbstractSoftwareElementImpl abstractSoftwareElement = new AbstractSoftwareElementImpl();
-        return abstractSoftwareElement;
+    public SoftwareElement createSoftwareElement() {
+        SoftwareElementImpl softwareElement = new SoftwareElementImpl();
+        return softwareElement;
     }
 
     /**

@@ -4,7 +4,6 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
-import ch.hilbri.assist.model.AbstractSoftwareElement;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -46,6 +45,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -190,23 +190,23 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.ABSTRACT_SOFTWARE_ELEMENT: {
-                AbstractSoftwareElement abstractSoftwareElement = (AbstractSoftwareElement)theEObject;
-                T result = caseAbstractSoftwareElement(abstractSoftwareElement);
+            case ModelPackage.SOFTWARE_ELEMENT: {
+                SoftwareElement softwareElement = (SoftwareElement)theEObject;
+                T result = caseSoftwareElement(softwareElement);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case ModelPackage.APPLICATION: {
                 Application application = (Application)theEObject;
                 T result = caseApplication(application);
-                if (result == null) result = caseAbstractSoftwareElement(application);
+                if (result == null) result = caseSoftwareElement(application);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case ModelPackage.TASK: {
                 Task task = (Task)theEObject;
                 T result = caseTask(task);
-                if (result == null) result = caseAbstractSoftwareElement(task);
+                if (result == null) result = caseSoftwareElement(task);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -608,17 +608,17 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Software Element</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Software Element</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Software Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Software Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractSoftwareElement(AbstractSoftwareElement object) {
+    public T caseSoftwareElement(SoftwareElement object) {
         return null;
     }
 

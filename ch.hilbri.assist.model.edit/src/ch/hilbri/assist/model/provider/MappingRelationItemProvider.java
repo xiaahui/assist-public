@@ -60,7 +60,7 @@ public class MappingRelationItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addAbstractSoftwareElementsPropertyDescriptor(object);
+            addSoftwareElementsPropertyDescriptor(object);
             addHardwareLevelPropertyDescriptor(object);
             addAllTasksPropertyDescriptor(object);
             addSoftwareElementNamesPropertyDescriptor(object);
@@ -69,19 +69,19 @@ public class MappingRelationItemProvider
     }
 
 	/**
-     * This adds a property descriptor for the Abstract Software Elements feature.
+     * This adds a property descriptor for the Software Elements feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAbstractSoftwareElementsPropertyDescriptor(Object object) {
+    protected void addSoftwareElementsPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_MappingRelation_abstractSoftwareElements_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_abstractSoftwareElements_feature", "_UI_MappingRelation_type"),
-                 ModelPackage.Literals.MAPPING_RELATION__ABSTRACT_SOFTWARE_ELEMENTS,
+                 getString("_UI_MappingRelation_softwareElements_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_MappingRelation_softwareElements_feature", "_UI_MappingRelation_type"),
+                 ModelPackage.Literals.MAPPING_RELATION__SOFTWARE_ELEMENTS,
                  true,
                  false,
                  true,

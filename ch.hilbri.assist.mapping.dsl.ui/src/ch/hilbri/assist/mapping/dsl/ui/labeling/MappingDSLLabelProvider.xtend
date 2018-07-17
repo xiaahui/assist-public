@@ -76,7 +76,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Task t) {
-		'Task' + t.name
+		'Task' + t.getName
 	}
 	
 	def image(Task t) {
@@ -84,7 +84,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Application a) {
-		'Application ' + a.name
+		'Application ' + a.getName
 	}
 
 	def image(Application a) {

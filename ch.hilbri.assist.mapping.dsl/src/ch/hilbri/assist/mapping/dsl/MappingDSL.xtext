@@ -126,17 +126,16 @@ ExclusiveFeatureRequirement returns FeatureRequirement:
 
 /* Safety Restrictions / Relations */
 
-
 DislocalityRelation:
-	abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
     'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
     
 ColocalityRelation:
-   	abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+   	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
    	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
-    abstractSoftwareElements+=[AbstractSoftwareElement] (',' abstractSoftwareElements+=[AbstractSoftwareElement])*
+    softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
     'dissimilar' 'based' 'on'
     dissimilarityClause=DissimilarityClause ';';
 

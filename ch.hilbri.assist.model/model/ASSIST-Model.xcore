@@ -161,10 +161,12 @@ class ApplicationAlternative {
     contains Application[0..*] applications
 }
 
-class AbstractSoftwareElement {}
+class SoftwareElement {
+	String name = ""
+	op String toString() { getName }
+}
 
-class Application extends AbstractSoftwareElement {
-    String                          name                = ""
+class Application extends SoftwareElement {
     String                          developedBy         = ""
     DesignAssuranceLevelType        criticalityLevel    = "None"
     
@@ -173,12 +175,10 @@ class Application extends AbstractSoftwareElement {
     
     refers HardwareElement[0..*] restrictMappingToHardwareElements
     
-    op String             toString() { name }
-    derived String        fullName get { name }
+    derived String        fullName get { getName }
 }
 
-class Task extends AbstractSoftwareElement {    
-    String name                               = ""
+class Task extends SoftwareElement {    
     int coreUtilization                       = "0"
     int ramUtilization                        = "0"
     int romUtilization                        = "0"
@@ -202,8 +202,7 @@ class Task extends AbstractSoftwareElement {
     refers HardwareElement[0..*]             restrictMappingToHardwareElements
     refers Core[0..1]                        assignedCore
     
-    derived String fullName get { application.name + "." + name }
-    op String      toString()   { name                          }
+    derived String fullName get { application.getName + "." + getName }
 }
 
 class FeatureRequirement {
@@ -220,31 +219,30 @@ class FeatureRequirement {
 type ListOfTaskLists wraps EList<EList<Task>>
 
 class MappingRelation{
-    refers AbstractSoftwareElement[0..*] abstractSoftwareElements
+    refers SoftwareElement[0..*] softwareElements
     HardwareArchitectureLevelType hardwareLevel
     
     derived ListOfTaskLists allTasks get {
     	val List<EList<Task>> list = newArrayList
-    	for (ase : abstractSoftwareElements) {
-    		if (ase instanceof Application)
-    			list.add(ase.tasks)
-    		if (ase instanceof Task)
-    			list.add(#[ase].toEList)
+    	for (se : softwareElements) {
+    		if (se instanceof Application)
+    			list.add(se.tasks)
+    		if (se instanceof Task)
+    			list.add(#[se].toEList)
     	}
     	return list.toEList
     }
     
     derived String softwareElementNames get {
     	val output = new StringBuilder()
-    	for (ase : abstractSoftwareElements) {
-    		if (ase instanceof Application) 
-    			output.append(ase.name)
-    		if (ase instanceof Task)
-    			output.append(ase.name)
-    		if (ase != abstractSoftwareElements.last)
+    	for (se : softwareElements) {
+    		if (se instanceof Application) 
+    			output.append(se.getName)
+    		if (se instanceof Task)
+    			output.append(se.getName)
+    		if (se != softwareElements.last)
     			output.append(", ")
     	}
-    	
     	return output.toString
     }
 }

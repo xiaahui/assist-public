@@ -48,11 +48,11 @@ class SolverVariablesContainer {
 		for (t : assistModel.allTasks) {
 
 			/* Create the location variables for each task */
-			val locVarCore = solverModel.intVar(t.name + "-L0", 0, assistModel.allCores.length - 1, false)
-			val locVarProc = solverModel.intVar(t.name + "-L1", 0, assistModel.allProcessors.length - 1, false)
-			val locVarBoard = solverModel.intVar(t.name + "-L2", 0, assistModel.allBoards.length - 1, false)
-			val locVarBox = solverModel.intVar(t.name + "-L3", 0, assistModel.allBoxes.length - 1, false)
-			val locVarComp = solverModel.intVar(t.name + "-L4", 0, assistModel.allCompartments.length - 1, false)
+			val locVarCore = solverModel.intVar(t.getName + "-L0", 0, assistModel.allCores.length - 1, false)
+			val locVarProc = solverModel.intVar(t.getName + "-L1", 0, assistModel.allProcessors.length - 1, false)
+			val locVarBoard = solverModel.intVar(t.getName + "-L2", 0, assistModel.allBoards.length - 1, false)
+			val locVarBox = solverModel.intVar(t.getName + "-L3", 0, assistModel.allBoxes.length - 1, false)
+			val locVarComp = solverModel.intVar(t.getName + "-L4", 0, assistModel.allCompartments.length - 1, false)
 
 			/* Store these variables in the maps for easy retrieval later */
 			taskToLocationVariablesMap.put(t, #[locVarCore, locVarProc, locVarBoard, locVarBox, locVarComp])

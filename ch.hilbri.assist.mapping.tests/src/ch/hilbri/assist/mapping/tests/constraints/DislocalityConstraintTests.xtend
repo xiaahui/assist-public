@@ -141,10 +141,10 @@ Restrictions {
 		for (result : assistSolver.results) {
 			
 			// Get processors for Application A tasks
-			val applicationAResults = assistModel.allTasks.filter[application.name.startsWith("A")].map[result.getHardwareElementForTask(it, 1)].toSet
+			val applicationAResults = assistModel.allTasks.filter[application.getName.startsWith("A")].map[result.getHardwareElementForTask(it, 1)].toSet
 
 			// Get processors for Application B tasks
-			val applicationBResults = assistModel.allTasks.filter[application.name.startsWith("B")].map[result.getHardwareElementForTask(it, 1)].toSet
+			val applicationBResults = assistModel.allTasks.filter[application.getName.startsWith("B")].map[result.getHardwareElementForTask(it, 1)].toSet
 		
 			/* Application A and B must not share a processor */
 			val intersect = new HashSet(applicationAResults)

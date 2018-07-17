@@ -374,12 +374,12 @@ Restrictions {
 		
 		for (result : assistSolver.results) {
 			/* Calculate which board.manufacturers are used by A1 tasks */			
-			val tasksApplicationA1 = assistModel.allTasks.filter[application.name == "A1"]
+			val tasksApplicationA1 = assistModel.allTasks.filter[application.getName == "A1"]
 			Assert.assertEquals(2, tasksApplicationA1.size)
 			val A1ResultsManufacturers = tasksApplicationA1.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 
 			/* Calculate which board.manufacturers are used by A2 tasks */			
-			val tasksApplicationA2 = assistModel.allTasks.filter[application.name == "A2"]
+			val tasksApplicationA2 = assistModel.allTasks.filter[application.getName == "A2"]
 			Assert.assertEquals(1, tasksApplicationA2.size)
 			val A2ResultsManufacturers = tasksApplicationA2.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 			
@@ -454,12 +454,12 @@ Restrictions {
 		Assert.assertEquals(6, assistSolver.results.size)
 		
 		for (result : assistSolver.results) {
-			val tasksApplicationA1 = assistModel.allTasks.filter[application.name == "A1"]
+			val tasksApplicationA1 = assistModel.allTasks.filter[application.getName == "A1"]
 			Assert.assertEquals(1, tasksApplicationA1.size)
 			val A1BoardManufacturer = tasksApplicationA1.map[result.getHardwareElementForTask(it, 2).manufacturer].head
 			val A1CompManufacturer  = tasksApplicationA1.map[result.getHardwareElementForTask(it, 4).manufacturer].head
 
-			val tasksApplicationA2 = assistModel.allTasks.filter[application.name == "A2"]
+			val tasksApplicationA2 = assistModel.allTasks.filter[application.getName == "A2"]
 			Assert.assertEquals(1, tasksApplicationA2.size)
 			val A2BoardManufacturers = tasksApplicationA2.map[result.getHardwareElementForTask(it, 2).manufacturer].head
 			val A2CompManufacturer  = tasksApplicationA2.map[result.getHardwareElementForTask(it, 4).manufacturer].head
@@ -539,13 +539,13 @@ Restrictions {
 		
 		for (result : assistSolver.results) {
 			/* Calculate which board.manufacturers are used by A1 tasks */			
-			val A1tasks = assistModel.allTasks.filter[application.name == "A1"]
+			val A1tasks = assistModel.allTasks.filter[application.getName == "A1"]
 			Assert.assertEquals(2, A1tasks.size)
 			val A1BoardManu = A1tasks.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 			val A1CompManu = A1tasks.map[result.getHardwareElementForTask(it, 4).manufacturer].toSet
 
 			/* Calculate which board.manufacturers are used by A2 tasks */			
-			val A2tasks = assistModel.allTasks.filter[application.name == "A2"]
+			val A2tasks = assistModel.allTasks.filter[application.getName == "A2"]
 			Assert.assertEquals(2, A2tasks.size)
 			val A2BoardManu = A2tasks.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 			val A2CompManu = A2tasks.map[result.getHardwareElementForTask(it, 4).manufacturer].toSet
@@ -618,12 +618,12 @@ Restrictions {
 		Assert.assertEquals(2, assistSolver.results.size)
 		
 		for (result : assistSolver.results) {
-			val tasksApplicationA1 = assistModel.allTasks.filter[application.name == "A1"]
+			val tasksApplicationA1 = assistModel.allTasks.filter[application.getName == "A1"]
 			Assert.assertEquals(1, tasksApplicationA1.size)
 			val A1BoardManufacturer = tasksApplicationA1.map[result.getHardwareElementForTask(it, 2).manufacturer].head
 			val A1CompManufacturer  = tasksApplicationA1.map[result.getHardwareElementForTask(it, 4).manufacturer].head
 
-			val tasksApplicationA2 = assistModel.allTasks.filter[application.name == "A2"]
+			val tasksApplicationA2 = assistModel.allTasks.filter[application.getName == "A2"]
 			Assert.assertEquals(1, tasksApplicationA2.size)
 			val A2BoardManufacturers = tasksApplicationA2.map[result.getHardwareElementForTask(it, 2).manufacturer].head
 			val A2CompManufacturer  = tasksApplicationA2.map[result.getHardwareElementForTask(it, 4).manufacturer].head
@@ -703,13 +703,13 @@ Restrictions {
 		
 		for (result : assistSolver.results) {
 			/* Calculate which board.manufacturers are used by A1 tasks */			
-			val A1tasks = assistModel.allTasks.filter[application.name == "A1"]
+			val A1tasks = assistModel.allTasks.filter[application.getName == "A1"]
 			Assert.assertEquals(2, A1tasks.size)
 			val A1BoardManu = A1tasks.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 			val A1CompManu = A1tasks.map[result.getHardwareElementForTask(it, 4).manufacturer].toSet
 
 			/* Calculate which board.manufacturers are used by A2 tasks */			
-			val A2tasks = assistModel.allTasks.filter[application.name == "A2"]
+			val A2tasks = assistModel.allTasks.filter[application.getName == "A2"]
 			Assert.assertEquals(2, A2tasks.size)
 			val A2BoardManu = A2tasks.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
 			val A2CompManu = A2tasks.map[result.getHardwareElementForTask(it, 4).manufacturer].toSet

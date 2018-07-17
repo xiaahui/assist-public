@@ -9,8 +9,6 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Task;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getTasks <em>Tasks</em>}</li>
@@ -47,27 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ApplicationImpl extends AbstractSoftwareElementImpl implements Application {
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
+public class ApplicationImpl extends SoftwareElementImpl implements Application {
     /**
      * The default value of the '{@link #getDevelopedBy() <em>Developed By</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -172,27 +149,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__NAME, oldName, name));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getDevelopedBy() {
         return developedBy;
     }
@@ -280,15 +236,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
      * <!-- end-user-doc -->
      * @generated
      */
-    public String toString() {
-        return this.getName();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -323,8 +270,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__NAME:
-                return getName();
             case ModelPackage.APPLICATION__DEVELOPED_BY:
                 return getDevelopedBy();
             case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
@@ -350,9 +295,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__NAME:
-                setName((String)newValue);
-                return;
             case ModelPackage.APPLICATION__DEVELOPED_BY:
                 setDevelopedBy((String)newValue);
                 return;
@@ -383,9 +325,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__NAME:
-                setName(NAME_EDEFAULT);
-                return;
             case ModelPackage.APPLICATION__DEVELOPED_BY:
                 setDevelopedBy(DEVELOPED_BY_EDEFAULT);
                 return;
@@ -413,8 +352,6 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case ModelPackage.APPLICATION__DEVELOPED_BY:
                 return DEVELOPED_BY_EDEFAULT == null ? developedBy != null : !DEVELOPED_BY_EDEFAULT.equals(developedBy);
             case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
@@ -437,12 +374,16 @@ public class ApplicationImpl extends AbstractSoftwareElementImpl implements Appl
      * @generated
      */
     @Override
-    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-        switch (operationID) {
-            case ModelPackage.APPLICATION___TO_STRING:
-                return toString();
-        }
-        return super.eInvoke(operationID, arguments);
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuilder result = new StringBuilder(super.toString());
+        result.append(" (developedBy: ");
+        result.append(developedBy);
+        result.append(", criticalityLevel: ");
+        result.append(criticalityLevel);
+        result.append(')');
+        return result.toString();
     }
 
 } //ApplicationImpl
