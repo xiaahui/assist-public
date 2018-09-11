@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
+import ch.hilbri.assist.mapping.exporter.DeploymentAsARXML
 import ch.hilbri.assist.mapping.exporter.DeploymentAsText
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
 import java.io.FileNotFoundException
@@ -43,7 +44,7 @@ class ExportToText {
         val result = multiPageEditor.currentMappingResult
 
         val dialog = new FileDialog(shell, SWT.SAVE)
-        dialog.setFilterExtensions(#["*.txt"]);
+        dialog.setFilterExtensions(#["*.txt", "*.arxml"]);
         val fileName = dialog.open();
 
         if(fileName === null) return null;
@@ -51,8 +52,15 @@ class ExportToText {
         val out = new FileOutputStream(fileName)
         try {
             if (fileName.fileExtension == "txt") {
-                out.write(DeploymentAsText.generate(result).getBytes());
-                out.close();
+                out.write(DeploymentAsText.generate(result).bytes)
+                out.close
+                MessageDialog.openInformation(shell,
+                "Export successful", 
+                '''The result with the name '«result.name»' was successfully exported to file '«fileName»'.''')
+            }
+            else if (fileName.fileExtension == "arxml") {
+            	out.write(DeploymentAsARXML.generate(result).bytes)
+                out.close
                 MessageDialog.openInformation(shell,
                 "Export successful", 
                 '''The result with the name '«result.name»' was successfully exported to file '«fileName»'.''')
