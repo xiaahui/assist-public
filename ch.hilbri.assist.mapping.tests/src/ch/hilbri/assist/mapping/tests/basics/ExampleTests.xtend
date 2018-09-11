@@ -30,7 +30,6 @@ class ExampleTests extends AbstractMappingTest {
 
 		val r = resourceHelper.resource(input)
 		assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
-
 	}
 
 	@Test
