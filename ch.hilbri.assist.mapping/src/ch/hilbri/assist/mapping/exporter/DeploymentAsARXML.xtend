@@ -112,6 +112,19 @@ class DeploymentAsARXML {
                             </SUB-CONTAINERS>
                         </ECUC-CONTAINER-VALUE>
                         
+                        «FOR core : result.model.allCores»
+                        <ECUC-CONTAINER-VALUE>
+                        	<SHORT-NAME>«core.processor.name»_«core.name»</SHORT-NAME>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Os/OsCore</DEFINITION-REF>
+                            <REFERENCE-VALUES>
+                            	<ECUC-REFERENCE-VALUE>
+                            		<DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/AUTOSAR/Os/OsCore/OsCoreEcucCoreRef</DEFINITION-REF>
+                                	<VALUE-REF DEST="ECUC-CONTAINER-VALUE">/«result.model.systemName»/EcuC/«core.processor.name»/EcucCoreDefinition_«core.processor.cores.indexOf(core)»</VALUE-REF>
+                            	</ECUC-REFERENCE-VALUE>
+                            </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        «ENDFOR»
+                        
 «««                        /* Counter werden einfach rausgeschrieben, wenn ich Alarme mitschreiben möchte */
 «««                         <ECUC-CONTAINER-VALUE>
 «««                            <SHORT-NAME>cnt1</SHORT-NAME>
