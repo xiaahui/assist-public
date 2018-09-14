@@ -24,16 +24,16 @@ class DeploymentAsARXML {
                         «FOR processor : result.model.allProcessors»
                         <ECUC-CONTAINER-VALUE>
                         	<SHORT-NAME>«processor.name»</SHORT-NAME>
-                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/«processor.name»</DEFINITION-REF>
+                            <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/EcucHardware</DEFINITION-REF>
                             <SUB-CONTAINERS>
 
                                 «FOR core : processor.cores»
                                 <ECUC-CONTAINER-VALUE>
                                      <SHORT-NAME>EcucCoreDefinition_«processor.cores.indexOf(core)»</SHORT-NAME>
-                                     <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/«processor.name»/EcucCoreDefinition</DEFINITION-REF>
+                                     <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/EcucHardware/EcucCoreDefinition</DEFINITION-REF>
                                      <PARAMETER-VALUES>
                                      	<ECUC-NUMERICAL-PARAM-VALUE>
-                                     		<DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcuC/«processor.name»/EcucCoreDefinition/EcucCoreId</DEFINITION-REF>
+                                     		<DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/AUTOSAR/EcuC/EcucHardware/EcucCoreDefinition/EcucCoreId</DEFINITION-REF>
                                      		<VALUE>«processor.cores.indexOf(core)»</VALUE>
                                      	</ECUC-NUMERICAL-PARAM-VALUE>
                                      </PARAMETER-VALUES>
@@ -453,7 +453,7 @@ class DeploymentAsARXML {
                                 </ECUC-REFERENCE-VALUE>
 
                             </REFERENCE-VALUES>
-						«ENDFOR»
+						
 
                             <SUB-CONTAINERS>
                                 <ECUC-CONTAINER-VALUE>
@@ -476,7 +476,7 @@ class DeploymentAsARXML {
                                 </ECUC-CONTAINER-VALUE>
                             </SUB-CONTAINERS>
                         </ECUC-CONTAINER-VALUE>
-
+						«ENDFOR»
                     </CONTAINERS>
                 </ECUC-MODULE-CONFIGURATION-VALUES>
             </ELEMENTS>
