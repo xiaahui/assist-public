@@ -189,7 +189,6 @@ class DeploymentAsARXML {
 «««                            </PARAMETER-VALUES>
 «««                        </ECUC-CONTAINER-VALUE>      
 
-«««                     /* Beschreibung der Tasks in ASSIST, die keine ISRs darstellen 
 						«FOR task : result.model.allTasks.filter[customProperties.filter[name.toUpperCase == "TYPE" && stringValue.toUpperCase == "ISR"].isNullOrEmpty]»
 						<ECUC-CONTAINER-VALUE>
 							<SHORT-NAME>«task.name»</SHORT-NAME>
