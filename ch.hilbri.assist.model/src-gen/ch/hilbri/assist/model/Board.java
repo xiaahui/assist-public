@@ -223,7 +223,6 @@ public interface Board extends HardwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getBoard_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _xifexpression = null;\n&lt;%ch.hilbri.assist.model.Box%&gt; _box = this.getBox();\nboolean _tripleNotEquals = (_box != null);\nif (_tripleNotEquals)\n{\n\t&lt;%java.lang.String%&gt; _fullName = this.getBox().getFullName();\n\t&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n\t&lt;%java.lang.String%&gt; _name = this.getName();\n\t_xifexpression = (_plus + _name);\n}\nelse\n{\n\t_xifexpression = this.getName();\n}\nreturn _xifexpression;'"
      * @generated
      */
     String getFullName();
@@ -232,7 +231,6 @@ public interface Board extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
      * @generated
      */
     String toString();
@@ -241,7 +239,6 @@ public interface Board extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getProcessors();'"
      * @generated
      */
     EList<Processor> getAllProcessors();
@@ -250,7 +247,6 @@ public interface Board extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt;()\n{\n\tpublic &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt; apply(final &lt;%ch.hilbri.assist.model.Processor%&gt; it)\n\t{\n\t\treturn it.getAllCores();\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;toEList(&lt;%com.google.common.collect.Iterables%&gt;.&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;concat(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt;map(this.getProcessors(), _function)));'"
      * @generated
      */
     EList<Core> getAllCores();

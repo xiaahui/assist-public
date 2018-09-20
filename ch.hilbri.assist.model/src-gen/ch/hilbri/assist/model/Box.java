@@ -97,7 +97,6 @@ public interface Box extends HardwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getBox_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getCompartment().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
      * @generated
      */
     String getFullName();
@@ -106,7 +105,6 @@ public interface Box extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getBoards();'"
      * @generated
      */
     EList<Board> getAllBoards();
@@ -115,7 +113,6 @@ public interface Box extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;&gt;()\n{\n\tpublic &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt; apply(final &lt;%ch.hilbri.assist.model.Board%&gt; it)\n\t{\n\t\treturn it.getAllProcessors();\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;toEList(&lt;%com.google.common.collect.Iterables%&gt;.&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;concat(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Processor%&gt;&gt;&gt;map(this.getBoards(), _function)));'"
      * @generated
      */
     EList<Processor> getAllProcessors();
@@ -124,7 +121,6 @@ public interface Box extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt;()\n{\n\tpublic &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt; apply(final &lt;%ch.hilbri.assist.model.Board%&gt; it)\n\t{\n\t\treturn it.getAllCores();\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;toEList(&lt;%com.google.common.collect.Iterables%&gt;.&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;concat(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.model.Board%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.model.Core%&gt;&gt;&gt;map(this.getBoards(), _function)));'"
      * @generated
      */
     EList<Core> getAllCores();

@@ -88,7 +88,6 @@ public interface Core extends HardwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getCore_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getProcessor().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
      * @generated
      */
     String getFullName();

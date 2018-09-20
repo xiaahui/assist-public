@@ -62,7 +62,6 @@ public interface Processor extends HardwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getProcessor_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getBoard().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
      * @generated
      */
     String getFullName();
@@ -117,7 +116,6 @@ public interface Processor extends HardwareElement {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getCores();'"
      * @generated
      */
     EList<Core> getAllCores();

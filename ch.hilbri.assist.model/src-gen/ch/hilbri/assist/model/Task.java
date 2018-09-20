@@ -567,7 +567,6 @@ public interface Task extends EObject {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getTask_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _name = this.getApplication().getName();\n&lt;%java.lang.String%&gt; _plus = (_name + \".\");\n&lt;%java.lang.String%&gt; _name_1 = this.getName();\nreturn (_plus + _name_1);'"
      * @generated
      */
     String getFullName();
@@ -576,7 +575,6 @@ public interface Task extends EObject {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model unique="false"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
      * @generated
      */
     String toString();

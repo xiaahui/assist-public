@@ -65,7 +65,6 @@ public interface CustomProperty extends EObject {
      * @return the value of the '<em>String Value</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getCustomProperty_StringValue()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='if ((this instanceof &lt;%ch.hilbri.assist.model.CustomStringProperty%&gt;))\n{\n\treturn ((&lt;%ch.hilbri.assist.model.CustomStringProperty%&gt;) this).getValue();\n}\nelse\n{\n\tif ((this instanceof &lt;%ch.hilbri.assist.model.CustomIntProperty%&gt;))\n\t{\n\t\treturn &lt;%java.lang.Integer%&gt;.valueOf(((&lt;%ch.hilbri.assist.model.CustomIntProperty%&gt;) this).getValue()).toString();\n\t}\n\telse\n\t{\n\t\treturn null;\n\t}\n}'"
      * @generated
      */
     String getStringValue();
@@ -81,7 +80,6 @@ public interface CustomProperty extends EObject {
      * @return the value of the '<em>Int Value</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getCustomProperty_IntValue()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='if ((this instanceof &lt;%ch.hilbri.assist.model.CustomIntProperty%&gt;))\n{\n\treturn &lt;%java.lang.Integer%&gt;.valueOf(((&lt;%ch.hilbri.assist.model.CustomIntProperty%&gt;) this).getValue());\n}\nelse\n{\n\treturn null;\n}'"
      * @generated
      */
     Integer getIntValue();

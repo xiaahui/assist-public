@@ -146,7 +146,6 @@ public interface FeatureRequirement extends EObject {
      * @return the value of the '<em>Is Exclusive</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getFeatureRequirement_IsExclusive()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='boolean _isShared = this.isShared();\nreturn (!_isShared);'"
      * @generated
      */
     boolean isIsExclusive();
