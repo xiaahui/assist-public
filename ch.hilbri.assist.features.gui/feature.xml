@@ -45,7 +45,6 @@
       <import plugin="ch.qos.logback.classic"/>
       <import plugin="javax.inject"/>
       <import plugin="org.eclipse.osgi"/>
-      <import plugin="javax.annotation"/>
       <import plugin="org.slf4j.api"/>
    </requires>
 
