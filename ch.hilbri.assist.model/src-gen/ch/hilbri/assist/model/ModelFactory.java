@@ -130,6 +130,15 @@ public interface ModelFactory extends EFactory {
     ApplicationAlternative createApplicationAlternative();
 
     /**
+     * Returns a new object of class '<em>Software Element</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Software Element</em>'.
+     * @generated
+     */
+    SoftwareElement createSoftwareElement();
+
+    /**
      * Returns a new object of class '<em>Application</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -353,6 +362,15 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     ExplorationCandidate createExplorationCandidate();
+
+    /**
+     * Returns a new object of class '<em>Exploration Result</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exploration Result</em>'.
+     * @generated
+     */
+    ExplorationResult createExplorationResult();
 
     /**
      * Returns a new object of class '<em>Mapping Result</em>'.

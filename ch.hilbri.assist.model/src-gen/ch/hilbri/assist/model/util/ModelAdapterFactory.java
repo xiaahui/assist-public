@@ -26,6 +26,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
@@ -44,6 +45,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -161,6 +163,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createApplicationAlternativeAdapter();
             }
             @Override
+            public Adapter caseSoftwareElement(SoftwareElement object) {
+                return createSoftwareElementAdapter();
+            }
+            @Override
             public Adapter caseApplication(Application object) {
                 return createApplicationAdapter();
             }
@@ -259,6 +265,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseExplorationCandidate(ExplorationCandidate object) {
                 return createExplorationCandidateAdapter();
+            }
+            @Override
+            public Adapter caseExplorationResult(ExplorationResult object) {
+                return createExplorationResultAdapter();
             }
             @Override
             public Adapter caseAbstractDSEMetric(AbstractDSEMetric object) {
@@ -477,6 +487,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createApplicationAlternativeAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.SoftwareElement <em>Software Element</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.SoftwareElement
+     * @generated
+     */
+    public Adapter createSoftwareElementAdapter() {
         return null;
     }
 
@@ -827,6 +851,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createExplorationCandidateAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ExplorationResult <em>Exploration Result</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.ExplorationResult
+     * @generated
+     */
+    public Adapter createExplorationResultAdapter() {
         return null;
     }
 

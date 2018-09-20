@@ -28,6 +28,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
@@ -49,12 +50,15 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -121,6 +125,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CORE: return createCore();
             case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
             case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
+            case ModelPackage.SOFTWARE_ELEMENT: return createSoftwareElement();
             case ModelPackage.APPLICATION: return createApplication();
             case ModelPackage.TASK: return createTask();
             case ModelPackage.FEATURE_REQUIREMENT: return createFeatureRequirement();
@@ -146,6 +151,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
             case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
             case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
+            case ModelPackage.EXPLORATION_RESULT: return createExplorationResult();
             case ModelPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
             case ModelPackage.MAPPING_RESULT: return createMappingResult();
             case ModelPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
@@ -174,6 +180,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return createPeriodicityTypeFromString(eDataType, initialValue);
             case ModelPackage.COLOR:
                 return createColorFromString(eDataType, initialValue);
+            case ModelPackage.LIST_OF_TASK_LISTS:
+                return createListOfTaskListsFromString(eDataType, initialValue);
             case ModelPackage.TASK2_CORE_MAP_TYPE:
                 return createTask2CoreMapTypeFromString(eDataType, initialValue);
             case ModelPackage.STRING_LIST:
@@ -203,6 +211,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
                 return convertPeriodicityTypeToString(eDataType, instanceValue);
             case ModelPackage.COLOR:
                 return convertColorToString(eDataType, instanceValue);
+            case ModelPackage.LIST_OF_TASK_LISTS:
+                return convertListOfTaskListsToString(eDataType, instanceValue);
             case ModelPackage.TASK2_CORE_MAP_TYPE:
                 return convertTask2CoreMapTypeToString(eDataType, instanceValue);
             case ModelPackage.STRING_LIST:
@@ -332,6 +342,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public ApplicationAlternative createApplicationAlternative() {
         ApplicationAlternativeImpl applicationAlternative = new ApplicationAlternativeImpl();
         return applicationAlternative;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SoftwareElement createSoftwareElement() {
+        SoftwareElementImpl softwareElement = new SoftwareElementImpl();
+        return softwareElement;
     }
 
     /**
@@ -589,6 +609,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public ExplorationResult createExplorationResult() {
+        ExplorationResultImpl explorationResult = new ExplorationResultImpl();
+        return explorationResult;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Map.Entry<AbstractMappingMetric, Double> createMetricScorePair() {
         MetricScorePairImpl metricScorePair = new MetricScorePairImpl();
         return metricScorePair;
@@ -732,6 +762,25 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      */
     public String convertColorToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    public EList<EList<Task>> createListOfTaskListsFromString(EDataType eDataType, String initialValue) {
+        return (EList<EList<Task>>)super.createFromString(initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertListOfTaskListsToString(EDataType eDataType, Object instanceValue) {
+        return super.convertToString(instanceValue);
     }
 
     /**

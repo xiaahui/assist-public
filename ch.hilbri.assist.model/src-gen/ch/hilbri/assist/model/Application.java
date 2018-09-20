@@ -4,8 +4,6 @@ package ch.hilbri.assist.model;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Application</b></em>'.
@@ -15,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getTasks <em>Tasks</em>}</li>
@@ -28,34 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Application extends EObject {
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getApplication_Name()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getName();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName(String value);
-
+public interface Application extends SoftwareElement {
     /**
      * Returns the value of the '<em><b>Developed By</b></em>' attribute.
      * The default value is <code>""</code>.
@@ -174,16 +144,9 @@ public interface Application extends EObject {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getApplication_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
      * @generated
      */
     String getFullName();
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model unique="false"
-     * @generated
-     */
-    String toString();
 
 } // Application

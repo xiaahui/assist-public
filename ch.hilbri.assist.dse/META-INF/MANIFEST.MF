@@ -24,7 +24,8 @@ Require-Bundle: ch.hilbri.assist.mapping,
  org.slf4j.api,
  ch.qos.logback.core,
  ch.qos.logback.classic,
- org.apache.commons.io;bundle-version="2.2.0",
- ch.hilbri.assist.mapping.dsl
+ org.apache.commons.io,
+ ch.hilbri.assist.mapping.dsl,
+ org.apache.commons.math3
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: ch.hilbri.assist.dse

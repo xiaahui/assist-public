@@ -77,7 +77,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(Task t) {
-        'Task' + t.name
+        'Task' + t.getName
     }
 
     def image(Task t) {
@@ -85,7 +85,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(Application a) {
-        'Application ' + a.name
+        'Application ' + a.getName
     }
 
     def image(Application a) {
@@ -109,7 +109,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionStartAfterOtherFinished r) {
-        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.name + '] finished'
+        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.getName + '] finished'
     }
 
     def image(RestrictionStartAfterOtherFinished r) {
@@ -117,7 +117,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionStartAfterOtherStarted r) {
-        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.name + '] started'
+        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.getName + '] started'
     }
 
     def image(RestrictionStartAfterOtherStarted r) {
@@ -128,7 +128,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
         val output = new StringBuilder()
         output.append("[")
         for (t : list) {
-            output.append(t.name)
+            output.append(t.getName)
             if (list.last != t) output.append(", ")
         }
         output.append("]")

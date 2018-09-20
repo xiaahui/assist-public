@@ -12,11 +12,17 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
 	override generate() {
 
+		/* Check if we need to do anything - if there are only tasks with 0 core utilization,
+		 * then we can skip this constraint */
+		if (model.allTasks.filter[coreUtilization > 0].isNullOrEmpty)
+			return false
+
 		for (core : model.allCores) {
 			val indVars = solverVariables.getIndVars(core) 			// is this task mapped to this core?
 			val taskUtils = model.allTasks.map[coreUtilization]     // how much capacity does it require
-			
-			chocoModel.scalar(indVars, taskUtils, "<=", core.capacity).post
+			val capacity = core.capacity
+			val constraint = chocoModel.scalar(indVars, taskUtils, "<=", capacity)
+			constraint.post
 		}		
 
 		propagate()

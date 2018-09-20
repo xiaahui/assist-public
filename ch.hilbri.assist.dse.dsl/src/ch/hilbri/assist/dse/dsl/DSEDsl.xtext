@@ -139,16 +139,18 @@ RestrictionAlternative:
 	'}'
 ;
 
-DislocalityRelation returns DislocalityRelation:
-	applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
-	
-ColocalityRelation returns ColocalityRelation:
-	applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'; 
+DislocalityRelation:
+	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
+    'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
+    
+ColocalityRelation:
+   	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
+   	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
-	applications+=[Application|QualifiedName] (',' (applications+=[Application]))*
-	'dissimilar' 'based' 'on'
-	dissimilarityClause=DissimilarityClause ';';
+    softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
+    'dissimilar' 'based' 'on'
+    dissimilarityClause=DissimilarityClause ';';
 
 DissimilarityClause:  
 	DissimilarityEntry | 

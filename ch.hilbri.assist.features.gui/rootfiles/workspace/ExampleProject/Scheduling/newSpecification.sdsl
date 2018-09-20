@@ -1,0 +1,31 @@
+Global {
+	System = "Example System";
+}
+
+Hardware {
+	Compartment Comp1 {
+		Manufacturer = "Manufacturer 1";
+		Box Box1 {
+			Manufacturer = "Manufacturer 1";
+			Board Board1 {
+				Manufacturer = "Manufacturer 2";
+				DesignAssuranceLevel = A;
+				Processor P1 {
+					Core C0 { Capacity = 100; }
+					Core C1 { Capacity = 100; }
+				}
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			AssignedCore = Comp1.Box1.Board1.P1.C0;
+			Duration = 1;
+			Period = 2;
+		}
+	}
+}

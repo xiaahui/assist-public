@@ -33,7 +33,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
+import ch.hilbri.assist.dse.analysis.metrics.builtin.HardwareCosts;
 import ch.hilbri.assist.dse.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.dse.analysis.metrics.builtin.UsedHardwareCosts;
 import ch.hilbri.assist.dse.ui.handlers.EvalDesignSpace.Mode;
 import ch.hilbri.assist.dse.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.AbstractDSEMetric;
@@ -202,6 +204,8 @@ public class EvaluateDesignSpaceSettingsDialog extends TitleAreaDialog {
 
     private void fillBuiltinMetrics() {
         availableMetrics.add(new RandomScore());
+        availableMetrics.add(new HardwareCosts());
+        availableMetrics.add(new UsedHardwareCosts());
         
         // Filling the combobox with available builtin metrics
         for (AbstractDSEMetric metric : availableMetrics) {

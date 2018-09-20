@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
-import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.ModelPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -180,7 +180,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
-    public double computeAbsoluteScore(AssistModel candidateModel) {
+    public double computeAbsoluteScore(ExplorationResult result) {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT
         throw new UnsupportedOperationException();
@@ -272,8 +272,8 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
     @Override
     public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
         switch (operationID) {
-            case ModelPackage.ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__ASSISTMODEL:
-                return computeAbsoluteScore((AssistModel)arguments.get(0));
+            case ModelPackage.ABSTRACT_DSE_METRIC___COMPUTE_ABSOLUTE_SCORE__EXPLORATIONRESULT:
+                return computeAbsoluteScore((ExplorationResult)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

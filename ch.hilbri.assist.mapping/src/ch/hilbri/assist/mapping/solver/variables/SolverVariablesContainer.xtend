@@ -19,9 +19,9 @@ import org.chocosolver.solver.variables.IntVar
 
 class SolverVariablesContainer {
 
-	Map<String, List<IntVar>> taskToLocationVariablesMap = new HashMap
+	Map<Task, List<IntVar>> taskToLocationVariablesMap = new HashMap
 
-	Map<IntVar, String> locationVariableToTaskMap = new HashMap
+	Map<IntVar, Task> locationVariableToTaskMap = new HashMap
 
 	/** A 3d matrix of variables as indicators for each task
 	 * 	
@@ -48,20 +48,19 @@ class SolverVariablesContainer {
 		for (t : assistModel.allTasks) {
 
 			/* Create the location variables for each task */
-			val locVarCore = solverModel.intVar(t.name + "-L0", 0, assistModel.allCores.length - 1, false)
-			val locVarProc = solverModel.intVar(t.name + "-L1", 0, assistModel.allProcessors.length - 1, false)
-			val locVarBoard = solverModel.intVar(t.name + "-L2", 0, assistModel.allBoards.length - 1, false)
-			val locVarBox = solverModel.intVar(t.name + "-L3", 0, assistModel.allBoxes.length - 1, false)
-			val locVarComp = solverModel.intVar(t.name + "-L4", 0, assistModel.allCompartments.length - 1, false)
+			val locVarCore = solverModel.intVar(t.getName + "-L0", 0, assistModel.allCores.length - 1, false)
+			val locVarProc = solverModel.intVar(t.getName + "-L1", 0, assistModel.allProcessors.length - 1, false)
+			val locVarBoard = solverModel.intVar(t.getName + "-L2", 0, assistModel.allBoards.length - 1, false)
+			val locVarBox = solverModel.intVar(t.getName + "-L3", 0, assistModel.allBoxes.length - 1, false)
+			val locVarComp = solverModel.intVar(t.getName + "-L4", 0, assistModel.allCompartments.length - 1, false)
 
 			/* Store these variables in the maps for easy retrieval later */
-			taskToLocationVariablesMap.put(t.name, #[locVarCore, locVarProc, locVarBoard, locVarBox, locVarComp])
-
-			locationVariableToTaskMap.put(locVarCore, t.name)
-			locationVariableToTaskMap.put(locVarProc, t.name)
-			locationVariableToTaskMap.put(locVarBoard, t.name)
-			locationVariableToTaskMap.put(locVarBox, t.name)
-			locationVariableToTaskMap.put(locVarComp, t.name)
+			taskToLocationVariablesMap.put(t, #[locVarCore, locVarProc, locVarBoard, locVarBox, locVarComp])
+			locationVariableToTaskMap.put(locVarCore, t)
+			locationVariableToTaskMap.put(locVarProc, t)
+			locationVariableToTaskMap.put(locVarBoard, t)
+			locationVariableToTaskMap.put(locVarBox, t)
+			locationVariableToTaskMap.put(locVarComp, t)
 		}
 
 		/* 	d[i][l][j] = {0,1}
@@ -136,7 +135,7 @@ class SolverVariablesContainer {
 	}
 
 	def IntVar[] getLocationVariablesForTask(Task task) {
-		taskToLocationVariablesMap.get(task.name)
+		taskToLocationVariablesMap.get(task)
 	}
 	
 	def IntVar getLocationVariableForTaskAndLevel(Task task, HardwareArchitectureLevelType level) {

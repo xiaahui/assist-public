@@ -23,7 +23,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.ResourceManager;
 
-import ch.hilbri.assist.dse.results.ExplorationResult;
+import ch.hilbri.assist.model.ExplorationResult;
 
 public class DetailedResults extends Composite {
     private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
@@ -116,8 +116,15 @@ public class DetailedResults extends Composite {
         tableViewerColumnScore.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit)); 
         TableColumn tblclmnScore = tableViewerColumnScore.getColumn();
         tblclmnScore.setAlignment(SWT.RIGHT);
-        tblclmnScore.setWidth(60);
-        tblclmnScore.setText("Score");
+        tblclmnScore.setWidth(110);
+        tblclmnScore.setText("Score (relative)");
+        
+        TableViewerColumn tableViewerColumnScoreAbs = new TableViewerColumn(tblViewerResults, SWT.NONE);
+        tableViewerColumnScoreAbs.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit)); 
+        TableColumn tblclmnScoreAbs = tableViewerColumnScoreAbs.getColumn();
+        tblclmnScoreAbs.setAlignment(SWT.RIGHT);
+        tblclmnScoreAbs.setWidth(110);
+        tblclmnScoreAbs.setText("Score (absolute)");
         
         TableViewerColumn tblViewerColumnGenerate = new TableViewerColumn(tblViewerResults, SWT.NONE);
         tblViewerColumnGenerate.setLabelProvider(new ExplorationResultsLabelProvider(tblResults, formToolkit));

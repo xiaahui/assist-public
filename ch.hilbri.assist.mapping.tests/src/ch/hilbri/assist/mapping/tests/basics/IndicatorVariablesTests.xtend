@@ -77,9 +77,9 @@ Software {
 				for (i : 0 ..< assistModel.allCores.size) {
 					val indValue = solution.getIntVal(indicatorVariablesCoreLevel.get(i))
 					if (i != coreIdxForTask)
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on core " + i + " should be false, because this task is mapped to core " + coreIdxForTask, 0, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on core " + i + " should be false, because this task is mapped to core " + coreIdxForTask, 0, indValue)
 					else
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on core " + i + " should be true, because this task is mapped to core " + coreIdxForTask, 1, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on core " + i + " should be true, because this task is mapped to core " + coreIdxForTask, 1, indValue)
 				}
 				
 				/* Go through the indicator variables for the processor level */
@@ -87,9 +87,9 @@ Software {
 				for (i : 0 ..< assistModel.allProcessors.size) {
 					val indValue = solution.getIntVal(indicatorVariablesProcLevel.get(i))
 					if (i != procIdxForTask)
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on processor " + i + " should be false, because this task is mapped to processor " + procIdxForTask, 0, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on processor " + i + " should be false, because this task is mapped to processor " + procIdxForTask, 0, indValue)
 					else
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on processor " + i + " should be true, because this task is mapped to processor " + procIdxForTask, 1, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on processor " + i + " should be true, because this task is mapped to processor " + procIdxForTask, 1, indValue)
 				}
 				
 				/* Go through the indicator variables for the board level */
@@ -97,9 +97,9 @@ Software {
 				for (i : 0 ..< assistModel.allBoards.size) {
 					val indValue = solution.getIntVal(indicatorVariablesBoardLevel.get(i))
 					if (i != boardIdxForTask)
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on board " + i + " should be false, because this task is mapped to board " + boardIdxForTask, 0, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on board " + i + " should be false, because this task is mapped to board " + boardIdxForTask, 0, indValue)
 					else
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on board " + i + " should be true, because this task is mapped to board " + boardIdxForTask, 1, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on board " + i + " should be true, because this task is mapped to board " + boardIdxForTask, 1, indValue)
 				}
 				
 				/* Go through the indicator variables for the box level */
@@ -107,9 +107,9 @@ Software {
 				for (i : 0 ..< assistModel.allBoxes.size) {
 					val indValue = solution.getIntVal(indicatorVariablesBoxLevel.get(i))
 					if (i != boxIdxForTask)
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on box " + i + " should be false, because this task is mapped to box " + boxIdxForTask, 0, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on box " + i + " should be false, because this task is mapped to box " + boxIdxForTask, 0, indValue)
 					else
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on box " + i + " should be true, because this task is mapped to box " + boxIdxForTask, 1, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on box " + i + " should be true, because this task is mapped to box " + boxIdxForTask, 1, indValue)
 				}
 				
 				/* Go through the indicator variables for the compartment level */
@@ -117,9 +117,9 @@ Software {
 				for (i : 0 ..< assistModel.allCompartments.size) {
 					val indValue = solution.getIntVal(indicatorVariablesCompLevel.get(i))
 					if (i != compIdxForTask)
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on compartment " + i + " should be false, because this task is mapped to compartment " + compIdxForTask, 0, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on compartment " + i + " should be false, because this task is mapped to compartment " + compIdxForTask, 0, indValue)
 					else
-						Assert.assertEquals("IndicatorVariable for task " + task.name + " on compartment " + i + " should be true, because this task is mapped to compartment " + compIdxForTask, 1, indValue)
+						Assert.assertEquals("IndicatorVariable for task " + task.getName + " on compartment " + i + " should be true, because this task is mapped to compartment " + compIdxForTask, 1, indValue)
 				}
 				
 			}

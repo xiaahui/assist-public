@@ -11,16 +11,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Mapping Relation</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- *  ***********************************************
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.MappingRelation#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingRelation#getSoftwareElements <em>Software Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.MappingRelation#getHardwareLevel <em>Hardware Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingRelation#getAllTasks <em>All Tasks</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.MappingRelation#getSoftwareElementNames <em>Software Element Names</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation()
@@ -29,20 +27,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MappingRelation extends EObject {
     /**
-     * Returns the value of the '<em><b>Applications</b></em>' reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.Application}.
+     * Returns the value of the '<em><b>Software Elements</b></em>' reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.SoftwareElement}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Applications</em>' reference list isn't clear,
+     * If the meaning of the '<em>Software Elements</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Applications</em>' reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_Applications()
+     * @return the value of the '<em>Software Elements</em>' reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_SoftwareElements()
      * @model
      * @generated
      */
-    EList<Application> getApplications();
+    EList<SoftwareElement> getSoftwareElements();
 
     /**
      * Returns the value of the '<em><b>Hardware Level</b></em>' attribute.
@@ -72,5 +70,35 @@ public interface MappingRelation extends EObject {
      * @generated
      */
     void setHardwareLevel(HardwareArchitectureLevelType value);
+
+    /**
+     * Returns the value of the '<em><b>All Tasks</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>All Tasks</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>All Tasks</em>' attribute.
+     * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_AllTasks()
+     * @model unique="false" dataType="ch.hilbri.assist.model.ListOfTaskLists" transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    EList<EList<Task>> getAllTasks();
+
+    /**
+     * Returns the value of the '<em><b>Software Element Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Software Element Names</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Software Element Names</em>' attribute.
+     * @see ch.hilbri.assist.model.ModelPackage#getMappingRelation_SoftwareElementNames()
+     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    String getSoftwareElementNames();
 
 } // MappingRelation

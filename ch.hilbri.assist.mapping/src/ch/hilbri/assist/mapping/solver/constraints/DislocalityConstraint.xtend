@@ -34,6 +34,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 *    - it must not affect threads from the same application
 		 *    - it must not affect threads from the same applicationGroup
 		 */
+		 var worked = false
 		 
 		 for (relation : model.dislocalityRelations) {
 		 
@@ -48,13 +49,14 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 	 * to the location variables.
 		 	 * 
 		 	 * */
-		 	if (relation.applications.filter[tasks.size > 1].isNullOrEmpty) {
+		 	if (relation.allTasks.filter[size > 1].isNullOrEmpty) {
 				
-				val tasks = relation.applications.map[tasks].flatten.toSet
+				val tasks = relation.allTasks.flatten.toSet
 				val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 				
 				/* We want to make these vars take different values */
 				chocoModel.allDifferent(taskVars).post
+				worked = true
 			}
 			
 			/*
@@ -62,30 +64,33 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			 * 
 			 */
 			else {
-				val taskList = relation.applications.map[tasks]
+				val taskList = relation.allTasks
 				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
 				
 				switch (mode) {
 					/* Best performing default implementation */
 					case ALLDIFFERENT_VALUES_UNION: {
-						chocoModel.post(ACF.allDifferent_values_union(taskVars))		
+						chocoModel.post(ACF.allDifferent_values_union(taskVars))	
+						worked = true	
 					}
 					
 					/* Post an alldifferent for every variable relation - resource intensive! */
 					case ALLDIFFERENT_FULL_LIST: {
-						recursiveConstraintBuild(taskVars, 0, new ArrayList<IntVar>)		
+						recursiveConstraintBuild(taskVars, 0, new ArrayList<IntVar>)	
+						worked = true	
 					}
 					
 					/* Only react on instantiation - should be weak in propagation, but yield the same results */
 					case ALLDIFFERENT_INSTANTIATION_ONLY: {
 						chocoModel.post(ACF.allDifferent_instantiation_only(taskVars))
+						worked = true
 					}
 				}
 			}
 		 }
 		 propagate()
 		 
-		 true 
+		 return worked 
 
 	}
 

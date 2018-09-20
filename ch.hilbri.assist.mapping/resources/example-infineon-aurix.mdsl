@@ -1,0 +1,57 @@
+Global {
+	System = "Example System";
+}
+
+Hardware {
+	Compartment Comp1 {
+		Manufacturer = "Manufacturer 1";
+		Box Box1 {
+			Manufacturer = "Manufacturer 1";
+			Board Board1 {
+				Manufacturer = "Manufacturer 2";
+				DesignAssuranceLevel = A;
+				Processor P1 {
+					Manufacturer = "Infineon";
+					Type = "Aurix";
+					Provides 32768 of exclusive feature "LMU RAM";
+					Provides 4194304 of exclusive feature "PMU Program Flash";
+					Core C0 {
+						Architecture = "TriCore 1.6 P";
+						Provides shared feature "Performance";
+						Provides shared feature "FPU";
+						Provides 16384 of exclusive feature "I-Cache";
+						Provides 8192 of exclusive feature "D-Cache";
+					}
+					Core C1 {
+						Architecture = "TriCore 1.6 P";
+						Provides shared feature "Performance";
+						Provides shared feature "FPU";
+						Provides shared feature "Lockstep";
+						Provides 16384 of exclusive feature "I-Cache";
+						Provides 8192 of exclusive feature "D-Cache";
+					}
+					Core C2 {
+						Architecture = "TriCore 1.6 E";
+						Provides shared feature "Efficiency";
+						Provides shared feature "FPU";
+						Provides shared feature "Lockstep";
+						Provides 8192 of exclusive feature "I-Cache";
+						Provides 128 of exclusive feature "D-Cache";
+					}
+					
+				}
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			Requires shared Core feature "Lockstep";
+			Requires shared Core feature "Efficiency";
+			Requires 20000 of exclusive Processor feature "PMU Program Flash";
+		}
+	}
+}

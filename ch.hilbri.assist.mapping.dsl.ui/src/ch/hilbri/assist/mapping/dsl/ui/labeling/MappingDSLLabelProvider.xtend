@@ -76,7 +76,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Task t) {
-		'Task' + t.name
+		'Task' + t.getName
 	}
 	
 	def image(Task t) {
@@ -84,7 +84,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Application a) {
-		'Application ' + a.name
+		'Application ' + a.getName
 	}
 
 	def image(Application a) {
@@ -95,10 +95,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if (r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" dislocal up to ")
 		output.append(r.hardwareLevel)
@@ -115,10 +112,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if (r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" dissimilar ")
 		
@@ -133,10 +127,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (app : r.applications) {
-			output.append(app.name)
-			if (r.applications.last != app) output.append(", ")
-		}
+		output.append(r.softwareElementNames)
 		output.append("]")
 		output.append(" on same ")
 		output.append(r.hardwareLevel)

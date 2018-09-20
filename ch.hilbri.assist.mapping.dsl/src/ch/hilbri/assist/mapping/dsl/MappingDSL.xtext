@@ -1,6 +1,6 @@
 grammar ch.hilbri.assist.mapping.dsl.MappingDSL with org.eclipse.xtext.common.Terminals
 
-import "ch.hilbri.assist.model" 
+import "ch.hilbri.assist.model"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
@@ -125,14 +125,17 @@ ExclusiveFeatureRequirement returns FeatureRequirement:
 
 
 /* Safety Restrictions / Relations */
+
 DislocalityRelation:
-    applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
+	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
+    'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
     
 ColocalityRelation:
-    applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+   	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
+   	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
-    applications+=[Application|QualifiedName] (',' (applications+=[Application]))*
+    softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
     'dissimilar' 'based' 'on'
     dissimilarityClause=DissimilarityClause ';';
 

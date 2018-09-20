@@ -26,6 +26,7 @@ import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
@@ -44,6 +45,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -188,15 +190,23 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.SOFTWARE_ELEMENT: {
+                SoftwareElement softwareElement = (SoftwareElement)theEObject;
+                T result = caseSoftwareElement(softwareElement);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.APPLICATION: {
                 Application application = (Application)theEObject;
                 T result = caseApplication(application);
+                if (result == null) result = caseSoftwareElement(application);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case ModelPackage.TASK: {
                 Task task = (Task)theEObject;
                 T result = caseTask(task);
+                if (result == null) result = caseSoftwareElement(task);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -355,6 +365,12 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.EXPLORATION_CANDIDATE: {
                 ExplorationCandidate explorationCandidate = (ExplorationCandidate)theEObject;
                 T result = caseExplorationCandidate(explorationCandidate);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.EXPLORATION_RESULT: {
+                ExplorationResult explorationResult = (ExplorationResult)theEObject;
+                T result = caseExplorationResult(explorationResult);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -588,6 +604,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseApplicationAlternative(ApplicationAlternative object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Software Element</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Software Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSoftwareElement(SoftwareElement object) {
         return null;
     }
 
@@ -963,6 +994,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseExplorationCandidate(ExplorationCandidate object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exploration Result</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exploration Result</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExplorationResult(ExplorationResult object) {
         return null;
     }
 

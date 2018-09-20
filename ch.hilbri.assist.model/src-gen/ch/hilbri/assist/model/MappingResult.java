@@ -237,6 +237,46 @@ public interface MappingResult extends EObject, Comparable<MappingResult> {
      * @model unique="false" coreUnique="false"
      * @generated
      */
+    boolean isUsed(Core core);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" processorUnique="false"
+     * @generated
+     */
+    boolean isUsed(Processor processor);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" boardUnique="false"
+     * @generated
+     */
+    boolean isUsed(Board board);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" boxUnique="false"
+     * @generated
+     */
+    boolean isUsed(Box box);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" compartmentUnique="false"
+     * @generated
+     */
+    boolean isUsed(Compartment compartment);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" coreUnique="false"
+     * @generated
+     */
     EList<Task> getMappedTasksForCore(Core core);
 
     /**

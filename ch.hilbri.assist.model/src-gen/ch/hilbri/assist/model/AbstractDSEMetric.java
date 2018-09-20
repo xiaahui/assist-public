@@ -104,9 +104,9 @@ public interface AbstractDSEMetric extends EObject {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model unique="false" candidateModelUnique="false"
+     * @model unique="false" resultUnique="false"
      * @generated
      */
-    double computeAbsoluteScore(AssistModel candidateModel);
+    double computeAbsoluteScore(ExplorationResult result);
 
 } // AbstractDSEMetric

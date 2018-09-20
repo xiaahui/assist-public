@@ -348,6 +348,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SoftwareElement} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SoftwareElementItemProvider softwareElementItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SoftwareElement}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSoftwareElementAdapter() {
+        if (softwareElementItemProvider == null) {
+            softwareElementItemProvider = new SoftwareElementItemProvider(this);
+        }
+
+        return softwareElementItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Application} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -923,6 +946,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ExplorationResult} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExplorationResultItemProvider explorationResultItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ExplorationResult}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExplorationResultAdapter() {
+        if (explorationResultItemProvider == null) {
+            explorationResultItemProvider = new ExplorationResultItemProvider(this);
+        }
+
+        return explorationResultItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1148,6 +1194,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (coreItemProvider != null) coreItemProvider.dispose();
         if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
         if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
+        if (softwareElementItemProvider != null) softwareElementItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
         if (taskItemProvider != null) taskItemProvider.dispose();
         if (featureRequirementItemProvider != null) featureRequirementItemProvider.dispose();
@@ -1173,6 +1220,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
         if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
         if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();
+        if (explorationResultItemProvider != null) explorationResultItemProvider.dispose();
         if (metricScorePairItemProvider != null) metricScorePairItemProvider.dispose();
         if (mappingResultItemProvider != null) mappingResultItemProvider.dispose();
         if (singleMappingElementItemProvider != null) singleMappingElementItemProvider.dispose();

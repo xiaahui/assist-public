@@ -4,7 +4,6 @@ package ch.hilbri.assist.model.provider;
 
 
 import ch.hilbri.assist.model.ColocalityRelation;
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import java.util.Collection;
 import java.util.List;
 
@@ -64,8 +63,7 @@ public class ColocalityRelationItemProvider
      */
 	@Override
 	public String getText(Object object) {
-        HardwareArchitectureLevelType labelValue = ((ColocalityRelation)object).getHardwareLevel();
-        String label = labelValue == null ? null : labelValue.toString();
+        String label = ((ColocalityRelation)object).getSoftwareElementNames();
         return label == null || label.length() == 0 ?
             getString("_UI_ColocalityRelation_type") :
             getString("_UI_ColocalityRelation_type") + " " + label;

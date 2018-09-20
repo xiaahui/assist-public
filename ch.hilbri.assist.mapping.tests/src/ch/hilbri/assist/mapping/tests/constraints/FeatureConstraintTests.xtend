@@ -398,10 +398,10 @@ class FeatureConstraintTests extends AbstractMappingTest {
             Assert.assertEquals(1, tasksC2.size)
             
             // Check that T1 is depoyed to C2
-            Assert.assertEquals("A1_T1", tasksC2.head.name)
+            Assert.assertEquals("A1_T1", tasksC2.head.getName)
             
             // Check that T2 is deployed to C1
-            Assert.assertEquals("A1_T2", tasksC1.head.name)
+            Assert.assertEquals("A1_T2", tasksC1.head.getName)
         }
     }
 }

@@ -2,16 +2,16 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityConjunction
 import ch.hilbri.assist.model.DissimilarityDisjunction
 import ch.hilbri.assist.model.DissimilarityEntry
-import java.util.List
+import ch.hilbri.assist.model.Task
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.constraints.Constraint
 import org.chocosolver.solver.constraints.^extension.Tuples
+import org.eclipse.emf.common.util.EList
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
@@ -23,7 +23,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		
 		for (dissimRelation : model.dissimilarityRelations) {
 			val dissimClause  = dissimRelation.dissimilarityClause
-			val constraint = generateConstraint(dissimRelation.applications, dissimClause)
+			val constraint = generateConstraint(dissimRelation.allTasks, dissimClause)
 			if (constraint !== null) {
 				chocoModel.post(constraint)
 				worked = true	
@@ -33,23 +33,23 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 	}
 	
 
-	private def Constraint generateConstraint(List<Application> applications, DissimilarityClause clause) {
+	private def Constraint generateConstraint(EList<EList<Task>> tasksets, DissimilarityClause clause) {
 		if (clause instanceof DissimilarityConjunction) {
-			val constraints = clause.dissimilarityClauses.map[generateConstraint(applications, it)]
+			val constraints = clause.dissimilarityClauses.map[generateConstraint(tasksets, it)]
 			return chocoModel.and(constraints)
 		} 
 		else if (clause instanceof DissimilarityDisjunction) {
-			val constraints = clause.dissimilarityClauses.map[generateConstraint(applications, it)]
+			val constraints = clause.dissimilarityClauses.map[generateConstraint(tasksets, it)]
 			return chocoModel.or(constraints)
 		} 
 		else if (clause instanceof DissimilarityEntry) {
-			return generateBasicConstraint(applications, clause)
+			return generateBasicConstraint(tasksets, clause)
 		}
 		else 
 			return null
 	}
 	
-	private def Constraint generateBasicConstraint(List<Application> applications, DissimilarityEntry entry) {
+	private def Constraint generateBasicConstraint(EList<EList<Task>> tasksets, DissimilarityEntry entry) {
 		
 		// Which level in the hardware hierarchy is affected?	
 		val hardwareLevelIdx = entry.hardwareLevel.value
@@ -58,16 +58,13 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		val dissimilarityValuesList = entry.dissimValues
 		val dissimilarityValues = dissimilarityValuesList.toSet.toList
 
-		// Tasks which are affected by this constraint (this is a list of a list of tasks)
-		val tasks = applications.map[tasks] 
-		
 		// Location Variables for each affected task
-		val taskLocationVars = tasks.map[map[solverVariables.getLocationVariablesForTask(it).get(hardwareLevelIdx)]]
+		val taskLocationVars = tasksets.map[map[solverVariables.getLocationVariablesForTask(it).get(hardwareLevelIdx)]]
 			
 		// Variables to store the index to the dissimilarity value of the deployment of each task
 		// (these are the variables which should take different values for different applications)
 		val taskDissimValueVars = newArrayList()
-		for (group : tasks) 
+		for (group : tasksets) 
 			taskDissimValueVars.add(chocoModel.intVarArray(group.size, 0, dissimilarityValues.size, false).toList)
 			
 		// Create the tuples to link the deployment to a hardware element (index)
@@ -91,7 +88,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		}
 		
 		/* Simple Case: we assume that in each application, there is only one task! */
-		if (applications.map[tasks].filter[size > 1].isNullOrEmpty) {
+		if (tasksets.filter[size > 1].isNullOrEmpty) {
 			// We want to enforce, that each of these taskDissimValueVars takes a unique value
 			// --> a simple allDifferent is sufficient
 			return chocoModel.allDifferent(taskDissimValueVars.flatten)
