@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target name="ch.hilbri.assist.releng.targetplatform" sequenceNumber="29">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?>
+<target name="ch.hilbri.assist.releng.targetplatform" sequenceNumber="29">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201804281520"/>
-<repository location="http://download.eclipse.org/nebula/releases/latest"/>
-</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201804281520"/>
+		<repository location="http://download.eclipse.org/nebula/releases/latest"/>
+	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.sphinx.feature.group" version="0.11.0.201706140911"/>
 		<repository location="http://download.eclipse.org/sphinx/releases/0.11.x"/>
@@ -33,13 +34,13 @@
 		<unit id="org.eclipse.xtend.sdk.feature.group" version="2.15.0.v20180916-1232"/>
 		<unit id="org.eclipse.xtext.sdk.feature.group" version="2.15.0.v20180916-1232"/>
 		<unit id="org.eclipse.zest.sdk.feature.group" version="1.7.0.201606061308"/>
-		<repository location="http://download.eclipse.org/releases/2018-09"/>
 		<unit id="org.eclipse.e4.rcp.feature.group" version="1.6.200.v20180906-1121"/>
 		<unit id="org.eclipse.e4.rcp.source.feature.group" version="1.6.200.v20180906-1121"/>
 		<unit id="org.eclipse.rcp.feature.group" version="4.9.0.v20180906-1121"/>
 		<unit id="org.eclipse.rcp.source.feature.group" version="4.9.0.v20180906-1121"/>
 		<unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.4.100.v20180829-1443"/>
 		<unit id="org.eclipse.platform.feature.group" version="4.9.0.v20180906-1121"/>
+		<repository location="http://download.eclipse.org/releases/2018-09"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="ch.qos.logback.classic" version="1.1.2.v20171220-1825"/>
