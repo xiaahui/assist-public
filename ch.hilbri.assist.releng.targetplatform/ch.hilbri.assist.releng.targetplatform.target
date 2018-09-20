@@ -34,6 +34,12 @@
 		<unit id="org.eclipse.xtext.sdk.feature.group" version="2.15.0.v20180916-1232"/>
 		<unit id="org.eclipse.zest.sdk.feature.group" version="1.7.0.201606061308"/>
 		<repository location="http://download.eclipse.org/releases/2018-09"/>
+		<unit id="org.eclipse.e4.rcp.feature.group" version="1.6.200.v20180906-1121"/>
+		<unit id="org.eclipse.e4.rcp.source.feature.group" version="1.6.200.v20180906-1121"/>
+		<unit id="org.eclipse.rcp.feature.group" version="4.9.0.v20180906-1121"/>
+		<unit id="org.eclipse.rcp.source.feature.group" version="4.9.0.v20180906-1121"/>
+		<unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.4.100.v20180829-1443"/>
+		<unit id="org.eclipse.platform.feature.group" version="4.9.0.v20180906-1121"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="ch.qos.logback.classic" version="1.1.2.v20171220-1825"/>

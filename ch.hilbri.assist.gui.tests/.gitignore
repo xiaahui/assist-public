@@ -1,6 +1,0 @@
-/bin/
-/target/
-/xtend-gen/*
-/src-gen/*
-!/xtend-gen/.xtend-gen-keep
-!/src-gen/.src-gen-keep
