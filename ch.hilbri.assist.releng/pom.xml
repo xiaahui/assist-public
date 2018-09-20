@@ -21,6 +21,7 @@
         <ecore-xtext-version>1.4.0</ecore-xtext-version>			<!-- Photon: 1.3.0    	-->
         <ecore-xcore-version>1.7.0</ecore-xcore-version>			<!-- Photon: 1.6.0    	-->
         <ecore-xcore-lib-version>1.3.0</ecore-xcore-lib-version> 	<!-- Photon: 1.2.0 		-->
+        <mwe2-launch-version>2.9.1.201705291010</mwe2-launch-version>
     </properties>
 
     <modules>
@@ -60,7 +61,6 @@
 		<module>../ch.hilbri.assist.model.edit</module>
 		<module>../ch.hilbri.assist.model.editor</module>
 		<module>../ch.hilbri.assist.scheduling.tests</module>
-		
 		<module>../ch.hilbri.assist.releng.product.gui</module>
 		<module>../ch.hilbri.assist.releng.targetplatform</module>
 		<module>../ch.hilbri.assist.gui.logging</module>
