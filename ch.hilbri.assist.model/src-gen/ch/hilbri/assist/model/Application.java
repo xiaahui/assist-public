@@ -144,7 +144,6 @@ public interface Application extends SoftwareElement {
      * @return the value of the '<em>Full Name</em>' attribute.
      * @see ch.hilbri.assist.model.ModelPackage#getApplication_FullName()
      * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
      * @generated
      */
     String getFullName();
