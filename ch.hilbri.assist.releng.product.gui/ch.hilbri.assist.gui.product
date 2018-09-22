@@ -14,7 +14,10 @@
    </launcherArgs>
 
    <launcher name="ASSIST">
-      <win useIco="false">
+      <linux icon="icons/ASSIST-Launcher-Linux.xpm"/>
+      <macosx icon="icons/ASSIST-Launcher-OSX.icns"/>
+      <win useIco="true">
+         <ico path="icons/ASSIST-Launcher-Win.ico"/>
          <bmp/>
       </win>
    </launcher>
