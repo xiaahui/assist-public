@@ -1,11 +1,12 @@
 @GenModel(
-    modelPluginID="ch.hilbri.assist.model", 
+    modelPluginID="ch.hilbri.assist.model",
+    editPluginID="ch.hilbri.assist.model.edit",
     editDirectory="/ch.hilbri.assist.model.edit/src",
-    editPluginID="ch.hilbri.assist.model.edit", 
-    editorDirectory="/ch.hilbri.assist.model.editor/src",
     editorPluginID="ch.hilbri.assist.model.editor", 
+    editorDirectory="/ch.hilbri.assist.model.editor/src",
     generateModelWizard="false", 
-    generateExampleClass="false")
+    generateExampleClass="false"
+)
 
 package ch.hilbri.assist.model
 
