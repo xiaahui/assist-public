@@ -6,6 +6,8 @@ import ch.hilbri.assist.scheduling.results.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.scheduling.solver.constraints.AbstractSchedulingConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.EnforcePeriodicityConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.ExecutionInstanceOrderConstraint
+import ch.hilbri.assist.scheduling.solver.constraints.MaxEndTimeConstaint
+import ch.hilbri.assist.scheduling.solver.constraints.MaxStartTimeConstaint
 import ch.hilbri.assist.scheduling.solver.constraints.OnlyOneTaskPerTimePerCoreConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.SchedulingRestrictionsConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.SharedResourcesConstraint
@@ -26,7 +28,6 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.scheduling.solver.constraints.MaxEndTimeConstaint
 
 class AssistSchedulingSolver {
 
@@ -65,6 +66,7 @@ class AssistSchedulingSolver {
         schedulingConstraintsList.add(new ExecutionInstanceOrderConstraint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new EnforcePeriodicityConstraint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new SchedulingRestrictionsConstraint(assistModel, chocoModel, solverVariables))
+        schedulingConstraintsList.add(new MaxStartTimeConstaint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new MaxEndTimeConstaint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new SharedResourcesConstraint(assistModel, chocoModel, solverVariables))
         
