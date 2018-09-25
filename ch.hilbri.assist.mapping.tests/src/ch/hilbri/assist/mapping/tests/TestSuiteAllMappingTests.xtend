@@ -36,7 +36,8 @@ import org.junit.runners.Suite.SuiteClasses
 		CustomPropertiesTests,
 		FeatureConstraintTests,
 		AmaltheaImporterTests,
-		MiscTests
+		MiscTests,
+		PropNoGoodTests
 	]
 )
 
