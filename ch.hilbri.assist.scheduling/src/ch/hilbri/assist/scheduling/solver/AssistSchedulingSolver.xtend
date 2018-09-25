@@ -26,6 +26,7 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.scheduling.solver.constraints.MaxEndTimeConstaint
 
 class AssistSchedulingSolver {
 
@@ -58,12 +59,15 @@ class AssistSchedulingSolver {
         assistModel = input
         modelPreprocessors = newArrayList
         solverVariables = new SolverVariablesContainer(assistModel, chocoModel)
+        
         schedulingConstraintsList = newArrayList
         schedulingConstraintsList.add(new OnlyOneTaskPerTimePerCoreConstraint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new ExecutionInstanceOrderConstraint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new EnforcePeriodicityConstraint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new SchedulingRestrictionsConstraint(assistModel, chocoModel, solverVariables))
+        schedulingConstraintsList.add(new MaxEndTimeConstaint(assistModel, chocoModel, solverVariables))
         schedulingConstraintsList.add(new SharedResourcesConstraint(assistModel, chocoModel, solverVariables))
+        
         schedulingResults = newArrayList
     }
 
