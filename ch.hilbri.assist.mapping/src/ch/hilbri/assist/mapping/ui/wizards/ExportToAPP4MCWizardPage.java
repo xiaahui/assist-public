@@ -41,8 +41,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
 
     private ExportMode exportMode;
 
-    private Text txtExportTemplateFileName;
-    private Text txtExportToFileName;
+    private Text txtExistingModelFileName;
+    private Text txtNewModelFileName;
     private Combo cbxMultiPageEditors;
     private Combo cbxSolutions;
 
@@ -172,7 +172,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         btnCreateNewModel.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                txtExportTemplateFileName.setEnabled(false);
+                txtExistingModelFileName.setEnabled(false);
+                
                 btnBrowseExistingModel.setEnabled(false);
                 exportMode = ExportMode.CREATE_NEW_MODEL;
                 checkPageComplete();
@@ -181,9 +182,9 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         btnCreateNewModel.setSelection(true);
         btnCreateNewModel.setText("Create new APP4MC Model:");
         
-                txtExportToFileName = new Text(grpExportMode, SWT.BORDER);
-                txtExportToFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-                txtExportToFileName.addModifyListener(new ModifyListener() {
+                txtNewModelFileName = new Text(grpExportMode, SWT.BORDER);
+                txtNewModelFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+                txtNewModelFileName.addModifyListener(new ModifyListener() {
                     public void modifyText(ModifyEvent e) {
                         checkPageComplete();
                     }
@@ -199,7 +200,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                         if (file != null) {
                             file = file.trim();
                             if (file.length() > 0) {
-                                txtExportToFileName.setText(file);
+                                txtNewModelFileName.setText(file);
                             }
                         }
                     }
@@ -210,7 +211,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         btnAddToExistingModel.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                txtExportTemplateFileName.setEnabled(true);
+                txtExistingModelFileName.setEnabled(true);
                 btnBrowseExistingModel.setEnabled(true);
                 exportMode = ExportMode.ADD_TO_EXISTING_MODEL;
                 checkPageComplete();
@@ -218,9 +219,9 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         });
         btnAddToExistingModel.setText("Add to existing APP4MC Model:");
 
-        txtExportTemplateFileName = new Text(grpExportMode, SWT.BORDER);
-        txtExportTemplateFileName.setEnabled(false);
-        txtExportTemplateFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        txtExistingModelFileName = new Text(grpExportMode, SWT.BORDER);
+        txtExistingModelFileName.setEnabled(false);
+        txtExistingModelFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
         btnBrowseExistingModel = new Button(grpExportMode, SWT.NONE);
         btnBrowseExistingModel.addSelectionListener(new SelectionAdapter() {
@@ -232,7 +233,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                 if (file != null) {
                     file = file.trim();
                     if (file.length() > 0) {
-                        txtExportTemplateFileName.setText(file);
+                        txtExistingModelFileName.setText(file);
                     }
                 }
             }
@@ -260,12 +261,12 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
          */
         if (exportMode == ExportMode.ADD_TO_EXISTING_MODEL) {
 
-            if (txtExportTemplateFileName.getText().length() == 0) {
+            if (txtExistingModelFileName.getText().length() == 0) {
                 setPageComplete(false);
                 return;
             }
 
-            File file = new File(txtExportTemplateFileName.getText());
+            File file = new File(txtExistingModelFileName.getText());
             if (!file.exists() || file.isDirectory()) {
                 setPageComplete(false);
                 return;
@@ -273,7 +274,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         }
 
         /* We need to have a filename to export to */
-        if (txtExportToFileName.getText().length() == 0) {
+        if (txtNewModelFileName.getText().length() == 0) {
             setPageComplete(false);
             return;
         }
@@ -290,11 +291,11 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         if (exportMode == ExportMode.CREATE_NEW_MODEL)
             return null;
         else
-            return txtExportTemplateFileName.getText();
+            return txtExistingModelFileName.getText();
     }
 
     public String getSelectedExportFilename() {
-        return txtExportToFileName.getText();
+        return txtNewModelFileName.getText();
     }
 
 }
