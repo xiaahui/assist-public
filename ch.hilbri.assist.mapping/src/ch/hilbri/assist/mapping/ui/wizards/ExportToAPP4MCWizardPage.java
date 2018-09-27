@@ -34,11 +34,12 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
 
     private Button btnBrowseExistingModel;
 
-    enum ExportTemplateMode {
-        EMPTY_MODEL, EXISTING_MODEL
+    enum ExportMode {
+        CREATE_NEW_MODEL, 
+        ADD_TO_EXISTING_MODEL
     }
 
-    private ExportTemplateMode exportMode;
+    private ExportMode exportMode;
 
     private Text txtExportTemplateFileName;
     private Text txtExportToFileName;
@@ -165,40 +166,61 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         gl_grpExportMode.marginLeft = 5;
         grpExportMode.setLayout(gl_grpExportMode);
         grpExportMode.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
-        grpExportMode.setText("Export Template");
+        grpExportMode.setText("Export Mode");
 
-        Button btnEmptyModel = new Button(grpExportMode, SWT.RADIO);
-        btnEmptyModel.addSelectionListener(new SelectionAdapter() {
+        Button btnCreateNewModel = new Button(grpExportMode, SWT.RADIO);
+        btnCreateNewModel.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 txtExportTemplateFileName.setEnabled(false);
                 btnBrowseExistingModel.setEnabled(false);
-                exportMode = ExportTemplateMode.EMPTY_MODEL;
+                exportMode = ExportMode.CREATE_NEW_MODEL;
                 checkPageComplete();
             }
         });
-        btnEmptyModel.setSelection(true);
-        btnEmptyModel.setText("Use empty APP4MC Model");
-        new Label(grpExportMode, SWT.NONE);
-        new Label(grpExportMode, SWT.NONE);
+        btnCreateNewModel.setSelection(true);
+        btnCreateNewModel.setText("Create new APP4MC Model:");
+        
+                txtExportToFileName = new Text(grpExportMode, SWT.BORDER);
+                txtExportToFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+                txtExportToFileName.addModifyListener(new ModifyListener() {
+                    public void modifyText(ModifyEvent e) {
+                        checkPageComplete();
+                    }
+                });
+        
+                Button btnBrowseAPP4MCFile = new Button(grpExportMode, SWT.NONE);
+                btnBrowseAPP4MCFile.addSelectionListener(new SelectionAdapter() {
+                    @Override
+                    public void widgetSelected(SelectionEvent e) {
+                        FileDialog dialog = new FileDialog(getShell(), SWT.OPEN | SWT.SHEET);
+                        dialog.setFilterExtensions(new String[] { "*.amxmi" });
+                        String file = dialog.open();
+                        if (file != null) {
+                            file = file.trim();
+                            if (file.length() > 0) {
+                                txtExportToFileName.setText(file);
+                            }
+                        }
+                    }
+                });
+                btnBrowseAPP4MCFile.setText("Browse ...");
 
-        Button btnExistingModel = new Button(grpExportMode, SWT.RADIO);
-        btnExistingModel.addSelectionListener(new SelectionAdapter() {
+        Button btnAddToExistingModel = new Button(grpExportMode, SWT.RADIO);
+        btnAddToExistingModel.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 txtExportTemplateFileName.setEnabled(true);
                 btnBrowseExistingModel.setEnabled(true);
-                exportMode = ExportTemplateMode.EXISTING_MODEL;
+                exportMode = ExportMode.ADD_TO_EXISTING_MODEL;
                 checkPageComplete();
             }
         });
-        btnExistingModel.setText("Use existing APP4MC Model");
+        btnAddToExistingModel.setText("Add to existing APP4MC Model:");
 
         txtExportTemplateFileName = new Text(grpExportMode, SWT.BORDER);
         txtExportTemplateFileName.setEnabled(false);
-        GridData gd_txtExistingModelFileName = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-        gd_txtExistingModelFileName.horizontalIndent = 10;
-        txtExportTemplateFileName.setLayoutData(gd_txtExistingModelFileName);
+        txtExportTemplateFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
         btnBrowseExistingModel = new Button(grpExportMode, SWT.NONE);
         btnBrowseExistingModel.addSelectionListener(new SelectionAdapter() {
@@ -217,40 +239,6 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         });
         btnBrowseExistingModel.setEnabled(false);
         btnBrowseExistingModel.setText("Browse ...");
-
-        Group grpAppmcModel = new Group(container, SWT.NONE);
-        grpAppmcModel.setLayout(new GridLayout(3, false));
-        grpAppmcModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-        grpAppmcModel.setText("APP4MC Model");
-
-        Label lblAPP4MCModel = new Label(grpAppmcModel, SWT.NONE);
-        lblAPP4MCModel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-        lblAPP4MCModel.setText("Filename:");
-
-        txtExportToFileName = new Text(grpAppmcModel, SWT.BORDER);
-        txtExportToFileName.addModifyListener(new ModifyListener() {
-            public void modifyText(ModifyEvent e) {
-                checkPageComplete();
-            }
-        });
-        txtExportToFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-
-        Button btnBrowseAPP4MCFile = new Button(grpAppmcModel, SWT.NONE);
-        btnBrowseAPP4MCFile.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                FileDialog dialog = new FileDialog(getShell(), SWT.OPEN | SWT.SHEET);
-                dialog.setFilterExtensions(new String[] { "*.amxmi" });
-                String file = dialog.open();
-                if (file != null) {
-                    file = file.trim();
-                    if (file.length() > 0) {
-                        txtExportToFileName.setText(file);
-                    }
-                }
-            }
-        });
-        btnBrowseAPP4MCFile.setText("Browse ...");
     }
 
     private void checkPageComplete() {
@@ -270,7 +258,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         /*
          * If we want to export based on an existing model, we need to have a filename
          */
-        if (exportMode == ExportTemplateMode.EXISTING_MODEL) {
+        if (exportMode == ExportMode.ADD_TO_EXISTING_MODEL) {
 
             if (txtExportTemplateFileName.getText().length() == 0) {
                 setPageComplete(false);
@@ -299,7 +287,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     }
 
     public String getSelectedAmaltheaTemplate() {
-        if (exportMode == ExportTemplateMode.EMPTY_MODEL)
+        if (exportMode == ExportMode.CREATE_NEW_MODEL)
             return null;
         else
             return txtExportTemplateFileName.getText();
