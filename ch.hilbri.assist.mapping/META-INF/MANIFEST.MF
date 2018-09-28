@@ -29,6 +29,7 @@ Require-Bundle: ch.hilbri.assist.gui,
  org.eclipse.zest.layouts,
  org.eclipse.emf.ecore,
  org.apache.commons.math3,
+ org.apache.commons.io,
  org.swtchart,
  org.eclipse.app4mc.amalthea.model,
  org.slf4j.api
