@@ -30,9 +30,9 @@ class ExportToAPP4MC{
 	
 	@Execute
 	def Object execute(@Active MPart part, IProgressMonitor monitor, Shell shell) {
-//		val compEditor = part.object as CompatibilityEditor
-//		val multiPageEditor = compEditor.editor as MultiPageEditor
-//		val result = multiPageEditor.currentMappingResult
+		val compEditor = part.object as CompatibilityEditor
+		val multiPageEditor = compEditor.editor as MultiPageEditor
+		val resultIdx = multiPageEditor.mappingResultsList.indexOf(multiPageEditor.currentMappingResult)
 
 		val dialog = new WizardDialog(shell, new ExportToAPP4MCWizard())
 			dialog.open

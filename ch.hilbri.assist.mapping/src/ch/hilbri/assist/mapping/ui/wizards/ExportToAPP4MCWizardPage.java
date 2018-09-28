@@ -48,17 +48,18 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     private Combo cbxSolutions;
 
     private MultiPageEditor selectedMultiPageEditor;
+    private MultiPageEditor preSelectedMultiPageEditor;
     private MappingResult selectedMappingResult;
+    private int preSelectedMappingResultIndex;
     private Button btnBrowseNewModel;
-
-    /**
-     * Create the wizard.
-     */
-    public ExportToAPP4MCWizardPage() {
+    
+    public ExportToAPP4MCWizardPage(MultiPageEditor preSelectedMultiPageEditor, int preSelectedMappingResultIndex) {
         super("wizardPage");
         setPageComplete(false);
         setTitle("Export to APP4MC Model");
         setDescription("This wizard exports a solution to an APP4MC model");
+        this.preSelectedMappingResultIndex = preSelectedMappingResultIndex;
+        this.preSelectedMultiPageEditor = preSelectedMultiPageEditor;
     }
 
     /**

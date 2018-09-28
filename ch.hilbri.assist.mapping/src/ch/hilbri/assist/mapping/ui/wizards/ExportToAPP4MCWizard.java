@@ -9,19 +9,28 @@ import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 
 import ch.hilbri.assist.mapping.exporter.ExportToAPP4MCModel;
+import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.model.MappingResult;
 
 public class ExportToAPP4MCWizard extends Wizard implements IExportWizard {
 
     private ExportToAPP4MCWizardPage page;
+    private MultiPageEditor preSelectedMultiPageEditor = null;
+    private int preSelectedSolutionIndex = -1;
     
     public ExportToAPP4MCWizard() {
         setWindowTitle("APP4MC Export Wizard"); // NON-NLS-1
     }
+    
+    public ExportToAPP4MCWizard(MultiPageEditor mpe, int solutionIndex) {
+        this();
+        this.preSelectedMultiPageEditor = mpe;
+        this.preSelectedSolutionIndex = solutionIndex;
+    }
 
     @Override
     public void addPages() {
-        page = new ExportToAPP4MCWizardPage();
+        page = new ExportToAPP4MCWizardPage(preSelectedMultiPageEditor, preSelectedSolutionIndex);
         addPage(page);
     }
 
