@@ -35,7 +35,7 @@ class ExportToAPP4MC{
 //		val result = multiPageEditor.currentMappingResult
 
 		val dialog = new WizardDialog(shell, new ExportToAPP4MCWizard())
-		dialog.open
+			dialog.open
 	}
 	
 	

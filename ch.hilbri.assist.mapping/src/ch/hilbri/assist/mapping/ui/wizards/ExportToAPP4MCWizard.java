@@ -16,7 +16,7 @@ public class ExportToAPP4MCWizard extends Wizard implements IExportWizard {
     private ExportToAPP4MCWizardPage page;
     
     public ExportToAPP4MCWizard() {
-        setWindowTitle("New Wizard");
+        setWindowTitle("APP4MC Export Wizard"); // NON-NLS-1
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ExportToAPP4MCWizard extends Wizard implements IExportWizard {
 
     @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
-        setWindowTitle("File Export Wizard"); // NON-NLS-1
+        setWindowTitle("APP4MC Export Wizard"); // NON-NLS-1
         setNeedsProgressMonitor(true);
     }
 
