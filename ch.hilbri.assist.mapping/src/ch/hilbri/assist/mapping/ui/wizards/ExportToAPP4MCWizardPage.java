@@ -36,8 +36,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     private Button btnBrowseExistingModel;
 
     enum ExportMode {
-        CREATE_NEW_MODEL, 
-        ADD_TO_EXISTING_MODEL
+        CREATE_NEW_MODEL, ADD_TO_EXISTING_MODEL
     }
 
     private ExportMode exportMode;
@@ -52,7 +51,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     private MappingResult selectedMappingResult;
     private int preSelectedMappingResultIndex;
     private Button btnBrowseNewModel;
-    
+
     public ExportToAPP4MCWizardPage(MultiPageEditor preSelectedMultiPageEditor, int preSelectedMappingResultIndex) {
         super("wizardPage");
         setPageComplete(false);
@@ -87,41 +86,17 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         cbxMultiPageEditors.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                /* When we select a new editor, we have to check for possible solutions */
-                int selectionIdx = cbxMultiPageEditors.getSelectionIndex();
+                /* Load solutions from current multipage editor */
+                loadSolutions();
 
-                if (selectionIdx >= 0) {
-                
-                    /* Which editors are available? */
-                    IEditorReference[] allEditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
-                    List<MultiPageEditor> allMappingEditors = new ArrayList<MultiPageEditor>();
-                    for (IEditorReference editorRef : allEditors) {
-                        IEditorPart editor = editorRef.getEditor(true);
-                        if (editor instanceof MultiPageEditor)
-                            allMappingEditors.add((MultiPageEditor) editor);
-                    }
-
-                    /* Get the selected MultiPageEditor */
-                    selectedMultiPageEditor = allMappingEditors.get(selectionIdx);
-
-                    /* Remove the old solutions */
-                    cbxSolutions.deselectAll();
-                    cbxSolutions.removeAll();
-
-                    /* Retrieve the new list of solutions */
-                    if (selectedMultiPageEditor.getMappingResultsList() != null)
-                        for (MappingResult r : selectedMultiPageEditor.getMappingResultsList())
-                            cbxSolutions.add(r.getName());
-
-                    /* Preselect the first solution */
-                    if (cbxSolutions.getItemCount() > 0) {
-                        cbxSolutions.select(0);
-                        cbxSolutions.notifyListeners(SWT.Selection, new Event());
-                    }
-
-                    /* Check if we can finish the wizard now */
-                    checkPageComplete();
+                /* Preselect the first solution */
+                if (cbxSolutions.getItemCount() > 0) {
+                    cbxSolutions.select(0);
+                    cbxSolutions.notifyListeners(SWT.Selection, new Event());
                 }
+
+                /* Check if we can finish the wizard now */
+                checkPageComplete();
             }
         });
         cbxMultiPageEditors.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -130,21 +105,13 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
          * Preload the combobox with open and available editors - which should contain
          * solutions
          */
-        IEditorReference[] allEditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
-        List<MultiPageEditor> allMappingEditors = new ArrayList<MultiPageEditor>();
-        for (IEditorReference e : allEditors) {
-            IEditorPart editor = e.getEditor(true);
-            if (editor instanceof MultiPageEditor)
-                allMappingEditors.add((MultiPageEditor) editor);
-        }
-        
-        for (MultiPageEditor mpe : allMappingEditors) {
+        for (MultiPageEditor mpe : getAllMultiPageEditors()) {
             FileEditorInput fileInput = (FileEditorInput) mpe.getEditorInput();
             IProject project = fileInput.getFile().getProject();
             IPath relPath = fileInput.getFile().getProjectRelativePath();
             cbxMultiPageEditors.add(project.getName() + "/" + relPath.toString());
         }
-       
+
         Label lblSolution = new Label(grpAssistSolution, SWT.NONE);
         lblSolution.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
         lblSolution.setBounds(0, 0, 55, 15);
@@ -182,32 +149,33 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         });
         btnCreateNewModel.setSelection(true);
         btnCreateNewModel.setText("Create new APP4MC Model:");
-        
-                txtNewModelFileName = new Text(grpExportMode, SWT.BORDER);
-                txtNewModelFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-                txtNewModelFileName.addModifyListener(new ModifyListener() {
-                    public void modifyText(ModifyEvent e) {
-                        checkPageComplete();
+
+        txtNewModelFileName = new Text(grpExportMode, SWT.BORDER);
+        txtNewModelFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        txtNewModelFileName.addModifyListener(new ModifyListener() {
+            public void modifyText(ModifyEvent e) {
+                checkPageComplete();
+            }
+        });
+
+        btnBrowseNewModel = new Button(grpExportMode, SWT.NONE);
+        btnBrowseNewModel.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                FileDialog dialog = new FileDialog(getShell(), SWT.OPEN | SWT.SHEET);
+                dialog.setFilterExtensions(new String[] { "*.amxmi" });
+                String file = dialog.open();
+                if (file != null) {
+                    file = file.trim();
+                    if (file.length() > 0) {
+                        if (!FilenameUtils.isExtension(file, "amxmi"))
+                            file += ".amxmi";
+                        txtNewModelFileName.setText(file);
                     }
-                });
-        
-                btnBrowseNewModel = new Button(grpExportMode, SWT.NONE);
-                btnBrowseNewModel.addSelectionListener(new SelectionAdapter() {
-                    @Override
-                    public void widgetSelected(SelectionEvent e) {
-                        FileDialog dialog = new FileDialog(getShell(), SWT.OPEN | SWT.SHEET);
-                        dialog.setFilterExtensions(new String[] { "*.amxmi" });
-                        String file = dialog.open();
-                        if (file != null) {
-                            file = file.trim();
-                            if (file.length() > 0) {
-                                if (!FilenameUtils.isExtension(file, "amxmi")) file += ".amxmi";    
-                                txtNewModelFileName.setText(file);
-                            }
-                        }
-                    }
-                });
-                btnBrowseNewModel.setText("...");
+                }
+            }
+        });
+        btnBrowseNewModel.setText("...");
 
         Button btnAddToExistingModel = new Button(grpExportMode, SWT.RADIO);
         btnAddToExistingModel.addSelectionListener(new SelectionAdapter() {
@@ -237,7 +205,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                 if (file != null) {
                     file = file.trim();
                     if (file.length() > 0) {
-                        if (!FilenameUtils.isExtension(file, "amxmi")) file += ".amxmi";    
+                        if (!FilenameUtils.isExtension(file, "amxmi"))
+                            file += ".amxmi";
                         txtExistingModelFileName.setText(file);
                     }
                 }
@@ -246,15 +215,46 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         btnBrowseExistingModel.setEnabled(false);
         btnBrowseExistingModel.setText("...");
 
-        // Finally, all UI widgets are loaded 
+        // Finally, all UI widgets are loaded
         // If we have an editor, the preselect it
-        
-        if (cbxMultiPageEditors.getItemCount() > 0) {
-            cbxMultiPageEditors.select(0);
-            cbxMultiPageEditors.notifyListeners(SWT.Selection, new Event());
+        doPreselection();
+
+    }
+
+    private void doPreselection() {
+        // If we have a preselection supplied, then we should use it
+        if (preSelectedMultiPageEditor != null && preSelectedMappingResultIndex >= 0) {
+
         }
 
-        
+        // Otherwise, we just go back to the first editor and its first solution
+        else {
+            if (cbxMultiPageEditors.getItemCount() > 0) {
+                cbxMultiPageEditors.select(0);
+                cbxMultiPageEditors.notifyListeners(SWT.Selection, new Event());
+            }
+        }
+
+    }
+
+    private void loadSolutions() {
+        /* When we select a new editor, we have to check for possible solutions */
+        int selectionIdx = cbxMultiPageEditors.getSelectionIndex();
+
+        if (selectionIdx >= 0) {
+
+            /* Get the selected MultiPageEditor */
+            selectedMultiPageEditor = getAllMultiPageEditors().get(selectionIdx);
+
+            /* Remove the old solutions */
+            cbxSolutions.deselectAll();
+            cbxSolutions.removeAll();
+
+            /* Retrieve the new list of solutions */
+            if (selectedMultiPageEditor.getMappingResultsList() != null)
+                for (MappingResult r : selectedMultiPageEditor.getMappingResultsList())
+                    cbxSolutions.add(r.getName());
+        }
     }
 
     private void checkPageComplete() {
@@ -311,6 +311,18 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
 
     public String getSelectedExportFilename() {
         return txtNewModelFileName.getText();
+    }
+
+    private List<MultiPageEditor> getAllMultiPageEditors() {
+        IEditorReference[] allEditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                .getEditorReferences();
+        List<MultiPageEditor> allMappingEditors = new ArrayList<MultiPageEditor>();
+        for (IEditorReference e : allEditors) {
+            IEditorPart editor = e.getEditor(true);
+            if (editor instanceof MultiPageEditor)
+                allMappingEditors.add((MultiPageEditor) editor);
+        }
+        return allMappingEditors;
     }
 
 }
