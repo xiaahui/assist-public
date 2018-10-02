@@ -231,7 +231,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         return exportMode;
     }
 
-    public String getFileName() {
+    public String getSelectedFileName() {
         if (exportMode == ExportMode.CREATE_NEW_MODEL)
             return txtNewModelFileName.getText();
         else if (exportMode == ExportMode.ADD_TO_EXISTING_MODEL)
