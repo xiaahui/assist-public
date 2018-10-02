@@ -151,7 +151,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
             public void widgetSelected(SelectionEvent e) {
                 FileDialog dialog = new FileDialog(getShell(), SWT.SAVE | SWT.SHEET);
                 dialog.setFilterExtensions(new String[] { "*.amxmi" });
-                dialog.setFilterNames(new String[] {"APP4MC models (*.amxmi)" });
+                dialog.setFilterNames(new String[] { "APP4MC models (*.amxmi)" });
                 dialog.setText("Save as APP4MC Model");
                 dialog.setOverwrite(true);
                 String file = dialog.open();
@@ -185,6 +185,11 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         txtExistingModelFileName = new Text(grpExportMode, SWT.BORDER);
         txtExistingModelFileName.setEnabled(false);
         txtExistingModelFileName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        txtExistingModelFileName.addModifyListener(new ModifyListener() {
+            public void modifyText(ModifyEvent e) {
+                checkPageComplete();
+            }
+        });
 
         btnBrowseExistingModel = new Button(grpExportMode, SWT.NONE);
         btnBrowseExistingModel.addSelectionListener(new SelectionAdapter() {
@@ -192,6 +197,8 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
             public void widgetSelected(SelectionEvent e) {
                 FileDialog dialog = new FileDialog(getShell(), SWT.OPEN | SWT.SHEET);
                 dialog.setFilterExtensions(new String[] { "*.amxmi" });
+                dialog.setFilterNames(new String[] { "APP4MC models (*.amxmi)" });
+                dialog.setText("Add to APP4MC Model");
                 String file = dialog.open();
                 if (file != null) {
                     file = file.trim();
@@ -209,7 +216,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
 
         // If we have an editor, the preselect it
         doPreselection();
-        
+
         // Preselect the mode
         btnCreateNewModel.setSelection(true);
         btnCreateNewModel.notifyListeners(SWT.Selection, new Event());
@@ -220,15 +227,17 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
         return selectedMappingResult;
     }
 
-    public String getSelectedAmaltheaTemplate() {
-        if (exportMode == ExportMode.CREATE_NEW_MODEL)
-            return null;
-        else
-            return txtExistingModelFileName.getText();
+    public ExportMode getSelectedExportMode() {
+        return exportMode;
     }
 
-    public String getSelectedExportFilename() {
-        return txtNewModelFileName.getText();
+    public String getFileName() {
+        if (exportMode == ExportMode.CREATE_NEW_MODEL)
+            return txtNewModelFileName.getText();
+        else if (exportMode == ExportMode.ADD_TO_EXISTING_MODEL)
+            return txtExistingModelFileName.getText();
+        else
+            return null;
     }
 
     private void doPreselection() {
@@ -250,7 +259,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
 
                 /* Load the solutions for the currently selected editor into combobox */
                 loadSolutions();
-                
+
                 /* Find the solution that we should preselect */
                 List<MappingResult> allSolutions = allEditors.get(editorIdx).getMappingResultsList();
                 int solutionIdx = allSolutions.indexOf(preSelectedMappingResult);
@@ -334,7 +343,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
     private void checkPageComplete() {
 
         setErrorMessage(null);
-        
+
         /* If no multipage editor is selected, we are not complete */
         if (cbxMultiPageEditors.getSelectionIndex() == -1) {
             setPageComplete(false);
@@ -356,7 +365,7 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                 setPageComplete(false);
                 return;
             }
-            
+
             String directory = FilenameUtils.getFullPathNoEndSeparator(txtNewModelFileName.getText());
             File file = new File(directory);
             if (!file.exists() || !file.isDirectory()) {
@@ -365,29 +374,25 @@ public class ExportToAPP4MCWizardPage extends WizardPage {
                 return;
             }
         }
-        
-        
+
         /*
-         * If we want to export based on an existing model, we need to have a filename
+         * If we want to export based on an existing model, we need to have an existing
+         * file
          */
         if (exportMode == ExportMode.ADD_TO_EXISTING_MODEL) {
 
             if (txtExistingModelFileName.getText().length() == 0) {
+                setErrorMessage("Please supply a filename for the model");
                 setPageComplete(false);
                 return;
             }
 
             File file = new File(txtExistingModelFileName.getText());
-            if (!file.exists() || file.isDirectory()) {
+            if (!file.exists()) {
+                setErrorMessage("Please supply the path to an existing APP4MC model");
                 setPageComplete(false);
                 return;
             }
-        }
-
-        /* We need to have a filename to export to */
-        if (txtNewModelFileName.getText().length() == 0) {
-            setPageComplete(false);
-            return;
         }
 
         /* Apparently, all other checks were passed, so we are complete! */

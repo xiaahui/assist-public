@@ -37,19 +37,19 @@ public class ExportToAPP4MCWizard extends Wizard implements IExportWizard {
     @Override
     public boolean performFinish() {
         MappingResult result = page.getSelectedMappingResult();
-        String exportFileName = page.getSelectedExportFilename();
-        String amaltheaTemplatePath = page.getSelectedAmaltheaTemplate();
-
-        /* Load the template */
-        Amalthea amaltheaTemplate = null;
-        if (amaltheaTemplatePath != null && amaltheaTemplatePath.length() > 0) 
-            amaltheaTemplate = AmaltheaLoader.loadFromFileNamed(amaltheaTemplatePath);
-        
-        /* Create the new model */
-        Amalthea exportedModel = ExportToAPP4MCModel.createModel(result, amaltheaTemplate);
-        
-        /* Serialize the new model */
-        AmaltheaWriter.writeToFileNamed(exportedModel, exportFileName);
+//        String exportFileName = page.getSelectedExportFilename();
+//        String amaltheaTemplatePath = page.getSelectedAmaltheaTemplate();
+//
+//        /* Load the template */
+//        Amalthea amaltheaTemplate = null;
+//        if (amaltheaTemplatePath != null && amaltheaTemplatePath.length() > 0) 
+//            amaltheaTemplate = AmaltheaLoader.loadFromFileNamed(amaltheaTemplatePath);
+//        
+//        /* Create the new model */
+//        Amalthea exportedModel = ExportToAPP4MCModel.createModel(result, amaltheaTemplate);
+//        
+//        /* Serialize the new model */
+//        AmaltheaWriter.writeToFileNamed(exportedModel, exportFileName);
         
         return true;
     }
