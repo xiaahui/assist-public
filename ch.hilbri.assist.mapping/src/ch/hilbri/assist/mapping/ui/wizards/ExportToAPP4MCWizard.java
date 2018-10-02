@@ -15,22 +15,22 @@ import ch.hilbri.assist.model.MappingResult;
 public class ExportToAPP4MCWizard extends Wizard implements IExportWizard {
 
     private ExportToAPP4MCWizardPage page;
-    private MultiPageEditor preSelectedMultiPageEditor = null;
-    private int preSelectedSolutionIndex = -1;
+    private MultiPageEditor preSelectedMultiPageEditor;
+    private MappingResult preSelectedSolution;
     
     public ExportToAPP4MCWizard() {
         setWindowTitle("APP4MC Export Wizard"); // NON-NLS-1
     }
     
-    public ExportToAPP4MCWizard(MultiPageEditor mpe, int solutionIndex) {
+    public ExportToAPP4MCWizard(MultiPageEditor mpe, MappingResult solution) {
         this();
         this.preSelectedMultiPageEditor = mpe;
-        this.preSelectedSolutionIndex = solutionIndex;
+        this.preSelectedSolution = solution;
     }
 
     @Override
     public void addPages() {
-        page = new ExportToAPP4MCWizardPage(preSelectedMultiPageEditor, preSelectedSolutionIndex);
+        page = new ExportToAPP4MCWizardPage(preSelectedMultiPageEditor, preSelectedSolution);
         addPage(page);
     }
 

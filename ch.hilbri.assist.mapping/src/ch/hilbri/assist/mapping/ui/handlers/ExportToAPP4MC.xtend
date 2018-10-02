@@ -11,33 +11,30 @@ import org.eclipse.jface.wizard.WizardDialog
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor
 
-class ExportToAPP4MC{
-	
-	@CanExecute
-	def boolean canExecute(@Active MPart part) {
-		
-		/* Check if we can use the part provided by the @Active annotation */
-		if ((part === null) || (!(part.object instanceof CompatibilityEditor))) 					return false
-		
-		val compEditor = part.object as CompatibilityEditor
-		if ((compEditor === null) || (!(compEditor.editor instanceof MultiPageEditor))) 			return false
-		
-		val multiPageEditor = compEditor.editor as MultiPageEditor
-		if ((multiPageEditor.currentMappingResult === null) || (multiPageEditor.activePage != 1)) 	return false
-		
-		true
-	}	
-	
-	@Execute
-	def Object execute(@Active MPart part, IProgressMonitor monitor, Shell shell) {
-		val compEditor = part.object as CompatibilityEditor
-		val multiPageEditor = compEditor.editor as MultiPageEditor
-		val resultIdx = multiPageEditor.mappingResultsList.indexOf(multiPageEditor.currentMappingResult)
+class ExportToAPP4MC {
 
-		val dialog = new WizardDialog(shell, new ExportToAPP4MCWizard())
-			dialog.open
-	}
-	
-	
-	
+    @CanExecute
+    def boolean canExecute(@Active MPart part) {
+
+        /* Check if we can use the part provided by the @Active annotation */
+        if((part === null) || (!(part.object instanceof CompatibilityEditor))) return false
+
+        val compEditor = part.object as CompatibilityEditor
+        if((compEditor === null) || (!(compEditor.editor instanceof MultiPageEditor))) return false
+
+        val multiPageEditor = compEditor.editor as MultiPageEditor
+        if((multiPageEditor.currentMappingResult === null) || (multiPageEditor.activePage != 1)) return false
+
+        true
+    }
+
+    @Execute
+    def Object execute(@Active MPart part, IProgressMonitor monitor, Shell shell) {
+        val compEditor = part.object as CompatibilityEditor
+        val multiPageEditor = compEditor.editor as MultiPageEditor
+        val exportWizard = new ExportToAPP4MCWizard(multiPageEditor, multiPageEditor.currentMappingResult) 
+        val dialog = new WizardDialog(shell, exportWizard)
+        dialog.open
+    }
+
 }
