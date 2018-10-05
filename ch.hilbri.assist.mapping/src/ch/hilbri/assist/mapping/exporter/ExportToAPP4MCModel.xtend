@@ -20,12 +20,13 @@ import org.eclipse.app4mc.amalthea.model.OSModel
 import org.eclipse.app4mc.amalthea.model.OperatingSystem
 import org.eclipse.app4mc.amalthea.model.ProcessingUnit
 import org.eclipse.app4mc.amalthea.model.SWModel
+import org.eclipse.app4mc.amalthea.model.SchedulerAllocation
 import org.eclipse.app4mc.amalthea.model.StructureType
 import org.eclipse.app4mc.amalthea.model.Task
+import org.eclipse.app4mc.amalthea.model.TaskAllocation
 import org.eclipse.app4mc.amalthea.model.TaskScheduler
 import org.eclipse.app4mc.amalthea.model.util.CustomPropertyUtil
 import org.eclipse.app4mc.amalthea.model.util.SearchElementsUtility
-import org.eclipse.app4mc.amalthea.model.SchedulerAllocation
 
 class ExportToAPP4MCModel {
 
@@ -46,7 +47,7 @@ class ExportToAPP4MCModel {
          * The scheduler is responsible for the execution of all tasks on all its cores.
          */
         newAmaltheaModel.osModel = amaltheaFactory.createOSModel(newAmaltheaModel, assistModel)
-        newAmaltheaModel.mappingModel = amaltheaFactory.createMappingModel(newAmaltheaModel, assistModel)
+        newAmaltheaModel.mappingModel = amaltheaFactory.createMappingModel(newAmaltheaModel, assistModel, result)
 
         return newAmaltheaModel
     }
@@ -63,9 +64,15 @@ class ExportToAPP4MCModel {
     /**
      * Custom extension methods for each software / hardware structure / module
      */
-     
-    private static def MappingModel createMappingModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel,  AssistModel assistModel) {
+
+    
+    // ***************************************************************************
+    // MAPPING MODEL 
+    // ***************************************************************************
+         
+    private static def MappingModel createMappingModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel,  AssistModel assistModel, MappingResult result) {
         val searchTool = new SearchElementsUtility(amaltheaModel)
+
         val mappingModel = amaltheaFactory.createMappingModel
 
         /* Create the allocation for the task scheduler */
@@ -73,24 +80,58 @@ class ExportToAPP4MCModel {
             val taskSchedulerAlloc = amaltheaFactory.createSchedulerAllocation(taskScheduler, searchTool) 
             mappingModel.schedulerAllocation.add(taskSchedulerAlloc)
         }
+        
+        /* Create the task allocation for each task */
+        for (assistTask : assistModel.allTasks) {
+            val assistCore = result.task2CoreMap.get(assistTask)
+            if (assistCore !== null) {
+                val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, searchTool)
+                mappingModel.taskAllocation.add(taskAlloc)            
+            }
+        }
 
         return mappingModel
     }
     
+    private static def TaskAllocation createTaskAllocation(AmaltheaFactory amaltheaFactory, ch.hilbri.assist.model.Task assistTask, Core assistCore, SearchElementsUtility searchTool) {
+        amaltheaFactory.createTaskAllocation => [
+            val amaltheaTask = searchTool.getElementsBasedOnName(assistTask.fullName, Task).head
+            task = amaltheaTask
+            
+            val amaltheaAssignedCore = searchTool.getElementsBasedOnName(assistCore.fullName, ProcessingUnit).head
+            affinity.add(amaltheaAssignedCore)
+            
+            val amaltheaScheduler = searchTool.getElementsBasedOnName("Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).head
+            scheduler = amaltheaScheduler
+        ]
+    }
+    
     private static def SchedulerAllocation createSchedulerAllocation(AmaltheaFactory amaltheaFactory, TaskScheduler taskScheduler, SearchElementsUtility searchTool) {
-        val processorName = taskScheduler.name.split("/").last 
+        val processorFullName = taskScheduler.name.split("/").last
+        
         amaltheaFactory.createSchedulerAllocation => [
                 // Find the processor in the amalthea model for this operating system
-                val amaltheaProcessor = searchTool.getElementsBasedOnName(processorName, HwStructure).filter[structureType == StructureType.MICROCONTROLLER].head
+                val amaltheaProcessor = searchTool.getElementsBasedOnName(processorFullName, HwStructure)
+                                                  .filter[structureType == StructureType.MICROCONTROLLER]
+                                                  .head
+
                 // ... and add all its cores to the responsibility of the scheduler
                 val cores = amaltheaProcessor.modules.filter[it instanceof ProcessingUnit].map[it as ProcessingUnit]
+                
+                // Set the list of cores that the scheduler is responsible for
                 responsibility.addAll(cores)
-                // Make sure the scheduler is always executed on the first core
+
+                // Make sure the scheduler is executed on the first core
                 executingPU = cores.head
-                // Refer to the scheduler
+
+                // Store reference to the scheduler
                 scheduler = taskScheduler
         ]
     }
+
+    // ***************************************************************************
+    // OS MODEL 
+    // ***************************************************************************
 
     private static def OSModel createOSModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, AssistModel assistModel) {
         amaltheaFactory.createOSModel => [
@@ -103,7 +144,7 @@ class ExportToAPP4MCModel {
     
     private static def OperatingSystem createOperatingSystem(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, Processor processor) {
         amaltheaFactory.createOperatingSystem => [
-            name = "OperatingSystem/" + processor.fullName
+            name = "OS/" + processor.fullName
             val taskScheduler = amaltheaFactory.createTaskScheduler(it)
             taskSchedulers.add(taskScheduler)
         ]
@@ -111,9 +152,13 @@ class ExportToAPP4MCModel {
     
     private static def TaskScheduler createTaskScheduler(AmaltheaFactory amaltheaFactory, OperatingSystem operatingSystem) {
         amaltheaFactory.createTaskScheduler => [
-            name = "TaskScheduler/" + operatingSystem.name
+            name = "Scheduler/" + operatingSystem.name
         ]
     }
+    
+    // ***************************************************************************
+    // SOFTWARE MODEL 
+    // ***************************************************************************
     
     private static def SWModel createSWModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, AssistModel assistModel) {
         amaltheaFactory.createSWModel => [
@@ -129,6 +174,10 @@ class ExportToAPP4MCModel {
             name = assistTask.fullName
         ]
     }
+    
+    // ***************************************************************************
+    // HARDWARE MODEL 
+    // ***************************************************************************
     
     private static def HWModel createHWModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, AssistModel assistModel) {
         /* Building the hardware model */
@@ -191,7 +240,7 @@ class ExportToAPP4MCModel {
      
     private static def HwStructure createHwStructure(AmaltheaFactory factory, Compartment compartment) {
         factory.createHwStructure => [
-            name = compartment.name
+            name = compartment.fullName
             structureType = StructureType.GROUP
             if (!compartment.manufacturer.nullOrEmpty) CustomPropertyUtil.customPut(it, "Manufacturer", compartment.manufacturer)
             if (!compartment.powerSupply.nullOrEmpty) CustomPropertyUtil.customPut(it, "PowerSupply", compartment.powerSupply)
@@ -200,7 +249,7 @@ class ExportToAPP4MCModel {
 
     private static def HwStructure createHwStructure(AmaltheaFactory factory, Box box) {
         factory.createHwStructure => [
-            name = box.name
+            name = box.fullName
             structureType = StructureType.GROUP
             if (!box.manufacturer.nullOrEmpty) CustomPropertyUtil.customPut(it, "Manufacturer", box.manufacturer)
         ]
@@ -208,7 +257,7 @@ class ExportToAPP4MCModel {
      
     private static def HwStructure createHwStructure(AmaltheaFactory factory, Board board) {
         factory.createHwStructure => [
-            name = board.name
+            name = board.fullName
             structureType = StructureType.ECU
             if (!board.manufacturer.nullOrEmpty) CustomPropertyUtil.customPut(it, "Manufacturer", board.manufacturer)
             if (!board.boardType.nullOrEmpty) CustomPropertyUtil.customPut(it, "Type", board.boardType)
@@ -242,12 +291,9 @@ class ExportToAPP4MCModel {
      
     private static def ProcessingUnit createProcessingUnit(AmaltheaFactory factory, Core core) {
         factory.createProcessingUnit => [
-            name = core.name
+            name = core.fullName
             if (!core.architecture.nullOrEmpty) CustomPropertyUtil.customPut(it, "Architecture", core.architecture)
         ]
     }
-    
-    
-
 }
 
