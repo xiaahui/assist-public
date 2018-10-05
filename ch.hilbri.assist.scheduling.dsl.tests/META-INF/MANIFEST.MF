@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.scheduling.dsl.tests
-Bundle-Version: 2.5.0.qualifier
+Bundle-Version: 2.6.0.qualifier
 Bundle-SymbolicName: ch.hilbri.assist.scheduling.dsl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: ch.hilbri.assist.scheduling.dsl,
