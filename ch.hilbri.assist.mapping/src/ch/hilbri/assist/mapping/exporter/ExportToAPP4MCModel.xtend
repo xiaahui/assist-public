@@ -5,18 +5,20 @@ import ch.hilbri.assist.model.Board
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.MappingResult
 import ch.hilbri.assist.model.Processor
 import java.math.BigInteger
 import org.eclipse.app4mc.amalthea.model.Amalthea
 import org.eclipse.app4mc.amalthea.model.AmaltheaFactory
+import org.eclipse.app4mc.amalthea.model.HWModel
 import org.eclipse.app4mc.amalthea.model.HwStructure
 import org.eclipse.app4mc.amalthea.model.Memory
 import org.eclipse.app4mc.amalthea.model.MemoryDefinition
 import org.eclipse.app4mc.amalthea.model.ProcessingUnit
+import org.eclipse.app4mc.amalthea.model.SWModel
 import org.eclipse.app4mc.amalthea.model.StructureType
-import org.eclipse.app4mc.amalthea.model.util.ModelUtil
-import ch.hilbri.assist.model.DesignAssuranceLevelType
+import org.eclipse.app4mc.amalthea.model.Task
 
 class ExportToAPP4MCModel {
 
@@ -29,55 +31,9 @@ class ExportToAPP4MCModel {
         val amaltheaFactory = AmaltheaFactory.eINSTANCE
         val newAmaltheaModel = amaltheaFactory.createAmalthea
         
-        /* Building the hardware model */
-        val hwModel = ModelUtil.getOrCreateHwModel(newAmaltheaModel)
-        
-        /* Create the new system */
-        val newSystem = amaltheaFactory.createHwStructure(assistModel)
-        hwModel.structures.add(newSystem)
-    
-        /* Create the compartments */
-        for (compartment : assistModel.compartments) {
-            val amaltheaCompartment = amaltheaFactory.createHwStructure(compartment)
-            newSystem.structures.add(amaltheaCompartment)
-            
-            /* Create the boxes */            
-            for (box : compartment.boxes) {
-                val amaltheaBox = amaltheaFactory.createHwStructure(box)
-                amaltheaCompartment.structures.add(amaltheaBox)
-                
-                /* Create the boards -> ECUs */
-                for (board : box.boards) {
-                    val amaltheaBoard = amaltheaFactory.createHwStructure(board)
-                    amaltheaBox.structures.add(amaltheaBoard)
-                    
-                    /* Add memories to the board */
-                    if (board.ramCapacity > 0) {
-                        val ramDefinition = amaltheaFactory.createMemoryDefinition(board.name + "_RAM_Definition", board.ramCapacity)
-                        hwModel.definitions.add(ramDefinition)
-                        amaltheaBoard.modules.add(amaltheaFactory.createMemory(board.name + "_RAM", ramDefinition))
-                    }
-                    if (board.romCapacity > 0) {
-                        val romDefinition = amaltheaFactory.createMemoryDefinition(board.name + "_ROM_Definition", board.romCapacity)
-                        hwModel.definitions.add(romDefinition)
-                        amaltheaBoard.modules.add(amaltheaFactory.createMemory(board.name + "_ROM", romDefinition))
-                    }
-                    
-                    /* Create the processors -> Microcontrollers */
-                    for (processor : board.processors) {
-                        val amaltheaProcessor = amaltheaFactory.createHwStructure(processor) 
-                        amaltheaBoard.structures.add(amaltheaProcessor)
-                        
-                        /* Create the cores -> Modules/ProcessingUnit */
-                        for (core : processor.cores) {
-                            val amaltheaCore = amaltheaFactory.createProcessingUnit(core)
-                            amaltheaProcessor.modules.add(amaltheaCore)
-                        }
-                    }
-                }
-            }    
-        }
-        
+        newAmaltheaModel.hwModel = amaltheaFactory.createHWModel(newAmaltheaModel, assistModel)
+        newAmaltheaModel.swModel = amaltheaFactory.createSWModel(newAmaltheaModel, assistModel) 
+
         return newAmaltheaModel
     }
 
@@ -91,8 +47,76 @@ class ExportToAPP4MCModel {
     }
     
     /**
-     * Custom extension methods for each hardware structure / module
+     * Custom extension methods for each software / hardware structure / module
      */
+     
+    private static def SWModel createSWModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, AssistModel assistModel) {
+        amaltheaFactory.createSWModel => [
+            for (task : assistModel.allTasks) {
+                val amaltheaTask = amaltheaFactory.createTask(task)
+                tasks.add(amaltheaTask)
+            }    
+        ]
+    }
+    
+     private static def Task createTask(AmaltheaFactory factory, ch.hilbri.assist.model.Task assistTask) {
+        factory.createTask => [
+            name = assistTask.fullName
+        ]
+    }
+    
+    private static def HWModel createHWModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel, AssistModel assistModel) {
+        /* Building the hardware model */
+        amaltheaFactory.createHWModel => [
+        
+            /* Create the new system */
+            val newSystem = amaltheaFactory.createHwStructure(assistModel)
+            structures.add(newSystem)
+    
+            /* Create the compartments */
+            for (compartment : assistModel.compartments) {
+                val amaltheaCompartment = amaltheaFactory.createHwStructure(compartment)
+                newSystem.structures.add(amaltheaCompartment)
+            
+                /* Create the boxes */            
+                for (box : compartment.boxes) {
+                    val amaltheaBox = amaltheaFactory.createHwStructure(box)
+                    amaltheaCompartment.structures.add(amaltheaBox)
+                
+                    /* Create the boards -> ECUs */
+                    for (board : box.boards) {
+                        val amaltheaBoard = amaltheaFactory.createHwStructure(board)
+                        amaltheaBox.structures.add(amaltheaBoard)
+                    
+                        /* Add memories to the board */
+                        if (board.ramCapacity > 0) {
+                            val ramDefinition = amaltheaFactory.createMemoryDefinition(board.name + "_RAM_Definition", board.ramCapacity)
+                            definitions.add(ramDefinition)
+                            amaltheaBoard.modules.add(amaltheaFactory.createMemory(board.name + "_RAM", ramDefinition))
+                        }
+                        if (board.romCapacity > 0) {
+                            val romDefinition = amaltheaFactory.createMemoryDefinition(board.name + "_ROM_Definition", board.romCapacity)
+                            definitions.add(romDefinition)
+                            amaltheaBoard.modules.add(amaltheaFactory.createMemory(board.name + "_ROM", romDefinition))
+                        }
+                    
+                        /* Create the processors -> Microcontrollers */
+                        for (processor : board.processors) {
+                            val amaltheaProcessor = amaltheaFactory.createHwStructure(processor) 
+                            amaltheaBoard.structures.add(amaltheaProcessor)
+                        
+                            /* Create the cores -> Modules/ProcessingUnit */
+                            for (core : processor.cores) {
+                                val amaltheaCore = amaltheaFactory.createProcessingUnit(core)
+                                amaltheaProcessor.modules.add(amaltheaCore)
+                            }
+                        }
+                    }
+                }    
+            }
+        ]
+    } 
+     
     private static def HwStructure createHwStructure(AmaltheaFactory factory, AssistModel assistModel) {
         factory.createHwStructure => [
             name = assistModel.systemName
