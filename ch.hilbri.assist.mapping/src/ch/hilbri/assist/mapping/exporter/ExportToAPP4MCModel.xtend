@@ -26,6 +26,8 @@ import org.eclipse.app4mc.amalthea.model.Task
 import org.eclipse.app4mc.amalthea.model.TaskAllocation
 import org.eclipse.app4mc.amalthea.model.TaskScheduler
 import org.eclipse.app4mc.amalthea.model.util.CustomPropertyUtil
+import org.eclipse.app4mc.amalthea.model.util.DeploymentUtil
+import org.eclipse.app4mc.amalthea.model.util.ModelUtil
 import org.eclipse.app4mc.amalthea.model.util.SearchElementsUtility
 
 class ExportToAPP4MCModel {
@@ -58,13 +60,49 @@ class ExportToAPP4MCModel {
      *                      it could also be "null" for a clean and empty amalthea model 
      */
     static def Amalthea createModel(MappingResult result, Amalthea existingModel) {
-        return null
+        val searchTool = new SearchElementsUtility(existingModel)
+        val amaltheaFactory = AmaltheaFactory.eINSTANCE
+        val mappingModel = ModelUtil.getOrCreateMappingModel(existingModel)
+        
+        // We need to go through the mappings and check, if we can add them to the existingModel
+        for (assistTask : result.task2CoreMap.keySet) {
+            val assistCore = result.task2CoreMap.get(assistTask)
+            
+            // Make sure that the task is present in the amalthea model
+            if (!searchTool.getElementsBasedOnName(assistTask.fullName, Task).nullOrEmpty) {
+                val amaltheaTask = searchTool.getElementsBasedOnName(assistTask.fullName, Task).head
+                
+                // Make sure that we have the core in the model
+                if (!searchTool.getElementsBasedOnName(assistCore.fullName, ProcessingUnit).nullOrEmpty) {
+
+                    // Make sure that we have a scheduler with a proper name there
+                    // (we assume, that the schedule is configured properly (core affinity, ...))
+                    if (searchTool.getElementsBasedOnName("Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).isNullOrEmpty) {
+
+                        // Create scheduler first
+                        val osModel = ModelUtil.getOrCreateOsModel(existingModel)
+                        val os = amaltheaFactory.createOperatingSystem(existingModel, assistCore.processor)
+                        osModel.operatingSystems.add(os)
+                    }
+
+                    // Remove previous task allocations for the amaltheaTask
+                    val existingAllocations = DeploymentUtil.getTaskAllocations(amaltheaTask, existingModel)
+                    if (!existingAllocations.nullOrEmpty)
+                        mappingModel.taskAllocation.removeAll(existingAllocations)
+        
+                    // We create the new task allocation 
+                    val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, searchTool)
+                    mappingModel.taskAllocation.add(taskAlloc)                
+                }
+            }
+        }
+        
+        return existingModel
     }
     
     /**
      * Custom extension methods for each software / hardware structure / module
      */
-
     
     // ***************************************************************************
     // MAPPING MODEL 
