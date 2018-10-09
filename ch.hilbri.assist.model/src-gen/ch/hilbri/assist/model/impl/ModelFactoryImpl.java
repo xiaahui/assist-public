@@ -37,8 +37,10 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.NameProperty;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -51,6 +53,7 @@ import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SoftwareElement;
+import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -114,6 +117,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case ModelPackage.ASSIST_MODEL: return createAssistModel();
+            case ModelPackage.PROPERTY: return createProperty();
+            case ModelPackage.STRING_PROPERTY: return createStringProperty();
+            case ModelPackage.NAME_PROPERTY: return createNameProperty();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
@@ -232,6 +238,36 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public AssistModel createAssistModel() {
         AssistModelImpl assistModel = new AssistModelImpl();
         return assistModel;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Property createProperty() {
+        PropertyImpl property = new PropertyImpl();
+        return property;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StringProperty createStringProperty() {
+        StringPropertyImpl stringProperty = new StringPropertyImpl();
+        return stringProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NameProperty createNameProperty() {
+        NamePropertyImpl nameProperty = new NamePropertyImpl();
+        return nameProperty;
     }
 
     /**

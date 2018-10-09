@@ -33,7 +33,9 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.NameProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -46,6 +48,7 @@ import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SoftwareElement;
+import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -116,6 +119,27 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.ASSIST_MODEL: {
                 AssistModel assistModel = (AssistModel)theEObject;
                 T result = caseAssistModel(assistModel);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.PROPERTY: {
+                Property property = (Property)theEObject;
+                T result = caseProperty(property);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.STRING_PROPERTY: {
+                StringProperty stringProperty = (StringProperty)theEObject;
+                T result = caseStringProperty(stringProperty);
+                if (result == null) result = caseProperty(stringProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.NAME_PROPERTY: {
+                NameProperty nameProperty = (NameProperty)theEObject;
+                T result = caseNameProperty(nameProperty);
+                if (result == null) result = caseStringProperty(nameProperty);
+                if (result == null) result = caseProperty(nameProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -439,6 +463,51 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseAssistModel(AssistModel object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProperty(Property object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>String Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>String Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStringProperty(StringProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Name Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Name Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNameProperty(NameProperty object) {
         return null;
     }
 

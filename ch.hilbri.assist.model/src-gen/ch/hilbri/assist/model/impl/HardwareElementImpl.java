@@ -12,6 +12,7 @@ import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 
 import java.util.Collection;
 
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getCustomProperties <em>Custom Properties</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getGetHardwareLevel <em>Get Hardware Level</em>}</li>
  * </ul>
  *
@@ -106,6 +108,16 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected EList<CustomProperty> customProperties;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<Property> properties;
 
     /**
      * The default value of the '{@link #getGetHardwareLevel() <em>Get Hardware Level</em>}' attribute.
@@ -207,6 +219,18 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Property> getProperties() {
+        if (properties == null) {
+            properties = new EObjectContainmentEList<Property>(Property.class, this, ModelPackage.HARDWARE_ELEMENT__PROPERTIES);
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public HardwareArchitectureLevelType getGetHardwareLevel() {
         HardwareArchitectureLevelType _xifexpression = null;
         if ((this instanceof Compartment)) {
@@ -255,6 +279,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -275,6 +301,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return getFeatures();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return getCustomProperties();
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+                return getProperties();
             case ModelPackage.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL:
                 return getGetHardwareLevel();
         }
@@ -304,6 +332,10 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 getCustomProperties().clear();
                 getCustomProperties().addAll((Collection<? extends CustomProperty>)newValue);
                 return;
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -328,6 +360,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 getCustomProperties().clear();
                 return;
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+                getProperties().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -348,6 +383,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
                 return features != null && !features.isEmpty();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
                 return customProperties != null && !customProperties.isEmpty();
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+                return properties != null && !properties.isEmpty();
             case ModelPackage.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL:
                 return getGetHardwareLevel() != GET_HARDWARE_LEVEL_EDEFAULT;
         }

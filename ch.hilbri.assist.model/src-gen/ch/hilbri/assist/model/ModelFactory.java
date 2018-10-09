@@ -31,6 +31,33 @@ public interface ModelFactory extends EFactory {
     AssistModel createAssistModel();
 
     /**
+     * Returns a new object of class '<em>Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Property</em>'.
+     * @generated
+     */
+    Property createProperty();
+
+    /**
+     * Returns a new object of class '<em>String Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>String Property</em>'.
+     * @generated
+     */
+    StringProperty createStringProperty();
+
+    /**
+     * Returns a new object of class '<em>Name Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Name Property</em>'.
+     * @generated
+     */
+    NameProperty createNameProperty();
+
+    /**
      * Returns a new object of class '<em>Hardware Element</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

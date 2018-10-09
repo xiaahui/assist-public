@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getCustomProperties <em>Custom Properties</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.HardwareElement#getProperties <em>Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel <em>Get Hardware Level</em>}</li>
  * </ul>
  *
@@ -112,6 +113,22 @@ public interface HardwareElement extends EObject {
      * @generated
      */
     EList<CustomProperty> getCustomProperties();
+
+    /**
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.Property}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getHardwareElement_Properties()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Property> getProperties();
 
     /**
      * Returns the value of the '<em><b>Get Hardware Level</b></em>' attribute.

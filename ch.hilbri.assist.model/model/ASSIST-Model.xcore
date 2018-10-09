@@ -62,11 +62,19 @@ class AssistModel {
     }
 }
 
+// ABSTRACT PROPERTIES
+class Property {}
+class StringProperty extends Property {
+    String value
+}
+class NameProperty extends StringProperty {}
+
 class HardwareElement {
     String                        name              = ""
     String                        manufacturer      = ""
     contains Feature[0..*]        features
     contains CustomProperty[0..*] customProperties
+    contains Property[0..*]       properties
     
     derived HardwareArchitectureLevelType getHardwareLevel get {
         if (this instanceof Compartment) HardwareArchitectureLevelType.COMPARTMENT

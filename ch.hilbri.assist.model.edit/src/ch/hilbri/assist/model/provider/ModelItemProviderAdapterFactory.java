@@ -95,6 +95,75 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
 	/**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Property} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PropertyItemProvider propertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.Property}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPropertyAdapter() {
+        if (propertyItemProvider == null) {
+            propertyItemProvider = new PropertyItemProvider(this);
+        }
+
+        return propertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.StringProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StringPropertyItemProvider stringPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.StringProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createStringPropertyAdapter() {
+        if (stringPropertyItemProvider == null) {
+            stringPropertyItemProvider = new StringPropertyItemProvider(this);
+        }
+
+        return stringPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.NameProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected NamePropertyItemProvider namePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.NameProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createNamePropertyAdapter() {
+        if (namePropertyItemProvider == null) {
+            namePropertyItemProvider = new NamePropertyItemProvider(this);
+        }
+
+        return namePropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.HardwareElement} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1183,6 +1252,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
      */
 	public void dispose() {
         if (assistModelItemProvider != null) assistModelItemProvider.dispose();
+        if (propertyItemProvider != null) propertyItemProvider.dispose();
+        if (stringPropertyItemProvider != null) stringPropertyItemProvider.dispose();
+        if (namePropertyItemProvider != null) namePropertyItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
         if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();

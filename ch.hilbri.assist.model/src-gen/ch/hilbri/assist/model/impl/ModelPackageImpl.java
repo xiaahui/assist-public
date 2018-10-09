@@ -38,8 +38,10 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.NameProperty;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -52,6 +54,7 @@ import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SoftwareElement;
+import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -87,6 +90,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass assistModelEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass propertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stringPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass namePropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -731,6 +755,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getProperty() {
+        return propertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getStringProperty() {
+        return stringPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getStringProperty_Value() {
+        return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getNameProperty() {
+        return namePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getHardwareElement() {
         return hardwareElementEClass;
     }
@@ -776,8 +836,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getHardwareElement_Properties() {
+        return (EReference)hardwareElementEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EAttribute getHardwareElement_GetHardwareLevel() {
-        return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(4);
+        return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -2729,11 +2798,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
         createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS);
 
+        propertyEClass = createEClass(PROPERTY);
+
+        stringPropertyEClass = createEClass(STRING_PROPERTY);
+        createEAttribute(stringPropertyEClass, STRING_PROPERTY__VALUE);
+
+        namePropertyEClass = createEClass(NAME_PROPERTY);
+
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__MANUFACTURER);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__FEATURES);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__PROPERTIES);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__GET_HARDWARE_LEVEL);
 
         featureEClass = createEClass(FEATURE);
@@ -3028,6 +3105,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
+        stringPropertyEClass.getESuperTypes().add(this.getProperty());
+        namePropertyEClass.getESuperTypes().add(this.getStringProperty());
         compartmentEClass.getESuperTypes().add(this.getHardwareElement());
         boxEClass.getESuperTypes().add(this.getHardwareElement());
         boardEClass.getESuperTypes().add(this.getHardwareElement());
@@ -3084,11 +3163,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEOperation(getAssistModel__GetAllHardwareElements(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
+        initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(stringPropertyEClass, StringProperty.class, "StringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getStringProperty_Value(), theEcorePackage.getEString(), "value", null, 0, 1, StringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(namePropertyEClass, NameProperty.class, "NameProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getHardwareElement_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_Features(), this.getFeature(), null, "features", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getHardwareElement_Properties(), this.getProperty(), null, "properties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getHardwareElement_GetHardwareLevel(), this.getHardwareArchitectureLevelType(), "getHardwareLevel", null, 0, 1, HardwareElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

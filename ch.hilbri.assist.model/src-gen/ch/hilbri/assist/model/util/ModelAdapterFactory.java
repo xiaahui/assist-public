@@ -33,7 +33,9 @@ import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.NameProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -46,6 +48,7 @@ import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SoftwareElement;
+import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
 
@@ -117,6 +120,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseAssistModel(AssistModel object) {
                 return createAssistModelAdapter();
+            }
+            @Override
+            public Adapter caseProperty(Property object) {
+                return createPropertyAdapter();
+            }
+            @Override
+            public Adapter caseStringProperty(StringProperty object) {
+                return createStringPropertyAdapter();
+            }
+            @Override
+            public Adapter caseNameProperty(NameProperty object) {
+                return createNamePropertyAdapter();
             }
             @Override
             public Adapter caseHardwareElement(HardwareElement object) {
@@ -333,6 +348,48 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createAssistModelAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.Property <em>Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.Property
+     * @generated
+     */
+    public Adapter createPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.StringProperty <em>String Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.StringProperty
+     * @generated
+     */
+    public Adapter createStringPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.NameProperty <em>Name Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.NameProperty
+     * @generated
+     */
+    public Adapter createNamePropertyAdapter() {
         return null;
     }
 

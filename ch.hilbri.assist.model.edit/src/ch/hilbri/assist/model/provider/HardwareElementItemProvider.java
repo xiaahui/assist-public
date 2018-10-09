@@ -150,6 +150,7 @@ public class HardwareElementItemProvider
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES);
             childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -212,6 +213,7 @@ public class HardwareElementItemProvider
                 return;
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+            case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -248,6 +250,21 @@ public class HardwareElementItemProvider
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomStringProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createStringProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createNameProperty()));
     }
 
 	/**

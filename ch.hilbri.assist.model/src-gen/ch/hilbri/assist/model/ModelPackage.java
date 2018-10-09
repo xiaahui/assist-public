@@ -270,6 +270,108 @@ public interface ModelPackage extends EPackage {
     int ASSIST_MODEL_OPERATION_COUNT = 8;
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PropertyImpl <em>Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProperty()
+     * @generated
+     */
+    int PROPERTY = 1;
+
+    /**
+     * The number of structural features of the '<em>Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.StringPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringProperty()
+     * @generated
+     */
+    int STRING_PROPERTY = 2;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.NamePropertyImpl <em>Name Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.NamePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getNameProperty()
+     * @generated
+     */
+    int NAME_PROPERTY = 3;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NAME_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Name Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NAME_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Name Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NAME_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -277,7 +379,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareElement()
      * @generated
      */
-    int HARDWARE_ELEMENT = 1;
+    int HARDWARE_ELEMENT = 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -316,13 +418,22 @@ public interface ModelPackage extends EPackage {
     int HARDWARE_ELEMENT__CUSTOM_PROPERTIES = 3;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HARDWARE_ELEMENT__PROPERTIES = 4;
+
+    /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int HARDWARE_ELEMENT__GET_HARDWARE_LEVEL = 4;
+    int HARDWARE_ELEMENT__GET_HARDWARE_LEVEL = 5;
 
     /**
      * The number of structural features of the '<em>Hardware Element</em>' class.
@@ -331,7 +442,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HARDWARE_ELEMENT_FEATURE_COUNT = 5;
+    int HARDWARE_ELEMENT_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Hardware Element</em>' class.
@@ -350,7 +461,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeature()
      * @generated
      */
-    int FEATURE = 2;
+    int FEATURE = 5;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -423,7 +534,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCompartment()
      * @generated
      */
-    int COMPARTMENT = 3;
+    int COMPARTMENT = 6;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -460,6 +571,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int COMPARTMENT__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPARTMENT__PROPERTIES = HARDWARE_ELEMENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
@@ -559,7 +679,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBox()
      * @generated
      */
-    int BOX = 4;
+    int BOX = 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -596,6 +716,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int BOX__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOX__PROPERTIES = HARDWARE_ELEMENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
@@ -695,7 +824,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
      * @generated
      */
-    int BOARD_ALTERNATIVES = 5;
+    int BOARD_ALTERNATIVES = 8;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -732,7 +861,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternative()
      * @generated
      */
-    int BOARD_ALTERNATIVE = 6;
+    int BOARD_ALTERNATIVE = 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -778,7 +907,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoard()
      * @generated
      */
-    int BOARD = 7;
+    int BOARD = 10;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,6 +944,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int BOARD__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD__PROPERTIES = HARDWARE_ELEMENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
@@ -950,7 +1088,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessor()
      * @generated
      */
-    int PROCESSOR = 8;
+    int PROCESSOR = 11;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -987,6 +1125,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int PROCESSOR__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR__PROPERTIES = HARDWARE_ELEMENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
@@ -1068,7 +1215,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCore()
      * @generated
      */
-    int CORE = 9;
+    int CORE = 12;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1105,6 +1252,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CORE__CUSTOM_PROPERTIES = HARDWARE_ELEMENT__CUSTOM_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE__PROPERTIES = HARDWARE_ELEMENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Get Hardware Level</b></em>' attribute.
@@ -1177,7 +1333,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternatives()
      * @generated
      */
-    int APPLICATION_ALTERNATIVES = 10;
+    int APPLICATION_ALTERNATIVES = 13;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -1214,7 +1370,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternative()
      * @generated
      */
-    int APPLICATION_ALTERNATIVE = 11;
+    int APPLICATION_ALTERNATIVE = 14;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1260,7 +1416,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSoftwareElement()
      * @generated
      */
-    int SOFTWARE_ELEMENT = 12;
+    int SOFTWARE_ELEMENT = 15;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1306,7 +1462,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplication()
      * @generated
      */
-    int APPLICATION = 13;
+    int APPLICATION = 16;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1406,7 +1562,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask()
      * @generated
      */
-    int TASK = 14;
+    int TASK = 17;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1632,7 +1788,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
      * @generated
      */
-    int FEATURE_REQUIREMENT = 15;
+    int FEATURE_REQUIREMENT = 18;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1705,7 +1861,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
      * @generated
      */
-    int MAPPING_RELATION = 16;
+    int MAPPING_RELATION = 19;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -1769,7 +1925,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDislocalityRelation()
      * @generated
      */
-    int DISLOCALITY_RELATION = 17;
+    int DISLOCALITY_RELATION = 20;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -1833,7 +1989,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColocalityRelation()
      * @generated
      */
-    int COLOCALITY_RELATION = 18;
+    int COLOCALITY_RELATION = 21;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -1897,7 +2053,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityRelation()
      * @generated
      */
-    int DISSIMILARITY_RELATION = 19;
+    int DISSIMILARITY_RELATION = 22;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -1970,7 +2126,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityClause()
      * @generated
      */
-    int DISSIMILARITY_CLAUSE = 20;
+    int DISSIMILARITY_CLAUSE = 23;
 
     /**
      * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -1998,7 +2154,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
      * @generated
      */
-    int DISSIMILARITY_DISJUNCTION = 21;
+    int DISSIMILARITY_DISJUNCTION = 24;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -2035,7 +2191,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityConjunction()
      * @generated
      */
-    int DISSIMILARITY_CONJUNCTION = 22;
+    int DISSIMILARITY_CONJUNCTION = 25;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -2072,7 +2228,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityEntry()
      * @generated
      */
-    int DISSIMILARITY_ENTRY = 23;
+    int DISSIMILARITY_ENTRY = 26;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
@@ -2118,7 +2274,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingRestriction()
      * @generated
      */
-    int SCHEDULING_RESTRICTION = 24;
+    int SCHEDULING_RESTRICTION = 27;
 
     /**
      * The number of structural features of the '<em>Scheduling Restriction</em>' class.
@@ -2146,7 +2302,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
      * @generated
      */
-    int SIMPLE_RELATION = 25;
+    int SIMPLE_RELATION = 28;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2183,7 +2339,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
      * @generated
      */
-    int COMPLEX_RELATION = 26;
+    int COMPLEX_RELATION = 29;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2238,7 +2394,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_START_AT_THE_SAME_TIME = 27;
+    int RESTRICTION_START_AT_THE_SAME_TIME = 30;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2275,7 +2431,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 28;
+    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 31;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2312,7 +2468,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_FINISHED = 29;
+    int RESTRICTION_START_AFTER_OTHER_FINISHED = 32;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2367,7 +2523,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_STARTED = 30;
+    int RESTRICTION_START_AFTER_OTHER_STARTED = 33;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2422,7 +2578,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
      * @generated
      */
-    int RESTRICTION_DISJOINT_EXECUTION = 31;
+    int RESTRICTION_DISJOINT_EXECUTION = 34;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2459,7 +2615,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomProperty()
      * @generated
      */
-    int CUSTOM_PROPERTY = 32;
+    int CUSTOM_PROPERTY = 35;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2514,7 +2670,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomIntProperty()
      * @generated
      */
-    int CUSTOM_INT_PROPERTY = 33;
+    int CUSTOM_INT_PROPERTY = 36;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2578,7 +2734,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomStringProperty()
      * @generated
      */
-    int CUSTOM_STRING_PROPERTY = 34;
+    int CUSTOM_STRING_PROPERTY = 37;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2642,7 +2798,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVES = 35;
+    int RESTRICTION_ALTERNATIVES = 38;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -2679,7 +2835,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternative()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVE = 36;
+    int RESTRICTION_ALTERNATIVE = 39;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2743,7 +2899,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationCandidate()
      * @generated
      */
-    int EXPLORATION_CANDIDATE = 37;
+    int EXPLORATION_CANDIDATE = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2807,7 +2963,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationResult()
      * @generated
      */
-    int EXPLORATION_RESULT = 38;
+    int EXPLORATION_RESULT = 41;
 
     /**
      * The feature id for the '<em><b>Candidate</b></em>' reference.
@@ -2889,7 +3045,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
      * @generated
      */
-    int ABSTRACT_DSE_METRIC = 39;
+    int ABSTRACT_DSE_METRIC = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2953,7 +3109,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 40;
+    int COMPARABLE = 43;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -2981,7 +3137,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 41;
+    int METRIC_SCORE_PAIR = 44;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -3027,7 +3183,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 42;
+    int MAPPING_RESULT = 45;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3244,7 +3400,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 43;
+    int SINGLE_MAPPING_ELEMENT = 46;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -3335,7 +3491,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_MAPPING_METRIC = 44;
+    int ABSTRACT_MAPPING_METRIC = 47;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3408,7 +3564,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 45;
+    int SCHEDULING_RESULT = 48;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3472,7 +3628,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 46;
+    int TASK_EXECUTION_INSTANCE = 49;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -3527,7 +3683,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 47;
+    int DISSIMILARITY_ATTRIBUTES = 50;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -3537,7 +3693,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 48;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 51;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -3547,7 +3703,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 49;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 52;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -3557,7 +3713,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 50;
+    int PERIODICITY_TYPE = 53;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -3567,7 +3723,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 51;
+    int COLOR = 54;
 
     /**
      * The meta object id for the '<em>List Of Task Lists</em>' data type.
@@ -3577,7 +3733,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getListOfTaskLists()
      * @generated
      */
-    int LIST_OF_TASK_LISTS = 52;
+    int LIST_OF_TASK_LISTS = 55;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -3587,7 +3743,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 53;
+    int TASK2_CORE_MAP_TYPE = 56;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -3597,7 +3753,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 54;
+    int STRING_LIST = 57;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -3607,7 +3763,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 55;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 58;
 
 
     /**
@@ -3833,6 +3989,47 @@ public interface ModelPackage extends EPackage {
     EOperation getAssistModel__GetAllHardwareElements();
 
     /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.Property <em>Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Property</em>'.
+     * @see ch.hilbri.assist.model.Property
+     * @generated
+     */
+    EClass getProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.StringProperty <em>String Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>String Property</em>'.
+     * @see ch.hilbri.assist.model.StringProperty
+     * @generated
+     */
+    EClass getStringProperty();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.StringProperty#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see ch.hilbri.assist.model.StringProperty#getValue()
+     * @see #getStringProperty()
+     * @generated
+     */
+    EAttribute getStringProperty_Value();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.NameProperty <em>Name Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Name Property</em>'.
+     * @see ch.hilbri.assist.model.NameProperty
+     * @generated
+     */
+    EClass getNameProperty();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElement <em>Hardware Element</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3885,6 +4082,17 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getHardwareElement_CustomProperties();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.HardwareElement#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see ch.hilbri.assist.model.HardwareElement#getProperties()
+     * @see #getHardwareElement()
+     * @generated
+     */
+    EReference getHardwareElement_Properties();
 
     /**
      * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel <em>Get Hardware Level</em>}'.
@@ -6351,6 +6559,44 @@ public interface ModelPackage extends EPackage {
         EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = eINSTANCE.getAssistModel__GetAllHardwareElements();
 
         /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.PropertyImpl <em>Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.PropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProperty()
+         * @generated
+         */
+        EClass PROPERTY = eINSTANCE.getProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.StringPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringProperty()
+         * @generated
+         */
+        EClass STRING_PROPERTY = eINSTANCE.getStringProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STRING_PROPERTY__VALUE = eINSTANCE.getStringProperty_Value();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.NamePropertyImpl <em>Name Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.NamePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getNameProperty()
+         * @generated
+         */
+        EClass NAME_PROPERTY = eINSTANCE.getNameProperty();
+
+        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -6391,6 +6637,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference HARDWARE_ELEMENT__CUSTOM_PROPERTIES = eINSTANCE.getHardwareElement_CustomProperties();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HARDWARE_ELEMENT__PROPERTIES = eINSTANCE.getHardwareElement_Properties();
 
         /**
          * The meta object literal for the '<em><b>Get Hardware Level</b></em>' attribute feature.
