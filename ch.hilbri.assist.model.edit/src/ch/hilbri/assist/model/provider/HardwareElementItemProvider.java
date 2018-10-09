@@ -64,7 +64,6 @@ public class HardwareElementItemProvider
             super.getPropertyDescriptors(object);
 
             addNamePropertyDescriptor(object);
-            addManufacturerPropertyDescriptor(object);
             addGetHardwareLevelPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -73,10 +72,10 @@ public class HardwareElementItemProvider
 	/**
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected void addNamePropertyDescriptor(Object object) {
+    protected void addNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -92,29 +91,7 @@ public class HardwareElementItemProvider
                  null));
     }
 
-	/**
-     * This adds a property descriptor for the Manufacturer feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addManufacturerPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_HardwareElement_manufacturer_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_manufacturer_feature", "_UI_HardwareElement_type"),
-                 ModelPackage.Literals.HARDWARE_ELEMENT__MANUFACTURER,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
+    /**
      * This adds a property descriptor for the Get Hardware Level feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -207,7 +184,6 @@ public class HardwareElementItemProvider
 
         switch (notification.getFeatureID(HardwareElement.class)) {
             case ModelPackage.HARDWARE_ELEMENT__NAME:
-            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
             case ModelPackage.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
@@ -264,7 +240,12 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
-                 ModelFactory.eINSTANCE.createNameProperty()));
+                 ModelFactory.eINSTANCE.createManufacturerProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPowerSupplyProperty()));
     }
 
 	/**

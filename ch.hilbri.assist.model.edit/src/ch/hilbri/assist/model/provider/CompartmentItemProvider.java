@@ -48,32 +48,9 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addPowerSupplyPropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Power Supply feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Compartment_powerSupply_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_powerSupply_feature", "_UI_Compartment_type"),
-                 ModelPackage.Literals.COMPARTMENT__POWER_SUPPLY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -166,7 +143,6 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(Compartment.class)) {
-            case ModelPackage.COMPARTMENT__POWER_SUPPLY:
             case ModelPackage.COMPARTMENT__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

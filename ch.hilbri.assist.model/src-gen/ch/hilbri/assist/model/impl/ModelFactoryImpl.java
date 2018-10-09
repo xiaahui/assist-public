@@ -33,12 +33,13 @@ import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.NameProperty;
 import ch.hilbri.assist.model.PeriodicityType;
+import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
@@ -119,7 +120,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.ASSIST_MODEL: return createAssistModel();
             case ModelPackage.PROPERTY: return createProperty();
             case ModelPackage.STRING_PROPERTY: return createStringProperty();
-            case ModelPackage.NAME_PROPERTY: return createNameProperty();
+            case ModelPackage.MANUFACTURER_PROPERTY: return createManufacturerProperty();
+            case ModelPackage.POWER_SUPPLY_PROPERTY: return createPowerSupplyProperty();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
@@ -265,9 +267,19 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NameProperty createNameProperty() {
-        NamePropertyImpl nameProperty = new NamePropertyImpl();
-        return nameProperty;
+    public ManufacturerProperty createManufacturerProperty() {
+        ManufacturerPropertyImpl manufacturerProperty = new ManufacturerPropertyImpl();
+        return manufacturerProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PowerSupplyProperty createPowerSupplyProperty() {
+        PowerSupplyPropertyImpl powerSupplyProperty = new PowerSupplyPropertyImpl();
+        return powerSupplyProperty;
     }
 
     /**

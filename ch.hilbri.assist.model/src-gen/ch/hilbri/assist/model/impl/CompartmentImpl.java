@@ -7,7 +7,9 @@ import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 
 import com.google.common.collect.Iterables;
 
@@ -15,7 +17,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -24,14 +25,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +42,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getPowerSupply <em>Power Supply</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getBoxes <em>Boxes</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CompartmentImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
@@ -49,26 +49,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * @generated
  */
 public class CompartmentImpl extends HardwareElementImpl implements Compartment {
-    /**
-     * The default value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPowerSupply()
-     * @generated
-     * @ordered
-     */
-    protected static final String POWER_SUPPLY_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPowerSupply()
-     * @generated
-     * @ordered
-     */
-    protected String powerSupply = POWER_SUPPLY_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getBoxes() <em>Boxes</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -106,27 +86,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.COMPARTMENT;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getPowerSupply() {
-        return powerSupply;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPowerSupply(String newPowerSupply) {
-        String oldPowerSupply = powerSupply;
-        powerSupply = newPowerSupply;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPARTMENT__POWER_SUPPLY, oldPowerSupply, powerSupply));
     }
 
     /**
@@ -206,6 +165,29 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getPowerSupply() {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PowerSupplyProperty));
+            }
+        };
+        final Iterable<Property> powerSupplyProperties = IterableExtensions.<Property>filter(this.getProperties(), _function);
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(powerSupplyProperties);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            Property _head = IterableExtensions.<Property>head(powerSupplyProperties);
+            return ((PowerSupplyProperty) _head).getValue();
+        }
+        else {
+            return null;
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -238,8 +220,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.COMPARTMENT__POWER_SUPPLY:
-                return getPowerSupply();
             case ModelPackage.COMPARTMENT__BOXES:
                 return getBoxes();
             case ModelPackage.COMPARTMENT__FULL_NAME:
@@ -257,9 +237,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.COMPARTMENT__POWER_SUPPLY:
-                setPowerSupply((String)newValue);
-                return;
             case ModelPackage.COMPARTMENT__BOXES:
                 getBoxes().clear();
                 getBoxes().addAll((Collection<? extends Box>)newValue);
@@ -276,9 +253,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.COMPARTMENT__POWER_SUPPLY:
-                setPowerSupply(POWER_SUPPLY_EDEFAULT);
-                return;
             case ModelPackage.COMPARTMENT__BOXES:
                 getBoxes().clear();
                 return;
@@ -294,8 +268,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.COMPARTMENT__POWER_SUPPLY:
-                return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
             case ModelPackage.COMPARTMENT__BOXES:
                 return boxes != null && !boxes.isEmpty();
             case ModelPackage.COMPARTMENT__FULL_NAME:
@@ -320,24 +292,10 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
                 return getAllProcessors();
             case ModelPackage.COMPARTMENT___GET_ALL_CORES:
                 return getAllCores();
+            case ModelPackage.COMPARTMENT___GET_POWER_SUPPLY:
+                return getPowerSupply();
         }
         return super.eInvoke(operationID, arguments);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (powerSupply: ");
-        result.append(powerSupply);
-        result.append(')');
-        return result.toString();
     }
 
 } //CompartmentImpl

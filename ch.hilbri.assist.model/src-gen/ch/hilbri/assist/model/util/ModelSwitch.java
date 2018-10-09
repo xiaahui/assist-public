@@ -30,10 +30,11 @@ import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.NameProperty;
+import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
@@ -135,11 +136,19 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.NAME_PROPERTY: {
-                NameProperty nameProperty = (NameProperty)theEObject;
-                T result = caseNameProperty(nameProperty);
-                if (result == null) result = caseStringProperty(nameProperty);
-                if (result == null) result = caseProperty(nameProperty);
+            case ModelPackage.MANUFACTURER_PROPERTY: {
+                ManufacturerProperty manufacturerProperty = (ManufacturerProperty)theEObject;
+                T result = caseManufacturerProperty(manufacturerProperty);
+                if (result == null) result = caseStringProperty(manufacturerProperty);
+                if (result == null) result = caseProperty(manufacturerProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.POWER_SUPPLY_PROPERTY: {
+                PowerSupplyProperty powerSupplyProperty = (PowerSupplyProperty)theEObject;
+                T result = casePowerSupplyProperty(powerSupplyProperty);
+                if (result == null) result = caseStringProperty(powerSupplyProperty);
+                if (result == null) result = caseProperty(powerSupplyProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -497,17 +506,32 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Name Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Manufacturer Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Name Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Manufacturer Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNameProperty(NameProperty object) {
+    public T caseManufacturerProperty(ManufacturerProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Power Supply Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Power Supply Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePowerSupplyProperty(PowerSupplyProperty object) {
         return null;
     }
 

@@ -23,19 +23,26 @@ AssistModel:
     '}')?
 ;
 
+
+ManufacturerProperty: 'Manufacturer' '=' value=STRING ';';
+PowerSupplyProperty: 'PowerSupply' '=' value=STRING ';';
+
+
 Compartment: 
     'Compartment' name=ID '{'
-        ('Manufacturer' '=' manufacturer=STRING     ';')?
-        ('PowerSupply'  '=' powerSupply=STRING      ';')?      
-        (features+=Feature                             )*
-        (boxes+=Box                                    )+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+        (   
+            properties+=ManufacturerProperty                                                                            | 
+            properties+=PowerSupplyProperty                                                                             |
+            features+=Feature                                                                                           |
+            ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )     |
+            boxes+=Box                                                                                                  
+        )*
     '}'
 ;
 
 Box:
-    'Box' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';')?
+    'Box' name=ID   '{'
+        (properties+=ManufacturerProperty               )?
         (features+=Feature                                     )*
         (boards+=Board                                         )*
         ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
@@ -43,8 +50,8 @@ Box:
 ;
     
 Board:
-    'Board' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';'                   )?
+    'Board' name=ID   '{'
+        (properties+=ManufacturerProperty               )?
         ('Type'                     '=' boardType=STRING ';'                      )?
         ('PowerSupply'              '=' powerSupply=STRING ';'                    )?
         ('DesignAssuranceLevel'     '=' assuranceLevel=DesignAssuranceLevelType';')?
@@ -57,8 +64,8 @@ Board:
 ;
 
 Processor:
-    'Processor' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';' )?
+    'Processor' name=ID   '{'
+        (properties+=ManufacturerProperty               )?
         ('Type'                     '=' processorType=STRING ';')?
         (features+=Feature                                      )*
         (cores+=Core)+

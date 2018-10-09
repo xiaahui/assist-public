@@ -2,25 +2,25 @@
  */
 package ch.hilbri.assist.model.impl;
 
+import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.NameProperty;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Name Property</b></em>'.
+ * An implementation of the model object '<em><b>Manufacturer Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class NamePropertyImpl extends StringPropertyImpl implements NameProperty {
+public class ManufacturerPropertyImpl extends StringPropertyImpl implements ManufacturerProperty {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected NamePropertyImpl() {
+    protected ManufacturerPropertyImpl() {
         super();
     }
 
@@ -31,7 +31,7 @@ public class NamePropertyImpl extends StringPropertyImpl implements NameProperty
      */
     @Override
     protected EClass eStaticClass() {
-        return ModelPackage.Literals.NAME_PROPERTY;
+        return ModelPackage.Literals.MANUFACTURER_PROPERTY;
     }
 
-} //NamePropertyImpl
+} //ManufacturerPropertyImpl

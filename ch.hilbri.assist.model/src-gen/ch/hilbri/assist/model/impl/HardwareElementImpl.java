@@ -10,9 +10,12 @@ import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -30,6 +33,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Hardware Element</b></em>'.
@@ -39,7 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getProperties <em>Properties</em>}</li>
@@ -68,26 +74,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getManufacturer()
-     * @generated
-     * @ordered
-     */
-    protected static final String MANUFACTURER_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getManufacturer()
-     * @generated
-     * @ordered
-     */
-    protected String manufacturer = MANUFACTURER_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
@@ -174,27 +160,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setManufacturer(String newManufacturer) {
-        String oldManufacturer = manufacturer;
-        manufacturer = newManufacturer;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__MANUFACTURER, oldManufacturer, manufacturer));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EList<Feature> getFeatures() {
         if (features == null) {
             features = new EObjectContainmentEList<Feature>(Feature.class, this, ModelPackage.HARDWARE_ELEMENT__FEATURES);
@@ -272,6 +237,29 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getManufacturer() {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ManufacturerProperty));
+            }
+        };
+        final Iterable<Property> manufacturerProperties = IterableExtensions.<Property>filter(this.getProperties(), _function);
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(manufacturerProperties);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            Property _head = IterableExtensions.<Property>head(manufacturerProperties);
+            return ((ManufacturerProperty) _head).getValue();
+        }
+        else {
+            return null;
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -295,8 +283,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
         switch (featureID) {
             case ModelPackage.HARDWARE_ELEMENT__NAME:
                 return getName();
-            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-                return getManufacturer();
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:
                 return getFeatures();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
@@ -320,9 +306,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
         switch (featureID) {
             case ModelPackage.HARDWARE_ELEMENT__NAME:
                 setName((String)newValue);
-                return;
-            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-                setManufacturer((String)newValue);
                 return;
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:
                 getFeatures().clear();
@@ -351,9 +334,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
             case ModelPackage.HARDWARE_ELEMENT__NAME:
                 setName(NAME_EDEFAULT);
                 return;
-            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-                setManufacturer(MANUFACTURER_EDEFAULT);
-                return;
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:
                 getFeatures().clear();
                 return;
@@ -377,8 +357,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
         switch (featureID) {
             case ModelPackage.HARDWARE_ELEMENT__NAME:
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-            case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-                return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
             case ModelPackage.HARDWARE_ELEMENT__FEATURES:
                 return features != null && !features.isEmpty();
             case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
@@ -397,14 +375,26 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
+    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+        switch (operationID) {
+            case ModelPackage.HARDWARE_ELEMENT___GET_MANUFACTURER:
+                return getManufacturer();
+        }
+        return super.eInvoke(operationID, arguments);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: ");
         result.append(name);
-        result.append(", manufacturer: ");
-        result.append(manufacturer);
         result.append(')');
         return result.toString();
     }

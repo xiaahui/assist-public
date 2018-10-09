@@ -49,13 +49,22 @@ public interface ModelFactory extends EFactory {
     StringProperty createStringProperty();
 
     /**
-     * Returns a new object of class '<em>Name Property</em>'.
+     * Returns a new object of class '<em>Manufacturer Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Name Property</em>'.
+     * @return a new object of class '<em>Manufacturer Property</em>'.
      * @generated
      */
-    NameProperty createNameProperty();
+    ManufacturerProperty createManufacturerProperty();
+
+    /**
+     * Returns a new object of class '<em>Power Supply Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Power Supply Property</em>'.
+     * @generated
+     */
+    PowerSupplyProperty createPowerSupplyProperty();
 
     /**
      * Returns a new object of class '<em>Hardware Element</em>'.

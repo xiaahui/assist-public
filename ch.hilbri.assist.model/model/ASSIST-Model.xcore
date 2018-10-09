@@ -67,14 +67,21 @@ class Property {}
 class StringProperty extends Property {
     String value
 }
-class NameProperty extends StringProperty {}
+class ManufacturerProperty extends StringProperty {}
+class PowerSupplyProperty extends StringProperty {}
 
 class HardwareElement {
     String                        name              = ""
-    String                        manufacturer      = ""
+
     contains Feature[0..*]        features
     contains CustomProperty[0..*] customProperties
     contains Property[0..*]       properties
+    
+    op String getManufacturer() {
+        val manufacturerProperties = properties.filter[it instanceof ManufacturerProperty]
+        if (!manufacturerProperties.isNullOrEmpty) return (manufacturerProperties.head as ManufacturerProperty).value
+        else return null
+    }
     
     derived HardwareArchitectureLevelType getHardwareLevel get {
         if (this instanceof Compartment) HardwareArchitectureLevelType.COMPARTMENT
@@ -94,8 +101,6 @@ class Feature {
 }
 
 class Compartment extends HardwareElement {
-    String powerSupply            = ""
-    
     contains Box[1..*] boxes opposite compartment
     
     derived String fullName get { name }
@@ -104,6 +109,12 @@ class Compartment extends HardwareElement {
     op Board[]           getAllBoards()        { boxes.map[allBoards].flatten.toEList         }
     op Processor[]       getAllProcessors()    { boxes.map[allProcessors].flatten.toEList     }
     op Core[]            getAllCores()         { boxes.map[allCores].flatten.toEList          }
+    
+    op String getPowerSupply() {
+        val powerSupplyProperties = properties.filter[it instanceof PowerSupplyProperty]
+        if (!powerSupplyProperties.isNullOrEmpty) return (powerSupplyProperties.head as PowerSupplyProperty).value
+        else return null
+    }
 }
 
 

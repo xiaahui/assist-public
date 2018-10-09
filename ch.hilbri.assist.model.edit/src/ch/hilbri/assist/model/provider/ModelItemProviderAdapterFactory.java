@@ -141,26 +141,49 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.NameProperty} instances.
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ManufacturerProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected NamePropertyItemProvider namePropertyItemProvider;
+    protected ManufacturerPropertyItemProvider manufacturerPropertyItemProvider;
 
     /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.NameProperty}.
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ManufacturerProperty}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createNamePropertyAdapter() {
-        if (namePropertyItemProvider == null) {
-            namePropertyItemProvider = new NamePropertyItemProvider(this);
+    public Adapter createManufacturerPropertyAdapter() {
+        if (manufacturerPropertyItemProvider == null) {
+            manufacturerPropertyItemProvider = new ManufacturerPropertyItemProvider(this);
         }
 
-        return namePropertyItemProvider;
+        return manufacturerPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.PowerSupplyProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PowerSupplyPropertyItemProvider powerSupplyPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.PowerSupplyProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPowerSupplyPropertyAdapter() {
+        if (powerSupplyPropertyItemProvider == null) {
+            powerSupplyPropertyItemProvider = new PowerSupplyPropertyItemProvider(this);
+        }
+
+        return powerSupplyPropertyItemProvider;
     }
 
     /**
@@ -1254,7 +1277,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (propertyItemProvider != null) propertyItemProvider.dispose();
         if (stringPropertyItemProvider != null) stringPropertyItemProvider.dispose();
-        if (namePropertyItemProvider != null) namePropertyItemProvider.dispose();
+        if (manufacturerPropertyItemProvider != null) manufacturerPropertyItemProvider.dispose();
+        if (powerSupplyPropertyItemProvider != null) powerSupplyPropertyItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
         if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();

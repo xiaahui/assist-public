@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Compartment#getPowerSupply <em>Power Supply</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Compartment#getBoxes <em>Boxes</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Compartment#getFullName <em>Full Name</em>}</li>
  * </ul>
@@ -23,33 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Compartment extends HardwareElement {
-    /**
-     * Returns the value of the '<em><b>Power Supply</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Power Supply</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Power Supply</em>' attribute.
-     * @see #setPowerSupply(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getCompartment_PowerSupply()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getPowerSupply();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Compartment#getPowerSupply <em>Power Supply</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Power Supply</em>' attribute.
-     * @see #getPowerSupply()
-     * @generated
-     */
-    void setPowerSupply(String value);
-
     /**
      * Returns the value of the '<em><b>Boxes</b></em>' containment reference list.
      * The list contents are of type {@link ch.hilbri.assist.model.Box}.
@@ -114,5 +86,13 @@ public interface Compartment extends HardwareElement {
      * @generated
      */
     EList<Core> getAllCores();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    String getPowerSupply();
 
 } // Compartment

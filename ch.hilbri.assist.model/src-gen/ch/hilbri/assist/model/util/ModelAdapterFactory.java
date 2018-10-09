@@ -30,10 +30,11 @@ import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.ModelPackage;
-import ch.hilbri.assist.model.NameProperty;
+import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternative;
@@ -130,8 +131,12 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createStringPropertyAdapter();
             }
             @Override
-            public Adapter caseNameProperty(NameProperty object) {
-                return createNamePropertyAdapter();
+            public Adapter caseManufacturerProperty(ManufacturerProperty object) {
+                return createManufacturerPropertyAdapter();
+            }
+            @Override
+            public Adapter casePowerSupplyProperty(PowerSupplyProperty object) {
+                return createPowerSupplyPropertyAdapter();
             }
             @Override
             public Adapter caseHardwareElement(HardwareElement object) {
@@ -380,16 +385,30 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.NameProperty <em>Name Property</em>}'.
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ManufacturerProperty <em>Manufacturer Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ch.hilbri.assist.model.NameProperty
+     * @see ch.hilbri.assist.model.ManufacturerProperty
      * @generated
      */
-    public Adapter createNamePropertyAdapter() {
+    public Adapter createManufacturerPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.PowerSupplyProperty <em>Power Supply Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.PowerSupplyProperty
+     * @generated
+     */
+    public Adapter createPowerSupplyPropertyAdapter() {
         return null;
     }
 
