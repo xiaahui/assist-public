@@ -49,6 +49,15 @@ public interface ModelFactory extends EFactory {
     StringProperty createStringProperty();
 
     /**
+     * Returns a new object of class '<em>Int Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Int Property</em>'.
+     * @generated
+     */
+    IntProperty createIntProperty();
+
+    /**
      * Returns a new object of class '<em>Manufacturer Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -65,6 +74,96 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     PowerSupplyProperty createPowerSupplyProperty();
+
+    /**
+     * Returns a new object of class '<em>Board Type Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Board Type Property</em>'.
+     * @generated
+     */
+    BoardTypeProperty createBoardTypeProperty();
+
+    /**
+     * Returns a new object of class '<em>Processor Type Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Processor Type Property</em>'.
+     * @generated
+     */
+    ProcessorTypeProperty createProcessorTypeProperty();
+
+    /**
+     * Returns a new object of class '<em>RAM Capacity Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>RAM Capacity Property</em>'.
+     * @generated
+     */
+    RAMCapacityProperty createRAMCapacityProperty();
+
+    /**
+     * Returns a new object of class '<em>ROM Capacity Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>ROM Capacity Property</em>'.
+     * @generated
+     */
+    ROMCapacityProperty createROMCapacityProperty();
+
+    /**
+     * Returns a new object of class '<em>Core Capacity Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Core Capacity Property</em>'.
+     * @generated
+     */
+    CoreCapacityProperty createCoreCapacityProperty();
+
+    /**
+     * Returns a new object of class '<em>Core Architecture Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Core Architecture Property</em>'.
+     * @generated
+     */
+    CoreArchitectureProperty createCoreArchitectureProperty();
+
+    /**
+     * Returns a new object of class '<em>Design Assurance Level Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Design Assurance Level Property</em>'.
+     * @generated
+     */
+    DesignAssuranceLevelProperty createDesignAssuranceLevelProperty();
+
+    /**
+     * Returns a new object of class '<em>Custom Int Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Int Property</em>'.
+     * @generated
+     */
+    CustomIntProperty createCustomIntProperty();
+
+    /**
+     * Returns a new object of class '<em>Custom String Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom String Property</em>'.
+     * @generated
+     */
+    CustomStringProperty createCustomStringProperty();
+
+    /**
+     * Returns a new object of class '<em>Custom Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Property</em>'.
+     * @generated
+     */
+    CustomProperty createCustomProperty();
 
     /**
      * Returns a new object of class '<em>Hardware Element</em>'.
@@ -344,33 +443,6 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     RestrictionDisjointExecution createRestrictionDisjointExecution();
-
-    /**
-     * Returns a new object of class '<em>Custom Property</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Custom Property</em>'.
-     * @generated
-     */
-    CustomProperty createCustomProperty();
-
-    /**
-     * Returns a new object of class '<em>Custom Int Property</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Custom Int Property</em>'.
-     * @generated
-     */
-    CustomIntProperty createCustomIntProperty();
-
-    /**
-     * Returns a new object of class '<em>Custom String Property</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Custom String Property</em>'.
-     * @generated
-     */
-    CustomStringProperty createCustomStringProperty();
 
     /**
      * Returns a new object of class '<em>Restriction Alternatives</em>'.

@@ -125,9 +125,9 @@ public class HardwareElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES);
-            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
             childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES);
+            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+            childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES);
         }
         return childrenFeatures;
     }
@@ -187,9 +187,9 @@ public class HardwareElementItemProvider
             case ModelPackage.HARDWARE_ELEMENT__GET_HARDWARE_LEVEL:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
-            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
-            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
             case ModelPackage.HARDWARE_ELEMENT__PROPERTIES:
+            case ModelPackage.HARDWARE_ELEMENT__CUSTOM_PROPERTIES:
+            case ModelPackage.HARDWARE_ELEMENT__FEATURES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -209,26 +209,6 @@ public class HardwareElementItemProvider
 
         newChildDescriptors.add
             (createChildParameter
-                (ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES,
-                 ModelFactory.eINSTANCE.createFeature()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomIntProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomStringProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createProperty()));
 
@@ -240,12 +220,72 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createManufacturerProperty()));
 
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createPowerSupplyProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createBoardTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProcessorTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createRAMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createROMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreArchitectureProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomStringProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__CUSTOM_PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__FEATURES,
+                 ModelFactory.eINSTANCE.createFeature()));
     }
 
 	/**

@@ -141,6 +141,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.IntProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IntPropertyItemProvider intPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.IntProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIntPropertyAdapter() {
+        if (intPropertyItemProvider == null) {
+            intPropertyItemProvider = new IntPropertyItemProvider(this);
+        }
+
+        return intPropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ManufacturerProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -184,6 +207,167 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return powerSupplyPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardTypeProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BoardTypePropertyItemProvider boardTypePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardTypeProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBoardTypePropertyAdapter() {
+        if (boardTypePropertyItemProvider == null) {
+            boardTypePropertyItemProvider = new BoardTypePropertyItemProvider(this);
+        }
+
+        return boardTypePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ProcessorTypeProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ProcessorTypePropertyItemProvider processorTypePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ProcessorTypeProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createProcessorTypePropertyAdapter() {
+        if (processorTypePropertyItemProvider == null) {
+            processorTypePropertyItemProvider = new ProcessorTypePropertyItemProvider(this);
+        }
+
+        return processorTypePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RAMCapacityProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RAMCapacityPropertyItemProvider ramCapacityPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.RAMCapacityProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRAMCapacityPropertyAdapter() {
+        if (ramCapacityPropertyItemProvider == null) {
+            ramCapacityPropertyItemProvider = new RAMCapacityPropertyItemProvider(this);
+        }
+
+        return ramCapacityPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ROMCapacityProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ROMCapacityPropertyItemProvider romCapacityPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ROMCapacityProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createROMCapacityPropertyAdapter() {
+        if (romCapacityPropertyItemProvider == null) {
+            romCapacityPropertyItemProvider = new ROMCapacityPropertyItemProvider(this);
+        }
+
+        return romCapacityPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CoreCapacityProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CoreCapacityPropertyItemProvider coreCapacityPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CoreCapacityProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCoreCapacityPropertyAdapter() {
+        if (coreCapacityPropertyItemProvider == null) {
+            coreCapacityPropertyItemProvider = new CoreCapacityPropertyItemProvider(this);
+        }
+
+        return coreCapacityPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CoreArchitectureProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CoreArchitecturePropertyItemProvider coreArchitecturePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CoreArchitectureProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCoreArchitecturePropertyAdapter() {
+        if (coreArchitecturePropertyItemProvider == null) {
+            coreArchitecturePropertyItemProvider = new CoreArchitecturePropertyItemProvider(this);
+        }
+
+        return coreArchitecturePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DesignAssuranceLevelProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DesignAssuranceLevelPropertyItemProvider designAssuranceLevelPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.DesignAssuranceLevelProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDesignAssuranceLevelPropertyAdapter() {
+        if (designAssuranceLevelPropertyItemProvider == null) {
+            designAssuranceLevelPropertyItemProvider = new DesignAssuranceLevelPropertyItemProvider(this);
+        }
+
+        return designAssuranceLevelPropertyItemProvider;
     }
 
     /**
@@ -900,29 +1084,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CustomPropertyItemProvider customPropertyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomProperty}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCustomPropertyAdapter() {
-        if (customPropertyItemProvider == null) {
-            customPropertyItemProvider = new CustomPropertyItemProvider(this);
-        }
-
-        return customPropertyItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomIntProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -966,6 +1127,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return customStringPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomPropertyItemProvider customPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomPropertyAdapter() {
+        if (customPropertyItemProvider == null) {
+            customPropertyItemProvider = new CustomPropertyItemProvider(this);
+        }
+
+        return customPropertyItemProvider;
     }
 
     /**
@@ -1277,8 +1461,19 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (propertyItemProvider != null) propertyItemProvider.dispose();
         if (stringPropertyItemProvider != null) stringPropertyItemProvider.dispose();
+        if (intPropertyItemProvider != null) intPropertyItemProvider.dispose();
         if (manufacturerPropertyItemProvider != null) manufacturerPropertyItemProvider.dispose();
         if (powerSupplyPropertyItemProvider != null) powerSupplyPropertyItemProvider.dispose();
+        if (boardTypePropertyItemProvider != null) boardTypePropertyItemProvider.dispose();
+        if (processorTypePropertyItemProvider != null) processorTypePropertyItemProvider.dispose();
+        if (ramCapacityPropertyItemProvider != null) ramCapacityPropertyItemProvider.dispose();
+        if (romCapacityPropertyItemProvider != null) romCapacityPropertyItemProvider.dispose();
+        if (coreCapacityPropertyItemProvider != null) coreCapacityPropertyItemProvider.dispose();
+        if (coreArchitecturePropertyItemProvider != null) coreArchitecturePropertyItemProvider.dispose();
+        if (designAssuranceLevelPropertyItemProvider != null) designAssuranceLevelPropertyItemProvider.dispose();
+        if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
+        if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();
+        if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
         if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();
@@ -1310,9 +1505,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (restrictionStartAfterOtherFinishedItemProvider != null) restrictionStartAfterOtherFinishedItemProvider.dispose();
         if (restrictionStartAfterOtherStartedItemProvider != null) restrictionStartAfterOtherStartedItemProvider.dispose();
         if (restrictionDisjointExecutionItemProvider != null) restrictionDisjointExecutionItemProvider.dispose();
-        if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
-        if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
-        if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();
         if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
         if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
         if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();

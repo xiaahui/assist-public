@@ -580,16 +580,6 @@ public class TaskItemProvider
             (createChildParameter
                 (ModelPackage.Literals.TASK__CUSTOM_PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.TASK__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomIntProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.TASK__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomStringProperty()));
     }
 
 }

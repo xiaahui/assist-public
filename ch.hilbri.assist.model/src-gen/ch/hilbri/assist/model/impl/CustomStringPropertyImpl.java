@@ -19,31 +19,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.CustomStringPropertyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.CustomStringPropertyImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CustomStringPropertyImpl extends CustomPropertyImpl implements CustomStringProperty {
+public class CustomStringPropertyImpl extends StringPropertyImpl implements CustomStringProperty {
     /**
-     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected static final String VALUE_EDEFAULT = "";
+    protected static final String NAME_EDEFAULT = "";
 
     /**
-     * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValue()
+     * @see #getName()
      * @generated
      * @ordered
      */
-    protected String value = VALUE_EDEFAULT;
+    protected String name = NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -69,8 +69,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -78,11 +78,11 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(String newValue) {
-        String oldValue = value;
-        value = newValue;
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CUSTOM_STRING_PROPERTY__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CUSTOM_STRING_PROPERTY__NAME, oldName, name));
     }
 
     /**
@@ -93,8 +93,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.CUSTOM_STRING_PROPERTY__VALUE:
-                return getValue();
+            case ModelPackage.CUSTOM_STRING_PROPERTY__NAME:
+                return getName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -107,8 +107,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.CUSTOM_STRING_PROPERTY__VALUE:
-                setValue((String)newValue);
+            case ModelPackage.CUSTOM_STRING_PROPERTY__NAME:
+                setName((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -122,8 +122,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.CUSTOM_STRING_PROPERTY__VALUE:
-                setValue(VALUE_EDEFAULT);
+            case ModelPackage.CUSTOM_STRING_PROPERTY__NAME:
+                setName(NAME_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.CUSTOM_STRING_PROPERTY__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+            case ModelPackage.CUSTOM_STRING_PROPERTY__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
         }
         return super.eIsSet(featureID);
     }
@@ -153,8 +153,8 @@ public class CustomStringPropertyImpl extends CustomPropertyImpl implements Cust
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (value: ");
-        result.append(value);
+        result.append(" (name: ");
+        result.append(name);
         result.append(')');
         return result.toString();
     }

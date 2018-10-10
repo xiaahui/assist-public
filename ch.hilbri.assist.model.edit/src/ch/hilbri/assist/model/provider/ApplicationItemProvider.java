@@ -246,16 +246,6 @@ public class ApplicationItemProvider
             (createChildParameter
                 (ModelPackage.Literals.APPLICATION__CUSTOM_PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.APPLICATION__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomIntProperty()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.APPLICATION__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomStringProperty()));
     }
 
 }

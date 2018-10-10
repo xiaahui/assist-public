@@ -22,6 +22,7 @@ package ch.hilbri.assist.model;
 public interface StringProperty extends Property {
     /**
      * Returns the value of the '<em><b>Value</b></em>' attribute.
+     * The default value is <code>""</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Value</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface StringProperty extends Property {
      * @return the value of the '<em>Value</em>' attribute.
      * @see #setValue(String)
      * @see ch.hilbri.assist.model.ModelPackage#getStringProperty_Value()
-     * @model unique="false"
+     * @model default="" unique="false"
      * @generated
      */
     String getValue();

@@ -60,9 +60,9 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	def dispatch void format(Application app, extension IFormattableDocument document) {
 		app => [
 			/* General indention */
-			regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_8).forEach[interior[indent]]
+//			regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_8).forEach[interior[indent]]
 			regionFor.keywords(applicationAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
+//			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
 			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_5_1).surround[oneSpace]
@@ -79,13 +79,13 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task => [
 			/* General indention */
-			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_9).forEach[interior[indent]]
+//			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_9).forEach[interior[indent]]
 			regionFor.keywords(taskAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_9).forEach[append[newLine]]
+//			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_9).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
-			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_8_1).surround[oneSpace]
-			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_8_3).prepend[oneSpace]
+//			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_8_1).surround[oneSpace]
+//			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_8_3).prepend[oneSpace]
 			
 			/* All assignments */
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]

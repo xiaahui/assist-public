@@ -10,15 +10,19 @@ import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
 import ch.hilbri.assist.model.BoardAlternatives;
+import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.CoreArchitectureProperty;
+import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
 import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
+import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityAttributes;
@@ -33,6 +37,7 @@ import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.IntProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
@@ -41,7 +46,10 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
+import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -120,8 +128,19 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.ASSIST_MODEL: return createAssistModel();
             case ModelPackage.PROPERTY: return createProperty();
             case ModelPackage.STRING_PROPERTY: return createStringProperty();
+            case ModelPackage.INT_PROPERTY: return createIntProperty();
             case ModelPackage.MANUFACTURER_PROPERTY: return createManufacturerProperty();
             case ModelPackage.POWER_SUPPLY_PROPERTY: return createPowerSupplyProperty();
+            case ModelPackage.BOARD_TYPE_PROPERTY: return createBoardTypeProperty();
+            case ModelPackage.PROCESSOR_TYPE_PROPERTY: return createProcessorTypeProperty();
+            case ModelPackage.RAM_CAPACITY_PROPERTY: return createRAMCapacityProperty();
+            case ModelPackage.ROM_CAPACITY_PROPERTY: return createROMCapacityProperty();
+            case ModelPackage.CORE_CAPACITY_PROPERTY: return createCoreCapacityProperty();
+            case ModelPackage.CORE_ARCHITECTURE_PROPERTY: return createCoreArchitectureProperty();
+            case ModelPackage.DESIGN_ASSURANCE_LEVEL_PROPERTY: return createDesignAssuranceLevelProperty();
+            case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
+            case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
+            case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
@@ -153,9 +172,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_FINISHED: return createRestrictionStartAfterOtherFinished();
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_STARTED: return createRestrictionStartAfterOtherStarted();
             case ModelPackage.RESTRICTION_DISJOINT_EXECUTION: return createRestrictionDisjointExecution();
-            case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
-            case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
-            case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
             case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
             case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
             case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
@@ -267,6 +283,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public IntProperty createIntProperty() {
+        IntPropertyImpl intProperty = new IntPropertyImpl();
+        return intProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ManufacturerProperty createManufacturerProperty() {
         ManufacturerPropertyImpl manufacturerProperty = new ManufacturerPropertyImpl();
         return manufacturerProperty;
@@ -280,6 +306,106 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public PowerSupplyProperty createPowerSupplyProperty() {
         PowerSupplyPropertyImpl powerSupplyProperty = new PowerSupplyPropertyImpl();
         return powerSupplyProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BoardTypeProperty createBoardTypeProperty() {
+        BoardTypePropertyImpl boardTypeProperty = new BoardTypePropertyImpl();
+        return boardTypeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProcessorTypeProperty createProcessorTypeProperty() {
+        ProcessorTypePropertyImpl processorTypeProperty = new ProcessorTypePropertyImpl();
+        return processorTypeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RAMCapacityProperty createRAMCapacityProperty() {
+        RAMCapacityPropertyImpl ramCapacityProperty = new RAMCapacityPropertyImpl();
+        return ramCapacityProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ROMCapacityProperty createROMCapacityProperty() {
+        ROMCapacityPropertyImpl romCapacityProperty = new ROMCapacityPropertyImpl();
+        return romCapacityProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CoreCapacityProperty createCoreCapacityProperty() {
+        CoreCapacityPropertyImpl coreCapacityProperty = new CoreCapacityPropertyImpl();
+        return coreCapacityProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CoreArchitectureProperty createCoreArchitectureProperty() {
+        CoreArchitecturePropertyImpl coreArchitectureProperty = new CoreArchitecturePropertyImpl();
+        return coreArchitectureProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DesignAssuranceLevelProperty createDesignAssuranceLevelProperty() {
+        DesignAssuranceLevelPropertyImpl designAssuranceLevelProperty = new DesignAssuranceLevelPropertyImpl();
+        return designAssuranceLevelProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomIntProperty createCustomIntProperty() {
+        CustomIntPropertyImpl customIntProperty = new CustomIntPropertyImpl();
+        return customIntProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomStringProperty createCustomStringProperty() {
+        CustomStringPropertyImpl customStringProperty = new CustomStringPropertyImpl();
+        return customStringProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomProperty createCustomProperty() {
+        CustomPropertyImpl customProperty = new CustomPropertyImpl();
+        return customProperty;
     }
 
     /**
@@ -590,36 +716,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public RestrictionDisjointExecution createRestrictionDisjointExecution() {
         RestrictionDisjointExecutionImpl restrictionDisjointExecution = new RestrictionDisjointExecutionImpl();
         return restrictionDisjointExecution;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CustomProperty createCustomProperty() {
-        CustomPropertyImpl customProperty = new CustomPropertyImpl();
-        return customProperty;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CustomIntProperty createCustomIntProperty() {
-        CustomIntPropertyImpl customIntProperty = new CustomIntPropertyImpl();
-        return customIntProperty;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CustomStringProperty createCustomStringProperty() {
-        CustomStringPropertyImpl customStringProperty = new CustomStringPropertyImpl();
-        return customStringProperty;
     }
 
     /**

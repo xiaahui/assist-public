@@ -11,15 +11,19 @@ import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
 import ch.hilbri.assist.model.BoardAlternatives;
+import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.CoreArchitectureProperty;
+import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
 import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
+import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityAttributes;
@@ -34,6 +38,7 @@ import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.IntProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
@@ -42,7 +47,10 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
+import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -111,6 +119,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass intPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass manufacturerPropertyEClass = null;
 
     /**
@@ -119,6 +134,76 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass powerSupplyPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass boardTypePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass processorTypePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass ramCapacityPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass romCapacityPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass coreCapacityPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass coreArchitecturePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass designAssuranceLevelPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass customIntPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass customStringPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass customPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -336,27 +421,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass restrictionDisjointExecutionEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass customPropertyEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass customIntPropertyEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass customStringPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -790,6 +854,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getIntProperty() {
+        return intPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getIntProperty_Value() {
+        return (EAttribute)intPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getManufacturerProperty() {
         return manufacturerPropertyEClass;
     }
@@ -801,6 +883,123 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EClass getPowerSupplyProperty() {
         return powerSupplyPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBoardTypeProperty() {
+        return boardTypePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getProcessorTypeProperty() {
+        return processorTypePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRAMCapacityProperty() {
+        return ramCapacityPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getROMCapacityProperty() {
+        return romCapacityPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCoreCapacityProperty() {
+        return coreCapacityPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCoreArchitectureProperty() {
+        return coreArchitecturePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDesignAssuranceLevelProperty() {
+        return designAssuranceLevelPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDesignAssuranceLevelProperty_Value() {
+        return (EAttribute)designAssuranceLevelPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCustomIntProperty() {
+        return customIntPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCustomIntProperty_Name() {
+        return (EAttribute)customIntPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCustomStringProperty() {
+        return customStringPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCustomStringProperty_Name() {
+        return (EAttribute)customStringPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCustomProperty() {
+        return customPropertyEClass;
     }
 
     /**
@@ -826,7 +1025,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getHardwareElement_Features() {
+    public EReference getHardwareElement_Properties() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(1);
     }
 
@@ -844,7 +1043,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getHardwareElement_Properties() {
+    public EReference getHardwareElement_Features() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1960,78 +2159,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getCustomProperty() {
-        return customPropertyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCustomProperty_Name() {
-        return (EAttribute)customPropertyEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCustomProperty_StringValue() {
-        return (EAttribute)customPropertyEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCustomProperty_IntValue() {
-        return (EAttribute)customPropertyEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getCustomIntProperty() {
-        return customIntPropertyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCustomIntProperty_Value() {
-        return (EAttribute)customIntPropertyEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getCustomStringProperty() {
-        return customStringPropertyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCustomStringProperty_Value() {
-        return (EAttribute)customStringPropertyEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getRestrictionAlternatives() {
         return restrictionAlternativesEClass;
     }
@@ -2820,15 +2947,41 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         stringPropertyEClass = createEClass(STRING_PROPERTY);
         createEAttribute(stringPropertyEClass, STRING_PROPERTY__VALUE);
 
+        intPropertyEClass = createEClass(INT_PROPERTY);
+        createEAttribute(intPropertyEClass, INT_PROPERTY__VALUE);
+
         manufacturerPropertyEClass = createEClass(MANUFACTURER_PROPERTY);
 
         powerSupplyPropertyEClass = createEClass(POWER_SUPPLY_PROPERTY);
 
+        boardTypePropertyEClass = createEClass(BOARD_TYPE_PROPERTY);
+
+        processorTypePropertyEClass = createEClass(PROCESSOR_TYPE_PROPERTY);
+
+        ramCapacityPropertyEClass = createEClass(RAM_CAPACITY_PROPERTY);
+
+        romCapacityPropertyEClass = createEClass(ROM_CAPACITY_PROPERTY);
+
+        coreCapacityPropertyEClass = createEClass(CORE_CAPACITY_PROPERTY);
+
+        coreArchitecturePropertyEClass = createEClass(CORE_ARCHITECTURE_PROPERTY);
+
+        designAssuranceLevelPropertyEClass = createEClass(DESIGN_ASSURANCE_LEVEL_PROPERTY);
+        createEAttribute(designAssuranceLevelPropertyEClass, DESIGN_ASSURANCE_LEVEL_PROPERTY__VALUE);
+
+        customIntPropertyEClass = createEClass(CUSTOM_INT_PROPERTY);
+        createEAttribute(customIntPropertyEClass, CUSTOM_INT_PROPERTY__NAME);
+
+        customStringPropertyEClass = createEClass(CUSTOM_STRING_PROPERTY);
+        createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__NAME);
+
+        customPropertyEClass = createEClass(CUSTOM_PROPERTY);
+
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
-        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__FEATURES);
-        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__PROPERTIES);
+        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
+        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__FEATURES);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__GET_HARDWARE_LEVEL);
         createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_MANUFACTURER);
 
@@ -2983,17 +3136,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         restrictionDisjointExecutionEClass = createEClass(RESTRICTION_DISJOINT_EXECUTION);
 
-        customPropertyEClass = createEClass(CUSTOM_PROPERTY);
-        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
-        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__STRING_VALUE);
-        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__INT_VALUE);
-
-        customIntPropertyEClass = createEClass(CUSTOM_INT_PROPERTY);
-        createEAttribute(customIntPropertyEClass, CUSTOM_INT_PROPERTY__VALUE);
-
-        customStringPropertyEClass = createEClass(CUSTOM_STRING_PROPERTY);
-        createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__VALUE);
-
         restrictionAlternativesEClass = createEClass(RESTRICTION_ALTERNATIVES);
         createEReference(restrictionAlternativesEClass, RESTRICTION_ALTERNATIVES__ALTERNATIVES);
 
@@ -3125,8 +3267,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         // Add supertypes to classes
         stringPropertyEClass.getESuperTypes().add(this.getProperty());
+        intPropertyEClass.getESuperTypes().add(this.getProperty());
         manufacturerPropertyEClass.getESuperTypes().add(this.getStringProperty());
         powerSupplyPropertyEClass.getESuperTypes().add(this.getStringProperty());
+        boardTypePropertyEClass.getESuperTypes().add(this.getStringProperty());
+        processorTypePropertyEClass.getESuperTypes().add(this.getStringProperty());
+        ramCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        romCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        coreCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        coreArchitecturePropertyEClass.getESuperTypes().add(this.getStringProperty());
+        designAssuranceLevelPropertyEClass.getESuperTypes().add(this.getProperty());
+        customIntPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        customStringPropertyEClass.getESuperTypes().add(this.getStringProperty());
         compartmentEClass.getESuperTypes().add(this.getHardwareElement());
         boxEClass.getESuperTypes().add(this.getHardwareElement());
         boardEClass.getESuperTypes().add(this.getHardwareElement());
@@ -3147,8 +3299,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         restrictionStartAfterOtherFinishedEClass.getESuperTypes().add(this.getComplexRelation());
         restrictionStartAfterOtherStartedEClass.getESuperTypes().add(this.getComplexRelation());
         restrictionDisjointExecutionEClass.getESuperTypes().add(this.getSimpleRelation());
-        customIntPropertyEClass.getESuperTypes().add(this.getCustomProperty());
-        customStringPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         mappingResultEClass.getESuperTypes().add(this.getComparable());
 
         // Initialize classes, features, and operations; add parameters
@@ -3186,17 +3336,43 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(stringPropertyEClass, StringProperty.class, "StringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getStringProperty_Value(), theEcorePackage.getEString(), "value", null, 0, 1, StringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getStringProperty_Value(), theEcorePackage.getEString(), "value", "", 0, 1, StringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(intPropertyEClass, IntProperty.class, "IntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getIntProperty_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, IntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(manufacturerPropertyEClass, ManufacturerProperty.class, "ManufacturerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(powerSupplyPropertyEClass, PowerSupplyProperty.class, "PowerSupplyProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(boardTypePropertyEClass, BoardTypeProperty.class, "BoardTypeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(processorTypePropertyEClass, ProcessorTypeProperty.class, "ProcessorTypeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(ramCapacityPropertyEClass, RAMCapacityProperty.class, "RAMCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(romCapacityPropertyEClass, ROMCapacityProperty.class, "ROMCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(coreCapacityPropertyEClass, CoreCapacityProperty.class, "CoreCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(coreArchitecturePropertyEClass, CoreArchitectureProperty.class, "CoreArchitectureProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(designAssuranceLevelPropertyEClass, DesignAssuranceLevelProperty.class, "DesignAssuranceLevelProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDesignAssuranceLevelProperty_Value(), this.getDesignAssuranceLevelType(), "value", "None", 0, 1, DesignAssuranceLevelProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(customIntPropertyEClass, CustomIntProperty.class, "CustomIntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCustomIntProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomIntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(customStringPropertyEClass, CustomStringProperty.class, "CustomStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCustomStringProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getHardwareElement_Features(), this.getFeature(), null, "features", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getHardwareElement_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_Properties(), this.getProperty(), null, "properties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getHardwareElement_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getHardwareElement_Features(), this.getFeature(), null, "features", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getHardwareElement_GetHardwareLevel(), this.getHardwareArchitectureLevelType(), "getHardwareLevel", null, 0, 1, HardwareElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEOperation(getHardwareElement__GetManufacturer(), theEcorePackage.getEString(), "getManufacturer", 0, 1, !IS_UNIQUE, IS_ORDERED);
@@ -3364,17 +3540,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(restrictionStartAfterOtherStartedEClass, RestrictionStartAfterOtherStarted.class, "RestrictionStartAfterOtherStarted", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(restrictionDisjointExecutionEClass, RestrictionDisjointExecution.class, "RestrictionDisjointExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCustomProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCustomProperty_StringValue(), theEcorePackage.getEString(), "stringValue", null, 0, 1, CustomProperty.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCustomProperty_IntValue(), theEcorePackage.getEIntegerObject(), "intValue", null, 0, 1, CustomProperty.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-        initEClass(customIntPropertyEClass, CustomIntProperty.class, "CustomIntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCustomIntProperty_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, CustomIntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(customStringPropertyEClass, CustomStringProperty.class, "CustomStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCustomStringProperty_Value(), theEcorePackage.getEString(), "value", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(restrictionAlternativesEClass, RestrictionAlternatives.class, "RestrictionAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getRestrictionAlternatives_Alternatives(), this.getRestrictionAlternative(), null, "alternatives", null, 0, -1, RestrictionAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

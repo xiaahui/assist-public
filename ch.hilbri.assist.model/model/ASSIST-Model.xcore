@@ -62,20 +62,66 @@ class AssistModel {
     }
 }
 
-// ABSTRACT PROPERTIES
-class Property {}
-class StringProperty extends Property {
-    String value
+// 
+// PROPERTIES
+//
+class Property {
 }
-class ManufacturerProperty extends StringProperty {}
-class PowerSupplyProperty extends StringProperty {}
+
+class StringProperty extends Property {
+    String value = ""
+}
+
+class IntProperty extends Property {
+    int value = "0"
+}
+
+class ManufacturerProperty extends StringProperty {
+}
+
+class PowerSupplyProperty extends StringProperty {
+}
+
+class BoardTypeProperty extends StringProperty {
+}
+
+class ProcessorTypeProperty extends StringProperty {
+}
+
+class RAMCapacityProperty extends IntProperty {
+}
+
+class ROMCapacityProperty extends IntProperty {
+}
+
+class CoreCapacityProperty extends IntProperty {
+}
+
+class CoreArchitectureProperty extends StringProperty {
+}
+
+class DesignAssuranceLevelProperty extends Property {
+    DesignAssuranceLevelType value = "None"
+}
+
+class CustomIntProperty extends IntProperty {
+    String name = ""
+}
+
+class CustomStringProperty extends StringProperty {
+    String name = ""
+}
+
+//
+// HARDWARE ELEMENTS
+//
+class CustomProperty{}
 
 class HardwareElement {
     String                        name              = ""
-
-    contains Feature[0..*]        features
-    contains CustomProperty[0..*] customProperties
     contains Property[0..*]       properties
+    contains CustomProperty[0..*] customProperties
+    contains Feature[0..*]        features
     
     op String getManufacturer() {
         val manufacturerProperties = properties.filter[it instanceof ManufacturerProperty]
@@ -352,31 +398,6 @@ class RestrictionStartAfterOtherStarted extends ComplexRelation {}
 // Task1, Task2, ... require disjoint execution;
 class RestrictionDisjointExecution extends SimpleRelation {}
 
-/* ********************************************** */
-/* METRIC PARAMETERS                              */
-/* ********************************************** */
-class CustomProperty {
-    String name = ""
-
-    derived String stringValue get { 
-        if (this instanceof CustomStringProperty)   return (this as CustomStringProperty).value
-        else if (this instanceof CustomIntProperty) return (this as CustomIntProperty).value.toString
-        else                                        return null
-    }
-    
-    derived Integer intValue get {
-        if (this instanceof CustomIntProperty)      return (this as CustomIntProperty).value
-        else return null
-    }
-}
-
-class CustomIntProperty extends CustomProperty {
-    int value = "0"
-}
-
-class CustomStringProperty extends CustomProperty {
-    String value = ""
-}
 
 /* ********************************************** */
 /* GENERAL ENUMS                                  */
