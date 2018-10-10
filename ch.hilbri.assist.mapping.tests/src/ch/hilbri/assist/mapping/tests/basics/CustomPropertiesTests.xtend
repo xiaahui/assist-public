@@ -85,7 +85,7 @@ class CustomPropertiesTests extends AbstractMappingTest {
         /* Lets check these properties for the cores */
         for (core : assistModel.allCores) {
             Assert.assertEquals(assistModel.allCores.indexOf(core), core.getCustomIntProperty("MyIntProperty"))
-            Assert.assertEquals(core.name, core.getCustomIntProperty("MyStringProperty"))
+            Assert.assertEquals(core.name, core.getCustomStringProperty("MyStringProperty"))
         }
     }
 }

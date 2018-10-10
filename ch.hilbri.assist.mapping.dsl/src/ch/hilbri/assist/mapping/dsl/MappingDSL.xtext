@@ -146,7 +146,7 @@ Task:
                   (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
             '}' ';'
             ) 
-        )
+        )*
     '}';
 
 /* General Feature Requirements - see #38 */

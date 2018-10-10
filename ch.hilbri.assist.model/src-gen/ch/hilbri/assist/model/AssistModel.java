@@ -126,7 +126,7 @@ public interface AssistModel extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Compartments</em>' containment reference list.
      * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_Compartments()
-     * @model containment="true" required="true"
+     * @model containment="true"
      * @generated
      */
     EList<Compartment> getCompartments();
@@ -142,7 +142,7 @@ public interface AssistModel extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Applications</em>' containment reference list.
      * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_Applications()
-     * @model containment="true" required="true"
+     * @model containment="true"
      * @generated
      */
     EList<Application> getApplications();

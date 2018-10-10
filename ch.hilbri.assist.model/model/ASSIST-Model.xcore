@@ -22,9 +22,9 @@ class AssistModel {
     int              minHypPeriodLength  = "-1"
     int              taskSwitchDelay     = "0"
     
-    contains         Compartment[1..*]                 compartments
+    contains         Compartment[0..*]                 compartments
     
-    contains         Application[1..*]                 applications
+    contains         Application[0..*]                 applications
     
     contains         DislocalityRelation[0..*]         dislocalityRelations
     contains         ColocalityRelation[0..*]          colocalityRelations
