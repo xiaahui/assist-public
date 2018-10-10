@@ -199,26 +199,31 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * @generated
      */
     public void setPowerSupply(final String newValue) {
-        String _powerSupply = this.getPowerSupply();
-        boolean _tripleNotEquals = (_powerSupply != null);
-        if (_tripleNotEquals) {
-            final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PowerSupplyProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
                 public Boolean apply(final Property it) {
                     return Boolean.valueOf((it instanceof PowerSupplyProperty));
                 }
             };
-            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function));
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
             ((PowerSupplyProperty) _head).setValue(newValue);
         }
         else {
             EList<Property> _properties = this.getProperties();
             PowerSupplyProperty _createPowerSupplyProperty = ModelFactory.eINSTANCE.createPowerSupplyProperty();
-            final Procedure1<PowerSupplyProperty> _function_1 = new Procedure1<PowerSupplyProperty>() {
+            final Procedure1<PowerSupplyProperty> _function_2 = new Procedure1<PowerSupplyProperty>() {
                 public void apply(final PowerSupplyProperty it) {
                     it.setValue(newValue);
                 }
             };
-            PowerSupplyProperty _doubleArrow = ObjectExtensions.<PowerSupplyProperty>operator_doubleArrow(_createPowerSupplyProperty, _function_1);
+            PowerSupplyProperty _doubleArrow = ObjectExtensions.<PowerSupplyProperty>operator_doubleArrow(_createPowerSupplyProperty, _function_2);
             _properties.add(_doubleArrow);
         }
     }

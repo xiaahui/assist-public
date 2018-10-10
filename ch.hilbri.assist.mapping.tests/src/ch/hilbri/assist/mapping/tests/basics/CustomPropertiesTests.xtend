@@ -26,17 +26,13 @@ class CustomPropertiesTests extends AbstractMappingTest {
                         Processor P1 {
                             Core C0 {
                                 Capacity = 100;
-                                Properties {
-                                    "MyIntProperty" = 0;
-                                    "MyStringProperty" = "C0";
-                                }
+                                Custom Property "MyIntProperty" = 0;
+                                Custom Property "MyStringProperty" = "C0";
                             }
                             Core C1 {
                                 Capacity = 100;
-                                Properties {
-                                    "MyIntProperty" = 1;
-                                    "MyStringProperty" = "C1";
-                                }
+                                Custom Property "MyIntProperty" = 1;
+                                Custom Property "MyStringProperty" = "C1";
                             }
                         }
                     }
@@ -47,10 +43,8 @@ class CustomPropertiesTests extends AbstractMappingTest {
         Software {
             Application A1 {
                 Task A1_T1 {
-                    Properties { 
-                        "MyIntProperty" = 1;
-                        "MyStringProperty" = "T1";
-                    }
+                    Custom Property "MyIntProperty" = 1;
+                    Custom Property "MyStringProperty" = "T1";
                 }
             }
         }''')
@@ -78,29 +72,20 @@ class CustomPropertiesTests extends AbstractMappingTest {
 
         /* Lets check these properties for the task */
         val task = assistModel.allTasks.head
-        for (property : task.customProperties) {
-            if (property.name.equals("MyIntProperty")) {
-                Assert.assertEquals(1, property.intValue)
-                Assert.assertTrue(property.stringValue.equals("1"))
-            } else if (property.name.equals("MyStringProperty")) {
-                Assert.assertTrue(property.stringValue.equals("T1"))
-                Assert.assertNull(property.intValue)
-            } else
-                Assert.assertFalse(true) // there should be no other property
-        }
+
+        val propList = task.getCustomPropertiesWithName("MyIntProperty")
+        Assert.assertEquals(1, propList.size)
+        Assert.assertEquals(1, task.getCustomIntProperty("MyIntProperty"))
+
+        val propList2 = task.getCustomPropertiesWithName("MyStringProperty")
+        Assert.assertEquals(1, propList2.size)
+        Assert.assertEquals("T1", task.getCustomStringProperty("MyStringProperty"))
+
 
         /* Lets check these properties for the cores */
         for (core : assistModel.allCores) {
-            for (property : core.customProperties) {
-                if (property.name.equals("MyIntProperty")) {
-                    Assert.assertEquals(assistModel.allCores.indexOf(core), property.intValue)
-                    Assert.assertTrue(property.stringValue.equals(assistModel.allCores.indexOf(core).toString))
-                } else if (property.name.equals("MyStringProperty")) {
-                    Assert.assertTrue(property.stringValue.equals(core.name))
-                    Assert.assertNull(property.intValue)
-                } else
-                    Assert.assertFalse(true) // there should be no other property
-            }
+            Assert.assertEquals(assistModel.allCores.indexOf(core), core.getCustomIntProperty("MyIntProperty"))
+            Assert.assertEquals(core.name, core.getCustomIntProperty("MyStringProperty"))
         }
     }
 }

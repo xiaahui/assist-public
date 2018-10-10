@@ -3,11 +3,19 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.CoreArchitectureProperty;
+import ch.hilbri.assist.model.CoreCapacityProperty;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
+
+import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,6 +23,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +39,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getArchitecture <em>Architecture</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getCapacity <em>Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.CoreImpl#getProcessor <em>Processor</em>}</li>
  * </ul>
@@ -33,46 +46,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class CoreImpl extends HardwareElementImpl implements Core {
-    /**
-     * The default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getArchitecture()
-     * @generated
-     * @ordered
-     */
-    protected static final String ARCHITECTURE_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getArchitecture()
-     * @generated
-     * @ordered
-     */
-    protected String architecture = ARCHITECTURE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCapacity()
-     * @generated
-     * @ordered
-     */
-    protected static final int CAPACITY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCapacity()
-     * @generated
-     * @ordered
-     */
-    protected int capacity = CAPACITY_EDEFAULT;
-
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -100,48 +73,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.CORE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getArchitecture() {
-        return architecture;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setArchitecture(String newArchitecture) {
-        String oldArchitecture = architecture;
-        architecture = newArchitecture;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CORE__ARCHITECTURE, oldArchitecture, architecture));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getCapacity() {
-        return capacity;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setCapacity(int newCapacity) {
-        int oldCapacity = capacity;
-        capacity = newCapacity;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CORE__CAPACITY, oldCapacity, capacity));
     }
 
     /**
@@ -212,6 +143,134 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getCoreCapacity() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((CoreCapacityProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCoreCapacity(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((CoreCapacityProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            CoreCapacityProperty _createCoreCapacityProperty = ModelFactory.eINSTANCE.createCoreCapacityProperty();
+            final Procedure1<CoreCapacityProperty> _function_2 = new Procedure1<CoreCapacityProperty>() {
+                public void apply(final CoreCapacityProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            CoreCapacityProperty _doubleArrow = ObjectExtensions.<CoreCapacityProperty>operator_doubleArrow(_createCoreCapacityProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getCoreArchitecture() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreArchitectureProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreArchitectureProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((CoreArchitectureProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCoreArchitecture(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreArchitectureProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreArchitectureProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((CoreArchitectureProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            CoreArchitectureProperty _createCoreArchitectureProperty = ModelFactory.eINSTANCE.createCoreArchitectureProperty();
+            final Procedure1<CoreArchitectureProperty> _function_2 = new Procedure1<CoreArchitectureProperty>() {
+                public void apply(final CoreArchitectureProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            CoreArchitectureProperty _doubleArrow = ObjectExtensions.<CoreArchitectureProperty>operator_doubleArrow(_createCoreArchitectureProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -259,10 +318,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.CORE__ARCHITECTURE:
-                return getArchitecture();
-            case ModelPackage.CORE__CAPACITY:
-                return getCapacity();
             case ModelPackage.CORE__FULL_NAME:
                 return getFullName();
             case ModelPackage.CORE__PROCESSOR:
@@ -280,12 +335,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.CORE__ARCHITECTURE:
-                setArchitecture((String)newValue);
-                return;
-            case ModelPackage.CORE__CAPACITY:
-                setCapacity((Integer)newValue);
-                return;
             case ModelPackage.CORE__PROCESSOR:
                 setProcessor((Processor)newValue);
                 return;
@@ -301,12 +350,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.CORE__ARCHITECTURE:
-                setArchitecture(ARCHITECTURE_EDEFAULT);
-                return;
-            case ModelPackage.CORE__CAPACITY:
-                setCapacity(CAPACITY_EDEFAULT);
-                return;
             case ModelPackage.CORE__PROCESSOR:
                 setProcessor((Processor)null);
                 return;
@@ -322,10 +365,6 @@ public class CoreImpl extends HardwareElementImpl implements Core {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.CORE__ARCHITECTURE:
-                return ARCHITECTURE_EDEFAULT == null ? architecture != null : !ARCHITECTURE_EDEFAULT.equals(architecture);
-            case ModelPackage.CORE__CAPACITY:
-                return capacity != CAPACITY_EDEFAULT;
             case ModelPackage.CORE__FULL_NAME:
                 return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
             case ModelPackage.CORE__PROCESSOR:
@@ -340,16 +379,20 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * @generated
      */
     @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (architecture: ");
-        result.append(architecture);
-        result.append(", capacity: ");
-        result.append(capacity);
-        result.append(')');
-        return result.toString();
+    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+        switch (operationID) {
+            case ModelPackage.CORE___GET_CORE_CAPACITY:
+                return getCoreCapacity();
+            case ModelPackage.CORE___SET_CORE_CAPACITY__INT:
+                setCoreCapacity((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.CORE___GET_CORE_ARCHITECTURE:
+                return getCoreArchitecture();
+            case ModelPackage.CORE___SET_CORE_ARCHITECTURE__STRING:
+                setCoreArchitecture((String)arguments.get(0));
+                return null;
+        }
+        return super.eInvoke(operationID, arguments);
     }
 
 } //CoreImpl

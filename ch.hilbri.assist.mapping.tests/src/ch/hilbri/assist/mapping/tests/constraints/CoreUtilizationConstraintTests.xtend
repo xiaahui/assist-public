@@ -81,8 +81,8 @@ Software {
 
 				if (!mappedTasks.isNullOrEmpty) {
 					val utilizationSum = mappedTasks.map[coreUtilization].reduce[p1, p2|p1 + p2]
-					val msg = '''Utilization of «core.name» exceeds capacity (cap.: «core.capacity», util.: «utilizationSum»)'''
-					Assert.assertTrue(msg, utilizationSum <= core.capacity)
+					val msg = '''Utilization of «core.name» exceeds capacity (cap.: «core.coreCapacity», util.: «utilizationSum»)'''
+					Assert.assertTrue(msg, utilizationSum <= core.coreCapacity)
 				} 
 				else
 					Assert.assertTrue(mappedTasks === null || mappedTasks.length == 0) 

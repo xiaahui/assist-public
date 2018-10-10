@@ -5,11 +5,18 @@ package ch.hilbri.assist.model.impl;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodicityType;
+import ch.hilbri.assist.model.Property;
+import ch.hilbri.assist.model.RAMUtilizationProperty;
+import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.Task;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -28,6 +35,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Task</b></em>'.
@@ -36,9 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getCoreUtilization <em>Core Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRamUtilization <em>Ram Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getEarlyTolerance <em>Early Tolerance</em>}</li>
@@ -60,66 +71,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TaskImpl extends SoftwareElementImpl implements Task {
-    /**
-     * The default value of the '{@link #getCoreUtilization() <em>Core Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCoreUtilization()
-     * @generated
-     * @ordered
-     */
-    protected static final int CORE_UTILIZATION_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getCoreUtilization() <em>Core Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCoreUtilization()
-     * @generated
-     * @ordered
-     */
-    protected int coreUtilization = CORE_UTILIZATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getRamUtilization() <em>Ram Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRamUtilization()
-     * @generated
-     * @ordered
-     */
-    protected static final int RAM_UTILIZATION_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getRamUtilization() <em>Ram Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRamUtilization()
-     * @generated
-     * @ordered
-     */
-    protected int ramUtilization = RAM_UTILIZATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getRomUtilization() <em>Rom Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRomUtilization()
-     * @generated
-     * @ordered
-     */
-    protected static final int ROM_UTILIZATION_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getRomUtilization() <em>Rom Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRomUtilization()
-     * @generated
-     * @ordered
-     */
-    protected int romUtilization = ROM_UTILIZATION_EDEFAULT;
-
     /**
      * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -397,69 +348,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.TASK;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getCoreUtilization() {
-        return coreUtilization;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setCoreUtilization(int newCoreUtilization) {
-        int oldCoreUtilization = coreUtilization;
-        coreUtilization = newCoreUtilization;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__CORE_UTILIZATION, oldCoreUtilization, coreUtilization));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getRamUtilization() {
-        return ramUtilization;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRamUtilization(int newRamUtilization) {
-        int oldRamUtilization = ramUtilization;
-        ramUtilization = newRamUtilization;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__RAM_UTILIZATION, oldRamUtilization, ramUtilization));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getRomUtilization() {
-        return romUtilization;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRomUtilization(int newRomUtilization) {
-        int oldRomUtilization = romUtilization;
-        romUtilization = newRomUtilization;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__ROM_UTILIZATION, oldRomUtilization, romUtilization));
     }
 
     /**
@@ -823,6 +711,198 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getCoreUtilization() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((CoreUtilizationProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCoreUtilization(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CoreUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CoreUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((CoreUtilizationProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            CoreUtilizationProperty _createCoreUtilizationProperty = ModelFactory.eINSTANCE.createCoreUtilizationProperty();
+            final Procedure1<CoreUtilizationProperty> _function_2 = new Procedure1<CoreUtilizationProperty>() {
+                public void apply(final CoreUtilizationProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            CoreUtilizationProperty _doubleArrow = ObjectExtensions.<CoreUtilizationProperty>operator_doubleArrow(_createCoreUtilizationProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getRamUtilization() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof RAMUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof RAMUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((RAMUtilizationProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRamUtilization(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof RAMUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof RAMUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((RAMUtilizationProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            RAMUtilizationProperty _createRAMUtilizationProperty = ModelFactory.eINSTANCE.createRAMUtilizationProperty();
+            final Procedure1<RAMUtilizationProperty> _function_2 = new Procedure1<RAMUtilizationProperty>() {
+                public void apply(final RAMUtilizationProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            RAMUtilizationProperty _doubleArrow = ObjectExtensions.<RAMUtilizationProperty>operator_doubleArrow(_createRAMUtilizationProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getRomUtilization() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ROMUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ROMUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((ROMUtilizationProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRomUtilization(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ROMUtilizationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ROMUtilizationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((ROMUtilizationProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            ROMUtilizationProperty _createROMUtilizationProperty = ModelFactory.eINSTANCE.createROMUtilizationProperty();
+            final Procedure1<ROMUtilizationProperty> _function_2 = new Procedure1<ROMUtilizationProperty>() {
+                public void apply(final ROMUtilizationProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            ROMUtilizationProperty _doubleArrow = ObjectExtensions.<ROMUtilizationProperty>operator_doubleArrow(_createROMUtilizationProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -872,12 +952,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.TASK__CORE_UTILIZATION:
-                return getCoreUtilization();
-            case ModelPackage.TASK__RAM_UTILIZATION:
-                return getRamUtilization();
-            case ModelPackage.TASK__ROM_UTILIZATION:
-                return getRomUtilization();
             case ModelPackage.TASK__DURATION:
                 return getDuration();
             case ModelPackage.TASK__PERIOD:
@@ -925,15 +999,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.TASK__CORE_UTILIZATION:
-                setCoreUtilization((Integer)newValue);
-                return;
-            case ModelPackage.TASK__RAM_UTILIZATION:
-                setRamUtilization((Integer)newValue);
-                return;
-            case ModelPackage.TASK__ROM_UTILIZATION:
-                setRomUtilization((Integer)newValue);
-                return;
             case ModelPackage.TASK__DURATION:
                 setDuration((Integer)newValue);
                 return;
@@ -993,15 +1058,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__CORE_UTILIZATION:
-                setCoreUtilization(CORE_UTILIZATION_EDEFAULT);
-                return;
-            case ModelPackage.TASK__RAM_UTILIZATION:
-                setRamUtilization(RAM_UTILIZATION_EDEFAULT);
-                return;
-            case ModelPackage.TASK__ROM_UTILIZATION:
-                setRomUtilization(ROM_UTILIZATION_EDEFAULT);
-                return;
             case ModelPackage.TASK__DURATION:
                 setDuration(DURATION_EDEFAULT);
                 return;
@@ -1059,12 +1115,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__CORE_UTILIZATION:
-                return coreUtilization != CORE_UTILIZATION_EDEFAULT;
-            case ModelPackage.TASK__RAM_UTILIZATION:
-                return ramUtilization != RAM_UTILIZATION_EDEFAULT;
-            case ModelPackage.TASK__ROM_UTILIZATION:
-                return romUtilization != ROM_UTILIZATION_EDEFAULT;
             case ModelPackage.TASK__DURATION:
                 return duration != DURATION_EDEFAULT;
             case ModelPackage.TASK__PERIOD:
@@ -1107,17 +1157,38 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * @generated
      */
     @Override
+    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+        switch (operationID) {
+            case ModelPackage.TASK___GET_CORE_UTILIZATION:
+                return getCoreUtilization();
+            case ModelPackage.TASK___SET_CORE_UTILIZATION__INT:
+                setCoreUtilization((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_RAM_UTILIZATION:
+                return getRamUtilization();
+            case ModelPackage.TASK___SET_RAM_UTILIZATION__INT:
+                setRamUtilization((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_ROM_UTILIZATION:
+                return getRomUtilization();
+            case ModelPackage.TASK___SET_ROM_UTILIZATION__INT:
+                setRomUtilization((Integer)arguments.get(0));
+                return null;
+        }
+        return super.eInvoke(operationID, arguments);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (coreUtilization: ");
-        result.append(coreUtilization);
-        result.append(", ramUtilization: ");
-        result.append(ramUtilization);
-        result.append(", romUtilization: ");
-        result.append(romUtilization);
-        result.append(", duration: ");
+        result.append(" (duration: ");
         result.append(duration);
         result.append(", period: ");
         result.append(period);

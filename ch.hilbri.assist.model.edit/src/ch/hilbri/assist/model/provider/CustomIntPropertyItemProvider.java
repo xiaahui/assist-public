@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomIntPropertyItemProvider extends IntPropertyItemProvider {
+public class CustomIntPropertyItemProvider extends CustomPropertyItemProvider {
 	/**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -43,29 +43,29 @@ public class CustomIntPropertyItemProvider extends IntPropertyItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addNamePropertyDescriptor(object);
+            addValuePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
 	/**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor(Object object) {
+    protected void addValuePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_CustomIntProperty_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CustomIntProperty_name_feature", "_UI_CustomIntProperty_type"),
-                 ModelPackage.Literals.CUSTOM_INT_PROPERTY__NAME,
+                 getString("_UI_CustomIntProperty_value_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_CustomIntProperty_value_feature", "_UI_CustomIntProperty_type"),
+                 ModelPackage.Literals.CUSTOM_INT_PROPERTY__VALUE,
                  true,
                  false,
                  false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                  null,
                  null));
     }
@@ -108,7 +108,7 @@ public class CustomIntPropertyItemProvider extends IntPropertyItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(CustomIntProperty.class)) {
-            case ModelPackage.CUSTOM_INT_PROPERTY__NAME:
+            case ModelPackage.CUSTOM_INT_PROPERTY__VALUE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

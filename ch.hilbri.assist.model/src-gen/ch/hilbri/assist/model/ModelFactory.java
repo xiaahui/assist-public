@@ -184,6 +184,15 @@ public interface ModelFactory extends EFactory {
     DevelopedByProperty createDevelopedByProperty();
 
     /**
+     * Returns a new object of class '<em>Custom Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Property</em>'.
+     * @generated
+     */
+    CustomProperty createCustomProperty();
+
+    /**
      * Returns a new object of class '<em>Custom Int Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

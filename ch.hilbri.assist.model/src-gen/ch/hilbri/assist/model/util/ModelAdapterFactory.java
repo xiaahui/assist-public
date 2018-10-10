@@ -22,6 +22,7 @@ import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CoreUtilizationProperty;
 import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
+import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DevelopedByProperty;
@@ -201,6 +202,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseDevelopedByProperty(DevelopedByProperty object) {
                 return createDevelopedByPropertyAdapter();
+            }
+            @Override
+            public Adapter caseCustomProperty(CustomProperty object) {
+                return createCustomPropertyAdapter();
             }
             @Override
             public Adapter caseCustomIntProperty(CustomIntProperty object) {
@@ -651,6 +656,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDevelopedByPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CustomProperty <em>Custom Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.CustomProperty
+     * @generated
+     */
+    public Adapter createCustomPropertyAdapter() {
         return null;
     }
 

@@ -48,56 +48,10 @@ public class ApplicationItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addDevelopedByPropertyDescriptor(object);
-            addCriticalityLevelPropertyDescriptor(object);
             addRestrictMappingToHardwareElementsPropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Developed By feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addDevelopedByPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Application_developedBy_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Application_developedBy_feature", "_UI_Application_type"),
-                 ModelPackage.Literals.APPLICATION__DEVELOPED_BY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Criticality Level feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addCriticalityLevelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Application_criticalityLevel_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Application_criticalityLevel_feature", "_UI_Application_type"),
-                 ModelPackage.Literals.APPLICATION__CRITICALITY_LEVEL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -212,8 +166,6 @@ public class ApplicationItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(Application.class)) {
-            case ModelPackage.APPLICATION__DEVELOPED_BY:
-            case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
             case ModelPackage.APPLICATION__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

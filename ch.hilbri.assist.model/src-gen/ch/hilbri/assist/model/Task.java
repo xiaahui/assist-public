@@ -13,9 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Task#getCoreUtilization <em>Core Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Task#getRamUtilization <em>Ram Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Task#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getDuration <em>Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getPeriod <em>Period</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getEarlyTolerance <em>Early Tolerance</em>}</li>
@@ -39,87 +36,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Task extends SoftwareElement {
-    /**
-     * Returns the value of the '<em><b>Core Utilization</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Core Utilization</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Core Utilization</em>' attribute.
-     * @see #setCoreUtilization(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_CoreUtilization()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getCoreUtilization();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Task#getCoreUtilization <em>Core Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Core Utilization</em>' attribute.
-     * @see #getCoreUtilization()
-     * @generated
-     */
-    void setCoreUtilization(int value);
-
-    /**
-     * Returns the value of the '<em><b>Ram Utilization</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Ram Utilization</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Ram Utilization</em>' attribute.
-     * @see #setRamUtilization(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_RamUtilization()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getRamUtilization();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Task#getRamUtilization <em>Ram Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Ram Utilization</em>' attribute.
-     * @see #getRamUtilization()
-     * @generated
-     */
-    void setRamUtilization(int value);
-
-    /**
-     * Returns the value of the '<em><b>Rom Utilization</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Rom Utilization</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Rom Utilization</em>' attribute.
-     * @see #setRomUtilization(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_RomUtilization()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getRomUtilization();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Task#getRomUtilization <em>Rom Utilization</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Rom Utilization</em>' attribute.
-     * @see #getRomUtilization()
-     * @generated
-     */
-    void setRomUtilization(int value);
-
     /**
      * Returns the value of the '<em><b>Duration</b></em>' attribute.
      * The default value is <code>"-1"</code>.
@@ -523,5 +439,53 @@ public interface Task extends SoftwareElement {
      * @generated
      */
     String getFullName();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getCoreUtilization();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setCoreUtilization(int newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getRamUtilization();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setRamUtilization(int newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getRomUtilization();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setRomUtilization(int newValue);
 
 } // Task

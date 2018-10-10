@@ -75,4 +75,36 @@ public interface SoftwareElement extends EObject {
      */
     String toString();
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" nameUnique="false"
+     * @generated
+     */
+    EList<CustomProperty> getCustomPropertiesWithName(String name);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" nameUnique="false" valueUnique="false"
+     * @generated
+     */
+    EList<CustomProperty> getCustomPropertiesWithNameAndValue(String name, String value);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" nameUnique="false"
+     * @generated
+     */
+    String getCustomStringProperty(String name);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" nameUnique="false"
+     * @generated
+     */
+    int getCustomIntProperty(String name);
+
 } // SoftwareElement

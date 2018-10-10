@@ -23,6 +23,7 @@ import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CoreUtilizationProperty;
 import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
+import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
@@ -222,6 +223,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass developedByPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass customPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1048,6 +1056,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getCustomProperty() {
+        return customPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCustomProperty_Name() {
+        return (EAttribute)customPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getCustomIntProperty() {
         return customIntPropertyEClass;
     }
@@ -1057,7 +1083,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCustomIntProperty_Name() {
+    public EAttribute getCustomIntProperty_Value() {
         return (EAttribute)customIntPropertyEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1075,7 +1101,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCustomStringProperty_Name() {
+    public EAttribute getCustomStringProperty_Value() {
         return (EAttribute)customStringPropertyEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1140,6 +1166,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getHardwareElement__SetManufacturer__String() {
         return hardwareElementEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getHardwareElement__GetCustomPropertiesWithName__String() {
+        return hardwareElementEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getHardwareElement__GetCustomPropertiesWithNameAndValue__String_String() {
+        return hardwareElementEClass.getEOperations().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getHardwareElement__GetCustomStringProperty__String() {
+        return hardwareElementEClass.getEOperations().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getHardwareElement__GetCustomIntProperty__String() {
+        return hardwareElementEClass.getEOperations().get(5);
     }
 
     /**
@@ -1561,7 +1623,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProcessor_ProcessorType() {
+    public EAttribute getProcessor_FullName() {
         return (EAttribute)processorEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1570,17 +1632,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProcessor_FullName() {
-        return (EAttribute)processorEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getProcessor_Board() {
-        return (EReference)processorEClass.getEStructuralFeatures().get(2);
+        return (EReference)processorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1589,7 +1642,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getProcessor_Cores() {
-        return (EReference)processorEClass.getEStructuralFeatures().get(3);
+        return (EReference)processorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1606,6 +1659,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getProcessor__GetProcessorType() {
+        return processorEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getProcessor__SetProcessorType__String() {
+        return processorEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getCore() {
         return coreEClass;
     }
@@ -1615,7 +1686,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCore_Architecture() {
+    public EAttribute getCore_FullName() {
         return (EAttribute)coreEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1624,26 +1695,44 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCore_Capacity() {
-        return (EAttribute)coreEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getCore_FullName() {
-        return (EAttribute)coreEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getCore_Processor() {
-        return (EReference)coreEClass.getEStructuralFeatures().get(3);
+        return (EReference)coreEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getCore__GetCoreCapacity() {
+        return coreEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getCore__SetCoreCapacity__int() {
+        return coreEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getCore__GetCoreArchitecture() {
+        return coreEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getCore__SetCoreArchitecture__String() {
+        return coreEClass.getEOperations().get(3);
     }
 
     /**
@@ -1732,6 +1821,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getSoftwareElement__GetCustomPropertiesWithName__String() {
+        return softwareElementEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getSoftwareElement__GetCustomPropertiesWithNameAndValue__String_String() {
+        return softwareElementEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getSoftwareElement__GetCustomStringProperty__String() {
+        return softwareElementEClass.getEOperations().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getSoftwareElement__GetCustomIntProperty__String() {
+        return softwareElementEClass.getEOperations().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getApplication() {
         return applicationEClass;
     }
@@ -1741,26 +1866,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getApplication_DevelopedBy() {
-        return (EAttribute)applicationEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getApplication_CriticalityLevel() {
-        return (EAttribute)applicationEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getApplication_Tasks() {
-        return (EReference)applicationEClass.getEStructuralFeatures().get(2);
+        return (EReference)applicationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1769,7 +1876,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getApplication_RestrictMappingToHardwareElements() {
-        return (EReference)applicationEClass.getEStructuralFeatures().get(3);
+        return (EReference)applicationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1778,7 +1885,43 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EAttribute getApplication_FullName() {
-        return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
+        return (EAttribute)applicationEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getApplication__GetDevelopedBy() {
+        return applicationEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getApplication__SetDevelopedBy__String() {
+        return applicationEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getApplication__GetCriticalityLevel() {
+        return applicationEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getApplication__SetAssuranceLevel__DesignAssuranceLevelType() {
+        return applicationEClass.getEOperations().get(3);
     }
 
     /**
@@ -1795,7 +1938,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_CoreUtilization() {
+    public EAttribute getTask_Duration() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1804,7 +1947,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_RamUtilization() {
+    public EAttribute getTask_Period() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
     }
 
@@ -1813,7 +1956,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_RomUtilization() {
+    public EAttribute getTask_EarlyTolerance() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
     }
 
@@ -1822,7 +1965,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_Duration() {
+    public EAttribute getTask_LateTolerance() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1831,7 +1974,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_Period() {
+    public EAttribute getTask_MaxStartTime() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
     }
 
@@ -1840,7 +1983,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_EarlyTolerance() {
+    public EAttribute getTask_MaxEndTime() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
     }
 
@@ -1849,7 +1992,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_LateTolerance() {
+    public EAttribute getTask_AddInitTime() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
     }
 
@@ -1858,7 +2001,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_MaxStartTime() {
+    public EAttribute getTask_Slices() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
     }
 
@@ -1867,7 +2010,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_MaxEndTime() {
+    public EAttribute getTask_MinSliceDuration() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(8);
     }
 
@@ -1876,7 +2019,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_AddInitTime() {
+    public EAttribute getTask_Periodicity() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(9);
     }
 
@@ -1885,7 +2028,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_Slices() {
+    public EAttribute getTask_Color() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(10);
     }
 
@@ -1894,35 +2037,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_MinSliceDuration() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(11);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Periodicity() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(12);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Color() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(13);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getTask_Application() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(14);
+        return (EReference)taskEClass.getEStructuralFeatures().get(11);
     }
 
     /**
@@ -1931,7 +2047,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_FeatureRequirements() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(15);
+        return (EReference)taskEClass.getEStructuralFeatures().get(12);
     }
 
     /**
@@ -1940,7 +2056,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_RestrictMappingToHardwareElements() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(16);
+        return (EReference)taskEClass.getEStructuralFeatures().get(13);
     }
 
     /**
@@ -1949,7 +2065,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_AssignedCore() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(17);
+        return (EReference)taskEClass.getEStructuralFeatures().get(14);
     }
 
     /**
@@ -1958,7 +2074,61 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EAttribute getTask_FullName() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(18);
+        return (EAttribute)taskEClass.getEStructuralFeatures().get(15);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetCoreUtilization() {
+        return taskEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetCoreUtilization__int() {
+        return taskEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetRamUtilization() {
+        return taskEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetRamUtilization__int() {
+        return taskEClass.getEOperations().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetRomUtilization() {
+        return taskEClass.getEOperations().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetRomUtilization__int() {
+        return taskEClass.getEOperations().get(5);
     }
 
     /**
@@ -3102,11 +3272,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         developedByPropertyEClass = createEClass(DEVELOPED_BY_PROPERTY);
 
+        customPropertyEClass = createEClass(CUSTOM_PROPERTY);
+        createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
+
         customIntPropertyEClass = createEClass(CUSTOM_INT_PROPERTY);
-        createEAttribute(customIntPropertyEClass, CUSTOM_INT_PROPERTY__NAME);
+        createEAttribute(customIntPropertyEClass, CUSTOM_INT_PROPERTY__VALUE);
 
         customStringPropertyEClass = createEClass(CUSTOM_STRING_PROPERTY);
-        createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__NAME);
+        createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__VALUE);
 
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -3115,6 +3288,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__GET_HARDWARE_LEVEL);
         createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_MANUFACTURER);
         createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___SET_MANUFACTURER__STRING);
+        createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME__STRING);
+        createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME_AND_VALUE__STRING_STRING);
+        createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_CUSTOM_STRING_PROPERTY__STRING);
+        createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_CUSTOM_INT_PROPERTY__STRING);
 
         featureEClass = createEClass(FEATURE);
         createEAttribute(featureEClass, FEATURE__NAME);
@@ -3168,17 +3345,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(boardEClass, BOARD___SET_ROM_CAPACITY__INT);
 
         processorEClass = createEClass(PROCESSOR);
-        createEAttribute(processorEClass, PROCESSOR__PROCESSOR_TYPE);
         createEAttribute(processorEClass, PROCESSOR__FULL_NAME);
         createEReference(processorEClass, PROCESSOR__BOARD);
         createEReference(processorEClass, PROCESSOR__CORES);
         createEOperation(processorEClass, PROCESSOR___GET_ALL_CORES);
+        createEOperation(processorEClass, PROCESSOR___GET_PROCESSOR_TYPE);
+        createEOperation(processorEClass, PROCESSOR___SET_PROCESSOR_TYPE__STRING);
 
         coreEClass = createEClass(CORE);
-        createEAttribute(coreEClass, CORE__ARCHITECTURE);
-        createEAttribute(coreEClass, CORE__CAPACITY);
         createEAttribute(coreEClass, CORE__FULL_NAME);
         createEReference(coreEClass, CORE__PROCESSOR);
+        createEOperation(coreEClass, CORE___GET_CORE_CAPACITY);
+        createEOperation(coreEClass, CORE___SET_CORE_CAPACITY__INT);
+        createEOperation(coreEClass, CORE___GET_CORE_ARCHITECTURE);
+        createEOperation(coreEClass, CORE___SET_CORE_ARCHITECTURE__STRING);
 
         applicationAlternativesEClass = createEClass(APPLICATION_ALTERNATIVES);
         createEReference(applicationAlternativesEClass, APPLICATION_ALTERNATIVES__ALTERNATIVES);
@@ -3191,18 +3371,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(softwareElementEClass, SOFTWARE_ELEMENT__NAME);
         createEReference(softwareElementEClass, SOFTWARE_ELEMENT__PROPERTIES);
         createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___TO_STRING);
+        createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME__STRING);
+        createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME_AND_VALUE__STRING_STRING);
+        createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___GET_CUSTOM_STRING_PROPERTY__STRING);
+        createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___GET_CUSTOM_INT_PROPERTY__STRING);
 
         applicationEClass = createEClass(APPLICATION);
-        createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
-        createEAttribute(applicationEClass, APPLICATION__CRITICALITY_LEVEL);
         createEReference(applicationEClass, APPLICATION__TASKS);
         createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         createEAttribute(applicationEClass, APPLICATION__FULL_NAME);
+        createEOperation(applicationEClass, APPLICATION___GET_DEVELOPED_BY);
+        createEOperation(applicationEClass, APPLICATION___SET_DEVELOPED_BY__STRING);
+        createEOperation(applicationEClass, APPLICATION___GET_CRITICALITY_LEVEL);
+        createEOperation(applicationEClass, APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE);
 
         taskEClass = createEClass(TASK);
-        createEAttribute(taskEClass, TASK__CORE_UTILIZATION);
-        createEAttribute(taskEClass, TASK__RAM_UTILIZATION);
-        createEAttribute(taskEClass, TASK__ROM_UTILIZATION);
         createEAttribute(taskEClass, TASK__DURATION);
         createEAttribute(taskEClass, TASK__PERIOD);
         createEAttribute(taskEClass, TASK__EARLY_TOLERANCE);
@@ -3219,6 +3402,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         createEReference(taskEClass, TASK__ASSIGNED_CORE);
         createEAttribute(taskEClass, TASK__FULL_NAME);
+        createEOperation(taskEClass, TASK___GET_CORE_UTILIZATION);
+        createEOperation(taskEClass, TASK___SET_CORE_UTILIZATION__INT);
+        createEOperation(taskEClass, TASK___GET_RAM_UTILIZATION);
+        createEOperation(taskEClass, TASK___SET_RAM_UTILIZATION__INT);
+        createEOperation(taskEClass, TASK___GET_ROM_UTILIZATION);
+        createEOperation(taskEClass, TASK___SET_ROM_UTILIZATION__INT);
 
         featureRequirementEClass = createEClass(FEATURE_REQUIREMENT);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__NAME);
@@ -3418,8 +3607,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         designAssuranceLevelPropertyEClass.getESuperTypes().add(this.getProperty());
         criticalityLevelPropertyEClass.getESuperTypes().add(this.getProperty());
         developedByPropertyEClass.getESuperTypes().add(this.getStringProperty());
-        customIntPropertyEClass.getESuperTypes().add(this.getIntProperty());
-        customStringPropertyEClass.getESuperTypes().add(this.getStringProperty());
+        customPropertyEClass.getESuperTypes().add(this.getProperty());
+        customIntPropertyEClass.getESuperTypes().add(this.getCustomProperty());
+        customStringPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         compartmentEClass.getESuperTypes().add(this.getHardwareElement());
         boxEClass.getESuperTypes().add(this.getHardwareElement());
         boardEClass.getESuperTypes().add(this.getHardwareElement());
@@ -3512,11 +3702,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(developedByPropertyEClass, DevelopedByProperty.class, "DevelopedByProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCustomProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         initEClass(customIntPropertyEClass, CustomIntProperty.class, "CustomIntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCustomIntProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomIntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCustomIntProperty_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, CustomIntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(customStringPropertyEClass, CustomStringProperty.class, "CustomStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCustomStringProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getCustomStringProperty_Value(), theEcorePackage.getEString(), "value", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3528,6 +3721,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         op = initEOperation(getHardwareElement__SetManufacturer__String(), null, "setManufacturer", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getHardwareElement__GetCustomPropertiesWithName__String(), this.getCustomProperty(), "getCustomPropertiesWithName", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getHardwareElement__GetCustomPropertiesWithNameAndValue__String_String(), this.getCustomProperty(), "getCustomPropertiesWithNameAndValue", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "value", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getHardwareElement__GetCustomStringProperty__String(), theEcorePackage.getEString(), "getCustomStringProperty", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getHardwareElement__GetCustomIntProperty__String(), theEcorePackage.getEInt(), "getCustomIntProperty", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeature_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3609,18 +3815,30 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getProcessor_ProcessorType(), theEcorePackage.getEString(), "processorType", "", 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProcessor_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Processor.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEReference(getProcessor_Board(), this.getBoard(), this.getBoard_Processors(), "board", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getProcessor_Cores(), this.getCore(), this.getCore_Processor(), "cores", null, 1, -1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEOperation(getProcessor__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
+        initEOperation(getProcessor__GetProcessorType(), theEcorePackage.getEString(), "getProcessorType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getProcessor__SetProcessorType__String(), null, "setProcessorType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
         initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getCore_Architecture(), theEcorePackage.getEString(), "architecture", "", 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getCore_Capacity(), theEcorePackage.getEInt(), "capacity", "0", 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getCore_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Core.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEReference(getCore_Processor(), this.getProcessor(), this.getProcessor_Cores(), "processor", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEOperation(getCore__GetCoreCapacity(), theEcorePackage.getEInt(), "getCoreCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getCore__SetCoreCapacity__int(), null, "setCoreCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getCore__GetCoreArchitecture(), theEcorePackage.getEString(), "getCoreArchitecture", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getCore__SetCoreArchitecture__String(), null, "setCoreArchitecture", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(applicationAlternativesEClass, ApplicationAlternatives.class, "ApplicationAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getApplicationAlternatives_Alternatives(), this.getApplicationAlternative(), null, "alternatives", null, 0, -1, ApplicationAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3635,17 +3853,35 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEOperation(getSoftwareElement__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+        op = initEOperation(getSoftwareElement__GetCustomPropertiesWithName__String(), this.getCustomProperty(), "getCustomPropertiesWithName", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getSoftwareElement__GetCustomPropertiesWithNameAndValue__String_String(), this.getCustomProperty(), "getCustomPropertiesWithNameAndValue", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "value", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getSoftwareElement__GetCustomStringProperty__String(), theEcorePackage.getEString(), "getCustomStringProperty", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getSoftwareElement__GetCustomIntProperty__String(), theEcorePackage.getEInt(), "getCustomIntProperty", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
         initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", "", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getApplication_CriticalityLevel(), this.getDesignAssuranceLevelType(), "criticalityLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getApplication_Tasks(), this.getTask(), this.getTask_Application(), "tasks", null, 1, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getApplication_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Application.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+        initEOperation(getApplication__GetDevelopedBy(), theEcorePackage.getEString(), "getDevelopedBy", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getApplication__SetDevelopedBy__String(), null, "setDevelopedBy", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getApplication__GetCriticalityLevel(), this.getDesignAssuranceLevelType(), "getCriticalityLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getApplication__SetAssuranceLevel__DesignAssuranceLevelType(), null, "setAssuranceLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getDesignAssuranceLevelType(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
         initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getTask_CoreUtilization(), theEcorePackage.getEInt(), "coreUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", "0", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_Duration(), theEcorePackage.getEInt(), "duration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_Period(), theEcorePackage.getEInt(), "period", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_EarlyTolerance(), theEcorePackage.getEInt(), "earlyTolerance", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3662,6 +3898,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+        initEOperation(getTask__GetCoreUtilization(), theEcorePackage.getEInt(), "getCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetCoreUtilization__int(), null, "setCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetRamUtilization(), theEcorePackage.getEInt(), "getRamUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetRamUtilization__int(), null, "setRamUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetRomUtilization(), theEcorePackage.getEInt(), "getRomUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetRomUtilization__int(), null, "setRomUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeatureRequirement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

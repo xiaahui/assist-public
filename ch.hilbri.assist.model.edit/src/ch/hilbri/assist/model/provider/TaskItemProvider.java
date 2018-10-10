@@ -48,9 +48,6 @@ public class TaskItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addCoreUtilizationPropertyDescriptor(object);
-            addRamUtilizationPropertyDescriptor(object);
-            addRomUtilizationPropertyDescriptor(object);
             addDurationPropertyDescriptor(object);
             addPeriodPropertyDescriptor(object);
             addEarlyTolerancePropertyDescriptor(object);
@@ -68,72 +65,6 @@ public class TaskItemProvider
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Core Utilization feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addCoreUtilizationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Task_coreUtilization_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Task_coreUtilization_feature", "_UI_Task_type"),
-                 ModelPackage.Literals.TASK__CORE_UTILIZATION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Ram Utilization feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addRamUtilizationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Task_ramUtilization_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Task_ramUtilization_feature", "_UI_Task_type"),
-                 ModelPackage.Literals.TASK__RAM_UTILIZATION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Rom Utilization feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addRomUtilizationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Task_romUtilization_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Task_romUtilization_feature", "_UI_Task_type"),
-                 ModelPackage.Literals.TASK__ROM_UTILIZATION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -534,9 +465,6 @@ public class TaskItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(Task.class)) {
-            case ModelPackage.TASK__CORE_UTILIZATION:
-            case ModelPackage.TASK__RAM_UTILIZATION:
-            case ModelPackage.TASK__ROM_UTILIZATION:
             case ModelPackage.TASK__DURATION:
             case ModelPackage.TASK__PERIOD:
             case ModelPackage.TASK__EARLY_TOLERANCE:

@@ -293,6 +293,11 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomIntProperty()));
 
         newChildDescriptors.add

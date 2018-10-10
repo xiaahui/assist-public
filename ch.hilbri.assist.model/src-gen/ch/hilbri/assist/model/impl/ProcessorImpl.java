@@ -4,8 +4,11 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.ProcessorTypeProperty;
+import ch.hilbri.assist.model.Property;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,6 +28,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Processor</b></em>'.
@@ -33,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.ProcessorImpl#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ProcessorImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ProcessorImpl#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ProcessorImpl#getCores <em>Cores</em>}</li>
@@ -42,26 +51,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ProcessorImpl extends HardwareElementImpl implements Processor {
-    /**
-     * The default value of the '{@link #getProcessorType() <em>Processor Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getProcessorType()
-     * @generated
-     * @ordered
-     */
-    protected static final String PROCESSOR_TYPE_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getProcessorType() <em>Processor Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getProcessorType()
-     * @generated
-     * @ordered
-     */
-    protected String processorType = PROCESSOR_TYPE_EDEFAULT;
-
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -99,27 +88,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.PROCESSOR;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getProcessorType() {
-        return processorType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setProcessorType(String newProcessorType) {
-        String oldProcessorType = processorType;
-        processorType = newProcessorType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROCESSOR__PROCESSOR_TYPE, oldProcessorType, processorType));
     }
 
     /**
@@ -211,6 +179,70 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getProcessorType() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ProcessorTypeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ProcessorTypeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((ProcessorTypeProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setProcessorType(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ProcessorTypeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ProcessorTypeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((ProcessorTypeProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            ProcessorTypeProperty _createProcessorTypeProperty = ModelFactory.eINSTANCE.createProcessorTypeProperty();
+            final Procedure1<ProcessorTypeProperty> _function_2 = new Procedure1<ProcessorTypeProperty>() {
+                public void apply(final ProcessorTypeProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            ProcessorTypeProperty _doubleArrow = ObjectExtensions.<ProcessorTypeProperty>operator_doubleArrow(_createProcessorTypeProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -263,8 +295,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
-                return getProcessorType();
             case ModelPackage.PROCESSOR__FULL_NAME:
                 return getFullName();
             case ModelPackage.PROCESSOR__BOARD:
@@ -285,9 +315,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
-                setProcessorType((String)newValue);
-                return;
             case ModelPackage.PROCESSOR__BOARD:
                 setBoard((Board)newValue);
                 return;
@@ -307,9 +334,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
-                setProcessorType(PROCESSOR_TYPE_EDEFAULT);
-                return;
             case ModelPackage.PROCESSOR__BOARD:
                 setBoard((Board)null);
                 return;
@@ -328,8 +352,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
-                return PROCESSOR_TYPE_EDEFAULT == null ? processorType != null : !PROCESSOR_TYPE_EDEFAULT.equals(processorType);
             case ModelPackage.PROCESSOR__FULL_NAME:
                 return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
             case ModelPackage.PROCESSOR__BOARD:
@@ -350,24 +372,13 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
         switch (operationID) {
             case ModelPackage.PROCESSOR___GET_ALL_CORES:
                 return getAllCores();
+            case ModelPackage.PROCESSOR___GET_PROCESSOR_TYPE:
+                return getProcessorType();
+            case ModelPackage.PROCESSOR___SET_PROCESSOR_TYPE__STRING:
+                setProcessorType((String)arguments.get(0));
+                return null;
         }
         return super.eInvoke(operationID, arguments);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (processorType: ");
-        result.append(processorType);
-        result.append(')');
-        return result.toString();
     }
 
 } //ProcessorImpl

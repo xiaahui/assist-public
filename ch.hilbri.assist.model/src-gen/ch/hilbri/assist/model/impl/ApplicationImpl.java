@@ -3,14 +3,19 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.Task;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,11 +23,16 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getFullName <em>Full Name</em>}</li>
@@ -42,46 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ApplicationImpl extends SoftwareElementImpl implements Application {
-    /**
-     * The default value of the '{@link #getDevelopedBy() <em>Developed By</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDevelopedBy()
-     * @generated
-     * @ordered
-     */
-    protected static final String DEVELOPED_BY_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getDevelopedBy() <em>Developed By</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDevelopedBy()
-     * @generated
-     * @ordered
-     */
-    protected String developedBy = DEVELOPED_BY_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getCriticalityLevel() <em>Criticality Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCriticalityLevel()
-     * @generated
-     * @ordered
-     */
-    protected static final DesignAssuranceLevelType CRITICALITY_LEVEL_EDEFAULT = DesignAssuranceLevelType.NONE;
-
-    /**
-     * The cached value of the '{@link #getCriticalityLevel() <em>Criticality Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCriticalityLevel()
-     * @generated
-     * @ordered
-     */
-    protected DesignAssuranceLevelType criticalityLevel = CRITICALITY_LEVEL_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -136,48 +104,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDevelopedBy() {
-        return developedBy;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setDevelopedBy(String newDevelopedBy) {
-        String oldDevelopedBy = developedBy;
-        developedBy = newDevelopedBy;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__DEVELOPED_BY, oldDevelopedBy, developedBy));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DesignAssuranceLevelType getCriticalityLevel() {
-        return criticalityLevel;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setCriticalityLevel(DesignAssuranceLevelType newCriticalityLevel) {
-        DesignAssuranceLevelType oldCriticalityLevel = criticalityLevel;
-        criticalityLevel = newCriticalityLevel == null ? CRITICALITY_LEVEL_EDEFAULT : newCriticalityLevel;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__CRITICALITY_LEVEL, oldCriticalityLevel, criticalityLevel));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EList<Task> getTasks() {
         if (tasks == null) {
             tasks = new EObjectContainmentWithInverseEList<Task>(Task.class, this, ModelPackage.APPLICATION__TASKS, ModelPackage.TASK__APPLICATION);
@@ -204,6 +130,134 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      */
     public String getFullName() {
         return this.getName();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDevelopedBy() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DevelopedByProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DevelopedByProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((DevelopedByProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDevelopedBy(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DevelopedByProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DevelopedByProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((DevelopedByProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            DevelopedByProperty _createDevelopedByProperty = ModelFactory.eINSTANCE.createDevelopedByProperty();
+            final Procedure1<DevelopedByProperty> _function_2 = new Procedure1<DevelopedByProperty>() {
+                public void apply(final DevelopedByProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            DevelopedByProperty _doubleArrow = ObjectExtensions.<DevelopedByProperty>operator_doubleArrow(_createDevelopedByProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DesignAssuranceLevelType getCriticalityLevel() {
+        DesignAssuranceLevelType _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CriticalityLevelProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CriticalityLevelProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((CriticalityLevelProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = DesignAssuranceLevelType.NONE;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAssuranceLevel(final DesignAssuranceLevelType newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof CriticalityLevelProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof CriticalityLevelProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((CriticalityLevelProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            CriticalityLevelProperty _createCriticalityLevelProperty = ModelFactory.eINSTANCE.createCriticalityLevelProperty();
+            final Procedure1<CriticalityLevelProperty> _function_2 = new Procedure1<CriticalityLevelProperty>() {
+                public void apply(final CriticalityLevelProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            CriticalityLevelProperty _doubleArrow = ObjectExtensions.<CriticalityLevelProperty>operator_doubleArrow(_createCriticalityLevelProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
     }
 
     /**
@@ -243,10 +297,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__DEVELOPED_BY:
-                return getDevelopedBy();
-            case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-                return getCriticalityLevel();
             case ModelPackage.APPLICATION__TASKS:
                 return getTasks();
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
@@ -266,12 +316,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__DEVELOPED_BY:
-                setDevelopedBy((String)newValue);
-                return;
-            case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-                setCriticalityLevel((DesignAssuranceLevelType)newValue);
-                return;
             case ModelPackage.APPLICATION__TASKS:
                 getTasks().clear();
                 getTasks().addAll((Collection<? extends Task>)newValue);
@@ -292,12 +336,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__DEVELOPED_BY:
-                setDevelopedBy(DEVELOPED_BY_EDEFAULT);
-                return;
-            case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-                setCriticalityLevel(CRITICALITY_LEVEL_EDEFAULT);
-                return;
             case ModelPackage.APPLICATION__TASKS:
                 getTasks().clear();
                 return;
@@ -316,10 +354,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.APPLICATION__DEVELOPED_BY:
-                return DEVELOPED_BY_EDEFAULT == null ? developedBy != null : !DEVELOPED_BY_EDEFAULT.equals(developedBy);
-            case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-                return criticalityLevel != CRITICALITY_LEVEL_EDEFAULT;
             case ModelPackage.APPLICATION__TASKS:
                 return tasks != null && !tasks.isEmpty();
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
@@ -336,16 +370,20 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * @generated
      */
     @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (developedBy: ");
-        result.append(developedBy);
-        result.append(", criticalityLevel: ");
-        result.append(criticalityLevel);
-        result.append(')');
-        return result.toString();
+    public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+        switch (operationID) {
+            case ModelPackage.APPLICATION___GET_DEVELOPED_BY:
+                return getDevelopedBy();
+            case ModelPackage.APPLICATION___SET_DEVELOPED_BY__STRING:
+                setDevelopedBy((String)arguments.get(0));
+                return null;
+            case ModelPackage.APPLICATION___GET_CRITICALITY_LEVEL:
+                return getCriticalityLevel();
+            case ModelPackage.APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE:
+                setAssuranceLevel((DesignAssuranceLevelType)arguments.get(0));
+                return null;
+        }
+        return super.eInvoke(operationID, arguments);
     }
 
 } //ApplicationImpl

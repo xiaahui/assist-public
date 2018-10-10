@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Processor#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Processor#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Processor#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Processor#getCores <em>Cores</em>}</li>
@@ -24,33 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Processor extends HardwareElement {
-    /**
-     * Returns the value of the '<em><b>Processor Type</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Processor Type</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Processor Type</em>' attribute.
-     * @see #setProcessorType(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getProcessor_ProcessorType()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getProcessorType();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Processor#getProcessorType <em>Processor Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Processor Type</em>' attribute.
-     * @see #getProcessorType()
-     * @generated
-     */
-    void setProcessorType(String value);
-
     /**
      * Returns the value of the '<em><b>Full Name</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -119,5 +91,21 @@ public interface Processor extends HardwareElement {
      * @generated
      */
     EList<Core> getAllCores();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    String getProcessorType();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setProcessorType(String newValue);
 
 } // Processor

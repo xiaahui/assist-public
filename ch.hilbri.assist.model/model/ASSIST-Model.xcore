@@ -120,12 +120,17 @@ class CriticalityLevelProperty extends Property {
 class DevelopedByProperty extends StringProperty {
 }
 
-class CustomIntProperty extends IntProperty {
+// Custom Properties
+class CustomProperty extends Property {
     String name = ""
 }
 
-class CustomStringProperty extends StringProperty {
-    String name = ""
+class CustomIntProperty extends CustomProperty {
+    int value = "0"
+}
+
+class CustomStringProperty extends CustomProperty {
+    String value = ""
 }
 
 //
@@ -144,7 +149,7 @@ class HardwareElement {
     }
     
     op void setManufacturer(String newValue) {
-        if (getManufacturer() !== null) 
+        if (!properties.filter[it instanceof ManufacturerProperty].isNullOrEmpty) 
             (properties.filter[it instanceof ManufacturerProperty].head as ManufacturerProperty).value = newValue
         else 
             properties.add(ModelFactory.eINSTANCE.createManufacturerProperty => [value = newValue])
@@ -156,6 +161,28 @@ class HardwareElement {
         else if (this instanceof Board) HardwareArchitectureLevelType.BOARD
         else if (this instanceof Processor) HardwareArchitectureLevelType.PROCESSOR
         else if (this instanceof Core) HardwareArchitectureLevelType.CORE
+    }
+    
+    op CustomProperty[] getCustomPropertiesWithName(String name) {
+        properties.filter[it instanceof CustomProperty && (it as CustomProperty).name == name].map[it as CustomProperty].toEList
+    }
+    
+    op CustomProperty[] getCustomPropertiesWithNameAndValue(String name, String value) {
+        getCustomPropertiesWithName(name).filter[(it as CustomStringProperty).value == value].toEList
+    }
+    
+    op String getCustomStringProperty(String name) {
+        if (!getCustomPropertiesWithName(name).filter[it instanceof CustomStringProperty].isNullOrEmpty)
+            (getCustomPropertiesWithName(name).filter[it instanceof CustomStringProperty].head as CustomStringProperty).value
+        else 
+            null
+    }
+    
+    op int getCustomIntProperty(String name) {
+        if (!getCustomPropertiesWithName(name).filter[it instanceof CustomIntProperty].isNullOrEmpty)
+            (getCustomPropertiesWithName(name).filter[it instanceof CustomIntProperty].head as CustomIntProperty).value
+        else 
+            -1
     }
 }
 
@@ -185,7 +212,7 @@ class Compartment extends HardwareElement {
     }
     
     op void setPowerSupply(String newValue) {
-        if (getPowerSupply() !== null) 
+        if (!properties.filter[it instanceof PowerSupplyProperty].isNullOrEmpty) 
             (properties.filter[it instanceof PowerSupplyProperty].head as PowerSupplyProperty).value = newValue
         else 
             properties.add(ModelFactory.eINSTANCE.createPowerSupplyProperty => [value = newValue])
@@ -302,18 +329,62 @@ class Board extends HardwareElement {
 }
 
 class Processor extends HardwareElement {
-    String processorType = ""
     derived String fullName get { board.fullName + "." + name }
+
     container Board board opposite processors
     contains Core[1..*] cores opposite processor
+
     op Core[] getAllCores() { cores }
+    
+    //  ProcessorType
+    op String getProcessorType() {
+        if (!properties.filter[it instanceof ProcessorTypeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ProcessorTypeProperty].head as ProcessorTypeProperty).value
+        else 
+            null
+    }
+    
+    op void setProcessorType(String newValue) {
+        if (!properties.filter[it instanceof ProcessorTypeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ProcessorTypeProperty].head as ProcessorTypeProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createProcessorTypeProperty => [value = newValue])
+    }
 }
 
 class Core extends HardwareElement {
-    String architecture = ""
-    int capacity         = "0"
     derived String fullName get { processor.fullName + "." + name }
     container Processor processor opposite cores
+    
+    // CoreCapacity
+    op int getCoreCapacity() {
+        if (!properties.filter[it instanceof CoreCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreCapacityProperty].head as CoreCapacityProperty).value
+        else 
+            0
+    }
+    
+    op void setCoreCapacity(int newValue) {
+        if (!properties.filter[it instanceof CoreCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreCapacityProperty].head as CoreCapacityProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createCoreCapacityProperty => [value = newValue])
+    }
+    
+    //  CoreArchitecture
+    op String getCoreArchitecture() {
+        if (!properties.filter[it instanceof CoreArchitectureProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreArchitectureProperty].head as CoreArchitectureProperty).value
+        else 
+            null
+    }
+    
+    op void setCoreArchitecture(String newValue) {
+        if (!properties.filter[it instanceof CoreArchitectureProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreArchitectureProperty].head as CoreArchitectureProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createCoreArchitectureProperty => [value = newValue])
+    }
 }
 
 class ApplicationAlternatives {  // XOR
@@ -330,23 +401,67 @@ class SoftwareElement {
     contains Property[0..*]       properties
 
 	op String toString() { getName }
+	
+	op CustomProperty[] getCustomPropertiesWithName(String name) {
+        properties.filter[it instanceof CustomProperty && (it as CustomProperty).name == name].map[it as CustomProperty].toEList
+    }
+    
+    op CustomProperty[] getCustomPropertiesWithNameAndValue(String name, String value) {
+        getCustomPropertiesWithName(name).filter[(it as CustomStringProperty).value == value].toEList
+    }
+    
+    op String getCustomStringProperty(String name) {
+        if (!getCustomPropertiesWithName(name).filter[it instanceof CustomStringProperty].isNullOrEmpty)
+            (getCustomPropertiesWithName(name).filter[it instanceof CustomStringProperty].head as CustomStringProperty).value
+        else 
+            null
+    }
+    
+    op int getCustomIntProperty(String name) {
+        if (!getCustomPropertiesWithName(name).filter[it instanceof CustomIntProperty].isNullOrEmpty)
+            (getCustomPropertiesWithName(name).filter[it instanceof CustomIntProperty].head as CustomIntProperty).value
+        else 
+            -1
+    }
 }
 
 class Application extends SoftwareElement {
-    String                          developedBy         = ""
-    DesignAssuranceLevelType        criticalityLevel    = "None"
-    
-    contains Task[1..*]             tasks             opposite application
-    
+    contains Task[1..*] tasks opposite application
     refers HardwareElement[0..*] restrictMappingToHardwareElements
+    derived String fullName get { getName }
     
-    derived String        fullName get { getName }
+    //  DevelopedBy
+    op String getDevelopedBy() {
+        if (!properties.filter[it instanceof DevelopedByProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof DevelopedByProperty].head as DevelopedByProperty).value
+        else 
+            null
+    }
+    
+    op void setDevelopedBy(String newValue) {
+        if (!properties.filter[it instanceof DevelopedByProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof DevelopedByProperty].head as DevelopedByProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createDevelopedByProperty => [value = newValue])
+    }
+    
+    // CriticalilityLevel
+    op DesignAssuranceLevelType getCriticalityLevel() {
+        if (!properties.filter[it instanceof CriticalityLevelProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CriticalityLevelProperty].head as CriticalityLevelProperty).value
+        else 
+            DesignAssuranceLevelType.NONE
+    }
+    
+    op void setAssuranceLevel(DesignAssuranceLevelType newValue) {
+        if (!properties.filter[it instanceof CriticalityLevelProperty].isNullOrEmpty)
+            (properties.filter[it instanceof CriticalityLevelProperty].head as CriticalityLevelProperty).value = newValue
+        else
+            properties.add(ModelFactory.eINSTANCE.createCriticalityLevelProperty => [value = newValue])
+    }
 }
 
 class Task extends SoftwareElement {    
-    int coreUtilization                       = "0"
-    int ramUtilization                        = "0"
-    int romUtilization                        = "0"
     int duration                              = "-1"
     int period                                = "-1"
     int earlyTolerance                        = "-1"
@@ -367,6 +482,52 @@ class Task extends SoftwareElement {
     refers Core[0..1]                        assignedCore
     
     derived String fullName get { application.getName + "." + getName }
+    
+    // CoreUtilization
+    op int getCoreUtilization() {
+        if (!properties.filter[it instanceof CoreUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreUtilizationProperty].head as CoreUtilizationProperty).value
+        else 
+            0
+    }
+    
+    op void setCoreUtilization(int newValue) {
+        if (!properties.filter[it instanceof CoreUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof CoreUtilizationProperty].head as CoreUtilizationProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createCoreUtilizationProperty => [value = newValue])
+    }
+    
+    // RamUtilization
+    op int getRamUtilization() {
+        if (!properties.filter[it instanceof RAMUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof RAMUtilizationProperty].head as RAMUtilizationProperty).value
+        else 
+            0
+    }
+    
+    op void setRamUtilization(int newValue) {
+        if (!properties.filter[it instanceof RAMUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof RAMUtilizationProperty].head as RAMUtilizationProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createRAMUtilizationProperty => [value = newValue])
+    }
+    
+    // RomUtilization
+    op int getRomUtilization() {
+        if (!properties.filter[it instanceof ROMUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ROMUtilizationProperty].head as ROMUtilizationProperty).value
+        else 
+            0
+    }
+    
+    op void setRomUtilization(int newValue) {
+        if (!properties.filter[it instanceof ROMUtilizationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ROMUtilizationProperty].head as ROMUtilizationProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createROMUtilizationProperty => [value = newValue])
+    }
+    
 }
 
 class FeatureRequirement {
@@ -646,7 +807,7 @@ class MappingResult extends Comparable {
     }
     
     op double getRelativeCoreUtilization(Core core) {
-        if (core.capacity > 0) new Double(getAbsoluteCoreUtilization(core)) / new Double(core.capacity)
+        if (core.coreCapacity > 0) new Double(getAbsoluteCoreUtilization(core)) / new Double(core.coreCapacity)
         else     -1.0
     }
     

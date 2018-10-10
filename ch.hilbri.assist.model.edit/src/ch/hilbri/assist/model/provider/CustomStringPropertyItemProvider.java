@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomStringPropertyItemProvider extends StringPropertyItemProvider {
+public class CustomStringPropertyItemProvider extends CustomPropertyItemProvider {
 	/**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
@@ -43,25 +43,25 @@ public class CustomStringPropertyItemProvider extends StringPropertyItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addNamePropertyDescriptor(object);
+            addValuePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
 	/**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor(Object object) {
+    protected void addValuePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_CustomStringProperty_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CustomStringProperty_name_feature", "_UI_CustomStringProperty_type"),
-                 ModelPackage.Literals.CUSTOM_STRING_PROPERTY__NAME,
+                 getString("_UI_CustomStringProperty_value_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_CustomStringProperty_value_feature", "_UI_CustomStringProperty_type"),
+                 ModelPackage.Literals.CUSTOM_STRING_PROPERTY__VALUE,
                  true,
                  false,
                  false,
@@ -108,7 +108,7 @@ public class CustomStringPropertyItemProvider extends StringPropertyItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(CustomStringProperty.class)) {
-            case ModelPackage.CUSTOM_STRING_PROPERTY__NAME:
+            case ModelPackage.CUSTOM_STRING_PROPERTY__VALUE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

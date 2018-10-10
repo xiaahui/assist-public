@@ -6,6 +6,9 @@ import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.CustomIntProperty;
+import ch.hilbri.assist.model.CustomProperty;
+import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
@@ -15,6 +18,8 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
 
+import com.google.common.base.Objects;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -22,6 +27,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -247,28 +253,125 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     public void setManufacturer(final String newValue) {
-        String _manufacturer = this.getManufacturer();
-        boolean _tripleNotEquals = (_manufacturer != null);
-        if (_tripleNotEquals) {
-            final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ManufacturerProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
                 public Boolean apply(final Property it) {
                     return Boolean.valueOf((it instanceof ManufacturerProperty));
                 }
             };
-            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function));
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
             ((ManufacturerProperty) _head).setValue(newValue);
         }
         else {
             EList<Property> _properties = this.getProperties();
             ManufacturerProperty _createManufacturerProperty = ModelFactory.eINSTANCE.createManufacturerProperty();
-            final Procedure1<ManufacturerProperty> _function_1 = new Procedure1<ManufacturerProperty>() {
+            final Procedure1<ManufacturerProperty> _function_2 = new Procedure1<ManufacturerProperty>() {
                 public void apply(final ManufacturerProperty it) {
                     it.setValue(newValue);
                 }
             };
-            ManufacturerProperty _doubleArrow = ObjectExtensions.<ManufacturerProperty>operator_doubleArrow(_createManufacturerProperty, _function_1);
+            ManufacturerProperty _doubleArrow = ObjectExtensions.<ManufacturerProperty>operator_doubleArrow(_createManufacturerProperty, _function_2);
             _properties.add(_doubleArrow);
         }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<CustomProperty> getCustomPropertiesWithName(final String name) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf(((it instanceof CustomProperty) && Objects.equal(((CustomProperty) it).getName(), name)));
+            }
+        };
+        final Function1<Property, CustomProperty> _function_1 = new Function1<Property, CustomProperty>() {
+            public CustomProperty apply(final Property it) {
+                return ((CustomProperty) it);
+            }
+        };
+        return ECollections.<CustomProperty>toEList(IterableExtensions.<Property, CustomProperty>map(IterableExtensions.<Property>filter(this.getProperties(), _function), _function_1));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<CustomProperty> getCustomPropertiesWithNameAndValue(final String name, final String value) {
+        final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
+            public Boolean apply(final CustomProperty it) {
+                String _value = ((CustomStringProperty) it).getValue();
+                return Boolean.valueOf(Objects.equal(_value, value));
+            }
+        };
+        return ECollections.<CustomProperty>toEList(IterableExtensions.<CustomProperty>filter(this.getCustomPropertiesWithName(name), _function));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getCustomStringProperty(final String name) {
+        String _xifexpression = null;
+        final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
+            public Boolean apply(final CustomProperty it) {
+                return Boolean.valueOf((it instanceof CustomStringProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<CustomProperty>filter(this.getCustomPropertiesWithName(name), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<CustomProperty, Boolean> _function_1 = new Function1<CustomProperty, Boolean>() {
+                public Boolean apply(final CustomProperty it) {
+                    return Boolean.valueOf((it instanceof CustomStringProperty));
+                }
+            };
+            CustomProperty _head = IterableExtensions.<CustomProperty>head(IterableExtensions.<CustomProperty>filter(this.getCustomPropertiesWithName(name), _function_1));
+            _xifexpression = ((CustomStringProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getCustomIntProperty(final String name) {
+        int _xifexpression = (int) 0;
+        final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
+            public Boolean apply(final CustomProperty it) {
+                return Boolean.valueOf((it instanceof CustomIntProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<CustomProperty>filter(this.getCustomPropertiesWithName(name), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<CustomProperty, Boolean> _function_1 = new Function1<CustomProperty, Boolean>() {
+                public Boolean apply(final CustomProperty it) {
+                    return Boolean.valueOf((it instanceof CustomIntProperty));
+                }
+            };
+            CustomProperty _head = IterableExtensions.<CustomProperty>head(IterableExtensions.<CustomProperty>filter(this.getCustomPropertiesWithName(name), _function_1));
+            _xifexpression = ((CustomIntProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
     }
 
     /**
@@ -385,6 +488,14 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
             case ModelPackage.HARDWARE_ELEMENT___SET_MANUFACTURER__STRING:
                 setManufacturer((String)arguments.get(0));
                 return null;
+            case ModelPackage.HARDWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME__STRING:
+                return getCustomPropertiesWithName((String)arguments.get(0));
+            case ModelPackage.HARDWARE_ELEMENT___GET_CUSTOM_PROPERTIES_WITH_NAME_AND_VALUE__STRING_STRING:
+                return getCustomPropertiesWithNameAndValue((String)arguments.get(0), (String)arguments.get(1));
+            case ModelPackage.HARDWARE_ELEMENT___GET_CUSTOM_STRING_PROPERTY__STRING:
+                return getCustomStringProperty((String)arguments.get(0));
+            case ModelPackage.HARDWARE_ELEMENT___GET_CUSTOM_INT_PROPERTY__STRING:
+                return getCustomIntProperty((String)arguments.get(0));
         }
         return super.eInvoke(operationID, arguments);
     }

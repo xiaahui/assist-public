@@ -12,8 +12,6 @@ package ch.hilbri.assist.model;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Core#getArchitecture <em>Architecture</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Core#getCapacity <em>Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Core#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Core#getProcessor <em>Processor</em>}</li>
  * </ul>
@@ -23,60 +21,6 @@ package ch.hilbri.assist.model;
  * @generated
  */
 public interface Core extends HardwareElement {
-    /**
-     * Returns the value of the '<em><b>Architecture</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Architecture</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Architecture</em>' attribute.
-     * @see #setArchitecture(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getCore_Architecture()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getArchitecture();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Core#getArchitecture <em>Architecture</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Architecture</em>' attribute.
-     * @see #getArchitecture()
-     * @generated
-     */
-    void setArchitecture(String value);
-
-    /**
-     * Returns the value of the '<em><b>Capacity</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Capacity</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Capacity</em>' attribute.
-     * @see #setCapacity(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getCore_Capacity()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getCapacity();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Core#getCapacity <em>Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Capacity</em>' attribute.
-     * @see #getCapacity()
-     * @generated
-     */
-    void setCapacity(int value);
-
     /**
      * Returns the value of the '<em><b>Full Name</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -119,5 +63,37 @@ public interface Core extends HardwareElement {
      * @generated
      */
     void setProcessor(Processor value);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getCoreCapacity();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setCoreCapacity(int newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    String getCoreArchitecture();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setCoreArchitecture(String newValue);
 
 } // Core

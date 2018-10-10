@@ -48,33 +48,10 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addProcessorTypePropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
             addBoardPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Processor Type feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addProcessorTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Processor_processorType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Processor_processorType_feature", "_UI_Processor_type"),
-                 ModelPackage.Literals.PROCESSOR__PROCESSOR_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -189,7 +166,6 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(Processor.class)) {
-            case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
             case ModelPackage.PROCESSOR__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

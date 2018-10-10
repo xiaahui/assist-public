@@ -531,13 +531,13 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      */
     public double getRelativeCoreUtilization(final Core core) {
         double _xifexpression = (double) 0;
-        int _capacity = core.getCapacity();
-        boolean _greaterThan = (_capacity > 0);
+        int _coreCapacity = core.getCoreCapacity();
+        boolean _greaterThan = (_coreCapacity > 0);
         if (_greaterThan) {
             int _absoluteCoreUtilization = this.getAbsoluteCoreUtilization(core);
             Double _double = new Double(_absoluteCoreUtilization);
-            int _capacity_1 = core.getCapacity();
-            Double _double_1 = new Double(_capacity_1);
+            int _coreCapacity_1 = core.getCoreCapacity();
+            Double _double_1 = new Double(_coreCapacity_1);
             _xifexpression = DoubleExtensions.operator_divide(_double, _double_1);
         }
         else {

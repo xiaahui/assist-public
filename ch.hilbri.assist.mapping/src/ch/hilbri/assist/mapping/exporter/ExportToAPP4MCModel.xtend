@@ -330,7 +330,7 @@ class ExportToAPP4MCModel {
     private static def ProcessingUnit createProcessingUnit(AmaltheaFactory factory, Core core) {
         factory.createProcessingUnit => [
             name = core.fullName
-            if (!core.architecture.nullOrEmpty) CustomPropertyUtil.customPut(it, "Architecture", core.architecture)
+            if (!core.coreArchitecture.nullOrEmpty) CustomPropertyUtil.customPut(it, "Architecture", core.coreArchitecture)
         ]
     }
 }

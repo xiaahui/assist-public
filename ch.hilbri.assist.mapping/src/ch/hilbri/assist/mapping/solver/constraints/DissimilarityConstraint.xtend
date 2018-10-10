@@ -115,7 +115,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 			case BOARD_ASSURANCELEVEL: 		{ model.allBoards.map[assuranceLevel.literal]	}
 			case PROCESSOR_MANUFACTURER: 	{ model.allProcessors.map[manufacturer]			}
 			case PROCESSOR_PROCESSORTYPE: 	{ model.allProcessors.map[processorType]		}
-			case CORE_ARCHITECTURE: 		{ model.allCores.map[architecture]				}
+			case CORE_ARCHITECTURE: 		{ model.allCores.map[coreArchitecture]         	}
 		}
 	}
 }

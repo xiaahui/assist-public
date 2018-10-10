@@ -13,8 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Application#getDevelopedBy <em>Developed By</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getFullName <em>Full Name</em>}</li>
@@ -25,63 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Application extends SoftwareElement {
-    /**
-     * Returns the value of the '<em><b>Developed By</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Developed By</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Developed By</em>' attribute.
-     * @see #setDevelopedBy(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getApplication_DevelopedBy()
-     * @model default="" unique="false"
-     * @generated
-     */
-    String getDevelopedBy();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Application#getDevelopedBy <em>Developed By</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Developed By</em>' attribute.
-     * @see #getDevelopedBy()
-     * @generated
-     */
-    void setDevelopedBy(String value);
-
-    /**
-     * Returns the value of the '<em><b>Criticality Level</b></em>' attribute.
-     * The default value is <code>"None"</code>.
-     * The literals are from the enumeration {@link ch.hilbri.assist.model.DesignAssuranceLevelType}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Criticality Level</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Criticality Level</em>' attribute.
-     * @see ch.hilbri.assist.model.DesignAssuranceLevelType
-     * @see #setCriticalityLevel(DesignAssuranceLevelType)
-     * @see ch.hilbri.assist.model.ModelPackage#getApplication_CriticalityLevel()
-     * @model default="None" unique="false"
-     * @generated
-     */
-    DesignAssuranceLevelType getCriticalityLevel();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Application#getCriticalityLevel <em>Criticality Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Criticality Level</em>' attribute.
-     * @see ch.hilbri.assist.model.DesignAssuranceLevelType
-     * @see #getCriticalityLevel()
-     * @generated
-     */
-    void setCriticalityLevel(DesignAssuranceLevelType value);
-
     /**
      * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
      * The list contents are of type {@link ch.hilbri.assist.model.Task}.
@@ -130,5 +71,37 @@ public interface Application extends SoftwareElement {
      * @generated
      */
     String getFullName();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    String getDevelopedBy();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setDevelopedBy(String newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    DesignAssuranceLevelType getCriticalityLevel();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setAssuranceLevel(DesignAssuranceLevelType newValue);
 
 } // Application

@@ -45,34 +45,10 @@ public class CoreItemProvider extends HardwareElementItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addArchitecturePropertyDescriptor(object);
-            addCapacityPropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
             addProcessorPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Architecture feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addArchitecturePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Core_architecture_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Core_architecture_feature", "_UI_Core_type"),
-                 ModelPackage.Literals.CORE__ARCHITECTURE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -93,28 +69,6 @@ public class CoreItemProvider extends HardwareElementItemProvider {
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Capacity feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addCapacityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Core_capacity_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Core_capacity_feature", "_UI_Core_type"),
-                 ModelPackage.Literals.CORE__CAPACITY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                  null,
                  null));
     }
@@ -179,8 +133,6 @@ public class CoreItemProvider extends HardwareElementItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(Core.class)) {
-            case ModelPackage.CORE__ARCHITECTURE:
-            case ModelPackage.CORE__CAPACITY:
             case ModelPackage.CORE__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

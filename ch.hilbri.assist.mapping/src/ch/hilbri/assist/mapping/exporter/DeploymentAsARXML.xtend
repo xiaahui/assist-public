@@ -118,7 +118,7 @@ class DeploymentAsARXML {
                         </ECUC-CONTAINER-VALUE>
                         «ENDFOR»
 
-						«FOR task : result.model.allTasks.filter[customProperties.filter[name.toUpperCase == "TYPE" && stringValue.toUpperCase == "ISR"].isNullOrEmpty]»
+						«FOR task : result.model.allTasks.filter[getCustomPropertiesWithNameAndValue("TYPE", "ISR").isNullOrEmpty]»
 						<ECUC-CONTAINER-VALUE>
 							<SHORT-NAME>«task.name»</SHORT-NAME>
 							<DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Os/OsTask</DEFINITION-REF>
@@ -157,7 +157,7 @@ class DeploymentAsARXML {
 						</ECUC-CONTAINER-VALUE>
 						«ENDFOR»
 
-                       	«FOR task : result.model.allTasks.filter[customProperties.filter[name.toUpperCase == "TYPE" && stringValue.toUpperCase == "ISR"].size > 0]»
+                       	«FOR task : result.model.allTasks.filter[getCustomPropertiesWithNameAndValue("TYPE", "ISR").size > 0]»
                        	<ECUC-CONTAINER-VALUE>
                        		<SHORT-NAME>«task.name»</SHORT-NAME>
                        		<DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Os/OsIsr</DEFINITION-REF>
@@ -180,14 +180,14 @@ class DeploymentAsARXML {
                             <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/Os/OsApplication</DEFINITION-REF>
                             <REFERENCE-VALUES>
 
-                                «FOR task : application.tasks.filter[customProperties.filter[name.toUpperCase == "TYPE" && stringValue.toUpperCase == "ISR"].isNullOrEmpty]»
+                                «FOR task : application.tasks.filter[getCustomPropertiesWithNameAndValue("TYPE", "ISR").isNullOrEmpty]»
                                 <ECUC-REFERENCE-VALUE>
                                     <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/Os/OsApplication/OsAppTaskRef</DEFINITION-REF>
                                     <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/«result.model.systemName»/Os/«task.name»</VALUE-REF>
                                 </ECUC-REFERENCE-VALUE>
                                 «ENDFOR»
 
-                                «FOR task : application.tasks.filter[customProperties.filter[name.toUpperCase == "TYPE" && stringValue.toUpperCase == "ISR"].size > 0]»
+                                «FOR task : application.tasks.filter[getCustomPropertiesWithNameAndValue("TYPE", "ISR").size > 0]»
                                 <ECUC-REFERENCE-VALUE>
                                     <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/AUTOSAR/Os/OsApplication/OsAppIsrRef</DEFINITION-REF>
                                     <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/«result.model.systemName»/Os/«task.name»</VALUE-REF>

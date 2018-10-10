@@ -486,6 +486,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomPropertyItemProvider customPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomPropertyAdapter() {
+        if (customPropertyItemProvider == null) {
+            customPropertyItemProvider = new CustomPropertyItemProvider(this);
+        }
+
+        return customPropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.HardwareElement} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1568,6 +1591,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (designAssuranceLevelPropertyItemProvider != null) designAssuranceLevelPropertyItemProvider.dispose();
         if (criticalityLevelPropertyItemProvider != null) criticalityLevelPropertyItemProvider.dispose();
         if (developedByPropertyItemProvider != null) developedByPropertyItemProvider.dispose();
+        if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
         if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();

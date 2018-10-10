@@ -22,6 +22,7 @@ import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CoreUtilizationProperty;
 import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
+import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
@@ -147,6 +148,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_PROPERTY: return createDesignAssuranceLevelProperty();
             case ModelPackage.CRITICALITY_LEVEL_PROPERTY: return createCriticalityLevelProperty();
             case ModelPackage.DEVELOPED_BY_PROPERTY: return createDevelopedByProperty();
+            case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
@@ -434,6 +436,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public DevelopedByProperty createDevelopedByProperty() {
         DevelopedByPropertyImpl developedByProperty = new DevelopedByPropertyImpl();
         return developedByProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CustomProperty createCustomProperty() {
+        CustomPropertyImpl customProperty = new CustomPropertyImpl();
+        return customProperty;
     }
 
     /**

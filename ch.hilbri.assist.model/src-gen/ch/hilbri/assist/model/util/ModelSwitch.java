@@ -22,6 +22,7 @@ import ch.hilbri.assist.model.CoreCapacityProperty;
 import ch.hilbri.assist.model.CoreUtilizationProperty;
 import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
+import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DevelopedByProperty;
@@ -265,10 +266,17 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.CUSTOM_PROPERTY: {
+                CustomProperty customProperty = (CustomProperty)theEObject;
+                T result = caseCustomProperty(customProperty);
+                if (result == null) result = caseProperty(customProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.CUSTOM_INT_PROPERTY: {
                 CustomIntProperty customIntProperty = (CustomIntProperty)theEObject;
                 T result = caseCustomIntProperty(customIntProperty);
-                if (result == null) result = caseIntProperty(customIntProperty);
+                if (result == null) result = caseCustomProperty(customIntProperty);
                 if (result == null) result = caseProperty(customIntProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -276,7 +284,7 @@ public class ModelSwitch<T> extends Switch<T> {
             case ModelPackage.CUSTOM_STRING_PROPERTY: {
                 CustomStringProperty customStringProperty = (CustomStringProperty)theEObject;
                 T result = caseCustomStringProperty(customStringProperty);
-                if (result == null) result = caseStringProperty(customStringProperty);
+                if (result == null) result = caseCustomProperty(customStringProperty);
                 if (result == null) result = caseProperty(customStringProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -836,6 +844,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseDevelopedByProperty(DevelopedByProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Custom Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Custom Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCustomProperty(CustomProperty object) {
         return null;
     }
 

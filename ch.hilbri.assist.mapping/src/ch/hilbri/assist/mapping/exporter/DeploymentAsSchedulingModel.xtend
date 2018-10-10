@@ -42,7 +42,7 @@ class DeploymentAsSchedulingModel {
 			val core = entry.value
 			val coreIdx = oldModel.allCores.indexOf(core)
 			val periodValue = 20
-			val taskDuration = Math.round(Math.floor(new Double(task.coreUtilization) / new Double(core.capacity) * periodValue)) as int 
+			val taskDuration = Math.round(Math.floor(new Double(task.coreUtilization) / new Double(core.coreCapacity) * periodValue)) as int 
 			
 			
 			// Here we assume that despite the object cloning, the index of the cores and tasks
