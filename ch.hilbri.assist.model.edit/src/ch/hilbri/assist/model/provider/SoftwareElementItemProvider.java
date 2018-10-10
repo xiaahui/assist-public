@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 import java.util.Collection;
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -87,6 +89,36 @@ public class SoftwareElementItemProvider
     }
 
     /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+        if (childrenFeatures == null) {
+            super.getChildrenFeatures(object);
+            childrenFeatures.add(ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES);
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature(Object object, Object child) {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature(object, child);
+    }
+
+    /**
      * This returns SoftwareElement.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -127,6 +159,9 @@ public class SoftwareElementItemProvider
             case ModelPackage.SOFTWARE_ELEMENT__NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
+            case ModelPackage.SOFTWARE_ELEMENT__PROPERTIES:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                return;
         }
         super.notifyChanged(notification);
     }
@@ -141,6 +176,101 @@ public class SoftwareElementItemProvider
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createStringProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createManufacturerProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPowerSupplyProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createBoardTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProcessorTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createRAMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createRAMUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createROMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createROMUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreArchitectureProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCriticalityLevelProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDevelopedByProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomStringProperty()));
     }
 
     /**

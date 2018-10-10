@@ -479,7 +479,6 @@ public class TaskItemProvider
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.TASK__FEATURE_REQUIREMENTS);
-            childrenFeatures.add(ModelPackage.Literals.TASK__CUSTOM_PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -553,7 +552,6 @@ public class TaskItemProvider
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -575,11 +573,6 @@ public class TaskItemProvider
             (createChildParameter
                 (ModelPackage.Literals.TASK__FEATURE_REQUIREMENTS,
                  ModelFactory.eINSTANCE.createFeatureRequirement()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.TASK__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomProperty()));
     }
 
 }

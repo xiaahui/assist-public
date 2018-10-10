@@ -65,8 +65,8 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 //			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
-			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_5_1).surround[oneSpace]
-			regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_5_4).prepend[oneSpace]
+//			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_5_1).surround[oneSpace]
+//			regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_5_4).prepend[oneSpace]
 			
 			/* All assignments */
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]

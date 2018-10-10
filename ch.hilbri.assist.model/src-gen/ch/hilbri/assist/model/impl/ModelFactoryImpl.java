@@ -19,11 +19,13 @@ import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CoreArchitectureProperty;
 import ch.hilbri.assist.model.CoreCapacityProperty;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
+import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityAttributes;
 import ch.hilbri.assist.model.DissimilarityClause;
@@ -49,7 +51,9 @@ import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
+import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -134,13 +138,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.BOARD_TYPE_PROPERTY: return createBoardTypeProperty();
             case ModelPackage.PROCESSOR_TYPE_PROPERTY: return createProcessorTypeProperty();
             case ModelPackage.RAM_CAPACITY_PROPERTY: return createRAMCapacityProperty();
+            case ModelPackage.RAM_UTILIZATION_PROPERTY: return createRAMUtilizationProperty();
             case ModelPackage.ROM_CAPACITY_PROPERTY: return createROMCapacityProperty();
+            case ModelPackage.ROM_UTILIZATION_PROPERTY: return createROMUtilizationProperty();
             case ModelPackage.CORE_CAPACITY_PROPERTY: return createCoreCapacityProperty();
+            case ModelPackage.CORE_UTILIZATION_PROPERTY: return createCoreUtilizationProperty();
             case ModelPackage.CORE_ARCHITECTURE_PROPERTY: return createCoreArchitectureProperty();
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_PROPERTY: return createDesignAssuranceLevelProperty();
+            case ModelPackage.CRITICALITY_LEVEL_PROPERTY: return createCriticalityLevelProperty();
+            case ModelPackage.DEVELOPED_BY_PROPERTY: return createDevelopedByProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
-            case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
@@ -343,6 +351,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public RAMUtilizationProperty createRAMUtilizationProperty() {
+        RAMUtilizationPropertyImpl ramUtilizationProperty = new RAMUtilizationPropertyImpl();
+        return ramUtilizationProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ROMCapacityProperty createROMCapacityProperty() {
         ROMCapacityPropertyImpl romCapacityProperty = new ROMCapacityPropertyImpl();
         return romCapacityProperty;
@@ -353,9 +371,29 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public ROMUtilizationProperty createROMUtilizationProperty() {
+        ROMUtilizationPropertyImpl romUtilizationProperty = new ROMUtilizationPropertyImpl();
+        return romUtilizationProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CoreCapacityProperty createCoreCapacityProperty() {
         CoreCapacityPropertyImpl coreCapacityProperty = new CoreCapacityPropertyImpl();
         return coreCapacityProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CoreUtilizationProperty createCoreUtilizationProperty() {
+        CoreUtilizationPropertyImpl coreUtilizationProperty = new CoreUtilizationPropertyImpl();
+        return coreUtilizationProperty;
     }
 
     /**
@@ -383,6 +421,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public CriticalityLevelProperty createCriticalityLevelProperty() {
+        CriticalityLevelPropertyImpl criticalityLevelProperty = new CriticalityLevelPropertyImpl();
+        return criticalityLevelProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DevelopedByProperty createDevelopedByProperty() {
+        DevelopedByPropertyImpl developedByProperty = new DevelopedByPropertyImpl();
+        return developedByProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CustomIntProperty createCustomIntProperty() {
         CustomIntPropertyImpl customIntProperty = new CustomIntPropertyImpl();
         return customIntProperty;
@@ -396,16 +454,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public CustomStringProperty createCustomStringProperty() {
         CustomStringPropertyImpl customStringProperty = new CustomStringPropertyImpl();
         return customStringProperty;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CustomProperty createCustomProperty() {
-        CustomPropertyImpl customProperty = new CustomPropertyImpl();
-        return customProperty;
     }
 
     /**

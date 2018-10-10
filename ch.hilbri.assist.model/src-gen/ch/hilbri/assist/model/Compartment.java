@@ -95,4 +95,12 @@ public interface Compartment extends HardwareElement {
      */
     String getPowerSupply();
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setPowerSupply(String newValue);
+
 } // Compartment

@@ -2,27 +2,25 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.CustomProperty;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.ModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Custom Property</b></em>'.
+ * An implementation of the model object '<em><b>Developed By Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class CustomPropertyImpl extends MinimalEObjectImpl.Container implements CustomProperty {
+public class DevelopedByPropertyImpl extends StringPropertyImpl implements DevelopedByProperty {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CustomPropertyImpl() {
+    protected DevelopedByPropertyImpl() {
         super();
     }
 
@@ -33,7 +31,7 @@ public class CustomPropertyImpl extends MinimalEObjectImpl.Container implements 
      */
     @Override
     protected EClass eStaticClass() {
-        return ModelPackage.Literals.CUSTOM_PROPERTY;
+        return ModelPackage.Literals.DEVELOPED_BY_PROPERTY;
     }
 
-} //CustomPropertyImpl
+} //DevelopedByPropertyImpl

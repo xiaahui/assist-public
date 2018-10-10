@@ -3,11 +3,18 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
+import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.ROMCapacityProperty;
 
 import com.google.common.collect.Iterables;
 
@@ -34,6 +41,11 @@ import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Board</b></em>'.
@@ -42,11 +54,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getBoardType <em>Board Type</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getPowerSupply <em>Power Supply</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getAssuranceLevel <em>Assurance Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getRamCapacity <em>Ram Capacity</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getRomCapacity <em>Rom Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getFullName <em>Full Name</em>}</li>
@@ -55,106 +62,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * @generated
  */
 public class BoardImpl extends HardwareElementImpl implements Board {
-    /**
-     * The default value of the '{@link #getBoardType() <em>Board Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getBoardType()
-     * @generated
-     * @ordered
-     */
-    protected static final String BOARD_TYPE_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getBoardType() <em>Board Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getBoardType()
-     * @generated
-     * @ordered
-     */
-    protected String boardType = BOARD_TYPE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPowerSupply()
-     * @generated
-     * @ordered
-     */
-    protected static final String POWER_SUPPLY_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPowerSupply()
-     * @generated
-     * @ordered
-     */
-    protected String powerSupply = POWER_SUPPLY_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getAssuranceLevel() <em>Assurance Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAssuranceLevel()
-     * @generated
-     * @ordered
-     */
-    protected static final DesignAssuranceLevelType ASSURANCE_LEVEL_EDEFAULT = DesignAssuranceLevelType.NONE;
-
-    /**
-     * The cached value of the '{@link #getAssuranceLevel() <em>Assurance Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAssuranceLevel()
-     * @generated
-     * @ordered
-     */
-    protected DesignAssuranceLevelType assuranceLevel = ASSURANCE_LEVEL_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getRamCapacity() <em>Ram Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRamCapacity()
-     * @generated
-     * @ordered
-     */
-    protected static final int RAM_CAPACITY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getRamCapacity() <em>Ram Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRamCapacity()
-     * @generated
-     * @ordered
-     */
-    protected int ramCapacity = RAM_CAPACITY_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getRomCapacity() <em>Rom Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRomCapacity()
-     * @generated
-     * @ordered
-     */
-    protected static final int ROM_CAPACITY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getRomCapacity() <em>Rom Capacity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRomCapacity()
-     * @generated
-     * @ordered
-     */
-    protected int romCapacity = ROM_CAPACITY_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getProcessors() <em>Processors</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -192,111 +99,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.BOARD;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getBoardType() {
-        return boardType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setBoardType(String newBoardType) {
-        String oldBoardType = boardType;
-        boardType = newBoardType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__BOARD_TYPE, oldBoardType, boardType));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getPowerSupply() {
-        return powerSupply;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPowerSupply(String newPowerSupply) {
-        String oldPowerSupply = powerSupply;
-        powerSupply = newPowerSupply;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__POWER_SUPPLY, oldPowerSupply, powerSupply));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DesignAssuranceLevelType getAssuranceLevel() {
-        return assuranceLevel;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setAssuranceLevel(DesignAssuranceLevelType newAssuranceLevel) {
-        DesignAssuranceLevelType oldAssuranceLevel = assuranceLevel;
-        assuranceLevel = newAssuranceLevel == null ? ASSURANCE_LEVEL_EDEFAULT : newAssuranceLevel;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__ASSURANCE_LEVEL, oldAssuranceLevel, assuranceLevel));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getRamCapacity() {
-        return ramCapacity;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRamCapacity(int newRamCapacity) {
-        int oldRamCapacity = ramCapacity;
-        ramCapacity = newRamCapacity;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__RAM_CAPACITY, oldRamCapacity, ramCapacity));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getRomCapacity() {
-        return romCapacity;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRomCapacity(int newRomCapacity) {
-        int oldRomCapacity = romCapacity;
-        romCapacity = newRomCapacity;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__ROM_CAPACITY, oldRomCapacity, romCapacity));
     }
 
     /**
@@ -420,6 +222,326 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    public DesignAssuranceLevelType getAssuranceLevel() {
+        DesignAssuranceLevelType _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DesignAssuranceLevelProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DesignAssuranceLevelProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((DesignAssuranceLevelProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = DesignAssuranceLevelType.NONE;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAssuranceLevel(final DesignAssuranceLevelType newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DesignAssuranceLevelProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DesignAssuranceLevelProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((DesignAssuranceLevelProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            DesignAssuranceLevelProperty _createDesignAssuranceLevelProperty = ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty();
+            final Procedure1<DesignAssuranceLevelProperty> _function_2 = new Procedure1<DesignAssuranceLevelProperty>() {
+                public void apply(final DesignAssuranceLevelProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            DesignAssuranceLevelProperty _doubleArrow = ObjectExtensions.<DesignAssuranceLevelProperty>operator_doubleArrow(_createDesignAssuranceLevelProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getPowerSupply() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PowerSupplyProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PowerSupplyProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((PowerSupplyProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPowerSupply(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PowerSupplyProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PowerSupplyProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((PowerSupplyProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            PowerSupplyProperty _createPowerSupplyProperty = ModelFactory.eINSTANCE.createPowerSupplyProperty();
+            final Procedure1<PowerSupplyProperty> _function_2 = new Procedure1<PowerSupplyProperty>() {
+                public void apply(final PowerSupplyProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            PowerSupplyProperty _doubleArrow = ObjectExtensions.<PowerSupplyProperty>operator_doubleArrow(_createPowerSupplyProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getBoardType() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof BoardTypeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof BoardTypeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((BoardTypeProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBoardType(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof BoardTypeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof BoardTypeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((BoardTypeProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            BoardTypeProperty _createBoardTypeProperty = ModelFactory.eINSTANCE.createBoardTypeProperty();
+            final Procedure1<BoardTypeProperty> _function_2 = new Procedure1<BoardTypeProperty>() {
+                public void apply(final BoardTypeProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            BoardTypeProperty _doubleArrow = ObjectExtensions.<BoardTypeProperty>operator_doubleArrow(_createBoardTypeProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getRamCapacity() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof RAMCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof RAMCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((RAMCapacityProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRamCapacity(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof RAMCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof RAMCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((RAMCapacityProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            RAMCapacityProperty _createRAMCapacityProperty = ModelFactory.eINSTANCE.createRAMCapacityProperty();
+            final Procedure1<RAMCapacityProperty> _function_2 = new Procedure1<RAMCapacityProperty>() {
+                public void apply(final RAMCapacityProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            RAMCapacityProperty _doubleArrow = ObjectExtensions.<RAMCapacityProperty>operator_doubleArrow(_createRAMCapacityProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getRomCapacity() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ROMCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ROMCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((ROMCapacityProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = 0;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRomCapacity(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ROMCapacityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ROMCapacityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((ROMCapacityProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            ROMCapacityProperty _createROMCapacityProperty = ModelFactory.eINSTANCE.createROMCapacityProperty();
+            final Procedure1<ROMCapacityProperty> _function_2 = new Procedure1<ROMCapacityProperty>() {
+                public void apply(final ROMCapacityProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            ROMCapacityProperty _doubleArrow = ObjectExtensions.<ROMCapacityProperty>operator_doubleArrow(_createROMCapacityProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -472,16 +594,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.BOARD__BOARD_TYPE:
-                return getBoardType();
-            case ModelPackage.BOARD__POWER_SUPPLY:
-                return getPowerSupply();
-            case ModelPackage.BOARD__ASSURANCE_LEVEL:
-                return getAssuranceLevel();
-            case ModelPackage.BOARD__RAM_CAPACITY:
-                return getRamCapacity();
-            case ModelPackage.BOARD__ROM_CAPACITY:
-                return getRomCapacity();
             case ModelPackage.BOARD__BOX:
                 if (resolve) return getBox();
                 return basicGetBox();
@@ -502,21 +614,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.BOARD__BOARD_TYPE:
-                setBoardType((String)newValue);
-                return;
-            case ModelPackage.BOARD__POWER_SUPPLY:
-                setPowerSupply((String)newValue);
-                return;
-            case ModelPackage.BOARD__ASSURANCE_LEVEL:
-                setAssuranceLevel((DesignAssuranceLevelType)newValue);
-                return;
-            case ModelPackage.BOARD__RAM_CAPACITY:
-                setRamCapacity((Integer)newValue);
-                return;
-            case ModelPackage.BOARD__ROM_CAPACITY:
-                setRomCapacity((Integer)newValue);
-                return;
             case ModelPackage.BOARD__BOX:
                 setBox((Box)newValue);
                 return;
@@ -536,21 +633,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.BOARD__BOARD_TYPE:
-                setBoardType(BOARD_TYPE_EDEFAULT);
-                return;
-            case ModelPackage.BOARD__POWER_SUPPLY:
-                setPowerSupply(POWER_SUPPLY_EDEFAULT);
-                return;
-            case ModelPackage.BOARD__ASSURANCE_LEVEL:
-                setAssuranceLevel(ASSURANCE_LEVEL_EDEFAULT);
-                return;
-            case ModelPackage.BOARD__RAM_CAPACITY:
-                setRamCapacity(RAM_CAPACITY_EDEFAULT);
-                return;
-            case ModelPackage.BOARD__ROM_CAPACITY:
-                setRomCapacity(ROM_CAPACITY_EDEFAULT);
-                return;
             case ModelPackage.BOARD__BOX:
                 setBox((Box)null);
                 return;
@@ -569,16 +651,6 @@ public class BoardImpl extends HardwareElementImpl implements Board {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.BOARD__BOARD_TYPE:
-                return BOARD_TYPE_EDEFAULT == null ? boardType != null : !BOARD_TYPE_EDEFAULT.equals(boardType);
-            case ModelPackage.BOARD__POWER_SUPPLY:
-                return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
-            case ModelPackage.BOARD__ASSURANCE_LEVEL:
-                return assuranceLevel != ASSURANCE_LEVEL_EDEFAULT;
-            case ModelPackage.BOARD__RAM_CAPACITY:
-                return ramCapacity != RAM_CAPACITY_EDEFAULT;
-            case ModelPackage.BOARD__ROM_CAPACITY:
-                return romCapacity != ROM_CAPACITY_EDEFAULT;
             case ModelPackage.BOARD__BOX:
                 return basicGetBox() != null;
             case ModelPackage.BOARD__PROCESSORS:
@@ -603,6 +675,31 @@ public class BoardImpl extends HardwareElementImpl implements Board {
                 return getAllProcessors();
             case ModelPackage.BOARD___GET_ALL_CORES:
                 return getAllCores();
+            case ModelPackage.BOARD___GET_ASSURANCE_LEVEL:
+                return getAssuranceLevel();
+            case ModelPackage.BOARD___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE:
+                setAssuranceLevel((DesignAssuranceLevelType)arguments.get(0));
+                return null;
+            case ModelPackage.BOARD___GET_POWER_SUPPLY:
+                return getPowerSupply();
+            case ModelPackage.BOARD___SET_POWER_SUPPLY__STRING:
+                setPowerSupply((String)arguments.get(0));
+                return null;
+            case ModelPackage.BOARD___GET_BOARD_TYPE:
+                return getBoardType();
+            case ModelPackage.BOARD___SET_BOARD_TYPE__STRING:
+                setBoardType((String)arguments.get(0));
+                return null;
+            case ModelPackage.BOARD___GET_RAM_CAPACITY:
+                return getRamCapacity();
+            case ModelPackage.BOARD___SET_RAM_CAPACITY__INT:
+                setRamCapacity((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.BOARD___GET_ROM_CAPACITY:
+                return getRomCapacity();
+            case ModelPackage.BOARD___SET_ROM_CAPACITY__INT:
+                setRomCapacity((Integer)arguments.get(0));
+                return null;
         }
         return super.eInvoke(operationID, arguments);
     }

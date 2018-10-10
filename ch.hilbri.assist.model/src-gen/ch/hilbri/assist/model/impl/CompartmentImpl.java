@@ -6,6 +6,7 @@ import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
@@ -33,6 +34,9 @@ import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,20 +170,56 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * @generated
      */
     public String getPowerSupply() {
+        String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
                 return Boolean.valueOf((it instanceof PowerSupplyProperty));
             }
         };
-        final Iterable<Property> powerSupplyProperties = IterableExtensions.<Property>filter(this.getProperties(), _function);
-        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(powerSupplyProperties);
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
         boolean _not = (!_isNullOrEmpty);
         if (_not) {
-            Property _head = IterableExtensions.<Property>head(powerSupplyProperties);
-            return ((PowerSupplyProperty) _head).getValue();
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PowerSupplyProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((PowerSupplyProperty) _head).getValue();
         }
         else {
-            return null;
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPowerSupply(final String newValue) {
+        String _powerSupply = this.getPowerSupply();
+        boolean _tripleNotEquals = (_powerSupply != null);
+        if (_tripleNotEquals) {
+            final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PowerSupplyProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function));
+            ((PowerSupplyProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            PowerSupplyProperty _createPowerSupplyProperty = ModelFactory.eINSTANCE.createPowerSupplyProperty();
+            final Procedure1<PowerSupplyProperty> _function_1 = new Procedure1<PowerSupplyProperty>() {
+                public void apply(final PowerSupplyProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            PowerSupplyProperty _doubleArrow = ObjectExtensions.<PowerSupplyProperty>operator_doubleArrow(_createPowerSupplyProperty, _function_1);
+            _properties.add(_doubleArrow);
         }
     }
 
@@ -294,6 +334,9 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
                 return getAllCores();
             case ModelPackage.COMPARTMENT___GET_POWER_SUPPLY:
                 return getPowerSupply();
+            case ModelPackage.COMPARTMENT___SET_POWER_SUPPLY__STRING:
+                setPowerSupply((String)arguments.get(0));
+                return null;
         }
         return super.eInvoke(operationID, arguments);
     }

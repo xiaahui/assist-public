@@ -91,10 +91,19 @@ class ProcessorTypeProperty extends StringProperty {
 class RAMCapacityProperty extends IntProperty {
 }
 
+class RAMUtilizationProperty extends IntProperty {
+}
+
 class ROMCapacityProperty extends IntProperty {
 }
 
+class ROMUtilizationProperty extends IntProperty {
+}
+
 class CoreCapacityProperty extends IntProperty {
+}
+
+class CoreUtilizationProperty extends IntProperty {
 }
 
 class CoreArchitectureProperty extends StringProperty {
@@ -102,6 +111,13 @@ class CoreArchitectureProperty extends StringProperty {
 
 class DesignAssuranceLevelProperty extends Property {
     DesignAssuranceLevelType value = "None"
+}
+
+class CriticalityLevelProperty extends Property {
+    DesignAssuranceLevelType value = "None"
+}
+
+class DevelopedByProperty extends StringProperty {
 }
 
 class CustomIntProperty extends IntProperty {
@@ -115,18 +131,23 @@ class CustomStringProperty extends StringProperty {
 //
 // HARDWARE ELEMENTS
 //
-class CustomProperty{}
-
 class HardwareElement {
     String                        name              = ""
     contains Property[0..*]       properties
-    contains CustomProperty[0..*] customProperties
     contains Feature[0..*]        features
     
     op String getManufacturer() {
-        val manufacturerProperties = properties.filter[it instanceof ManufacturerProperty]
-        if (!manufacturerProperties.isNullOrEmpty) return (manufacturerProperties.head as ManufacturerProperty).value
-        else return null
+        if (!properties.filter[it instanceof ManufacturerProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ManufacturerProperty].head as ManufacturerProperty).value
+        else 
+            null
+    }
+    
+    op void setManufacturer(String newValue) {
+        if (getManufacturer() !== null) 
+            (properties.filter[it instanceof ManufacturerProperty].head as ManufacturerProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createManufacturerProperty => [value = newValue])
     }
     
     derived HardwareArchitectureLevelType getHardwareLevel get {
@@ -150,16 +171,24 @@ class Compartment extends HardwareElement {
     contains Box[1..*] boxes opposite compartment
     
     derived String fullName get { name }
-        
+    
     op Box[]             getAllBoxes()         { boxes                                        }
     op Board[]           getAllBoards()        { boxes.map[allBoards].flatten.toEList         }
     op Processor[]       getAllProcessors()    { boxes.map[allProcessors].flatten.toEList     }
     op Core[]            getAllCores()         { boxes.map[allCores].flatten.toEList          }
-    
+
     op String getPowerSupply() {
-        val powerSupplyProperties = properties.filter[it instanceof PowerSupplyProperty]
-        if (!powerSupplyProperties.isNullOrEmpty) return (powerSupplyProperties.head as PowerSupplyProperty).value
-        else return null
+        if (!properties.filter[it instanceof PowerSupplyProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PowerSupplyProperty].head as PowerSupplyProperty).value
+        else 
+            null
+    }
+    
+    op void setPowerSupply(String newValue) {
+        if (getPowerSupply() !== null) 
+            (properties.filter[it instanceof PowerSupplyProperty].head as PowerSupplyProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createPowerSupplyProperty => [value = newValue])
     }
 }
 
@@ -187,12 +216,6 @@ class BoardAlternative {
 }
 
 class Board extends HardwareElement {
-    String                             boardType       = ""
-    String                             powerSupply     = ""
-    DesignAssuranceLevelType           assuranceLevel  = "None"
-    int                                ramCapacity     = "0"
-    int                                romCapacity     = "0"
-    
     container    Box                   box             opposite boards
     contains     Processor[1..*]       processors      opposite board
     
@@ -201,6 +224,81 @@ class Board extends HardwareElement {
     op String            toString()            { name                                     }
     op Processor[]       getAllProcessors()    { processors                               }
     op Core[]            getAllCores()         { processors.map[allCores].flatten.toEList }
+    
+    // AssuranceLevel
+    op DesignAssuranceLevelType getAssuranceLevel() {
+        if (!properties.filter[it instanceof DesignAssuranceLevelProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof DesignAssuranceLevelProperty].head as DesignAssuranceLevelProperty).value
+        else 
+            DesignAssuranceLevelType.NONE
+    }
+    
+    op void setAssuranceLevel(DesignAssuranceLevelType newValue) {
+        if (!properties.filter[it instanceof DesignAssuranceLevelProperty].isNullOrEmpty)
+            (properties.filter[it instanceof DesignAssuranceLevelProperty].head as DesignAssuranceLevelProperty).value = newValue
+        else
+            properties.add(ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty => [value = newValue])
+    }
+    
+    //  PowerSupply
+    op String getPowerSupply() {
+        if (!properties.filter[it instanceof PowerSupplyProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PowerSupplyProperty].head as PowerSupplyProperty).value
+        else 
+            null
+    }
+    
+    op void setPowerSupply(String newValue) {
+        if (!properties.filter[it instanceof PowerSupplyProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PowerSupplyProperty].head as PowerSupplyProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createPowerSupplyProperty => [value = newValue])
+    }
+    
+    //  BoardType
+    op String getBoardType() {
+        if (!properties.filter[it instanceof BoardTypeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof BoardTypeProperty].head as BoardTypeProperty).value
+        else 
+            null
+    }
+    
+    op void setBoardType(String newValue) {
+        if (!properties.filter[it instanceof BoardTypeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof BoardTypeProperty].head as BoardTypeProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createBoardTypeProperty => [value = newValue])
+    }
+    
+    // RAM Capacity
+    op int getRamCapacity() {
+        if (!properties.filter[it instanceof RAMCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof RAMCapacityProperty].head as RAMCapacityProperty).value
+        else 
+            0
+    }
+    
+    op void setRamCapacity(int newValue) {
+        if (!properties.filter[it instanceof RAMCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof RAMCapacityProperty].head as RAMCapacityProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createRAMCapacityProperty => [value = newValue])
+    }
+    
+    // ROM Capacity
+    op int getRomCapacity() {
+        if (!properties.filter[it instanceof ROMCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ROMCapacityProperty].head as ROMCapacityProperty).value
+        else 
+            0
+    }
+    
+    op void setRomCapacity(int newValue) {
+        if (!properties.filter[it instanceof ROMCapacityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ROMCapacityProperty].head as ROMCapacityProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createROMCapacityProperty => [value = newValue])
+    }
 }
 
 class Processor extends HardwareElement {
@@ -228,7 +326,9 @@ class ApplicationAlternative {
 }
 
 class SoftwareElement {
-	String name = ""
+    String name = ""
+    contains Property[0..*]       properties
+
 	op String toString() { getName }
 }
 
@@ -237,7 +337,6 @@ class Application extends SoftwareElement {
     DesignAssuranceLevelType        criticalityLevel    = "None"
     
     contains Task[1..*]             tasks             opposite application
-    contains CustomProperty[0..*]   customProperties
     
     refers HardwareElement[0..*] restrictMappingToHardwareElements
     
@@ -263,7 +362,6 @@ class Task extends SoftwareElement {
     container Application application opposite tasks
     
     contains FeatureRequirement[0..*]        featureRequirements
-    contains CustomProperty[0..*]            customProperties
     
     refers HardwareElement[0..*]             restrictMappingToHardwareElements
     refers Core[0..1]                        assignedCore

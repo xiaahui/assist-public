@@ -3,37 +3,36 @@ grammar ch.hilbri.assist.mapping.dsl.MappingDSL with org.eclipse.xtext.common.Te
 import "ch.hilbri.assist.model"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+/* MAIN MODEL */
 AssistModel: 
-    'Global' '{' 
-                    'System' '=' systemName=STRING ';' 
-    '}'
-
-    'Hardware' '{'    
-                    (compartments+=Compartment)*
-    '}'
-
-    'Software' '{'
-                    (applications+=Application)* 
-    '}'
-
-    ('Restrictions' '{'
-                    (dislocalityRelations+=DislocalityRelation)*
-                    (colocalityRelations+=ColocalityRelation)*
-                    (dissimilarityRelations+=DissimilarityRelation)*
-    '}')?
+    ( 'Global'      '{' 'System' '=' systemName=STRING ';'      '}'             ) &
+    ( 'Hardware'    '{' (compartments+=Compartment)*            '}'             ) &
+    ( 'Software'    '{' (applications+=Application)*            '}'             ) &
+    ('Restrictions' '{' 
+                        (
+                            dislocalityRelations+=DislocalityRelation       |
+                            colocalityRelations+=ColocalityRelation         |
+                            dissimilarityRelations+=DissimilarityRelation
+                        )*
+                                                                 '}'
+                                                                                )?
 ;
 
-// Properties
+// Properties for Hardware and Software Elements
 ManufacturerProperty:           'Manufacturer'          '=' value=STRING                    ';';
 PowerSupplyProperty:            'PowerSupply'           '=' value=STRING                    ';';
 BoardTypeProperty:              'Type'                  '=' value=STRING                    ';';
 RAMCapacityProperty:            'RAM'                   '=' value=INT                       ';';
-ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';     
+RAMUtilizationProperty:         'RequiredRAM'           '=' value=INT                       ';';
+ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';
+ROMUtilizationProperty:         'RequiredROM'           '=' value=INT                       ';';     
 DesignAssuranceLevelProperty:   'DesignAssuranceLevel'  '=' value=DesignAssuranceLevelType  ';';
+CriticalityLevelProperty:       'CriticalityLevel'      '=' value=DesignAssuranceLevelType  ';';
 ProcessorTypeProperty:          'Type'                  '=' value=STRING                    ';';
 CoreCapacityProperty:           'Capacity'              '=' value=INT                       ';';
+CoreUtilizationProperty:        'CoreUtilization'       '=' value=INT                       ';';
 CoreArchitectureProperty:       'Architecture'          '=' value=STRING                    ';';
-
+DevelopedByProperty:            'Developer'             '=' value=STRING                    ';';
 CustomIntProperty:              'Custom' 'Property' name=STRING '=' value=INT               ';';
 CustomStringProperty:           'Custom' 'Property' name=STRING '=' value=STRING            ';';
 
@@ -103,7 +102,7 @@ Core:
         )* 
     '}';
 
-/* Features provide by the hardware */
+/* Features provided by the hardware */
 Feature:
     FeatureSimple | FeatureSyncAccess | FeatureExclAccess;
 
@@ -120,26 +119,34 @@ FeatureExclAccess returns Feature:
 /* SOFTWARE */
 Application:
     'Application' name=ID '{'
-        ('CriticalityLevel'          '=' criticalityLevel=DesignAssuranceLevelType ';')?
-        ('Developer'                 '=' developedBy=STRING ';')?
-        ('RestrictDeploymentTo' '{' 
-                restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
-          '}' ';' )?
-        (tasks+=Task)+
-//        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+        (
+            properties+=CriticalityLevelProperty    |
+            properties+=DevelopedByProperty         |
+            properties+=CustomIntProperty           |
+            properties+=CustomStringProperty        |
+            tasks+=Task                             |
+            ('RestrictDeploymentTo' '{' 
+                restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] 
+                (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
+            '}' ';' )                               
+        )*
     '}';
 
 Task:
     'Task' name=ID '{'
-        ('CoreUtilization'             '=' coreUtilization=INT ';')? 
-        ('RequiredRAM'                 '=' ramUtilization=INT  ';')? 
-        ('RequiredROM'                 '=' romUtilization=INT  ';')? 
-        ('RestrictDeploymentTo' '{' 
-                  restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
+        (
+            properties+=CoreUtilizationProperty     |
+            properties+=RAMUtilizationProperty      |
+            properties+=ROMUtilizationProperty      |
+            properties+=CustomIntProperty           |
+            properties+=CustomStringProperty        |
+            featureRequirements+=FeatureRequirement |
+            ('RestrictDeploymentTo' '{' 
+                  restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] 
+                  (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
             '}' ';'
-        )? 
-        (featureRequirements+=FeatureRequirement)*
-//        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+            ) 
+        )
     '}';
 
 /* General Feature Requirements - see #38 */
@@ -154,8 +161,7 @@ ExclusiveFeatureRequirement returns FeatureRequirement:
     'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
 
 
-/* Safety Restrictions / Relations */
-
+// SAFETY RESTRICTIONS
 DislocalityRelation:
 	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
     'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
@@ -196,11 +202,8 @@ enum DissimilarityAttributes:
     CORE_ARCHITECTURE           = 'Core.Architecture'
 ;
 
-QualifiedName:
-    ID ('.' ID)*
-;
 
-/* ENUMS */
+/* MISC Definitions and ENUMs */
 enum HardwareArchitectureLevelType:
     CORE         = 'Core'           |
     PROCESSOR    = 'Processor'      |
@@ -216,4 +219,8 @@ enum DesignAssuranceLevelType:
     C    = 'C'        |
     B    = 'B'        |
     A    = 'A'  
+;
+
+QualifiedName:
+    ID ('.' ID)*
 ;

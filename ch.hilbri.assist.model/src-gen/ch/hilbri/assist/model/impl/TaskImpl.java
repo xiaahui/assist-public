@@ -5,7 +5,6 @@ package ch.hilbri.assist.model.impl;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.Core;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
@@ -53,7 +52,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFeatureRequirements <em>Feature Requirements</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getAssignedCore <em>Assigned Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFullName <em>Full Name</em>}</li>
@@ -351,16 +349,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * @ordered
      */
     protected EList<FeatureRequirement> featureRequirements;
-
-    /**
-     * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCustomProperties()
-     * @generated
-     * @ordered
-     */
-    protected EList<CustomProperty> customProperties;
 
     /**
      * The cached value of the '{@link #getRestrictMappingToHardwareElements() <em>Restrict Mapping To Hardware Elements</em>}' reference list.
@@ -773,18 +761,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<CustomProperty> getCustomProperties() {
-        if (customProperties == null) {
-            customProperties = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this, ModelPackage.TASK__CUSTOM_PROPERTIES);
-        }
-        return customProperties;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EList<HardwareElement> getRestrictMappingToHardwareElements() {
         if (restrictMappingToHardwareElements == null) {
             restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -870,8 +846,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return basicSetApplication(null, msgs);
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
                 return ((InternalEList<?>)getFeatureRequirements()).basicRemove(otherEnd, msgs);
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
-                return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -931,8 +905,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return basicGetApplication();
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
                 return getFeatureRequirements();
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
-                return getCustomProperties();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return getRestrictMappingToHardwareElements();
             case ModelPackage.TASK__ASSIGNED_CORE:
@@ -1002,10 +974,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 getFeatureRequirements().clear();
                 getFeatureRequirements().addAll((Collection<? extends FeatureRequirement>)newValue);
                 return;
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
-                getCustomProperties().clear();
-                getCustomProperties().addAll((Collection<? extends CustomProperty>)newValue);
-                return;
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 getRestrictMappingToHardwareElements().clear();
                 getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
@@ -1073,9 +1041,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
                 getFeatureRequirements().clear();
                 return;
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
-                getCustomProperties().clear();
-                return;
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 getRestrictMappingToHardwareElements().clear();
                 return;
@@ -1126,8 +1091,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return basicGetApplication() != null;
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
                 return featureRequirements != null && !featureRequirements.isEmpty();
-            case ModelPackage.TASK__CUSTOM_PROPERTIES:
-                return customProperties != null && !customProperties.isEmpty();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
             case ModelPackage.TASK__ASSIGNED_CORE:

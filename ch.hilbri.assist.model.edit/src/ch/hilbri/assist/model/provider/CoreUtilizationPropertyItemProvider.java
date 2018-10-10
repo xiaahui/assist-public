@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
-import ch.hilbri.assist.model.NameProperty;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,19 +14,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.model.NameProperty} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.model.CoreUtilizationProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamePropertyItemProvider extends StringPropertyItemProvider {
+public class CoreUtilizationPropertyItemProvider extends IntPropertyItemProvider {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public NamePropertyItemProvider(AdapterFactory adapterFactory) {
+    public CoreUtilizationPropertyItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -46,14 +46,14 @@ public class NamePropertyItemProvider extends StringPropertyItemProvider {
     }
 
     /**
-     * This returns NameProperty.gif.
+     * This returns CoreUtilizationProperty.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/NameProperty"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/CoreUtilizationProperty"));
     }
 
     /**
@@ -64,10 +64,8 @@ public class NamePropertyItemProvider extends StringPropertyItemProvider {
      */
     @Override
     public String getText(Object object) {
-        String label = ((NameProperty)object).getValue();
-        return label == null || label.length() == 0 ?
-            getString("_UI_NameProperty_type") :
-            getString("_UI_NameProperty_type") + " " + label;
+        CoreUtilizationProperty coreUtilizationProperty = (CoreUtilizationProperty)object;
+        return getString("_UI_CoreUtilizationProperty_type") + " " + coreUtilizationProperty.getValue();
     }
 
 

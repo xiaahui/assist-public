@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.model.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getTasks <em>Tasks</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Application#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getFullName <em>Full Name</em>}</li>
  * </ul>
@@ -100,22 +99,6 @@ public interface Application extends SoftwareElement {
      * @generated
      */
     EList<Task> getTasks();
-
-    /**
-     * Returns the value of the '<em><b>Custom Properties</b></em>' containment reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.CustomProperty}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Custom Properties</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Custom Properties</em>' containment reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getApplication_CustomProperties()
-     * @model containment="true"
-     * @generated
-     */
-    EList<CustomProperty> getCustomProperties();
 
     /**
      * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.

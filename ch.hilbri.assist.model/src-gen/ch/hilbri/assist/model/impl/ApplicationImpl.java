@@ -3,7 +3,6 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getTasks <em>Tasks</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
@@ -94,16 +91,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * @ordered
      */
     protected EList<Task> tasks;
-
-    /**
-     * The cached value of the '{@link #getCustomProperties() <em>Custom Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCustomProperties()
-     * @generated
-     * @ordered
-     */
-    protected EList<CustomProperty> customProperties;
 
     /**
      * The cached value of the '{@link #getRestrictMappingToHardwareElements() <em>Restrict Mapping To Hardware Elements</em>}' reference list.
@@ -203,18 +190,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<CustomProperty> getCustomProperties() {
-        if (customProperties == null) {
-            customProperties = new EObjectContainmentEList<CustomProperty>(CustomProperty.class, this, ModelPackage.APPLICATION__CUSTOM_PROPERTIES);
-        }
-        return customProperties;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EList<HardwareElement> getRestrictMappingToHardwareElements() {
         if (restrictMappingToHardwareElements == null) {
             restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -256,8 +231,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
         switch (featureID) {
             case ModelPackage.APPLICATION__TASKS:
                 return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
-                return ((InternalEList<?>)getCustomProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -276,8 +249,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
                 return getCriticalityLevel();
             case ModelPackage.APPLICATION__TASKS:
                 return getTasks();
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
-                return getCustomProperties();
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return getRestrictMappingToHardwareElements();
             case ModelPackage.APPLICATION__FULL_NAME:
@@ -305,10 +276,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
                 getTasks().clear();
                 getTasks().addAll((Collection<? extends Task>)newValue);
                 return;
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
-                getCustomProperties().clear();
-                getCustomProperties().addAll((Collection<? extends CustomProperty>)newValue);
-                return;
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 getRestrictMappingToHardwareElements().clear();
                 getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
@@ -334,9 +301,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
             case ModelPackage.APPLICATION__TASKS:
                 getTasks().clear();
                 return;
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
-                getCustomProperties().clear();
-                return;
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 getRestrictMappingToHardwareElements().clear();
                 return;
@@ -358,8 +322,6 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
                 return criticalityLevel != CRITICALITY_LEVEL_EDEFAULT;
             case ModelPackage.APPLICATION__TASKS:
                 return tasks != null && !tasks.isEmpty();
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
-                return customProperties != null && !customProperties.isEmpty();
             case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
             case ModelPackage.APPLICATION__FULL_NAME:

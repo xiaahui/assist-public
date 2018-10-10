@@ -19,10 +19,12 @@ import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CoreArchitectureProperty;
 import ch.hilbri.assist.model.CoreCapacityProperty;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
+import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityClause;
 import ch.hilbri.assist.model.DissimilarityConjunction;
@@ -44,7 +46,9 @@ import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
+import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -191,6 +195,14 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.RAM_UTILIZATION_PROPERTY: {
+                RAMUtilizationProperty ramUtilizationProperty = (RAMUtilizationProperty)theEObject;
+                T result = caseRAMUtilizationProperty(ramUtilizationProperty);
+                if (result == null) result = caseIntProperty(ramUtilizationProperty);
+                if (result == null) result = caseProperty(ramUtilizationProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.ROM_CAPACITY_PROPERTY: {
                 ROMCapacityProperty romCapacityProperty = (ROMCapacityProperty)theEObject;
                 T result = caseROMCapacityProperty(romCapacityProperty);
@@ -199,11 +211,27 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.ROM_UTILIZATION_PROPERTY: {
+                ROMUtilizationProperty romUtilizationProperty = (ROMUtilizationProperty)theEObject;
+                T result = caseROMUtilizationProperty(romUtilizationProperty);
+                if (result == null) result = caseIntProperty(romUtilizationProperty);
+                if (result == null) result = caseProperty(romUtilizationProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.CORE_CAPACITY_PROPERTY: {
                 CoreCapacityProperty coreCapacityProperty = (CoreCapacityProperty)theEObject;
                 T result = caseCoreCapacityProperty(coreCapacityProperty);
                 if (result == null) result = caseIntProperty(coreCapacityProperty);
                 if (result == null) result = caseProperty(coreCapacityProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.CORE_UTILIZATION_PROPERTY: {
+                CoreUtilizationProperty coreUtilizationProperty = (CoreUtilizationProperty)theEObject;
+                T result = caseCoreUtilizationProperty(coreUtilizationProperty);
+                if (result == null) result = caseIntProperty(coreUtilizationProperty);
+                if (result == null) result = caseProperty(coreUtilizationProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -222,6 +250,21 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.CRITICALITY_LEVEL_PROPERTY: {
+                CriticalityLevelProperty criticalityLevelProperty = (CriticalityLevelProperty)theEObject;
+                T result = caseCriticalityLevelProperty(criticalityLevelProperty);
+                if (result == null) result = caseProperty(criticalityLevelProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.DEVELOPED_BY_PROPERTY: {
+                DevelopedByProperty developedByProperty = (DevelopedByProperty)theEObject;
+                T result = caseDevelopedByProperty(developedByProperty);
+                if (result == null) result = caseStringProperty(developedByProperty);
+                if (result == null) result = caseProperty(developedByProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.CUSTOM_INT_PROPERTY: {
                 CustomIntProperty customIntProperty = (CustomIntProperty)theEObject;
                 T result = caseCustomIntProperty(customIntProperty);
@@ -235,12 +278,6 @@ public class ModelSwitch<T> extends Switch<T> {
                 T result = caseCustomStringProperty(customStringProperty);
                 if (result == null) result = caseStringProperty(customStringProperty);
                 if (result == null) result = caseProperty(customStringProperty);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.CUSTOM_PROPERTY: {
-                CustomProperty customProperty = (CustomProperty)theEObject;
-                T result = caseCustomProperty(customProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -668,6 +705,21 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>RAM Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>RAM Utilization Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRAMUtilizationProperty(RAMUtilizationProperty object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>ROM Capacity Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -683,6 +735,21 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>ROM Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>ROM Utilization Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseROMUtilizationProperty(ROMUtilizationProperty object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Core Capacity Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -694,6 +761,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseCoreCapacityProperty(CoreCapacityProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Core Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Core Utilization Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCoreUtilizationProperty(CoreUtilizationProperty object) {
         return null;
     }
 
@@ -728,6 +810,36 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Criticality Level Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Criticality Level Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCriticalityLevelProperty(CriticalityLevelProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDevelopedByProperty(DevelopedByProperty object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Custom Int Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -754,21 +866,6 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseCustomStringProperty(CustomStringProperty object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Custom Property</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Custom Property</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseCustomProperty(CustomProperty object) {
         return null;
     }
 

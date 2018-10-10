@@ -157,7 +157,6 @@ public class ApplicationItemProvider
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(ModelPackage.Literals.APPLICATION__TASKS);
-            childrenFeatures.add(ModelPackage.Literals.APPLICATION__CUSTOM_PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -219,7 +218,6 @@ public class ApplicationItemProvider
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ModelPackage.APPLICATION__TASKS:
-            case ModelPackage.APPLICATION__CUSTOM_PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -241,11 +239,6 @@ public class ApplicationItemProvider
             (createChildParameter
                 (ModelPackage.Literals.APPLICATION__TASKS,
                  ModelFactory.eINSTANCE.createTask()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (ModelPackage.Literals.APPLICATION__CUSTOM_PROPERTIES,
-                 ModelFactory.eINSTANCE.createCustomProperty()));
     }
 
 }

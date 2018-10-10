@@ -103,6 +103,15 @@ public interface ModelFactory extends EFactory {
     RAMCapacityProperty createRAMCapacityProperty();
 
     /**
+     * Returns a new object of class '<em>RAM Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>RAM Utilization Property</em>'.
+     * @generated
+     */
+    RAMUtilizationProperty createRAMUtilizationProperty();
+
+    /**
      * Returns a new object of class '<em>ROM Capacity Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -112,6 +121,15 @@ public interface ModelFactory extends EFactory {
     ROMCapacityProperty createROMCapacityProperty();
 
     /**
+     * Returns a new object of class '<em>ROM Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>ROM Utilization Property</em>'.
+     * @generated
+     */
+    ROMUtilizationProperty createROMUtilizationProperty();
+
+    /**
      * Returns a new object of class '<em>Core Capacity Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -119,6 +137,15 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     CoreCapacityProperty createCoreCapacityProperty();
+
+    /**
+     * Returns a new object of class '<em>Core Utilization Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Core Utilization Property</em>'.
+     * @generated
+     */
+    CoreUtilizationProperty createCoreUtilizationProperty();
 
     /**
      * Returns a new object of class '<em>Core Architecture Property</em>'.
@@ -139,6 +166,24 @@ public interface ModelFactory extends EFactory {
     DesignAssuranceLevelProperty createDesignAssuranceLevelProperty();
 
     /**
+     * Returns a new object of class '<em>Criticality Level Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Criticality Level Property</em>'.
+     * @generated
+     */
+    CriticalityLevelProperty createCriticalityLevelProperty();
+
+    /**
+     * Returns a new object of class '<em>Developed By Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Developed By Property</em>'.
+     * @generated
+     */
+    DevelopedByProperty createDevelopedByProperty();
+
+    /**
      * Returns a new object of class '<em>Custom Int Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -155,15 +200,6 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     CustomStringProperty createCustomStringProperty();
-
-    /**
-     * Returns a new object of class '<em>Custom Property</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Custom Property</em>'.
-     * @generated
-     */
-    CustomProperty createCustomProperty();
 
     /**
      * Returns a new object of class '<em>Hardware Element</em>'.

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getProperties <em>Properties</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.HardwareElement#getCustomProperties <em>Custom Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getFeatures <em>Features</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.HardwareElement#getGetHardwareLevel <em>Get Hardware Level</em>}</li>
  * </ul>
@@ -71,22 +70,6 @@ public interface HardwareElement extends EObject {
     EList<Property> getProperties();
 
     /**
-     * Returns the value of the '<em><b>Custom Properties</b></em>' containment reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.CustomProperty}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Custom Properties</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Custom Properties</em>' containment reference list.
-     * @see ch.hilbri.assist.model.ModelPackage#getHardwareElement_CustomProperties()
-     * @model containment="true"
-     * @generated
-     */
-    EList<CustomProperty> getCustomProperties();
-
-    /**
      * Returns the value of the '<em><b>Features</b></em>' containment reference list.
      * The list contents are of type {@link ch.hilbri.assist.model.Feature}.
      * <!-- begin-user-doc -->
@@ -126,5 +109,13 @@ public interface HardwareElement extends EObject {
      * @generated
      */
     String getManufacturer();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setManufacturer(String newValue);
 
 } // HardwareElement

@@ -48,125 +48,10 @@ public class BoardItemProvider extends HardwareElementItemProvider {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addBoardTypePropertyDescriptor(object);
-            addPowerSupplyPropertyDescriptor(object);
-            addAssuranceLevelPropertyDescriptor(object);
-            addRamCapacityPropertyDescriptor(object);
-            addRomCapacityPropertyDescriptor(object);
             addBoxPropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-	/**
-     * This adds a property descriptor for the Board Type feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addBoardTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Board_boardType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Board_boardType_feature", "_UI_Board_type"),
-                 ModelPackage.Literals.BOARD__BOARD_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Power Supply feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Board_powerSupply_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Board_powerSupply_feature", "_UI_Board_type"),
-                 ModelPackage.Literals.BOARD__POWER_SUPPLY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Assurance Level feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addAssuranceLevelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Board_assuranceLevel_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Board_assuranceLevel_feature", "_UI_Board_type"),
-                 ModelPackage.Literals.BOARD__ASSURANCE_LEVEL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Ram Capacity feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addRamCapacityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Board_ramCapacity_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Board_ramCapacity_feature", "_UI_Board_type"),
-                 ModelPackage.Literals.BOARD__RAM_CAPACITY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Rom Capacity feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addRomCapacityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Board_romCapacity_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Board_romCapacity_feature", "_UI_Board_type"),
-                 ModelPackage.Literals.BOARD__ROM_CAPACITY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
 	/**
@@ -281,11 +166,6 @@ public class BoardItemProvider extends HardwareElementItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(Board.class)) {
-            case ModelPackage.BOARD__BOARD_TYPE:
-            case ModelPackage.BOARD__POWER_SUPPLY:
-            case ModelPackage.BOARD__ASSURANCE_LEVEL:
-            case ModelPackage.BOARD__RAM_CAPACITY:
-            case ModelPackage.BOARD__ROM_CAPACITY:
             case ModelPackage.BOARD__FULL_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

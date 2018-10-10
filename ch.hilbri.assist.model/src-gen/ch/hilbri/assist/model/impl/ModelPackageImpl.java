@@ -20,11 +20,13 @@ import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CoreArchitectureProperty;
 import ch.hilbri.assist.model.CoreCapacityProperty;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
+import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityAttributes;
 import ch.hilbri.assist.model.DissimilarityClause;
@@ -50,7 +52,9 @@ import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
+import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -161,6 +165,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass ramUtilizationPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass romCapacityPropertyEClass = null;
 
     /**
@@ -168,7 +179,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass romUtilizationPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass coreCapacityPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass coreUtilizationPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -189,6 +214,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass criticalityLevelPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass developedByPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass customIntPropertyEClass = null;
 
     /**
@@ -197,13 +236,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass customStringPropertyEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass customPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -917,6 +949,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getRAMUtilizationProperty() {
+        return ramUtilizationPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getROMCapacityProperty() {
         return romCapacityPropertyEClass;
     }
@@ -926,8 +967,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getROMUtilizationProperty() {
+        return romUtilizationPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getCoreCapacityProperty() {
         return coreCapacityPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCoreUtilizationProperty() {
+        return coreUtilizationPropertyEClass;
     }
 
     /**
@@ -955,6 +1014,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getDesignAssuranceLevelProperty_Value() {
         return (EAttribute)designAssuranceLevelPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getCriticalityLevelProperty() {
+        return criticalityLevelPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCriticalityLevelProperty_Value() {
+        return (EAttribute)criticalityLevelPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDevelopedByProperty() {
+        return developedByPropertyEClass;
     }
 
     /**
@@ -998,15 +1084,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getCustomProperty() {
-        return customPropertyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getHardwareElement() {
         return hardwareElementEClass;
     }
@@ -1034,7 +1111,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getHardwareElement_CustomProperties() {
+    public EReference getHardwareElement_Features() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(2);
     }
 
@@ -1043,17 +1120,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getHardwareElement_Features() {
-        return (EReference)hardwareElementEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getHardwareElement_GetHardwareLevel() {
-        return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(4);
+        return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1063,6 +1131,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getHardwareElement__GetManufacturer() {
         return hardwareElementEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getHardwareElement__SetManufacturer__String() {
+        return hardwareElementEClass.getEOperations().get(1);
     }
 
     /**
@@ -1196,6 +1273,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getCompartment__SetPowerSupply__String() {
+        return compartmentEClass.getEOperations().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getBox() {
         return boxEClass;
     }
@@ -1322,53 +1408,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBoard_BoardType() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getBoard_PowerSupply() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getBoard_AssuranceLevel() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getBoard_RamCapacity() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getBoard_RomCapacity() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getBoard_Box() {
-        return (EReference)boardEClass.getEStructuralFeatures().get(5);
+        return (EReference)boardEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1377,7 +1418,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getBoard_Processors() {
-        return (EReference)boardEClass.getEStructuralFeatures().get(6);
+        return (EReference)boardEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1386,7 +1427,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EAttribute getBoard_FullName() {
-        return (EAttribute)boardEClass.getEStructuralFeatures().get(7);
+        return (EAttribute)boardEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1414,6 +1455,96 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getBoard__GetAllCores() {
         return boardEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__GetAssuranceLevel() {
+        return boardEClass.getEOperations().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__SetAssuranceLevel__DesignAssuranceLevelType() {
+        return boardEClass.getEOperations().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__GetPowerSupply() {
+        return boardEClass.getEOperations().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__SetPowerSupply__String() {
+        return boardEClass.getEOperations().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__GetBoardType() {
+        return boardEClass.getEOperations().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__SetBoardType__String() {
+        return boardEClass.getEOperations().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__GetRamCapacity() {
+        return boardEClass.getEOperations().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__SetRamCapacity__int() {
+        return boardEClass.getEOperations().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__GetRomCapacity() {
+        return boardEClass.getEOperations().get(11);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getBoard__SetRomCapacity__int() {
+        return boardEClass.getEOperations().get(12);
     }
 
     /**
@@ -1583,6 +1714,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSoftwareElement_Properties() {
+        return (EReference)softwareElementEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EOperation getSoftwareElement__ToString() {
         return softwareElementEClass.getEOperations().get(0);
     }
@@ -1628,7 +1768,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getApplication_CustomProperties() {
+    public EReference getApplication_RestrictMappingToHardwareElements() {
         return (EReference)applicationEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1637,17 +1777,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getApplication_RestrictMappingToHardwareElements() {
-        return (EReference)applicationEClass.getEStructuralFeatures().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getApplication_FullName() {
-        return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
+        return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1808,7 +1939,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getTask_CustomProperties() {
+    public EReference getTask_RestrictMappingToHardwareElements() {
         return (EReference)taskEClass.getEStructuralFeatures().get(16);
     }
 
@@ -1817,7 +1948,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getTask_RestrictMappingToHardwareElements() {
+    public EReference getTask_AssignedCore() {
         return (EReference)taskEClass.getEStructuralFeatures().get(17);
     }
 
@@ -1826,17 +1957,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getTask_AssignedCore() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(18);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getTask_FullName() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(19);
+        return (EAttribute)taskEClass.getEStructuralFeatures().get(18);
     }
 
     /**
@@ -2960,14 +3082,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         ramCapacityPropertyEClass = createEClass(RAM_CAPACITY_PROPERTY);
 
+        ramUtilizationPropertyEClass = createEClass(RAM_UTILIZATION_PROPERTY);
+
         romCapacityPropertyEClass = createEClass(ROM_CAPACITY_PROPERTY);
 
+        romUtilizationPropertyEClass = createEClass(ROM_UTILIZATION_PROPERTY);
+
         coreCapacityPropertyEClass = createEClass(CORE_CAPACITY_PROPERTY);
+
+        coreUtilizationPropertyEClass = createEClass(CORE_UTILIZATION_PROPERTY);
 
         coreArchitecturePropertyEClass = createEClass(CORE_ARCHITECTURE_PROPERTY);
 
         designAssuranceLevelPropertyEClass = createEClass(DESIGN_ASSURANCE_LEVEL_PROPERTY);
         createEAttribute(designAssuranceLevelPropertyEClass, DESIGN_ASSURANCE_LEVEL_PROPERTY__VALUE);
+
+        criticalityLevelPropertyEClass = createEClass(CRITICALITY_LEVEL_PROPERTY);
+        createEAttribute(criticalityLevelPropertyEClass, CRITICALITY_LEVEL_PROPERTY__VALUE);
+
+        developedByPropertyEClass = createEClass(DEVELOPED_BY_PROPERTY);
 
         customIntPropertyEClass = createEClass(CUSTOM_INT_PROPERTY);
         createEAttribute(customIntPropertyEClass, CUSTOM_INT_PROPERTY__NAME);
@@ -2975,15 +3108,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         customStringPropertyEClass = createEClass(CUSTOM_STRING_PROPERTY);
         createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__NAME);
 
-        customPropertyEClass = createEClass(CUSTOM_PROPERTY);
-
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__PROPERTIES);
-        createEReference(hardwareElementEClass, HARDWARE_ELEMENT__CUSTOM_PROPERTIES);
         createEReference(hardwareElementEClass, HARDWARE_ELEMENT__FEATURES);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__GET_HARDWARE_LEVEL);
         createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_MANUFACTURER);
+        createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___SET_MANUFACTURER__STRING);
 
         featureEClass = createEClass(FEATURE);
         createEAttribute(featureEClass, FEATURE__NAME);
@@ -3000,6 +3131,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_PROCESSORS);
         createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_CORES);
         createEOperation(compartmentEClass, COMPARTMENT___GET_POWER_SUPPLY);
+        createEOperation(compartmentEClass, COMPARTMENT___SET_POWER_SUPPLY__STRING);
 
         boxEClass = createEClass(BOX);
         createEReference(boxEClass, BOX__COMPARTMENT);
@@ -3018,17 +3150,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(boardAlternativeEClass, BOARD_ALTERNATIVE__BOARDS);
 
         boardEClass = createEClass(BOARD);
-        createEAttribute(boardEClass, BOARD__BOARD_TYPE);
-        createEAttribute(boardEClass, BOARD__POWER_SUPPLY);
-        createEAttribute(boardEClass, BOARD__ASSURANCE_LEVEL);
-        createEAttribute(boardEClass, BOARD__RAM_CAPACITY);
-        createEAttribute(boardEClass, BOARD__ROM_CAPACITY);
         createEReference(boardEClass, BOARD__BOX);
         createEReference(boardEClass, BOARD__PROCESSORS);
         createEAttribute(boardEClass, BOARD__FULL_NAME);
         createEOperation(boardEClass, BOARD___TO_STRING);
         createEOperation(boardEClass, BOARD___GET_ALL_PROCESSORS);
         createEOperation(boardEClass, BOARD___GET_ALL_CORES);
+        createEOperation(boardEClass, BOARD___GET_ASSURANCE_LEVEL);
+        createEOperation(boardEClass, BOARD___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE);
+        createEOperation(boardEClass, BOARD___GET_POWER_SUPPLY);
+        createEOperation(boardEClass, BOARD___SET_POWER_SUPPLY__STRING);
+        createEOperation(boardEClass, BOARD___GET_BOARD_TYPE);
+        createEOperation(boardEClass, BOARD___SET_BOARD_TYPE__STRING);
+        createEOperation(boardEClass, BOARD___GET_RAM_CAPACITY);
+        createEOperation(boardEClass, BOARD___SET_RAM_CAPACITY__INT);
+        createEOperation(boardEClass, BOARD___GET_ROM_CAPACITY);
+        createEOperation(boardEClass, BOARD___SET_ROM_CAPACITY__INT);
 
         processorEClass = createEClass(PROCESSOR);
         createEAttribute(processorEClass, PROCESSOR__PROCESSOR_TYPE);
@@ -3052,13 +3189,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         softwareElementEClass = createEClass(SOFTWARE_ELEMENT);
         createEAttribute(softwareElementEClass, SOFTWARE_ELEMENT__NAME);
+        createEReference(softwareElementEClass, SOFTWARE_ELEMENT__PROPERTIES);
         createEOperation(softwareElementEClass, SOFTWARE_ELEMENT___TO_STRING);
 
         applicationEClass = createEClass(APPLICATION);
         createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
         createEAttribute(applicationEClass, APPLICATION__CRITICALITY_LEVEL);
         createEReference(applicationEClass, APPLICATION__TASKS);
-        createEReference(applicationEClass, APPLICATION__CUSTOM_PROPERTIES);
         createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         createEAttribute(applicationEClass, APPLICATION__FULL_NAME);
 
@@ -3079,7 +3216,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEAttribute(taskEClass, TASK__COLOR);
         createEReference(taskEClass, TASK__APPLICATION);
         createEReference(taskEClass, TASK__FEATURE_REQUIREMENTS);
-        createEReference(taskEClass, TASK__CUSTOM_PROPERTIES);
         createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         createEReference(taskEClass, TASK__ASSIGNED_CORE);
         createEAttribute(taskEClass, TASK__FULL_NAME);
@@ -3273,10 +3409,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         boardTypePropertyEClass.getESuperTypes().add(this.getStringProperty());
         processorTypePropertyEClass.getESuperTypes().add(this.getStringProperty());
         ramCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        ramUtilizationPropertyEClass.getESuperTypes().add(this.getIntProperty());
         romCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        romUtilizationPropertyEClass.getESuperTypes().add(this.getIntProperty());
         coreCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        coreUtilizationPropertyEClass.getESuperTypes().add(this.getIntProperty());
         coreArchitecturePropertyEClass.getESuperTypes().add(this.getStringProperty());
         designAssuranceLevelPropertyEClass.getESuperTypes().add(this.getProperty());
+        criticalityLevelPropertyEClass.getESuperTypes().add(this.getProperty());
+        developedByPropertyEClass.getESuperTypes().add(this.getStringProperty());
         customIntPropertyEClass.getESuperTypes().add(this.getIntProperty());
         customStringPropertyEClass.getESuperTypes().add(this.getStringProperty());
         compartmentEClass.getESuperTypes().add(this.getHardwareElement());
@@ -3351,14 +3492,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(ramCapacityPropertyEClass, RAMCapacityProperty.class, "RAMCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(ramUtilizationPropertyEClass, RAMUtilizationProperty.class, "RAMUtilizationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(romCapacityPropertyEClass, ROMCapacityProperty.class, "ROMCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(romUtilizationPropertyEClass, ROMUtilizationProperty.class, "ROMUtilizationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(coreCapacityPropertyEClass, CoreCapacityProperty.class, "CoreCapacityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(coreUtilizationPropertyEClass, CoreUtilizationProperty.class, "CoreUtilizationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(coreArchitecturePropertyEClass, CoreArchitectureProperty.class, "CoreArchitectureProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(designAssuranceLevelPropertyEClass, DesignAssuranceLevelProperty.class, "DesignAssuranceLevelProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDesignAssuranceLevelProperty_Value(), this.getDesignAssuranceLevelType(), "value", "None", 0, 1, DesignAssuranceLevelProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(criticalityLevelPropertyEClass, CriticalityLevelProperty.class, "CriticalityLevelProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getCriticalityLevelProperty_Value(), this.getDesignAssuranceLevelType(), "value", "None", 0, 1, CriticalityLevelProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(developedByPropertyEClass, DevelopedByProperty.class, "DevelopedByProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(customIntPropertyEClass, CustomIntProperty.class, "CustomIntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomIntProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomIntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3366,16 +3518,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(customStringPropertyEClass, CustomStringProperty.class, "CustomStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomStringProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_Properties(), this.getProperty(), null, "properties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getHardwareElement_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getHardwareElement_Features(), this.getFeature(), null, "features", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getHardwareElement_GetHardwareLevel(), this.getHardwareArchitectureLevelType(), "getHardwareLevel", null, 0, 1, HardwareElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEOperation(getHardwareElement__GetManufacturer(), theEcorePackage.getEString(), "getManufacturer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getHardwareElement__SetManufacturer__String(), null, "setManufacturer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeature_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3398,6 +3550,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEOperation(getCompartment__GetPowerSupply(), theEcorePackage.getEString(), "getPowerSupply", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+        op = initEOperation(getCompartment__SetPowerSupply__String(), null, "setPowerSupply", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
         initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 0, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3418,11 +3573,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getBoardAlternative_Boards(), this.getBoard(), null, "boards", null, 0, -1, BoardAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(boardEClass, Board.class, "Board", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getBoard_BoardType(), theEcorePackage.getEString(), "boardType", "", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getBoard_PowerSupply(), theEcorePackage.getEString(), "powerSupply", "", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getBoard_AssuranceLevel(), this.getDesignAssuranceLevelType(), "assuranceLevel", "None", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getBoard_RamCapacity(), theEcorePackage.getEInt(), "ramCapacity", "0", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getBoard_RomCapacity(), theEcorePackage.getEInt(), "romCapacity", "0", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBoard_Box(), this.getBox(), this.getBox_Boards(), "box", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBoard_Processors(), this.getProcessor(), this.getProcessor_Board(), "processors", null, 1, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getBoard_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Board.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -3432,6 +3582,31 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEOperation(getBoard__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
         initEOperation(getBoard__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getBoard__GetAssuranceLevel(), this.getDesignAssuranceLevelType(), "getAssuranceLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getBoard__SetAssuranceLevel__DesignAssuranceLevelType(), null, "setAssuranceLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getDesignAssuranceLevelType(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getBoard__GetPowerSupply(), theEcorePackage.getEString(), "getPowerSupply", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getBoard__SetPowerSupply__String(), null, "setPowerSupply", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getBoard__GetBoardType(), theEcorePackage.getEString(), "getBoardType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getBoard__SetBoardType__String(), null, "setBoardType", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getBoard__GetRamCapacity(), theEcorePackage.getEInt(), "getRamCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getBoard__SetRamCapacity__int(), null, "setRamCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getBoard__GetRomCapacity(), theEcorePackage.getEInt(), "getRomCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getBoard__SetRomCapacity__int(), null, "setRomCapacity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getProcessor_ProcessorType(), theEcorePackage.getEString(), "processorType", "", 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3456,6 +3631,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(softwareElementEClass, SoftwareElement.class, "SoftwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSoftwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, SoftwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSoftwareElement_Properties(), this.getProperty(), null, "properties", null, 0, -1, SoftwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEOperation(getSoftwareElement__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -3463,7 +3639,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", "", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getApplication_CriticalityLevel(), this.getDesignAssuranceLevelType(), "criticalityLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getApplication_Tasks(), this.getTask(), this.getTask_Application(), "tasks", null, 1, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getApplication_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getApplication_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Application.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -3484,7 +3659,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEAttribute(getTask_Color(), this.getColor(), "color", "none", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_FeatureRequirements(), this.getFeatureRequirement(), null, "featureRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getTask_CustomProperties(), this.getCustomProperty(), null, "customProperties", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);

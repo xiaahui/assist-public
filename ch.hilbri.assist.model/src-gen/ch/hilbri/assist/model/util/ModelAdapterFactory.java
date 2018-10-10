@@ -19,10 +19,12 @@ import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CoreArchitectureProperty;
 import ch.hilbri.assist.model.CoreCapacityProperty;
+import ch.hilbri.assist.model.CoreUtilizationProperty;
+import ch.hilbri.assist.model.CriticalityLevelProperty;
 import ch.hilbri.assist.model.CustomIntProperty;
-import ch.hilbri.assist.model.CustomProperty;
 import ch.hilbri.assist.model.CustomStringProperty;
 import ch.hilbri.assist.model.DesignAssuranceLevelProperty;
+import ch.hilbri.assist.model.DevelopedByProperty;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityClause;
 import ch.hilbri.assist.model.DissimilarityConjunction;
@@ -44,7 +46,9 @@ import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RAMCapacityProperty;
+import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
+import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
@@ -163,12 +167,24 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createRAMCapacityPropertyAdapter();
             }
             @Override
+            public Adapter caseRAMUtilizationProperty(RAMUtilizationProperty object) {
+                return createRAMUtilizationPropertyAdapter();
+            }
+            @Override
             public Adapter caseROMCapacityProperty(ROMCapacityProperty object) {
                 return createROMCapacityPropertyAdapter();
             }
             @Override
+            public Adapter caseROMUtilizationProperty(ROMUtilizationProperty object) {
+                return createROMUtilizationPropertyAdapter();
+            }
+            @Override
             public Adapter caseCoreCapacityProperty(CoreCapacityProperty object) {
                 return createCoreCapacityPropertyAdapter();
+            }
+            @Override
+            public Adapter caseCoreUtilizationProperty(CoreUtilizationProperty object) {
+                return createCoreUtilizationPropertyAdapter();
             }
             @Override
             public Adapter caseCoreArchitectureProperty(CoreArchitectureProperty object) {
@@ -179,16 +195,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createDesignAssuranceLevelPropertyAdapter();
             }
             @Override
+            public Adapter caseCriticalityLevelProperty(CriticalityLevelProperty object) {
+                return createCriticalityLevelPropertyAdapter();
+            }
+            @Override
+            public Adapter caseDevelopedByProperty(DevelopedByProperty object) {
+                return createDevelopedByPropertyAdapter();
+            }
+            @Override
             public Adapter caseCustomIntProperty(CustomIntProperty object) {
                 return createCustomIntPropertyAdapter();
             }
             @Override
             public Adapter caseCustomStringProperty(CustomStringProperty object) {
                 return createCustomStringPropertyAdapter();
-            }
-            @Override
-            public Adapter caseCustomProperty(CustomProperty object) {
-                return createCustomPropertyAdapter();
             }
             @Override
             public Adapter caseHardwareElement(HardwareElement object) {
@@ -509,6 +529,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RAMUtilizationProperty <em>RAM Utilization Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.RAMUtilizationProperty
+     * @generated
+     */
+    public Adapter createRAMUtilizationPropertyAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ROMCapacityProperty <em>ROM Capacity Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -523,6 +557,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ROMUtilizationProperty <em>ROM Utilization Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.ROMUtilizationProperty
+     * @generated
+     */
+    public Adapter createROMUtilizationPropertyAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CoreCapacityProperty <em>Core Capacity Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -533,6 +581,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCoreCapacityPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CoreUtilizationProperty <em>Core Utilization Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.CoreUtilizationProperty
+     * @generated
+     */
+    public Adapter createCoreUtilizationPropertyAdapter() {
         return null;
     }
 
@@ -565,6 +627,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CriticalityLevelProperty <em>Criticality Level Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.CriticalityLevelProperty
+     * @generated
+     */
+    public Adapter createCriticalityLevelPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.DevelopedByProperty <em>Developed By Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.DevelopedByProperty
+     * @generated
+     */
+    public Adapter createDevelopedByPropertyAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CustomIntProperty <em>Custom Int Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -589,20 +679,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCustomStringPropertyAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.CustomProperty <em>Custom Property</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.CustomProperty
-     * @generated
-     */
-    public Adapter createCustomPropertyAdapter() {
         return null;
     }
 
