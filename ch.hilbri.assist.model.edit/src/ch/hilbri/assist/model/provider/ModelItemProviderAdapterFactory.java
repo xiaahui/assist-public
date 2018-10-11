@@ -33,37 +33,37 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class ModelItemProviderAdapterFactory extends ModelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-	/**
+    /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ComposedAdapterFactory parentAdapterFactory;
+    protected ComposedAdapterFactory parentAdapterFactory;
 
-	/**
+    /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+    protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-	/**
+    /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+    protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-	/**
+    /**
      * This constructs an instance.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ModelItemProviderAdapterFactory() {
+    public ModelItemProviderAdapterFactory() {
         supportedTypes.add(IEditingDomainItemProvider.class);
         supportedTypes.add(IStructuredItemContentProvider.class);
         supportedTypes.add(ITreeItemContentProvider.class);
@@ -71,22 +71,22 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         supportedTypes.add(IItemPropertySource.class);
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AssistModel} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected AssistModelItemProvider assistModelItemProvider;
+    protected AssistModelItemProvider assistModelItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link ch.hilbri.assist.model.AssistModel}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createAssistModelAdapter() {
+    @Override
+    public Adapter createAssistModelAdapter() {
         if (assistModelItemProvider == null) {
             assistModelItemProvider = new AssistModelItemProvider(this);
         }
@@ -94,7 +94,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return assistModelItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.Property} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -417,6 +417,236 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DevelopedByProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DevelopedByPropertyItemProvider developedByPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.DevelopedByProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDevelopedByPropertyAdapter() {
+        if (developedByPropertyItemProvider == null) {
+            developedByPropertyItemProvider = new DevelopedByPropertyItemProvider(this);
+        }
+
+        return developedByPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DurationProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DurationPropertyItemProvider durationPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.DurationProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDurationPropertyAdapter() {
+        if (durationPropertyItemProvider == null) {
+            durationPropertyItemProvider = new DurationPropertyItemProvider(this);
+        }
+
+        return durationPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.PeriodProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PeriodPropertyItemProvider periodPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.PeriodProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPeriodPropertyAdapter() {
+        if (periodPropertyItemProvider == null) {
+            periodPropertyItemProvider = new PeriodPropertyItemProvider(this);
+        }
+
+        return periodPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.EarlyToleranceProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EarlyTolerancePropertyItemProvider earlyTolerancePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.EarlyToleranceProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEarlyTolerancePropertyAdapter() {
+        if (earlyTolerancePropertyItemProvider == null) {
+            earlyTolerancePropertyItemProvider = new EarlyTolerancePropertyItemProvider(this);
+        }
+
+        return earlyTolerancePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.LateToleranceProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected LateTolerancePropertyItemProvider lateTolerancePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.LateToleranceProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createLateTolerancePropertyAdapter() {
+        if (lateTolerancePropertyItemProvider == null) {
+            lateTolerancePropertyItemProvider = new LateTolerancePropertyItemProvider(this);
+        }
+
+        return lateTolerancePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MaxStartTimeProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MaxStartTimePropertyItemProvider maxStartTimePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.MaxStartTimeProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMaxStartTimePropertyAdapter() {
+        if (maxStartTimePropertyItemProvider == null) {
+            maxStartTimePropertyItemProvider = new MaxStartTimePropertyItemProvider(this);
+        }
+
+        return maxStartTimePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MaxEndTimeProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MaxEndTimePropertyItemProvider maxEndTimePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.MaxEndTimeProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMaxEndTimePropertyAdapter() {
+        if (maxEndTimePropertyItemProvider == null) {
+            maxEndTimePropertyItemProvider = new MaxEndTimePropertyItemProvider(this);
+        }
+
+        return maxEndTimePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AddInitTimeProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AddInitTimePropertyItemProvider addInitTimePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.AddInitTimeProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAddInitTimePropertyAdapter() {
+        if (addInitTimePropertyItemProvider == null) {
+            addInitTimePropertyItemProvider = new AddInitTimePropertyItemProvider(this);
+        }
+
+        return addInitTimePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SlicesProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SlicesPropertyItemProvider slicesPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SlicesProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSlicesPropertyAdapter() {
+        if (slicesPropertyItemProvider == null) {
+            slicesPropertyItemProvider = new SlicesPropertyItemProvider(this);
+        }
+
+        return slicesPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MinSliceDurationProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MinSliceDurationPropertyItemProvider minSliceDurationPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.MinSliceDurationProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMinSliceDurationPropertyAdapter() {
+        if (minSliceDurationPropertyItemProvider == null) {
+            minSliceDurationPropertyItemProvider = new MinSliceDurationPropertyItemProvider(this);
+        }
+
+        return minSliceDurationPropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DesignAssuranceLevelProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -463,26 +693,49 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.DevelopedByProperty} instances.
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.PeriodicityProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DevelopedByPropertyItemProvider developedByPropertyItemProvider;
+    protected PeriodicityPropertyItemProvider periodicityPropertyItemProvider;
 
     /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.DevelopedByProperty}.
+     * This creates an adapter for a {@link ch.hilbri.assist.model.PeriodicityProperty}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createDevelopedByPropertyAdapter() {
-        if (developedByPropertyItemProvider == null) {
-            developedByPropertyItemProvider = new DevelopedByPropertyItemProvider(this);
+    public Adapter createPeriodicityPropertyAdapter() {
+        if (periodicityPropertyItemProvider == null) {
+            periodicityPropertyItemProvider = new PeriodicityPropertyItemProvider(this);
         }
 
-        return developedByPropertyItemProvider;
+        return periodicityPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ColorProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ColorPropertyItemProvider colorPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.ColorProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createColorPropertyAdapter() {
+        if (colorPropertyItemProvider == null) {
+            colorPropertyItemProvider = new ColorPropertyItemProvider(this);
+        }
+
+        return colorPropertyItemProvider;
     }
 
     /**
@@ -506,6 +759,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return customPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomIntProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomIntPropertyItemProvider customIntPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomIntProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomIntPropertyAdapter() {
+        if (customIntPropertyItemProvider == null) {
+            customIntPropertyItemProvider = new CustomIntPropertyItemProvider(this);
+        }
+
+        return customIntPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomStringProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CustomStringPropertyItemProvider customStringPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomStringProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCustomStringPropertyAdapter() {
+        if (customStringPropertyItemProvider == null) {
+            customStringPropertyItemProvider = new CustomStringPropertyItemProvider(this);
+        }
+
+        return customStringPropertyItemProvider;
     }
 
     /**
@@ -1429,99 +1728,53 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomIntProperty} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CustomIntPropertyItemProvider customIntPropertyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomIntProperty}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCustomIntPropertyAdapter() {
-        if (customIntPropertyItemProvider == null) {
-            customIntPropertyItemProvider = new CustomIntPropertyItemProvider(this);
-        }
-
-        return customIntPropertyItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomStringProperty} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CustomStringPropertyItemProvider customStringPropertyItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.CustomStringProperty}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCustomStringPropertyAdapter() {
-        if (customStringPropertyItemProvider == null) {
-            customStringPropertyItemProvider = new CustomStringPropertyItemProvider(this);
-        }
-
-        return customStringPropertyItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
+    public ComposeableAdapterFactory getRootAdapterFactory() {
         return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
-	/**
+    /**
      * This sets the composed adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean isFactoryForType(Object type) {
+    @Override
+    public boolean isFactoryForType(Object type) {
         return supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
-	/**
+    /**
      * This implementation substitutes the factory itself as the key for the adapter.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
+    @Override
+    public Adapter adapt(Notifier notifier, Object type) {
         return super.adapt(notifier, this);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object adapt(Object object, Object type) {
+    @Override
+    public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
@@ -1532,33 +1785,33 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         return null;
     }
 
-	/**
+    /**
      * This adds a listener.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
+    public void addListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.addListener(notifyChangedListener);
     }
 
-	/**
+    /**
      * This removes a listener.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
+    public void removeListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.removeListener(notifyChangedListener);
     }
 
-	/**
+    /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void fireNotifyChanged(Notification notification) {
+    public void fireNotifyChanged(Notification notification) {
         changeNotifier.fireNotifyChanged(notification);
 
         if (parentAdapterFactory != null) {
@@ -1566,13 +1819,13 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
     }
 
-	/**
+    /**
      * This disposes all of the item providers created by this factory. 
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void dispose() {
+    public void dispose() {
         if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (propertyItemProvider != null) propertyItemProvider.dispose();
         if (stringPropertyItemProvider != null) stringPropertyItemProvider.dispose();
@@ -1588,9 +1841,20 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (coreCapacityPropertyItemProvider != null) coreCapacityPropertyItemProvider.dispose();
         if (coreUtilizationPropertyItemProvider != null) coreUtilizationPropertyItemProvider.dispose();
         if (coreArchitecturePropertyItemProvider != null) coreArchitecturePropertyItemProvider.dispose();
+        if (developedByPropertyItemProvider != null) developedByPropertyItemProvider.dispose();
+        if (durationPropertyItemProvider != null) durationPropertyItemProvider.dispose();
+        if (periodPropertyItemProvider != null) periodPropertyItemProvider.dispose();
+        if (earlyTolerancePropertyItemProvider != null) earlyTolerancePropertyItemProvider.dispose();
+        if (lateTolerancePropertyItemProvider != null) lateTolerancePropertyItemProvider.dispose();
+        if (maxStartTimePropertyItemProvider != null) maxStartTimePropertyItemProvider.dispose();
+        if (maxEndTimePropertyItemProvider != null) maxEndTimePropertyItemProvider.dispose();
+        if (addInitTimePropertyItemProvider != null) addInitTimePropertyItemProvider.dispose();
+        if (slicesPropertyItemProvider != null) slicesPropertyItemProvider.dispose();
+        if (minSliceDurationPropertyItemProvider != null) minSliceDurationPropertyItemProvider.dispose();
         if (designAssuranceLevelPropertyItemProvider != null) designAssuranceLevelPropertyItemProvider.dispose();
         if (criticalityLevelPropertyItemProvider != null) criticalityLevelPropertyItemProvider.dispose();
-        if (developedByPropertyItemProvider != null) developedByPropertyItemProvider.dispose();
+        if (periodicityPropertyItemProvider != null) periodicityPropertyItemProvider.dispose();
+        if (colorPropertyItemProvider != null) colorPropertyItemProvider.dispose();
         if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
         if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();

@@ -102,6 +102,6 @@ public interface Application extends SoftwareElement {
      * @model newValueUnique="false"
      * @generated
      */
-    void setAssuranceLevel(DesignAssuranceLevelType newValue);
+    void setCriticalityLevel(DesignAssuranceLevelType newValue);
 
 } // Application

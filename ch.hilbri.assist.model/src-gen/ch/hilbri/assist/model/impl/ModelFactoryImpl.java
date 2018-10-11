@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -14,6 +15,7 @@ import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
+import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
@@ -34,6 +36,8 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.DurationProperty;
+import ch.hilbri.assist.model.EarlyToleranceProperty;
 import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
@@ -41,11 +45,17 @@ import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IntProperty;
+import ch.hilbri.assist.model.LateToleranceProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
+import ch.hilbri.assist.model.MaxEndTimeProperty;
+import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodProperty;
+import ch.hilbri.assist.model.PeriodicityProperty;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
@@ -66,6 +76,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
@@ -145,9 +156,20 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CORE_CAPACITY_PROPERTY: return createCoreCapacityProperty();
             case ModelPackage.CORE_UTILIZATION_PROPERTY: return createCoreUtilizationProperty();
             case ModelPackage.CORE_ARCHITECTURE_PROPERTY: return createCoreArchitectureProperty();
+            case ModelPackage.DEVELOPED_BY_PROPERTY: return createDevelopedByProperty();
+            case ModelPackage.DURATION_PROPERTY: return createDurationProperty();
+            case ModelPackage.PERIOD_PROPERTY: return createPeriodProperty();
+            case ModelPackage.EARLY_TOLERANCE_PROPERTY: return createEarlyToleranceProperty();
+            case ModelPackage.LATE_TOLERANCE_PROPERTY: return createLateToleranceProperty();
+            case ModelPackage.MAX_START_TIME_PROPERTY: return createMaxStartTimeProperty();
+            case ModelPackage.MAX_END_TIME_PROPERTY: return createMaxEndTimeProperty();
+            case ModelPackage.ADD_INIT_TIME_PROPERTY: return createAddInitTimeProperty();
+            case ModelPackage.SLICES_PROPERTY: return createSlicesProperty();
+            case ModelPackage.MIN_SLICE_DURATION_PROPERTY: return createMinSliceDurationProperty();
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_PROPERTY: return createDesignAssuranceLevelProperty();
             case ModelPackage.CRITICALITY_LEVEL_PROPERTY: return createCriticalityLevelProperty();
-            case ModelPackage.DEVELOPED_BY_PROPERTY: return createDevelopedByProperty();
+            case ModelPackage.PERIODICITY_PROPERTY: return createPeriodicityProperty();
+            case ModelPackage.COLOR_PROPERTY: return createColorProperty();
             case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
@@ -413,6 +435,106 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
+    public DevelopedByProperty createDevelopedByProperty() {
+        DevelopedByPropertyImpl developedByProperty = new DevelopedByPropertyImpl();
+        return developedByProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DurationProperty createDurationProperty() {
+        DurationPropertyImpl durationProperty = new DurationPropertyImpl();
+        return durationProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PeriodProperty createPeriodProperty() {
+        PeriodPropertyImpl periodProperty = new PeriodPropertyImpl();
+        return periodProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EarlyToleranceProperty createEarlyToleranceProperty() {
+        EarlyTolerancePropertyImpl earlyToleranceProperty = new EarlyTolerancePropertyImpl();
+        return earlyToleranceProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LateToleranceProperty createLateToleranceProperty() {
+        LateTolerancePropertyImpl lateToleranceProperty = new LateTolerancePropertyImpl();
+        return lateToleranceProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MaxStartTimeProperty createMaxStartTimeProperty() {
+        MaxStartTimePropertyImpl maxStartTimeProperty = new MaxStartTimePropertyImpl();
+        return maxStartTimeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MaxEndTimeProperty createMaxEndTimeProperty() {
+        MaxEndTimePropertyImpl maxEndTimeProperty = new MaxEndTimePropertyImpl();
+        return maxEndTimeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AddInitTimeProperty createAddInitTimeProperty() {
+        AddInitTimePropertyImpl addInitTimeProperty = new AddInitTimePropertyImpl();
+        return addInitTimeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SlicesProperty createSlicesProperty() {
+        SlicesPropertyImpl slicesProperty = new SlicesPropertyImpl();
+        return slicesProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MinSliceDurationProperty createMinSliceDurationProperty() {
+        MinSliceDurationPropertyImpl minSliceDurationProperty = new MinSliceDurationPropertyImpl();
+        return minSliceDurationProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DesignAssuranceLevelProperty createDesignAssuranceLevelProperty() {
         DesignAssuranceLevelPropertyImpl designAssuranceLevelProperty = new DesignAssuranceLevelPropertyImpl();
         return designAssuranceLevelProperty;
@@ -433,9 +555,19 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public DevelopedByProperty createDevelopedByProperty() {
-        DevelopedByPropertyImpl developedByProperty = new DevelopedByPropertyImpl();
-        return developedByProperty;
+    public PeriodicityProperty createPeriodicityProperty() {
+        PeriodicityPropertyImpl periodicityProperty = new PeriodicityPropertyImpl();
+        return periodicityProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ColorProperty createColorProperty() {
+        ColorPropertyImpl colorProperty = new ColorPropertyImpl();
+        return colorProperty;
     }
 
     /**

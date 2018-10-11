@@ -230,7 +230,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAssuranceLevel(final DesignAssuranceLevelType newValue) {
+    public void setCriticalityLevel(final DesignAssuranceLevelType newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
                 return Boolean.valueOf((it instanceof CriticalityLevelProperty));
@@ -379,8 +379,8 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
                 return null;
             case ModelPackage.APPLICATION___GET_CRITICALITY_LEVEL:
                 return getCriticalityLevel();
-            case ModelPackage.APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE:
-                setAssuranceLevel((DesignAssuranceLevelType)arguments.get(0));
+            case ModelPackage.APPLICATION___SET_CRITICALITY_LEVEL__DESIGNASSURANCELEVELTYPE:
+                setCriticalityLevel((DesignAssuranceLevelType)arguments.get(0));
                 return null;
         }
         return super.eInvoke(operationID, arguments);

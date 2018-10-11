@@ -2,18 +2,29 @@
  */
 package ch.hilbri.assist.model.impl;
 
+import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.Color;
+import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.CoreUtilizationProperty;
+import ch.hilbri.assist.model.DurationProperty;
+import ch.hilbri.assist.model.EarlyToleranceProperty;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.LateToleranceProperty;
+import ch.hilbri.assist.model.MaxEndTimeProperty;
+import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodProperty;
+import ch.hilbri.assist.model.PeriodicityProperty;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMUtilizationProperty;
+import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.Task;
 
 import java.lang.reflect.InvocationTargetException;
@@ -50,17 +61,6 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getDuration <em>Duration</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getPeriod <em>Period</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getEarlyTolerance <em>Early Tolerance</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getLateTolerance <em>Late Tolerance</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getMaxStartTime <em>Max Start Time</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getMaxEndTime <em>Max End Time</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getAddInitTime <em>Add Init Time</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getSlices <em>Slices</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getMinSliceDuration <em>Min Slice Duration</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getPeriodicity <em>Periodicity</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getColor <em>Color</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFeatureRequirements <em>Feature Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
@@ -71,226 +71,6 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  * @generated
  */
 public class TaskImpl extends SoftwareElementImpl implements Task {
-    /**
-     * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDuration()
-     * @generated
-     * @ordered
-     */
-    protected static final int DURATION_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDuration()
-     * @generated
-     * @ordered
-     */
-    protected int duration = DURATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPeriod()
-     * @generated
-     * @ordered
-     */
-    protected static final int PERIOD_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPeriod()
-     * @generated
-     * @ordered
-     */
-    protected int period = PERIOD_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getEarlyTolerance() <em>Early Tolerance</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEarlyTolerance()
-     * @generated
-     * @ordered
-     */
-    protected static final int EARLY_TOLERANCE_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getEarlyTolerance() <em>Early Tolerance</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEarlyTolerance()
-     * @generated
-     * @ordered
-     */
-    protected int earlyTolerance = EARLY_TOLERANCE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLateTolerance() <em>Late Tolerance</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLateTolerance()
-     * @generated
-     * @ordered
-     */
-    protected static final int LATE_TOLERANCE_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getLateTolerance() <em>Late Tolerance</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLateTolerance()
-     * @generated
-     * @ordered
-     */
-    protected int lateTolerance = LATE_TOLERANCE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getMaxStartTime() <em>Max Start Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxStartTime()
-     * @generated
-     * @ordered
-     */
-    protected static final int MAX_START_TIME_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getMaxStartTime() <em>Max Start Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxStartTime()
-     * @generated
-     * @ordered
-     */
-    protected int maxStartTime = MAX_START_TIME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getMaxEndTime() <em>Max End Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxEndTime()
-     * @generated
-     * @ordered
-     */
-    protected static final int MAX_END_TIME_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getMaxEndTime() <em>Max End Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMaxEndTime()
-     * @generated
-     * @ordered
-     */
-    protected int maxEndTime = MAX_END_TIME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getAddInitTime() <em>Add Init Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAddInitTime()
-     * @generated
-     * @ordered
-     */
-    protected static final int ADD_INIT_TIME_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getAddInitTime() <em>Add Init Time</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAddInitTime()
-     * @generated
-     * @ordered
-     */
-    protected int addInitTime = ADD_INIT_TIME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getSlices() <em>Slices</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSlices()
-     * @generated
-     * @ordered
-     */
-    protected static final int SLICES_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getSlices() <em>Slices</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSlices()
-     * @generated
-     * @ordered
-     */
-    protected int slices = SLICES_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getMinSliceDuration() <em>Min Slice Duration</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinSliceDuration()
-     * @generated
-     * @ordered
-     */
-    protected static final int MIN_SLICE_DURATION_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getMinSliceDuration() <em>Min Slice Duration</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinSliceDuration()
-     * @generated
-     * @ordered
-     */
-    protected int minSliceDuration = MIN_SLICE_DURATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getPeriodicity() <em>Periodicity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPeriodicity()
-     * @generated
-     * @ordered
-     */
-    protected static final PeriodicityType PERIODICITY_EDEFAULT = PeriodicityType.STRICT;
-
-    /**
-     * The cached value of the '{@link #getPeriodicity() <em>Periodicity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPeriodicity()
-     * @generated
-     * @ordered
-     */
-    protected PeriodicityType periodicity = PERIODICITY_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getColor()
-     * @generated
-     * @ordered
-     */
-    protected static final Color COLOR_EDEFAULT = Color.NONE;
-
-    /**
-     * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getColor()
-     * @generated
-     * @ordered
-     */
-    protected Color color = COLOR_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getFeatureRequirements() <em>Feature Requirements</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -348,237 +128,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     protected EClass eStaticClass() {
         return ModelPackage.Literals.TASK;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getDuration() {
-        return duration;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setDuration(int newDuration) {
-        int oldDuration = duration;
-        duration = newDuration;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__DURATION, oldDuration, duration));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getPeriod() {
-        return period;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPeriod(int newPeriod) {
-        int oldPeriod = period;
-        period = newPeriod;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__PERIOD, oldPeriod, period));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getEarlyTolerance() {
-        return earlyTolerance;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setEarlyTolerance(int newEarlyTolerance) {
-        int oldEarlyTolerance = earlyTolerance;
-        earlyTolerance = newEarlyTolerance;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__EARLY_TOLERANCE, oldEarlyTolerance, earlyTolerance));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getLateTolerance() {
-        return lateTolerance;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLateTolerance(int newLateTolerance) {
-        int oldLateTolerance = lateTolerance;
-        lateTolerance = newLateTolerance;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__LATE_TOLERANCE, oldLateTolerance, lateTolerance));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getMaxStartTime() {
-        return maxStartTime;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setMaxStartTime(int newMaxStartTime) {
-        int oldMaxStartTime = maxStartTime;
-        maxStartTime = newMaxStartTime;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__MAX_START_TIME, oldMaxStartTime, maxStartTime));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getMaxEndTime() {
-        return maxEndTime;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setMaxEndTime(int newMaxEndTime) {
-        int oldMaxEndTime = maxEndTime;
-        maxEndTime = newMaxEndTime;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__MAX_END_TIME, oldMaxEndTime, maxEndTime));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getAddInitTime() {
-        return addInitTime;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setAddInitTime(int newAddInitTime) {
-        int oldAddInitTime = addInitTime;
-        addInitTime = newAddInitTime;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__ADD_INIT_TIME, oldAddInitTime, addInitTime));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getSlices() {
-        return slices;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSlices(int newSlices) {
-        int oldSlices = slices;
-        slices = newSlices;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__SLICES, oldSlices, slices));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getMinSliceDuration() {
-        return minSliceDuration;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setMinSliceDuration(int newMinSliceDuration) {
-        int oldMinSliceDuration = minSliceDuration;
-        minSliceDuration = newMinSliceDuration;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__MIN_SLICE_DURATION, oldMinSliceDuration, minSliceDuration));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public PeriodicityType getPeriodicity() {
-        return periodicity;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPeriodicity(PeriodicityType newPeriodicity) {
-        PeriodicityType oldPeriodicity = periodicity;
-        periodicity = newPeriodicity == null ? PERIODICITY_EDEFAULT : newPeriodicity;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__PERIODICITY, oldPeriodicity, periodicity));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Color getColor() {
-        return color;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setColor(Color newColor) {
-        Color oldColor = color;
-        color = newColor == null ? COLOR_EDEFAULT : newColor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__COLOR, oldColor, color));
     }
 
     /**
@@ -903,6 +452,710 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getDuration() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DurationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DurationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((DurationProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDuration(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof DurationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof DurationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((DurationProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            DurationProperty _createDurationProperty = ModelFactory.eINSTANCE.createDurationProperty();
+            final Procedure1<DurationProperty> _function_2 = new Procedure1<DurationProperty>() {
+                public void apply(final DurationProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            DurationProperty _doubleArrow = ObjectExtensions.<DurationProperty>operator_doubleArrow(_createDurationProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getPeriod() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PeriodProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PeriodProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((PeriodProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPeriod(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PeriodProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PeriodProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((PeriodProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            PeriodProperty _createPeriodProperty = ModelFactory.eINSTANCE.createPeriodProperty();
+            final Procedure1<PeriodProperty> _function_2 = new Procedure1<PeriodProperty>() {
+                public void apply(final PeriodProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            PeriodProperty _doubleArrow = ObjectExtensions.<PeriodProperty>operator_doubleArrow(_createPeriodProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getEarlyTolerance() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof EarlyToleranceProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof EarlyToleranceProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((EarlyToleranceProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEarlyTolerance(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof EarlyToleranceProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof EarlyToleranceProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((EarlyToleranceProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            EarlyToleranceProperty _createEarlyToleranceProperty = ModelFactory.eINSTANCE.createEarlyToleranceProperty();
+            final Procedure1<EarlyToleranceProperty> _function_2 = new Procedure1<EarlyToleranceProperty>() {
+                public void apply(final EarlyToleranceProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            EarlyToleranceProperty _doubleArrow = ObjectExtensions.<EarlyToleranceProperty>operator_doubleArrow(_createEarlyToleranceProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getLateTolerance() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof LateToleranceProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof LateToleranceProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((LateToleranceProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLateTolerance(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof LateToleranceProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof LateToleranceProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((LateToleranceProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            LateToleranceProperty _createLateToleranceProperty = ModelFactory.eINSTANCE.createLateToleranceProperty();
+            final Procedure1<LateToleranceProperty> _function_2 = new Procedure1<LateToleranceProperty>() {
+                public void apply(final LateToleranceProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            LateToleranceProperty _doubleArrow = ObjectExtensions.<LateToleranceProperty>operator_doubleArrow(_createLateToleranceProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMaxStartTime() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MaxStartTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MaxStartTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((MaxStartTimeProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMaxStartTime(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MaxStartTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MaxStartTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((MaxStartTimeProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            MaxStartTimeProperty _createMaxStartTimeProperty = ModelFactory.eINSTANCE.createMaxStartTimeProperty();
+            final Procedure1<MaxStartTimeProperty> _function_2 = new Procedure1<MaxStartTimeProperty>() {
+                public void apply(final MaxStartTimeProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            MaxStartTimeProperty _doubleArrow = ObjectExtensions.<MaxStartTimeProperty>operator_doubleArrow(_createMaxStartTimeProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMaxEndTime() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MaxEndTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MaxEndTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((MaxEndTimeProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMaxEndTime(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MaxEndTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MaxEndTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((MaxEndTimeProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            MaxEndTimeProperty _createMaxEndTimeProperty = ModelFactory.eINSTANCE.createMaxEndTimeProperty();
+            final Procedure1<MaxEndTimeProperty> _function_2 = new Procedure1<MaxEndTimeProperty>() {
+                public void apply(final MaxEndTimeProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            MaxEndTimeProperty _doubleArrow = ObjectExtensions.<MaxEndTimeProperty>operator_doubleArrow(_createMaxEndTimeProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getAddInitTime() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof AddInitTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof AddInitTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((AddInitTimeProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAddInitTime(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof AddInitTimeProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof AddInitTimeProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((AddInitTimeProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            AddInitTimeProperty _createAddInitTimeProperty = ModelFactory.eINSTANCE.createAddInitTimeProperty();
+            final Procedure1<AddInitTimeProperty> _function_2 = new Procedure1<AddInitTimeProperty>() {
+                public void apply(final AddInitTimeProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            AddInitTimeProperty _doubleArrow = ObjectExtensions.<AddInitTimeProperty>operator_doubleArrow(_createAddInitTimeProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getSlices() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof SlicesProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof SlicesProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((SlicesProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSlices(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof SlicesProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof SlicesProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((SlicesProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            SlicesProperty _createSlicesProperty = ModelFactory.eINSTANCE.createSlicesProperty();
+            final Procedure1<SlicesProperty> _function_2 = new Procedure1<SlicesProperty>() {
+                public void apply(final SlicesProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            SlicesProperty _doubleArrow = ObjectExtensions.<SlicesProperty>operator_doubleArrow(_createSlicesProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMinSliceDuration() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MinSliceDurationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MinSliceDurationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((MinSliceDurationProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMinSliceDuration(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MinSliceDurationProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MinSliceDurationProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((MinSliceDurationProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            MinSliceDurationProperty _createMinSliceDurationProperty = ModelFactory.eINSTANCE.createMinSliceDurationProperty();
+            final Procedure1<MinSliceDurationProperty> _function_2 = new Procedure1<MinSliceDurationProperty>() {
+                public void apply(final MinSliceDurationProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            MinSliceDurationProperty _doubleArrow = ObjectExtensions.<MinSliceDurationProperty>operator_doubleArrow(_createMinSliceDurationProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PeriodicityType getPeriodicity() {
+        PeriodicityType _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PeriodicityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PeriodicityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((PeriodicityProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = PeriodicityType.STRICT;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPeriodicity(final PeriodicityType newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof PeriodicityProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof PeriodicityProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((PeriodicityProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            PeriodicityProperty _createPeriodicityProperty = ModelFactory.eINSTANCE.createPeriodicityProperty();
+            final Procedure1<PeriodicityProperty> _function_2 = new Procedure1<PeriodicityProperty>() {
+                public void apply(final PeriodicityProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            PeriodicityProperty _doubleArrow = ObjectExtensions.<PeriodicityProperty>operator_doubleArrow(_createPeriodicityProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Color getColor() {
+        Color _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ColorProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ColorProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((ColorProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = Color.NONE;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setColor(final Color newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof ColorProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof ColorProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((ColorProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            ColorProperty _createColorProperty = ModelFactory.eINSTANCE.createColorProperty();
+            final Procedure1<ColorProperty> _function_2 = new Procedure1<ColorProperty>() {
+                public void apply(final ColorProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            ColorProperty _doubleArrow = ObjectExtensions.<ColorProperty>operator_doubleArrow(_createColorProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -952,28 +1205,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.TASK__DURATION:
-                return getDuration();
-            case ModelPackage.TASK__PERIOD:
-                return getPeriod();
-            case ModelPackage.TASK__EARLY_TOLERANCE:
-                return getEarlyTolerance();
-            case ModelPackage.TASK__LATE_TOLERANCE:
-                return getLateTolerance();
-            case ModelPackage.TASK__MAX_START_TIME:
-                return getMaxStartTime();
-            case ModelPackage.TASK__MAX_END_TIME:
-                return getMaxEndTime();
-            case ModelPackage.TASK__ADD_INIT_TIME:
-                return getAddInitTime();
-            case ModelPackage.TASK__SLICES:
-                return getSlices();
-            case ModelPackage.TASK__MIN_SLICE_DURATION:
-                return getMinSliceDuration();
-            case ModelPackage.TASK__PERIODICITY:
-                return getPeriodicity();
-            case ModelPackage.TASK__COLOR:
-                return getColor();
             case ModelPackage.TASK__APPLICATION:
                 if (resolve) return getApplication();
                 return basicGetApplication();
@@ -999,39 +1230,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.TASK__DURATION:
-                setDuration((Integer)newValue);
-                return;
-            case ModelPackage.TASK__PERIOD:
-                setPeriod((Integer)newValue);
-                return;
-            case ModelPackage.TASK__EARLY_TOLERANCE:
-                setEarlyTolerance((Integer)newValue);
-                return;
-            case ModelPackage.TASK__LATE_TOLERANCE:
-                setLateTolerance((Integer)newValue);
-                return;
-            case ModelPackage.TASK__MAX_START_TIME:
-                setMaxStartTime((Integer)newValue);
-                return;
-            case ModelPackage.TASK__MAX_END_TIME:
-                setMaxEndTime((Integer)newValue);
-                return;
-            case ModelPackage.TASK__ADD_INIT_TIME:
-                setAddInitTime((Integer)newValue);
-                return;
-            case ModelPackage.TASK__SLICES:
-                setSlices((Integer)newValue);
-                return;
-            case ModelPackage.TASK__MIN_SLICE_DURATION:
-                setMinSliceDuration((Integer)newValue);
-                return;
-            case ModelPackage.TASK__PERIODICITY:
-                setPeriodicity((PeriodicityType)newValue);
-                return;
-            case ModelPackage.TASK__COLOR:
-                setColor((Color)newValue);
-                return;
             case ModelPackage.TASK__APPLICATION:
                 setApplication((Application)newValue);
                 return;
@@ -1058,39 +1256,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__DURATION:
-                setDuration(DURATION_EDEFAULT);
-                return;
-            case ModelPackage.TASK__PERIOD:
-                setPeriod(PERIOD_EDEFAULT);
-                return;
-            case ModelPackage.TASK__EARLY_TOLERANCE:
-                setEarlyTolerance(EARLY_TOLERANCE_EDEFAULT);
-                return;
-            case ModelPackage.TASK__LATE_TOLERANCE:
-                setLateTolerance(LATE_TOLERANCE_EDEFAULT);
-                return;
-            case ModelPackage.TASK__MAX_START_TIME:
-                setMaxStartTime(MAX_START_TIME_EDEFAULT);
-                return;
-            case ModelPackage.TASK__MAX_END_TIME:
-                setMaxEndTime(MAX_END_TIME_EDEFAULT);
-                return;
-            case ModelPackage.TASK__ADD_INIT_TIME:
-                setAddInitTime(ADD_INIT_TIME_EDEFAULT);
-                return;
-            case ModelPackage.TASK__SLICES:
-                setSlices(SLICES_EDEFAULT);
-                return;
-            case ModelPackage.TASK__MIN_SLICE_DURATION:
-                setMinSliceDuration(MIN_SLICE_DURATION_EDEFAULT);
-                return;
-            case ModelPackage.TASK__PERIODICITY:
-                setPeriodicity(PERIODICITY_EDEFAULT);
-                return;
-            case ModelPackage.TASK__COLOR:
-                setColor(COLOR_EDEFAULT);
-                return;
             case ModelPackage.TASK__APPLICATION:
                 setApplication((Application)null);
                 return;
@@ -1115,28 +1280,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.TASK__DURATION:
-                return duration != DURATION_EDEFAULT;
-            case ModelPackage.TASK__PERIOD:
-                return period != PERIOD_EDEFAULT;
-            case ModelPackage.TASK__EARLY_TOLERANCE:
-                return earlyTolerance != EARLY_TOLERANCE_EDEFAULT;
-            case ModelPackage.TASK__LATE_TOLERANCE:
-                return lateTolerance != LATE_TOLERANCE_EDEFAULT;
-            case ModelPackage.TASK__MAX_START_TIME:
-                return maxStartTime != MAX_START_TIME_EDEFAULT;
-            case ModelPackage.TASK__MAX_END_TIME:
-                return maxEndTime != MAX_END_TIME_EDEFAULT;
-            case ModelPackage.TASK__ADD_INIT_TIME:
-                return addInitTime != ADD_INIT_TIME_EDEFAULT;
-            case ModelPackage.TASK__SLICES:
-                return slices != SLICES_EDEFAULT;
-            case ModelPackage.TASK__MIN_SLICE_DURATION:
-                return minSliceDuration != MIN_SLICE_DURATION_EDEFAULT;
-            case ModelPackage.TASK__PERIODICITY:
-                return periodicity != PERIODICITY_EDEFAULT;
-            case ModelPackage.TASK__COLOR:
-                return color != COLOR_EDEFAULT;
             case ModelPackage.TASK__APPLICATION:
                 return basicGetApplication() != null;
             case ModelPackage.TASK__FEATURE_REQUIREMENTS:
@@ -1174,44 +1317,63 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
             case ModelPackage.TASK___SET_ROM_UTILIZATION__INT:
                 setRomUtilization((Integer)arguments.get(0));
                 return null;
+            case ModelPackage.TASK___GET_DURATION:
+                return getDuration();
+            case ModelPackage.TASK___SET_DURATION__INT:
+                setDuration((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_PERIOD:
+                return getPeriod();
+            case ModelPackage.TASK___SET_PERIOD__INT:
+                setPeriod((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_EARLY_TOLERANCE:
+                return getEarlyTolerance();
+            case ModelPackage.TASK___SET_EARLY_TOLERANCE__INT:
+                setEarlyTolerance((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_LATE_TOLERANCE:
+                return getLateTolerance();
+            case ModelPackage.TASK___SET_LATE_TOLERANCE__INT:
+                setLateTolerance((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_MAX_START_TIME:
+                return getMaxStartTime();
+            case ModelPackage.TASK___SET_MAX_START_TIME__INT:
+                setMaxStartTime((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_MAX_END_TIME:
+                return getMaxEndTime();
+            case ModelPackage.TASK___SET_MAX_END_TIME__INT:
+                setMaxEndTime((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_ADD_INIT_TIME:
+                return getAddInitTime();
+            case ModelPackage.TASK___SET_ADD_INIT_TIME__INT:
+                setAddInitTime((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_SLICES:
+                return getSlices();
+            case ModelPackage.TASK___SET_SLICES__INT:
+                setSlices((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_MIN_SLICE_DURATION:
+                return getMinSliceDuration();
+            case ModelPackage.TASK___SET_MIN_SLICE_DURATION__INT:
+                setMinSliceDuration((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_PERIODICITY:
+                return getPeriodicity();
+            case ModelPackage.TASK___SET_PERIODICITY__PERIODICITYTYPE:
+                setPeriodicity((PeriodicityType)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_COLOR:
+                return getColor();
+            case ModelPackage.TASK___SET_COLOR__COLOR:
+                setColor((Color)arguments.get(0));
+                return null;
         }
         return super.eInvoke(operationID, arguments);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (duration: ");
-        result.append(duration);
-        result.append(", period: ");
-        result.append(period);
-        result.append(", earlyTolerance: ");
-        result.append(earlyTolerance);
-        result.append(", lateTolerance: ");
-        result.append(lateTolerance);
-        result.append(", maxStartTime: ");
-        result.append(maxStartTime);
-        result.append(", maxEndTime: ");
-        result.append(maxEndTime);
-        result.append(", addInitTime: ");
-        result.append(addInitTime);
-        result.append(", slices: ");
-        result.append(slices);
-        result.append(", minSliceDuration: ");
-        result.append(minSliceDuration);
-        result.append(", periodicity: ");
-        result.append(periodicity);
-        result.append(", color: ");
-        result.append(color);
-        result.append(')');
-        return result.toString();
     }
 
 } //TaskImpl

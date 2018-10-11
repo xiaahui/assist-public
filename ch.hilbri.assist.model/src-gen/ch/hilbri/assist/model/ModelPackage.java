@@ -779,6 +779,376 @@ public interface ModelPackage extends EPackage {
     int CORE_ARCHITECTURE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
+     * @generated
+     */
+    int DEVELOPED_BY_PROPERTY = 15;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Developed By Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Developed By Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DurationPropertyImpl <em>Duration Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.DurationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDurationProperty()
+     * @generated
+     */
+    int DURATION_PROPERTY = 16;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodPropertyImpl <em>Period Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PeriodPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodProperty()
+     * @generated
+     */
+    int PERIOD_PROPERTY = 17;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Period Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Period Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl <em>Early Tolerance Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getEarlyToleranceProperty()
+     * @generated
+     */
+    int EARLY_TOLERANCE_PROPERTY = 18;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Early Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Early Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.LateTolerancePropertyImpl <em>Late Tolerance Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.LateTolerancePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getLateToleranceProperty()
+     * @generated
+     */
+    int LATE_TOLERANCE_PROPERTY = 19;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Late Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Late Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl <em>Max Start Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxStartTimeProperty()
+     * @generated
+     */
+    int MAX_START_TIME_PROPERTY = 20;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Max Start Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Max Start Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl <em>Max End Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxEndTimeProperty()
+     * @generated
+     */
+    int MAX_END_TIME_PROPERTY = 21;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Max End Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Max End Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AddInitTimePropertyImpl <em>Add Init Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.AddInitTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAddInitTimeProperty()
+     * @generated
+     */
+    int ADD_INIT_TIME_PROPERTY = 22;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Add Init Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Add Init Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.SlicesPropertyImpl <em>Slices Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.SlicesPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSlicesProperty()
+     * @generated
+     */
+    int SLICES_PROPERTY = 23;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Slices Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Slices Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl <em>Min Slice Duration Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinSliceDurationProperty()
+     * @generated
+     */
+    int MIN_SLICE_DURATION_PROPERTY = 24;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Min Slice Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Min Slice Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl <em>Design Assurance Level Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -786,7 +1156,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelProperty()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_PROPERTY = 15;
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY = 25;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -823,7 +1193,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCriticalityLevelProperty()
      * @generated
      */
-    int CRITICALITY_LEVEL_PROPERTY = 16;
+    int CRITICALITY_LEVEL_PROPERTY = 26;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -853,14 +1223,14 @@ public interface ModelPackage extends EPackage {
     int CRITICALITY_LEVEL_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodicityPropertyImpl <em>Periodicity Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
+     * @see ch.hilbri.assist.model.impl.PeriodicityPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityProperty()
      * @generated
      */
-    int DEVELOPED_BY_PROPERTY = 17;
+    int PERIODICITY_PROPERTY = 27;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -869,25 +1239,62 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DEVELOPED_BY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+    int PERIODICITY_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Developed By Property</em>' class.
+     * The number of structural features of the '<em>Periodicity Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEVELOPED_BY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+    int PERIODICITY_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
     /**
-     * The number of operations of the '<em>Developed By Property</em>' class.
+     * The number of operations of the '<em>Periodicity Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEVELOPED_BY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+    int PERIODICITY_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ColorPropertyImpl <em>Color Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ColorPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColorProperty()
+     * @generated
+     */
+    int COLOR_PROPERTY = 28;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Color Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Color Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
@@ -897,7 +1304,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomProperty()
      * @generated
      */
-    int CUSTOM_PROPERTY = 18;
+    int CUSTOM_PROPERTY = 29;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -934,7 +1341,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomIntProperty()
      * @generated
      */
-    int CUSTOM_INT_PROPERTY = 19;
+    int CUSTOM_INT_PROPERTY = 30;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -980,7 +1387,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomStringProperty()
      * @generated
      */
-    int CUSTOM_STRING_PROPERTY = 20;
+    int CUSTOM_STRING_PROPERTY = 31;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1026,7 +1433,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareElement()
      * @generated
      */
-    int HARDWARE_ELEMENT = 21;
+    int HARDWARE_ELEMENT = 32;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1144,7 +1551,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeature()
      * @generated
      */
-    int FEATURE = 22;
+    int FEATURE = 33;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1217,7 +1624,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCompartment()
      * @generated
      */
-    int COMPARTMENT = 23;
+    int COMPARTMENT = 34;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1407,7 +1814,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBox()
      * @generated
      */
-    int BOX = 24;
+    int BOX = 35;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1588,7 +1995,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
      * @generated
      */
-    int BOARD_ALTERNATIVES = 25;
+    int BOARD_ALTERNATIVES = 36;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -1625,7 +2032,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternative()
      * @generated
      */
-    int BOARD_ALTERNATIVE = 26;
+    int BOARD_ALTERNATIVE = 37;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1671,7 +2078,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoard()
      * @generated
      */
-    int BOARD = 27;
+    int BOARD = 38;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1933,7 +2340,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessor()
      * @generated
      */
-    int PROCESSOR = 28;
+    int PROCESSOR = 39;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2105,7 +2512,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCore()
      * @generated
      */
-    int CORE = 29;
+    int CORE = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2277,7 +2684,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternatives()
      * @generated
      */
-    int APPLICATION_ALTERNATIVES = 30;
+    int APPLICATION_ALTERNATIVES = 41;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -2314,7 +2721,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternative()
      * @generated
      */
-    int APPLICATION_ALTERNATIVE = 31;
+    int APPLICATION_ALTERNATIVE = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2360,7 +2767,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSoftwareElement()
      * @generated
      */
-    int SOFTWARE_ELEMENT = 32;
+    int SOFTWARE_ELEMENT = 43;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2451,7 +2858,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplication()
      * @generated
      */
-    int APPLICATION = 33;
+    int APPLICATION = 44;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2580,13 +2987,13 @@ public interface ModelPackage extends EPackage {
     int APPLICATION___GET_CRITICALITY_LEVEL = SOFTWARE_ELEMENT_OPERATION_COUNT + 2;
 
     /**
-     * The operation id for the '<em>Set Assurance Level</em>' operation.
+     * The operation id for the '<em>Set Criticality Level</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE = SOFTWARE_ELEMENT_OPERATION_COUNT + 3;
+    int APPLICATION___SET_CRITICALITY_LEVEL__DESIGNASSURANCELEVELTYPE = SOFTWARE_ELEMENT_OPERATION_COUNT + 3;
 
     /**
      * The number of operations of the '<em>Application</em>' class.
@@ -2605,7 +3012,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask()
      * @generated
      */
-    int TASK = 34;
+    int TASK = 45;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2626,112 +3033,13 @@ public interface ModelPackage extends EPackage {
     int TASK__PROPERTIES = SOFTWARE_ELEMENT__PROPERTIES;
 
     /**
-     * The feature id for the '<em><b>Duration</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__DURATION = SOFTWARE_ELEMENT_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Period</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__PERIOD = SOFTWARE_ELEMENT_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Early Tolerance</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__EARLY_TOLERANCE = SOFTWARE_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Late Tolerance</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__LATE_TOLERANCE = SOFTWARE_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
-     * The feature id for the '<em><b>Max Start Time</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__MAX_START_TIME = SOFTWARE_ELEMENT_FEATURE_COUNT + 4;
-
-    /**
-     * The feature id for the '<em><b>Max End Time</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__MAX_END_TIME = SOFTWARE_ELEMENT_FEATURE_COUNT + 5;
-
-    /**
-     * The feature id for the '<em><b>Add Init Time</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__ADD_INIT_TIME = SOFTWARE_ELEMENT_FEATURE_COUNT + 6;
-
-    /**
-     * The feature id for the '<em><b>Slices</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__SLICES = SOFTWARE_ELEMENT_FEATURE_COUNT + 7;
-
-    /**
-     * The feature id for the '<em><b>Min Slice Duration</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__MIN_SLICE_DURATION = SOFTWARE_ELEMENT_FEATURE_COUNT + 8;
-
-    /**
-     * The feature id for the '<em><b>Periodicity</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__PERIODICITY = SOFTWARE_ELEMENT_FEATURE_COUNT + 9;
-
-    /**
-     * The feature id for the '<em><b>Color</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TASK__COLOR = SOFTWARE_ELEMENT_FEATURE_COUNT + 10;
-
-    /**
      * The feature id for the '<em><b>Application</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TASK__APPLICATION = SOFTWARE_ELEMENT_FEATURE_COUNT + 11;
+    int TASK__APPLICATION = SOFTWARE_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Feature Requirements</b></em>' containment reference list.
@@ -2740,7 +3048,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK__FEATURE_REQUIREMENTS = SOFTWARE_ELEMENT_FEATURE_COUNT + 12;
+    int TASK__FEATURE_REQUIREMENTS = SOFTWARE_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -2749,7 +3057,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = SOFTWARE_ELEMENT_FEATURE_COUNT + 13;
+    int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = SOFTWARE_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Assigned Core</b></em>' reference.
@@ -2758,7 +3066,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK__ASSIGNED_CORE = SOFTWARE_ELEMENT_FEATURE_COUNT + 14;
+    int TASK__ASSIGNED_CORE = SOFTWARE_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Full Name</b></em>' attribute.
@@ -2767,7 +3075,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK__FULL_NAME = SOFTWARE_ELEMENT_FEATURE_COUNT + 15;
+    int TASK__FULL_NAME = SOFTWARE_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Task</em>' class.
@@ -2776,7 +3084,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int TASK_FEATURE_COUNT = SOFTWARE_ELEMENT_FEATURE_COUNT + 16;
+    int TASK_FEATURE_COUNT = SOFTWARE_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The operation id for the '<em>To String</em>' operation.
@@ -2878,13 +3186,211 @@ public interface ModelPackage extends EPackage {
     int TASK___SET_ROM_UTILIZATION__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 5;
 
     /**
+     * The operation id for the '<em>Get Duration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_DURATION = SOFTWARE_ELEMENT_OPERATION_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>Set Duration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_DURATION__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>Get Period</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_PERIOD = SOFTWARE_ELEMENT_OPERATION_COUNT + 8;
+
+    /**
+     * The operation id for the '<em>Set Period</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_PERIOD__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 9;
+
+    /**
+     * The operation id for the '<em>Get Early Tolerance</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_EARLY_TOLERANCE = SOFTWARE_ELEMENT_OPERATION_COUNT + 10;
+
+    /**
+     * The operation id for the '<em>Set Early Tolerance</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_EARLY_TOLERANCE__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 11;
+
+    /**
+     * The operation id for the '<em>Get Late Tolerance</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_LATE_TOLERANCE = SOFTWARE_ELEMENT_OPERATION_COUNT + 12;
+
+    /**
+     * The operation id for the '<em>Set Late Tolerance</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_LATE_TOLERANCE__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 13;
+
+    /**
+     * The operation id for the '<em>Get Max Start Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_MAX_START_TIME = SOFTWARE_ELEMENT_OPERATION_COUNT + 14;
+
+    /**
+     * The operation id for the '<em>Set Max Start Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_MAX_START_TIME__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 15;
+
+    /**
+     * The operation id for the '<em>Get Max End Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_MAX_END_TIME = SOFTWARE_ELEMENT_OPERATION_COUNT + 16;
+
+    /**
+     * The operation id for the '<em>Set Max End Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_MAX_END_TIME__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 17;
+
+    /**
+     * The operation id for the '<em>Get Add Init Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_ADD_INIT_TIME = SOFTWARE_ELEMENT_OPERATION_COUNT + 18;
+
+    /**
+     * The operation id for the '<em>Set Add Init Time</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_ADD_INIT_TIME__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 19;
+
+    /**
+     * The operation id for the '<em>Get Slices</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_SLICES = SOFTWARE_ELEMENT_OPERATION_COUNT + 20;
+
+    /**
+     * The operation id for the '<em>Set Slices</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_SLICES__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 21;
+
+    /**
+     * The operation id for the '<em>Get Min Slice Duration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_MIN_SLICE_DURATION = SOFTWARE_ELEMENT_OPERATION_COUNT + 22;
+
+    /**
+     * The operation id for the '<em>Set Min Slice Duration</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_MIN_SLICE_DURATION__INT = SOFTWARE_ELEMENT_OPERATION_COUNT + 23;
+
+    /**
+     * The operation id for the '<em>Get Periodicity</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_PERIODICITY = SOFTWARE_ELEMENT_OPERATION_COUNT + 24;
+
+    /**
+     * The operation id for the '<em>Set Periodicity</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_PERIODICITY__PERIODICITYTYPE = SOFTWARE_ELEMENT_OPERATION_COUNT + 25;
+
+    /**
+     * The operation id for the '<em>Get Color</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___GET_COLOR = SOFTWARE_ELEMENT_OPERATION_COUNT + 26;
+
+    /**
+     * The operation id for the '<em>Set Color</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK___SET_COLOR__COLOR = SOFTWARE_ELEMENT_OPERATION_COUNT + 27;
+
+    /**
      * The number of operations of the '<em>Task</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TASK_OPERATION_COUNT = SOFTWARE_ELEMENT_OPERATION_COUNT + 6;
+    int TASK_OPERATION_COUNT = SOFTWARE_ELEMENT_OPERATION_COUNT + 28;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl <em>Feature Requirement</em>}' class.
@@ -2894,7 +3400,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
      * @generated
      */
-    int FEATURE_REQUIREMENT = 35;
+    int FEATURE_REQUIREMENT = 46;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2967,7 +3473,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
      * @generated
      */
-    int MAPPING_RELATION = 36;
+    int MAPPING_RELATION = 47;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3031,7 +3537,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDislocalityRelation()
      * @generated
      */
-    int DISLOCALITY_RELATION = 37;
+    int DISLOCALITY_RELATION = 48;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3095,7 +3601,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColocalityRelation()
      * @generated
      */
-    int COLOCALITY_RELATION = 38;
+    int COLOCALITY_RELATION = 49;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3159,7 +3665,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityRelation()
      * @generated
      */
-    int DISSIMILARITY_RELATION = 39;
+    int DISSIMILARITY_RELATION = 50;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3232,7 +3738,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityClause()
      * @generated
      */
-    int DISSIMILARITY_CLAUSE = 40;
+    int DISSIMILARITY_CLAUSE = 51;
 
     /**
      * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -3260,7 +3766,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
      * @generated
      */
-    int DISSIMILARITY_DISJUNCTION = 41;
+    int DISSIMILARITY_DISJUNCTION = 52;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -3297,7 +3803,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityConjunction()
      * @generated
      */
-    int DISSIMILARITY_CONJUNCTION = 42;
+    int DISSIMILARITY_CONJUNCTION = 53;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -3334,7 +3840,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityEntry()
      * @generated
      */
-    int DISSIMILARITY_ENTRY = 43;
+    int DISSIMILARITY_ENTRY = 54;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
@@ -3380,7 +3886,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingRestriction()
      * @generated
      */
-    int SCHEDULING_RESTRICTION = 44;
+    int SCHEDULING_RESTRICTION = 55;
 
     /**
      * The number of structural features of the '<em>Scheduling Restriction</em>' class.
@@ -3408,7 +3914,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
      * @generated
      */
-    int SIMPLE_RELATION = 45;
+    int SIMPLE_RELATION = 56;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3445,7 +3951,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
      * @generated
      */
-    int COMPLEX_RELATION = 46;
+    int COMPLEX_RELATION = 57;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3500,7 +4006,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_START_AT_THE_SAME_TIME = 47;
+    int RESTRICTION_START_AT_THE_SAME_TIME = 58;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3537,7 +4043,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 48;
+    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 59;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3574,7 +4080,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_FINISHED = 49;
+    int RESTRICTION_START_AFTER_OTHER_FINISHED = 60;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3629,7 +4135,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_STARTED = 50;
+    int RESTRICTION_START_AFTER_OTHER_STARTED = 61;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3684,7 +4190,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
      * @generated
      */
-    int RESTRICTION_DISJOINT_EXECUTION = 51;
+    int RESTRICTION_DISJOINT_EXECUTION = 62;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3721,7 +4227,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVES = 52;
+    int RESTRICTION_ALTERNATIVES = 63;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -3758,7 +4264,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternative()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVE = 53;
+    int RESTRICTION_ALTERNATIVE = 64;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3822,7 +4328,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationCandidate()
      * @generated
      */
-    int EXPLORATION_CANDIDATE = 54;
+    int EXPLORATION_CANDIDATE = 65;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3886,7 +4392,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationResult()
      * @generated
      */
-    int EXPLORATION_RESULT = 55;
+    int EXPLORATION_RESULT = 66;
 
     /**
      * The feature id for the '<em><b>Candidate</b></em>' reference.
@@ -3968,7 +4474,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
      * @generated
      */
-    int ABSTRACT_DSE_METRIC = 56;
+    int ABSTRACT_DSE_METRIC = 67;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4032,7 +4538,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 57;
+    int COMPARABLE = 68;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -4060,7 +4566,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 58;
+    int METRIC_SCORE_PAIR = 69;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -4106,7 +4612,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 59;
+    int MAPPING_RESULT = 70;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4323,7 +4829,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 60;
+    int SINGLE_MAPPING_ELEMENT = 71;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -4414,7 +4920,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_MAPPING_METRIC = 61;
+    int ABSTRACT_MAPPING_METRIC = 72;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4487,7 +4993,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 62;
+    int SCHEDULING_RESULT = 73;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4551,7 +5057,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 63;
+    int TASK_EXECUTION_INSTANCE = 74;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -4606,7 +5112,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 64;
+    int DISSIMILARITY_ATTRIBUTES = 75;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -4616,7 +5122,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 65;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 76;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -4626,7 +5132,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 66;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 77;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -4636,7 +5142,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 67;
+    int PERIODICITY_TYPE = 78;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -4646,7 +5152,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 68;
+    int COLOR = 79;
 
     /**
      * The meta object id for the '<em>List Of Task Lists</em>' data type.
@@ -4656,7 +5162,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getListOfTaskLists()
      * @generated
      */
-    int LIST_OF_TASK_LISTS = 69;
+    int LIST_OF_TASK_LISTS = 80;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -4666,7 +5172,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 70;
+    int TASK2_CORE_MAP_TYPE = 81;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -4676,7 +5182,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 71;
+    int STRING_LIST = 82;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -4686,7 +5192,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 72;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 83;
 
 
     /**
@@ -5074,6 +5580,106 @@ public interface ModelPackage extends EPackage {
     EClass getCoreArchitectureProperty();
 
     /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.DevelopedByProperty <em>Developed By Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Developed By Property</em>'.
+     * @see ch.hilbri.assist.model.DevelopedByProperty
+     * @generated
+     */
+    EClass getDevelopedByProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.DurationProperty <em>Duration Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Duration Property</em>'.
+     * @see ch.hilbri.assist.model.DurationProperty
+     * @generated
+     */
+    EClass getDurationProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.PeriodProperty <em>Period Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Period Property</em>'.
+     * @see ch.hilbri.assist.model.PeriodProperty
+     * @generated
+     */
+    EClass getPeriodProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.EarlyToleranceProperty <em>Early Tolerance Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Early Tolerance Property</em>'.
+     * @see ch.hilbri.assist.model.EarlyToleranceProperty
+     * @generated
+     */
+    EClass getEarlyToleranceProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.LateToleranceProperty <em>Late Tolerance Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Late Tolerance Property</em>'.
+     * @see ch.hilbri.assist.model.LateToleranceProperty
+     * @generated
+     */
+    EClass getLateToleranceProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.MaxStartTimeProperty <em>Max Start Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Max Start Time Property</em>'.
+     * @see ch.hilbri.assist.model.MaxStartTimeProperty
+     * @generated
+     */
+    EClass getMaxStartTimeProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.MaxEndTimeProperty <em>Max End Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Max End Time Property</em>'.
+     * @see ch.hilbri.assist.model.MaxEndTimeProperty
+     * @generated
+     */
+    EClass getMaxEndTimeProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.AddInitTimeProperty <em>Add Init Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Add Init Time Property</em>'.
+     * @see ch.hilbri.assist.model.AddInitTimeProperty
+     * @generated
+     */
+    EClass getAddInitTimeProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.SlicesProperty <em>Slices Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Slices Property</em>'.
+     * @see ch.hilbri.assist.model.SlicesProperty
+     * @generated
+     */
+    EClass getSlicesProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.MinSliceDurationProperty <em>Min Slice Duration Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Min Slice Duration Property</em>'.
+     * @see ch.hilbri.assist.model.MinSliceDurationProperty
+     * @generated
+     */
+    EClass getMinSliceDurationProperty();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.DesignAssuranceLevelProperty <em>Design Assurance Level Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5116,14 +5722,46 @@ public interface ModelPackage extends EPackage {
     EAttribute getCriticalityLevelProperty_Value();
 
     /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.DevelopedByProperty <em>Developed By Property</em>}'.
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.PeriodicityProperty <em>Periodicity Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Developed By Property</em>'.
-     * @see ch.hilbri.assist.model.DevelopedByProperty
+     * @return the meta object for class '<em>Periodicity Property</em>'.
+     * @see ch.hilbri.assist.model.PeriodicityProperty
      * @generated
      */
-    EClass getDevelopedByProperty();
+    EClass getPeriodicityProperty();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.PeriodicityProperty#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see ch.hilbri.assist.model.PeriodicityProperty#getValue()
+     * @see #getPeriodicityProperty()
+     * @generated
+     */
+    EAttribute getPeriodicityProperty_Value();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.ColorProperty <em>Color Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Color Property</em>'.
+     * @see ch.hilbri.assist.model.ColorProperty
+     * @generated
+     */
+    EClass getColorProperty();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ColorProperty#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see ch.hilbri.assist.model.ColorProperty#getValue()
+     * @see #getColorProperty()
+     * @generated
+     */
+    EAttribute getColorProperty_Value();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.CustomProperty <em>Custom Property</em>}'.
@@ -6123,14 +6761,14 @@ public interface ModelPackage extends EPackage {
     EOperation getApplication__GetCriticalityLevel();
 
     /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.Application#setAssuranceLevel(ch.hilbri.assist.model.DesignAssuranceLevelType) <em>Set Assurance Level</em>}' operation.
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Application#setCriticalityLevel(ch.hilbri.assist.model.DesignAssuranceLevelType) <em>Set Criticality Level</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Set Assurance Level</em>' operation.
-     * @see ch.hilbri.assist.model.Application#setAssuranceLevel(ch.hilbri.assist.model.DesignAssuranceLevelType)
+     * @return the meta object for the '<em>Set Criticality Level</em>' operation.
+     * @see ch.hilbri.assist.model.Application#setCriticalityLevel(ch.hilbri.assist.model.DesignAssuranceLevelType)
      * @generated
      */
-    EOperation getApplication__SetAssuranceLevel__DesignAssuranceLevelType();
+    EOperation getApplication__SetCriticalityLevel__DesignAssuranceLevelType();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.Task <em>Task</em>}'.
@@ -6141,127 +6779,6 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EClass getTask();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getDuration <em>Duration</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Duration</em>'.
-     * @see ch.hilbri.assist.model.Task#getDuration()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_Duration();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getPeriod <em>Period</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Period</em>'.
-     * @see ch.hilbri.assist.model.Task#getPeriod()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_Period();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getEarlyTolerance <em>Early Tolerance</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Early Tolerance</em>'.
-     * @see ch.hilbri.assist.model.Task#getEarlyTolerance()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_EarlyTolerance();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getLateTolerance <em>Late Tolerance</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Late Tolerance</em>'.
-     * @see ch.hilbri.assist.model.Task#getLateTolerance()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_LateTolerance();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMaxStartTime <em>Max Start Time</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Max Start Time</em>'.
-     * @see ch.hilbri.assist.model.Task#getMaxStartTime()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_MaxStartTime();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMaxEndTime <em>Max End Time</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Max End Time</em>'.
-     * @see ch.hilbri.assist.model.Task#getMaxEndTime()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_MaxEndTime();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getAddInitTime <em>Add Init Time</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Add Init Time</em>'.
-     * @see ch.hilbri.assist.model.Task#getAddInitTime()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_AddInitTime();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getSlices <em>Slices</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Slices</em>'.
-     * @see ch.hilbri.assist.model.Task#getSlices()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_Slices();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getMinSliceDuration <em>Min Slice Duration</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Min Slice Duration</em>'.
-     * @see ch.hilbri.assist.model.Task#getMinSliceDuration()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_MinSliceDuration();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getPeriodicity <em>Periodicity</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Periodicity</em>'.
-     * @see ch.hilbri.assist.model.Task#getPeriodicity()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_Periodicity();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Task#getColor <em>Color</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Color</em>'.
-     * @see ch.hilbri.assist.model.Task#getColor()
-     * @see #getTask()
-     * @generated
-     */
-    EAttribute getTask_Color();
 
     /**
      * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}'.
@@ -6377,6 +6894,226 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EOperation getTask__SetRomUtilization__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getDuration() <em>Get Duration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Duration</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getDuration()
+     * @generated
+     */
+    EOperation getTask__GetDuration();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setDuration(int) <em>Set Duration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Duration</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setDuration(int)
+     * @generated
+     */
+    EOperation getTask__SetDuration__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getPeriod() <em>Get Period</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Period</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getPeriod()
+     * @generated
+     */
+    EOperation getTask__GetPeriod();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setPeriod(int) <em>Set Period</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Period</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setPeriod(int)
+     * @generated
+     */
+    EOperation getTask__SetPeriod__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getEarlyTolerance() <em>Get Early Tolerance</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Early Tolerance</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getEarlyTolerance()
+     * @generated
+     */
+    EOperation getTask__GetEarlyTolerance();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setEarlyTolerance(int) <em>Set Early Tolerance</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Early Tolerance</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setEarlyTolerance(int)
+     * @generated
+     */
+    EOperation getTask__SetEarlyTolerance__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getLateTolerance() <em>Get Late Tolerance</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Late Tolerance</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getLateTolerance()
+     * @generated
+     */
+    EOperation getTask__GetLateTolerance();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setLateTolerance(int) <em>Set Late Tolerance</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Late Tolerance</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setLateTolerance(int)
+     * @generated
+     */
+    EOperation getTask__SetLateTolerance__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getMaxStartTime() <em>Get Max Start Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Max Start Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getMaxStartTime()
+     * @generated
+     */
+    EOperation getTask__GetMaxStartTime();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setMaxStartTime(int) <em>Set Max Start Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Max Start Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setMaxStartTime(int)
+     * @generated
+     */
+    EOperation getTask__SetMaxStartTime__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getMaxEndTime() <em>Get Max End Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Max End Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getMaxEndTime()
+     * @generated
+     */
+    EOperation getTask__GetMaxEndTime();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setMaxEndTime(int) <em>Set Max End Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Max End Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setMaxEndTime(int)
+     * @generated
+     */
+    EOperation getTask__SetMaxEndTime__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getAddInitTime() <em>Get Add Init Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Add Init Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getAddInitTime()
+     * @generated
+     */
+    EOperation getTask__GetAddInitTime();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setAddInitTime(int) <em>Set Add Init Time</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Add Init Time</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setAddInitTime(int)
+     * @generated
+     */
+    EOperation getTask__SetAddInitTime__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getSlices() <em>Get Slices</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Slices</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getSlices()
+     * @generated
+     */
+    EOperation getTask__GetSlices();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setSlices(int) <em>Set Slices</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Slices</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setSlices(int)
+     * @generated
+     */
+    EOperation getTask__SetSlices__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getMinSliceDuration() <em>Get Min Slice Duration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Min Slice Duration</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getMinSliceDuration()
+     * @generated
+     */
+    EOperation getTask__GetMinSliceDuration();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setMinSliceDuration(int) <em>Set Min Slice Duration</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Min Slice Duration</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setMinSliceDuration(int)
+     * @generated
+     */
+    EOperation getTask__SetMinSliceDuration__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getPeriodicity() <em>Get Periodicity</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Periodicity</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getPeriodicity()
+     * @generated
+     */
+    EOperation getTask__GetPeriodicity();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setPeriodicity(ch.hilbri.assist.model.PeriodicityType) <em>Set Periodicity</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Periodicity</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setPeriodicity(ch.hilbri.assist.model.PeriodicityType)
+     * @generated
+     */
+    EOperation getTask__SetPeriodicity__PeriodicityType();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#getColor() <em>Get Color</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Color</em>' operation.
+     * @see ch.hilbri.assist.model.Task#getColor()
+     * @generated
+     */
+    EOperation getTask__GetColor();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Task#setColor(ch.hilbri.assist.model.Color) <em>Set Color</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Color</em>' operation.
+     * @see ch.hilbri.assist.model.Task#setColor(ch.hilbri.assist.model.Color)
+     * @generated
+     */
+    EOperation getTask__SetColor__Color();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.FeatureRequirement <em>Feature Requirement</em>}'.
@@ -7982,6 +8719,106 @@ public interface ModelPackage extends EPackage {
         EClass CORE_ARCHITECTURE_PROPERTY = eINSTANCE.getCoreArchitectureProperty();
 
         /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
+         * @generated
+         */
+        EClass DEVELOPED_BY_PROPERTY = eINSTANCE.getDevelopedByProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.DurationPropertyImpl <em>Duration Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.DurationPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDurationProperty()
+         * @generated
+         */
+        EClass DURATION_PROPERTY = eINSTANCE.getDurationProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.PeriodPropertyImpl <em>Period Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.PeriodPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodProperty()
+         * @generated
+         */
+        EClass PERIOD_PROPERTY = eINSTANCE.getPeriodProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl <em>Early Tolerance Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getEarlyToleranceProperty()
+         * @generated
+         */
+        EClass EARLY_TOLERANCE_PROPERTY = eINSTANCE.getEarlyToleranceProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.LateTolerancePropertyImpl <em>Late Tolerance Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.LateTolerancePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getLateToleranceProperty()
+         * @generated
+         */
+        EClass LATE_TOLERANCE_PROPERTY = eINSTANCE.getLateToleranceProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl <em>Max Start Time Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxStartTimeProperty()
+         * @generated
+         */
+        EClass MAX_START_TIME_PROPERTY = eINSTANCE.getMaxStartTimeProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl <em>Max End Time Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxEndTimeProperty()
+         * @generated
+         */
+        EClass MAX_END_TIME_PROPERTY = eINSTANCE.getMaxEndTimeProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AddInitTimePropertyImpl <em>Add Init Time Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.AddInitTimePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAddInitTimeProperty()
+         * @generated
+         */
+        EClass ADD_INIT_TIME_PROPERTY = eINSTANCE.getAddInitTimeProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.SlicesPropertyImpl <em>Slices Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.SlicesPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSlicesProperty()
+         * @generated
+         */
+        EClass SLICES_PROPERTY = eINSTANCE.getSlicesProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl <em>Min Slice Duration Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinSliceDurationProperty()
+         * @generated
+         */
+        EClass MIN_SLICE_DURATION_PROPERTY = eINSTANCE.getMinSliceDurationProperty();
+
+        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl <em>Design Assurance Level Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -8018,14 +8855,40 @@ public interface ModelPackage extends EPackage {
         EAttribute CRITICALITY_LEVEL_PROPERTY__VALUE = eINSTANCE.getCriticalityLevelProperty_Value();
 
         /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.PeriodicityPropertyImpl <em>Periodicity Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
+         * @see ch.hilbri.assist.model.impl.PeriodicityPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityProperty()
          * @generated
          */
-        EClass DEVELOPED_BY_PROPERTY = eINSTANCE.getDevelopedByProperty();
+        EClass PERIODICITY_PROPERTY = eINSTANCE.getPeriodicityProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PERIODICITY_PROPERTY__VALUE = eINSTANCE.getPeriodicityProperty_Value();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ColorPropertyImpl <em>Color Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.ColorPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColorProperty()
+         * @generated
+         */
+        EClass COLOR_PROPERTY = eINSTANCE.getColorProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COLOR_PROPERTY__VALUE = eINSTANCE.getColorProperty_Value();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
@@ -8828,12 +9691,12 @@ public interface ModelPackage extends EPackage {
         EOperation APPLICATION___GET_CRITICALITY_LEVEL = eINSTANCE.getApplication__GetCriticalityLevel();
 
         /**
-         * The meta object literal for the '<em><b>Set Assurance Level</b></em>' operation.
+         * The meta object literal for the '<em><b>Set Criticality Level</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE = eINSTANCE.getApplication__SetAssuranceLevel__DesignAssuranceLevelType();
+        EOperation APPLICATION___SET_CRITICALITY_LEVEL__DESIGNASSURANCELEVELTYPE = eINSTANCE.getApplication__SetCriticalityLevel__DesignAssuranceLevelType();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.TaskImpl <em>Task</em>}' class.
@@ -8844,94 +9707,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EClass TASK = eINSTANCE.getTask();
-
-        /**
-         * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__DURATION = eINSTANCE.getTask_Duration();
-
-        /**
-         * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__PERIOD = eINSTANCE.getTask_Period();
-
-        /**
-         * The meta object literal for the '<em><b>Early Tolerance</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__EARLY_TOLERANCE = eINSTANCE.getTask_EarlyTolerance();
-
-        /**
-         * The meta object literal for the '<em><b>Late Tolerance</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__LATE_TOLERANCE = eINSTANCE.getTask_LateTolerance();
-
-        /**
-         * The meta object literal for the '<em><b>Max Start Time</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__MAX_START_TIME = eINSTANCE.getTask_MaxStartTime();
-
-        /**
-         * The meta object literal for the '<em><b>Max End Time</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__MAX_END_TIME = eINSTANCE.getTask_MaxEndTime();
-
-        /**
-         * The meta object literal for the '<em><b>Add Init Time</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__ADD_INIT_TIME = eINSTANCE.getTask_AddInitTime();
-
-        /**
-         * The meta object literal for the '<em><b>Slices</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__SLICES = eINSTANCE.getTask_Slices();
-
-        /**
-         * The meta object literal for the '<em><b>Min Slice Duration</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__MIN_SLICE_DURATION = eINSTANCE.getTask_MinSliceDuration();
-
-        /**
-         * The meta object literal for the '<em><b>Periodicity</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__PERIODICITY = eINSTANCE.getTask_Periodicity();
-
-        /**
-         * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute TASK__COLOR = eINSTANCE.getTask_Color();
 
         /**
          * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
@@ -9020,6 +9795,182 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EOperation TASK___SET_ROM_UTILIZATION__INT = eINSTANCE.getTask__SetRomUtilization__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Duration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_DURATION = eINSTANCE.getTask__GetDuration();
+
+        /**
+         * The meta object literal for the '<em><b>Set Duration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_DURATION__INT = eINSTANCE.getTask__SetDuration__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Period</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_PERIOD = eINSTANCE.getTask__GetPeriod();
+
+        /**
+         * The meta object literal for the '<em><b>Set Period</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_PERIOD__INT = eINSTANCE.getTask__SetPeriod__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Early Tolerance</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_EARLY_TOLERANCE = eINSTANCE.getTask__GetEarlyTolerance();
+
+        /**
+         * The meta object literal for the '<em><b>Set Early Tolerance</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_EARLY_TOLERANCE__INT = eINSTANCE.getTask__SetEarlyTolerance__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Late Tolerance</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_LATE_TOLERANCE = eINSTANCE.getTask__GetLateTolerance();
+
+        /**
+         * The meta object literal for the '<em><b>Set Late Tolerance</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_LATE_TOLERANCE__INT = eINSTANCE.getTask__SetLateTolerance__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Max Start Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_MAX_START_TIME = eINSTANCE.getTask__GetMaxStartTime();
+
+        /**
+         * The meta object literal for the '<em><b>Set Max Start Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_MAX_START_TIME__INT = eINSTANCE.getTask__SetMaxStartTime__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Max End Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_MAX_END_TIME = eINSTANCE.getTask__GetMaxEndTime();
+
+        /**
+         * The meta object literal for the '<em><b>Set Max End Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_MAX_END_TIME__INT = eINSTANCE.getTask__SetMaxEndTime__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Add Init Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_ADD_INIT_TIME = eINSTANCE.getTask__GetAddInitTime();
+
+        /**
+         * The meta object literal for the '<em><b>Set Add Init Time</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_ADD_INIT_TIME__INT = eINSTANCE.getTask__SetAddInitTime__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Slices</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_SLICES = eINSTANCE.getTask__GetSlices();
+
+        /**
+         * The meta object literal for the '<em><b>Set Slices</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_SLICES__INT = eINSTANCE.getTask__SetSlices__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Min Slice Duration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_MIN_SLICE_DURATION = eINSTANCE.getTask__GetMinSliceDuration();
+
+        /**
+         * The meta object literal for the '<em><b>Set Min Slice Duration</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_MIN_SLICE_DURATION__INT = eINSTANCE.getTask__SetMinSliceDuration__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Periodicity</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_PERIODICITY = eINSTANCE.getTask__GetPeriodicity();
+
+        /**
+         * The meta object literal for the '<em><b>Set Periodicity</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_PERIODICITY__PERIODICITYTYPE = eINSTANCE.getTask__SetPeriodicity__PeriodicityType();
+
+        /**
+         * The meta object literal for the '<em><b>Get Color</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___GET_COLOR = eINSTANCE.getTask__GetColor();
+
+        /**
+         * The meta object literal for the '<em><b>Set Color</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TASK___SET_COLOR__COLOR = eINSTANCE.getTask__SetColor__Color();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.FeatureRequirementImpl <em>Feature Requirement</em>}' class.

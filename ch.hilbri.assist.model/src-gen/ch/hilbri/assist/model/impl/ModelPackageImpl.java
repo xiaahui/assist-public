@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -15,6 +16,7 @@ import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
 import ch.hilbri.assist.model.Color;
+import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
@@ -35,6 +37,8 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.DurationProperty;
+import ch.hilbri.assist.model.EarlyToleranceProperty;
 import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
@@ -42,11 +46,17 @@ import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IntProperty;
+import ch.hilbri.assist.model.LateToleranceProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
+import ch.hilbri.assist.model.MaxEndTimeProperty;
+import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodProperty;
+import ch.hilbri.assist.model.PeriodicityProperty;
 import ch.hilbri.assist.model.PeriodicityType;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
@@ -67,6 +77,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
@@ -208,6 +219,76 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass developedByPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass durationPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass periodPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass earlyTolerancePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass lateTolerancePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass maxStartTimePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass maxEndTimePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass addInitTimePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass slicesPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass minSliceDurationPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EClass designAssuranceLevelPropertyEClass = null;
 
     /**
@@ -222,7 +303,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass developedByPropertyEClass = null;
+    private EClass periodicityPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass colorPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1011,6 +1099,96 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getDevelopedByProperty() {
+        return developedByPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDurationProperty() {
+        return durationPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPeriodProperty() {
+        return periodPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEarlyToleranceProperty() {
+        return earlyTolerancePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getLateToleranceProperty() {
+        return lateTolerancePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMaxStartTimeProperty() {
+        return maxStartTimePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMaxEndTimeProperty() {
+        return maxEndTimePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAddInitTimeProperty() {
+        return addInitTimePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSlicesProperty() {
+        return slicesPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMinSliceDurationProperty() {
+        return minSliceDurationPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDesignAssuranceLevelProperty() {
         return designAssuranceLevelPropertyEClass;
     }
@@ -1047,8 +1225,35 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getDevelopedByProperty() {
-        return developedByPropertyEClass;
+    public EClass getPeriodicityProperty() {
+        return periodicityPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPeriodicityProperty_Value() {
+        return (EAttribute)periodicityPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getColorProperty() {
+        return colorPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getColorProperty_Value() {
+        return (EAttribute)colorPropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1920,7 +2125,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getApplication__SetAssuranceLevel__DesignAssuranceLevelType() {
+    public EOperation getApplication__SetCriticalityLevel__DesignAssuranceLevelType() {
         return applicationEClass.getEOperations().get(3);
     }
 
@@ -1938,107 +2143,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTask_Duration() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Period() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_EarlyTolerance() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_LateTolerance() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_MaxStartTime() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_MaxEndTime() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_AddInitTime() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Slices() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_MinSliceDuration() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(8);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Periodicity() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(9);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getTask_Color() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(10);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getTask_Application() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(11);
+        return (EReference)taskEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2047,7 +2153,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_FeatureRequirements() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(12);
+        return (EReference)taskEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -2056,7 +2162,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_RestrictMappingToHardwareElements() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(13);
+        return (EReference)taskEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -2065,7 +2171,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EReference getTask_AssignedCore() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(14);
+        return (EReference)taskEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2074,7 +2180,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     public EAttribute getTask_FullName() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(15);
+        return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -2129,6 +2235,204 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getTask__SetRomUtilization__int() {
         return taskEClass.getEOperations().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetDuration() {
+        return taskEClass.getEOperations().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetDuration__int() {
+        return taskEClass.getEOperations().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetPeriod() {
+        return taskEClass.getEOperations().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetPeriod__int() {
+        return taskEClass.getEOperations().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetEarlyTolerance() {
+        return taskEClass.getEOperations().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetEarlyTolerance__int() {
+        return taskEClass.getEOperations().get(11);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetLateTolerance() {
+        return taskEClass.getEOperations().get(12);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetLateTolerance__int() {
+        return taskEClass.getEOperations().get(13);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetMaxStartTime() {
+        return taskEClass.getEOperations().get(14);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetMaxStartTime__int() {
+        return taskEClass.getEOperations().get(15);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetMaxEndTime() {
+        return taskEClass.getEOperations().get(16);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetMaxEndTime__int() {
+        return taskEClass.getEOperations().get(17);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetAddInitTime() {
+        return taskEClass.getEOperations().get(18);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetAddInitTime__int() {
+        return taskEClass.getEOperations().get(19);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetSlices() {
+        return taskEClass.getEOperations().get(20);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetSlices__int() {
+        return taskEClass.getEOperations().get(21);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetMinSliceDuration() {
+        return taskEClass.getEOperations().get(22);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetMinSliceDuration__int() {
+        return taskEClass.getEOperations().get(23);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetPeriodicity() {
+        return taskEClass.getEOperations().get(24);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetPeriodicity__PeriodicityType() {
+        return taskEClass.getEOperations().get(25);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetColor() {
+        return taskEClass.getEOperations().get(26);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetColor__Color() {
+        return taskEClass.getEOperations().get(27);
     }
 
     /**
@@ -3264,13 +3568,37 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         coreArchitecturePropertyEClass = createEClass(CORE_ARCHITECTURE_PROPERTY);
 
+        developedByPropertyEClass = createEClass(DEVELOPED_BY_PROPERTY);
+
+        durationPropertyEClass = createEClass(DURATION_PROPERTY);
+
+        periodPropertyEClass = createEClass(PERIOD_PROPERTY);
+
+        earlyTolerancePropertyEClass = createEClass(EARLY_TOLERANCE_PROPERTY);
+
+        lateTolerancePropertyEClass = createEClass(LATE_TOLERANCE_PROPERTY);
+
+        maxStartTimePropertyEClass = createEClass(MAX_START_TIME_PROPERTY);
+
+        maxEndTimePropertyEClass = createEClass(MAX_END_TIME_PROPERTY);
+
+        addInitTimePropertyEClass = createEClass(ADD_INIT_TIME_PROPERTY);
+
+        slicesPropertyEClass = createEClass(SLICES_PROPERTY);
+
+        minSliceDurationPropertyEClass = createEClass(MIN_SLICE_DURATION_PROPERTY);
+
         designAssuranceLevelPropertyEClass = createEClass(DESIGN_ASSURANCE_LEVEL_PROPERTY);
         createEAttribute(designAssuranceLevelPropertyEClass, DESIGN_ASSURANCE_LEVEL_PROPERTY__VALUE);
 
         criticalityLevelPropertyEClass = createEClass(CRITICALITY_LEVEL_PROPERTY);
         createEAttribute(criticalityLevelPropertyEClass, CRITICALITY_LEVEL_PROPERTY__VALUE);
 
-        developedByPropertyEClass = createEClass(DEVELOPED_BY_PROPERTY);
+        periodicityPropertyEClass = createEClass(PERIODICITY_PROPERTY);
+        createEAttribute(periodicityPropertyEClass, PERIODICITY_PROPERTY__VALUE);
+
+        colorPropertyEClass = createEClass(COLOR_PROPERTY);
+        createEAttribute(colorPropertyEClass, COLOR_PROPERTY__VALUE);
 
         customPropertyEClass = createEClass(CUSTOM_PROPERTY);
         createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
@@ -3383,20 +3711,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(applicationEClass, APPLICATION___GET_DEVELOPED_BY);
         createEOperation(applicationEClass, APPLICATION___SET_DEVELOPED_BY__STRING);
         createEOperation(applicationEClass, APPLICATION___GET_CRITICALITY_LEVEL);
-        createEOperation(applicationEClass, APPLICATION___SET_ASSURANCE_LEVEL__DESIGNASSURANCELEVELTYPE);
+        createEOperation(applicationEClass, APPLICATION___SET_CRITICALITY_LEVEL__DESIGNASSURANCELEVELTYPE);
 
         taskEClass = createEClass(TASK);
-        createEAttribute(taskEClass, TASK__DURATION);
-        createEAttribute(taskEClass, TASK__PERIOD);
-        createEAttribute(taskEClass, TASK__EARLY_TOLERANCE);
-        createEAttribute(taskEClass, TASK__LATE_TOLERANCE);
-        createEAttribute(taskEClass, TASK__MAX_START_TIME);
-        createEAttribute(taskEClass, TASK__MAX_END_TIME);
-        createEAttribute(taskEClass, TASK__ADD_INIT_TIME);
-        createEAttribute(taskEClass, TASK__SLICES);
-        createEAttribute(taskEClass, TASK__MIN_SLICE_DURATION);
-        createEAttribute(taskEClass, TASK__PERIODICITY);
-        createEAttribute(taskEClass, TASK__COLOR);
         createEReference(taskEClass, TASK__APPLICATION);
         createEReference(taskEClass, TASK__FEATURE_REQUIREMENTS);
         createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -3408,6 +3725,28 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(taskEClass, TASK___SET_RAM_UTILIZATION__INT);
         createEOperation(taskEClass, TASK___GET_ROM_UTILIZATION);
         createEOperation(taskEClass, TASK___SET_ROM_UTILIZATION__INT);
+        createEOperation(taskEClass, TASK___GET_DURATION);
+        createEOperation(taskEClass, TASK___SET_DURATION__INT);
+        createEOperation(taskEClass, TASK___GET_PERIOD);
+        createEOperation(taskEClass, TASK___SET_PERIOD__INT);
+        createEOperation(taskEClass, TASK___GET_EARLY_TOLERANCE);
+        createEOperation(taskEClass, TASK___SET_EARLY_TOLERANCE__INT);
+        createEOperation(taskEClass, TASK___GET_LATE_TOLERANCE);
+        createEOperation(taskEClass, TASK___SET_LATE_TOLERANCE__INT);
+        createEOperation(taskEClass, TASK___GET_MAX_START_TIME);
+        createEOperation(taskEClass, TASK___SET_MAX_START_TIME__INT);
+        createEOperation(taskEClass, TASK___GET_MAX_END_TIME);
+        createEOperation(taskEClass, TASK___SET_MAX_END_TIME__INT);
+        createEOperation(taskEClass, TASK___GET_ADD_INIT_TIME);
+        createEOperation(taskEClass, TASK___SET_ADD_INIT_TIME__INT);
+        createEOperation(taskEClass, TASK___GET_SLICES);
+        createEOperation(taskEClass, TASK___SET_SLICES__INT);
+        createEOperation(taskEClass, TASK___GET_MIN_SLICE_DURATION);
+        createEOperation(taskEClass, TASK___SET_MIN_SLICE_DURATION__INT);
+        createEOperation(taskEClass, TASK___GET_PERIODICITY);
+        createEOperation(taskEClass, TASK___SET_PERIODICITY__PERIODICITYTYPE);
+        createEOperation(taskEClass, TASK___GET_COLOR);
+        createEOperation(taskEClass, TASK___SET_COLOR__COLOR);
 
         featureRequirementEClass = createEClass(FEATURE_REQUIREMENT);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__NAME);
@@ -3604,9 +3943,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         coreCapacityPropertyEClass.getESuperTypes().add(this.getIntProperty());
         coreUtilizationPropertyEClass.getESuperTypes().add(this.getIntProperty());
         coreArchitecturePropertyEClass.getESuperTypes().add(this.getStringProperty());
+        developedByPropertyEClass.getESuperTypes().add(this.getStringProperty());
+        durationPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        periodPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        earlyTolerancePropertyEClass.getESuperTypes().add(this.getIntProperty());
+        lateTolerancePropertyEClass.getESuperTypes().add(this.getIntProperty());
+        maxStartTimePropertyEClass.getESuperTypes().add(this.getIntProperty());
+        maxEndTimePropertyEClass.getESuperTypes().add(this.getIntProperty());
+        addInitTimePropertyEClass.getESuperTypes().add(this.getIntProperty());
+        slicesPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        minSliceDurationPropertyEClass.getESuperTypes().add(this.getIntProperty());
         designAssuranceLevelPropertyEClass.getESuperTypes().add(this.getProperty());
         criticalityLevelPropertyEClass.getESuperTypes().add(this.getProperty());
-        developedByPropertyEClass.getESuperTypes().add(this.getStringProperty());
+        periodicityPropertyEClass.getESuperTypes().add(this.getProperty());
+        colorPropertyEClass.getESuperTypes().add(this.getProperty());
         customPropertyEClass.getESuperTypes().add(this.getProperty());
         customIntPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         customStringPropertyEClass.getESuperTypes().add(this.getCustomProperty());
@@ -3694,13 +4044,37 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(coreArchitecturePropertyEClass, CoreArchitectureProperty.class, "CoreArchitectureProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(developedByPropertyEClass, DevelopedByProperty.class, "DevelopedByProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(durationPropertyEClass, DurationProperty.class, "DurationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(periodPropertyEClass, PeriodProperty.class, "PeriodProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(earlyTolerancePropertyEClass, EarlyToleranceProperty.class, "EarlyToleranceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(lateTolerancePropertyEClass, LateToleranceProperty.class, "LateToleranceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(maxStartTimePropertyEClass, MaxStartTimeProperty.class, "MaxStartTimeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(maxEndTimePropertyEClass, MaxEndTimeProperty.class, "MaxEndTimeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(addInitTimePropertyEClass, AddInitTimeProperty.class, "AddInitTimeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(slicesPropertyEClass, SlicesProperty.class, "SlicesProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(minSliceDurationPropertyEClass, MinSliceDurationProperty.class, "MinSliceDurationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(designAssuranceLevelPropertyEClass, DesignAssuranceLevelProperty.class, "DesignAssuranceLevelProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDesignAssuranceLevelProperty_Value(), this.getDesignAssuranceLevelType(), "value", "None", 0, 1, DesignAssuranceLevelProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(criticalityLevelPropertyEClass, CriticalityLevelProperty.class, "CriticalityLevelProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCriticalityLevelProperty_Value(), this.getDesignAssuranceLevelType(), "value", "None", 0, 1, CriticalityLevelProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(developedByPropertyEClass, DevelopedByProperty.class, "DevelopedByProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(periodicityPropertyEClass, PeriodicityProperty.class, "PeriodicityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getPeriodicityProperty_Value(), this.getPeriodicityType(), "value", "strict", 0, 1, PeriodicityProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(colorPropertyEClass, ColorProperty.class, "ColorProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getColorProperty_Value(), this.getColor(), "value", "none", 0, 1, ColorProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3878,21 +4252,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEOperation(getApplication__GetCriticalityLevel(), this.getDesignAssuranceLevelType(), "getCriticalityLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-        op = initEOperation(getApplication__SetAssuranceLevel__DesignAssuranceLevelType(), null, "setAssuranceLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        op = initEOperation(getApplication__SetCriticalityLevel__DesignAssuranceLevelType(), null, "setCriticalityLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, this.getDesignAssuranceLevelType(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getTask_Duration(), theEcorePackage.getEInt(), "duration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_Period(), theEcorePackage.getEInt(), "period", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_EarlyTolerance(), theEcorePackage.getEInt(), "earlyTolerance", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_LateTolerance(), theEcorePackage.getEInt(), "lateTolerance", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_MaxStartTime(), theEcorePackage.getEInt(), "maxStartTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_MaxEndTime(), theEcorePackage.getEInt(), "maxEndTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_AddInitTime(), theEcorePackage.getEInt(), "addInitTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_Slices(), theEcorePackage.getEInt(), "slices", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_MinSliceDuration(), theEcorePackage.getEInt(), "minSliceDuration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "strict", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getTask_Color(), this.getColor(), "color", "none", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_FeatureRequirements(), this.getFeatureRequirement(), null, "featureRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3913,6 +4276,61 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         op = initEOperation(getTask__SetRomUtilization__int(), null, "setRomUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetDuration(), theEcorePackage.getEInt(), "getDuration", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetDuration__int(), null, "setDuration", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetPeriod(), theEcorePackage.getEInt(), "getPeriod", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetPeriod__int(), null, "setPeriod", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetEarlyTolerance(), theEcorePackage.getEInt(), "getEarlyTolerance", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetEarlyTolerance__int(), null, "setEarlyTolerance", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetLateTolerance(), theEcorePackage.getEInt(), "getLateTolerance", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetLateTolerance__int(), null, "setLateTolerance", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetMaxStartTime(), theEcorePackage.getEInt(), "getMaxStartTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetMaxStartTime__int(), null, "setMaxStartTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetMaxEndTime(), theEcorePackage.getEInt(), "getMaxEndTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetMaxEndTime__int(), null, "setMaxEndTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetAddInitTime(), theEcorePackage.getEInt(), "getAddInitTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetAddInitTime__int(), null, "setAddInitTime", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetSlices(), theEcorePackage.getEInt(), "getSlices", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetSlices__int(), null, "setSlices", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetMinSliceDuration(), theEcorePackage.getEInt(), "getMinSliceDuration", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetMinSliceDuration__int(), null, "setMinSliceDuration", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetPeriodicity(), this.getPeriodicityType(), "getPeriodicity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetPeriodicity__PeriodicityType(), null, "setPeriodicity", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getPeriodicityType(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetColor(), this.getColor(), "getColor", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetColor__Color(), null, "setColor", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getColor(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeatureRequirement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

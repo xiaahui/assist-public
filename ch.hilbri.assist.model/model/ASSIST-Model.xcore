@@ -65,73 +65,41 @@ class AssistModel {
 // 
 // PROPERTIES
 //
-class Property {
-}
+class Property {}
+class StringProperty                extends Property { String value = ""  }
+class IntProperty                   extends Property { int    value = "0" }
 
-class StringProperty extends Property {
-    String value = ""
-}
-
-class IntProperty extends Property {
-    int value = "0"
-}
-
-class ManufacturerProperty extends StringProperty {
-}
-
-class PowerSupplyProperty extends StringProperty {
-}
-
-class BoardTypeProperty extends StringProperty {
-}
-
-class ProcessorTypeProperty extends StringProperty {
-}
-
-class RAMCapacityProperty extends IntProperty {
-}
-
-class RAMUtilizationProperty extends IntProperty {
-}
-
-class ROMCapacityProperty extends IntProperty {
-}
-
-class ROMUtilizationProperty extends IntProperty {
-}
-
-class CoreCapacityProperty extends IntProperty {
-}
-
-class CoreUtilizationProperty extends IntProperty {
-}
-
-class CoreArchitectureProperty extends StringProperty {
-}
-
-class DesignAssuranceLevelProperty extends Property {
-    DesignAssuranceLevelType value = "None"
-}
-
-class CriticalityLevelProperty extends Property {
-    DesignAssuranceLevelType value = "None"
-}
-
-class DevelopedByProperty extends StringProperty {
-}
+// Properties
+class ManufacturerProperty          extends StringProperty  {}
+class PowerSupplyProperty           extends StringProperty  {}
+class BoardTypeProperty             extends StringProperty  {}
+class ProcessorTypeProperty         extends StringProperty  {}
+class RAMCapacityProperty           extends IntProperty     {}
+class RAMUtilizationProperty        extends IntProperty     {}
+class ROMCapacityProperty           extends IntProperty     {}
+class ROMUtilizationProperty        extends IntProperty     {}
+class CoreCapacityProperty          extends IntProperty     {}
+class CoreUtilizationProperty       extends IntProperty     {}
+class CoreArchitectureProperty      extends StringProperty  {}
+class DevelopedByProperty           extends StringProperty  {}
+class DurationProperty              extends IntProperty     {}
+class PeriodProperty                extends IntProperty     {}
+class EarlyToleranceProperty        extends IntProperty     {}
+class LateToleranceProperty         extends IntProperty     {}
+class MaxStartTimeProperty          extends IntProperty     {}
+class MaxEndTimeProperty            extends IntProperty     {}
+class AddInitTimeProperty           extends IntProperty     {}
+class SlicesProperty                extends IntProperty     {}
+class MinSliceDurationProperty      extends IntProperty     {}
+class DesignAssuranceLevelProperty  extends Property { DesignAssuranceLevelType value = "None"      }
+class CriticalityLevelProperty      extends Property { DesignAssuranceLevelType value = "None"      }
+class PeriodicityProperty           extends Property { PeriodicityType          value = "strict"    }    
+class ColorProperty                 extends Property { Color                    value = "none"      }
 
 // Custom Properties
-class CustomProperty extends Property {
-    String name = ""
-}
-
-class CustomIntProperty extends CustomProperty {
-    int value = "0"
-}
-
-class CustomStringProperty extends CustomProperty {
-    String value = ""
-}
+class CustomProperty                extends Property        { String    name = ""   }
+class CustomIntProperty             extends CustomProperty  { int       value = "0" }
+class CustomStringProperty          extends CustomProperty  { String    value = ""  }
 
 //
 // HARDWARE ELEMENTS
@@ -445,7 +413,7 @@ class Application extends SoftwareElement {
             properties.add(ModelFactory.eINSTANCE.createDevelopedByProperty => [value = newValue])
     }
     
-    // CriticalilityLevel
+    // CriticalityLevel
     op DesignAssuranceLevelType getCriticalityLevel() {
         if (!properties.filter[it instanceof CriticalityLevelProperty].isNullOrEmpty) 
             (properties.filter[it instanceof CriticalityLevelProperty].head as CriticalityLevelProperty).value
@@ -453,7 +421,7 @@ class Application extends SoftwareElement {
             DesignAssuranceLevelType.NONE
     }
     
-    op void setAssuranceLevel(DesignAssuranceLevelType newValue) {
+    op void setCriticalityLevel(DesignAssuranceLevelType newValue) {
         if (!properties.filter[it instanceof CriticalityLevelProperty].isNullOrEmpty)
             (properties.filter[it instanceof CriticalityLevelProperty].head as CriticalityLevelProperty).value = newValue
         else
@@ -462,17 +430,17 @@ class Application extends SoftwareElement {
 }
 
 class Task extends SoftwareElement {    
-    int duration                              = "-1"
-    int period                                = "-1"
-    int earlyTolerance                        = "-1"
-    int lateTolerance                         = "-1"
-    int maxStartTime                          = "-1"
-    int maxEndTime                            = "-1"
-    int addInitTime                           = "-1"
-    int slices                                = "-1"
-    int minSliceDuration                      = "-1"
-    PeriodicityType periodicity               = "strict"
-    Color color                               = "none"
+//    int duration                              = "-1"
+//    int period                                = "-1"
+//    int earlyTolerance                        = "-1"
+//    int lateTolerance                         = "-1"
+//    int maxStartTime                          = "-1"
+//    int Slices                            = "-1"
+//    int addInitTime                           = "-1"
+//    int slices                                = "-1"
+//    int minSliceDuration                      = "-1"
+//    PeriodicityType periodicity               = "strict"
+//    Color color                               = "none"
     
     container Application application opposite tasks
     
@@ -528,6 +496,168 @@ class Task extends SoftwareElement {
             properties.add(ModelFactory.eINSTANCE.createROMUtilizationProperty => [value = newValue])
     }
     
+    // Duration
+    op int getDuration() {
+        if (!properties.filter[it instanceof DurationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof DurationProperty].head as DurationProperty).value
+        else 
+            -1
+    }
+    
+    op void setDuration(int newValue) {
+        if (!properties.filter[it instanceof DurationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof DurationProperty].head as DurationProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createDurationProperty => [value = newValue])
+    }
+    
+    // Period
+    op int getPeriod() {
+        if (!properties.filter[it instanceof PeriodProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PeriodProperty].head as PeriodProperty).value
+        else 
+            -1
+    }
+    
+    op void setPeriod(int newValue) {
+        if (!properties.filter[it instanceof PeriodProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PeriodProperty].head as PeriodProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createPeriodProperty => [value = newValue])
+    }
+    
+    // EarlyTolerance
+    op int getEarlyTolerance() {
+        if (!properties.filter[it instanceof EarlyToleranceProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof EarlyToleranceProperty].head as EarlyToleranceProperty).value
+        else 
+            -1
+    }
+    
+    op void setEarlyTolerance(int newValue) {
+        if (!properties.filter[it instanceof EarlyToleranceProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof EarlyToleranceProperty].head as EarlyToleranceProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createEarlyToleranceProperty => [value = newValue])
+    }
+    
+    // LateTolerance
+    op int getLateTolerance() {
+        if (!properties.filter[it instanceof LateToleranceProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof LateToleranceProperty].head as LateToleranceProperty).value
+        else 
+            -1
+    }
+    
+    op void setLateTolerance(int newValue) {
+        if (!properties.filter[it instanceof LateToleranceProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof LateToleranceProperty].head as LateToleranceProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createLateToleranceProperty => [value = newValue])
+    }
+    
+    // MaxStartTime
+    op int getMaxStartTime() {
+        if (!properties.filter[it instanceof MaxStartTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MaxStartTimeProperty].head as MaxStartTimeProperty).value
+        else 
+            -1
+    }
+    
+    op void setMaxStartTime(int newValue) {
+        if (!properties.filter[it instanceof MaxStartTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MaxStartTimeProperty].head as MaxStartTimeProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createMaxStartTimeProperty => [value = newValue])
+    }
+    
+    // MaxEndTime
+    op int getMaxEndTime() {
+        if (!properties.filter[it instanceof MaxEndTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MaxEndTimeProperty].head as MaxEndTimeProperty).value
+        else 
+            -1
+    }
+    
+    op void setMaxEndTime(int newValue) {
+        if (!properties.filter[it instanceof MaxEndTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MaxEndTimeProperty].head as MaxEndTimeProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createMaxEndTimeProperty => [value = newValue])
+    }
+    
+    // AddInitTime
+    op int getAddInitTime() {
+        if (!properties.filter[it instanceof AddInitTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof AddInitTimeProperty].head as AddInitTimeProperty).value
+        else 
+            -1
+    }
+    
+    op void setAddInitTime(int newValue) {
+        if (!properties.filter[it instanceof AddInitTimeProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof AddInitTimeProperty].head as AddInitTimeProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createAddInitTimeProperty => [value = newValue])
+    }
+    // Slices
+    op int getSlices() {
+        if (!properties.filter[it instanceof SlicesProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof SlicesProperty].head as SlicesProperty).value
+        else 
+            -1
+    }
+    
+    op void setSlices(int newValue) {
+        if (!properties.filter[it instanceof SlicesProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof SlicesProperty].head as SlicesProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createSlicesProperty => [value = newValue])
+    }
+    // MinSliceDuration
+    op int getMinSliceDuration() {
+        if (!properties.filter[it instanceof MinSliceDurationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MinSliceDurationProperty].head as MinSliceDurationProperty).value
+        else 
+            -1
+    }
+    
+    op void setMinSliceDuration(int newValue) {
+        if (!properties.filter[it instanceof MinSliceDurationProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MinSliceDurationProperty].head as MinSliceDurationProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createMinSliceDurationProperty => [value = newValue])
+    }
+    
+    // Periodicity 
+    op PeriodicityType getPeriodicity() {
+        if (!properties.filter[it instanceof PeriodicityProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof PeriodicityProperty].head as PeriodicityProperty).value
+        else 
+            PeriodicityType.STRICT
+    }
+    
+    op void setPeriodicity(PeriodicityType newValue) {
+        if (!properties.filter[it instanceof PeriodicityProperty].isNullOrEmpty)
+            (properties.filter[it instanceof PeriodicityProperty].head as PeriodicityProperty).value = newValue
+        else
+            properties.add(ModelFactory.eINSTANCE.createPeriodicityProperty => [value = newValue])
+    }
+    
+    // Color
+    op Color getColor() {
+        if (!properties.filter[it instanceof ColorProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof ColorProperty].head as ColorProperty).value
+        else 
+            Color.NONE
+    }
+    
+    op void setColor(Color newValue) {
+        if (!properties.filter[it instanceof ColorProperty].isNullOrEmpty)
+            (properties.filter[it instanceof ColorProperty].head as ColorProperty).value = newValue
+        else
+            properties.add(ModelFactory.eINSTANCE.createColorProperty => [value = newValue])
+    }
 }
 
 class FeatureRequirement {

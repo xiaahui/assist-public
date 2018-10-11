@@ -157,6 +157,96 @@ public interface ModelFactory extends EFactory {
     CoreArchitectureProperty createCoreArchitectureProperty();
 
     /**
+     * Returns a new object of class '<em>Developed By Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Developed By Property</em>'.
+     * @generated
+     */
+    DevelopedByProperty createDevelopedByProperty();
+
+    /**
+     * Returns a new object of class '<em>Duration Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Duration Property</em>'.
+     * @generated
+     */
+    DurationProperty createDurationProperty();
+
+    /**
+     * Returns a new object of class '<em>Period Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Period Property</em>'.
+     * @generated
+     */
+    PeriodProperty createPeriodProperty();
+
+    /**
+     * Returns a new object of class '<em>Early Tolerance Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Early Tolerance Property</em>'.
+     * @generated
+     */
+    EarlyToleranceProperty createEarlyToleranceProperty();
+
+    /**
+     * Returns a new object of class '<em>Late Tolerance Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Late Tolerance Property</em>'.
+     * @generated
+     */
+    LateToleranceProperty createLateToleranceProperty();
+
+    /**
+     * Returns a new object of class '<em>Max Start Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Max Start Time Property</em>'.
+     * @generated
+     */
+    MaxStartTimeProperty createMaxStartTimeProperty();
+
+    /**
+     * Returns a new object of class '<em>Max End Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Max End Time Property</em>'.
+     * @generated
+     */
+    MaxEndTimeProperty createMaxEndTimeProperty();
+
+    /**
+     * Returns a new object of class '<em>Add Init Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Add Init Time Property</em>'.
+     * @generated
+     */
+    AddInitTimeProperty createAddInitTimeProperty();
+
+    /**
+     * Returns a new object of class '<em>Slices Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Slices Property</em>'.
+     * @generated
+     */
+    SlicesProperty createSlicesProperty();
+
+    /**
+     * Returns a new object of class '<em>Min Slice Duration Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Min Slice Duration Property</em>'.
+     * @generated
+     */
+    MinSliceDurationProperty createMinSliceDurationProperty();
+
+    /**
      * Returns a new object of class '<em>Design Assurance Level Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -175,13 +265,22 @@ public interface ModelFactory extends EFactory {
     CriticalityLevelProperty createCriticalityLevelProperty();
 
     /**
-     * Returns a new object of class '<em>Developed By Property</em>'.
+     * Returns a new object of class '<em>Periodicity Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Developed By Property</em>'.
+     * @return a new object of class '<em>Periodicity Property</em>'.
      * @generated
      */
-    DevelopedByProperty createDevelopedByProperty();
+    PeriodicityProperty createPeriodicityProperty();
+
+    /**
+     * Returns a new object of class '<em>Color Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Color Property</em>'.
+     * @generated
+     */
+    ColorProperty createColorProperty();
 
     /**
      * Returns a new object of class '<em>Custom Property</em>'.

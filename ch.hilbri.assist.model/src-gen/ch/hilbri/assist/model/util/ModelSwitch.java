@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -14,6 +15,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
@@ -32,16 +34,24 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.DurationProperty;
+import ch.hilbri.assist.model.EarlyToleranceProperty;
 import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IntProperty;
+import ch.hilbri.assist.model.LateToleranceProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
+import ch.hilbri.assist.model.MaxEndTimeProperty;
+import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodProperty;
+import ch.hilbri.assist.model.PeriodicityProperty;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
@@ -61,6 +71,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
@@ -244,6 +255,86 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.DEVELOPED_BY_PROPERTY: {
+                DevelopedByProperty developedByProperty = (DevelopedByProperty)theEObject;
+                T result = caseDevelopedByProperty(developedByProperty);
+                if (result == null) result = caseStringProperty(developedByProperty);
+                if (result == null) result = caseProperty(developedByProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.DURATION_PROPERTY: {
+                DurationProperty durationProperty = (DurationProperty)theEObject;
+                T result = caseDurationProperty(durationProperty);
+                if (result == null) result = caseIntProperty(durationProperty);
+                if (result == null) result = caseProperty(durationProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.PERIOD_PROPERTY: {
+                PeriodProperty periodProperty = (PeriodProperty)theEObject;
+                T result = casePeriodProperty(periodProperty);
+                if (result == null) result = caseIntProperty(periodProperty);
+                if (result == null) result = caseProperty(periodProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.EARLY_TOLERANCE_PROPERTY: {
+                EarlyToleranceProperty earlyToleranceProperty = (EarlyToleranceProperty)theEObject;
+                T result = caseEarlyToleranceProperty(earlyToleranceProperty);
+                if (result == null) result = caseIntProperty(earlyToleranceProperty);
+                if (result == null) result = caseProperty(earlyToleranceProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.LATE_TOLERANCE_PROPERTY: {
+                LateToleranceProperty lateToleranceProperty = (LateToleranceProperty)theEObject;
+                T result = caseLateToleranceProperty(lateToleranceProperty);
+                if (result == null) result = caseIntProperty(lateToleranceProperty);
+                if (result == null) result = caseProperty(lateToleranceProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.MAX_START_TIME_PROPERTY: {
+                MaxStartTimeProperty maxStartTimeProperty = (MaxStartTimeProperty)theEObject;
+                T result = caseMaxStartTimeProperty(maxStartTimeProperty);
+                if (result == null) result = caseIntProperty(maxStartTimeProperty);
+                if (result == null) result = caseProperty(maxStartTimeProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.MAX_END_TIME_PROPERTY: {
+                MaxEndTimeProperty maxEndTimeProperty = (MaxEndTimeProperty)theEObject;
+                T result = caseMaxEndTimeProperty(maxEndTimeProperty);
+                if (result == null) result = caseIntProperty(maxEndTimeProperty);
+                if (result == null) result = caseProperty(maxEndTimeProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.ADD_INIT_TIME_PROPERTY: {
+                AddInitTimeProperty addInitTimeProperty = (AddInitTimeProperty)theEObject;
+                T result = caseAddInitTimeProperty(addInitTimeProperty);
+                if (result == null) result = caseIntProperty(addInitTimeProperty);
+                if (result == null) result = caseProperty(addInitTimeProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.SLICES_PROPERTY: {
+                SlicesProperty slicesProperty = (SlicesProperty)theEObject;
+                T result = caseSlicesProperty(slicesProperty);
+                if (result == null) result = caseIntProperty(slicesProperty);
+                if (result == null) result = caseProperty(slicesProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.MIN_SLICE_DURATION_PROPERTY: {
+                MinSliceDurationProperty minSliceDurationProperty = (MinSliceDurationProperty)theEObject;
+                T result = caseMinSliceDurationProperty(minSliceDurationProperty);
+                if (result == null) result = caseIntProperty(minSliceDurationProperty);
+                if (result == null) result = caseProperty(minSliceDurationProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             case ModelPackage.DESIGN_ASSURANCE_LEVEL_PROPERTY: {
                 DesignAssuranceLevelProperty designAssuranceLevelProperty = (DesignAssuranceLevelProperty)theEObject;
                 T result = caseDesignAssuranceLevelProperty(designAssuranceLevelProperty);
@@ -258,11 +349,17 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.DEVELOPED_BY_PROPERTY: {
-                DevelopedByProperty developedByProperty = (DevelopedByProperty)theEObject;
-                T result = caseDevelopedByProperty(developedByProperty);
-                if (result == null) result = caseStringProperty(developedByProperty);
-                if (result == null) result = caseProperty(developedByProperty);
+            case ModelPackage.PERIODICITY_PROPERTY: {
+                PeriodicityProperty periodicityProperty = (PeriodicityProperty)theEObject;
+                T result = casePeriodicityProperty(periodicityProperty);
+                if (result == null) result = caseProperty(periodicityProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.COLOR_PROPERTY: {
+                ColorProperty colorProperty = (ColorProperty)theEObject;
+                T result = caseColorProperty(colorProperty);
+                if (result == null) result = caseProperty(colorProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -803,6 +900,156 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDevelopedByProperty(DevelopedByProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Duration Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Duration Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDurationProperty(DurationProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Period Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Period Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePeriodProperty(PeriodProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Early Tolerance Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Early Tolerance Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEarlyToleranceProperty(EarlyToleranceProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Late Tolerance Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Late Tolerance Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLateToleranceProperty(LateToleranceProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Max Start Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Max Start Time Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMaxStartTimeProperty(MaxStartTimeProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Max End Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Max End Time Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMaxEndTimeProperty(MaxEndTimeProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Add Init Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Add Init Time Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAddInitTimeProperty(AddInitTimeProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Slices Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Slices Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSlicesProperty(SlicesProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Min Slice Duration Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Min Slice Duration Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMinSliceDurationProperty(MinSliceDurationProperty object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Design Assurance Level Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -833,17 +1080,32 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Periodicity Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Developed By Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Periodicity Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDevelopedByProperty(DevelopedByProperty object) {
+    public T casePeriodicityProperty(PeriodicityProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Color Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Color Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseColorProperty(ColorProperty object) {
         return null;
     }
 

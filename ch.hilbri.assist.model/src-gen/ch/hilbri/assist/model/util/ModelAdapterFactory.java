@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.util;
 
 import ch.hilbri.assist.model.AbstractDSEMetric;
 import ch.hilbri.assist.model.AbstractMappingMetric;
+import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
@@ -14,6 +15,7 @@ import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.ComplexRelation;
 import ch.hilbri.assist.model.Core;
@@ -32,16 +34,24 @@ import ch.hilbri.assist.model.DissimilarityConjunction;
 import ch.hilbri.assist.model.DissimilarityDisjunction;
 import ch.hilbri.assist.model.DissimilarityEntry;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.DurationProperty;
+import ch.hilbri.assist.model.EarlyToleranceProperty;
 import ch.hilbri.assist.model.ExplorationCandidate;
 import ch.hilbri.assist.model.ExplorationResult;
 import ch.hilbri.assist.model.Feature;
 import ch.hilbri.assist.model.FeatureRequirement;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.IntProperty;
+import ch.hilbri.assist.model.LateToleranceProperty;
 import ch.hilbri.assist.model.ManufacturerProperty;
 import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
+import ch.hilbri.assist.model.MaxEndTimeProperty;
+import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.PeriodProperty;
+import ch.hilbri.assist.model.PeriodicityProperty;
 import ch.hilbri.assist.model.PowerSupplyProperty;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProcessorTypeProperty;
@@ -61,6 +71,7 @@ import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SchedulingResult;
 import ch.hilbri.assist.model.SimpleRelation;
 import ch.hilbri.assist.model.SingleMappingElement;
+import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
 import ch.hilbri.assist.model.Task;
@@ -192,6 +203,46 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createCoreArchitecturePropertyAdapter();
             }
             @Override
+            public Adapter caseDevelopedByProperty(DevelopedByProperty object) {
+                return createDevelopedByPropertyAdapter();
+            }
+            @Override
+            public Adapter caseDurationProperty(DurationProperty object) {
+                return createDurationPropertyAdapter();
+            }
+            @Override
+            public Adapter casePeriodProperty(PeriodProperty object) {
+                return createPeriodPropertyAdapter();
+            }
+            @Override
+            public Adapter caseEarlyToleranceProperty(EarlyToleranceProperty object) {
+                return createEarlyTolerancePropertyAdapter();
+            }
+            @Override
+            public Adapter caseLateToleranceProperty(LateToleranceProperty object) {
+                return createLateTolerancePropertyAdapter();
+            }
+            @Override
+            public Adapter caseMaxStartTimeProperty(MaxStartTimeProperty object) {
+                return createMaxStartTimePropertyAdapter();
+            }
+            @Override
+            public Adapter caseMaxEndTimeProperty(MaxEndTimeProperty object) {
+                return createMaxEndTimePropertyAdapter();
+            }
+            @Override
+            public Adapter caseAddInitTimeProperty(AddInitTimeProperty object) {
+                return createAddInitTimePropertyAdapter();
+            }
+            @Override
+            public Adapter caseSlicesProperty(SlicesProperty object) {
+                return createSlicesPropertyAdapter();
+            }
+            @Override
+            public Adapter caseMinSliceDurationProperty(MinSliceDurationProperty object) {
+                return createMinSliceDurationPropertyAdapter();
+            }
+            @Override
             public Adapter caseDesignAssuranceLevelProperty(DesignAssuranceLevelProperty object) {
                 return createDesignAssuranceLevelPropertyAdapter();
             }
@@ -200,8 +251,12 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createCriticalityLevelPropertyAdapter();
             }
             @Override
-            public Adapter caseDevelopedByProperty(DevelopedByProperty object) {
-                return createDevelopedByPropertyAdapter();
+            public Adapter casePeriodicityProperty(PeriodicityProperty object) {
+                return createPeriodicityPropertyAdapter();
+            }
+            @Override
+            public Adapter caseColorProperty(ColorProperty object) {
+                return createColorPropertyAdapter();
             }
             @Override
             public Adapter caseCustomProperty(CustomProperty object) {
@@ -618,6 +673,146 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.DevelopedByProperty <em>Developed By Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.DevelopedByProperty
+     * @generated
+     */
+    public Adapter createDevelopedByPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.DurationProperty <em>Duration Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.DurationProperty
+     * @generated
+     */
+    public Adapter createDurationPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.PeriodProperty <em>Period Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.PeriodProperty
+     * @generated
+     */
+    public Adapter createPeriodPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.EarlyToleranceProperty <em>Early Tolerance Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.EarlyToleranceProperty
+     * @generated
+     */
+    public Adapter createEarlyTolerancePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.LateToleranceProperty <em>Late Tolerance Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.LateToleranceProperty
+     * @generated
+     */
+    public Adapter createLateTolerancePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MaxStartTimeProperty <em>Max Start Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.MaxStartTimeProperty
+     * @generated
+     */
+    public Adapter createMaxStartTimePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MaxEndTimeProperty <em>Max End Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.MaxEndTimeProperty
+     * @generated
+     */
+    public Adapter createMaxEndTimePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AddInitTimeProperty <em>Add Init Time Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.AddInitTimeProperty
+     * @generated
+     */
+    public Adapter createAddInitTimePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.SlicesProperty <em>Slices Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.SlicesProperty
+     * @generated
+     */
+    public Adapter createSlicesPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MinSliceDurationProperty <em>Min Slice Duration Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.MinSliceDurationProperty
+     * @generated
+     */
+    public Adapter createMinSliceDurationPropertyAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.DesignAssuranceLevelProperty <em>Design Assurance Level Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -646,16 +841,30 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.DevelopedByProperty <em>Developed By Property</em>}'.
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.PeriodicityProperty <em>Periodicity Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see ch.hilbri.assist.model.DevelopedByProperty
+     * @see ch.hilbri.assist.model.PeriodicityProperty
      * @generated
      */
-    public Adapter createDevelopedByPropertyAdapter() {
+    public Adapter createPeriodicityPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ColorProperty <em>Color Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.ColorProperty
+     * @generated
+     */
+    public Adapter createColorPropertyAdapter() {
         return null;
     }
 

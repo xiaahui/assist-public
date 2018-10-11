@@ -278,6 +278,56 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDevelopedByProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDurationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPeriodProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createEarlyToleranceProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createLateToleranceProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMaxStartTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMaxEndTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createAddInitTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createSlicesProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMinSliceDurationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty()));
 
         newChildDescriptors.add
@@ -288,7 +338,12 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
-                 ModelFactory.eINSTANCE.createDevelopedByProperty()));
+                 ModelFactory.eINSTANCE.createPeriodicityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createColorProperty()));
 
         newChildDescriptors.add
             (createChildParameter
