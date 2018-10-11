@@ -164,6 +164,75 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.SystemNameProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SystemNamePropertyItemProvider systemNamePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.SystemNameProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSystemNamePropertyAdapter() {
+        if (systemNamePropertyItemProvider == null) {
+            systemNamePropertyItemProvider = new SystemNamePropertyItemProvider(this);
+        }
+
+        return systemNamePropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.MinHypPeriodLengthProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MinHypPeriodLengthPropertyItemProvider minHypPeriodLengthPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.MinHypPeriodLengthProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMinHypPeriodLengthPropertyAdapter() {
+        if (minHypPeriodLengthPropertyItemProvider == null) {
+            minHypPeriodLengthPropertyItemProvider = new MinHypPeriodLengthPropertyItemProvider(this);
+        }
+
+        return minHypPeriodLengthPropertyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.TaskSwitchDelayProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TaskSwitchDelayPropertyItemProvider taskSwitchDelayPropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.TaskSwitchDelayProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTaskSwitchDelayPropertyAdapter() {
+        if (taskSwitchDelayPropertyItemProvider == null) {
+            taskSwitchDelayPropertyItemProvider = new TaskSwitchDelayPropertyItemProvider(this);
+        }
+
+        return taskSwitchDelayPropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ManufacturerProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1826,10 +1895,12 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
      * @generated
      */
     public void dispose() {
-        if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (propertyItemProvider != null) propertyItemProvider.dispose();
         if (stringPropertyItemProvider != null) stringPropertyItemProvider.dispose();
         if (intPropertyItemProvider != null) intPropertyItemProvider.dispose();
+        if (systemNamePropertyItemProvider != null) systemNamePropertyItemProvider.dispose();
+        if (minHypPeriodLengthPropertyItemProvider != null) minHypPeriodLengthPropertyItemProvider.dispose();
+        if (taskSwitchDelayPropertyItemProvider != null) taskSwitchDelayPropertyItemProvider.dispose();
         if (manufacturerPropertyItemProvider != null) manufacturerPropertyItemProvider.dispose();
         if (powerSupplyPropertyItemProvider != null) powerSupplyPropertyItemProvider.dispose();
         if (boardTypePropertyItemProvider != null) boardTypePropertyItemProvider.dispose();
@@ -1858,6 +1929,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
         if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();
+        if (assistModelItemProvider != null) assistModelItemProvider.dispose();
         if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
         if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();

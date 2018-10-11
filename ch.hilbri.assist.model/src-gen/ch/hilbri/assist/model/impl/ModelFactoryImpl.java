@@ -51,6 +51,7 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MaxEndTimeProperty;
 import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinHypPeriodLengthProperty;
 import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
@@ -79,8 +80,10 @@ import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
+import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
+import ch.hilbri.assist.model.TaskSwitchDelayProperty;
 
 import java.util.HashMap;
 import java.util.List;
@@ -141,10 +144,12 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ModelPackage.ASSIST_MODEL: return createAssistModel();
             case ModelPackage.PROPERTY: return createProperty();
             case ModelPackage.STRING_PROPERTY: return createStringProperty();
             case ModelPackage.INT_PROPERTY: return createIntProperty();
+            case ModelPackage.SYSTEM_NAME_PROPERTY: return createSystemNameProperty();
+            case ModelPackage.MIN_HYP_PERIOD_LENGTH_PROPERTY: return createMinHypPeriodLengthProperty();
+            case ModelPackage.TASK_SWITCH_DELAY_PROPERTY: return createTaskSwitchDelayProperty();
             case ModelPackage.MANUFACTURER_PROPERTY: return createManufacturerProperty();
             case ModelPackage.POWER_SUPPLY_PROPERTY: return createPowerSupplyProperty();
             case ModelPackage.BOARD_TYPE_PROPERTY: return createBoardTypeProperty();
@@ -173,6 +178,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
+            case ModelPackage.ASSIST_MODEL: return createAssistModel();
             case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
@@ -285,16 +291,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public AssistModel createAssistModel() {
-        AssistModelImpl assistModel = new AssistModelImpl();
-        return assistModel;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public Property createProperty() {
         PropertyImpl property = new PropertyImpl();
         return property;
@@ -318,6 +314,36 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public IntProperty createIntProperty() {
         IntPropertyImpl intProperty = new IntPropertyImpl();
         return intProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SystemNameProperty createSystemNameProperty() {
+        SystemNamePropertyImpl systemNameProperty = new SystemNamePropertyImpl();
+        return systemNameProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MinHypPeriodLengthProperty createMinHypPeriodLengthProperty() {
+        MinHypPeriodLengthPropertyImpl minHypPeriodLengthProperty = new MinHypPeriodLengthPropertyImpl();
+        return minHypPeriodLengthProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TaskSwitchDelayProperty createTaskSwitchDelayProperty() {
+        TaskSwitchDelayPropertyImpl taskSwitchDelayProperty = new TaskSwitchDelayPropertyImpl();
+        return taskSwitchDelayProperty;
     }
 
     /**
@@ -598,6 +624,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public CustomStringProperty createCustomStringProperty() {
         CustomStringPropertyImpl customStringProperty = new CustomStringPropertyImpl();
         return customStringProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AssistModel createAssistModel() {
+        AssistModelImpl assistModel = new AssistModelImpl();
+        return assistModel;
     }
 
     /**

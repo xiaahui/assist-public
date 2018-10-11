@@ -48,6 +48,7 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MaxEndTimeProperty;
 import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinHypPeriodLengthProperty;
 import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodProperty;
@@ -74,8 +75,10 @@ import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
+import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
+import ch.hilbri.assist.model.TaskSwitchDelayProperty;
 
 import java.util.Map;
 
@@ -143,10 +146,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     protected ModelSwitch<Adapter> modelSwitch =
         new ModelSwitch<Adapter>() {
             @Override
-            public Adapter caseAssistModel(AssistModel object) {
-                return createAssistModelAdapter();
-            }
-            @Override
             public Adapter caseProperty(Property object) {
                 return createPropertyAdapter();
             }
@@ -157,6 +156,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseIntProperty(IntProperty object) {
                 return createIntPropertyAdapter();
+            }
+            @Override
+            public Adapter caseSystemNameProperty(SystemNameProperty object) {
+                return createSystemNamePropertyAdapter();
+            }
+            @Override
+            public Adapter caseMinHypPeriodLengthProperty(MinHypPeriodLengthProperty object) {
+                return createMinHypPeriodLengthPropertyAdapter();
+            }
+            @Override
+            public Adapter caseTaskSwitchDelayProperty(TaskSwitchDelayProperty object) {
+                return createTaskSwitchDelayPropertyAdapter();
             }
             @Override
             public Adapter caseManufacturerProperty(ManufacturerProperty object) {
@@ -269,6 +280,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseCustomStringProperty(CustomStringProperty object) {
                 return createCustomStringPropertyAdapter();
+            }
+            @Override
+            public Adapter caseAssistModel(AssistModel object) {
+                return createAssistModelAdapter();
             }
             @Override
             public Adapter caseHardwareElement(HardwareElement object) {
@@ -463,20 +478,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AssistModel <em>Assist Model</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.AssistModel
-     * @generated
-     */
-    public Adapter createAssistModelAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.Property <em>Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -515,6 +516,48 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createIntPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.SystemNameProperty <em>System Name Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.SystemNameProperty
+     * @generated
+     */
+    public Adapter createSystemNamePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.MinHypPeriodLengthProperty <em>Min Hyp Period Length Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.MinHypPeriodLengthProperty
+     * @generated
+     */
+    public Adapter createMinHypPeriodLengthPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.TaskSwitchDelayProperty <em>Task Switch Delay Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.TaskSwitchDelayProperty
+     * @generated
+     */
+    public Adapter createTaskSwitchDelayPropertyAdapter() {
         return null;
     }
 
@@ -907,6 +950,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCustomStringPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AssistModel <em>Assist Model</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.AssistModel
+     * @generated
+     */
+    public Adapter createAssistModelAdapter() {
         return null;
     }
 

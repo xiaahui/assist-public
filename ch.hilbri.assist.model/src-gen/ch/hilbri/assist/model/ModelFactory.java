@@ -22,15 +22,6 @@ public interface ModelFactory extends EFactory {
     ModelFactory eINSTANCE = ch.hilbri.assist.model.impl.ModelFactoryImpl.init();
 
     /**
-     * Returns a new object of class '<em>Assist Model</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Assist Model</em>'.
-     * @generated
-     */
-    AssistModel createAssistModel();
-
-    /**
      * Returns a new object of class '<em>Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -56,6 +47,33 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     IntProperty createIntProperty();
+
+    /**
+     * Returns a new object of class '<em>System Name Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>System Name Property</em>'.
+     * @generated
+     */
+    SystemNameProperty createSystemNameProperty();
+
+    /**
+     * Returns a new object of class '<em>Min Hyp Period Length Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Min Hyp Period Length Property</em>'.
+     * @generated
+     */
+    MinHypPeriodLengthProperty createMinHypPeriodLengthProperty();
+
+    /**
+     * Returns a new object of class '<em>Task Switch Delay Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Task Switch Delay Property</em>'.
+     * @generated
+     */
+    TaskSwitchDelayProperty createTaskSwitchDelayProperty();
 
     /**
      * Returns a new object of class '<em>Manufacturer Property</em>'.
@@ -308,6 +326,15 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     CustomStringProperty createCustomStringProperty();
+
+    /**
+     * Returns a new object of class '<em>Assist Model</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Assist Model</em>'.
+     * @generated
+     */
+    AssistModel createAssistModel();
 
     /**
      * Returns a new object of class '<em>Hardware Element</em>'.

@@ -5,7 +5,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 /* MAIN MODEL */
 AssistModel: 
-    ( 'Global'      '{' 'System' '=' systemName=STRING ';'      '}'             ) &
+    ( 'Global'      '{' (properties+=SystemNameProperty)        '}'             ) &
     ( 'Hardware'    '{' (compartments+=Compartment)*            '}'             ) &
     ( 'Software'    '{' (applications+=Application)*            '}'             ) &
     ('Restrictions' '{' 
@@ -17,24 +17,6 @@ AssistModel:
                                                                  '}'
                                                                                 )?
 ;
-
-// Properties for Hardware and Software Elements
-ManufacturerProperty:           'Manufacturer'          '=' value=STRING                    ';';
-PowerSupplyProperty:            'PowerSupply'           '=' value=STRING                    ';';
-BoardTypeProperty:              'Type'                  '=' value=STRING                    ';';
-RAMCapacityProperty:            'RAM'                   '=' value=INT                       ';';
-RAMUtilizationProperty:         'RequiredRAM'           '=' value=INT                       ';';
-ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';
-ROMUtilizationProperty:         'RequiredROM'           '=' value=INT                       ';';     
-DesignAssuranceLevelProperty:   'DesignAssuranceLevel'  '=' value=DesignAssuranceLevelType  ';';
-CriticalityLevelProperty:       'CriticalityLevel'      '=' value=DesignAssuranceLevelType  ';';
-ProcessorTypeProperty:          'Type'                  '=' value=STRING                    ';';
-CoreCapacityProperty:           'Capacity'              '=' value=INT                       ';';
-CoreUtilizationProperty:        'CoreUtilization'       '=' value=INT                       ';';
-CoreArchitectureProperty:       'Architecture'          '=' value=STRING                    ';';
-DevelopedByProperty:            'Developer'             '=' value=STRING                    ';';
-CustomIntProperty:              'Custom' 'Property' name=STRING '=' value=INT               ';';
-CustomStringProperty:           'Custom' 'Property' name=STRING '=' value=STRING            ';';
 
 // Hardware Tree
 Compartment: 
@@ -160,7 +142,6 @@ SharedFeatureRequirement returns FeatureRequirement:
 ExclusiveFeatureRequirement returns FeatureRequirement:
     'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
 
-
 // SAFETY RESTRICTIONS
 DislocalityRelation:
 	softwareElements+=[SoftwareElement|QualifiedName] (',' softwareElements+=[SoftwareElement|QualifiedName])*
@@ -221,6 +202,24 @@ enum DesignAssuranceLevelType:
     A    = 'A'  
 ;
 
-QualifiedName:
-    ID ('.' ID)*
-;
+QualifiedName: ID ('.' ID)*;
+
+// Properties 
+SystemNameProperty:             'System'                '=' value=STRING                    ';';
+ManufacturerProperty:           'Manufacturer'          '=' value=STRING                    ';';
+PowerSupplyProperty:            'PowerSupply'           '=' value=STRING                    ';';
+BoardTypeProperty:              'Type'                  '=' value=STRING                    ';';
+RAMCapacityProperty:            'RAM'                   '=' value=INT                       ';';
+RAMUtilizationProperty:         'RequiredRAM'           '=' value=INT                       ';';
+ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';
+ROMUtilizationProperty:         'RequiredROM'           '=' value=INT                       ';';     
+DesignAssuranceLevelProperty:   'DesignAssuranceLevel'  '=' value=DesignAssuranceLevelType  ';';
+CriticalityLevelProperty:       'CriticalityLevel'      '=' value=DesignAssuranceLevelType  ';';
+ProcessorTypeProperty:          'Type'                  '=' value=STRING                    ';';
+CoreCapacityProperty:           'Capacity'              '=' value=INT                       ';';
+CoreUtilizationProperty:        'CoreUtilization'       '=' value=INT                       ';';
+CoreArchitectureProperty:       'Architecture'          '=' value=STRING                    ';';
+DevelopedByProperty:            'Developer'             '=' value=STRING                    ';';
+CustomIntProperty:              'Custom' 'Property' name=STRING '=' value=INT               ';';
+CustomStringProperty:           'Custom' 'Property' name=STRING '=' value=STRING            ';';
+

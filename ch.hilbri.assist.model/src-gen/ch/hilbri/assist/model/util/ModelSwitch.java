@@ -48,6 +48,7 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MaxEndTimeProperty;
 import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinHypPeriodLengthProperty;
 import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.PeriodProperty;
@@ -74,8 +75,10 @@ import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
+import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
+import ch.hilbri.assist.model.TaskSwitchDelayProperty;
 
 import java.util.Map;
 
@@ -141,12 +144,6 @@ public class ModelSwitch<T> extends Switch<T> {
     @Override
     protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
-            case ModelPackage.ASSIST_MODEL: {
-                AssistModel assistModel = (AssistModel)theEObject;
-                T result = caseAssistModel(assistModel);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case ModelPackage.PROPERTY: {
                 Property property = (Property)theEObject;
                 T result = caseProperty(property);
@@ -164,6 +161,30 @@ public class ModelSwitch<T> extends Switch<T> {
                 IntProperty intProperty = (IntProperty)theEObject;
                 T result = caseIntProperty(intProperty);
                 if (result == null) result = caseProperty(intProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.SYSTEM_NAME_PROPERTY: {
+                SystemNameProperty systemNameProperty = (SystemNameProperty)theEObject;
+                T result = caseSystemNameProperty(systemNameProperty);
+                if (result == null) result = caseStringProperty(systemNameProperty);
+                if (result == null) result = caseProperty(systemNameProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.MIN_HYP_PERIOD_LENGTH_PROPERTY: {
+                MinHypPeriodLengthProperty minHypPeriodLengthProperty = (MinHypPeriodLengthProperty)theEObject;
+                T result = caseMinHypPeriodLengthProperty(minHypPeriodLengthProperty);
+                if (result == null) result = caseIntProperty(minHypPeriodLengthProperty);
+                if (result == null) result = caseProperty(minHypPeriodLengthProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.TASK_SWITCH_DELAY_PROPERTY: {
+                TaskSwitchDelayProperty taskSwitchDelayProperty = (TaskSwitchDelayProperty)theEObject;
+                T result = caseTaskSwitchDelayProperty(taskSwitchDelayProperty);
+                if (result == null) result = caseIntProperty(taskSwitchDelayProperty);
+                if (result == null) result = caseProperty(taskSwitchDelayProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -383,6 +404,12 @@ public class ModelSwitch<T> extends Switch<T> {
                 T result = caseCustomStringProperty(customStringProperty);
                 if (result == null) result = caseCustomProperty(customStringProperty);
                 if (result == null) result = caseProperty(customStringProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.ASSIST_MODEL: {
+                AssistModel assistModel = (AssistModel)theEObject;
+                T result = caseAssistModel(assistModel);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -675,21 +702,6 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Assist Model</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Assist Model</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseAssistModel(AssistModel object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -731,6 +743,51 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseIntProperty(IntProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>System Name Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>System Name Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSystemNameProperty(SystemNameProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Min Hyp Period Length Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Min Hyp Period Length Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMinHypPeriodLengthProperty(MinHypPeriodLengthProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Task Switch Delay Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Task Switch Delay Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTaskSwitchDelayProperty(TaskSwitchDelayProperty object) {
         return null;
     }
 
@@ -1151,6 +1208,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseCustomStringProperty(CustomStringProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAssistModel(AssistModel object) {
         return null;
     }
 

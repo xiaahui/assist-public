@@ -223,6 +223,21 @@ public class HardwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createSystemNameProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMinHypPeriodLengthProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createTaskSwitchDelayProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.HARDWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createManufacturerProperty()));
 
         newChildDescriptors.add

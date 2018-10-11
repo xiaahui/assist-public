@@ -13,12 +13,18 @@ import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.ExplorationCandidate;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.model.MinHypPeriodLengthProperty;
+import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Property;
 import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.SchedulingRestriction;
+import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
+import ch.hilbri.assist.model.TaskSwitchDelayProperty;
 
 import com.google.common.collect.Iterables;
 
@@ -26,7 +32,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -35,7 +40,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -45,6 +49,11 @@ import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Assist Model</b></em>'.
@@ -53,9 +62,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getTaskSwitchDelay <em>Task Switch Delay</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
@@ -71,64 +78,14 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  */
 public class AssistModelImpl extends MinimalEObjectImpl.Container implements AssistModel {
     /**
-     * The default value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSystemName()
+     * @see #getProperties()
      * @generated
      * @ordered
      */
-    protected static final String SYSTEM_NAME_EDEFAULT = "";
-
-    /**
-     * The cached value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSystemName()
-     * @generated
-     * @ordered
-     */
-    protected String systemName = SYSTEM_NAME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinHypPeriodLength()
-     * @generated
-     * @ordered
-     */
-    protected static final int MIN_HYP_PERIOD_LENGTH_EDEFAULT = -1;
-
-    /**
-     * The cached value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMinHypPeriodLength()
-     * @generated
-     * @ordered
-     */
-    protected int minHypPeriodLength = MIN_HYP_PERIOD_LENGTH_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getTaskSwitchDelay() <em>Task Switch Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getTaskSwitchDelay()
-     * @generated
-     * @ordered
-     */
-    protected static final int TASK_SWITCH_DELAY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getTaskSwitchDelay() <em>Task Switch Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getTaskSwitchDelay()
-     * @generated
-     * @ordered
-     */
-    protected int taskSwitchDelay = TASK_SWITCH_DELAY_EDEFAULT;
+    protected EList<Property> properties;
 
     /**
      * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' containment reference list.
@@ -244,62 +201,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getSystemName() {
-        return systemName;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSystemName(String newSystemName) {
-        String oldSystemName = systemName;
-        systemName = newSystemName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__SYSTEM_NAME, oldSystemName, systemName));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getMinHypPeriodLength() {
-        return minHypPeriodLength;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setMinHypPeriodLength(int newMinHypPeriodLength) {
-        int oldMinHypPeriodLength = minHypPeriodLength;
-        minHypPeriodLength = newMinHypPeriodLength;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH, oldMinHypPeriodLength, minHypPeriodLength));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getTaskSwitchDelay() {
-        return taskSwitchDelay;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setTaskSwitchDelay(int newTaskSwitchDelay) {
-        int oldTaskSwitchDelay = taskSwitchDelay;
-        taskSwitchDelay = newTaskSwitchDelay;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY, oldTaskSwitchDelay, taskSwitchDelay));
+    public EList<Property> getProperties() {
+        if (properties == null) {
+            properties = new EObjectContainmentEList<Property>(Property.class, this, ModelPackage.ASSIST_MODEL__PROPERTIES);
+        }
+        return properties;
     }
 
     /**
@@ -494,6 +400,37 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<HardwareElement> getAllHardwareElements(final HardwareArchitectureLevelType level) {
+        EList<HardwareElement> _switchResult = null;
+        if (level != null) {
+            switch (level) {
+                case CORE:
+                    _switchResult = this.getAllHardwareElements(0);
+                    break;
+                case PROCESSOR:
+                    _switchResult = this.getAllHardwareElements(1);
+                    break;
+                case BOARD:
+                    _switchResult = this.getAllHardwareElements(2);
+                    break;
+                case BOX:
+                    _switchResult = this.getAllHardwareElements(3);
+                    break;
+                case COMPARTMENT:
+                    _switchResult = this.getAllHardwareElements(4);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return _switchResult;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<HardwareElement> getAllHardwareElements(final int level) {
         EList<HardwareElement> _xifexpression = null;
         if ((level == 0)) {
@@ -606,9 +543,203 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getSystemName() {
+        String _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof SystemNameProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof SystemNameProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((SystemNameProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSystemName(final String newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof SystemNameProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof SystemNameProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((SystemNameProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            SystemNameProperty _createSystemNameProperty = ModelFactory.eINSTANCE.createSystemNameProperty();
+            final Procedure1<SystemNameProperty> _function_2 = new Procedure1<SystemNameProperty>() {
+                public void apply(final SystemNameProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            SystemNameProperty _doubleArrow = ObjectExtensions.<SystemNameProperty>operator_doubleArrow(_createSystemNameProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMinHypPeriodLength() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MinHypPeriodLengthProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MinHypPeriodLengthProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((MinHypPeriodLengthProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMinHypPeriodLength(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof MinHypPeriodLengthProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof MinHypPeriodLengthProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((MinHypPeriodLengthProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            MinHypPeriodLengthProperty _createMinHypPeriodLengthProperty = ModelFactory.eINSTANCE.createMinHypPeriodLengthProperty();
+            final Procedure1<MinHypPeriodLengthProperty> _function_2 = new Procedure1<MinHypPeriodLengthProperty>() {
+                public void apply(final MinHypPeriodLengthProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            MinHypPeriodLengthProperty _doubleArrow = ObjectExtensions.<MinHypPeriodLengthProperty>operator_doubleArrow(_createMinHypPeriodLengthProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getTaskSwitchDelay() {
+        int _xifexpression = (int) 0;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof TaskSwitchDelayProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof TaskSwitchDelayProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((TaskSwitchDelayProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = (-1);
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTaskSwitchDelay(final int newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof TaskSwitchDelayProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof TaskSwitchDelayProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((TaskSwitchDelayProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            TaskSwitchDelayProperty _createTaskSwitchDelayProperty = ModelFactory.eINSTANCE.createTaskSwitchDelayProperty();
+            final Procedure1<TaskSwitchDelayProperty> _function_2 = new Procedure1<TaskSwitchDelayProperty>() {
+                public void apply(final TaskSwitchDelayProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            TaskSwitchDelayProperty _doubleArrow = ObjectExtensions.<TaskSwitchDelayProperty>operator_doubleArrow(_createTaskSwitchDelayProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
                 return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
@@ -639,12 +770,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-                return getSystemName();
-            case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
-                return getMinHypPeriodLength();
-            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
-                return getTaskSwitchDelay();
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
+                return getProperties();
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
                 return getCompartments();
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
@@ -676,14 +803,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-                setSystemName((String)newValue);
-                return;
-            case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
-                setMinHypPeriodLength((Integer)newValue);
-                return;
-            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
-                setTaskSwitchDelay((Integer)newValue);
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
                 return;
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
                 getCompartments().clear();
@@ -733,14 +855,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-                setSystemName(SYSTEM_NAME_EDEFAULT);
-                return;
-            case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
-                setMinHypPeriodLength(MIN_HYP_PERIOD_LENGTH_EDEFAULT);
-                return;
-            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
-                setTaskSwitchDelay(TASK_SWITCH_DELAY_EDEFAULT);
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
+                getProperties().clear();
                 return;
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
                 getCompartments().clear();
@@ -781,12 +897,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-                return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
-            case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
-                return minHypPeriodLength != MIN_HYP_PERIOD_LENGTH_EDEFAULT;
-            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
-                return taskSwitchDelay != TASK_SWITCH_DELAY_EDEFAULT;
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
+                return properties != null && !properties.isEmpty();
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
                 return compartments != null && !compartments.isEmpty();
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
@@ -829,32 +941,29 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return getAllCores();
             case ModelPackage.ASSIST_MODEL___GET_ALL_TASKS:
                 return getAllTasks();
+            case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE:
+                return getAllHardwareElements((HardwareArchitectureLevelType)arguments.get(0));
             case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
                 return getAllHardwareElements((Integer)arguments.get(0));
             case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS:
                 return getAllHardwareElements();
+            case ModelPackage.ASSIST_MODEL___GET_SYSTEM_NAME:
+                return getSystemName();
+            case ModelPackage.ASSIST_MODEL___SET_SYSTEM_NAME__STRING:
+                setSystemName((String)arguments.get(0));
+                return null;
+            case ModelPackage.ASSIST_MODEL___GET_MIN_HYP_PERIOD_LENGTH:
+                return getMinHypPeriodLength();
+            case ModelPackage.ASSIST_MODEL___SET_MIN_HYP_PERIOD_LENGTH__INT:
+                setMinHypPeriodLength((Integer)arguments.get(0));
+                return null;
+            case ModelPackage.ASSIST_MODEL___GET_TASK_SWITCH_DELAY:
+                return getTaskSwitchDelay();
+            case ModelPackage.ASSIST_MODEL___SET_TASK_SWITCH_DELAY__INT:
+                setTaskSwitchDelay((Integer)arguments.get(0));
+                return null;
         }
         return super.eInvoke(operationID, arguments);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append(" (systemName: ");
-        result.append(systemName);
-        result.append(", minHypPeriodLength: ");
-        result.append(minHypPeriodLength);
-        result.append(", taskSwitchDelay: ");
-        result.append(taskSwitchDelay);
-        result.append(')');
-        return result.toString();
     }
 
 } //AssistModelImpl

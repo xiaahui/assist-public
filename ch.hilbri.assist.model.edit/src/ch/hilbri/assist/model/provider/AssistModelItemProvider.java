@@ -16,15 +16,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -63,80 +60,11 @@ public class AssistModelItemProvider
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSystemNamePropertyDescriptor(object);
-            addMinHypPeriodLengthPropertyDescriptor(object);
-            addTaskSwitchDelayPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
 	/**
-     * This adds a property descriptor for the System Name feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addSystemNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AssistModel_systemName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
-                 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Min Hyp Period Length feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addMinHypPeriodLengthPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AssistModel_minHypPeriodLength_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_minHypPeriodLength_feature", "_UI_AssistModel_type"),
-                 ModelPackage.Literals.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Task Switch Delay feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addTaskSwitchDelayPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AssistModel_taskSwitchDelay_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_taskSwitchDelay_feature", "_UI_AssistModel_type"),
-                 ModelPackage.Literals.ASSIST_MODEL__TASK_SWITCH_DELAY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -148,6 +76,7 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
+            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROPERTIES);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
@@ -193,10 +122,7 @@ public class AssistModelItemProvider
      */
 	@Override
 	public String getText(Object object) {
-        String label = ((AssistModel)object).getSystemName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_AssistModel_type") :
-            getString("_UI_AssistModel_type") + " " + label;
+        return getString("_UI_AssistModel_type");
     }
 	
 
@@ -212,11 +138,7 @@ public class AssistModelItemProvider
         updateChildren(notification);
 
         switch (notification.getFeatureID(AssistModel.class)) {
-            case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-            case ModelPackage.ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH:
-            case ModelPackage.ASSIST_MODEL__TASK_SWITCH_DELAY:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
+            case ModelPackage.ASSIST_MODEL__PROPERTIES:
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
@@ -242,6 +164,176 @@ public class AssistModelItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createStringProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createSystemNameProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMinHypPeriodLengthProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createTaskSwitchDelayProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createManufacturerProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPowerSupplyProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createBoardTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createProcessorTypeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createRAMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createRAMUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createROMCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createROMUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreCapacityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreUtilizationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCoreArchitectureProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDevelopedByProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDurationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPeriodProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createEarlyToleranceProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createLateToleranceProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMaxStartTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMaxEndTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createAddInitTimeProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createSlicesProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMinSliceDurationProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createDesignAssuranceLevelProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCriticalityLevelProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createPeriodicityProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createColorProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomIntProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createCustomStringProperty()));
 
         newChildDescriptors.add
             (createChildParameter

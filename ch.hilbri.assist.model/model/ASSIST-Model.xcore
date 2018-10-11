@@ -17,59 +17,15 @@ import org.eclipse.emf.common.util.EList
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
-class AssistModel {
-    String           systemName          = ""
-    int              minHypPeriodLength  = "-1"
-    int              taskSwitchDelay     = "0"
-    
-    contains         Compartment[0..*]                 compartments
-    
-    contains         Application[0..*]                 applications
-    
-    contains         DislocalityRelation[0..*]         dislocalityRelations
-    contains         ColocalityRelation[0..*]          colocalityRelations
-    contains         DissimilarityRelation[0..*]       dissimilarityRelations
-    
-    contains         SchedulingRestriction[0..*]       schedulingRestrictions
-    
-    contains         ApplicationAlternatives[0..*]     applicationAlternatives
-    contains         RestrictionAlternatives[0..*]     restrictionAlternatives
-    contains         ExplorationCandidate[0..*]        explorationCandidates
-
-    op Compartment[] getAllCompartments()     { compartments                                          }
-    op Box[]         getAllBoxes()            { compartments.map[allBoxes].flatten.toEList            }
-    op Board[]       getAllBoards()           { compartments.map[allBoards].flatten.toEList           }
-    op Processor[]   getAllProcessors()       { compartments.map[allProcessors].flatten.toEList       }
-    op Core[]        getAllCores()            { compartments.map[allCores].flatten.toEList            }
-    op Task[]        getAllTasks()            { applications.map[tasks].flatten.toEList               }
-    
-    op HardwareElement[] getAllHardwareElements(int level) {
-        if (level == 0)         allCores.map[it as HardwareElement]
-        else if (level == 1)    allProcessors.map[it as HardwareElement]
-        else if (level == 2)    allBoards.map[it as HardwareElement]
-        else if (level == 3)    allBoxes.map[it as HardwareElement]
-        else if (level == 4)    allCompartments.map[it as HardwareElement] 
-        else                    null
-    }
-    
-    op HardwareElement[] getAllHardwareElements() {
-        val iterables = allCompartments.map[it as HardwareElement] +
-                        allBoxes.map[it as HardwareElement] +
-                        allBoards.map[it as HardwareElement] +  
-                        allProcessors.map[it as HardwareElement] + 
-                        allCores.map[it as HardwareElement]
-        return iterables.toEList
-    }
-}
-
 // 
 // PROPERTIES
 //
 class Property {}
-class StringProperty                extends Property { String value = ""  }
-class IntProperty                   extends Property { int    value = "0" }
-
-// Properties
+class StringProperty                extends Property        { String                value = ""          }
+class IntProperty                   extends Property        { int                   value = "0"         }
+class SystemNameProperty            extends StringProperty  {}
+class MinHypPeriodLengthProperty    extends IntProperty     {}
+class TaskSwitchDelayProperty       extends IntProperty     {}
 class ManufacturerProperty          extends StringProperty  {}
 class PowerSupplyProperty           extends StringProperty  {}
 class BoardTypeProperty             extends StringProperty  {}
@@ -91,15 +47,107 @@ class MaxEndTimeProperty            extends IntProperty     {}
 class AddInitTimeProperty           extends IntProperty     {}
 class SlicesProperty                extends IntProperty     {}
 class MinSliceDurationProperty      extends IntProperty     {}
-class DesignAssuranceLevelProperty  extends Property { DesignAssuranceLevelType value = "None"      }
-class CriticalityLevelProperty      extends Property { DesignAssuranceLevelType value = "None"      }
-class PeriodicityProperty           extends Property { PeriodicityType          value = "strict"    }    
-class ColorProperty                 extends Property { Color                    value = "none"      }
+class DesignAssuranceLevelProperty  extends Property        { DesignAssuranceLevelType value = "None"      }
+class CriticalityLevelProperty      extends Property        { DesignAssuranceLevelType value = "None"      }
+class PeriodicityProperty           extends Property        { PeriodicityType          value = "strict"    }    
+class ColorProperty                 extends Property        { Color                    value = "none"      }
+class CustomProperty                extends Property        { String                    name = ""           }
+class CustomIntProperty             extends CustomProperty  { int                       value = "0"         }
+class CustomStringProperty          extends CustomProperty  { String                    value = ""          }
 
-// Custom Properties
-class CustomProperty                extends Property        { String    name = ""   }
-class CustomIntProperty             extends CustomProperty  { int       value = "0" }
-class CustomStringProperty          extends CustomProperty  { String    value = ""  }
+class AssistModel {
+    contains         Property[0..*]                    properties
+    contains         Compartment[0..*]                 compartments
+    contains         Application[0..*]                 applications
+    contains         DislocalityRelation[0..*]         dislocalityRelations
+    contains         ColocalityRelation[0..*]          colocalityRelations
+    contains         DissimilarityRelation[0..*]       dissimilarityRelations
+    contains         SchedulingRestriction[0..*]       schedulingRestrictions
+    contains         ApplicationAlternatives[0..*]     applicationAlternatives
+    contains         RestrictionAlternatives[0..*]     restrictionAlternatives
+    contains         ExplorationCandidate[0..*]        explorationCandidates
+
+    op Compartment[] getAllCompartments()     { compartments                                          }
+    op Box[]         getAllBoxes()            { compartments.map[allBoxes].flatten.toEList            }
+    op Board[]       getAllBoards()           { compartments.map[allBoards].flatten.toEList           }
+    op Processor[]   getAllProcessors()       { compartments.map[allProcessors].flatten.toEList       }
+    op Core[]        getAllCores()            { compartments.map[allCores].flatten.toEList            }
+    op Task[]        getAllTasks()            { applications.map[tasks].flatten.toEList               }
+    
+    op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
+        switch (level) {
+            case CORE:          { getAllHardwareElements(0) }
+            case PROCESSOR:     { getAllHardwareElements(1) }
+            case BOARD:         { getAllHardwareElements(2) }
+            case BOX:           { getAllHardwareElements(3) }
+            case COMPARTMENT:   { getAllHardwareElements(4) }
+        }
+    }
+    
+    op HardwareElement[] getAllHardwareElements(int level) {
+        if (level == 0)         allCores.map[it as HardwareElement]
+        else if (level == 1)    allProcessors.map[it as HardwareElement]
+        else if (level == 2)    allBoards.map[it as HardwareElement]
+        else if (level == 3)    allBoxes.map[it as HardwareElement]
+        else if (level == 4)    allCompartments.map[it as HardwareElement] 
+        else                    null
+    }
+    
+    op HardwareElement[] getAllHardwareElements() {
+        val iterables = allCompartments.map[it as HardwareElement] +
+                        allBoxes.map[it as HardwareElement] +
+                        allBoards.map[it as HardwareElement] +  
+                        allProcessors.map[it as HardwareElement] + 
+                        allCores.map[it as HardwareElement]
+        return iterables.toEList
+    }
+    
+    // SystemName
+    op String getSystemName() {
+        if (!properties.filter[it instanceof SystemNameProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof SystemNameProperty].head as SystemNameProperty).value
+        else 
+            null
+    }
+    
+    op void setSystemName(String newValue) {
+        if (!properties.filter[it instanceof SystemNameProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof SystemNameProperty].head as SystemNameProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createSystemNameProperty => [value = newValue])
+    }
+    
+    // MinHypPeriodLength
+    op int getMinHypPeriodLength() {
+        if (!properties.filter[it instanceof MinHypPeriodLengthProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MinHypPeriodLengthProperty].head as MinHypPeriodLengthProperty).value
+        else 
+            -1
+    }
+    
+    op void setMinHypPeriodLength(int newValue) {
+        if (!properties.filter[it instanceof MinHypPeriodLengthProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof MinHypPeriodLengthProperty].head as MinHypPeriodLengthProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createMinHypPeriodLengthProperty => [value = newValue])
+    }
+    
+    // TaskSwitchDelay
+    op int getTaskSwitchDelay() {
+        if (!properties.filter[it instanceof TaskSwitchDelayProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof TaskSwitchDelayProperty].head as TaskSwitchDelayProperty).value
+        else 
+            -1
+    }
+    
+    op void setTaskSwitchDelay(int newValue) {
+        if (!properties.filter[it instanceof TaskSwitchDelayProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof TaskSwitchDelayProperty].head as TaskSwitchDelayProperty).value = newValue
+        else 
+            properties.add(ModelFactory.eINSTANCE.createTaskSwitchDelayProperty => [value = newValue])
+    }
+}
+
 
 //
 // HARDWARE ELEMENTS

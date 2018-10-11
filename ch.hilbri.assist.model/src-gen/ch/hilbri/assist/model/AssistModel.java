@@ -15,9 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getProperties <em>Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
@@ -35,85 +33,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AssistModel extends EObject {
     /**
-     * Returns the value of the '<em><b>System Name</b></em>' attribute.
-     * The default value is <code>""</code>.
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link ch.hilbri.assist.model.Property}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>System Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>System Name</em>' attribute.
-     * @see #setSystemName(String)
-     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_SystemName()
-     * @model default="" unique="false"
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_Properties()
+     * @model containment="true"
      * @generated
      */
-    String getSystemName();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.AssistModel#getSystemName <em>System Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>System Name</em>' attribute.
-     * @see #getSystemName()
-     * @generated
-     */
-    void setSystemName(String value);
-
-    /**
-     * Returns the value of the '<em><b>Min Hyp Period Length</b></em>' attribute.
-     * The default value is <code>"-1"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Min Hyp Period Length</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Min Hyp Period Length</em>' attribute.
-     * @see #setMinHypPeriodLength(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_MinHypPeriodLength()
-     * @model default="-1" unique="false"
-     * @generated
-     */
-    int getMinHypPeriodLength();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Min Hyp Period Length</em>' attribute.
-     * @see #getMinHypPeriodLength()
-     * @generated
-     */
-    void setMinHypPeriodLength(int value);
-
-    /**
-     * Returns the value of the '<em><b>Task Switch Delay</b></em>' attribute.
-     * The default value is <code>"0"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Task Switch Delay</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Task Switch Delay</em>' attribute.
-     * @see #setTaskSwitchDelay(int)
-     * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_TaskSwitchDelay()
-     * @model default="0" unique="false"
-     * @generated
-     */
-    int getTaskSwitchDelay();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Task Switch Delay</em>' attribute.
-     * @see #getTaskSwitchDelay()
-     * @generated
-     */
-    void setTaskSwitchDelay(int value);
+    EList<Property> getProperties();
 
     /**
      * Returns the value of the '<em><b>Compartments</b></em>' containment reference list.
@@ -313,6 +246,14 @@ public interface AssistModel extends EObject {
      * @model unique="false" levelUnique="false"
      * @generated
      */
+    EList<HardwareElement> getAllHardwareElements(HardwareArchitectureLevelType level);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model unique="false" levelUnique="false"
+     * @generated
+     */
     EList<HardwareElement> getAllHardwareElements(int level);
 
     /**
@@ -322,5 +263,53 @@ public interface AssistModel extends EObject {
      * @generated
      */
     EList<HardwareElement> getAllHardwareElements();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    String getSystemName();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setSystemName(String newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getMinHypPeriodLength();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setMinHypPeriodLength(int newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    int getTaskSwitchDelay();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setTaskSwitchDelay(int newValue);
 
 } // AssistModel

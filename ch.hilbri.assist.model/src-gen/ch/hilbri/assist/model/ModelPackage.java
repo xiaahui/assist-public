@@ -62,6 +62,1273 @@ public interface ModelPackage extends EPackage {
     ModelPackage eINSTANCE = ch.hilbri.assist.model.impl.ModelPackageImpl.init();
 
     /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PropertyImpl <em>Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProperty()
+     * @generated
+     */
+    int PROPERTY = 0;
+
+    /**
+     * The number of structural features of the '<em>Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.StringPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringProperty()
+     * @generated
+     */
+    int STRING_PROPERTY = 1;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.IntPropertyImpl <em>Int Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.IntPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIntProperty()
+     * @generated
+     */
+    int INT_PROPERTY = 2;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INT_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Int Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INT_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Int Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INT_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.SystemNamePropertyImpl <em>System Name Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.SystemNamePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSystemNameProperty()
+     * @generated
+     */
+    int SYSTEM_NAME_PROPERTY = 3;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NAME_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>System Name Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NAME_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>System Name Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NAME_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MinHypPeriodLengthPropertyImpl <em>Min Hyp Period Length Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MinHypPeriodLengthPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinHypPeriodLengthProperty()
+     * @generated
+     */
+    int MIN_HYP_PERIOD_LENGTH_PROPERTY = 4;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_HYP_PERIOD_LENGTH_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Min Hyp Period Length Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_HYP_PERIOD_LENGTH_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Min Hyp Period Length Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_HYP_PERIOD_LENGTH_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.TaskSwitchDelayPropertyImpl <em>Task Switch Delay Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.TaskSwitchDelayPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskSwitchDelayProperty()
+     * @generated
+     */
+    int TASK_SWITCH_DELAY_PROPERTY = 5;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK_SWITCH_DELAY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Task Switch Delay Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK_SWITCH_DELAY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Task Switch Delay Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK_SWITCH_DELAY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ManufacturerPropertyImpl <em>Manufacturer Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ManufacturerPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getManufacturerProperty()
+     * @generated
+     */
+    int MANUFACTURER_PROPERTY = 6;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MANUFACTURER_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Manufacturer Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MANUFACTURER_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Manufacturer Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MANUFACTURER_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PowerSupplyPropertyImpl <em>Power Supply Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PowerSupplyPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPowerSupplyProperty()
+     * @generated
+     */
+    int POWER_SUPPLY_PROPERTY = 7;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POWER_SUPPLY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Power Supply Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POWER_SUPPLY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Power Supply Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POWER_SUPPLY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoardTypePropertyImpl <em>Board Type Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.BoardTypePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardTypeProperty()
+     * @generated
+     */
+    int BOARD_TYPE_PROPERTY = 8;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD_TYPE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Board Type Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Board Type Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD_TYPE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ProcessorTypePropertyImpl <em>Processor Type Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ProcessorTypePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessorTypeProperty()
+     * @generated
+     */
+    int PROCESSOR_TYPE_PROPERTY = 9;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR_TYPE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Processor Type Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Processor Type Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR_TYPE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RAMCapacityPropertyImpl <em>RAM Capacity Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.RAMCapacityPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRAMCapacityProperty()
+     * @generated
+     */
+    int RAM_CAPACITY_PROPERTY = 10;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>RAM Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>RAM Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RAMUtilizationPropertyImpl <em>RAM Utilization Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.RAMUtilizationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRAMUtilizationProperty()
+     * @generated
+     */
+    int RAM_UTILIZATION_PROPERTY = 11;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>RAM Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>RAM Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ROMCapacityPropertyImpl <em>ROM Capacity Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ROMCapacityPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getROMCapacityProperty()
+     * @generated
+     */
+    int ROM_CAPACITY_PROPERTY = 12;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>ROM Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>ROM Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ROMUtilizationPropertyImpl <em>ROM Utilization Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ROMUtilizationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getROMUtilizationProperty()
+     * @generated
+     */
+    int ROM_UTILIZATION_PROPERTY = 13;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>ROM Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>ROM Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreCapacityPropertyImpl <em>Core Capacity Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CoreCapacityPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreCapacityProperty()
+     * @generated
+     */
+    int CORE_CAPACITY_PROPERTY = 14;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Core Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Core Capacity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreUtilizationPropertyImpl <em>Core Utilization Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CoreUtilizationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreUtilizationProperty()
+     * @generated
+     */
+    int CORE_UTILIZATION_PROPERTY = 15;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Core Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Core Utilization Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreArchitecturePropertyImpl <em>Core Architecture Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CoreArchitecturePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreArchitectureProperty()
+     * @generated
+     */
+    int CORE_ARCHITECTURE_PROPERTY = 16;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_ARCHITECTURE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Core Architecture Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_ARCHITECTURE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Core Architecture Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_ARCHITECTURE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
+     * @generated
+     */
+    int DEVELOPED_BY_PROPERTY = 17;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Developed By Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Developed By Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DurationPropertyImpl <em>Duration Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.DurationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDurationProperty()
+     * @generated
+     */
+    int DURATION_PROPERTY = 18;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodPropertyImpl <em>Period Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PeriodPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodProperty()
+     * @generated
+     */
+    int PERIOD_PROPERTY = 19;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Period Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Period Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl <em>Early Tolerance Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getEarlyToleranceProperty()
+     * @generated
+     */
+    int EARLY_TOLERANCE_PROPERTY = 20;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Early Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Early Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.LateTolerancePropertyImpl <em>Late Tolerance Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.LateTolerancePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getLateToleranceProperty()
+     * @generated
+     */
+    int LATE_TOLERANCE_PROPERTY = 21;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Late Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Late Tolerance Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl <em>Max Start Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxStartTimeProperty()
+     * @generated
+     */
+    int MAX_START_TIME_PROPERTY = 22;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Max Start Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Max Start Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl <em>Max End Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxEndTimeProperty()
+     * @generated
+     */
+    int MAX_END_TIME_PROPERTY = 23;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Max End Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Max End Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AddInitTimePropertyImpl <em>Add Init Time Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.AddInitTimePropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAddInitTimeProperty()
+     * @generated
+     */
+    int ADD_INIT_TIME_PROPERTY = 24;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Add Init Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Add Init Time Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.SlicesPropertyImpl <em>Slices Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.SlicesPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSlicesProperty()
+     * @generated
+     */
+    int SLICES_PROPERTY = 25;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Slices Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Slices Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl <em>Min Slice Duration Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinSliceDurationProperty()
+     * @generated
+     */
+    int MIN_SLICE_DURATION_PROPERTY = 26;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
+
+    /**
+     * The number of structural features of the '<em>Min Slice Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Min Slice Duration Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl <em>Design Assurance Level Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelProperty()
+     * @generated
+     */
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY = 27;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Design Assurance Level Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Design Assurance Level Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CriticalityLevelPropertyImpl <em>Criticality Level Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CriticalityLevelPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCriticalityLevelProperty()
+     * @generated
+     */
+    int CRITICALITY_LEVEL_PROPERTY = 28;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRITICALITY_LEVEL_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Criticality Level Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRITICALITY_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Criticality Level Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRITICALITY_LEVEL_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodicityPropertyImpl <em>Periodicity Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.PeriodicityPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityProperty()
+     * @generated
+     */
+    int PERIODICITY_PROPERTY = 29;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIODICITY_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Periodicity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIODICITY_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Periodicity Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIODICITY_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ColorPropertyImpl <em>Color Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.ColorPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColorProperty()
+     * @generated
+     */
+    int COLOR_PROPERTY = 30;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Color Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Color Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CustomPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomProperty()
+     * @generated
+     */
+    int CUSTOM_PROPERTY = 31;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY__NAME = PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Custom Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Custom Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomIntPropertyImpl <em>Custom Int Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CustomIntPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomIntProperty()
+     * @generated
+     */
+    int CUSTOM_INT_PROPERTY = 32;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_INT_PROPERTY__NAME = CUSTOM_PROPERTY__NAME;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_INT_PROPERTY__VALUE = CUSTOM_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Custom Int Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_INT_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Custom Int Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_INT_PROPERTY_OPERATION_COUNT = CUSTOM_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomStringPropertyImpl <em>Custom String Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ch.hilbri.assist.model.impl.CustomStringPropertyImpl
+     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomStringProperty()
+     * @generated
+     */
+    int CUSTOM_STRING_PROPERTY = 33;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_STRING_PROPERTY__NAME = CUSTOM_PROPERTY__NAME;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_STRING_PROPERTY__VALUE = CUSTOM_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Custom String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_STRING_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Custom String Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_STRING_PROPERTY_OPERATION_COUNT = CUSTOM_PROPERTY_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.AssistModelImpl <em>Assist Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -69,34 +1336,16 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModel()
      * @generated
      */
-    int ASSIST_MODEL = 0;
+    int ASSIST_MODEL = 34;
 
     /**
-     * The feature id for the '<em><b>System Name</b></em>' attribute.
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__SYSTEM_NAME = 0;
-
-    /**
-     * The feature id for the '<em><b>Min Hyp Period Length</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = 1;
-
-    /**
-     * The feature id for the '<em><b>Task Switch Delay</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ASSIST_MODEL__TASK_SWITCH_DELAY = 2;
+    int ASSIST_MODEL__PROPERTIES = 0;
 
     /**
      * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
@@ -105,7 +1354,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__COMPARTMENTS = 3;
+    int ASSIST_MODEL__COMPARTMENTS = 1;
 
     /**
      * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -114,7 +1363,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__APPLICATIONS = 4;
+    int ASSIST_MODEL__APPLICATIONS = 2;
 
     /**
      * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -123,7 +1372,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 5;
+    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 3;
 
     /**
      * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -132,7 +1381,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__COLOCALITY_RELATIONS = 6;
+    int ASSIST_MODEL__COLOCALITY_RELATIONS = 4;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -141,7 +1390,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 7;
+    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 5;
 
     /**
      * The feature id for the '<em><b>Scheduling Restrictions</b></em>' containment reference list.
@@ -150,7 +1399,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__SCHEDULING_RESTRICTIONS = 8;
+    int ASSIST_MODEL__SCHEDULING_RESTRICTIONS = 6;
 
     /**
      * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
@@ -159,7 +1408,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 9;
+    int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 7;
 
     /**
      * The feature id for the '<em><b>Restriction Alternatives</b></em>' containment reference list.
@@ -168,7 +1417,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__RESTRICTION_ALTERNATIVES = 10;
+    int ASSIST_MODEL__RESTRICTION_ALTERNATIVES = 8;
 
     /**
      * The feature id for the '<em><b>Exploration Candidates</b></em>' containment reference list.
@@ -177,7 +1426,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__EXPLORATION_CANDIDATES = 11;
+    int ASSIST_MODEL__EXPLORATION_CANDIDATES = 9;
 
     /**
      * The number of structural features of the '<em>Assist Model</em>' class.
@@ -186,7 +1435,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL_FEATURE_COUNT = 12;
+    int ASSIST_MODEL_FEATURE_COUNT = 10;
 
     /**
      * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -249,7 +1498,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
+    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 6;
 
     /**
      * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -258,7 +1507,70 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = 7;
+    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 7;
+
+    /**
+     * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = 8;
+
+    /**
+     * The operation id for the '<em>Get System Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___GET_SYSTEM_NAME = 9;
+
+    /**
+     * The operation id for the '<em>Set System Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___SET_SYSTEM_NAME__STRING = 10;
+
+    /**
+     * The operation id for the '<em>Get Min Hyp Period Length</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___GET_MIN_HYP_PERIOD_LENGTH = 11;
+
+    /**
+     * The operation id for the '<em>Set Min Hyp Period Length</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___SET_MIN_HYP_PERIOD_LENGTH__INT = 12;
+
+    /**
+     * The operation id for the '<em>Get Task Switch Delay</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___GET_TASK_SWITCH_DELAY = 13;
+
+    /**
+     * The operation id for the '<em>Set Task Switch Delay</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL___SET_TASK_SWITCH_DELAY__INT = 14;
 
     /**
      * The number of operations of the '<em>Assist Model</em>' class.
@@ -267,1163 +1579,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL_OPERATION_COUNT = 8;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PropertyImpl <em>Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.PropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProperty()
-     * @generated
-     */
-    int PROPERTY = 1;
-
-    /**
-     * The number of structural features of the '<em>Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_FEATURE_COUNT = 0;
-
-    /**
-     * The number of operations of the '<em>Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_OPERATION_COUNT = 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.StringPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringProperty()
-     * @generated
-     */
-    int STRING_PROPERTY = 2;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STRING_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>String Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STRING_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>String Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int STRING_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.IntPropertyImpl <em>Int Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.IntPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getIntProperty()
-     * @generated
-     */
-    int INT_PROPERTY = 3;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INT_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Int Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INT_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Int Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INT_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ManufacturerPropertyImpl <em>Manufacturer Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ManufacturerPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getManufacturerProperty()
-     * @generated
-     */
-    int MANUFACTURER_PROPERTY = 4;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MANUFACTURER_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Manufacturer Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MANUFACTURER_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Manufacturer Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MANUFACTURER_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PowerSupplyPropertyImpl <em>Power Supply Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.PowerSupplyPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPowerSupplyProperty()
-     * @generated
-     */
-    int POWER_SUPPLY_PROPERTY = 5;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int POWER_SUPPLY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Power Supply Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int POWER_SUPPLY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Power Supply Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int POWER_SUPPLY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoardTypePropertyImpl <em>Board Type Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.BoardTypePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardTypeProperty()
-     * @generated
-     */
-    int BOARD_TYPE_PROPERTY = 6;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_TYPE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Board Type Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Board Type Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_TYPE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ProcessorTypePropertyImpl <em>Processor Type Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ProcessorTypePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessorTypeProperty()
-     * @generated
-     */
-    int PROCESSOR_TYPE_PROPERTY = 7;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESSOR_TYPE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Processor Type Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESSOR_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Processor Type Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESSOR_TYPE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RAMCapacityPropertyImpl <em>RAM Capacity Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.RAMCapacityPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRAMCapacityProperty()
-     * @generated
-     */
-    int RAM_CAPACITY_PROPERTY = 8;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>RAM Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>RAM Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RAMUtilizationPropertyImpl <em>RAM Utilization Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.RAMUtilizationPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRAMUtilizationProperty()
-     * @generated
-     */
-    int RAM_UTILIZATION_PROPERTY = 9;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>RAM Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>RAM Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RAM_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ROMCapacityPropertyImpl <em>ROM Capacity Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ROMCapacityPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getROMCapacityProperty()
-     * @generated
-     */
-    int ROM_CAPACITY_PROPERTY = 10;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>ROM Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>ROM Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ROMUtilizationPropertyImpl <em>ROM Utilization Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ROMUtilizationPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getROMUtilizationProperty()
-     * @generated
-     */
-    int ROM_UTILIZATION_PROPERTY = 11;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>ROM Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>ROM Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ROM_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreCapacityPropertyImpl <em>Core Capacity Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CoreCapacityPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreCapacityProperty()
-     * @generated
-     */
-    int CORE_CAPACITY_PROPERTY = 12;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_CAPACITY_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Core Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Core Capacity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_CAPACITY_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreUtilizationPropertyImpl <em>Core Utilization Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CoreUtilizationPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreUtilizationProperty()
-     * @generated
-     */
-    int CORE_UTILIZATION_PROPERTY = 13;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_UTILIZATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Core Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Core Utilization Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_UTILIZATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CoreArchitecturePropertyImpl <em>Core Architecture Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CoreArchitecturePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCoreArchitectureProperty()
-     * @generated
-     */
-    int CORE_ARCHITECTURE_PROPERTY = 14;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_ARCHITECTURE_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Core Architecture Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_ARCHITECTURE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Core Architecture Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CORE_ARCHITECTURE_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DevelopedByPropertyImpl <em>Developed By Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.DevelopedByPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDevelopedByProperty()
-     * @generated
-     */
-    int DEVELOPED_BY_PROPERTY = 15;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DEVELOPED_BY_PROPERTY__VALUE = STRING_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Developed By Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DEVELOPED_BY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Developed By Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DEVELOPED_BY_PROPERTY_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DurationPropertyImpl <em>Duration Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.DurationPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDurationProperty()
-     * @generated
-     */
-    int DURATION_PROPERTY = 16;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Duration Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Duration Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodPropertyImpl <em>Period Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.PeriodPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodProperty()
-     * @generated
-     */
-    int PERIOD_PROPERTY = 17;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIOD_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Period Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIOD_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Period Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIOD_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl <em>Early Tolerance Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.EarlyTolerancePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getEarlyToleranceProperty()
-     * @generated
-     */
-    int EARLY_TOLERANCE_PROPERTY = 18;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EARLY_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Early Tolerance Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EARLY_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Early Tolerance Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EARLY_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.LateTolerancePropertyImpl <em>Late Tolerance Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.LateTolerancePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getLateToleranceProperty()
-     * @generated
-     */
-    int LATE_TOLERANCE_PROPERTY = 19;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LATE_TOLERANCE_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Late Tolerance Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LATE_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Late Tolerance Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LATE_TOLERANCE_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl <em>Max Start Time Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.MaxStartTimePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxStartTimeProperty()
-     * @generated
-     */
-    int MAX_START_TIME_PROPERTY = 20;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_START_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Max Start Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_START_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Max Start Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_START_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl <em>Max End Time Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.MaxEndTimePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMaxEndTimeProperty()
-     * @generated
-     */
-    int MAX_END_TIME_PROPERTY = 21;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_END_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Max End Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_END_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Max End Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAX_END_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.AddInitTimePropertyImpl <em>Add Init Time Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.AddInitTimePropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAddInitTimeProperty()
-     * @generated
-     */
-    int ADD_INIT_TIME_PROPERTY = 22;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ADD_INIT_TIME_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Add Init Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ADD_INIT_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Add Init Time Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ADD_INIT_TIME_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.SlicesPropertyImpl <em>Slices Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.SlicesPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSlicesProperty()
-     * @generated
-     */
-    int SLICES_PROPERTY = 23;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SLICES_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Slices Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SLICES_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Slices Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SLICES_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl <em>Min Slice Duration Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.MinSliceDurationPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinSliceDurationProperty()
-     * @generated
-     */
-    int MIN_SLICE_DURATION_PROPERTY = 24;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MIN_SLICE_DURATION_PROPERTY__VALUE = INT_PROPERTY__VALUE;
-
-    /**
-     * The number of structural features of the '<em>Min Slice Duration Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MIN_SLICE_DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of operations of the '<em>Min Slice Duration Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MIN_SLICE_DURATION_PROPERTY_OPERATION_COUNT = INT_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl <em>Design Assurance Level Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.DesignAssuranceLevelPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelProperty()
-     * @generated
-     */
-    int DESIGN_ASSURANCE_LEVEL_PROPERTY = 25;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DESIGN_ASSURANCE_LEVEL_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Design Assurance Level Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DESIGN_ASSURANCE_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Design Assurance Level Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DESIGN_ASSURANCE_LEVEL_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CriticalityLevelPropertyImpl <em>Criticality Level Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CriticalityLevelPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCriticalityLevelProperty()
-     * @generated
-     */
-    int CRITICALITY_LEVEL_PROPERTY = 26;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CRITICALITY_LEVEL_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Criticality Level Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CRITICALITY_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Criticality Level Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CRITICALITY_LEVEL_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.PeriodicityPropertyImpl <em>Periodicity Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.PeriodicityPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityProperty()
-     * @generated
-     */
-    int PERIODICITY_PROPERTY = 27;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIODICITY_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Periodicity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIODICITY_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Periodicity Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERIODICITY_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ColorPropertyImpl <em>Color Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ColorPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColorProperty()
-     * @generated
-     */
-    int COLOR_PROPERTY = 28;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COLOR_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Color Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COLOR_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Color Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COLOR_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomPropertyImpl <em>Custom Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CustomPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomProperty()
-     * @generated
-     */
-    int CUSTOM_PROPERTY = 29;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_PROPERTY__NAME = PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Custom Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Custom Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomIntPropertyImpl <em>Custom Int Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CustomIntPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomIntProperty()
-     * @generated
-     */
-    int CUSTOM_INT_PROPERTY = 30;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_INT_PROPERTY__NAME = CUSTOM_PROPERTY__NAME;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_INT_PROPERTY__VALUE = CUSTOM_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Custom Int Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_INT_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Custom Int Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_INT_PROPERTY_OPERATION_COUNT = CUSTOM_PROPERTY_OPERATION_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.CustomStringPropertyImpl <em>Custom String Property</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.CustomStringPropertyImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCustomStringProperty()
-     * @generated
-     */
-    int CUSTOM_STRING_PROPERTY = 31;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_STRING_PROPERTY__NAME = CUSTOM_PROPERTY__NAME;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_STRING_PROPERTY__VALUE = CUSTOM_PROPERTY_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Custom String Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_STRING_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of operations of the '<em>Custom String Property</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CUSTOM_STRING_PROPERTY_OPERATION_COUNT = CUSTOM_PROPERTY_OPERATION_COUNT + 0;
+    int ASSIST_MODEL_OPERATION_COUNT = 15;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1433,7 +1589,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareElement()
      * @generated
      */
-    int HARDWARE_ELEMENT = 32;
+    int HARDWARE_ELEMENT = 35;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1551,7 +1707,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeature()
      * @generated
      */
-    int FEATURE = 33;
+    int FEATURE = 36;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1624,7 +1780,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCompartment()
      * @generated
      */
-    int COMPARTMENT = 34;
+    int COMPARTMENT = 37;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1814,7 +1970,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBox()
      * @generated
      */
-    int BOX = 35;
+    int BOX = 38;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1995,7 +2151,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
      * @generated
      */
-    int BOARD_ALTERNATIVES = 36;
+    int BOARD_ALTERNATIVES = 39;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -2032,7 +2188,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternative()
      * @generated
      */
-    int BOARD_ALTERNATIVE = 37;
+    int BOARD_ALTERNATIVE = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2078,7 +2234,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoard()
      * @generated
      */
-    int BOARD = 38;
+    int BOARD = 41;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2340,7 +2496,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessor()
      * @generated
      */
-    int PROCESSOR = 39;
+    int PROCESSOR = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2512,7 +2668,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCore()
      * @generated
      */
-    int CORE = 40;
+    int CORE = 43;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2684,7 +2840,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternatives()
      * @generated
      */
-    int APPLICATION_ALTERNATIVES = 41;
+    int APPLICATION_ALTERNATIVES = 44;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -2721,7 +2877,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternative()
      * @generated
      */
-    int APPLICATION_ALTERNATIVE = 42;
+    int APPLICATION_ALTERNATIVE = 45;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2767,7 +2923,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSoftwareElement()
      * @generated
      */
-    int SOFTWARE_ELEMENT = 43;
+    int SOFTWARE_ELEMENT = 46;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2858,7 +3014,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplication()
      * @generated
      */
-    int APPLICATION = 44;
+    int APPLICATION = 47;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3012,7 +3168,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask()
      * @generated
      */
-    int TASK = 45;
+    int TASK = 48;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3400,7 +3556,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
      * @generated
      */
-    int FEATURE_REQUIREMENT = 46;
+    int FEATURE_REQUIREMENT = 49;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3473,7 +3629,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
      * @generated
      */
-    int MAPPING_RELATION = 47;
+    int MAPPING_RELATION = 50;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3537,7 +3693,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDislocalityRelation()
      * @generated
      */
-    int DISLOCALITY_RELATION = 48;
+    int DISLOCALITY_RELATION = 51;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3601,7 +3757,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColocalityRelation()
      * @generated
      */
-    int COLOCALITY_RELATION = 49;
+    int COLOCALITY_RELATION = 52;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3665,7 +3821,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityRelation()
      * @generated
      */
-    int DISSIMILARITY_RELATION = 50;
+    int DISSIMILARITY_RELATION = 53;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3738,7 +3894,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityClause()
      * @generated
      */
-    int DISSIMILARITY_CLAUSE = 51;
+    int DISSIMILARITY_CLAUSE = 54;
 
     /**
      * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -3766,7 +3922,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
      * @generated
      */
-    int DISSIMILARITY_DISJUNCTION = 52;
+    int DISSIMILARITY_DISJUNCTION = 55;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -3803,7 +3959,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityConjunction()
      * @generated
      */
-    int DISSIMILARITY_CONJUNCTION = 53;
+    int DISSIMILARITY_CONJUNCTION = 56;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -3840,7 +3996,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityEntry()
      * @generated
      */
-    int DISSIMILARITY_ENTRY = 54;
+    int DISSIMILARITY_ENTRY = 57;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
@@ -3886,7 +4042,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingRestriction()
      * @generated
      */
-    int SCHEDULING_RESTRICTION = 55;
+    int SCHEDULING_RESTRICTION = 58;
 
     /**
      * The number of structural features of the '<em>Scheduling Restriction</em>' class.
@@ -3914,7 +4070,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
      * @generated
      */
-    int SIMPLE_RELATION = 56;
+    int SIMPLE_RELATION = 59;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -3951,7 +4107,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
      * @generated
      */
-    int COMPLEX_RELATION = 57;
+    int COMPLEX_RELATION = 60;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4006,7 +4162,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_START_AT_THE_SAME_TIME = 58;
+    int RESTRICTION_START_AT_THE_SAME_TIME = 61;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4043,7 +4199,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 59;
+    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 62;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4080,7 +4236,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_FINISHED = 60;
+    int RESTRICTION_START_AFTER_OTHER_FINISHED = 63;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4135,7 +4291,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_STARTED = 61;
+    int RESTRICTION_START_AFTER_OTHER_STARTED = 64;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4190,7 +4346,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
      * @generated
      */
-    int RESTRICTION_DISJOINT_EXECUTION = 62;
+    int RESTRICTION_DISJOINT_EXECUTION = 65;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4227,7 +4383,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVES = 63;
+    int RESTRICTION_ALTERNATIVES = 66;
 
     /**
      * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -4264,7 +4420,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternative()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVE = 64;
+    int RESTRICTION_ALTERNATIVE = 67;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4328,7 +4484,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationCandidate()
      * @generated
      */
-    int EXPLORATION_CANDIDATE = 65;
+    int EXPLORATION_CANDIDATE = 68;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4392,7 +4548,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationResult()
      * @generated
      */
-    int EXPLORATION_RESULT = 66;
+    int EXPLORATION_RESULT = 69;
 
     /**
      * The feature id for the '<em><b>Candidate</b></em>' reference.
@@ -4474,7 +4630,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
      * @generated
      */
-    int ABSTRACT_DSE_METRIC = 67;
+    int ABSTRACT_DSE_METRIC = 70;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4538,7 +4694,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 68;
+    int COMPARABLE = 71;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -4566,7 +4722,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 69;
+    int METRIC_SCORE_PAIR = 72;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -4612,7 +4768,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 70;
+    int MAPPING_RESULT = 73;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4829,7 +4985,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 71;
+    int SINGLE_MAPPING_ELEMENT = 74;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -4920,7 +5076,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_MAPPING_METRIC = 72;
+    int ABSTRACT_MAPPING_METRIC = 75;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4993,7 +5149,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 73;
+    int SCHEDULING_RESULT = 76;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5057,7 +5213,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 74;
+    int TASK_EXECUTION_INSTANCE = 77;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -5112,7 +5268,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 75;
+    int DISSIMILARITY_ATTRIBUTES = 78;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -5122,7 +5278,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 76;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 79;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -5132,7 +5288,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 77;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 80;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -5142,7 +5298,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 78;
+    int PERIODICITY_TYPE = 81;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -5152,7 +5308,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 79;
+    int COLOR = 82;
 
     /**
      * The meta object id for the '<em>List Of Task Lists</em>' data type.
@@ -5162,7 +5318,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getListOfTaskLists()
      * @generated
      */
-    int LIST_OF_TASK_LISTS = 80;
+    int LIST_OF_TASK_LISTS = 83;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -5172,7 +5328,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 81;
+    int TASK2_CORE_MAP_TYPE = 84;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -5182,7 +5338,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 82;
+    int STRING_LIST = 85;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -5192,230 +5348,8 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 83;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 86;
 
-
-    /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.AssistModel <em>Assist Model</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Assist Model</em>'.
-     * @see ch.hilbri.assist.model.AssistModel
-     * @generated
-     */
-    EClass getAssistModel();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getSystemName <em>System Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>System Name</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getSystemName()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EAttribute getAssistModel_SystemName();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength <em>Min Hyp Period Length</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Min Hyp Period Length</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EAttribute getAssistModel_MinHypPeriodLength();
-
-    /**
-     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay <em>Task Switch Delay</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Task Switch Delay</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EAttribute getAssistModel_TaskSwitchDelay();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Compartments</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getCompartments()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_Compartments();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplications <em>Applications</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Applications</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getApplications()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_Applications();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getDislocalityRelations()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_DislocalityRelations();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getColocalityRelations()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_ColocalityRelations();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Dissimilarity Relations</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getDissimilarityRelations()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_DissimilarityRelations();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getSchedulingRestrictions <em>Scheduling Restrictions</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Scheduling Restrictions</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getSchedulingRestrictions()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_SchedulingRestrictions();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getApplicationAlternatives()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_ApplicationAlternatives();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives <em>Restriction Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Restriction Alternatives</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_RestrictionAlternatives();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getExplorationCandidates <em>Exploration Candidates</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Exploration Candidates</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getExplorationCandidates()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_ExplorationCandidates();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Compartments</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllCompartments()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllCompartments();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Boxes</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllBoxes()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllBoxes();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Boards</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllBoards()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllBoards();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Processors</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllProcessors()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllProcessors();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Cores</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllCores()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllCores();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllTasks() <em>Get All Tasks</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Tasks</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllTasks()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllTasks();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int)
-     * @generated
-     */
-    EOperation getAssistModel__GetAllHardwareElements__int();
-
-    /**
-     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements() <em>Get All Hardware Elements</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
-     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements()
-     * @generated
-     */
-    EOperation getAssistModel__GetAllHardwareElements();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.Property <em>Property</em>}'.
@@ -5468,6 +5402,36 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getIntProperty_Value();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.SystemNameProperty <em>System Name Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>System Name Property</em>'.
+     * @see ch.hilbri.assist.model.SystemNameProperty
+     * @generated
+     */
+    EClass getSystemNameProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.MinHypPeriodLengthProperty <em>Min Hyp Period Length Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Min Hyp Period Length Property</em>'.
+     * @see ch.hilbri.assist.model.MinHypPeriodLengthProperty
+     * @generated
+     */
+    EClass getMinHypPeriodLengthProperty();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.TaskSwitchDelayProperty <em>Task Switch Delay Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Task Switch Delay Property</em>'.
+     * @see ch.hilbri.assist.model.TaskSwitchDelayProperty
+     * @generated
+     */
+    EClass getTaskSwitchDelayProperty();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.ManufacturerProperty <em>Manufacturer Property</em>}'.
@@ -5825,6 +5789,276 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getCustomStringProperty_Value();
+
+    /**
+     * Returns the meta object for class '{@link ch.hilbri.assist.model.AssistModel <em>Assist Model</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Assist Model</em>'.
+     * @see ch.hilbri.assist.model.AssistModel
+     * @generated
+     */
+    EClass getAssistModel();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getProperties()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_Properties();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getCompartments <em>Compartments</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Compartments</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getCompartments()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_Compartments();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplications <em>Applications</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Applications</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getApplications()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_Applications();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getDislocalityRelations()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_DislocalityRelations();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getColocalityRelations()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_ColocalityRelations();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Dissimilarity Relations</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getDissimilarityRelations()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_DissimilarityRelations();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getSchedulingRestrictions <em>Scheduling Restrictions</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Scheduling Restrictions</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getSchedulingRestrictions()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_SchedulingRestrictions();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getApplicationAlternatives()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_ApplicationAlternatives();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives <em>Restriction Alternatives</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Restriction Alternatives</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_RestrictionAlternatives();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getExplorationCandidates <em>Exploration Candidates</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Exploration Candidates</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getExplorationCandidates()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_ExplorationCandidates();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Compartments</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllCompartments()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllCompartments();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Boxes</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllBoxes()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllBoxes();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Boards</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllBoards()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllBoards();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Processors</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllProcessors()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllProcessors();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Cores</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllCores()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllCores();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllTasks() <em>Get All Tasks</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Tasks</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllTasks()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllTasks();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType)
+     * @generated
+     */
+    EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int)
+     * @generated
+     */
+    EOperation getAssistModel__GetAllHardwareElements__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements() <em>Get All Hardware Elements</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements()
+     * @generated
+     */
+    EOperation getAssistModel__GetAllHardwareElements();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getSystemName() <em>Get System Name</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get System Name</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getSystemName()
+     * @generated
+     */
+    EOperation getAssistModel__GetSystemName();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#setSystemName(java.lang.String) <em>Set System Name</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set System Name</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#setSystemName(java.lang.String)
+     * @generated
+     */
+    EOperation getAssistModel__SetSystemName__String();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength() <em>Get Min Hyp Period Length</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Min Hyp Period Length</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getMinHypPeriodLength()
+     * @generated
+     */
+    EOperation getAssistModel__GetMinHypPeriodLength();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#setMinHypPeriodLength(int) <em>Set Min Hyp Period Length</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Min Hyp Period Length</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#setMinHypPeriodLength(int)
+     * @generated
+     */
+    EOperation getAssistModel__SetMinHypPeriodLength__int();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay() <em>Get Task Switch Delay</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Task Switch Delay</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#getTaskSwitchDelay()
+     * @generated
+     */
+    EOperation getAssistModel__GetTaskSwitchDelay();
+
+    /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#setTaskSwitchDelay(int) <em>Set Task Switch Delay</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Set Task Switch Delay</em>' operation.
+     * @see ch.hilbri.assist.model.AssistModel#setTaskSwitchDelay(int)
+     * @generated
+     */
+    EOperation getAssistModel__SetTaskSwitchDelay__int();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElement <em>Hardware Element</em>}'.
@@ -8393,176 +8627,6 @@ public interface ModelPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AssistModelImpl <em>Assist Model</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.AssistModelImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModel()
-         * @generated
-         */
-        EClass ASSIST_MODEL = eINSTANCE.getAssistModel();
-
-        /**
-         * The meta object literal for the '<em><b>System Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ASSIST_MODEL__SYSTEM_NAME = eINSTANCE.getAssistModel_SystemName();
-
-        /**
-         * The meta object literal for the '<em><b>Min Hyp Period Length</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH = eINSTANCE.getAssistModel_MinHypPeriodLength();
-
-        /**
-         * The meta object literal for the '<em><b>Task Switch Delay</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ASSIST_MODEL__TASK_SWITCH_DELAY = eINSTANCE.getAssistModel_TaskSwitchDelay();
-
-        /**
-         * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__COMPARTMENTS = eINSTANCE.getAssistModel_Compartments();
-
-        /**
-         * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
-
-        /**
-         * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel_DislocalityRelations();
-
-        /**
-         * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__COLOCALITY_RELATIONS = eINSTANCE.getAssistModel_ColocalityRelations();
-
-        /**
-         * The meta object literal for the '<em><b>Dissimilarity Relations</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__DISSIMILARITY_RELATIONS = eINSTANCE.getAssistModel_DissimilarityRelations();
-
-        /**
-         * The meta object literal for the '<em><b>Scheduling Restrictions</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__SCHEDULING_RESTRICTIONS = eINSTANCE.getAssistModel_SchedulingRestrictions();
-
-        /**
-         * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
-
-        /**
-         * The meta object literal for the '<em><b>Restriction Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__RESTRICTION_ALTERNATIVES = eINSTANCE.getAssistModel_RestrictionAlternatives();
-
-        /**
-         * The meta object literal for the '<em><b>Exploration Candidates</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__EXPLORATION_CANDIDATES = eINSTANCE.getAssistModel_ExplorationCandidates();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_BOXES = eINSTANCE.getAssistModel__GetAllBoxes();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_BOARDS = eINSTANCE.getAssistModel__GetAllBoards();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_PROCESSORS = eINSTANCE.getAssistModel__GetAllProcessors();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_TASKS = eINSTANCE.getAssistModel__GetAllTasks();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
-
-        /**
-         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = eINSTANCE.getAssistModel__GetAllHardwareElements();
-
-        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.PropertyImpl <em>Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -8607,6 +8671,36 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute INT_PROPERTY__VALUE = eINSTANCE.getIntProperty_Value();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.SystemNamePropertyImpl <em>System Name Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.SystemNamePropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSystemNameProperty()
+         * @generated
+         */
+        EClass SYSTEM_NAME_PROPERTY = eINSTANCE.getSystemNameProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.MinHypPeriodLengthPropertyImpl <em>Min Hyp Period Length Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.MinHypPeriodLengthPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMinHypPeriodLengthProperty()
+         * @generated
+         */
+        EClass MIN_HYP_PERIOD_LENGTH_PROPERTY = eINSTANCE.getMinHypPeriodLengthProperty();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.TaskSwitchDelayPropertyImpl <em>Task Switch Delay Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.TaskSwitchDelayPropertyImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskSwitchDelayProperty()
+         * @generated
+         */
+        EClass TASK_SWITCH_DELAY_PROPERTY = eINSTANCE.getTaskSwitchDelayProperty();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ManufacturerPropertyImpl <em>Manufacturer Property</em>}' class.
@@ -8943,6 +9037,216 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute CUSTOM_STRING_PROPERTY__VALUE = eINSTANCE.getCustomStringProperty_Value();
+
+        /**
+         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.AssistModelImpl <em>Assist Model</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see ch.hilbri.assist.model.impl.AssistModelImpl
+         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAssistModel()
+         * @generated
+         */
+        EClass ASSIST_MODEL = eINSTANCE.getAssistModel();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__PROPERTIES = eINSTANCE.getAssistModel_Properties();
+
+        /**
+         * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__COMPARTMENTS = eINSTANCE.getAssistModel_Compartments();
+
+        /**
+         * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
+
+        /**
+         * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel_DislocalityRelations();
+
+        /**
+         * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__COLOCALITY_RELATIONS = eINSTANCE.getAssistModel_ColocalityRelations();
+
+        /**
+         * The meta object literal for the '<em><b>Dissimilarity Relations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__DISSIMILARITY_RELATIONS = eINSTANCE.getAssistModel_DissimilarityRelations();
+
+        /**
+         * The meta object literal for the '<em><b>Scheduling Restrictions</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__SCHEDULING_RESTRICTIONS = eINSTANCE.getAssistModel_SchedulingRestrictions();
+
+        /**
+         * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
+
+        /**
+         * The meta object literal for the '<em><b>Restriction Alternatives</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__RESTRICTION_ALTERNATIVES = eINSTANCE.getAssistModel_RestrictionAlternatives();
+
+        /**
+         * The meta object literal for the '<em><b>Exploration Candidates</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__EXPLORATION_CANDIDATES = eINSTANCE.getAssistModel_ExplorationCandidates();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_BOXES = eINSTANCE.getAssistModel__GetAllBoxes();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_BOARDS = eINSTANCE.getAssistModel__GetAllBoards();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_PROCESSORS = eINSTANCE.getAssistModel__GetAllProcessors();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_TASKS = eINSTANCE.getAssistModel__GetAllTasks();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = eINSTANCE.getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS = eINSTANCE.getAssistModel__GetAllHardwareElements();
+
+        /**
+         * The meta object literal for the '<em><b>Get System Name</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_SYSTEM_NAME = eINSTANCE.getAssistModel__GetSystemName();
+
+        /**
+         * The meta object literal for the '<em><b>Set System Name</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___SET_SYSTEM_NAME__STRING = eINSTANCE.getAssistModel__SetSystemName__String();
+
+        /**
+         * The meta object literal for the '<em><b>Get Min Hyp Period Length</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_MIN_HYP_PERIOD_LENGTH = eINSTANCE.getAssistModel__GetMinHypPeriodLength();
+
+        /**
+         * The meta object literal for the '<em><b>Set Min Hyp Period Length</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___SET_MIN_HYP_PERIOD_LENGTH__INT = eINSTANCE.getAssistModel__SetMinHypPeriodLength__int();
+
+        /**
+         * The meta object literal for the '<em><b>Get Task Switch Delay</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___GET_TASK_SWITCH_DELAY = eINSTANCE.getAssistModel__GetTaskSwitchDelay();
+
+        /**
+         * The meta object literal for the '<em><b>Set Task Switch Delay</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ASSIST_MODEL___SET_TASK_SWITCH_DELAY__INT = eINSTANCE.getAssistModel__SetTaskSwitchDelay__int();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.

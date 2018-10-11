@@ -195,6 +195,21 @@ public class SoftwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createSystemNameProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createMinHypPeriodLengthProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createTaskSwitchDelayProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createManufacturerProperty()));
 
         newChildDescriptors.add

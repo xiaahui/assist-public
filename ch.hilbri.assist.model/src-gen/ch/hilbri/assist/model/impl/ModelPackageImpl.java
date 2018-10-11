@@ -52,6 +52,7 @@ import ch.hilbri.assist.model.MappingRelation;
 import ch.hilbri.assist.model.MappingResult;
 import ch.hilbri.assist.model.MaxEndTimeProperty;
 import ch.hilbri.assist.model.MaxStartTimeProperty;
+import ch.hilbri.assist.model.MinHypPeriodLengthProperty;
 import ch.hilbri.assist.model.MinSliceDurationProperty;
 import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
@@ -80,8 +81,10 @@ import ch.hilbri.assist.model.SingleMappingElement;
 import ch.hilbri.assist.model.SlicesProperty;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.StringProperty;
+import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
 import ch.hilbri.assist.model.TaskExecutionInstance;
+import ch.hilbri.assist.model.TaskSwitchDelayProperty;
 
 import java.lang.Comparable;
 
@@ -114,13 +117,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass assistModelEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass propertyEClass = null;
 
     /**
@@ -136,6 +132,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass intPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass systemNamePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass minHypPeriodLengthPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass taskSwitchDelayPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -332,6 +349,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass customStringPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass assistModelEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -766,195 +790,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getAssistModel() {
-        return assistModelEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getAssistModel_SystemName() {
-        return (EAttribute)assistModelEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getAssistModel_MinHypPeriodLength() {
-        return (EAttribute)assistModelEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getAssistModel_TaskSwitchDelay() {
-        return (EAttribute)assistModelEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_Compartments() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_Applications() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_DislocalityRelations() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_ColocalityRelations() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_DissimilarityRelations() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_SchedulingRestrictions() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_ApplicationAlternatives() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(9);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_RestrictionAlternatives() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(10);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getAssistModel_ExplorationCandidates() {
-        return (EReference)assistModelEClass.getEStructuralFeatures().get(11);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllCompartments() {
-        return assistModelEClass.getEOperations().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllBoxes() {
-        return assistModelEClass.getEOperations().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllBoards() {
-        return assistModelEClass.getEOperations().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllProcessors() {
-        return assistModelEClass.getEOperations().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllCores() {
-        return assistModelEClass.getEOperations().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllTasks() {
-        return assistModelEClass.getEOperations().get(5);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllHardwareElements__int() {
-        return assistModelEClass.getEOperations().get(6);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EOperation getAssistModel__GetAllHardwareElements() {
-        return assistModelEClass.getEOperations().get(7);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getProperty() {
         return propertyEClass;
     }
@@ -993,6 +828,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getIntProperty_Value() {
         return (EAttribute)intPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSystemNameProperty() {
+        return systemNamePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMinHypPeriodLengthProperty() {
+        return minHypPeriodLengthPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTaskSwitchDelayProperty() {
+        return taskSwitchDelayPropertyEClass;
     }
 
     /**
@@ -1308,6 +1170,240 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getCustomStringProperty_Value() {
         return (EAttribute)customStringPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAssistModel() {
+        return assistModelEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_Properties() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_Compartments() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_Applications() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_DislocalityRelations() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_ColocalityRelations() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_DissimilarityRelations() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_SchedulingRestrictions() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_ApplicationAlternatives() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_RestrictionAlternatives() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssistModel_ExplorationCandidates() {
+        return (EReference)assistModelEClass.getEStructuralFeatures().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllCompartments() {
+        return assistModelEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllBoxes() {
+        return assistModelEClass.getEOperations().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllBoards() {
+        return assistModelEClass.getEOperations().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllProcessors() {
+        return assistModelEClass.getEOperations().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllCores() {
+        return assistModelEClass.getEOperations().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllTasks() {
+        return assistModelEClass.getEOperations().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
+        return assistModelEClass.getEOperations().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllHardwareElements__int() {
+        return assistModelEClass.getEOperations().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetAllHardwareElements() {
+        return assistModelEClass.getEOperations().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetSystemName() {
+        return assistModelEClass.getEOperations().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__SetSystemName__String() {
+        return assistModelEClass.getEOperations().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetMinHypPeriodLength() {
+        return assistModelEClass.getEOperations().get(11);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__SetMinHypPeriodLength__int() {
+        return assistModelEClass.getEOperations().get(12);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__GetTaskSwitchDelay() {
+        return assistModelEClass.getEOperations().get(13);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getAssistModel__SetTaskSwitchDelay__int() {
+        return assistModelEClass.getEOperations().get(14);
     }
 
     /**
@@ -3516,28 +3612,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         isCreated = true;
 
         // Create classes and their features
-        assistModelEClass = createEClass(ASSIST_MODEL);
-        createEAttribute(assistModelEClass, ASSIST_MODEL__SYSTEM_NAME);
-        createEAttribute(assistModelEClass, ASSIST_MODEL__MIN_HYP_PERIOD_LENGTH);
-        createEAttribute(assistModelEClass, ASSIST_MODEL__TASK_SWITCH_DELAY);
-        createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
-        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_ALTERNATIVES);
-        createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
-        createEReference(assistModelEClass, ASSIST_MODEL__EXPLORATION_CANDIDATES);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_TASKS);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
-        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS);
-
         propertyEClass = createEClass(PROPERTY);
 
         stringPropertyEClass = createEClass(STRING_PROPERTY);
@@ -3545,6 +3619,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         intPropertyEClass = createEClass(INT_PROPERTY);
         createEAttribute(intPropertyEClass, INT_PROPERTY__VALUE);
+
+        systemNamePropertyEClass = createEClass(SYSTEM_NAME_PROPERTY);
+
+        minHypPeriodLengthPropertyEClass = createEClass(MIN_HYP_PERIOD_LENGTH_PROPERTY);
+
+        taskSwitchDelayPropertyEClass = createEClass(TASK_SWITCH_DELAY_PROPERTY);
 
         manufacturerPropertyEClass = createEClass(MANUFACTURER_PROPERTY);
 
@@ -3608,6 +3688,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         customStringPropertyEClass = createEClass(CUSTOM_STRING_PROPERTY);
         createEAttribute(customStringPropertyEClass, CUSTOM_STRING_PROPERTY__VALUE);
+
+        assistModelEClass = createEClass(ASSIST_MODEL);
+        createEReference(assistModelEClass, ASSIST_MODEL__PROPERTIES);
+        createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
+        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_ALTERNATIVES);
+        createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
+        createEReference(assistModelEClass, ASSIST_MODEL__EXPLORATION_CANDIDATES);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_TASKS);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_SYSTEM_NAME);
+        createEOperation(assistModelEClass, ASSIST_MODEL___SET_SYSTEM_NAME__STRING);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_MIN_HYP_PERIOD_LENGTH);
+        createEOperation(assistModelEClass, ASSIST_MODEL___SET_MIN_HYP_PERIOD_LENGTH__INT);
+        createEOperation(assistModelEClass, ASSIST_MODEL___GET_TASK_SWITCH_DELAY);
+        createEOperation(assistModelEClass, ASSIST_MODEL___SET_TASK_SWITCH_DELAY__INT);
 
         hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
         createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -3932,6 +4039,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         // Add supertypes to classes
         stringPropertyEClass.getESuperTypes().add(this.getProperty());
         intPropertyEClass.getESuperTypes().add(this.getProperty());
+        systemNamePropertyEClass.getESuperTypes().add(this.getStringProperty());
+        minHypPeriodLengthPropertyEClass.getESuperTypes().add(this.getIntProperty());
+        taskSwitchDelayPropertyEClass.getESuperTypes().add(this.getIntProperty());
         manufacturerPropertyEClass.getESuperTypes().add(this.getStringProperty());
         powerSupplyPropertyEClass.getESuperTypes().add(this.getStringProperty());
         boardTypePropertyEClass.getESuperTypes().add(this.getStringProperty());
@@ -3983,37 +4093,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         mappingResultEClass.getESuperTypes().add(this.getComparable());
 
         // Initialize classes, features, and operations; add parameters
-        initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getAssistModel_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAssistModel_MinHypPeriodLength(), theEcorePackage.getEInt(), "minHypPeriodLength", "-1", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAssistModel_TaskSwitchDelay(), theEcorePackage.getEInt(), "taskSwitchDelay", "0", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_SchedulingRestrictions(), this.getSchedulingRestriction(), null, "schedulingRestrictions", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_ApplicationAlternatives(), this.getApplicationAlternatives(), null, "applicationAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_RestrictionAlternatives(), this.getRestrictionAlternatives(), null, "restrictionAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_ExplorationCandidates(), this.getExplorationCandidate(), null, "explorationCandidates", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-        initEOperation(getAssistModel__GetAllHardwareElements(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(stringPropertyEClass, StringProperty.class, "StringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4021,6 +4100,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(intPropertyEClass, IntProperty.class, "IntProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getIntProperty_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, IntProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(systemNamePropertyEClass, SystemNameProperty.class, "SystemNameProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(minHypPeriodLengthPropertyEClass, MinHypPeriodLengthProperty.class, "MinHypPeriodLengthProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(taskSwitchDelayPropertyEClass, TaskSwitchDelayProperty.class, "TaskSwitchDelayProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(manufacturerPropertyEClass, ManufacturerProperty.class, "ManufacturerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4084,6 +4169,53 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(customStringPropertyEClass, CustomStringProperty.class, "CustomStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomStringProperty_Value(), theEcorePackage.getEString(), "value", "", 0, 1, CustomStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getAssistModel_Properties(), this.getProperty(), null, "properties", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_SchedulingRestrictions(), this.getSchedulingRestriction(), null, "schedulingRestrictions", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_ApplicationAlternatives(), this.getApplicationAlternatives(), null, "applicationAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_RestrictionAlternatives(), this.getRestrictionAlternatives(), null, "restrictionAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_ExplorationCandidates(), this.getExplorationCandidate(), null, "explorationCandidates", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getHardwareArchitectureLevelType(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetAllHardwareElements(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetSystemName(), theEcorePackage.getEString(), "getSystemName", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getAssistModel__SetSystemName__String(), null, "setSystemName", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetMinHypPeriodLength(), theEcorePackage.getEInt(), "getMinHypPeriodLength", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getAssistModel__SetMinHypPeriodLength__int(), null, "setMinHypPeriodLength", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getAssistModel__GetTaskSwitchDelay(), theEcorePackage.getEInt(), "getTaskSwitchDelay", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getAssistModel__SetTaskSwitchDelay__int(), null, "setTaskSwitchDelay", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, theEcorePackage.getEInt(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
