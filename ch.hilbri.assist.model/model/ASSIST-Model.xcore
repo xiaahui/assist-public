@@ -729,16 +729,7 @@ class MappingRelation{
     }
     
     derived String softwareElementNames get {
-    	val output = new StringBuilder()
-    	for (se : softwareElements) {
-    		if (se instanceof Application) 
-    			output.append(se.getName)
-    		if (se instanceof Task)
-    			output.append(se.getName)
-    		if (se != softwareElements.last)
-    			output.append(", ")
-    	}
-    	return output.toString
+    	softwareElements.join(', ')
     }
 }
 

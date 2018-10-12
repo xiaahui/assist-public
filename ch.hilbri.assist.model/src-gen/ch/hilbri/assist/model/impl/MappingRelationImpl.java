@@ -9,8 +9,6 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.SoftwareElement;
 import ch.hilbri.assist.model.Task;
 
-import com.google.common.base.Objects;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -165,24 +163,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     public String getSoftwareElementNames() {
-        final StringBuilder output = new StringBuilder();
-        EList<SoftwareElement> _softwareElements = this.getSoftwareElements();
-        for (final SoftwareElement se : _softwareElements) {
-            {
-                if ((se instanceof Application)) {
-                    output.append(((Application)se).getName());
-                }
-                if ((se instanceof Task)) {
-                    output.append(((Task)se).getName());
-                }
-                SoftwareElement _last = IterableExtensions.<SoftwareElement>last(this.getSoftwareElements());
-                boolean _notEquals = (!Objects.equal(se, _last));
-                if (_notEquals) {
-                    output.append(", ");
-                }
-            }
-        }
-        return output.toString();
+        return IterableExtensions.join(this.getSoftwareElements(), ", ");
     }
 
     /**

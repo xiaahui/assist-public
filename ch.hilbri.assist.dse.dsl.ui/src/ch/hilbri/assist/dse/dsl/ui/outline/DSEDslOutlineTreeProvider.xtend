@@ -16,11 +16,6 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.osgi.framework.FrameworkUtil
 import ch.hilbri.assist.model.Task
 
-/**
- * Customization of the default outline structure.
- * 
- * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
- */
 class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	val bundle = FrameworkUtil.getBundle(class)
@@ -115,7 +110,7 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
     /* Software */
     def _createChildren(IOutlineNode parentNode, Application application) {
-        for (swElem : application.tasks) createNode(parentNode, swElem)
+        for (task : application.tasks) createNode(parentNode, task)
     }
     
     def _isLeaf(Task task) { true }
