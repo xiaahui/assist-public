@@ -7,6 +7,7 @@ import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.BoardAlternative
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.ColocalityRelation
+import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityClause
 import ch.hilbri.assist.model.DissimilarityRelation
@@ -14,6 +15,7 @@ import ch.hilbri.assist.model.ExplorationCandidate
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.RestrictionAlternative
 import ch.hilbri.assist.model.Task
+import ch.hilbri.assist.model.Property
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
@@ -40,6 +42,10 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			restrictionAlternatives.forEach[format]
 			explorationCandidates.forEach[format]
 		]
+	}
+	
+	def dispatch void format(Property property, extension IFormattableDocument document) {
+	    property.defaultFormat(document)
 	}
 
 	def dispatch void format(Box box, extension IFormattableDocument document) {
