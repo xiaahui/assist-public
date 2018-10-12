@@ -33,6 +33,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.keywords('}').forEach[append[newLines = 2]]
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
 			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+			properties.forEach[format]
 			compartments.forEach[format]
 			applications.forEach[format]
 			applicationAlternatives.forEach[format]

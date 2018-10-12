@@ -15,6 +15,7 @@ import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.model.RestrictionDisjointExecution
 
 /**
  * Provides labels for EObjects.
@@ -124,6 +125,13 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
         'outlineview_constraint.png'
     }
 
+    def text(RestrictionDisjointExecution r) {
+        'Disjoint execution for [' + r.taskNames + ']'
+    }
+
+    def image(RestrictionDisjointExecution r) {
+        'outlineview_constraint.png'
+    }
 
 
 }

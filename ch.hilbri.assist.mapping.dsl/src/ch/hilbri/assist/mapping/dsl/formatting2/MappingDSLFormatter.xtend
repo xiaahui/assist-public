@@ -30,6 +30,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 			regionFor.keywords('}').forEach[append[newLines = 2]]
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
 			regionFor.keywords('=').forEach[prepend[oneSpace].append[oneSpace]]
+            properties.forEach[format]
 			compartments.forEach[format]
 			applications.forEach[format]
 			dislocalityRelations.forEach[format]
@@ -38,15 +39,15 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 		]
 	}
 
+    def dispatch void format(Property property, extension IFormattableDocument document) {
+        property.defaultFormat(document)
+    }
+
     def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
         hwElem.defaultFormat(document)
         hwElem.eContents.forEach[format]
     }
     
-    def dispatch void format(Property property, extension IFormattableDocument document) {
-        property.defaultFormat(document)
-    }
-
     def dispatch void format(Feature feature, extension IFormattableDocument document) {
         feature => [
             for (kw : #['Provides', 'shared', 'feature', 'with', 'synchronized', 'access', 'of', 'exclusive']) 
