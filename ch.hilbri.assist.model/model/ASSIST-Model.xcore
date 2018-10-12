@@ -47,13 +47,14 @@ class MaxEndTimeProperty            extends IntProperty     {}
 class AddInitTimeProperty           extends IntProperty     {}
 class SlicesProperty                extends IntProperty     {}
 class MinSliceDurationProperty      extends IntProperty     {}
-class DesignAssuranceLevelProperty  extends Property        { DesignAssuranceLevelType value = "None"      }
-class CriticalityLevelProperty      extends Property        { DesignAssuranceLevelType value = "None"      }
-class PeriodicityProperty           extends Property        { PeriodicityType          value = "strict"    }    
-class ColorProperty                 extends Property        { Color                    value = "none"      }
-class CustomProperty                extends Property        { String                    name = ""           }
-class CustomIntProperty             extends CustomProperty  { int                       value = "0"         }
-class CustomStringProperty          extends CustomProperty  { String                    value = ""          }
+class DesignAssuranceLevelProperty  extends Property        { DesignAssuranceLevelType value = "None"       }
+class CriticalityLevelProperty      extends Property        { DesignAssuranceLevelType value = "None"       }
+class PeriodicityProperty           extends Property        { PeriodicityType          value = "strict"     }    
+class ColorProperty                 extends Property        { Color                    value = "none"       }
+class AssignedCoreProperty          extends Property        { refers Core[0..1]        value                }
+class CustomProperty                extends Property        { String                   name = ""            }
+class CustomIntProperty             extends CustomProperty  { int                      value = "0"          }
+class CustomStringProperty          extends CustomProperty  { String                   value = ""           }
 
 class AssistModel {
     contains         Property[0..*]                    properties
@@ -478,24 +479,9 @@ class Application extends SoftwareElement {
 }
 
 class Task extends SoftwareElement {    
-//    int duration                              = "-1"
-//    int period                                = "-1"
-//    int earlyTolerance                        = "-1"
-//    int lateTolerance                         = "-1"
-//    int maxStartTime                          = "-1"
-//    int Slices                            = "-1"
-//    int addInitTime                           = "-1"
-//    int slices                                = "-1"
-//    int minSliceDuration                      = "-1"
-//    PeriodicityType periodicity               = "strict"
-//    Color color                               = "none"
-    
     container Application application opposite tasks
-    
     contains FeatureRequirement[0..*]        featureRequirements
-    
     refers HardwareElement[0..*]             restrictMappingToHardwareElements
-    refers Core[0..1]                        assignedCore
     
     derived String fullName get { application.getName + "." + getName }
     
@@ -705,6 +691,21 @@ class Task extends SoftwareElement {
             (properties.filter[it instanceof ColorProperty].head as ColorProperty).value = newValue
         else
             properties.add(ModelFactory.eINSTANCE.createColorProperty => [value = newValue])
+    }
+    
+    //  AssignedCore
+    op Core getAssignedCore() {
+        if (!properties.filter[it instanceof AssignedCoreProperty].isNullOrEmpty) 
+            (properties.filter[it instanceof AssignedCoreProperty].head as AssignedCoreProperty).value
+        else 
+            null
+    }
+    
+    op void setAssignedCore(Core newValue) {
+        if (!properties.filter[it instanceof AssignedCoreProperty].isNullOrEmpty)
+            (properties.filter[it instanceof AssignedCoreProperty].head as AssignedCoreProperty).value = newValue
+        else
+            properties.add(ModelFactory.eINSTANCE.createAssignedCoreProperty => [value = newValue])
     }
 }
 

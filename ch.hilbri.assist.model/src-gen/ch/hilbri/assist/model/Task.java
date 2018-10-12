@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.model.Task#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getFeatureRequirements <em>Feature Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.Task#getAssignedCore <em>Assigned Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Task#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
@@ -84,32 +83,6 @@ public interface Task extends SoftwareElement {
      * @generated
      */
     EList<HardwareElement> getRestrictMappingToHardwareElements();
-
-    /**
-     * Returns the value of the '<em><b>Assigned Core</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Assigned Core</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Assigned Core</em>' reference.
-     * @see #setAssignedCore(Core)
-     * @see ch.hilbri.assist.model.ModelPackage#getTask_AssignedCore()
-     * @model
-     * @generated
-     */
-    Core getAssignedCore();
-
-    /**
-     * Sets the value of the '{@link ch.hilbri.assist.model.Task#getAssignedCore <em>Assigned Core</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Assigned Core</em>' reference.
-     * @see #getAssignedCore()
-     * @generated
-     */
-    void setAssignedCore(Core value);
 
     /**
      * Returns the value of the '<em><b>Full Name</b></em>' attribute.
@@ -349,5 +322,21 @@ public interface Task extends SoftwareElement {
      * @generated
      */
     void setColor(Color newValue);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" unique="false"
+     * @generated
+     */
+    Core getAssignedCore();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model newValueUnique="false"
+     * @generated
+     */
+    void setAssignedCore(Core newValue);
 
 } // Task

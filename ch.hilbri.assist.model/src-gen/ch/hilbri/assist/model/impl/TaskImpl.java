@@ -4,6 +4,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.Color;
 import ch.hilbri.assist.model.ColorProperty;
 import ch.hilbri.assist.model.Core;
@@ -64,7 +65,6 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFeatureRequirements <em>Feature Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getAssignedCore <em>Assigned Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.TaskImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
@@ -90,16 +90,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * @ordered
      */
     protected EList<HardwareElement> restrictMappingToHardwareElements;
-
-    /**
-     * The cached value of the '{@link #getAssignedCore() <em>Assigned Core</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAssignedCore()
-     * @generated
-     * @ordered
-     */
-    protected Core assignedCore;
 
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
@@ -203,44 +193,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
             restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
         }
         return restrictMappingToHardwareElements;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Core getAssignedCore() {
-        if (assignedCore != null && assignedCore.eIsProxy()) {
-            InternalEObject oldAssignedCore = (InternalEObject)assignedCore;
-            assignedCore = (Core)eResolveProxy(oldAssignedCore);
-            if (assignedCore != oldAssignedCore) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.TASK__ASSIGNED_CORE, oldAssignedCore, assignedCore));
-            }
-        }
-        return assignedCore;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Core basicGetAssignedCore() {
-        return assignedCore;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setAssignedCore(Core newAssignedCore) {
-        Core oldAssignedCore = assignedCore;
-        assignedCore = newAssignedCore;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__ASSIGNED_CORE, oldAssignedCore, assignedCore));
     }
 
     /**
@@ -1156,6 +1108,70 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    public Core getAssignedCore() {
+        Core _xifexpression = null;
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof AssignedCoreProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof AssignedCoreProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            _xifexpression = ((AssignedCoreProperty) _head).getValue();
+        }
+        else {
+            _xifexpression = null;
+        }
+        return _xifexpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAssignedCore(final Core newValue) {
+        final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
+            public Boolean apply(final Property it) {
+                return Boolean.valueOf((it instanceof AssignedCoreProperty));
+            }
+        };
+        boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(IterableExtensions.<Property>filter(this.getProperties(), _function));
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+            final Function1<Property, Boolean> _function_1 = new Function1<Property, Boolean>() {
+                public Boolean apply(final Property it) {
+                    return Boolean.valueOf((it instanceof AssignedCoreProperty));
+                }
+            };
+            Property _head = IterableExtensions.<Property>head(IterableExtensions.<Property>filter(this.getProperties(), _function_1));
+            ((AssignedCoreProperty) _head).setValue(newValue);
+        }
+        else {
+            EList<Property> _properties = this.getProperties();
+            AssignedCoreProperty _createAssignedCoreProperty = ModelFactory.eINSTANCE.createAssignedCoreProperty();
+            final Procedure1<AssignedCoreProperty> _function_2 = new Procedure1<AssignedCoreProperty>() {
+                public void apply(final AssignedCoreProperty it) {
+                    it.setValue(newValue);
+                }
+            };
+            AssignedCoreProperty _doubleArrow = ObjectExtensions.<AssignedCoreProperty>operator_doubleArrow(_createAssignedCoreProperty, _function_2);
+            _properties.add(_doubleArrow);
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -1212,9 +1228,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return getFeatureRequirements();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return getRestrictMappingToHardwareElements();
-            case ModelPackage.TASK__ASSIGNED_CORE:
-                if (resolve) return getAssignedCore();
-                return basicGetAssignedCore();
             case ModelPackage.TASK__FULL_NAME:
                 return getFullName();
         }
@@ -1241,9 +1254,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 getRestrictMappingToHardwareElements().clear();
                 getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
                 return;
-            case ModelPackage.TASK__ASSIGNED_CORE:
-                setAssignedCore((Core)newValue);
-                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -1265,9 +1275,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 getRestrictMappingToHardwareElements().clear();
                 return;
-            case ModelPackage.TASK__ASSIGNED_CORE:
-                setAssignedCore((Core)null);
-                return;
         }
         super.eUnset(featureID);
     }
@@ -1286,8 +1293,6 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return featureRequirements != null && !featureRequirements.isEmpty();
             case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
                 return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
-            case ModelPackage.TASK__ASSIGNED_CORE:
-                return assignedCore != null;
             case ModelPackage.TASK__FULL_NAME:
                 return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
         }
@@ -1371,6 +1376,11 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
                 return getColor();
             case ModelPackage.TASK___SET_COLOR__COLOR:
                 setColor((Color)arguments.get(0));
+                return null;
+            case ModelPackage.TASK___GET_ASSIGNED_CORE:
+                return getAssignedCore();
+            case ModelPackage.TASK___SET_ASSIGNED_CORE__CORE:
+                setAssignedCore((Core)arguments.get(0));
                 return null;
         }
         return super.eInvoke(operationID, arguments);

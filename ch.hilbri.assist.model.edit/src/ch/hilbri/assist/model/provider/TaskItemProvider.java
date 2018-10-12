@@ -50,7 +50,6 @@ public class TaskItemProvider
 
             addApplicationPropertyDescriptor(object);
             addRestrictMappingToHardwareElementsPropertyDescriptor(object);
-            addAssignedCorePropertyDescriptor(object);
             addFullNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -114,28 +113,6 @@ public class TaskItemProvider
                  getString("_UI_Task_restrictMappingToHardwareElements_feature"),
                  getString("_UI_PropertyDescriptor_description", "_UI_Task_restrictMappingToHardwareElements_feature", "_UI_Task_type"),
                  ModelPackage.Literals.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
-
-	/**
-     * This adds a property descriptor for the Assigned Core feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected void addAssignedCorePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Task_assignedCore_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Task_assignedCore_feature", "_UI_Task_type"),
-                 ModelPackage.Literals.TASK__ASSIGNED_CORE,
                  true,
                  false,
                  true,

@@ -301,6 +301,15 @@ public interface ModelFactory extends EFactory {
     ColorProperty createColorProperty();
 
     /**
+     * Returns a new object of class '<em>Assigned Core Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Assigned Core Property</em>'.
+     * @generated
+     */
+    AssignedCoreProperty createAssignedCoreProperty();
+
+    /**
      * Returns a new object of class '<em>Custom Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

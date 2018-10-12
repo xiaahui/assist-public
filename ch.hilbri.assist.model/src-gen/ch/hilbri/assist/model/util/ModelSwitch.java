@@ -8,6 +8,7 @@ import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
+import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
@@ -381,6 +382,13 @@ public class ModelSwitch<T> extends Switch<T> {
                 ColorProperty colorProperty = (ColorProperty)theEObject;
                 T result = caseColorProperty(colorProperty);
                 if (result == null) result = caseProperty(colorProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.ASSIGNED_CORE_PROPERTY: {
+                AssignedCoreProperty assignedCoreProperty = (AssignedCoreProperty)theEObject;
+                T result = caseAssignedCoreProperty(assignedCoreProperty);
+                if (result == null) result = caseProperty(assignedCoreProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -1163,6 +1171,21 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseColorProperty(ColorProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Assigned Core Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Assigned Core Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAssignedCoreProperty(AssignedCoreProperty object) {
         return null;
     }
 

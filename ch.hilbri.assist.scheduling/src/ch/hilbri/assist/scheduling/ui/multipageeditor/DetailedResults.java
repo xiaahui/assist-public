@@ -189,13 +189,13 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
                 board = board.substring(0, 15) + "...";
 
             String vendor = proc.getManufacturer();
-            if (vendor.isEmpty())
+            if (vendor == null)
                 vendor = "-";
             if (vendor.length() > 15)
                 vendor = vendor.substring(0, 15) + "...";
 
             String ptype = proc.getProcessorType();
-            if (ptype.isEmpty())
+            if (ptype == null)
                 ptype = "-";
             if (ptype.length() > 15)
                 ptype = ptype.substring(0, 15) + "...";

@@ -8,6 +8,7 @@ import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
+import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
@@ -268,6 +269,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseColorProperty(ColorProperty object) {
                 return createColorPropertyAdapter();
+            }
+            @Override
+            public Adapter caseAssignedCoreProperty(AssignedCoreProperty object) {
+                return createAssignedCorePropertyAdapter();
             }
             @Override
             public Adapter caseCustomProperty(CustomProperty object) {
@@ -908,6 +913,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createColorPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.AssignedCoreProperty <em>Assigned Core Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see ch.hilbri.assist.model.AssignedCoreProperty
+     * @generated
+     */
+    public Adapter createAssignedCorePropertyAdapter() {
         return null;
     }
 

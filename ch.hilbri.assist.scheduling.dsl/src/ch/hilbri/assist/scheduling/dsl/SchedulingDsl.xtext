@@ -3,82 +3,93 @@ grammar ch.hilbri.assist.scheduling.dsl.SchedulingDsl with org.eclipse.xtext.com
 import "ch.hilbri.assist.model" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-AssistModel returns AssistModel:
-    'Global'   '{' 
-                    'System'                 '=' systemName=STRING          ';' 
-                   ('MinimumHyperPeriod'     '=' minHypPeriodLength=INT     ';')?
-                   ('TaskSwitchDelay'        '=' taskSwitchDelay=INT        ';')?
-    '}'
-
-    'Hardware' '{'    
-                    (compartments+=Compartment)*
-    '}'
-
-    'Software' '{'
-                    (applications+=Application)* 
-    '}'
-    
-    ('Restrictions' '{' (
-                          (
+/* MAIN MODEL */
+AssistModel: 
+    ( 'Global'       '{' 
+                         (
+                            properties+=SystemNameProperty                              |
+                            properties+=MinHypPeriodLengthProperty                      |
+                            properties+=TaskSwitchDelayProperty
+                         )*
+                                                                 '}'                        ) &
+    ( 'Hardware'     '{' (compartments+=Compartment)*            '}'                        ) &
+    ( 'Software'     '{' (applications+=Application)*            '}'                        ) &
+    ( 'Restrictions' '{' 
+                        (
                             schedulingRestrictions+=RestrictionFinishAtTheSameTime      |
                             schedulingRestrictions+=RestrictionStartAfterOtherFinished  |
                             schedulingRestrictions+=RestrictionStartAfterOtherStarted   |
-                            schedulingRestrictions+=RestrictionStartAtTheSameTime		|
+                            schedulingRestrictions+=RestrictionStartAtTheSameTime       |
                             schedulingRestrictions+=RestrictionDisjointExecution
-                          )
-                       )*
-    '}')?
-    ;
+                        )*
+                                                                 '}'                        )?
+;    
 
 
+// Hardware Tree
 Compartment: 
     'Compartment' name=ID '{'
-        ('Manufacturer'     '=' manufacturer=STRING  ';')?
-        ('PowerSupply'      '=' powerSupply=STRING   ';')?
-        (features+=Feature                              )*
-        (boxes+=Box)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+        (   
+            properties+=ManufacturerProperty            | 
+            properties+=PowerSupplyProperty             |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            boxes+=Box                                                                                                  
+        )*
     '}'
 ;
 
 Box:
-    'Box' name=ID '{'
-        ('Manufacturer'     '=' manufacturer=STRING ';' )?
-        (features+=Feature                              )*
-        (boards+=Board)*
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+    'Box' name=ID   '{'
+        (
+            properties+=ManufacturerProperty            |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            boards+=Board
+        )*
     '}'
 ;
     
 Board:
-    'Board' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';'                   )?
-        ('Type'                     '=' boardType=STRING ';'                      )?
-        ('PowerSupply'              '=' powerSupply=STRING ';'                    )?
-        ('DesignAssuranceLevel'     '=' assuranceLevel=DesignAssuranceLevelType';')?
-        ('RAM'                      '=' ramCapacity=INT ';'                       )?
-        ('ROM'                      '=' romCapacity=INT ';'                       )?
-        (features+=Feature                                                        )*
-        (processors+=Processor)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+    'Board' name=ID   '{'
+        (
+            properties+=ManufacturerProperty            |
+            properties+=PowerSupplyProperty             |
+            properties+=BoardTypeProperty               |
+            properties+=RAMCapacityProperty             |
+            properties+=ROMCapacityProperty             |
+            properties+=DesignAssuranceLevelProperty    |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            processors+=Processor  
+        )*
     '}'
 ;
 
 Processor:
-    'Processor' name=ID '{'
-        ('Manufacturer'             '=' manufacturer=STRING ';' )?
-        ('Type'                     '=' processorType=STRING ';')?
-        (features+=Feature                                      )*
-        (cores+=Core)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+    'Processor' name=ID   '{'
+        (
+            properties+=ManufacturerProperty            |
+            properties+=ProcessorTypeProperty           |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            cores+=Core
+        )*
     '}';
 
 Core:
-    'Core' name=ID '{' 
-        ('Capacity'                 '=' capacity=INT ';')?
-        ('Architecture'             '=' architecture=STRING ';' )?
-        (features+=Feature                                      )*
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+    'Core' name=ID '{'
+        (
+            properties+=CoreCapacityProperty            |
+            properties+=CoreArchitectureProperty        |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           
+        )* 
     '}';
 
 /* Features provide by the hardware */
@@ -95,34 +106,44 @@ FeatureExclAccess returns Feature:
     'Provides' units=INT 'of' 'exclusive' 'feature' name=STRING ';';
 
 /* SOFTWARE */
-
 Application:
     'Application' name=ID '{'
-        ('CriticalityLevel'         '=' criticalityLevel=DesignAssuranceLevelType ';'    )?
-        ('Developer'                '=' developedBy=STRING ';'                           )?
-        (tasks+=Task)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+        (
+            properties+=CriticalityLevelProperty    |
+            properties+=DevelopedByProperty         |
+            properties+=CustomIntProperty           |
+            properties+=CustomStringProperty        |
+            tasks+=Task                             |
+            ('RestrictDeploymentTo' '{' 
+                restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] 
+                (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
+            '}' ';' )                               
+        )*
     '}';
 
 Task:
     'Task' name=ID '{'
-        ('RequiredRAM'               '=' ramUtilization=INT ';'                          )? 
-        ('RequiredROM'               '=' romUtilization=INT ';'                          )? 
-         'AssignedCore'              '=' assignedCore=[Core|QualifiedName] ';'
-         'Duration'                  '=' duration=INT ';'
-         'Period'                    '=' period=INT ';'
-        ('Periodicity'               '=' periodicity=PeriodicityType ';'                 )? 
-        ('EarlyTolerance'            '=' earlyTolerance=INT ';'                          )?
-        ('LateTolerance'             '=' lateTolerance=INT ';'                           )?
-        ('MaxStartTime'              '=' maxStartTime=INT ';'                            )?
-        ('MaxEndTime'                '=' maxEndTime=INT ';'                              )?
-        ('InitTime'                  '=' addInitTime=INT ';'                             )?
-        ('Slices'                    '=' slices=INT ';'                                  )?
-        ('MinSliceDuration'          '=' minSliceDuration=INT ';'                        )?
-        ('Color'                     '=' color=Color ';'                                 )?
-        (featureRequirements+=FeatureRequirement                                         )*
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
+        (
+            properties+=RAMUtilizationProperty                          |
+            properties+=ROMUtilizationProperty                          |
+            properties+=DurationProperty                                |
+            properties+=PeriodProperty                                  |
+            properties+=PeriodicityProperty                             |
+            properties+=EarlyToleranceProperty                          |
+            properties+=LateToleranceProperty                           |
+            properties+=MaxStartTimeProperty                            |
+            properties+=MaxEndTimeProperty                              |
+            properties+=AddInitTimeProperty                             |
+            properties+=SlicesProperty                                  |
+            properties+=MinSliceDurationProperty                        |
+            properties+=ColorProperty                                   |
+            properties+=AssignedCoreProperty                            |
+            properties+=CustomIntProperty                               |
+            properties+=CustomStringProperty                            |
+            featureRequirements+=FeatureRequirement                     
+        )*
     '}';
+
 
 /* General Feature Requirements - see #38 */
 FeatureRequirement: 
@@ -164,20 +185,6 @@ RestrictionStartAfterOtherStarted:
 RestrictionDisjointExecution: 
     tasks+=[Task|QualifiedName] (',' tasks+=[Task|QualifiedName])+ 'require' 'disjoint' 'execution' ';' ;
 
-
-/* Generic Stuff */
-
-CustomIntProperty:  
-    name=STRING '=' value=INT ';'
-;
-
-CustomStringProperty:
-    name=STRING '=' value=STRING ';'
-;
-
-QualifiedName:
-    ID ('.' ID)*
-;
 
 /* ENUMS */
 enum PeriodicityType:
@@ -223,3 +230,39 @@ enum HardwareArchitectureLevelType:
     COMPARTMENT  = 'Compartment'
 ;
 
+QualifiedName:
+    ID ('.' ID)*
+;
+
+// Properties 
+SystemNameProperty:             'System'                '=' value=STRING                    ';';
+ManufacturerProperty:           'Manufacturer'          '=' value=STRING                    ';';
+PowerSupplyProperty:            'PowerSupply'           '=' value=STRING                    ';';
+BoardTypeProperty:              'Type'                  '=' value=STRING                    ';';
+RAMCapacityProperty:            'RAM'                   '=' value=INT                       ';';
+RAMUtilizationProperty:         'RequiredRAM'           '=' value=INT                       ';';
+ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';
+ROMUtilizationProperty:         'RequiredROM'           '=' value=INT                       ';';     
+DesignAssuranceLevelProperty:   'DesignAssuranceLevel'  '=' value=DesignAssuranceLevelType  ';';
+CriticalityLevelProperty:       'CriticalityLevel'      '=' value=DesignAssuranceLevelType  ';';
+ProcessorTypeProperty:          'Type'                  '=' value=STRING                    ';';
+CoreCapacityProperty:           'Capacity'              '=' value=INT                       ';';
+CoreUtilizationProperty:        'CoreUtilization'       '=' value=INT                       ';';
+CoreArchitectureProperty:       'Architecture'          '=' value=STRING                    ';';
+DevelopedByProperty:            'Developer'             '=' value=STRING                    ';';
+MinHypPeriodLengthProperty:     'MinimumHyperPeriod'    '=' value=INT                       ';';
+TaskSwitchDelayProperty:        'TaskSwitchDelay'       '=' value=INT                       ';';
+DurationProperty:               'Duration'              '=' value=INT                       ';';
+PeriodProperty:                 'Period'                '=' value=INT                       ';';
+PeriodicityProperty:            'Periodicity'           '=' value=PeriodicityType           ';';
+EarlyToleranceProperty:         'EarlyTolerance'        '=' value=INT                       ';';
+LateToleranceProperty:          'LateTolerance'         '=' value=INT                       ';';
+MaxStartTimeProperty:           'MaxStartTime'          '=' value=INT                       ';';
+MaxEndTimeProperty:             'MaxEndTime'            '=' value=INT                       ';';
+AddInitTimeProperty:            'InitTime'              '=' value=INT                       ';';
+SlicesProperty:                 'Slices'                '=' value=INT                       ';';
+MinSliceDurationProperty:       'MinSliceDuration'      '=' value=INT                       ';';
+ColorProperty:                  'Color'                 '=' value=Color                     ';';
+AssignedCoreProperty:           'AssignedCore'          '=' value=[Core|QualifiedName]      ';'; 
+CustomIntProperty:              'Custom' 'Property' name=STRING '=' value=INT               ';';
+CustomStringProperty:           'Custom' 'Property' name=STRING '=' value=STRING            ';';

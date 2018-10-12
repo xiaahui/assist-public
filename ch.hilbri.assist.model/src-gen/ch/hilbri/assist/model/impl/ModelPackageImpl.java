@@ -8,6 +8,7 @@ import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
+import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
@@ -328,6 +329,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass colorPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass assignedCorePropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1116,6 +1124,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getColorProperty_Value() {
         return (EAttribute)colorPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAssignedCoreProperty() {
+        return assignedCorePropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAssignedCoreProperty_Value() {
+        return (EReference)assignedCorePropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2266,17 +2292,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getTask_AssignedCore() {
-        return (EReference)taskEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getTask_FullName() {
-        return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
+        return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -2529,6 +2546,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getTask__SetColor__Color() {
         return taskEClass.getEOperations().get(27);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__GetAssignedCore() {
+        return taskEClass.getEOperations().get(28);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTask__SetAssignedCore__Core() {
+        return taskEClass.getEOperations().get(29);
     }
 
     /**
@@ -3680,6 +3715,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         colorPropertyEClass = createEClass(COLOR_PROPERTY);
         createEAttribute(colorPropertyEClass, COLOR_PROPERTY__VALUE);
 
+        assignedCorePropertyEClass = createEClass(ASSIGNED_CORE_PROPERTY);
+        createEReference(assignedCorePropertyEClass, ASSIGNED_CORE_PROPERTY__VALUE);
+
         customPropertyEClass = createEClass(CUSTOM_PROPERTY);
         createEAttribute(customPropertyEClass, CUSTOM_PROPERTY__NAME);
 
@@ -3824,7 +3862,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(taskEClass, TASK__APPLICATION);
         createEReference(taskEClass, TASK__FEATURE_REQUIREMENTS);
         createEReference(taskEClass, TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
-        createEReference(taskEClass, TASK__ASSIGNED_CORE);
         createEAttribute(taskEClass, TASK__FULL_NAME);
         createEOperation(taskEClass, TASK___GET_CORE_UTILIZATION);
         createEOperation(taskEClass, TASK___SET_CORE_UTILIZATION__INT);
@@ -3854,6 +3891,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(taskEClass, TASK___SET_PERIODICITY__PERIODICITYTYPE);
         createEOperation(taskEClass, TASK___GET_COLOR);
         createEOperation(taskEClass, TASK___SET_COLOR__COLOR);
+        createEOperation(taskEClass, TASK___GET_ASSIGNED_CORE);
+        createEOperation(taskEClass, TASK___SET_ASSIGNED_CORE__CORE);
 
         featureRequirementEClass = createEClass(FEATURE_REQUIREMENT);
         createEAttribute(featureRequirementEClass, FEATURE_REQUIREMENT__NAME);
@@ -4067,6 +4106,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         criticalityLevelPropertyEClass.getESuperTypes().add(this.getProperty());
         periodicityPropertyEClass.getESuperTypes().add(this.getProperty());
         colorPropertyEClass.getESuperTypes().add(this.getProperty());
+        assignedCorePropertyEClass.getESuperTypes().add(this.getProperty());
         customPropertyEClass.getESuperTypes().add(this.getProperty());
         customIntPropertyEClass.getESuperTypes().add(this.getCustomProperty());
         customStringPropertyEClass.getESuperTypes().add(this.getCustomProperty());
@@ -4160,6 +4200,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(colorPropertyEClass, ColorProperty.class, "ColorProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getColorProperty_Value(), this.getColor(), "value", "none", 0, 1, ColorProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(assignedCorePropertyEClass, AssignedCoreProperty.class, "AssignedCoreProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getAssignedCoreProperty_Value(), this.getCore(), null, "value", null, 0, 1, AssignedCoreProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(customPropertyEClass, CustomProperty.class, "CustomProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getCustomProperty_Name(), theEcorePackage.getEString(), "name", "", 0, 1, CustomProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4391,7 +4434,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getTask_Application(), this.getApplication(), this.getApplication_Tasks(), "application", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_FeatureRequirements(), this.getFeatureRequirement(), null, "featureRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getTask_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getTask_AssignedCore(), this.getCore(), null, "assignedCore", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getTask_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEOperation(getTask__GetCoreUtilization(), theEcorePackage.getEInt(), "getCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
@@ -4463,6 +4505,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         op = initEOperation(getTask__SetColor__Color(), null, "setColor", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, this.getColor(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        initEOperation(getTask__GetAssignedCore(), this.getCore(), "getAssignedCore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+        op = initEOperation(getTask__SetAssignedCore__Core(), null, "setAssignedCore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, this.getCore(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(featureRequirementEClass, FeatureRequirement.class, "FeatureRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFeatureRequirement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, FeatureRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

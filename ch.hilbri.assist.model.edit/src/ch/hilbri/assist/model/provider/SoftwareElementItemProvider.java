@@ -335,6 +335,11 @@ public class SoftwareElementItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
+                 ModelFactory.eINSTANCE.createAssignedCoreProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.SOFTWARE_ELEMENT__PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomProperty()));
 
         newChildDescriptors.add

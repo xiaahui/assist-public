@@ -808,6 +808,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.AssignedCoreProperty} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AssignedCorePropertyItemProvider assignedCorePropertyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link ch.hilbri.assist.model.AssignedCoreProperty}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAssignedCorePropertyAdapter() {
+        if (assignedCorePropertyItemProvider == null) {
+            assignedCorePropertyItemProvider = new AssignedCorePropertyItemProvider(this);
+        }
+
+        return assignedCorePropertyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.CustomProperty} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1926,6 +1949,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (criticalityLevelPropertyItemProvider != null) criticalityLevelPropertyItemProvider.dispose();
         if (periodicityPropertyItemProvider != null) periodicityPropertyItemProvider.dispose();
         if (colorPropertyItemProvider != null) colorPropertyItemProvider.dispose();
+        if (assignedCorePropertyItemProvider != null) assignedCorePropertyItemProvider.dispose();
         if (customPropertyItemProvider != null) customPropertyItemProvider.dispose();
         if (customIntPropertyItemProvider != null) customIntPropertyItemProvider.dispose();
         if (customStringPropertyItemProvider != null) customStringPropertyItemProvider.dispose();

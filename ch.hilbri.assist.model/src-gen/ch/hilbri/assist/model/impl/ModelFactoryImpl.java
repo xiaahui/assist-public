@@ -7,6 +7,7 @@ import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.ApplicationAlternatives;
+import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
@@ -175,6 +176,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.CRITICALITY_LEVEL_PROPERTY: return createCriticalityLevelProperty();
             case ModelPackage.PERIODICITY_PROPERTY: return createPeriodicityProperty();
             case ModelPackage.COLOR_PROPERTY: return createColorProperty();
+            case ModelPackage.ASSIGNED_CORE_PROPERTY: return createAssignedCoreProperty();
             case ModelPackage.CUSTOM_PROPERTY: return createCustomProperty();
             case ModelPackage.CUSTOM_INT_PROPERTY: return createCustomIntProperty();
             case ModelPackage.CUSTOM_STRING_PROPERTY: return createCustomStringProperty();
@@ -594,6 +596,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public ColorProperty createColorProperty() {
         ColorPropertyImpl colorProperty = new ColorPropertyImpl();
         return colorProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AssignedCoreProperty createAssignedCoreProperty() {
+        AssignedCorePropertyImpl assignedCoreProperty = new AssignedCorePropertyImpl();
+        return assignedCoreProperty;
     }
 
     /**

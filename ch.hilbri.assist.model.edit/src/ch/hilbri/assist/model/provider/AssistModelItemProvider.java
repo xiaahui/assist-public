@@ -323,6 +323,11 @@ public class AssistModelItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
+                 ModelFactory.eINSTANCE.createAssignedCoreProperty()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__PROPERTIES,
                  ModelFactory.eINSTANCE.createCustomProperty()));
 
         newChildDescriptors.add
