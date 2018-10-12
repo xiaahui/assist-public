@@ -62,12 +62,10 @@ class Evaluation {
 			logger.info(''' - Preparing hardware model (removing alternatives)''')
 			for (box : explorationCandidateModel.allBoxes) {
 				for (boardAlternative : box.boardAlternatives) {
-					for (alternative : boardAlternative.alternatives) {
-						if (candidate.boardAlternatives.contains(alternative)) {
+						if (candidate.boardAlternatives.contains(boardAlternative)) {
 							// The candidate wants these boards 
-							box.boards.addAll(alternative.boards)
+							box.boards.addAll(boardAlternative.boards)
 						}
-					}
 				}
 				box.boardAlternatives.clear
 			}
@@ -75,11 +73,9 @@ class Evaluation {
 			/* Remove the variance points in the software architecture, which are not needed in the current candidate */
 			logger.info(''' - Preparing software model (removing alternatives)''')
 			for (applicationAlternative : explorationCandidateModel.applicationAlternatives) {
-				for (alternative : applicationAlternative.alternatives) {
-					if (candidate.applicationAlternatives.contains(alternative)) {
-						// The candidate wants these applications
-						explorationCandidateModel.applications.addAll(alternative.applications)
-					}
+				if (candidate.applicationAlternatives.contains(applicationAlternative)) {
+					// The candidate wants these applications
+					explorationCandidateModel.applications.addAll(applicationAlternative.applications)
 				}
 			}
 			explorationCandidateModel.applicationAlternatives.clear
@@ -87,13 +83,11 @@ class Evaluation {
 			/* Remove the variance points in the restrictions */
 			logger.info(''' - Preparing the restrictions model (removing alternatives)''')
 			for (restrictionAlternative : explorationCandidateModel.restrictionAlternatives) {
-				for (alternative : restrictionAlternative.alternatives) {
-					if (candidate.restrictionAlternatives.contains(alternative)) {
-						// The candidate wants these restrictions 
-						explorationCandidateModel.colocalityRelations.addAll(alternative.colocalityRelations)
-						explorationCandidateModel.dislocalityRelations.addAll(alternative.dislocalityRelations)
-						explorationCandidateModel.dissimilarityRelations.addAll(alternative.dissimilarityRelations)
-					}
+				if (candidate.restrictionAlternatives.contains(restrictionAlternative)) {
+					// The candidate wants these restrictions 
+					explorationCandidateModel.colocalityRelations.addAll(restrictionAlternative.colocalityRelations)
+					explorationCandidateModel.dislocalityRelations.addAll(restrictionAlternative.dislocalityRelations)
+					explorationCandidateModel.dissimilarityRelations.addAll(restrictionAlternative.dissimilarityRelations)
 				}
 			}
 			explorationCandidateModel.restrictionAlternatives.clear

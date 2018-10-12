@@ -992,29 +992,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternatives} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected BoardAlternativesItemProvider boardAlternativesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.BoardAlternatives}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createBoardAlternativesAdapter() {
-        if (boardAlternativesItemProvider == null) {
-            boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
-        }
-
-        return boardAlternativesItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.BoardAlternative} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1104,29 +1081,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         }
 
         return coreItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.ApplicationAlternatives} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.ApplicationAlternatives}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createApplicationAlternativesAdapter() {
-        if (applicationAlternativesItemProvider == null) {
-            applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
-        }
-
-        return applicationAlternativesItemProvider;
     }
 
     /**
@@ -1613,29 +1567,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternatives} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RestrictionAlternativesItemProvider restrictionAlternativesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link ch.hilbri.assist.model.RestrictionAlternatives}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRestrictionAlternativesAdapter() {
-        if (restrictionAlternativesItemProvider == null) {
-            restrictionAlternativesItemProvider = new RestrictionAlternativesItemProvider(this);
-        }
-
-        return restrictionAlternativesItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link ch.hilbri.assist.model.RestrictionAlternative} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1958,12 +1889,10 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (featureItemProvider != null) featureItemProvider.dispose();
         if (compartmentItemProvider != null) compartmentItemProvider.dispose();
         if (boxItemProvider != null) boxItemProvider.dispose();
-        if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
         if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
         if (boardItemProvider != null) boardItemProvider.dispose();
         if (processorItemProvider != null) processorItemProvider.dispose();
         if (coreItemProvider != null) coreItemProvider.dispose();
-        if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
         if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
         if (softwareElementItemProvider != null) softwareElementItemProvider.dispose();
         if (applicationItemProvider != null) applicationItemProvider.dispose();
@@ -1985,7 +1914,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
         if (restrictionStartAfterOtherFinishedItemProvider != null) restrictionStartAfterOtherFinishedItemProvider.dispose();
         if (restrictionStartAfterOtherStartedItemProvider != null) restrictionStartAfterOtherStartedItemProvider.dispose();
         if (restrictionDisjointExecutionItemProvider != null) restrictionDisjointExecutionItemProvider.dispose();
-        if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
         if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
         if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();
         if (explorationResultItemProvider != null) explorationResultItemProvider.dispose();

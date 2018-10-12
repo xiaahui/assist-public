@@ -60,12 +60,12 @@ class AssistModel {
     contains         Property[0..*]                    properties
     contains         Compartment[0..*]                 compartments
     contains         Application[0..*]                 applications
+    contains         ApplicationAlternative[0..*]      applicationAlternatives
     contains         DislocalityRelation[0..*]         dislocalityRelations
     contains         ColocalityRelation[0..*]          colocalityRelations
     contains         DissimilarityRelation[0..*]       dissimilarityRelations
     contains         SchedulingRestriction[0..*]       schedulingRestrictions
-    contains         ApplicationAlternatives[0..*]     applicationAlternatives
-    contains         RestrictionAlternatives[0..*]     restrictionAlternatives
+    contains         RestrictionAlternative[0..*]      restrictionAlternatives
     contains         ExplorationCandidate[0..*]        explorationCandidates
 
     op Compartment[] getAllCompartments()     { compartments                                          }
@@ -238,20 +238,15 @@ class Compartment extends HardwareElement {
 
 
 class Box extends HardwareElement {
-    container     Compartment compartment opposite boxes
-    
+    container    Compartment compartment opposite boxes
     contains     Board[0..*] boards opposite box
-    contains     BoardAlternatives[0..*] boardAlternatives
+    contains     BoardAlternative[0..*] boardAlternatives
     
     derived String fullName get { compartment.fullName + "." + name }
     
     op Board[]     getAllBoards()         { boards                                        }
     op Processor[] getAllProcessors()     { boards.map[allProcessors].flatten.toEList     }
     op Core[]      getAllCores()          { boards.map[allCores].flatten.toEList          }
-}
-
-class BoardAlternatives {  // XOR
-    contains BoardAlternative[0..*] alternatives
 }
 
 class BoardAlternative {
@@ -402,10 +397,6 @@ class Core extends HardwareElement {
         else 
             properties.add(ModelFactory.eINSTANCE.createCoreArchitectureProperty => [value = newValue])
     }
-}
-
-class ApplicationAlternatives {  // XOR
-    contains ApplicationAlternative[0..*] alternatives
 }
 
 class ApplicationAlternative {
@@ -886,10 +877,6 @@ enum Color {
 /* ************************************** */
 /* DESIGN SPACE EXPLORATION               */
 /* ************************************** */
-class RestrictionAlternatives {
-    contains RestrictionAlternative[0..*] alternatives
-}
-
 class RestrictionAlternative{
     String name
     contains DislocalityRelation[0..*]      dislocalityRelations

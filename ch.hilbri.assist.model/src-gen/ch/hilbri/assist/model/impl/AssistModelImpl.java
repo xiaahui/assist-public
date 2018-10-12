@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Application;
-import ch.hilbri.assist.model.ApplicationAlternatives;
+import ch.hilbri.assist.model.ApplicationAlternative;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
@@ -20,7 +20,7 @@ import ch.hilbri.assist.model.ModelFactory;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.Property;
-import ch.hilbri.assist.model.RestrictionAlternatives;
+import ch.hilbri.assist.model.RestrictionAlternative;
 import ch.hilbri.assist.model.SchedulingRestriction;
 import ch.hilbri.assist.model.SystemNameProperty;
 import ch.hilbri.assist.model.Task;
@@ -65,11 +65,11 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getSchedulingRestrictions <em>Scheduling Restrictions</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getExplorationCandidates <em>Exploration Candidates</em>}</li>
  * </ul>
@@ -106,6 +106,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * @ordered
      */
     protected EList<Application> applications;
+
+    /**
+     * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getApplicationAlternatives()
+     * @generated
+     * @ordered
+     */
+    protected EList<ApplicationAlternative> applicationAlternatives;
 
     /**
      * The cached value of the '{@link #getDislocalityRelations() <em>Dislocality Relations</em>}' containment reference list.
@@ -148,16 +158,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
     protected EList<SchedulingRestriction> schedulingRestrictions;
 
     /**
-     * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getApplicationAlternatives()
-     * @generated
-     * @ordered
-     */
-    protected EList<ApplicationAlternatives> applicationAlternatives;
-
-    /**
      * The cached value of the '{@link #getRestrictionAlternatives() <em>Restriction Alternatives</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -165,7 +165,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * @generated
      * @ordered
      */
-    protected EList<RestrictionAlternatives> restrictionAlternatives;
+    protected EList<RestrictionAlternative> restrictionAlternatives;
 
     /**
      * The cached value of the '{@link #getExplorationCandidates() <em>Exploration Candidates</em>}' containment reference list.
@@ -237,6 +237,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ApplicationAlternative> getApplicationAlternatives() {
+        if (applicationAlternatives == null) {
+            applicationAlternatives = new EObjectContainmentEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
+        }
+        return applicationAlternatives;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<DislocalityRelation> getDislocalityRelations() {
         if (dislocalityRelations == null) {
             dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS);
@@ -285,21 +297,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ApplicationAlternatives> getApplicationAlternatives() {
-        if (applicationAlternatives == null) {
-            applicationAlternatives = new EObjectContainmentEList<ApplicationAlternatives>(ApplicationAlternatives.class, this, ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
-        }
-        return applicationAlternatives;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<RestrictionAlternatives> getRestrictionAlternatives() {
+    public EList<RestrictionAlternative> getRestrictionAlternatives() {
         if (restrictionAlternatives == null) {
-            restrictionAlternatives = new EObjectContainmentEList<RestrictionAlternatives>(RestrictionAlternatives.class, this, ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
+            restrictionAlternatives = new EObjectContainmentEList<RestrictionAlternative>(RestrictionAlternative.class, this, ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
         }
         return restrictionAlternatives;
     }
@@ -744,6 +744,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
                 return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+                return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
                 return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
@@ -752,8 +754,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
                 return ((InternalEList<?>)getSchedulingRestrictions()).basicRemove(otherEnd, msgs);
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-                return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
                 return ((InternalEList<?>)getRestrictionAlternatives()).basicRemove(otherEnd, msgs);
             case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
@@ -776,6 +776,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return getCompartments();
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
                 return getApplications();
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+                return getApplicationAlternatives();
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
                 return getDislocalityRelations();
             case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
@@ -784,8 +786,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return getDissimilarityRelations();
             case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
                 return getSchedulingRestrictions();
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-                return getApplicationAlternatives();
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
                 return getRestrictionAlternatives();
             case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
@@ -815,6 +815,10 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 getApplications().clear();
                 getApplications().addAll((Collection<? extends Application>)newValue);
                 return;
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+                getApplicationAlternatives().clear();
+                getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternative>)newValue);
+                return;
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
                 getDislocalityRelations().clear();
                 getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
@@ -831,13 +835,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 getSchedulingRestrictions().clear();
                 getSchedulingRestrictions().addAll((Collection<? extends SchedulingRestriction>)newValue);
                 return;
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-                getApplicationAlternatives().clear();
-                getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternatives>)newValue);
-                return;
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
                 getRestrictionAlternatives().clear();
-                getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternatives>)newValue);
+                getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternative>)newValue);
                 return;
             case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
                 getExplorationCandidates().clear();
@@ -864,6 +864,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
                 getApplications().clear();
                 return;
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+                getApplicationAlternatives().clear();
+                return;
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
                 getDislocalityRelations().clear();
                 return;
@@ -875,9 +878,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return;
             case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
                 getSchedulingRestrictions().clear();
-                return;
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-                getApplicationAlternatives().clear();
                 return;
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
                 getRestrictionAlternatives().clear();
@@ -903,6 +903,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return compartments != null && !compartments.isEmpty();
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
                 return applications != null && !applications.isEmpty();
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
+                return applicationAlternatives != null && !applicationAlternatives.isEmpty();
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
                 return dislocalityRelations != null && !dislocalityRelations.isEmpty();
             case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
@@ -911,8 +913,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
                 return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
             case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
                 return schedulingRestrictions != null && !schedulingRestrictions.isEmpty();
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-                return applicationAlternatives != null && !applicationAlternatives.isEmpty();
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
                 return restrictionAlternatives != null && !restrictionAlternatives.isEmpty();
             case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:

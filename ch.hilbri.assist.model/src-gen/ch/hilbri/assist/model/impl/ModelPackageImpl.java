@@ -7,12 +7,10 @@ import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
-import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
-import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
@@ -69,7 +67,6 @@ import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
-import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
@@ -398,13 +395,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass boardAlternativesEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass boardAlternativeEClass = null;
 
     /**
@@ -427,13 +417,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass coreEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass applicationAlternativesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -581,13 +564,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * @generated
      */
     private EClass restrictionDisjointExecutionEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass restrictionAlternativesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1239,7 +1215,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_DislocalityRelations() {
+    public EReference getAssistModel_ApplicationAlternatives() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1248,7 +1224,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_ColocalityRelations() {
+    public EReference getAssistModel_DislocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
     }
 
@@ -1257,7 +1233,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_DissimilarityRelations() {
+    public EReference getAssistModel_ColocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
     }
 
@@ -1266,7 +1242,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_SchedulingRestrictions() {
+    public EReference getAssistModel_DissimilarityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
     }
 
@@ -1275,7 +1251,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAssistModel_ApplicationAlternatives() {
+    public EReference getAssistModel_SchedulingRestrictions() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
     }
 
@@ -1743,24 +1719,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBoardAlternatives() {
-        return boardAlternativesEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getBoardAlternatives_Alternatives() {
-        return (EReference)boardAlternativesEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getBoardAlternative() {
         return boardAlternativeEClass;
     }
@@ -2060,24 +2018,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EOperation getCore__SetCoreArchitecture__String() {
         return coreEClass.getEOperations().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getApplicationAlternatives() {
-        return applicationAlternativesEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getApplicationAlternatives_Alternatives() {
-        return (EReference)applicationAlternativesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2879,24 +2819,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EClass getRestrictionDisjointExecution() {
         return restrictionDisjointExecutionEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getRestrictionAlternatives() {
-        return restrictionAlternativesEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getRestrictionAlternatives_Alternatives() {
-        return (EReference)restrictionAlternativesEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3731,11 +3653,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEReference(assistModelEClass, ASSIST_MODEL__PROPERTIES);
         createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
         createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
+        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_ALTERNATIVES);
         createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
         createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
         createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
         createEReference(assistModelEClass, ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
-        createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_ALTERNATIVES);
         createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
         createEReference(assistModelEClass, ASSIST_MODEL__EXPLORATION_CANDIDATES);
         createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
@@ -3792,9 +3714,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(boxEClass, BOX___GET_ALL_PROCESSORS);
         createEOperation(boxEClass, BOX___GET_ALL_CORES);
 
-        boardAlternativesEClass = createEClass(BOARD_ALTERNATIVES);
-        createEReference(boardAlternativesEClass, BOARD_ALTERNATIVES__ALTERNATIVES);
-
         boardAlternativeEClass = createEClass(BOARD_ALTERNATIVE);
         createEAttribute(boardAlternativeEClass, BOARD_ALTERNATIVE__NAME);
         createEReference(boardAlternativeEClass, BOARD_ALTERNATIVE__BOARDS);
@@ -3832,9 +3751,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         createEOperation(coreEClass, CORE___SET_CORE_CAPACITY__INT);
         createEOperation(coreEClass, CORE___GET_CORE_ARCHITECTURE);
         createEOperation(coreEClass, CORE___SET_CORE_ARCHITECTURE__STRING);
-
-        applicationAlternativesEClass = createEClass(APPLICATION_ALTERNATIVES);
-        createEReference(applicationAlternativesEClass, APPLICATION_ALTERNATIVES__ALTERNATIVES);
 
         applicationAlternativeEClass = createEClass(APPLICATION_ALTERNATIVE);
         createEAttribute(applicationAlternativeEClass, APPLICATION_ALTERNATIVE__NAME);
@@ -3945,9 +3861,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         restrictionStartAfterOtherStartedEClass = createEClass(RESTRICTION_START_AFTER_OTHER_STARTED);
 
         restrictionDisjointExecutionEClass = createEClass(RESTRICTION_DISJOINT_EXECUTION);
-
-        restrictionAlternativesEClass = createEClass(RESTRICTION_ALTERNATIVES);
-        createEReference(restrictionAlternativesEClass, RESTRICTION_ALTERNATIVES__ALTERNATIVES);
 
         restrictionAlternativeEClass = createEClass(RESTRICTION_ALTERNATIVE);
         createEAttribute(restrictionAlternativeEClass, RESTRICTION_ALTERNATIVE__NAME);
@@ -4217,12 +4130,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEReference(getAssistModel_Properties(), this.getProperty(), null, "properties", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_ApplicationAlternatives(), this.getApplicationAlternative(), null, "applicationAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_SchedulingRestrictions(), this.getSchedulingRestriction(), null, "schedulingRestrictions", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_ApplicationAlternatives(), this.getApplicationAlternatives(), null, "applicationAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAssistModel_RestrictionAlternatives(), this.getRestrictionAlternatives(), null, "restrictionAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssistModel_RestrictionAlternatives(), this.getRestrictionAlternative(), null, "restrictionAlternatives", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getAssistModel_ExplorationCandidates(), this.getExplorationCandidate(), null, "explorationCandidates", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
@@ -4311,7 +4224,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 0, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBox_BoardAlternatives(), this.getBoardAlternatives(), null, "boardAlternatives", null, 0, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBox_BoardAlternatives(), this.getBoardAlternative(), null, "boardAlternatives", null, 0, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getBox_FullName(), theEcorePackage.getEString(), "fullName", null, 0, 1, Box.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEOperation(getBox__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
@@ -4319,9 +4232,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEOperation(getBox__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
         initEOperation(getBox__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-        initEClass(boardAlternativesEClass, BoardAlternatives.class, "BoardAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getBoardAlternatives_Alternatives(), this.getBoardAlternative(), null, "alternatives", null, 0, -1, BoardAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(boardAlternativeEClass, BoardAlternative.class, "BoardAlternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getBoardAlternative_Name(), theEcorePackage.getEString(), "name", "", 0, 1, BoardAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4388,9 +4298,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         op = initEOperation(getCore__SetCoreArchitecture__String(), null, "setCoreArchitecture", 0, 1, !IS_UNIQUE, IS_ORDERED);
         addEParameter(op, theEcorePackage.getEString(), "newValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-        initEClass(applicationAlternativesEClass, ApplicationAlternatives.class, "ApplicationAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getApplicationAlternatives_Alternatives(), this.getApplicationAlternative(), null, "alternatives", null, 0, -1, ApplicationAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(applicationAlternativeEClass, ApplicationAlternative.class, "ApplicationAlternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getApplicationAlternative_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4562,9 +4469,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
         initEClass(restrictionStartAfterOtherStartedEClass, RestrictionStartAfterOtherStarted.class, "RestrictionStartAfterOtherStarted", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(restrictionDisjointExecutionEClass, RestrictionDisjointExecution.class, "RestrictionDisjointExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(restrictionAlternativesEClass, RestrictionAlternatives.class, "RestrictionAlternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getRestrictionAlternatives_Alternatives(), this.getRestrictionAlternative(), null, "alternatives", null, 0, -1, RestrictionAlternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(restrictionAlternativeEClass, RestrictionAlternative.class, "RestrictionAlternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getRestrictionAlternative_Name(), theEcorePackage.getEString(), "name", null, 0, 1, RestrictionAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

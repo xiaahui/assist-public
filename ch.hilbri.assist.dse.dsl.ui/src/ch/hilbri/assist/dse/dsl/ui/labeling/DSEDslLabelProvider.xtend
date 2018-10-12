@@ -2,11 +2,9 @@ package ch.hilbri.assist.dse.dsl.ui.labeling
 
 import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.ApplicationAlternative
-import ch.hilbri.assist.model.ApplicationAlternatives
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Board
 import ch.hilbri.assist.model.BoardAlternative
-import ch.hilbri.assist.model.BoardAlternatives
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.Compartment
@@ -16,7 +14,6 @@ import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.ExplorationCandidate
 import ch.hilbri.assist.model.Processor
 import ch.hilbri.assist.model.RestrictionAlternative
-import ch.hilbri.assist.model.RestrictionAlternatives
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
@@ -146,36 +143,12 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def image(BoardAlternatives ba) {
-		'outlineview_alternatives.png'
-	}
-	
-	def text(BoardAlternatives ba) {
-		'Alternatives'
-	}
-	
 	def image(BoardAlternative ba) {
 		'outlineview_alternative.gif'
 	}
 	
-	def image(ApplicationAlternatives a) {
-		'outlineview_alternatives.png'
-	}
-	
-	def text(ApplicationAlternatives ba) {
-		'Alternatives'
-	}
-	
 	def image(ApplicationAlternative a) {
 		'outlineview_alternative.gif'
-	}
-	
-	def image(RestrictionAlternatives a) {
-		'outlineview_alternatives.png'
-	}
-	
-	def text(RestrictionAlternatives ba) {
-		'Alternatives'
 	}
 	
 	def image(RestrictionAlternative a) {

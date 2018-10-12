@@ -1403,13 +1403,22 @@ public interface ModelPackage extends EPackage {
     int ASSIST_MODEL__APPLICATIONS = 2;
 
     /**
+     * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 3;
+
+    /**
      * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 3;
+    int ASSIST_MODEL__DISLOCALITY_RELATIONS = 4;
 
     /**
      * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -1418,7 +1427,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__COLOCALITY_RELATIONS = 4;
+    int ASSIST_MODEL__COLOCALITY_RELATIONS = 5;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -1427,7 +1436,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 5;
+    int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 6;
 
     /**
      * The feature id for the '<em><b>Scheduling Restrictions</b></em>' containment reference list.
@@ -1436,16 +1445,7 @@ public interface ModelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSIST_MODEL__SCHEDULING_RESTRICTIONS = 6;
-
-    /**
-     * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 7;
+    int ASSIST_MODEL__SCHEDULING_RESTRICTIONS = 7;
 
     /**
      * The feature id for the '<em><b>Restriction Alternatives</b></em>' containment reference list.
@@ -2181,43 +2181,6 @@ public interface ModelPackage extends EPackage {
     int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoardAlternativesImpl <em>Board Alternatives</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.BoardAlternativesImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
-     * @generated
-     */
-    int BOARD_ALTERNATIVES = 40;
-
-    /**
-     * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_ALTERNATIVES__ALTERNATIVES = 0;
-
-    /**
-     * The number of structural features of the '<em>Board Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_ALTERNATIVES_FEATURE_COUNT = 1;
-
-    /**
-     * The number of operations of the '<em>Board Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int BOARD_ALTERNATIVES_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoardAlternativeImpl <em>Board Alternative</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2225,7 +2188,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternative()
      * @generated
      */
-    int BOARD_ALTERNATIVE = 41;
+    int BOARD_ALTERNATIVE = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2271,7 +2234,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoard()
      * @generated
      */
-    int BOARD = 42;
+    int BOARD = 41;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2533,7 +2496,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getProcessor()
      * @generated
      */
-    int PROCESSOR = 43;
+    int PROCESSOR = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2705,7 +2668,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getCore()
      * @generated
      */
-    int CORE = 44;
+    int CORE = 43;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2870,43 +2833,6 @@ public interface ModelPackage extends EPackage {
     int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 4;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.ApplicationAlternativesImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternatives()
-     * @generated
-     */
-    int APPLICATION_ALTERNATIVES = 45;
-
-    /**
-     * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int APPLICATION_ALTERNATIVES__ALTERNATIVES = 0;
-
-    /**
-     * The number of structural features of the '<em>Application Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int APPLICATION_ALTERNATIVES_FEATURE_COUNT = 1;
-
-    /**
-     * The number of operations of the '<em>Application Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int APPLICATION_ALTERNATIVES_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2914,7 +2840,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternative()
      * @generated
      */
-    int APPLICATION_ALTERNATIVE = 46;
+    int APPLICATION_ALTERNATIVE = 44;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2960,7 +2886,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSoftwareElement()
      * @generated
      */
-    int SOFTWARE_ELEMENT = 47;
+    int SOFTWARE_ELEMENT = 45;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3051,7 +2977,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplication()
      * @generated
      */
-    int APPLICATION = 48;
+    int APPLICATION = 46;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3205,7 +3131,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask()
      * @generated
      */
-    int TASK = 49;
+    int TASK = 47;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3602,7 +3528,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getFeatureRequirement()
      * @generated
      */
-    int FEATURE_REQUIREMENT = 50;
+    int FEATURE_REQUIREMENT = 48;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3675,7 +3601,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingRelation()
      * @generated
      */
-    int MAPPING_RELATION = 51;
+    int MAPPING_RELATION = 49;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3739,7 +3665,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDislocalityRelation()
      * @generated
      */
-    int DISLOCALITY_RELATION = 52;
+    int DISLOCALITY_RELATION = 50;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3803,7 +3729,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColocalityRelation()
      * @generated
      */
-    int COLOCALITY_RELATION = 53;
+    int COLOCALITY_RELATION = 51;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3867,7 +3793,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityRelation()
      * @generated
      */
-    int DISSIMILARITY_RELATION = 54;
+    int DISSIMILARITY_RELATION = 52;
 
     /**
      * The feature id for the '<em><b>Software Elements</b></em>' reference list.
@@ -3940,7 +3866,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityClause()
      * @generated
      */
-    int DISSIMILARITY_CLAUSE = 55;
+    int DISSIMILARITY_CLAUSE = 53;
 
     /**
      * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -3968,7 +3894,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
      * @generated
      */
-    int DISSIMILARITY_DISJUNCTION = 56;
+    int DISSIMILARITY_DISJUNCTION = 54;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -4005,7 +3931,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityConjunction()
      * @generated
      */
-    int DISSIMILARITY_CONJUNCTION = 57;
+    int DISSIMILARITY_CONJUNCTION = 55;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -4042,7 +3968,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityEntry()
      * @generated
      */
-    int DISSIMILARITY_ENTRY = 58;
+    int DISSIMILARITY_ENTRY = 56;
 
     /**
      * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
@@ -4088,7 +4014,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingRestriction()
      * @generated
      */
-    int SCHEDULING_RESTRICTION = 59;
+    int SCHEDULING_RESTRICTION = 57;
 
     /**
      * The number of structural features of the '<em>Scheduling Restriction</em>' class.
@@ -4116,7 +4042,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSimpleRelation()
      * @generated
      */
-    int SIMPLE_RELATION = 60;
+    int SIMPLE_RELATION = 58;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4153,7 +4079,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComplexRelation()
      * @generated
      */
-    int COMPLEX_RELATION = 61;
+    int COMPLEX_RELATION = 59;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4208,7 +4134,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_START_AT_THE_SAME_TIME = 62;
+    int RESTRICTION_START_AT_THE_SAME_TIME = 60;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4245,7 +4171,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionFinishAtTheSameTime()
      * @generated
      */
-    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 63;
+    int RESTRICTION_FINISH_AT_THE_SAME_TIME = 61;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4282,7 +4208,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherFinished()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_FINISHED = 64;
+    int RESTRICTION_START_AFTER_OTHER_FINISHED = 62;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4337,7 +4263,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionStartAfterOtherStarted()
      * @generated
      */
-    int RESTRICTION_START_AFTER_OTHER_STARTED = 65;
+    int RESTRICTION_START_AFTER_OTHER_STARTED = 63;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4392,7 +4318,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionDisjointExecution()
      * @generated
      */
-    int RESTRICTION_DISJOINT_EXECUTION = 66;
+    int RESTRICTION_DISJOINT_EXECUTION = 64;
 
     /**
      * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -4422,43 +4348,6 @@ public interface ModelPackage extends EPackage {
     int RESTRICTION_DISJOINT_EXECUTION_OPERATION_COUNT = SIMPLE_RELATION_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionAlternativesImpl <em>Restriction Alternatives</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ch.hilbri.assist.model.impl.RestrictionAlternativesImpl
-     * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
-     * @generated
-     */
-    int RESTRICTION_ALTERNATIVES = 67;
-
-    /**
-     * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RESTRICTION_ALTERNATIVES__ALTERNATIVES = 0;
-
-    /**
-     * The number of structural features of the '<em>Restriction Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RESTRICTION_ALTERNATIVES_FEATURE_COUNT = 1;
-
-    /**
-     * The number of operations of the '<em>Restriction Alternatives</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RESTRICTION_ALTERNATIVES_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl <em>Restriction Alternative</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4466,7 +4355,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternative()
      * @generated
      */
-    int RESTRICTION_ALTERNATIVE = 68;
+    int RESTRICTION_ALTERNATIVE = 65;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4530,7 +4419,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationCandidate()
      * @generated
      */
-    int EXPLORATION_CANDIDATE = 69;
+    int EXPLORATION_CANDIDATE = 66;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4594,7 +4483,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getExplorationResult()
      * @generated
      */
-    int EXPLORATION_RESULT = 70;
+    int EXPLORATION_RESULT = 67;
 
     /**
      * The feature id for the '<em><b>Candidate</b></em>' reference.
@@ -4676,7 +4565,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractDSEMetric()
      * @generated
      */
-    int ABSTRACT_DSE_METRIC = 71;
+    int ABSTRACT_DSE_METRIC = 68;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4740,7 +4629,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getComparable()
      * @generated
      */
-    int COMPARABLE = 72;
+    int COMPARABLE = 69;
 
     /**
      * The number of structural features of the '<em>Comparable</em>' class.
@@ -4768,7 +4657,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMetricScorePair()
      * @generated
      */
-    int METRIC_SCORE_PAIR = 73;
+    int METRIC_SCORE_PAIR = 70;
 
     /**
      * The feature id for the '<em><b>Key</b></em>' reference.
@@ -4814,7 +4703,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getMappingResult()
      * @generated
      */
-    int MAPPING_RESULT = 74;
+    int MAPPING_RESULT = 71;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5031,7 +4920,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSingleMappingElement()
      * @generated
      */
-    int SINGLE_MAPPING_ELEMENT = 75;
+    int SINGLE_MAPPING_ELEMENT = 72;
 
     /**
      * The feature id for the '<em><b>Application</b></em>' reference.
@@ -5122,7 +5011,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getAbstractMappingMetric()
      * @generated
      */
-    int ABSTRACT_MAPPING_METRIC = 76;
+    int ABSTRACT_MAPPING_METRIC = 73;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5195,7 +5084,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getSchedulingResult()
      * @generated
      */
-    int SCHEDULING_RESULT = 77;
+    int SCHEDULING_RESULT = 74;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5259,7 +5148,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTaskExecutionInstance()
      * @generated
      */
-    int TASK_EXECUTION_INSTANCE = 78;
+    int TASK_EXECUTION_INSTANCE = 75;
 
     /**
      * The feature id for the '<em><b>Begin</b></em>' attribute.
@@ -5314,7 +5203,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDissimilarityAttributes()
      * @generated
      */
-    int DISSIMILARITY_ATTRIBUTES = 79;
+    int DISSIMILARITY_ATTRIBUTES = 76;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -5324,7 +5213,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
      * @generated
      */
-    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 80;
+    int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 77;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -5334,7 +5223,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
      * @generated
      */
-    int DESIGN_ASSURANCE_LEVEL_TYPE = 81;
+    int DESIGN_ASSURANCE_LEVEL_TYPE = 78;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.PeriodicityType <em>Periodicity Type</em>}' enum.
@@ -5344,7 +5233,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getPeriodicityType()
      * @generated
      */
-    int PERIODICITY_TYPE = 82;
+    int PERIODICITY_TYPE = 79;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.Color <em>Color</em>}' enum.
@@ -5354,7 +5243,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 83;
+    int COLOR = 80;
 
     /**
      * The meta object id for the '<em>List Of Task Lists</em>' data type.
@@ -5364,7 +5253,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getListOfTaskLists()
      * @generated
      */
-    int LIST_OF_TASK_LISTS = 84;
+    int LIST_OF_TASK_LISTS = 81;
 
     /**
      * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -5374,7 +5263,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2CoreMapType()
      * @generated
      */
-    int TASK2_CORE_MAP_TYPE = 85;
+    int TASK2_CORE_MAP_TYPE = 82;
 
     /**
      * The meta object id for the '<em>String List</em>' data type.
@@ -5384,7 +5273,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getStringList()
      * @generated
      */
-    int STRING_LIST = 86;
+    int STRING_LIST = 83;
 
     /**
      * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -5394,7 +5283,7 @@ public interface ModelPackage extends EPackage {
      * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
      * @generated
      */
-    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 87;
+    int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 84;
 
 
     /**
@@ -5901,6 +5790,17 @@ public interface ModelPackage extends EPackage {
     EReference getAssistModel_Applications();
 
     /**
+     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
+     * @see ch.hilbri.assist.model.AssistModel#getApplicationAlternatives()
+     * @see #getAssistModel()
+     * @generated
+     */
+    EReference getAssistModel_ApplicationAlternatives();
+
+    /**
      * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5943,17 +5843,6 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EReference getAssistModel_SchedulingRestrictions();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
-     * @see ch.hilbri.assist.model.AssistModel#getApplicationAlternatives()
-     * @see #getAssistModel()
-     * @generated
-     */
-    EReference getAssistModel_ApplicationAlternatives();
 
     /**
      * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.AssistModel#getRestrictionAlternatives <em>Restriction Alternatives</em>}'.
@@ -6483,27 +6372,6 @@ public interface ModelPackage extends EPackage {
     EOperation getBox__GetAllCores();
 
     /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.BoardAlternatives <em>Board Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Board Alternatives</em>'.
-     * @see ch.hilbri.assist.model.BoardAlternatives
-     * @generated
-     */
-    EClass getBoardAlternatives();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.BoardAlternatives#getAlternatives <em>Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Alternatives</em>'.
-     * @see ch.hilbri.assist.model.BoardAlternatives#getAlternatives()
-     * @see #getBoardAlternatives()
-     * @generated
-     */
-    EReference getBoardAlternatives_Alternatives();
-
-    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.BoardAlternative <em>Board Alternative</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6852,27 +6720,6 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EOperation getCore__SetCoreArchitecture__String();
-
-    /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Application Alternatives</em>'.
-     * @see ch.hilbri.assist.model.ApplicationAlternatives
-     * @generated
-     */
-    EClass getApplicationAlternatives();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.ApplicationAlternatives#getAlternatives <em>Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Alternatives</em>'.
-     * @see ch.hilbri.assist.model.ApplicationAlternatives#getAlternatives()
-     * @see #getApplicationAlternatives()
-     * @generated
-     */
-    EReference getApplicationAlternatives_Alternatives();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.ApplicationAlternative <em>Application Alternative</em>}'.
@@ -7792,27 +7639,6 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EClass getRestrictionDisjointExecution();
-
-    /**
-     * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionAlternatives <em>Restriction Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Restriction Alternatives</em>'.
-     * @see ch.hilbri.assist.model.RestrictionAlternatives
-     * @generated
-     */
-    EClass getRestrictionAlternatives();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.RestrictionAlternatives#getAlternatives <em>Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Alternatives</em>'.
-     * @see ch.hilbri.assist.model.RestrictionAlternatives#getAlternatives()
-     * @see #getRestrictionAlternatives()
-     * @generated
-     */
-    EReference getRestrictionAlternatives_Alternatives();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionAlternative <em>Restriction Alternative</em>}'.
@@ -9167,6 +8993,14 @@ public interface ModelPackage extends EPackage {
         EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
 
         /**
+         * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
+
+        /**
          * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -9197,14 +9031,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EReference ASSIST_MODEL__SCHEDULING_RESTRICTIONS = eINSTANCE.getAssistModel_SchedulingRestrictions();
-
-        /**
-         * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
 
         /**
          * The meta object literal for the '<em><b>Restriction Alternatives</b></em>' containment reference list feature.
@@ -9623,24 +9449,6 @@ public interface ModelPackage extends EPackage {
         EOperation BOX___GET_ALL_CORES = eINSTANCE.getBox__GetAllCores();
 
         /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.BoardAlternativesImpl <em>Board Alternatives</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.BoardAlternativesImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getBoardAlternatives()
-         * @generated
-         */
-        EClass BOARD_ALTERNATIVES = eINSTANCE.getBoardAlternatives();
-
-        /**
-         * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference BOARD_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getBoardAlternatives_Alternatives();
-
-        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.BoardAlternativeImpl <em>Board Alternative</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -9919,24 +9727,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EOperation CORE___SET_CORE_ARCHITECTURE__STRING = eINSTANCE.getCore__SetCoreArchitecture__String();
-
-        /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.ApplicationAlternativesImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getApplicationAlternatives()
-         * @generated
-         */
-        EClass APPLICATION_ALTERNATIVES = eINSTANCE.getApplicationAlternatives();
-
-        /**
-         * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference APPLICATION_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getApplicationAlternatives_Alternatives();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
@@ -10691,24 +10481,6 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EClass RESTRICTION_DISJOINT_EXECUTION = eINSTANCE.getRestrictionDisjointExecution();
-
-        /**
-         * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionAlternativesImpl <em>Restriction Alternatives</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see ch.hilbri.assist.model.impl.RestrictionAlternativesImpl
-         * @see ch.hilbri.assist.model.impl.ModelPackageImpl#getRestrictionAlternatives()
-         * @generated
-         */
-        EClass RESTRICTION_ALTERNATIVES = eINSTANCE.getRestrictionAlternatives();
-
-        /**
-         * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference RESTRICTION_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getRestrictionAlternatives_Alternatives();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionAlternativeImpl <em>Restriction Alternative</em>}' class.

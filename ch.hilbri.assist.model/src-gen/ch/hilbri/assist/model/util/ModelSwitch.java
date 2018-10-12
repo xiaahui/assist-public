@@ -7,12 +7,10 @@ import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
-import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
-import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
@@ -63,7 +61,6 @@ import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
-import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
@@ -447,12 +444,6 @@ public class ModelSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ModelPackage.BOARD_ALTERNATIVES: {
-                BoardAlternatives boardAlternatives = (BoardAlternatives)theEObject;
-                T result = caseBoardAlternatives(boardAlternatives);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case ModelPackage.BOARD_ALTERNATIVE: {
                 BoardAlternative boardAlternative = (BoardAlternative)theEObject;
                 T result = caseBoardAlternative(boardAlternative);
@@ -477,12 +468,6 @@ public class ModelSwitch<T> extends Switch<T> {
                 Core core = (Core)theEObject;
                 T result = caseCore(core);
                 if (result == null) result = caseHardwareElement(core);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.APPLICATION_ALTERNATIVES: {
-                ApplicationAlternatives applicationAlternatives = (ApplicationAlternatives)theEObject;
-                T result = caseApplicationAlternatives(applicationAlternatives);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -629,12 +614,6 @@ public class ModelSwitch<T> extends Switch<T> {
                 T result = caseRestrictionDisjointExecution(restrictionDisjointExecution);
                 if (result == null) result = caseSimpleRelation(restrictionDisjointExecution);
                 if (result == null) result = caseSchedulingRestriction(restrictionDisjointExecution);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ModelPackage.RESTRICTION_ALTERNATIVES: {
-                RestrictionAlternatives restrictionAlternatives = (RestrictionAlternatives)theEObject;
-                T result = caseRestrictionAlternatives(restrictionAlternatives);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -1310,21 +1289,6 @@ public class ModelSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBoardAlternatives(BoardAlternatives object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -1381,21 +1345,6 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseCore(Core object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseApplicationAlternatives(ApplicationAlternatives object) {
         return null;
     }
 
@@ -1711,21 +1660,6 @@ public class ModelSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseRestrictionDisjointExecution(RestrictionDisjointExecution object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Restriction Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Restriction Alternatives</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseRestrictionAlternatives(RestrictionAlternatives object) {
         return null;
     }
 

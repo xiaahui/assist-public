@@ -6,12 +6,10 @@ import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
-import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
-import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
@@ -68,7 +66,6 @@ import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
-import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
@@ -185,12 +182,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.FEATURE: return createFeature();
             case ModelPackage.COMPARTMENT: return createCompartment();
             case ModelPackage.BOX: return createBox();
-            case ModelPackage.BOARD_ALTERNATIVES: return createBoardAlternatives();
             case ModelPackage.BOARD_ALTERNATIVE: return createBoardAlternative();
             case ModelPackage.BOARD: return createBoard();
             case ModelPackage.PROCESSOR: return createProcessor();
             case ModelPackage.CORE: return createCore();
-            case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
             case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
             case ModelPackage.SOFTWARE_ELEMENT: return createSoftwareElement();
             case ModelPackage.APPLICATION: return createApplication();
@@ -212,7 +207,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_FINISHED: return createRestrictionStartAfterOtherFinished();
             case ModelPackage.RESTRICTION_START_AFTER_OTHER_STARTED: return createRestrictionStartAfterOtherStarted();
             case ModelPackage.RESTRICTION_DISJOINT_EXECUTION: return createRestrictionDisjointExecution();
-            case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
             case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
             case ModelPackage.EXPLORATION_CANDIDATE: return createExplorationCandidate();
             case ModelPackage.EXPLORATION_RESULT: return createExplorationResult();
@@ -693,16 +687,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public BoardAlternatives createBoardAlternatives() {
-        BoardAlternativesImpl boardAlternatives = new BoardAlternativesImpl();
-        return boardAlternatives;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public BoardAlternative createBoardAlternative() {
         BoardAlternativeImpl boardAlternative = new BoardAlternativeImpl();
         return boardAlternative;
@@ -736,16 +720,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public Core createCore() {
         CoreImpl core = new CoreImpl();
         return core;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ApplicationAlternatives createApplicationAlternatives() {
-        ApplicationAlternativesImpl applicationAlternatives = new ApplicationAlternativesImpl();
-        return applicationAlternatives;
     }
 
     /**
@@ -956,16 +930,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
     public RestrictionDisjointExecution createRestrictionDisjointExecution() {
         RestrictionDisjointExecutionImpl restrictionDisjointExecution = new RestrictionDisjointExecutionImpl();
         return restrictionDisjointExecution;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public RestrictionAlternatives createRestrictionAlternatives() {
-        RestrictionAlternativesImpl restrictionAlternatives = new RestrictionAlternativesImpl();
-        return restrictionAlternatives;
     }
 
     /**

@@ -72,7 +72,7 @@ public interface Box extends HardwareElement {
 
     /**
      * Returns the value of the '<em><b>Board Alternatives</b></em>' containment reference list.
-     * The list contents are of type {@link ch.hilbri.assist.model.BoardAlternatives}.
+     * The list contents are of type {@link ch.hilbri.assist.model.BoardAlternative}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Board Alternatives</em>' containment reference list isn't clear,
@@ -84,7 +84,7 @@ public interface Box extends HardwareElement {
      * @model containment="true"
      * @generated
      */
-    EList<BoardAlternatives> getBoardAlternatives();
+    EList<BoardAlternative> getBoardAlternatives();
 
     /**
      * Returns the value of the '<em><b>Full Name</b></em>' attribute.

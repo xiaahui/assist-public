@@ -3,7 +3,7 @@
 package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Board;
-import ch.hilbri.assist.model.BoardAlternatives;
+import ch.hilbri.assist.model.BoardAlternative;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
@@ -71,7 +71,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * @generated
      * @ordered
      */
-    protected EList<BoardAlternatives> boardAlternatives;
+    protected EList<BoardAlternative> boardAlternatives;
 
     /**
      * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
@@ -170,9 +170,9 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<BoardAlternatives> getBoardAlternatives() {
+    public EList<BoardAlternative> getBoardAlternatives() {
         if (boardAlternatives == null) {
-            boardAlternatives = new EObjectContainmentEList<BoardAlternatives>(BoardAlternatives.class, this, ModelPackage.BOX__BOARD_ALTERNATIVES);
+            boardAlternatives = new EObjectContainmentEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.BOX__BOARD_ALTERNATIVES);
         }
         return boardAlternatives;
     }
@@ -316,7 +316,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
                 return;
             case ModelPackage.BOX__BOARD_ALTERNATIVES:
                 getBoardAlternatives().clear();
-                getBoardAlternatives().addAll((Collection<? extends BoardAlternatives>)newValue);
+                getBoardAlternatives().addAll((Collection<? extends BoardAlternative>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

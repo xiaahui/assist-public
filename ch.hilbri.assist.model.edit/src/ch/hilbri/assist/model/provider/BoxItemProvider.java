@@ -197,7 +197,7 @@ public class BoxItemProvider extends HardwareElementItemProvider {
         newChildDescriptors.add
             (createChildParameter
                 (ModelPackage.Literals.BOX__BOARD_ALTERNATIVES,
-                 ModelFactory.eINSTANCE.createBoardAlternatives()));
+                 ModelFactory.eINSTANCE.createBoardAlternative()));
     }
 
 }

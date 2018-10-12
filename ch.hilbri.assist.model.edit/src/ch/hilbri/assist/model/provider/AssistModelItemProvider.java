@@ -79,11 +79,11 @@ public class AssistModelItemProvider
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROPERTIES);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
+            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
-            childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
             childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EXPLORATION_CANDIDATES);
         }
@@ -141,11 +141,11 @@ public class AssistModelItemProvider
             case ModelPackage.ASSIST_MODEL__PROPERTIES:
             case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
             case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
             case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
             case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
             case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
             case ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS:
-            case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
             case ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES:
             case ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -352,6 +352,11 @@ public class AssistModelItemProvider
 
         newChildDescriptors.add
             (createChildParameter
+                (ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES,
+                 ModelFactory.eINSTANCE.createApplicationAlternative()));
+
+        newChildDescriptors.add
+            (createChildParameter
                 (ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
                  ModelFactory.eINSTANCE.createDislocalityRelation()));
 
@@ -407,13 +412,8 @@ public class AssistModelItemProvider
 
         newChildDescriptors.add
             (createChildParameter
-                (ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES,
-                 ModelFactory.eINSTANCE.createApplicationAlternatives()));
-
-        newChildDescriptors.add
-            (createChildParameter
                 (ModelPackage.Literals.ASSIST_MODEL__RESTRICTION_ALTERNATIVES,
-                 ModelFactory.eINSTANCE.createRestrictionAlternatives()));
+                 ModelFactory.eINSTANCE.createRestrictionAlternative()));
 
         newChildDescriptors.add
             (createChildParameter

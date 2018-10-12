@@ -382,15 +382,6 @@ public interface ModelFactory extends EFactory {
     Box createBox();
 
     /**
-     * Returns a new object of class '<em>Board Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Board Alternatives</em>'.
-     * @generated
-     */
-    BoardAlternatives createBoardAlternatives();
-
-    /**
      * Returns a new object of class '<em>Board Alternative</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -425,15 +416,6 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     Core createCore();
-
-    /**
-     * Returns a new object of class '<em>Application Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Application Alternatives</em>'.
-     * @generated
-     */
-    ApplicationAlternatives createApplicationAlternatives();
 
     /**
      * Returns a new object of class '<em>Application Alternative</em>'.
@@ -623,15 +605,6 @@ public interface ModelFactory extends EFactory {
      * @generated
      */
     RestrictionDisjointExecution createRestrictionDisjointExecution();
-
-    /**
-     * Returns a new object of class '<em>Restriction Alternatives</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Restriction Alternatives</em>'.
-     * @generated
-     */
-    RestrictionAlternatives createRestrictionAlternatives();
 
     /**
      * Returns a new object of class '<em>Restriction Alternative</em>'.

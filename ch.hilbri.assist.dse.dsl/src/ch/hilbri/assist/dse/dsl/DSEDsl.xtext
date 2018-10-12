@@ -3,149 +3,187 @@ grammar ch.hilbri.assist.dse.dsl.DSEDsl with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "ch.hilbri.assist.model" 
 
+/* MAIN MODEL */
 AssistModel: 
-	'Global' 	'{' 
-					'System' '=' systemName=STRING ';' 
-	'}'
-
-	'Hardware' 	'{'	
-					(compartments+=Compartment)*
-	'}'
-
-	'Software' '{'
-					(applications+=Application)* 
-					(applicationAlternatives+=ApplicationAlternatives)?
-	'}'
-
-	('Restrictions' '{'
-					(dislocalityRelations+=DislocalityRelation)*
-					(colocalityRelations+=ColocalityRelation)*
-					(dissimilarityRelations+=DissimilarityRelation)*
-					(restrictionAlternatives+=RestrictionAlternatives)?
-	'}')?
-	
-	('Candidates' '{'
-					(explorationCandidates+=ExplorationCandidate)*
-	'}')?
+    ( 'Global'       '{'    properties+=SystemNameProperty                                                      '}' )   &
+    
+    ( 'Hardware'     '{'    (compartments+=Compartment)+                                                        '}' )   &
+    
+    ( 'Software'     '{' (
+                            applications+=Application                                                       |
+                            ('Alternatives' '{'  (applicationAlternatives+=ApplicationAlternative)+ '}')
+                         )+                                                                                     '}' )   &
+    
+    ( 'Restrictions' '{' 
+                        (
+                            dislocalityRelations+=DislocalityRelation                                       |
+                            colocalityRelations+=ColocalityRelation                                         |
+                            dissimilarityRelations+=DissimilarityRelation                                   |
+                            ('Alternatives' '{' (restrictionAlternatives+=RestrictionAlternative)+ '}')
+                        )*                                                                                      '}' )?  &
+    
+    ('Candidates' '{'       (explorationCandidates+=ExplorationCandidate)*                                      '}' )?                                                                                
 ;
+    
 
-/* HARDWARE */
-
+// Hardware Tree
 Compartment: 
-	'Compartment' name=ID '{'
-		('Manufacturer' 	'=' manufacturer=STRING 	';')?
-		('PowerSupply' 	'=' powerSupply=STRING 	';')?
-		(boxes+=Box)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}'
+    'Compartment' name=ID '{'
+        (   
+            properties+=ManufacturerProperty            | 
+            properties+=PowerSupplyProperty             |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            boxes+=Box                                                                                                  
+        )*
+    '}'
 ;
 
 Box:
-	'Box' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		(boards+=Board)*
-		(boardAlternatives+=BoardAlternatives)?
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}'
-;
-
-BoardAlternatives:
-	'Alternatives' '{' 
-			 (alternatives+=BoardAlternative)+
-	'}'
+ 'Box' name=ID '{'
+    (
+            properties+=ManufacturerProperty            |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            boards+=Board                               |
+            ('Alternatives' '{' (boardAlternatives+=BoardAlternative)+  '}')
+        )*
+ '}'
 ;
 
 BoardAlternative: 
-	'Alternative' name=ID '{'
-		(boards+=Board)*
-	'}'
+ 'Alternative' name=ID '{'
+  (boards+=Board)*
+ '}'
 ;
-	
+ 
 Board:
-	'Board' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('Type' 					'=' boardType=STRING ';')?
-		('PowerSupply' 			'=' powerSupply=STRING ';')?
-	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
-		('RAM'  					'=' ramCapacity=INT ';')?
-		('ROM'  					'=' romCapacity=INT ';')?
-		(processors+=Processor)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}'
+    'Board' name=ID   '{'
+        (
+            properties+=ManufacturerProperty            |
+            properties+=PowerSupplyProperty             |
+            properties+=BoardTypeProperty               |
+            properties+=RAMCapacityProperty             |
+            properties+=ROMCapacityProperty             |
+            properties+=DesignAssuranceLevelProperty    |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            processors+=Processor  
+        )*
+    '}'
 ;
 
 Processor:
-	'Processor' name=ID '{'
-	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
-	    ('Type'         			'=' processorType=STRING ';')?
-		(cores+=Core)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}';
+    'Processor' name=ID   '{'
+        (
+            properties+=ManufacturerProperty            |
+            properties+=ProcessorTypeProperty           |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           |
+            cores+=Core
+        )*
+    '}';
 
 Core:
-	'Core' name=ID '{' 
-		('Capacity' 					'=' capacity=INT ';')?
-		('Architecture' 				'=' architecture=STRING ';')?
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}';
+    'Core' name=ID '{'
+        (
+            properties+=CoreCapacityProperty            |
+            properties+=CoreArchitectureProperty        |
+            properties+=CustomIntProperty               |
+            properties+=CustomStringProperty            |
+            features+=Feature                           
+        )* 
+    '}';
+
+
+/* Features provided by the hardware */
+Feature:
+    FeatureSimple | FeatureSyncAccess | FeatureExclAccess;
+
+FeatureSimple returns Feature:
+    'Provides' shared?='shared' 'feature' name=STRING ';';
+
+FeatureSyncAccess returns Feature:
+    'Provides' shared?='shared' 'feature' name=STRING synchronizedAccess?='with' 'synchronized' 'access' ';';
+    
+FeatureExclAccess returns Feature:
+    'Provides' units=INT 'of' 'exclusive' 'feature' name=STRING ';';
+
+
 
 /* SOFTWARE */
 /* ******** */
 
-Application returns Application:
-	'Application' name=ID '{'
-	    ('CriticalityLevel' 		'=' criticalityLevel=DesignAssuranceLevelType ';')?
-		('Developer'		 		'=' developedBy=STRING ';')?
-		('RestrictDeploymentTo' '{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')?
-		(tasks+=Task)+
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}';
+Application:
+    'Application' name=ID '{'
+        (
+            properties+=CriticalityLevelProperty    |
+            properties+=DevelopedByProperty         |
+            properties+=CustomIntProperty           |
+            properties+=CustomStringProperty        |
+            tasks+=Task                             |
+            ('RestrictDeploymentTo' '{' 
+                restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] 
+                (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
+            '}' ';' )                               
+        )*
+    '}';
 
-Task returns Task:
-	'Task' name=ID '{'
-		('CoreUtilization' 			'=' coreUtilization=INT ';')? 
- 		('RequiredRAM' 				'=' ramUtilization=INT ';')? 
-		('RequiredROM'				'=' romUtilization=INT ';')? 
-		('RestrictDeploymentTo'	'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
-        ('Properties' '{' (customProperties+=CustomStringProperty | customProperties+=CustomIntProperty)* '}' )?
-	'}';
-
-ApplicationAlternatives: 
-	'Alternatives' '{'
-		(alternatives+=ApplicationAlternative)+
-	'}'
-;
-
+Task:
+    'Task' name=ID '{'
+        (
+            properties+=CoreUtilizationProperty     |
+            properties+=RAMUtilizationProperty      |
+            properties+=ROMUtilizationProperty      |
+            properties+=CustomIntProperty           |
+            properties+=CustomStringProperty        |
+            featureRequirements+=FeatureRequirement |
+            ('RestrictDeploymentTo' '{' 
+                  restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] 
+                  (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* 
+            '}' ';'
+            ) 
+        )*
+    '}';
+    
 ApplicationAlternative: 
-	'Alternative' name=ID  '{'
-		(applications+=Application)*
-	'}'
+    'Alternative' name=ID  '{'
+        (applications+=Application)*
+    '}'
 ;
+
+/* General Feature Requirements - see #38 */
+FeatureRequirement: 
+    SharedFeatureRequirement      |
+    ExclusiveFeatureRequirement;
+
+SharedFeatureRequirement returns FeatureRequirement:
+    'Requires' shared?='shared' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
+
+ExclusiveFeatureRequirement returns FeatureRequirement:
+    'Requires' units=INT 'of' 'exclusive' hardwareLevel=HardwareArchitectureLevelType 'feature' name=STRING ';';
+
 
 /* RELATIONEN */
-/* ********** */
-
-RestrictionAlternatives: 
-	'Alternatives' '{'
-		(alternatives+=RestrictionAlternative)+
-	'}'
-	;
-
 RestrictionAlternative: 
-	'Alternative' name=ID '{'
-		(dislocalityRelations+=DislocalityRelation)*
-		(colocalityRelations+=ColocalityRelation)*	
-		(dissimilarityRelations+=DissimilarityRelation)*
-	'}'
+    'Alternative' name=ID '{'
+        (dislocalityRelations+=DislocalityRelation)*
+        (colocalityRelations+=ColocalityRelation)* 
+        (dissimilarityRelations+=DissimilarityRelation)*
+    '}'
 ;
 
 DislocalityRelation:
-	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
+    softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
     'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
     
 ColocalityRelation:
-   	softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
-   	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+    softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
+    'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
     softwareElements+=[SoftwareElement] (',' softwareElements+=[SoftwareElement])*
@@ -153,73 +191,74 @@ DissimilarityRelation:
     dissimilarityClause=DissimilarityClause ';';
 
 DissimilarityClause:  
-	DissimilarityEntry | 
-	(=>DissimilarityDisjunction | DissimilarityConjunction);  
+    DissimilarityEntry | 
+    (=>DissimilarityDisjunction | DissimilarityConjunction);  
 
 DissimilarityEntry: 
-	dissimilarityAttribute=DissimilarityAttributes;
+    dissimilarityAttribute=DissimilarityAttributes;
 
 DissimilarityDisjunction: 
-	'(' dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ 	')' ;
+    '(' dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+  ')' ;
 
 DissimilarityConjunction: 
-	'(' dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ 	')';
+    '(' dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+  ')';
 
 enum DissimilarityAttributes:
-	COMPARTMENT_MANUFACTURER		= 'Compartment.Manufacturer'			|
-	COMPARTMENT_POWERSUPPLY		= 'Compartment.PowerSupply'			|
-	BOX_MANUFACTURER				= 'Box.Manufacturer'					|
-	BOARD_MANUFACTURER			= 'Board.Manufacturer'				|
-	BOARD_BOARDTYPE				= 'Board.Type'						|
-	BOARD_POWERSUPPLY			= 'Board.PowerSupply'				|
-	BOARD_ASSURANCELEVEL			= 'Board.DesignAssuranceLevel'		|
-	PROCESSOR_MANUFACTURER		= 'Processor.Manufacturer'			|
-	PROCESSOR_PROCESSORTYPE		= 'Processor.Type'					|
-	CORE_ARCHITECTURE			= 'Core.Architecture'
+    COMPARTMENT_MANUFACTURER    = 'Compartment.Manufacturer'    |
+    COMPARTMENT_POWERSUPPLY     = 'Compartment.PowerSupply'     |
+    BOX_MANUFACTURER            = 'Box.Manufacturer'            |
+    BOARD_MANUFACTURER          = 'Board.Manufacturer'          |
+    BOARD_BOARDTYPE             = 'Board.Type'                  |
+    BOARD_POWERSUPPLY           = 'Board.PowerSupply'           |
+    BOARD_ASSURANCELEVEL        = 'Board.DesignAssuranceLevel'  |
+    PROCESSOR_MANUFACTURER      = 'Processor.Manufacturer'      |
+    PROCESSOR_PROCESSORTYPE     = 'Processor.Type'              |
+    CORE_ARCHITECTURE           = 'Core.Architecture'
 ;
-
 
 /* Exploration Candidates */
-/* ********************** */
 ExplorationCandidate returns ExplorationCandidate:
-	'Candidate' name=ID '{'
-		('Boards' 		'=' boardAlternatives+=[BoardAlternative] 				(',' boardAlternatives+=[BoardAlternative])* 				';')?
-		('Applications' '=' applicationAlternatives+=[ApplicationAlternative] 	(',' applicationAlternatives+=[ApplicationAlternative])* 	';')?
-		('Restrictions' '=' restrictionAlternatives+=[RestrictionAlternative] 	(',' restrictionAlternatives+=[RestrictionAlternative])* 	';')?
-	'}' 
+    'Candidate' name=ID '{'
+        ('Boards'   '=' boardAlternatives+=[BoardAlternative]     (',' boardAlternatives+=[BoardAlternative])*     ';')?
+        ('Applications' '=' applicationAlternatives+=[ApplicationAlternative]  (',' applicationAlternatives+=[ApplicationAlternative])*  ';')?
+        ('Restrictions' '=' restrictionAlternatives+=[RestrictionAlternative]  (',' restrictionAlternatives+=[RestrictionAlternative])*  ';')?
+    '}' 
 ;
-
-/* Generic Stuff */
-/* ************* */
-
-CustomIntProperty:  
-    name=STRING '=' value=INT ';'
-;
-
-CustomStringProperty:
-    name=STRING '=' value=STRING ';'
-;
-
-QualifiedName:
-	ID ('.' ID)*
-;
-
-/* ENUMS */
-/* ***** */
 
 enum HardwareArchitectureLevelType returns HardwareArchitectureLevelType:
-	CORE 		= 'Core'		|
-	PROCESSOR 	= 'Processor'	|
-	BOARD		= 'Board'		|
-	BOX			= 'Box'			|
-	COMPARTMENT	= 'Compartment'
+    CORE           = 'Core'        |
+    PROCESSOR      = 'Processor'   |
+    BOARD          = 'Board'       |
+    BOX            = 'Box'         |
+    COMPARTMENT    = 'Compartment'
 ;
 
 enum DesignAssuranceLevelType returns DesignAssuranceLevelType: 
-	NONE= 'None' 	|
-	QS	= 'QS'	 	|
-	D	= 'D'		|
-	C	= 'C'		|
-	B	= 'B'		|
-	A 	= 'A'  
+    NONE            = 'None'    |
+    QS              = 'QS'      |
+    D               = 'D'       |
+    C               = 'C'       |
+    B               = 'B'       |
+    A               = 'A'  
 ;
+
+QualifiedName: ID ('.' ID)*;
+
+// Properties 
+SystemNameProperty:             'System'                '=' value=STRING                    ';';
+ManufacturerProperty:           'Manufacturer'          '=' value=STRING                    ';';
+PowerSupplyProperty:            'PowerSupply'           '=' value=STRING                    ';';
+BoardTypeProperty:              'Type'                  '=' value=STRING                    ';';
+RAMCapacityProperty:            'RAM'                   '=' value=INT                       ';';
+RAMUtilizationProperty:         'RequiredRAM'           '=' value=INT                       ';';
+ROMCapacityProperty:            'ROM'                   '=' value=INT                       ';';
+ROMUtilizationProperty:         'RequiredROM'           '=' value=INT                       ';';     
+DesignAssuranceLevelProperty:   'DesignAssuranceLevel'  '=' value=DesignAssuranceLevelType  ';';
+CriticalityLevelProperty:       'CriticalityLevel'      '=' value=DesignAssuranceLevelType  ';';
+ProcessorTypeProperty:          'Type'                  '=' value=STRING                    ';';
+CoreCapacityProperty:           'Capacity'              '=' value=INT                       ';';
+CoreUtilizationProperty:        'CoreUtilization'       '=' value=INT                       ';';
+CoreArchitectureProperty:       'Architecture'          '=' value=STRING                    ';';
+DevelopedByProperty:            'Developer'             '=' value=STRING                    ';';
+CustomIntProperty:              'Custom' 'Property' name=STRING '=' value=INT               ';';
+CustomStringProperty:           'Custom' 'Property' name=STRING '=' value=STRING            ';';

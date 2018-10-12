@@ -3,10 +3,8 @@ package ch.hilbri.assist.dse.dsl.formatting2
 import ch.hilbri.assist.dse.dsl.services.DSEDslGrammarAccess
 import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.ApplicationAlternative
-import ch.hilbri.assist.model.ApplicationAlternatives
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.BoardAlternative
-import ch.hilbri.assist.model.BoardAlternatives
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.ColocalityRelation
 import ch.hilbri.assist.model.DislocalityRelation
@@ -15,7 +13,6 @@ import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.ExplorationCandidate
 import ch.hilbri.assist.model.HardwareElement
 import ch.hilbri.assist.model.RestrictionAlternative
-import ch.hilbri.assist.model.RestrictionAlternatives
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
@@ -51,11 +48,6 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		box.boardAlternatives.forEach[format]
 	}
 
-	def dispatch void format(BoardAlternatives alternatives, extension IFormattableDocument document) {
-		alternatives.defaultFormat(document)
-		alternatives.alternatives.forEach[format]	
-	}
-
 	def dispatch void format(BoardAlternative alternative, extension IFormattableDocument document) {
 		alternative.defaultFormat(document)
 		alternative.boards.forEach[format]
@@ -64,11 +56,6 @@ class DSEDslFormatter extends AbstractFormatter2 {
 	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
 		hwElem.defaultFormat(document)
 		hwElem.eContents.forEach[format]
-	}
-
-	def dispatch void format(ApplicationAlternatives alternatives, extension IFormattableDocument document) {
-		alternatives.defaultFormat(document)
-		alternatives.alternatives.forEach[format]
 	}
 
 	def dispatch void format(ApplicationAlternative alternative, extension IFormattableDocument document) {
@@ -127,11 +114,6 @@ class DSEDslFormatter extends AbstractFormatter2 {
 			regionFor.keywords('AND').forEach[surround[oneSpace]]
 			regionFor.keywords('OR').forEach[surround[oneSpace]]
 		]
-	}
-
-	def dispatch void format(RestrictionAlternatives alternatives, extension IFormattableDocument document) {
-		alternatives.defaultFormat(document)
-		alternatives.alternatives.forEach[format]	
 	}
 
 	def dispatch void format(RestrictionAlternative alternative, extension IFormattableDocument document) {

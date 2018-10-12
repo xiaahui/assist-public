@@ -7,12 +7,10 @@ import ch.hilbri.assist.model.AbstractMappingMetric;
 import ch.hilbri.assist.model.AddInitTimeProperty;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationAlternative;
-import ch.hilbri.assist.model.ApplicationAlternatives;
 import ch.hilbri.assist.model.AssignedCoreProperty;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.BoardAlternative;
-import ch.hilbri.assist.model.BoardAlternatives;
 import ch.hilbri.assist.model.BoardTypeProperty;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.ColocalityRelation;
@@ -63,7 +61,6 @@ import ch.hilbri.assist.model.RAMUtilizationProperty;
 import ch.hilbri.assist.model.ROMCapacityProperty;
 import ch.hilbri.assist.model.ROMUtilizationProperty;
 import ch.hilbri.assist.model.RestrictionAlternative;
-import ch.hilbri.assist.model.RestrictionAlternatives;
 import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import ch.hilbri.assist.model.RestrictionStartAfterOtherFinished;
@@ -307,10 +304,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
                 return createBoxAdapter();
             }
             @Override
-            public Adapter caseBoardAlternatives(BoardAlternatives object) {
-                return createBoardAlternativesAdapter();
-            }
-            @Override
             public Adapter caseBoardAlternative(BoardAlternative object) {
                 return createBoardAlternativeAdapter();
             }
@@ -325,10 +318,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseCore(Core object) {
                 return createCoreAdapter();
-            }
-            @Override
-            public Adapter caseApplicationAlternatives(ApplicationAlternatives object) {
-                return createApplicationAlternativesAdapter();
             }
             @Override
             public Adapter caseApplicationAlternative(ApplicationAlternative object) {
@@ -413,10 +402,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseRestrictionDisjointExecution(RestrictionDisjointExecution object) {
                 return createRestrictionDisjointExecutionAdapter();
-            }
-            @Override
-            public Adapter caseRestrictionAlternatives(RestrictionAlternatives object) {
-                return createRestrictionAlternativesAdapter();
             }
             @Override
             public Adapter caseRestrictionAlternative(RestrictionAlternative object) {
@@ -1043,20 +1028,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.BoardAlternatives <em>Board Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.BoardAlternatives
-     * @generated
-     */
-    public Adapter createBoardAlternativesAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.BoardAlternative <em>Board Alternative</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -1109,20 +1080,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCoreAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.ApplicationAlternatives
-     * @generated
-     */
-    public Adapter createApplicationAlternativesAdapter() {
         return null;
     }
 
@@ -1417,20 +1374,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createRestrictionDisjointExecutionAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link ch.hilbri.assist.model.RestrictionAlternatives <em>Restriction Alternatives</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see ch.hilbri.assist.model.RestrictionAlternatives
-     * @generated
-     */
-    public Adapter createRestrictionAlternativesAdapter() {
         return null;
     }
 

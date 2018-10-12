@@ -52,12 +52,12 @@ class SchedulingDslFormatter extends AbstractFormatter2 {
 	def dispatch void format(Application app, extension IFormattableDocument document) {
 		app => [
             /* General indention */
-            regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_7).forEach[interior[indent]]
-            regionFor.keywords(applicationAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-            regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_7).forEach[append[newLine]]
+//            regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_7).forEach[interior[indent]]
+//            regionFor.keywords(applicationAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
+//            regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_7).forEach[append[newLine]]
             
-            regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_6_1).surround[oneSpace]
-            regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_6_3).prepend[oneSpace]
+//            regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_6_1).surround[oneSpace]
+//            regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_6_3).prepend[oneSpace]
             
             /* All assignments */
             regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
@@ -70,9 +70,9 @@ class SchedulingDslFormatter extends AbstractFormatter2 {
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		  task => [
             /* General indention */
-            regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_28).forEach[interior[indent]]
+//            regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_28).forEach[interior[indent]]
             regionFor.keywords(taskAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-            regionFor.keywords(taskAccess.rightCurlyBracketKeyword_28).forEach[append[newLine]]
+//            regionFor.keywords(taskAccess.rightCurlyBracketKeyword_28).forEach[append[newLine]]
             
             /* All assignments */
             regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
