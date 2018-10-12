@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
+import ch.hilbri.assist.model.RestrictionStartAtTheSameTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class RestrictionStartAtTheSameTimeItemProvider extends SimpleRelationIte
      */
 	@Override
 	public String getText(Object object) {
-        return getString("_UI_RestrictionStartAtTheSameTime_type");
+        String label = ((RestrictionStartAtTheSameTime)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_RestrictionStartAtTheSameTime_type") :
+            getString("_UI_RestrictionStartAtTheSameTime_type") + " " + label;
     }
 	
 

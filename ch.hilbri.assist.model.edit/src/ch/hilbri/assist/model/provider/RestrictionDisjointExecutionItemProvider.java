@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
+import ch.hilbri.assist.model.RestrictionDisjointExecution;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class RestrictionDisjointExecutionItemProvider extends SimpleRelationItem
      */
     @Override
     public String getText(Object object) {
-        return getString("_UI_RestrictionDisjointExecution_type");
+        String label = ((RestrictionDisjointExecution)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_RestrictionDisjointExecution_type") :
+            getString("_UI_RestrictionDisjointExecution_type") + " " + label;
     }
 
 

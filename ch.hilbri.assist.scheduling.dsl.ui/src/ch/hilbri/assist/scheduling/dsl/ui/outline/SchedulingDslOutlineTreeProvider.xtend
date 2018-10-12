@@ -3,7 +3,14 @@
  */
 package ch.hilbri.assist.scheduling.dsl.ui.outline
 
+import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.Compartment
+import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.Processor
+import ch.hilbri.assist.model.Task
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor
@@ -39,4 +46,30 @@ class SchedulingDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
                 createNode(contraintsNode, r)
         }
 	}
+	
+    /* Hardware */ 
+    def _createChildren(IOutlineNode parentNode, Compartment compartment) {
+        for (box : compartment.allBoxes) createNode(parentNode, box)
+    }
+    
+    def _createChildren(IOutlineNode parentNode, Box box) {
+        for (board : box.allBoards) createNode(parentNode, board)
+    }
+
+    def _createChildren(IOutlineNode parentNode, Board board) {
+        for (processor : board.allProcessors) createNode(parentNode, processor)
+    }   
+    
+    def _createChildren(IOutlineNode parentNode, Processor processor) {
+        for (core : processor.allCores) createNode(parentNode, core)
+    }
+    
+    def _isLeaf(Core core) { true }
+
+    /* Software */
+    def _createChildren(IOutlineNode parentNode, Application application) {
+        for (task : application.tasks) createNode(parentNode, task)
+    }
+    
+    def _isLeaf(Task task) { true }
 }

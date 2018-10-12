@@ -64,8 +64,10 @@ public class RestrictionStartAfterOtherFinishedItemProvider extends ComplexRelat
      */
 	@Override
 	public String getText(Object object) {
-        RestrictionStartAfterOtherFinished restrictionStartAfterOtherFinished = (RestrictionStartAfterOtherFinished)object;
-        return getString("_UI_RestrictionStartAfterOtherFinished_type") + " " + restrictionStartAfterOtherFinished.getDelay();
+        String label = ((RestrictionStartAfterOtherFinished)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_RestrictionStartAfterOtherFinished_type") :
+            getString("_UI_RestrictionStartAfterOtherFinished_type") + " " + label;
     }
 	
 

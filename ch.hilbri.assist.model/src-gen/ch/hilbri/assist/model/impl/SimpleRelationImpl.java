@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Simple Relation</b></em>'.
@@ -23,6 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.SimpleRelationImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.SimpleRelationImpl#getTaskNames <em>Task Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +40,16 @@ public class SimpleRelationImpl extends SchedulingRestrictionImpl implements Sim
      * @ordered
      */
     protected EList<Task> tasks;
+
+    /**
+     * The default value of the '{@link #getTaskNames() <em>Task Names</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTaskNames()
+     * @generated
+     * @ordered
+     */
+    protected static final String TASK_NAMES_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -74,11 +87,22 @@ public class SimpleRelationImpl extends SchedulingRestrictionImpl implements Sim
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getTaskNames() {
+        return IterableExtensions.join(this.getTasks(), ", ");
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case ModelPackage.SIMPLE_RELATION__TASKS:
                 return getTasks();
+            case ModelPackage.SIMPLE_RELATION__TASK_NAMES:
+                return getTaskNames();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -125,6 +149,8 @@ public class SimpleRelationImpl extends SchedulingRestrictionImpl implements Sim
         switch (featureID) {
             case ModelPackage.SIMPLE_RELATION__TASKS:
                 return tasks != null && !tasks.isEmpty();
+            case ModelPackage.SIMPLE_RELATION__TASK_NAMES:
+                return TASK_NAMES_EDEFAULT == null ? getTaskNames() != null : !TASK_NAMES_EDEFAULT.equals(getTaskNames());
         }
         return super.eIsSet(featureID);
     }

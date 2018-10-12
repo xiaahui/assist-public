@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Complex Relation</b></em>'.
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link ch.hilbri.assist.model.impl.ComplexRelationImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ComplexRelationImpl#getOtherTask <em>Other Task</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ComplexRelationImpl#getDelay <em>Delay</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ComplexRelationImpl#getTaskNames <em>Task Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +77,16 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * @ordered
      */
     protected int delay = DELAY_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getTaskNames() <em>Task Names</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTaskNames()
+     * @generated
+     * @ordered
+     */
+    protected static final String TASK_NAMES_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -170,6 +183,15 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getTaskNames() {
+        return IterableExtensions.join(this.getTasks(), ", ");
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -180,6 +202,8 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
                 return basicGetOtherTask();
             case ModelPackage.COMPLEX_RELATION__DELAY:
                 return getDelay();
+            case ModelPackage.COMPLEX_RELATION__TASK_NAMES:
+                return getTaskNames();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -242,6 +266,8 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
                 return otherTask != null;
             case ModelPackage.COMPLEX_RELATION__DELAY:
                 return delay != DELAY_EDEFAULT;
+            case ModelPackage.COMPLEX_RELATION__TASK_NAMES:
+                return TASK_NAMES_EDEFAULT == null ? getTaskNames() != null : !TASK_NAMES_EDEFAULT.equals(getTaskNames());
         }
         return super.eIsSet(featureID);
     }

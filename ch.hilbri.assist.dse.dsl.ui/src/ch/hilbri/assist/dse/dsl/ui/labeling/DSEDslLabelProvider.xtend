@@ -80,7 +80,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Task t) {
-		'Task' + t.getName
+		'Task ' + t.name
 	}
 
 	def image(Task t) {

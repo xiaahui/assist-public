@@ -4054,13 +4054,22 @@ public interface ModelPackage extends EPackage {
     int SIMPLE_RELATION__TASKS = SCHEDULING_RESTRICTION_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_RELATION__TASK_NAMES = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Simple Relation</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIMPLE_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 1;
+    int SIMPLE_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Simple Relation</em>' class.
@@ -4109,13 +4118,22 @@ public interface ModelPackage extends EPackage {
     int COMPLEX_RELATION__DELAY = SCHEDULING_RESTRICTION_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPLEX_RELATION__TASK_NAMES = SCHEDULING_RESTRICTION_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Complex Relation</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPLEX_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 3;
+    int COMPLEX_RELATION_FEATURE_COUNT = SCHEDULING_RESTRICTION_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Complex Relation</em>' class.
@@ -4144,6 +4162,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int RESTRICTION_START_AT_THE_SAME_TIME__TASKS = SIMPLE_RELATION__TASKS;
+
+    /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_START_AT_THE_SAME_TIME__TASK_NAMES = SIMPLE_RELATION__TASK_NAMES;
 
     /**
      * The number of structural features of the '<em>Restriction Start At The Same Time</em>' class.
@@ -4181,6 +4208,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int RESTRICTION_FINISH_AT_THE_SAME_TIME__TASKS = SIMPLE_RELATION__TASKS;
+
+    /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_FINISH_AT_THE_SAME_TIME__TASK_NAMES = SIMPLE_RELATION__TASK_NAMES;
 
     /**
      * The number of structural features of the '<em>Restriction Finish At The Same Time</em>' class.
@@ -4238,6 +4274,15 @@ public interface ModelPackage extends EPackage {
     int RESTRICTION_START_AFTER_OTHER_FINISHED__DELAY = COMPLEX_RELATION__DELAY;
 
     /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_START_AFTER_OTHER_FINISHED__TASK_NAMES = COMPLEX_RELATION__TASK_NAMES;
+
+    /**
      * The number of structural features of the '<em>Restriction Start After Other Finished</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4293,6 +4338,15 @@ public interface ModelPackage extends EPackage {
     int RESTRICTION_START_AFTER_OTHER_STARTED__DELAY = COMPLEX_RELATION__DELAY;
 
     /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_START_AFTER_OTHER_STARTED__TASK_NAMES = COMPLEX_RELATION__TASK_NAMES;
+
+    /**
      * The number of structural features of the '<em>Restriction Start After Other Started</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4328,6 +4382,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int RESTRICTION_DISJOINT_EXECUTION__TASKS = SIMPLE_RELATION__TASKS;
+
+    /**
+     * The feature id for the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RESTRICTION_DISJOINT_EXECUTION__TASK_NAMES = SIMPLE_RELATION__TASK_NAMES;
 
     /**
      * The number of structural features of the '<em>Restriction Disjoint Execution</em>' class.
@@ -7548,6 +7611,17 @@ public interface ModelPackage extends EPackage {
     EReference getSimpleRelation_Tasks();
 
     /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.SimpleRelation#getTaskNames <em>Task Names</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Task Names</em>'.
+     * @see ch.hilbri.assist.model.SimpleRelation#getTaskNames()
+     * @see #getSimpleRelation()
+     * @generated
+     */
+    EAttribute getSimpleRelation_TaskNames();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.ComplexRelation <em>Complex Relation</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7589,6 +7663,17 @@ public interface ModelPackage extends EPackage {
      * @generated
      */
     EAttribute getComplexRelation_Delay();
+
+    /**
+     * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ComplexRelation#getTaskNames <em>Task Names</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Task Names</em>'.
+     * @see ch.hilbri.assist.model.ComplexRelation#getTaskNames()
+     * @see #getComplexRelation()
+     * @generated
+     */
+    EAttribute getComplexRelation_TaskNames();
 
     /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.RestrictionStartAtTheSameTime <em>Restriction Start At The Same Time</em>}'.
@@ -10399,6 +10484,14 @@ public interface ModelPackage extends EPackage {
         EReference SIMPLE_RELATION__TASKS = eINSTANCE.getSimpleRelation_Tasks();
 
         /**
+         * The meta object literal for the '<em><b>Task Names</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIMPLE_RELATION__TASK_NAMES = eINSTANCE.getSimpleRelation_TaskNames();
+
+        /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ComplexRelationImpl <em>Complex Relation</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -10431,6 +10524,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EAttribute COMPLEX_RELATION__DELAY = eINSTANCE.getComplexRelation_Delay();
+
+        /**
+         * The meta object literal for the '<em><b>Task Names</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMPLEX_RELATION__TASK_NAMES = eINSTANCE.getComplexRelation_TaskNames();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.RestrictionStartAtTheSameTimeImpl <em>Restriction Start At The Same Time</em>}' class.

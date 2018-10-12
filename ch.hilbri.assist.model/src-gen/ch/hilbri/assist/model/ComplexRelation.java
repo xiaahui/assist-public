@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.model.ComplexRelation#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.ComplexRelation#getOtherTask <em>Other Task</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.ComplexRelation#getDelay <em>Delay</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.ComplexRelation#getTaskNames <em>Task Names</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.model.ModelPackage#getComplexRelation()
@@ -90,5 +91,20 @@ public interface ComplexRelation extends SchedulingRestriction {
      * @generated
      */
     void setDelay(int value);
+
+    /**
+     * Returns the value of the '<em><b>Task Names</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Task Names</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Task Names</em>' attribute.
+     * @see ch.hilbri.assist.model.ModelPackage#getComplexRelation_TaskNames()
+     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    String getTaskNames();
 
 } // ComplexRelation

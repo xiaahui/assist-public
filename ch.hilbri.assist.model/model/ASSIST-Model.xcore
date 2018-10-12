@@ -792,12 +792,14 @@ class SchedulingRestriction {}
 // Basic kinds of relations
 class SimpleRelation extends SchedulingRestriction {
     refers Task[2..*] tasks
+    derived String taskNames get { tasks.join(', ') }
 }
 
 class ComplexRelation extends SchedulingRestriction {
     refers Task[1..*] tasks
     refers Task       otherTask
     int               delay    
+    derived String taskNames get { tasks.join(', ') }
 }
 
 // Concrete relations:

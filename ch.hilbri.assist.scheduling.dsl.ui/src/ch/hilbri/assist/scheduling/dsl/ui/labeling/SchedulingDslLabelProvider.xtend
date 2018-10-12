@@ -77,7 +77,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(Task t) {
-        'Task' + t.getName
+        'Task ' + t.getName
     }
 
     def image(Task t) {
@@ -93,7 +93,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionStartAtTheSameTime r) {
-        'Start ' +  r.tasks.prettyList + ' together'
+        'Start [' +  r.taskNames + '] together'
     }
 
     def image(RestrictionStartAtTheSameTime r) {
@@ -101,7 +101,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionFinishAtTheSameTime r) {
-        'Finish ' + r.tasks.prettyList + '  together'
+        'Finish [' + r.taskNames + ']  together'
     }
 
     def image(RestrictionFinishAtTheSameTime r) {
@@ -109,7 +109,7 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionStartAfterOtherFinished r) {
-        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.getName + '] finished'
+        'Start [' + r.taskNames + '] after [' + r.otherTask.getName + '] finished'
     }
 
     def image(RestrictionStartAfterOtherFinished r) {
@@ -117,22 +117,13 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(RestrictionStartAfterOtherStarted r) {
-        'Start ' + r.tasks.prettyList + ' after [' + r.otherTask.getName + '] started'
+        'Start [' + r.taskNames + '] after [' + r.otherTask.getName + '] started'
     }
 
     def image(RestrictionStartAfterOtherStarted r) {
         'outlineview_constraint.png'
     }
 
-    private def String getPrettyList(Iterable<Task> list) {
-        val output = new StringBuilder()
-        output.append("[")
-        for (t : list) {
-            output.append(t.getName)
-            if (list.last != t) output.append(", ")
-        }
-        output.append("]")
-        return output.toString
-    }
+
 
 }

@@ -48,6 +48,7 @@ public class ComplexRelationItemProvider extends SchedulingRestrictionItemProvid
             addTasksPropertyDescriptor(object);
             addOtherTaskPropertyDescriptor(object);
             addDelayPropertyDescriptor(object);
+            addTaskNamesPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -119,6 +120,28 @@ public class ComplexRelationItemProvider extends SchedulingRestrictionItemProvid
     }
 
 	/**
+     * This adds a property descriptor for the Task Names feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTaskNamesPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ComplexRelation_taskNames_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ComplexRelation_taskNames_feature", "_UI_ComplexRelation_type"),
+                 ModelPackage.Literals.COMPLEX_RELATION__TASK_NAMES,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns ComplexRelation.gif.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,8 +160,10 @@ public class ComplexRelationItemProvider extends SchedulingRestrictionItemProvid
      */
 	@Override
 	public String getText(Object object) {
-        ComplexRelation complexRelation = (ComplexRelation)object;
-        return getString("_UI_ComplexRelation_type") + " " + complexRelation.getDelay();
+        String label = ((ComplexRelation)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_ComplexRelation_type") :
+            getString("_UI_ComplexRelation_type") + " " + label;
     }
 	
 
@@ -155,6 +180,7 @@ public class ComplexRelationItemProvider extends SchedulingRestrictionItemProvid
 
         switch (notification.getFeatureID(ComplexRelation.class)) {
             case ModelPackage.COMPLEX_RELATION__DELAY:
+            case ModelPackage.COMPLEX_RELATION__TASK_NAMES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

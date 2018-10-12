@@ -2745,6 +2745,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getSimpleRelation_TaskNames() {
+        return (EAttribute)simpleRelationEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getComplexRelation() {
         return complexRelationEClass;
     }
@@ -2774,6 +2783,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      */
     public EAttribute getComplexRelation_Delay() {
         return (EAttribute)complexRelationEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getComplexRelation_TaskNames() {
+        return (EAttribute)complexRelationEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3846,11 +3864,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         simpleRelationEClass = createEClass(SIMPLE_RELATION);
         createEReference(simpleRelationEClass, SIMPLE_RELATION__TASKS);
+        createEAttribute(simpleRelationEClass, SIMPLE_RELATION__TASK_NAMES);
 
         complexRelationEClass = createEClass(COMPLEX_RELATION);
         createEReference(complexRelationEClass, COMPLEX_RELATION__TASKS);
         createEReference(complexRelationEClass, COMPLEX_RELATION__OTHER_TASK);
         createEAttribute(complexRelationEClass, COMPLEX_RELATION__DELAY);
+        createEAttribute(complexRelationEClass, COMPLEX_RELATION__TASK_NAMES);
 
         restrictionStartAtTheSameTimeEClass = createEClass(RESTRICTION_START_AT_THE_SAME_TIME);
 
@@ -4454,11 +4474,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         initEClass(simpleRelationEClass, SimpleRelation.class, "SimpleRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSimpleRelation_Tasks(), this.getTask(), null, "tasks", null, 2, -1, SimpleRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSimpleRelation_TaskNames(), theEcorePackage.getEString(), "taskNames", null, 0, 1, SimpleRelation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(complexRelationEClass, ComplexRelation.class, "ComplexRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getComplexRelation_Tasks(), this.getTask(), null, "tasks", null, 1, -1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getComplexRelation_OtherTask(), this.getTask(), null, "otherTask", null, 0, 1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getComplexRelation_Delay(), theEcorePackage.getEInt(), "delay", null, 0, 1, ComplexRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getComplexRelation_TaskNames(), theEcorePackage.getEString(), "taskNames", null, 0, 1, ComplexRelation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(restrictionStartAtTheSameTimeEClass, RestrictionStartAtTheSameTime.class, "RestrictionStartAtTheSameTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -3,6 +3,7 @@
 package ch.hilbri.assist.model.provider;
 
 
+import ch.hilbri.assist.model.RestrictionFinishAtTheSameTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class RestrictionFinishAtTheSameTimeItemProvider extends SimpleRelationIt
      */
 	@Override
 	public String getText(Object object) {
-        return getString("_UI_RestrictionFinishAtTheSameTime_type");
+        String label = ((RestrictionFinishAtTheSameTime)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_RestrictionFinishAtTheSameTime_type") :
+            getString("_UI_RestrictionFinishAtTheSameTime_type") + " " + label;
     }
 	
 

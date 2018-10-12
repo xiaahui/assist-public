@@ -5,6 +5,7 @@ package ch.hilbri.assist.model.provider;
 
 import ch.hilbri.assist.model.ModelPackage;
 
+import ch.hilbri.assist.model.SimpleRelation;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link ch.hilbri.assist.model.SimpleRelation} object.
@@ -43,6 +46,7 @@ public class SimpleRelationItemProvider extends SchedulingRestrictionItemProvide
             super.getPropertyDescriptors(object);
 
             addTasksPropertyDescriptor(object);
+            addTaskNamesPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -70,6 +74,28 @@ public class SimpleRelationItemProvider extends SchedulingRestrictionItemProvide
     }
 
 	/**
+     * This adds a property descriptor for the Task Names feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTaskNamesPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_SimpleRelation_taskNames_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_SimpleRelation_taskNames_feature", "_UI_SimpleRelation_type"),
+                 ModelPackage.Literals.SIMPLE_RELATION__TASK_NAMES,
+                 false,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns SimpleRelation.gif.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +114,10 @@ public class SimpleRelationItemProvider extends SchedulingRestrictionItemProvide
      */
 	@Override
 	public String getText(Object object) {
-        return getString("_UI_SimpleRelation_type");
+        String label = ((SimpleRelation)object).getTaskNames();
+        return label == null || label.length() == 0 ?
+            getString("_UI_SimpleRelation_type") :
+            getString("_UI_SimpleRelation_type") + " " + label;
     }
 	
 
@@ -102,6 +131,12 @@ public class SimpleRelationItemProvider extends SchedulingRestrictionItemProvide
 	@Override
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
+
+        switch (notification.getFeatureID(SimpleRelation.class)) {
+            case ModelPackage.SIMPLE_RELATION__TASK_NAMES:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+        }
         super.notifyChanged(notification);
     }
 
