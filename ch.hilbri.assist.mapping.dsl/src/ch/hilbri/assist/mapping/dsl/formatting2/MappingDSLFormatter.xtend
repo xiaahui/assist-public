@@ -10,6 +10,8 @@ import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.Feature
 import ch.hilbri.assist.model.FeatureRequirement
 import ch.hilbri.assist.model.HardwareElement
+import ch.hilbri.assist.model.Property
+import ch.hilbri.assist.model.SoftwareElement
 import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
@@ -36,11 +38,14 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 		]
 	}
 
-	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
-		hwElem.defaultFormat(document)
-		hwElem.eContents.forEach[format]
-		hwElem.features.forEach[format]
-	}
+    def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
+        hwElem.defaultFormat(document)
+        hwElem.eContents.forEach[format]
+    }
+    
+    def dispatch void format(Property property, extension IFormattableDocument document) {
+        property.defaultFormat(document)
+    }
 
     def dispatch void format(Feature feature, extension IFormattableDocument document) {
         feature => [
@@ -54,19 +59,18 @@ class MappingDSLFormatter extends AbstractFormatter2 {
                       
            regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
         ]
-        
     }
 
 	def dispatch void format(Application app, extension IFormattableDocument document) {
 		app => [
 			/* General indention */
-//			regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_8).forEach[interior[indent]]
+			regionFor.keywordPairs(applicationAccess.leftCurlyBracketKeyword_2, applicationAccess.rightCurlyBracketKeyword_4).forEach[interior[indent]]
 			regionFor.keywords(applicationAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-//			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_8).forEach[append[newLine]]
+			regionFor.keywords(applicationAccess.rightCurlyBracketKeyword_4).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
-//			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_5_1).surround[oneSpace]
-//			regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_5_4).prepend[oneSpace]
+			regionFor.keyword(applicationAccess.leftCurlyBracketKeyword_3_5_1).surround[oneSpace]
+			regionFor.keyword(applicationAccess.rightCurlyBracketKeyword_3_5_4).prepend[oneSpace]
 			
 			/* All assignments */
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
@@ -74,18 +78,19 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
 		]
 		app.tasks.forEach[format]
+		app.properties.forEach[format]
 	}
 
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task => [
 			/* General indention */
-//			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_9).forEach[interior[indent]]
+			regionFor.keywordPairs(taskAccess.leftCurlyBracketKeyword_2, taskAccess.rightCurlyBracketKeyword_4).forEach[interior[indent]]
 			regionFor.keywords(taskAccess.leftCurlyBracketKeyword_2).forEach[append[newLine]]
-//			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_9).forEach[append[newLine]]
+			regionFor.keywords(taskAccess.rightCurlyBracketKeyword_4).forEach[append[newLine]]
 			
 			/* Restricting deployments in one line */
-//			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_8_1).surround[oneSpace]
-//			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_8_3).prepend[oneSpace]
+			regionFor.keyword(taskAccess.leftCurlyBracketKeyword_3_6_1).surround[oneSpace]
+			regionFor.keyword(taskAccess.rightCurlyBracketKeyword_3_6_4).prepend[oneSpace]
 			
 			/* All assignments */
 			regionFor.keywords(';').forEach[prepend[noSpace].append[newLine]]
@@ -93,8 +98,8 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 			regionFor.keywords(',').forEach[prepend[noSpace].append[oneSpace]]
 			
 		]
-
         task.featureRequirements.forEach[format]
+        task.properties.forEach[format]
 	}
 	
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
