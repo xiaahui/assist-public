@@ -1,6 +1,12 @@
 package ch.hilbri.assist.dse.dsl.ui.outline
 
+import ch.hilbri.assist.model.Application
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.Compartment
+import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.Processor
 import ch.hilbri.assist.model.RestrictionAlternative
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
@@ -8,6 +14,7 @@ import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.osgi.framework.FrameworkUtil
+import ch.hilbri.assist.model.Task
 
 /**
  * Customization of the default outline structure.
@@ -21,6 +28,8 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
 	val imgsubfolderDesc = ImageDescriptor.createFromURL(
 		FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));
+    val imgAlternativesDesc = ImageDescriptor.createFromURL(
+        FileLocator.find(bundle, new Path("icons/outlineview_alternatives.png"), null));
 
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 
@@ -33,9 +42,12 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
 		for (sw : model.applications)
 			createNode(applicationsNode, sw)
-		for (a : model.applicationAlternatives)
-			createNode(applicationsNode, a)
-
+		if (!model.applicationAlternatives.empty) {
+		    val applicationAlternatives = new VirtualOutlineNode(applicationsNode, imgAlternativesDesc, "Alternatives", false)
+    		for (a : model.applicationAlternatives)
+            createNode(applicationAlternatives, a)
+		}
+		
 		/* --------- CONSTRAINTS -------------- */
 		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty || !model.dissimilarityRelations.empty || !model.restrictionAlternatives.empty) {
 			val restrictionsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
@@ -62,8 +74,9 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			}
 
 			if (!model.restrictionAlternatives.empty) {
-				for (a : model.restrictionAlternatives)
-					createNode(restrictionsNode, a)
+		         val restrictionAlternativesNode = new VirtualOutlineNode(restrictionsNode, imgAlternativesDesc, "Alternatives", false)
+			     for (a : model.restrictionAlternatives)
+					createNode(restrictionAlternativesNode, a)
 			}
 		}
 
@@ -75,6 +88,40 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		}
 	}
 
+    /* Hardware */	
+	def _createChildren(IOutlineNode parentNode, Compartment compartment) {
+        for (box : compartment.allBoxes) createNode(parentNode, box)
+	}
+	
+	def _createChildren(IOutlineNode parentNode, Box box) {
+	    for (board : box.allBoards) createNode(parentNode, board)
+	    
+	    if (!box.boardAlternatives.empty) {
+	        val boardAlternativesNode = new VirtualOutlineNode(parentNode, imgAlternativesDesc, "Alternatives", false)
+	        for (a : box.boardAlternatives)
+	           createNode(boardAlternativesNode, a)
+	    }
+	}
+
+    def _createChildren(IOutlineNode parentNode, Board board) {
+        for (processor : board.allProcessors) createNode(parentNode, processor)
+    }	
+    
+    def _createChildren(IOutlineNode parentNode, Processor processor) {
+        for (core : processor.allCores) createNode(parentNode, core)
+    }
+    
+    def _isLeaf(Core core) { true }
+
+    /* Software */
+    def _createChildren(IOutlineNode parentNode, Application application) {
+        for (swElem : application.tasks) createNode(parentNode, swElem)
+    }
+    
+    def _isLeaf(Task task) { true }
+    
+    
+    /* Restriction Alternatives */
 	def _createChildren(IOutlineNode parentNode, RestrictionAlternative alternative) {
 		if (!alternative.dislocalityRelations.empty) {
 			val dislocalRelationNode = new VirtualOutlineNode(parentNode, imgsubfolderDesc, "Dislocality", false)
@@ -87,6 +134,12 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			for (r : alternative.colocalityRelations)
 				createNode(proximityRelationNode, r)
 		}
+		
+		if (!alternative.dissimilarityRelations.empty) {
+            val dissimilarityRelationNode = new VirtualOutlineNode(parentNode, imgsubfolderDesc, "Dissimilarity", false)
+            for (r : alternative.dissimilarityRelations)
+                createNode(dissimilarityRelationNode, r)
+        }
 	}
 
 }
