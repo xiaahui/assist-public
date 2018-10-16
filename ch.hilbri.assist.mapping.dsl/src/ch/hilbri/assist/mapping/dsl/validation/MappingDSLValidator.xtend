@@ -8,6 +8,7 @@ import ch.hilbri.assist.model.ModelPackage
 import ch.hilbri.assist.model.Property
 import ch.hilbri.assist.model.StringProperty
 import org.eclipse.xtext.validation.Check
+import ch.hilbri.assist.model.HardwareElement
 
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 
@@ -25,14 +26,17 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
     }
 
     @Check
-    def checkProperties(Compartment compartment) {
-        val allProperties = compartment.properties
+    def checkProperties(HardwareElement hwElem) {
+        val allProperties = hwElem.properties
         val propertiesList = allProperties.groupBy[class]
-        val multipleProperties = propertiesList.filter[className, properties|properties.size > 1]
+        val multipleProperties = propertiesList.filter[className, properties | properties.size > 1]
         for (classname : multipleProperties.keySet) {
             for (property : multipleProperties.get(classname)) {
-                warning('''There are multiple definitions of this property - using the value of the first definition: «multipleProperties.get(classname).head.value»''', 
-                    compartment, ModelPackage.Literals::HARDWARE_ELEMENT__PROPERTIES, allProperties.indexOf(property)
+                val propertyName = classname.name.split('\\.').last.split('Property').head
+                val hwLevel = hwElem.class.name.split('\\.').last.split('Impl').head
+                val propertyValue = multipleProperties.get(classname).head.value
+                warning('''There are multiple definitions of the "«propertyName»" property in «hwLevel» "«hwElem.name»". The value of the first definition ("«propertyValue»") will be used.''', 
+                    hwElem, ModelPackage.Literals::HARDWARE_ELEMENT__PROPERTIES, allProperties.indexOf(property)
                 )
             }
         }
