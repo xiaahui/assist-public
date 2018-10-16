@@ -783,6 +783,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getProperty__GetStringValue() {
+        return propertyEClass.getEOperations().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getStringProperty() {
         return stringPropertyEClass;
     }
@@ -3588,6 +3597,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         // Create classes and their features
         propertyEClass = createEClass(PROPERTY);
+        createEOperation(propertyEClass, PROPERTY___GET_STRING_VALUE);
 
         stringPropertyEClass = createEClass(STRING_PROPERTY);
         createEAttribute(stringPropertyEClass, STRING_PROPERTY__VALUE);
@@ -4067,6 +4077,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
         // Initialize classes, features, and operations; add parameters
         initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEOperation(getProperty__GetStringValue(), theEcorePackage.getEString(), "getStringValue", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
         initEClass(stringPropertyEClass, StringProperty.class, "StringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getStringProperty_Value(), theEcorePackage.getEString(), "value", "", 0, 1, StringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

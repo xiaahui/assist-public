@@ -81,13 +81,22 @@ public interface ModelPackage extends EPackage {
     int PROPERTY_FEATURE_COUNT = 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY___GET_STRING_VALUE = 0;
+
+    /**
      * The number of operations of the '<em>Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY_OPERATION_COUNT = 0;
+    int PROPERTY_OPERATION_COUNT = 1;
 
     /**
      * The meta object id for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
@@ -116,6 +125,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int STRING_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>String Property</em>' class.
@@ -155,6 +173,15 @@ public interface ModelPackage extends EPackage {
     int INT_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INT_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Int Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -190,6 +217,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int SYSTEM_NAME_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NAME_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>System Name Property</em>' class.
@@ -229,6 +265,15 @@ public interface ModelPackage extends EPackage {
     int MIN_HYP_PERIOD_LENGTH_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_HYP_PERIOD_LENGTH_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Min Hyp Period Length Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -264,6 +309,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int TASK_SWITCH_DELAY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TASK_SWITCH_DELAY_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Task Switch Delay Property</em>' class.
@@ -303,6 +357,15 @@ public interface ModelPackage extends EPackage {
     int MANUFACTURER_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MANUFACTURER_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Manufacturer Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -338,6 +401,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int POWER_SUPPLY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POWER_SUPPLY_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Power Supply Property</em>' class.
@@ -377,6 +449,15 @@ public interface ModelPackage extends EPackage {
     int BOARD_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOARD_TYPE_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Board Type Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -412,6 +493,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int PROCESSOR_TYPE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR_TYPE_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Processor Type Property</em>' class.
@@ -451,6 +541,15 @@ public interface ModelPackage extends EPackage {
     int RAM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_CAPACITY_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>RAM Capacity Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -486,6 +585,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int RAM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RAM_UTILIZATION_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>RAM Utilization Property</em>' class.
@@ -525,6 +633,15 @@ public interface ModelPackage extends EPackage {
     int ROM_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_CAPACITY_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>ROM Capacity Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -560,6 +677,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int ROM_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROM_UTILIZATION_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>ROM Utilization Property</em>' class.
@@ -599,6 +725,15 @@ public interface ModelPackage extends EPackage {
     int CORE_CAPACITY_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_CAPACITY_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Core Capacity Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -634,6 +769,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CORE_UTILIZATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_UTILIZATION_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Core Utilization Property</em>' class.
@@ -673,6 +817,15 @@ public interface ModelPackage extends EPackage {
     int CORE_ARCHITECTURE_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CORE_ARCHITECTURE_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Core Architecture Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -708,6 +861,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int DEVELOPED_BY_PROPERTY_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVELOPED_BY_PROPERTY___GET_STRING_VALUE = STRING_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Developed By Property</em>' class.
@@ -747,6 +909,15 @@ public interface ModelPackage extends EPackage {
     int DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DURATION_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Duration Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -782,6 +953,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int PERIOD_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIOD_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Period Property</em>' class.
@@ -821,6 +1001,15 @@ public interface ModelPackage extends EPackage {
     int EARLY_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EARLY_TOLERANCE_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Early Tolerance Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -856,6 +1045,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int LATE_TOLERANCE_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LATE_TOLERANCE_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Late Tolerance Property</em>' class.
@@ -895,6 +1093,15 @@ public interface ModelPackage extends EPackage {
     int MAX_START_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_START_TIME_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Max Start Time Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -930,6 +1137,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int MAX_END_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAX_END_TIME_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Max End Time Property</em>' class.
@@ -969,6 +1185,15 @@ public interface ModelPackage extends EPackage {
     int ADD_INIT_TIME_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_INIT_TIME_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Add Init Time Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1004,6 +1229,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int SLICES_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SLICES_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Slices Property</em>' class.
@@ -1043,6 +1277,15 @@ public interface ModelPackage extends EPackage {
     int MIN_SLICE_DURATION_PROPERTY_FEATURE_COUNT = INT_PROPERTY_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MIN_SLICE_DURATION_PROPERTY___GET_STRING_VALUE = INT_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Min Slice Duration Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1078,6 +1321,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int DESIGN_ASSURANCE_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DESIGN_ASSURANCE_LEVEL_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Design Assurance Level Property</em>' class.
@@ -1117,6 +1369,15 @@ public interface ModelPackage extends EPackage {
     int CRITICALITY_LEVEL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRITICALITY_LEVEL_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Criticality Level Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1152,6 +1413,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int PERIODICITY_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERIODICITY_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Periodicity Property</em>' class.
@@ -1191,6 +1461,15 @@ public interface ModelPackage extends EPackage {
     int COLOR_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLOR_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Color Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1228,6 +1507,15 @@ public interface ModelPackage extends EPackage {
     int ASSIGNED_CORE_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSIGNED_CORE_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Assigned Core Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1263,6 +1551,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CUSTOM_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_PROPERTY___GET_STRING_VALUE = PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Custom Property</em>' class.
@@ -1311,6 +1608,15 @@ public interface ModelPackage extends EPackage {
     int CUSTOM_INT_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_INT_PROPERTY___GET_STRING_VALUE = CUSTOM_PROPERTY___GET_STRING_VALUE;
+
+    /**
      * The number of operations of the '<em>Custom Int Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1355,6 +1661,15 @@ public interface ModelPackage extends EPackage {
      * @ordered
      */
     int CUSTOM_STRING_PROPERTY_FEATURE_COUNT = CUSTOM_PROPERTY_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get String Value</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_STRING_PROPERTY___GET_STRING_VALUE = CUSTOM_PROPERTY___GET_STRING_VALUE;
 
     /**
      * The number of operations of the '<em>Custom String Property</em>' class.
@@ -5360,6 +5675,16 @@ public interface ModelPackage extends EPackage {
     EClass getProperty();
 
     /**
+     * Returns the meta object for the '{@link ch.hilbri.assist.model.Property#getStringValue() <em>Get String Value</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get String Value</em>' operation.
+     * @see ch.hilbri.assist.model.Property#getStringValue()
+     * @generated
+     */
+    EOperation getProperty__GetStringValue();
+
+    /**
      * Returns the meta object for class '{@link ch.hilbri.assist.model.StringProperty <em>String Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8622,6 +8947,14 @@ public interface ModelPackage extends EPackage {
          * @generated
          */
         EClass PROPERTY = eINSTANCE.getProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Get String Value</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation PROPERTY___GET_STRING_VALUE = eINSTANCE.getProperty__GetStringValue();
 
         /**
          * The meta object literal for the '{@link ch.hilbri.assist.model.impl.StringPropertyImpl <em>String Property</em>}' class.
