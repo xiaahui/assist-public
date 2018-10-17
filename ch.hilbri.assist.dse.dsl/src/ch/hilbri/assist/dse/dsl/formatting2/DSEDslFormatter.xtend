@@ -53,6 +53,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		box.defaultFormat(document)
 		box.boards.forEach[format]
 		box.boardAlternatives.forEach[format]
+		box.properties.forEach[format]
 	}
 
 	def dispatch void format(BoardAlternative alternative, extension IFormattableDocument document) {
@@ -62,6 +63,7 @@ class DSEDslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(HardwareElement hwElem, extension IFormattableDocument document) {
 		hwElem.defaultFormat(document)
+		hwElem.properties.forEach[format]
 		hwElem.eContents.forEach[format]
 	}
 
@@ -74,12 +76,14 @@ class DSEDslFormatter extends AbstractFormatter2 {
 		app.defaultFormat(document)
 		app.regionFor.assignment(applicationAccess.nameAssignment_1).surround[oneSpace]
 		app.tasks.forEach[format]
+		app.properties.forEach[format]
 	}
 
 	def dispatch void format(Task task, extension IFormattableDocument document) {
 		task.defaultFormat(document)
 		task.regionFor.assignment(taskAccess.nameAssignment_1).surround[oneSpace]
-	// no children
+		task.properties.forEach[format]
+    	// no children
 	}
 
 	def dispatch void format(DislocalityRelation relation, extension IFormattableDocument document) {
