@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+C:\Users\hilb_ro\Eclipse-Workspaces\runtime-debug-ch.hilbri.assist.gui.product\.metadata\.plugins\org.eclipse.jdt.core
-3096636647.index
-2328269416.index
