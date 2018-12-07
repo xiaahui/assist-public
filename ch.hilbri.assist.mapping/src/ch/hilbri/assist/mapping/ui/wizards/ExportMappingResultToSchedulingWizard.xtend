@@ -2,7 +2,6 @@ package ch.hilbri.assist.mapping.ui.wizards
 
 import ch.hilbri.assist.mapping.exporter.DeploymentAsSchedulingModel
 import ch.hilbri.assist.model.MappingResult
-import ch.hilbri.assist.scheduling.dsl.SchedulingDslStandaloneSetup
 import java.io.IOException
 import java.lang.reflect.InvocationTargetException
 import org.eclipse.core.resources.IFile
@@ -10,7 +9,7 @@ import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.jface.operation.IRunnableWithProgress
@@ -86,16 +85,15 @@ class ExportMappingResultToSchedulingWizard extends BasicNewResourceWizard imple
 		
 		monitor.setTaskName("Creating scheduling model")
 		val schedulingModel = DeploymentAsSchedulingModel.create(mappingResult)
-		schedulingModel.systemName = systemName
 		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName, true)
 		
 		monitor.worked(1)
 		
 		monitor.setTaskName("Serializing scheduling model to " + fileName)
-		val injector = (new SchedulingDslStandaloneSetup()).createInjectorAndDoEMFRegistration()
-		val rs = injector.getInstance(ResourceSet)
-		val r = rs.createResource(schedulingModelURI)
+		val rs = new ResourceSetImpl
+        val r = rs.createResource(schedulingModelURI)
 		r.contents.add(schedulingModel)
+
 		try {
 			r.save(SaveOptions.newBuilder.format.options.toOptionsMap)
 		}
