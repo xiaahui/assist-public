@@ -28,7 +28,8 @@ import org.eclipse.app4mc.amalthea.model.TaskScheduler
 import org.eclipse.app4mc.amalthea.model.util.CustomPropertyUtil
 import org.eclipse.app4mc.amalthea.model.util.DeploymentUtil
 import org.eclipse.app4mc.amalthea.model.util.ModelUtil
-import org.eclipse.app4mc.amalthea.model.util.SearchElementsUtility
+import org.eclipse.app4mc.amalthea.model.AmaltheaIndex
+import java.util.regex.Pattern
 
 class ExportToAPP4MCModel {
 
@@ -60,7 +61,6 @@ class ExportToAPP4MCModel {
      *                      it could also be "null" for a clean and empty amalthea model 
      */
     static def Amalthea createModel(MappingResult result, Amalthea existingModel) {
-        val searchTool = new SearchElementsUtility(existingModel)
         val amaltheaFactory = AmaltheaFactory.eINSTANCE
         val mappingModel = ModelUtil.getOrCreateMappingModel(existingModel)
         
@@ -69,15 +69,15 @@ class ExportToAPP4MCModel {
             val assistCore = result.task2CoreMap.get(assistTask)
             
             // Make sure that the task is present in the amalthea model
-            if (!searchTool.getElementsBasedOnName(assistTask.fullName, Task).nullOrEmpty) {
-                val amaltheaTask = searchTool.getElementsBasedOnName(assistTask.fullName, Task).head
+            if (!AmaltheaIndex.getElements(existingModel, assistTask.fullName, Task).nullOrEmpty) {
+                val amaltheaTask = AmaltheaIndex.getElements(existingModel, assistTask.fullName, Task).head
                 
                 // Make sure that we have the core in the model
-                if (!searchTool.getElementsBasedOnName(assistCore.fullName, ProcessingUnit).nullOrEmpty) {
+                if (!AmaltheaIndex.getElements(existingModel, assistCore.fullName, ProcessingUnit).nullOrEmpty) {
 
                     // Make sure that we have a scheduler with a proper name there
                     // (we assume, that the schedule is configured properly (core affinity, ...))
-                    if (searchTool.getElementsBasedOnName("Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).isNullOrEmpty) {
+                    if (AmaltheaIndex.getElements(existingModel, "Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).isNullOrEmpty) {
 
                         // Create scheduler first
                         val osModel = ModelUtil.getOrCreateOsModel(existingModel)
@@ -91,7 +91,7 @@ class ExportToAPP4MCModel {
                         mappingModel.taskAllocation.removeAll(existingAllocations)
         
                     // We create the new task allocation 
-                    val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, searchTool)
+                    val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, existingModel)
                     mappingModel.taskAllocation.add(taskAlloc)                
                 }
             }
@@ -109,13 +109,11 @@ class ExportToAPP4MCModel {
     // ***************************************************************************
          
     private static def MappingModel createMappingModel(AmaltheaFactory amaltheaFactory, Amalthea amaltheaModel,  AssistModel assistModel, MappingResult result) {
-        val searchTool = new SearchElementsUtility(amaltheaModel)
-
         val mappingModel = amaltheaFactory.createMappingModel
 
         /* Create the allocation for the task scheduler */
-        for (taskScheduler : searchTool.getElementsBasedOnType(TaskScheduler)) {
-            val taskSchedulerAlloc = amaltheaFactory.createSchedulerAllocation(taskScheduler, searchTool) 
+        for (taskScheduler : AmaltheaIndex.getElements(amaltheaModel, Pattern.compile(".*"), TaskScheduler)) {
+            val taskSchedulerAlloc = amaltheaFactory.createSchedulerAllocation(taskScheduler, amaltheaModel) 
             mappingModel.schedulerAllocation.add(taskSchedulerAlloc)
         }
         
@@ -123,7 +121,7 @@ class ExportToAPP4MCModel {
         for (assistTask : assistModel.allTasks) {
             val assistCore = result.task2CoreMap.get(assistTask)
             if (assistCore !== null) {
-                val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, searchTool)
+                val taskAlloc = amaltheaFactory.createTaskAllocation(assistTask, assistCore, amaltheaModel)
                 mappingModel.taskAllocation.add(taskAlloc)            
             }
         }
@@ -131,25 +129,25 @@ class ExportToAPP4MCModel {
         return mappingModel
     }
     
-    private static def TaskAllocation createTaskAllocation(AmaltheaFactory amaltheaFactory, ch.hilbri.assist.model.Task assistTask, Core assistCore, SearchElementsUtility searchTool) {
+    private static def TaskAllocation createTaskAllocation(AmaltheaFactory amaltheaFactory, ch.hilbri.assist.model.Task assistTask, Core assistCore, Amalthea amaltheaModel) {
         amaltheaFactory.createTaskAllocation => [
-            val amaltheaTask = searchTool.getElementsBasedOnName(assistTask.fullName, Task).head
+            val amaltheaTask = AmaltheaIndex.getElements(amaltheaModel, assistTask.fullName, Task).head
             task = amaltheaTask
             
-            val amaltheaAssignedCore = searchTool.getElementsBasedOnName(assistCore.fullName, ProcessingUnit).head
+            val amaltheaAssignedCore = AmaltheaIndex.getElements(amaltheaModel, assistCore.fullName, ProcessingUnit).head
             affinity.add(amaltheaAssignedCore)
             
-            val amaltheaScheduler = searchTool.getElementsBasedOnName("Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).head
+            val amaltheaScheduler = AmaltheaIndex.getElements(amaltheaModel, "Scheduler/OS/" + assistCore.processor.fullName, TaskScheduler).head
             scheduler = amaltheaScheduler
         ]
     }
     
-    private static def SchedulerAllocation createSchedulerAllocation(AmaltheaFactory amaltheaFactory, TaskScheduler taskScheduler, SearchElementsUtility searchTool) {
+    private static def SchedulerAllocation createSchedulerAllocation(AmaltheaFactory amaltheaFactory, TaskScheduler taskScheduler, Amalthea amaltheaModel) {
         val processorFullName = taskScheduler.name.split("/").last
         
         amaltheaFactory.createSchedulerAllocation => [
                 // Find the processor in the amalthea model for this operating system
-                val amaltheaProcessor = searchTool.getElementsBasedOnName(processorFullName, HwStructure)
+                val amaltheaProcessor = AmaltheaIndex.getElements(amaltheaModel, processorFullName, HwStructure)
                                                   .filter[structureType == StructureType.MICROCONTROLLER]
                                                   .head
 
