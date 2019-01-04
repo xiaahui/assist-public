@@ -31,7 +31,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtend.lib.macro,
  org.eclipse.emf.mwe2.runtime,
  ch.qos.logback.core,
- ch.qos.logback.classic
+ ch.qos.logback.classic,
+ org.eclipse.ui.themes
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  org.osgi.framework,
