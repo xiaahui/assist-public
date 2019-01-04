@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target name="ch.hilbri.assist.releng.targetplatform" sequenceNumber="29">
 <locations>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201804281520"/>
-		<repository location="http://download.eclipse.org/nebula/releases/latest"/>
-	</location>
-	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.sphinx.feature.group" version="0.11.0.201706140911"/>
 		<repository location="http://download.eclipse.org/sphinx/releases/0.11.x"/>
 	</location>
@@ -47,6 +43,10 @@
         <unit id="org.eclipse.app4mc.amalthea.models.feature.group" version="0.9.1.201808011342"/>
         <repository location="http://download.eclipse.org/app4mc/updatesites/releases/0.9.1/"/>
         <unit id="org.eclipse.app4mc.amalthea.models.sdk.feature.group" version="0.9.1.201808011342"/>
+    </location>
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+        <unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201812241324"/>
+        <repository location="http://download.eclipse.org/nebula/releases/2.1.0"/>
     </location>
 </locations>
 </target>
