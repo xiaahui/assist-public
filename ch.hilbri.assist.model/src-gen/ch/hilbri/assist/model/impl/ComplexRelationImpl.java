@@ -112,6 +112,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Task> getTasks() {
         if (tasks == null) {
             tasks = new EObjectResolvingEList<Task>(Task.class, this, ModelPackage.COMPLEX_RELATION__TASKS);
@@ -124,6 +125,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Task getOtherTask() {
         if (otherTask != null && otherTask.eIsProxy()) {
             InternalEObject oldOtherTask = (InternalEObject)otherTask;
@@ -150,6 +152,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setOtherTask(Task newOtherTask) {
         Task oldOtherTask = otherTask;
         otherTask = newOtherTask;
@@ -162,6 +165,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getDelay() {
         return delay;
     }
@@ -171,6 +175,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDelay(int newDelay) {
         int oldDelay = delay;
         delay = newDelay;
@@ -183,6 +188,7 @@ public class ComplexRelationImpl extends SchedulingRestrictionImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getTaskNames() {
         return IterableExtensions.join(this.getTasks(), ", ");
     }

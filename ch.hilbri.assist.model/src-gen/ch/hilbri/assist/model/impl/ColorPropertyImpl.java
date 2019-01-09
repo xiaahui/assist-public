@@ -70,6 +70,7 @@ public class ColorPropertyImpl extends PropertyImpl implements ColorProperty {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Color getValue() {
         return value;
     }
@@ -79,6 +80,7 @@ public class ColorPropertyImpl extends PropertyImpl implements ColorProperty {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setValue(Color newValue) {
         Color oldValue = value;
         value = newValue == null ? VALUE_EDEFAULT : newValue;

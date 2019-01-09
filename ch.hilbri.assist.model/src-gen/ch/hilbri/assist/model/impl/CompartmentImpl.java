@@ -97,6 +97,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Box> getBoxes() {
         if (boxes == null) {
             boxes = new EObjectContainmentWithInverseEList<Box>(Box.class, this, ModelPackage.COMPARTMENT__BOXES, ModelPackage.BOX__COMPARTMENT);
@@ -109,6 +110,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         return this.getName();
     }
@@ -118,6 +120,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Box> getAllBoxes() {
         return this.getBoxes();
     }
@@ -127,6 +130,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Board> getAllBoards() {
         final Function1<Box, EList<Board>> _function = new Function1<Box, EList<Board>>() {
             public EList<Board> apply(final Box it) {
@@ -141,6 +145,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Processor> getAllProcessors() {
         final Function1<Box, EList<Processor>> _function = new Function1<Box, EList<Processor>>() {
             public EList<Processor> apply(final Box it) {
@@ -155,6 +160,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getAllCores() {
         final Function1<Box, EList<Core>> _function = new Function1<Box, EList<Core>>() {
             public EList<Core> apply(final Box it) {
@@ -169,6 +175,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getPowerSupply() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -198,6 +205,7 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPowerSupply(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

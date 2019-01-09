@@ -69,6 +69,7 @@ public class CustomIntPropertyImpl extends CustomPropertyImpl implements CustomI
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getValue() {
         return value;
     }
@@ -78,6 +79,7 @@ public class CustomIntPropertyImpl extends CustomPropertyImpl implements CustomI
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setValue(int newValue) {
         int oldValue = value;
         value = newValue;

@@ -112,6 +112,7 @@ public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -121,6 +122,7 @@ public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -133,6 +135,7 @@ public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<BoardAlternative> getBoardAlternatives() {
         if (boardAlternatives == null) {
             boardAlternatives = new EObjectResolvingEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES);
@@ -145,6 +148,7 @@ public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<ApplicationAlternative> getApplicationAlternatives() {
         if (applicationAlternatives == null) {
             applicationAlternatives = new EObjectResolvingEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
@@ -157,6 +161,7 @@ public class ExplorationCandidateImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<RestrictionAlternative> getRestrictionAlternatives() {
         if (restrictionAlternatives == null) {
             restrictionAlternatives = new EObjectResolvingEList<RestrictionAlternative>(RestrictionAlternative.class, this, ModelPackage.EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);

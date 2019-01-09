@@ -125,6 +125,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Application getApplication() {
         if (eContainerFeatureID() != ModelPackage.TASK__APPLICATION) return null;
         return (Application)eContainer();
@@ -155,6 +156,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setApplication(Application newApplication) {
         if (newApplication != eInternalContainer() || (eContainerFeatureID() != ModelPackage.TASK__APPLICATION && newApplication != null)) {
             if (EcoreUtil.isAncestor(this, newApplication))
@@ -176,6 +178,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<FeatureRequirement> getFeatureRequirements() {
         if (featureRequirements == null) {
             featureRequirements = new EObjectContainmentEList<FeatureRequirement>(FeatureRequirement.class, this, ModelPackage.TASK__FEATURE_REQUIREMENTS);
@@ -188,6 +191,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<HardwareElement> getRestrictMappingToHardwareElements() {
         if (restrictMappingToHardwareElements == null) {
             restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -200,6 +204,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         String _name = this.getApplication().getName();
         String _plus = (_name + ".");
@@ -212,6 +217,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getCoreUtilization() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -241,6 +247,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCoreUtilization(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -276,6 +283,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getRamUtilization() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -305,6 +313,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setRamUtilization(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -340,6 +349,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getRomUtilization() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -369,6 +379,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setRomUtilization(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -404,6 +415,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getDuration() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -433,6 +445,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDuration(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -468,6 +481,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getPeriod() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -497,6 +511,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPeriod(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -532,6 +547,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getEarlyTolerance() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -561,6 +577,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setEarlyTolerance(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -596,6 +613,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getLateTolerance() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -625,6 +643,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setLateTolerance(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -660,6 +679,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getMaxStartTime() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -689,6 +709,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMaxStartTime(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -724,6 +745,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getMaxEndTime() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -753,6 +775,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMaxEndTime(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -788,6 +811,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getAddInitTime() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -817,6 +841,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setAddInitTime(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -852,6 +877,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getSlices() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -881,6 +907,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setSlices(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -916,6 +943,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getMinSliceDuration() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -945,6 +973,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMinSliceDuration(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -980,6 +1009,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public PeriodicityType getPeriodicity() {
         PeriodicityType _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -1009,6 +1039,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPeriodicity(final PeriodicityType newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -1044,6 +1075,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Color getColor() {
         Color _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -1073,6 +1105,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setColor(final Color newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -1108,6 +1141,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Core getAssignedCore() {
         Core _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -1137,6 +1171,7 @@ public class TaskImpl extends SoftwareElementImpl implements Task {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setAssignedCore(final Core newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

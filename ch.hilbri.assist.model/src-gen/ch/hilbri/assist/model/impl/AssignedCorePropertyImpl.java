@@ -61,6 +61,7 @@ public class AssignedCorePropertyImpl extends PropertyImpl implements AssignedCo
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Core getValue() {
         if (value != null && value.eIsProxy()) {
             InternalEObject oldValue = (InternalEObject)value;
@@ -87,6 +88,7 @@ public class AssignedCorePropertyImpl extends PropertyImpl implements AssignedCo
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setValue(Core newValue) {
         Core oldValue = value;
         value = newValue;

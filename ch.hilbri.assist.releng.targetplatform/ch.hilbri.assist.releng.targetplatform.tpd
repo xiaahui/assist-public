@@ -1,0 +1,53 @@
+target "ch.hilbri.assist.releng.targetplatform"
+
+with requirements source configurePhase
+
+location "http://download.eclipse.org/sphinx/releases/0.11.x" {
+    org.eclipse.sphinx.core.feature.group                           lazy
+} 
+
+location "http://download.eclipse.org/releases/2018-12" {
+    org.eclipse.platform.feature.group                              lazy        
+    org.eclipse.rcp.feature.group                                   lazy       
+    org.eclipse.e4.rcp.feature.group                                lazy      
+    org.eclipse.e4.core.tools.feature.feature.group                 lazy
+    org.eclipse.equinox.sdk.feature.group                           lazy
+    org.eclipse.emf.ecore.xcore.sdk.feature.group                   lazy    
+    org.eclipse.jdt.feature.group                                   lazy
+    org.eclipse.wb.core.feature.feature.group                       lazy
+    org.eclipse.wb.core.java.feature.feature.group                  lazy
+    org.eclipse.wb.core.ui.feature.feature.group                    lazy
+    org.eclipse.wb.doc.user.feature.feature.group                   lazy
+    org.eclipse.wb.layout.group.feature.feature.group               lazy
+    org.eclipse.wb.rcp.doc.user.feature.feature.group               lazy
+    org.eclipse.wb.rcp.feature.feature.group                        lazy
+    org.eclipse.wb.swt.feature.feature.group                        lazy
+    org.eclipse.xtend.sdk.feature.group                             lazy
+    org.eclipse.xtext.sdk.feature.group                             lazy
+    org.eclipse.zest.sdk.feature.group                              lazy
+ }
+ 
+ location "http://download.eclipse.org/tools/orbit/downloads/drops/R20181128170323/repository" {
+    ch.qos.logback.classic                                          lazy
+    ch.qos.logback.classic.source                                   lazy
+    ch.qos.logback.core                                             lazy
+    ch.qos.logback.core.source		                                lazy
+    ch.qos.logback.slf4j                                            lazy
+    ch.qos.logback.slf4j.source                                     lazy
+    org.apache.commons.io                                           lazy
+    org.apache.commons.io.source                                    lazy
+    org.apache.commons.math3                                        lazy
+    org.apache.commons.math3.source                                 lazy
+    org.swtchart                                                    lazy
+    org.swtchart.source                                             lazy 
+ }
+ 
+ location "http://download.eclipse.org/app4mc/updatesites/releases/0.9.1/" {
+    org.eclipse.app4mc.amalthea.models.feature.group                lazy
+    org.eclipse.app4mc.amalthea.models.sdk.feature.group            lazy
+ }
+ 
+ location "http://download.eclipse.org/nebula/releases/2.1.0" {
+    org.eclipse.nebula.widgets.ganttchart.feature.feature.group     lazy
+ }
+ 

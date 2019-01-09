@@ -115,6 +115,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -124,6 +125,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -136,6 +138,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<DislocalityRelation> getDislocalityRelations() {
         if (dislocalityRelations == null) {
             dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
@@ -148,6 +151,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<ColocalityRelation> getColocalityRelations() {
         if (colocalityRelations == null) {
             colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
@@ -160,6 +164,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<DissimilarityRelation> getDissimilarityRelations() {
         if (dissimilarityRelations == null) {
             dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISSIMILARITY_RELATIONS);

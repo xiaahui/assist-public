@@ -107,6 +107,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Compartment getCompartment() {
         if (eContainerFeatureID() != ModelPackage.BOX__COMPARTMENT) return null;
         return (Compartment)eContainer();
@@ -137,6 +138,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCompartment(Compartment newCompartment) {
         if (newCompartment != eInternalContainer() || (eContainerFeatureID() != ModelPackage.BOX__COMPARTMENT && newCompartment != null)) {
             if (EcoreUtil.isAncestor(this, newCompartment))
@@ -158,6 +160,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Board> getBoards() {
         if (boards == null) {
             boards = new EObjectContainmentWithInverseEList<Board>(Board.class, this, ModelPackage.BOX__BOARDS, ModelPackage.BOARD__BOX);
@@ -170,6 +173,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<BoardAlternative> getBoardAlternatives() {
         if (boardAlternatives == null) {
             boardAlternatives = new EObjectContainmentEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.BOX__BOARD_ALTERNATIVES);
@@ -182,6 +186,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         String _fullName = this.getCompartment().getFullName();
         String _plus = (_fullName + ".");
@@ -194,6 +199,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Board> getAllBoards() {
         return this.getBoards();
     }
@@ -203,6 +209,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Processor> getAllProcessors() {
         final Function1<Board, EList<Processor>> _function = new Function1<Board, EList<Processor>>() {
             public EList<Processor> apply(final Board it) {
@@ -217,6 +224,7 @@ public class BoxImpl extends HardwareElementImpl implements Box {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getAllCores() {
         final Function1<Board, EList<Core>> _function = new Function1<Board, EList<Core>>() {
             public EList<Core> apply(final Board it) {

@@ -134,6 +134,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Application getApplication() {
         if (application != null && application.eIsProxy()) {
             InternalEObject oldApplication = (InternalEObject)application;
@@ -160,6 +161,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setApplication(Application newApplication) {
         Application oldApplication = application;
         application = newApplication;
@@ -172,6 +174,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Task getTask() {
         if (task != null && task.eIsProxy()) {
             InternalEObject oldTask = (InternalEObject)task;
@@ -198,6 +201,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setTask(Task newTask) {
         Task oldTask = task;
         task = newTask;
@@ -210,6 +214,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Core getCore() {
         if (core != null && core.eIsProxy()) {
             InternalEObject oldCore = (InternalEObject)core;
@@ -236,6 +241,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCore(Core newCore) {
         Core oldCore = core;
         core = newCore;
@@ -248,6 +254,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Processor getProcessor() {
         if (processor != null && processor.eIsProxy()) {
             InternalEObject oldProcessor = (InternalEObject)processor;
@@ -274,6 +281,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setProcessor(Processor newProcessor) {
         Processor oldProcessor = processor;
         processor = newProcessor;
@@ -286,6 +294,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Board getBoard() {
         if (board != null && board.eIsProxy()) {
             InternalEObject oldBoard = (InternalEObject)board;
@@ -312,6 +321,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBoard(Board newBoard) {
         Board oldBoard = board;
         board = newBoard;
@@ -324,6 +334,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Box getBox() {
         if (box != null && box.eIsProxy()) {
             InternalEObject oldBox = (InternalEObject)box;
@@ -350,6 +361,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBox(Box newBox) {
         Box oldBox = box;
         box = newBox;
@@ -362,6 +374,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Compartment getCompartment() {
         if (compartment != null && compartment.eIsProxy()) {
             InternalEObject oldCompartment = (InternalEObject)compartment;
@@ -388,6 +401,7 @@ public class SingleMappingElementImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCompartment(Compartment newCompartment) {
         Compartment oldCompartment = compartment;
         compartment = newCompartment;

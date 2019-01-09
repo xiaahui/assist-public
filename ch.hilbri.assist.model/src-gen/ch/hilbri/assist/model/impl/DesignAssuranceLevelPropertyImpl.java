@@ -70,6 +70,7 @@ public class DesignAssuranceLevelPropertyImpl extends PropertyImpl implements De
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DesignAssuranceLevelType getValue() {
         return value;
     }
@@ -79,6 +80,7 @@ public class DesignAssuranceLevelPropertyImpl extends PropertyImpl implements De
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setValue(DesignAssuranceLevelType newValue) {
         DesignAssuranceLevelType oldValue = value;
         value = newValue == null ? VALUE_EDEFAULT : newValue;

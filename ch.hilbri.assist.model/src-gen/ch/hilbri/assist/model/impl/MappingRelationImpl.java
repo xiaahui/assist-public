@@ -108,6 +108,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<SoftwareElement> getSoftwareElements() {
         if (softwareElements == null) {
             softwareElements = new EObjectResolvingEList<SoftwareElement>(SoftwareElement.class, this, ModelPackage.MAPPING_RELATION__SOFTWARE_ELEMENTS);
@@ -120,6 +121,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HardwareArchitectureLevelType getHardwareLevel() {
         return hardwareLevel;
     }
@@ -129,6 +131,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHardwareLevel(HardwareArchitectureLevelType newHardwareLevel) {
         HardwareArchitectureLevelType oldHardwareLevel = hardwareLevel;
         hardwareLevel = newHardwareLevel == null ? HARDWARE_LEVEL_EDEFAULT : newHardwareLevel;
@@ -141,6 +144,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<EList<Task>> getAllTasks() {
         final List<EList<Task>> list = CollectionLiterals.<EList<Task>>newArrayList();
         EList<SoftwareElement> _softwareElements = this.getSoftwareElements();
@@ -162,6 +166,7 @@ public class MappingRelationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getSoftwareElementNames() {
         return IterableExtensions.join(this.getSoftwareElements(), ", ");
     }

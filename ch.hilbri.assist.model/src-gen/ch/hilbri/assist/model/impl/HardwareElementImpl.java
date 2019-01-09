@@ -137,6 +137,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -146,6 +147,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -158,6 +160,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Property> getProperties() {
         if (properties == null) {
             properties = new EObjectContainmentEList<Property>(Property.class, this, ModelPackage.HARDWARE_ELEMENT__PROPERTIES);
@@ -170,6 +173,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Feature> getFeatures() {
         if (features == null) {
             features = new EObjectContainmentEList<Feature>(Feature.class, this, ModelPackage.HARDWARE_ELEMENT__FEATURES);
@@ -182,6 +186,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HardwareArchitectureLevelType getGetHardwareLevel() {
         HardwareArchitectureLevelType _xifexpression = null;
         if ((this instanceof Compartment)) {
@@ -223,6 +228,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getManufacturer() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -252,6 +258,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setManufacturer(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -287,6 +294,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<CustomProperty> getCustomPropertiesWithName(final String name) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -306,6 +314,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<CustomProperty> getCustomPropertiesWithNameAndValue(final String name, final String value) {
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
             public Boolean apply(final CustomProperty it) {
@@ -321,6 +330,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getCustomStringProperty(final String name) {
         String _xifexpression = null;
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
@@ -350,6 +360,7 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getCustomIntProperty(final String name) {
         int _xifexpression = (int) 0;
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {

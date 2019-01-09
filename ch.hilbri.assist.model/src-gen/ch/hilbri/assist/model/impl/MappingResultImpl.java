@@ -221,6 +221,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -230,6 +231,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -242,6 +244,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getIndex() {
         return index;
     }
@@ -251,6 +254,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setIndex(int newIndex) {
         int oldIndex = index;
         index = newIndex;
@@ -263,6 +267,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HashMap<Task, Core> getTask2CoreMap() {
         return task2CoreMap;
     }
@@ -272,6 +277,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setTask2CoreMap(HashMap<Task, Core> newTask2CoreMap) {
         HashMap<Task, Core> oldTask2CoreMap = task2CoreMap;
         task2CoreMap = newTask2CoreMap;
@@ -284,6 +290,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AssistModel getModel() {
         if (model != null && model.eIsProxy()) {
             InternalEObject oldModel = (InternalEObject)model;
@@ -310,6 +317,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setModel(AssistModel newModel) {
         AssistModel oldModel = model;
         model = newModel;
@@ -322,6 +330,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EMap<AbstractMappingMetric, Double> getMetricAbsoluteScoresMap() {
         if (metricAbsoluteScoresMap == null) {
             metricAbsoluteScoresMap = new EcoreEMap<AbstractMappingMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_ABSOLUTE_SCORES_MAP);
@@ -334,6 +343,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EMap<AbstractMappingMetric, Double> getMetricScaledScoresMap() {
         if (metricScaledScoresMap == null) {
             metricScaledScoresMap = new EcoreEMap<AbstractMappingMetric,Double>(ModelPackage.Literals.METRIC_SCORE_PAIR, MetricScorePairImpl.class, this, ModelPackage.MAPPING_RESULT__METRIC_SCALED_SCORES_MAP);
@@ -346,6 +356,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isPartialSolution() {
         return partialSolution;
     }
@@ -355,6 +366,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPartialSolution(boolean newPartialSolution) {
         boolean oldPartialSolution = partialSolution;
         partialSolution = newPartialSolution;
@@ -367,6 +379,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public double getAbsoluteTotalScore() {
         Double _xifexpression = null;
         boolean _isEmpty = this.getMetricAbsoluteScoresMap().keySet().isEmpty();
@@ -389,6 +402,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public double getScaledTotalScore() {
         Double _xifexpression = null;
         boolean _isEmpty = this.getMetricScaledScoresMap().keySet().isEmpty();
@@ -411,6 +425,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isUsed(final Core core) {
         boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(this.getMappedTasksForCore(core));
         return (!_isNullOrEmpty);
@@ -421,6 +436,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isUsed(final Processor processor) {
         final Function1<Core, Boolean> _function = new Function1<Core, Boolean>() {
             public Boolean apply(final Core it) {
@@ -436,6 +452,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isUsed(final Board board) {
         final Function1<Processor, Boolean> _function = new Function1<Processor, Boolean>() {
             public Boolean apply(final Processor it) {
@@ -451,6 +468,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isUsed(final Box box) {
         final Function1<Board, Boolean> _function = new Function1<Board, Boolean>() {
             public Boolean apply(final Board it) {
@@ -466,6 +484,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isUsed(final Compartment compartment) {
         final Function1<Box, Boolean> _function = new Function1<Box, Boolean>() {
             public Boolean apply(final Box it) {
@@ -481,6 +500,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Task> getMappedTasksForCore(final Core core) {
         final Function1<Task, Boolean> _function = new Function1<Task, Boolean>() {
             public Boolean apply(final Task it) {
@@ -496,6 +516,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getAbsoluteCoreUtilization(final Core core) {
         Integer _xblockexpression = null;
         {
@@ -529,6 +550,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public double getRelativeCoreUtilization(final Core core) {
         double _xifexpression = (double) 0;
         int _coreCapacity = core.getCoreCapacity();
@@ -551,6 +573,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HardwareElement getHardwareElementForTask(final Task task, final int level) {
         HardwareElement _xifexpression = null;
         if ((level == 0)) {
@@ -595,6 +618,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<SingleMappingElement> getMappingElements() {
         final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
             public SingleMappingElement apply(final Entry<Task, Core> it) {
@@ -637,6 +661,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int compareTo(final MappingResult o) {
         return Double.compare(o.getScaledTotalScore(), this.getScaledTotalScore());
     }
@@ -646,6 +671,7 @@ public class MappingResultImpl extends MinimalEObjectImpl.Container implements M
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String toString() {
         String _xblockexpression = null;
         {

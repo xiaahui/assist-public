@@ -106,6 +106,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Box getBox() {
         if (eContainerFeatureID() != ModelPackage.BOARD__BOX) return null;
         return (Box)eContainer();
@@ -136,6 +137,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBox(Box newBox) {
         if (newBox != eInternalContainer() || (eContainerFeatureID() != ModelPackage.BOARD__BOX && newBox != null)) {
             if (EcoreUtil.isAncestor(this, newBox))
@@ -157,6 +159,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Processor> getProcessors() {
         if (processors == null) {
             processors = new EObjectContainmentWithInverseEList<Processor>(Processor.class, this, ModelPackage.BOARD__PROCESSORS, ModelPackage.PROCESSOR__BOARD);
@@ -169,6 +172,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         String _xifexpression = null;
         Box _box = this.getBox();
@@ -190,6 +194,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String toString() {
         return this.getName();
     }
@@ -199,6 +204,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Processor> getAllProcessors() {
         return this.getProcessors();
     }
@@ -208,6 +214,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getAllCores() {
         final Function1<Processor, EList<Core>> _function = new Function1<Processor, EList<Core>>() {
             public EList<Core> apply(final Processor it) {
@@ -222,6 +229,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DesignAssuranceLevelType getAssuranceLevel() {
         DesignAssuranceLevelType _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -251,6 +259,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setAssuranceLevel(final DesignAssuranceLevelType newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -286,6 +295,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getPowerSupply() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -315,6 +325,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPowerSupply(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -350,6 +361,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getBoardType() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -379,6 +391,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBoardType(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -414,6 +427,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getRamCapacity() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -443,6 +457,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setRamCapacity(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -478,6 +493,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getRomCapacity() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -507,6 +523,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setRomCapacity(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

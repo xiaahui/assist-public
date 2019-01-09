@@ -66,6 +66,7 @@ public class DissimilarityConjunctionImpl extends DissimilarityClauseImpl implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<DissimilarityClause> getDissimilarityClauses() {
         if (dissimilarityClauses == null) {
             dissimilarityClauses = new EObjectContainmentEList<DissimilarityClause>(DissimilarityClause.class, this, ModelPackage.DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES);

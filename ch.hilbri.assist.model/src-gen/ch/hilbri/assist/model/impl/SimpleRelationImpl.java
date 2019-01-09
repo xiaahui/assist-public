@@ -75,6 +75,7 @@ public class SimpleRelationImpl extends SchedulingRestrictionImpl implements Sim
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Task> getTasks() {
         if (tasks == null) {
             tasks = new EObjectResolvingEList<Task>(Task.class, this, ModelPackage.SIMPLE_RELATION__TASKS);
@@ -87,6 +88,7 @@ public class SimpleRelationImpl extends SchedulingRestrictionImpl implements Sim
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getTaskNames() {
         return IterableExtensions.join(this.getTasks(), ", ");
     }

@@ -62,6 +62,7 @@ public class DissimilarityRelationImpl extends MappingRelationImpl implements Di
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DissimilarityClause getDissimilarityClause() {
         return dissimilarityClause;
     }
@@ -86,6 +87,7 @@ public class DissimilarityRelationImpl extends MappingRelationImpl implements Di
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDissimilarityClause(DissimilarityClause newDissimilarityClause) {
         if (newDissimilarityClause != dissimilarityClause) {
             NotificationChain msgs = null;

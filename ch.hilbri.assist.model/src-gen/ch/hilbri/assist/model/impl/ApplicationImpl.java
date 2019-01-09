@@ -104,6 +104,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Task> getTasks() {
         if (tasks == null) {
             tasks = new EObjectContainmentWithInverseEList<Task>(Task.class, this, ModelPackage.APPLICATION__TASKS, ModelPackage.TASK__APPLICATION);
@@ -116,6 +117,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<HardwareElement> getRestrictMappingToHardwareElements() {
         if (restrictMappingToHardwareElements == null) {
             restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -128,6 +130,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         return this.getName();
     }
@@ -137,6 +140,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getDevelopedBy() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -166,6 +170,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDevelopedBy(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -201,6 +206,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DesignAssuranceLevelType getCriticalityLevel() {
         DesignAssuranceLevelType _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -230,6 +236,7 @@ public class ApplicationImpl extends SoftwareElementImpl implements Application 
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCriticalityLevel(final DesignAssuranceLevelType newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

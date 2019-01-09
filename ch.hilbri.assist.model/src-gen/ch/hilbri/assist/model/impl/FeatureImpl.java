@@ -144,6 +144,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -153,6 +154,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -165,6 +167,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getUnits() {
         return units;
     }
@@ -174,6 +177,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setUnits(int newUnits) {
         int oldUnits = units;
         units = newUnits;
@@ -186,6 +190,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isSynchronizedAccess() {
         return synchronizedAccess;
     }
@@ -195,6 +200,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setSynchronizedAccess(boolean newSynchronizedAccess) {
         boolean oldSynchronizedAccess = synchronizedAccess;
         synchronizedAccess = newSynchronizedAccess;
@@ -207,6 +213,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isShared() {
         return shared;
     }
@@ -216,6 +223,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setShared(boolean newShared) {
         boolean oldShared = shared;
         shared = newShared;
@@ -228,6 +236,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isIsExclusive() {
         boolean _isShared = this.isShared();
         return (!_isShared);

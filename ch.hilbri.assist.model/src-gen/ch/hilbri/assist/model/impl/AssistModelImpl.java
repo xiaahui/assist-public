@@ -201,6 +201,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Property> getProperties() {
         if (properties == null) {
             properties = new EObjectContainmentEList<Property>(Property.class, this, ModelPackage.ASSIST_MODEL__PROPERTIES);
@@ -213,6 +214,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Compartment> getCompartments() {
         if (compartments == null) {
             compartments = new EObjectContainmentEList<Compartment>(Compartment.class, this, ModelPackage.ASSIST_MODEL__COMPARTMENTS);
@@ -225,6 +227,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Application> getApplications() {
         if (applications == null) {
             applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.ASSIST_MODEL__APPLICATIONS);
@@ -237,6 +240,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<ApplicationAlternative> getApplicationAlternatives() {
         if (applicationAlternatives == null) {
             applicationAlternatives = new EObjectContainmentEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
@@ -249,6 +253,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<DislocalityRelation> getDislocalityRelations() {
         if (dislocalityRelations == null) {
             dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS);
@@ -261,6 +266,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<ColocalityRelation> getColocalityRelations() {
         if (colocalityRelations == null) {
             colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS);
@@ -273,6 +279,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<DissimilarityRelation> getDissimilarityRelations() {
         if (dissimilarityRelations == null) {
             dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
@@ -285,6 +292,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<SchedulingRestriction> getSchedulingRestrictions() {
         if (schedulingRestrictions == null) {
             schedulingRestrictions = new EObjectContainmentEList<SchedulingRestriction>(SchedulingRestriction.class, this, ModelPackage.ASSIST_MODEL__SCHEDULING_RESTRICTIONS);
@@ -297,6 +305,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<RestrictionAlternative> getRestrictionAlternatives() {
         if (restrictionAlternatives == null) {
             restrictionAlternatives = new EObjectContainmentEList<RestrictionAlternative>(RestrictionAlternative.class, this, ModelPackage.ASSIST_MODEL__RESTRICTION_ALTERNATIVES);
@@ -309,6 +318,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<ExplorationCandidate> getExplorationCandidates() {
         if (explorationCandidates == null) {
             explorationCandidates = new EObjectContainmentEList<ExplorationCandidate>(ExplorationCandidate.class, this, ModelPackage.ASSIST_MODEL__EXPLORATION_CANDIDATES);
@@ -321,6 +331,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Compartment> getAllCompartments() {
         return this.getCompartments();
     }
@@ -330,6 +341,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Box> getAllBoxes() {
         final Function1<Compartment, EList<Box>> _function = new Function1<Compartment, EList<Box>>() {
             public EList<Box> apply(final Compartment it) {
@@ -344,6 +356,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Board> getAllBoards() {
         final Function1<Compartment, EList<Board>> _function = new Function1<Compartment, EList<Board>>() {
             public EList<Board> apply(final Compartment it) {
@@ -358,6 +371,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Processor> getAllProcessors() {
         final Function1<Compartment, EList<Processor>> _function = new Function1<Compartment, EList<Processor>>() {
             public EList<Processor> apply(final Compartment it) {
@@ -372,6 +386,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getAllCores() {
         final Function1<Compartment, EList<Core>> _function = new Function1<Compartment, EList<Core>>() {
             public EList<Core> apply(final Compartment it) {
@@ -386,6 +401,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Task> getAllTasks() {
         final Function1<Application, EList<Task>> _function = new Function1<Application, EList<Task>>() {
             public EList<Task> apply(final Application it) {
@@ -400,6 +416,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<HardwareElement> getAllHardwareElements(final HardwareArchitectureLevelType level) {
         EList<HardwareElement> _switchResult = null;
         if (level != null) {
@@ -431,6 +448,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<HardwareElement> getAllHardwareElements(final int level) {
         EList<HardwareElement> _xifexpression = null;
         if ((level == 0)) {
@@ -500,6 +518,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<HardwareElement> getAllHardwareElements() {
         final Function1<Compartment, HardwareElement> _function = new Function1<Compartment, HardwareElement>() {
             public HardwareElement apply(final Compartment it) {
@@ -543,6 +562,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getSystemName() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -572,6 +592,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setSystemName(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -607,6 +628,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getMinHypPeriodLength() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -636,6 +658,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMinHypPeriodLength(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -671,6 +694,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getTaskSwitchDelay() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -700,6 +724,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setTaskSwitchDelay(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

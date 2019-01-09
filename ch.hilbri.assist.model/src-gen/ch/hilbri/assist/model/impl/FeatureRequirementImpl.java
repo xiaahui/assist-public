@@ -145,6 +145,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -154,6 +155,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -166,6 +168,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HardwareArchitectureLevelType getHardwareLevel() {
         return hardwareLevel;
     }
@@ -175,6 +178,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHardwareLevel(HardwareArchitectureLevelType newHardwareLevel) {
         HardwareArchitectureLevelType oldHardwareLevel = hardwareLevel;
         hardwareLevel = newHardwareLevel == null ? HARDWARE_LEVEL_EDEFAULT : newHardwareLevel;
@@ -187,6 +191,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getUnits() {
         return units;
     }
@@ -196,6 +201,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setUnits(int newUnits) {
         int oldUnits = units;
         units = newUnits;
@@ -208,6 +214,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isShared() {
         return shared;
     }
@@ -217,6 +224,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setShared(boolean newShared) {
         boolean oldShared = shared;
         shared = newShared;
@@ -229,6 +237,7 @@ public class FeatureRequirementImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isIsExclusive() {
         boolean _isShared = this.isShared();
         return (!_isShared);

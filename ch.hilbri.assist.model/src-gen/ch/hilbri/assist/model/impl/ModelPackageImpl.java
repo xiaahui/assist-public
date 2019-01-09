@@ -774,6 +774,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getProperty() {
         return propertyEClass;
     }
@@ -783,6 +784,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getProperty__GetStringValue() {
         return propertyEClass.getEOperations().get(0);
     }
@@ -792,6 +794,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getStringProperty() {
         return stringPropertyEClass;
     }
@@ -801,6 +804,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getStringProperty_Value() {
         return (EAttribute)stringPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -810,6 +814,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getIntProperty() {
         return intPropertyEClass;
     }
@@ -819,6 +824,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getIntProperty_Value() {
         return (EAttribute)intPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -828,6 +834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSystemNameProperty() {
         return systemNamePropertyEClass;
     }
@@ -837,6 +844,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMinHypPeriodLengthProperty() {
         return minHypPeriodLengthPropertyEClass;
     }
@@ -846,6 +854,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getTaskSwitchDelayProperty() {
         return taskSwitchDelayPropertyEClass;
     }
@@ -855,6 +864,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getManufacturerProperty() {
         return manufacturerPropertyEClass;
     }
@@ -864,6 +874,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getPowerSupplyProperty() {
         return powerSupplyPropertyEClass;
     }
@@ -873,6 +884,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getBoardTypeProperty() {
         return boardTypePropertyEClass;
     }
@@ -882,6 +894,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getProcessorTypeProperty() {
         return processorTypePropertyEClass;
     }
@@ -891,6 +904,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRAMCapacityProperty() {
         return ramCapacityPropertyEClass;
     }
@@ -900,6 +914,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRAMUtilizationProperty() {
         return ramUtilizationPropertyEClass;
     }
@@ -909,6 +924,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getROMCapacityProperty() {
         return romCapacityPropertyEClass;
     }
@@ -918,6 +934,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getROMUtilizationProperty() {
         return romUtilizationPropertyEClass;
     }
@@ -927,6 +944,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCoreCapacityProperty() {
         return coreCapacityPropertyEClass;
     }
@@ -936,6 +954,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCoreUtilizationProperty() {
         return coreUtilizationPropertyEClass;
     }
@@ -945,6 +964,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCoreArchitectureProperty() {
         return coreArchitecturePropertyEClass;
     }
@@ -954,6 +974,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDevelopedByProperty() {
         return developedByPropertyEClass;
     }
@@ -963,6 +984,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDurationProperty() {
         return durationPropertyEClass;
     }
@@ -972,6 +994,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getPeriodProperty() {
         return periodPropertyEClass;
     }
@@ -981,6 +1004,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getEarlyToleranceProperty() {
         return earlyTolerancePropertyEClass;
     }
@@ -990,6 +1014,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getLateToleranceProperty() {
         return lateTolerancePropertyEClass;
     }
@@ -999,6 +1024,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMaxStartTimeProperty() {
         return maxStartTimePropertyEClass;
     }
@@ -1008,6 +1034,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMaxEndTimeProperty() {
         return maxEndTimePropertyEClass;
     }
@@ -1017,6 +1044,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAddInitTimeProperty() {
         return addInitTimePropertyEClass;
     }
@@ -1026,6 +1054,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSlicesProperty() {
         return slicesPropertyEClass;
     }
@@ -1035,6 +1064,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMinSliceDurationProperty() {
         return minSliceDurationPropertyEClass;
     }
@@ -1044,6 +1074,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDesignAssuranceLevelProperty() {
         return designAssuranceLevelPropertyEClass;
     }
@@ -1053,6 +1084,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getDesignAssuranceLevelProperty_Value() {
         return (EAttribute)designAssuranceLevelPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1062,6 +1094,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCriticalityLevelProperty() {
         return criticalityLevelPropertyEClass;
     }
@@ -1071,6 +1104,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCriticalityLevelProperty_Value() {
         return (EAttribute)criticalityLevelPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1080,6 +1114,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getPeriodicityProperty() {
         return periodicityPropertyEClass;
     }
@@ -1089,6 +1124,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getPeriodicityProperty_Value() {
         return (EAttribute)periodicityPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1098,6 +1134,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getColorProperty() {
         return colorPropertyEClass;
     }
@@ -1107,6 +1144,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getColorProperty_Value() {
         return (EAttribute)colorPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1116,6 +1154,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAssignedCoreProperty() {
         return assignedCorePropertyEClass;
     }
@@ -1125,6 +1164,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssignedCoreProperty_Value() {
         return (EReference)assignedCorePropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1134,6 +1174,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCustomProperty() {
         return customPropertyEClass;
     }
@@ -1143,6 +1184,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCustomProperty_Name() {
         return (EAttribute)customPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1152,6 +1194,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCustomIntProperty() {
         return customIntPropertyEClass;
     }
@@ -1161,6 +1204,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCustomIntProperty_Value() {
         return (EAttribute)customIntPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1170,6 +1214,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCustomStringProperty() {
         return customStringPropertyEClass;
     }
@@ -1179,6 +1224,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCustomStringProperty_Value() {
         return (EAttribute)customStringPropertyEClass.getEStructuralFeatures().get(0);
     }
@@ -1188,6 +1234,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAssistModel() {
         return assistModelEClass;
     }
@@ -1197,6 +1244,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_Properties() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(0);
     }
@@ -1206,6 +1254,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_Compartments() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(1);
     }
@@ -1215,6 +1264,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_Applications() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(2);
     }
@@ -1224,6 +1274,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_ApplicationAlternatives() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
     }
@@ -1233,6 +1284,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_DislocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
     }
@@ -1242,6 +1294,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_ColocalityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
     }
@@ -1251,6 +1304,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_DissimilarityRelations() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
     }
@@ -1260,6 +1314,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_SchedulingRestrictions() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
     }
@@ -1269,6 +1324,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_RestrictionAlternatives() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
     }
@@ -1278,6 +1334,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getAssistModel_ExplorationCandidates() {
         return (EReference)assistModelEClass.getEStructuralFeatures().get(9);
     }
@@ -1287,6 +1344,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllCompartments() {
         return assistModelEClass.getEOperations().get(0);
     }
@@ -1296,6 +1354,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllBoxes() {
         return assistModelEClass.getEOperations().get(1);
     }
@@ -1305,6 +1364,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllBoards() {
         return assistModelEClass.getEOperations().get(2);
     }
@@ -1314,6 +1374,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllProcessors() {
         return assistModelEClass.getEOperations().get(3);
     }
@@ -1323,6 +1384,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllCores() {
         return assistModelEClass.getEOperations().get(4);
     }
@@ -1332,6 +1394,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllTasks() {
         return assistModelEClass.getEOperations().get(5);
     }
@@ -1341,6 +1404,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
         return assistModelEClass.getEOperations().get(6);
     }
@@ -1350,6 +1414,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllHardwareElements__int() {
         return assistModelEClass.getEOperations().get(7);
     }
@@ -1359,6 +1424,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetAllHardwareElements() {
         return assistModelEClass.getEOperations().get(8);
     }
@@ -1368,6 +1434,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetSystemName() {
         return assistModelEClass.getEOperations().get(9);
     }
@@ -1377,6 +1444,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__SetSystemName__String() {
         return assistModelEClass.getEOperations().get(10);
     }
@@ -1386,6 +1454,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetMinHypPeriodLength() {
         return assistModelEClass.getEOperations().get(11);
     }
@@ -1395,6 +1464,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__SetMinHypPeriodLength__int() {
         return assistModelEClass.getEOperations().get(12);
     }
@@ -1404,6 +1474,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__GetTaskSwitchDelay() {
         return assistModelEClass.getEOperations().get(13);
     }
@@ -1413,6 +1484,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAssistModel__SetTaskSwitchDelay__int() {
         return assistModelEClass.getEOperations().get(14);
     }
@@ -1422,6 +1494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHardwareElement() {
         return hardwareElementEClass;
     }
@@ -1431,6 +1504,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHardwareElement_Name() {
         return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(0);
     }
@@ -1440,6 +1514,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getHardwareElement_Properties() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(1);
     }
@@ -1449,6 +1524,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getHardwareElement_Features() {
         return (EReference)hardwareElementEClass.getEStructuralFeatures().get(2);
     }
@@ -1458,6 +1534,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHardwareElement_GetHardwareLevel() {
         return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(3);
     }
@@ -1467,6 +1544,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__GetManufacturer() {
         return hardwareElementEClass.getEOperations().get(0);
     }
@@ -1476,6 +1554,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__SetManufacturer__String() {
         return hardwareElementEClass.getEOperations().get(1);
     }
@@ -1485,6 +1564,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__GetCustomPropertiesWithName__String() {
         return hardwareElementEClass.getEOperations().get(2);
     }
@@ -1494,6 +1574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__GetCustomPropertiesWithNameAndValue__String_String() {
         return hardwareElementEClass.getEOperations().get(3);
     }
@@ -1503,6 +1584,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__GetCustomStringProperty__String() {
         return hardwareElementEClass.getEOperations().get(4);
     }
@@ -1512,6 +1594,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getHardwareElement__GetCustomIntProperty__String() {
         return hardwareElementEClass.getEOperations().get(5);
     }
@@ -1521,6 +1604,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getFeature() {
         return featureEClass;
     }
@@ -1530,6 +1614,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeature_Name() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
     }
@@ -1539,6 +1624,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeature_Units() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
     }
@@ -1548,6 +1634,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeature_SynchronizedAccess() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
     }
@@ -1557,6 +1644,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeature_Shared() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
     }
@@ -1566,6 +1654,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeature_IsExclusive() {
         return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
     }
@@ -1575,6 +1664,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCompartment() {
         return compartmentEClass;
     }
@@ -1584,6 +1674,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getCompartment_Boxes() {
         return (EReference)compartmentEClass.getEStructuralFeatures().get(0);
     }
@@ -1593,6 +1684,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCompartment_FullName() {
         return (EAttribute)compartmentEClass.getEStructuralFeatures().get(1);
     }
@@ -1602,6 +1694,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__GetAllBoxes() {
         return compartmentEClass.getEOperations().get(0);
     }
@@ -1611,6 +1704,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__GetAllBoards() {
         return compartmentEClass.getEOperations().get(1);
     }
@@ -1620,6 +1714,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__GetAllProcessors() {
         return compartmentEClass.getEOperations().get(2);
     }
@@ -1629,6 +1724,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__GetAllCores() {
         return compartmentEClass.getEOperations().get(3);
     }
@@ -1638,6 +1734,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__GetPowerSupply() {
         return compartmentEClass.getEOperations().get(4);
     }
@@ -1647,6 +1744,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCompartment__SetPowerSupply__String() {
         return compartmentEClass.getEOperations().get(5);
     }
@@ -1656,6 +1754,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getBox() {
         return boxEClass;
     }
@@ -1665,6 +1764,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBox_Compartment() {
         return (EReference)boxEClass.getEStructuralFeatures().get(0);
     }
@@ -1674,6 +1774,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBox_Boards() {
         return (EReference)boxEClass.getEStructuralFeatures().get(1);
     }
@@ -1683,6 +1784,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBox_BoardAlternatives() {
         return (EReference)boxEClass.getEStructuralFeatures().get(2);
     }
@@ -1692,6 +1794,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getBox_FullName() {
         return (EAttribute)boxEClass.getEStructuralFeatures().get(3);
     }
@@ -1701,6 +1804,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBox__GetAllBoards() {
         return boxEClass.getEOperations().get(0);
     }
@@ -1710,6 +1814,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBox__GetAllProcessors() {
         return boxEClass.getEOperations().get(1);
     }
@@ -1719,6 +1824,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBox__GetAllCores() {
         return boxEClass.getEOperations().get(2);
     }
@@ -1728,6 +1834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getBoardAlternative() {
         return boardAlternativeEClass;
     }
@@ -1737,6 +1844,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getBoardAlternative_Name() {
         return (EAttribute)boardAlternativeEClass.getEStructuralFeatures().get(0);
     }
@@ -1746,6 +1854,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBoardAlternative_Boards() {
         return (EReference)boardAlternativeEClass.getEStructuralFeatures().get(1);
     }
@@ -1755,6 +1864,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getBoard() {
         return boardEClass;
     }
@@ -1764,6 +1874,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBoard_Box() {
         return (EReference)boardEClass.getEStructuralFeatures().get(0);
     }
@@ -1773,6 +1884,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getBoard_Processors() {
         return (EReference)boardEClass.getEStructuralFeatures().get(1);
     }
@@ -1782,6 +1894,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getBoard_FullName() {
         return (EAttribute)boardEClass.getEStructuralFeatures().get(2);
     }
@@ -1791,6 +1904,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__ToString() {
         return boardEClass.getEOperations().get(0);
     }
@@ -1800,6 +1914,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetAllProcessors() {
         return boardEClass.getEOperations().get(1);
     }
@@ -1809,6 +1924,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetAllCores() {
         return boardEClass.getEOperations().get(2);
     }
@@ -1818,6 +1934,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetAssuranceLevel() {
         return boardEClass.getEOperations().get(3);
     }
@@ -1827,6 +1944,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__SetAssuranceLevel__DesignAssuranceLevelType() {
         return boardEClass.getEOperations().get(4);
     }
@@ -1836,6 +1954,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetPowerSupply() {
         return boardEClass.getEOperations().get(5);
     }
@@ -1845,6 +1964,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__SetPowerSupply__String() {
         return boardEClass.getEOperations().get(6);
     }
@@ -1854,6 +1974,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetBoardType() {
         return boardEClass.getEOperations().get(7);
     }
@@ -1863,6 +1984,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__SetBoardType__String() {
         return boardEClass.getEOperations().get(8);
     }
@@ -1872,6 +1994,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetRamCapacity() {
         return boardEClass.getEOperations().get(9);
     }
@@ -1881,6 +2004,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__SetRamCapacity__int() {
         return boardEClass.getEOperations().get(10);
     }
@@ -1890,6 +2014,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__GetRomCapacity() {
         return boardEClass.getEOperations().get(11);
     }
@@ -1899,6 +2024,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getBoard__SetRomCapacity__int() {
         return boardEClass.getEOperations().get(12);
     }
@@ -1908,6 +2034,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getProcessor() {
         return processorEClass;
     }
@@ -1917,6 +2044,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProcessor_FullName() {
         return (EAttribute)processorEClass.getEStructuralFeatures().get(0);
     }
@@ -1926,6 +2054,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getProcessor_Board() {
         return (EReference)processorEClass.getEStructuralFeatures().get(1);
     }
@@ -1935,6 +2064,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getProcessor_Cores() {
         return (EReference)processorEClass.getEStructuralFeatures().get(2);
     }
@@ -1944,6 +2074,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getProcessor__GetAllCores() {
         return processorEClass.getEOperations().get(0);
     }
@@ -1953,6 +2084,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getProcessor__GetProcessorType() {
         return processorEClass.getEOperations().get(1);
     }
@@ -1962,6 +2094,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getProcessor__SetProcessorType__String() {
         return processorEClass.getEOperations().get(2);
     }
@@ -1971,6 +2104,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCore() {
         return coreEClass;
     }
@@ -1980,6 +2114,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCore_FullName() {
         return (EAttribute)coreEClass.getEStructuralFeatures().get(0);
     }
@@ -1989,6 +2124,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getCore_Processor() {
         return (EReference)coreEClass.getEStructuralFeatures().get(1);
     }
@@ -1998,6 +2134,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCore__GetCoreCapacity() {
         return coreEClass.getEOperations().get(0);
     }
@@ -2007,6 +2144,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCore__SetCoreCapacity__int() {
         return coreEClass.getEOperations().get(1);
     }
@@ -2016,6 +2154,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCore__GetCoreArchitecture() {
         return coreEClass.getEOperations().get(2);
     }
@@ -2025,6 +2164,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getCore__SetCoreArchitecture__String() {
         return coreEClass.getEOperations().get(3);
     }
@@ -2034,6 +2174,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getApplicationAlternative() {
         return applicationAlternativeEClass;
     }
@@ -2043,6 +2184,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getApplicationAlternative_Name() {
         return (EAttribute)applicationAlternativeEClass.getEStructuralFeatures().get(0);
     }
@@ -2052,6 +2194,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getApplicationAlternative_Applications() {
         return (EReference)applicationAlternativeEClass.getEStructuralFeatures().get(1);
     }
@@ -2061,6 +2204,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSoftwareElement() {
         return softwareElementEClass;
     }
@@ -2070,6 +2214,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSoftwareElement_Name() {
         return (EAttribute)softwareElementEClass.getEStructuralFeatures().get(0);
     }
@@ -2079,6 +2224,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSoftwareElement_Properties() {
         return (EReference)softwareElementEClass.getEStructuralFeatures().get(1);
     }
@@ -2088,6 +2234,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getSoftwareElement__ToString() {
         return softwareElementEClass.getEOperations().get(0);
     }
@@ -2097,6 +2244,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getSoftwareElement__GetCustomPropertiesWithName__String() {
         return softwareElementEClass.getEOperations().get(1);
     }
@@ -2106,6 +2254,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getSoftwareElement__GetCustomPropertiesWithNameAndValue__String_String() {
         return softwareElementEClass.getEOperations().get(2);
     }
@@ -2115,6 +2264,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getSoftwareElement__GetCustomStringProperty__String() {
         return softwareElementEClass.getEOperations().get(3);
     }
@@ -2124,6 +2274,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getSoftwareElement__GetCustomIntProperty__String() {
         return softwareElementEClass.getEOperations().get(4);
     }
@@ -2133,6 +2284,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getApplication() {
         return applicationEClass;
     }
@@ -2142,6 +2294,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getApplication_Tasks() {
         return (EReference)applicationEClass.getEStructuralFeatures().get(0);
     }
@@ -2151,6 +2304,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getApplication_RestrictMappingToHardwareElements() {
         return (EReference)applicationEClass.getEStructuralFeatures().get(1);
     }
@@ -2160,6 +2314,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getApplication_FullName() {
         return (EAttribute)applicationEClass.getEStructuralFeatures().get(2);
     }
@@ -2169,6 +2324,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getApplication__GetDevelopedBy() {
         return applicationEClass.getEOperations().get(0);
     }
@@ -2178,6 +2334,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getApplication__SetDevelopedBy__String() {
         return applicationEClass.getEOperations().get(1);
     }
@@ -2187,6 +2344,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getApplication__GetCriticalityLevel() {
         return applicationEClass.getEOperations().get(2);
     }
@@ -2196,6 +2354,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getApplication__SetCriticalityLevel__DesignAssuranceLevelType() {
         return applicationEClass.getEOperations().get(3);
     }
@@ -2205,6 +2364,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getTask() {
         return taskEClass;
     }
@@ -2214,6 +2374,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getTask_Application() {
         return (EReference)taskEClass.getEStructuralFeatures().get(0);
     }
@@ -2223,6 +2384,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getTask_FeatureRequirements() {
         return (EReference)taskEClass.getEStructuralFeatures().get(1);
     }
@@ -2232,6 +2394,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getTask_RestrictMappingToHardwareElements() {
         return (EReference)taskEClass.getEStructuralFeatures().get(2);
     }
@@ -2241,6 +2404,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTask_FullName() {
         return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
     }
@@ -2250,6 +2414,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetCoreUtilization() {
         return taskEClass.getEOperations().get(0);
     }
@@ -2259,6 +2424,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetCoreUtilization__int() {
         return taskEClass.getEOperations().get(1);
     }
@@ -2268,6 +2434,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetRamUtilization() {
         return taskEClass.getEOperations().get(2);
     }
@@ -2277,6 +2444,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetRamUtilization__int() {
         return taskEClass.getEOperations().get(3);
     }
@@ -2286,6 +2454,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetRomUtilization() {
         return taskEClass.getEOperations().get(4);
     }
@@ -2295,6 +2464,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetRomUtilization__int() {
         return taskEClass.getEOperations().get(5);
     }
@@ -2304,6 +2474,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetDuration() {
         return taskEClass.getEOperations().get(6);
     }
@@ -2313,6 +2484,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetDuration__int() {
         return taskEClass.getEOperations().get(7);
     }
@@ -2322,6 +2494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetPeriod() {
         return taskEClass.getEOperations().get(8);
     }
@@ -2331,6 +2504,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetPeriod__int() {
         return taskEClass.getEOperations().get(9);
     }
@@ -2340,6 +2514,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetEarlyTolerance() {
         return taskEClass.getEOperations().get(10);
     }
@@ -2349,6 +2524,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetEarlyTolerance__int() {
         return taskEClass.getEOperations().get(11);
     }
@@ -2358,6 +2534,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetLateTolerance() {
         return taskEClass.getEOperations().get(12);
     }
@@ -2367,6 +2544,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetLateTolerance__int() {
         return taskEClass.getEOperations().get(13);
     }
@@ -2376,6 +2554,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetMaxStartTime() {
         return taskEClass.getEOperations().get(14);
     }
@@ -2385,6 +2564,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetMaxStartTime__int() {
         return taskEClass.getEOperations().get(15);
     }
@@ -2394,6 +2574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetMaxEndTime() {
         return taskEClass.getEOperations().get(16);
     }
@@ -2403,6 +2584,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetMaxEndTime__int() {
         return taskEClass.getEOperations().get(17);
     }
@@ -2412,6 +2594,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetAddInitTime() {
         return taskEClass.getEOperations().get(18);
     }
@@ -2421,6 +2604,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetAddInitTime__int() {
         return taskEClass.getEOperations().get(19);
     }
@@ -2430,6 +2614,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetSlices() {
         return taskEClass.getEOperations().get(20);
     }
@@ -2439,6 +2624,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetSlices__int() {
         return taskEClass.getEOperations().get(21);
     }
@@ -2448,6 +2634,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetMinSliceDuration() {
         return taskEClass.getEOperations().get(22);
     }
@@ -2457,6 +2644,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetMinSliceDuration__int() {
         return taskEClass.getEOperations().get(23);
     }
@@ -2466,6 +2654,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetPeriodicity() {
         return taskEClass.getEOperations().get(24);
     }
@@ -2475,6 +2664,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetPeriodicity__PeriodicityType() {
         return taskEClass.getEOperations().get(25);
     }
@@ -2484,6 +2674,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetColor() {
         return taskEClass.getEOperations().get(26);
     }
@@ -2493,6 +2684,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetColor__Color() {
         return taskEClass.getEOperations().get(27);
     }
@@ -2502,6 +2694,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__GetAssignedCore() {
         return taskEClass.getEOperations().get(28);
     }
@@ -2511,6 +2704,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTask__SetAssignedCore__Core() {
         return taskEClass.getEOperations().get(29);
     }
@@ -2520,6 +2714,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getFeatureRequirement() {
         return featureRequirementEClass;
     }
@@ -2529,6 +2724,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeatureRequirement_Name() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(0);
     }
@@ -2538,6 +2734,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeatureRequirement_HardwareLevel() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(1);
     }
@@ -2547,6 +2744,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeatureRequirement_Units() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(2);
     }
@@ -2556,6 +2754,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeatureRequirement_Shared() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(3);
     }
@@ -2565,6 +2764,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFeatureRequirement_IsExclusive() {
         return (EAttribute)featureRequirementEClass.getEStructuralFeatures().get(4);
     }
@@ -2574,6 +2774,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMappingRelation() {
         return mappingRelationEClass;
     }
@@ -2583,6 +2784,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMappingRelation_SoftwareElements() {
         return (EReference)mappingRelationEClass.getEStructuralFeatures().get(0);
     }
@@ -2592,6 +2794,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingRelation_HardwareLevel() {
         return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(1);
     }
@@ -2601,6 +2804,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingRelation_AllTasks() {
         return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(2);
     }
@@ -2610,6 +2814,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingRelation_SoftwareElementNames() {
         return (EAttribute)mappingRelationEClass.getEStructuralFeatures().get(3);
     }
@@ -2619,6 +2824,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDislocalityRelation() {
         return dislocalityRelationEClass;
     }
@@ -2628,6 +2834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getColocalityRelation() {
         return colocalityRelationEClass;
     }
@@ -2637,6 +2844,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDissimilarityRelation() {
         return dissimilarityRelationEClass;
     }
@@ -2646,6 +2854,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDissimilarityRelation_DissimilarityClause() {
         return (EReference)dissimilarityRelationEClass.getEStructuralFeatures().get(0);
     }
@@ -2655,6 +2864,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDissimilarityClause() {
         return dissimilarityClauseEClass;
     }
@@ -2664,6 +2874,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDissimilarityDisjunction() {
         return dissimilarityDisjunctionEClass;
     }
@@ -2673,6 +2884,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDissimilarityDisjunction_DissimilarityClauses() {
         return (EReference)dissimilarityDisjunctionEClass.getEStructuralFeatures().get(0);
     }
@@ -2682,6 +2894,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDissimilarityConjunction() {
         return dissimilarityConjunctionEClass;
     }
@@ -2691,6 +2904,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDissimilarityConjunction_DissimilarityClauses() {
         return (EReference)dissimilarityConjunctionEClass.getEStructuralFeatures().get(0);
     }
@@ -2700,6 +2914,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDissimilarityEntry() {
         return dissimilarityEntryEClass;
     }
@@ -2709,6 +2924,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getDissimilarityEntry_DissimilarityAttribute() {
         return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(0);
     }
@@ -2718,6 +2934,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getDissimilarityEntry_HardwareLevel() {
         return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(1);
     }
@@ -2727,6 +2944,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSchedulingRestriction() {
         return schedulingRestrictionEClass;
     }
@@ -2736,6 +2954,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSimpleRelation() {
         return simpleRelationEClass;
     }
@@ -2745,6 +2964,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSimpleRelation_Tasks() {
         return (EReference)simpleRelationEClass.getEStructuralFeatures().get(0);
     }
@@ -2754,6 +2974,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSimpleRelation_TaskNames() {
         return (EAttribute)simpleRelationEClass.getEStructuralFeatures().get(1);
     }
@@ -2763,6 +2984,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getComplexRelation() {
         return complexRelationEClass;
     }
@@ -2772,6 +2994,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getComplexRelation_Tasks() {
         return (EReference)complexRelationEClass.getEStructuralFeatures().get(0);
     }
@@ -2781,6 +3004,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getComplexRelation_OtherTask() {
         return (EReference)complexRelationEClass.getEStructuralFeatures().get(1);
     }
@@ -2790,6 +3014,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getComplexRelation_Delay() {
         return (EAttribute)complexRelationEClass.getEStructuralFeatures().get(2);
     }
@@ -2799,6 +3024,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getComplexRelation_TaskNames() {
         return (EAttribute)complexRelationEClass.getEStructuralFeatures().get(3);
     }
@@ -2808,6 +3034,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionStartAtTheSameTime() {
         return restrictionStartAtTheSameTimeEClass;
     }
@@ -2817,6 +3044,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionFinishAtTheSameTime() {
         return restrictionFinishAtTheSameTimeEClass;
     }
@@ -2826,6 +3054,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionStartAfterOtherFinished() {
         return restrictionStartAfterOtherFinishedEClass;
     }
@@ -2835,6 +3064,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionStartAfterOtherStarted() {
         return restrictionStartAfterOtherStartedEClass;
     }
@@ -2844,6 +3074,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionDisjointExecution() {
         return restrictionDisjointExecutionEClass;
     }
@@ -2853,6 +3084,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRestrictionAlternative() {
         return restrictionAlternativeEClass;
     }
@@ -2862,6 +3094,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getRestrictionAlternative_Name() {
         return (EAttribute)restrictionAlternativeEClass.getEStructuralFeatures().get(0);
     }
@@ -2871,6 +3104,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRestrictionAlternative_DislocalityRelations() {
         return (EReference)restrictionAlternativeEClass.getEStructuralFeatures().get(1);
     }
@@ -2880,6 +3114,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRestrictionAlternative_ColocalityRelations() {
         return (EReference)restrictionAlternativeEClass.getEStructuralFeatures().get(2);
     }
@@ -2889,6 +3124,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRestrictionAlternative_DissimilarityRelations() {
         return (EReference)restrictionAlternativeEClass.getEStructuralFeatures().get(3);
     }
@@ -2898,6 +3134,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getExplorationCandidate() {
         return explorationCandidateEClass;
     }
@@ -2907,6 +3144,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExplorationCandidate_Name() {
         return (EAttribute)explorationCandidateEClass.getEStructuralFeatures().get(0);
     }
@@ -2916,6 +3154,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationCandidate_BoardAlternatives() {
         return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(1);
     }
@@ -2925,6 +3164,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationCandidate_ApplicationAlternatives() {
         return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(2);
     }
@@ -2934,6 +3174,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationCandidate_RestrictionAlternatives() {
         return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(3);
     }
@@ -2943,6 +3184,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getExplorationResult() {
         return explorationResultEClass;
     }
@@ -2952,6 +3194,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationResult_Candidate() {
         return (EReference)explorationResultEClass.getEStructuralFeatures().get(0);
     }
@@ -2961,6 +3204,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationResult_Model() {
         return (EReference)explorationResultEClass.getEStructuralFeatures().get(1);
     }
@@ -2970,6 +3214,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getExplorationResult_MappingResult() {
         return (EReference)explorationResultEClass.getEStructuralFeatures().get(2);
     }
@@ -2979,6 +3224,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExplorationResult_Feasible() {
         return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(3);
     }
@@ -2988,6 +3234,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExplorationResult_AbsoluteScore() {
         return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(4);
     }
@@ -2997,6 +3244,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExplorationResult_ScaledScore() {
         return (EAttribute)explorationResultEClass.getEStructuralFeatures().get(5);
     }
@@ -3006,6 +3254,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAbstractDSEMetric() {
         return abstractDSEMetricEClass;
     }
@@ -3015,6 +3264,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractDSEMetric_Name() {
         return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(0);
     }
@@ -3024,6 +3274,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractDSEMetric_BuiltIn() {
         return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(1);
     }
@@ -3033,6 +3284,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractDSEMetric_HigherScoreIsBetter() {
         return (EAttribute)abstractDSEMetricEClass.getEStructuralFeatures().get(2);
     }
@@ -3042,6 +3294,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAbstractDSEMetric__ComputeAbsoluteScore__ExplorationResult() {
         return abstractDSEMetricEClass.getEOperations().get(0);
     }
@@ -3051,6 +3304,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getComparable() {
         return comparableEClass;
     }
@@ -3060,6 +3314,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMetricScorePair() {
         return metricScorePairEClass;
     }
@@ -3069,6 +3324,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMetricScorePair_Key() {
         return (EReference)metricScorePairEClass.getEStructuralFeatures().get(0);
     }
@@ -3078,6 +3334,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMetricScorePair_Value() {
         return (EAttribute)metricScorePairEClass.getEStructuralFeatures().get(1);
     }
@@ -3087,6 +3344,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMappingResult() {
         return mappingResultEClass;
     }
@@ -3096,6 +3354,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_Name() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(0);
     }
@@ -3105,6 +3364,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_Index() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(1);
     }
@@ -3114,6 +3374,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_Task2CoreMap() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(2);
     }
@@ -3123,6 +3384,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMappingResult_Model() {
         return (EReference)mappingResultEClass.getEStructuralFeatures().get(3);
     }
@@ -3132,6 +3394,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMappingResult_MetricAbsoluteScoresMap() {
         return (EReference)mappingResultEClass.getEStructuralFeatures().get(4);
     }
@@ -3141,6 +3404,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMappingResult_MetricScaledScoresMap() {
         return (EReference)mappingResultEClass.getEStructuralFeatures().get(5);
     }
@@ -3150,6 +3414,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_PartialSolution() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(6);
     }
@@ -3159,6 +3424,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_AbsoluteTotalScore() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(7);
     }
@@ -3168,6 +3434,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getMappingResult_ScaledTotalScore() {
         return (EAttribute)mappingResultEClass.getEStructuralFeatures().get(8);
     }
@@ -3177,6 +3444,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__IsUsed__Core() {
         return mappingResultEClass.getEOperations().get(0);
     }
@@ -3186,6 +3454,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__IsUsed__Processor() {
         return mappingResultEClass.getEOperations().get(1);
     }
@@ -3195,6 +3464,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__IsUsed__Board() {
         return mappingResultEClass.getEOperations().get(2);
     }
@@ -3204,6 +3474,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__IsUsed__Box() {
         return mappingResultEClass.getEOperations().get(3);
     }
@@ -3213,6 +3484,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__IsUsed__Compartment() {
         return mappingResultEClass.getEOperations().get(4);
     }
@@ -3222,6 +3494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__GetMappedTasksForCore__Core() {
         return mappingResultEClass.getEOperations().get(5);
     }
@@ -3231,6 +3504,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__GetAbsoluteCoreUtilization__Core() {
         return mappingResultEClass.getEOperations().get(6);
     }
@@ -3240,6 +3514,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__GetRelativeCoreUtilization__Core() {
         return mappingResultEClass.getEOperations().get(7);
     }
@@ -3249,6 +3524,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__GetHardwareElementForTask__Task_int() {
         return mappingResultEClass.getEOperations().get(8);
     }
@@ -3258,6 +3534,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__GetMappingElements() {
         return mappingResultEClass.getEOperations().get(9);
     }
@@ -3267,6 +3544,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__CompareTo__MappingResult() {
         return mappingResultEClass.getEOperations().get(10);
     }
@@ -3276,6 +3554,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getMappingResult__ToString() {
         return mappingResultEClass.getEOperations().get(11);
     }
@@ -3285,6 +3564,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSingleMappingElement() {
         return singleMappingElementEClass;
     }
@@ -3294,6 +3574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Application() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(0);
     }
@@ -3303,6 +3584,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Task() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(1);
     }
@@ -3312,6 +3594,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Core() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(2);
     }
@@ -3321,6 +3604,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Processor() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(3);
     }
@@ -3330,6 +3614,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Board() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(4);
     }
@@ -3339,6 +3624,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Box() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(5);
     }
@@ -3348,6 +3634,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSingleMappingElement_Compartment() {
         return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(6);
     }
@@ -3357,6 +3644,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAbstractMappingMetric() {
         return abstractMappingMetricEClass;
     }
@@ -3366,6 +3654,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractMappingMetric_Name() {
         return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(0);
     }
@@ -3375,6 +3664,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractMappingMetric_BuiltIn() {
         return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(1);
     }
@@ -3384,6 +3674,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractMappingMetric_HigherScoreIsBetter() {
         return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(2);
     }
@@ -3393,6 +3684,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAbstractMappingMetric_Weight() {
         return (EAttribute)abstractMappingMetricEClass.getEStructuralFeatures().get(3);
     }
@@ -3402,6 +3694,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getAbstractMappingMetric__ComputeAbsoluteScore__MappingResult() {
         return abstractMappingMetricEClass.getEOperations().get(0);
     }
@@ -3411,6 +3704,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSchedulingResult() {
         return schedulingResultEClass;
     }
@@ -3420,6 +3714,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSchedulingResult_Name() {
         return (EAttribute)schedulingResultEClass.getEStructuralFeatures().get(0);
     }
@@ -3429,6 +3724,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSchedulingResult_HyperPeriodLength() {
         return (EAttribute)schedulingResultEClass.getEStructuralFeatures().get(1);
     }
@@ -3438,6 +3734,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSchedulingResult_Model() {
         return (EReference)schedulingResultEClass.getEStructuralFeatures().get(2);
     }
@@ -3447,6 +3744,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSchedulingResult_Schedule() {
         return (EAttribute)schedulingResultEClass.getEStructuralFeatures().get(3);
     }
@@ -3456,6 +3754,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getTaskExecutionInstance() {
         return taskExecutionInstanceEClass;
     }
@@ -3465,6 +3764,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTaskExecutionInstance_Begin() {
         return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(0);
     }
@@ -3474,6 +3774,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTaskExecutionInstance_End() {
         return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(1);
     }
@@ -3483,6 +3784,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EOperation getTaskExecutionInstance__ToString() {
         return taskExecutionInstanceEClass.getEOperations().get(0);
     }
@@ -3492,6 +3794,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getDissimilarityAttributes() {
         return dissimilarityAttributesEEnum;
     }
@@ -3501,6 +3804,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getHardwareArchitectureLevelType() {
         return hardwareArchitectureLevelTypeEEnum;
     }
@@ -3510,6 +3814,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getDesignAssuranceLevelType() {
         return designAssuranceLevelTypeEEnum;
     }
@@ -3519,6 +3824,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getPeriodicityType() {
         return periodicityTypeEEnum;
     }
@@ -3528,6 +3834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getColor() {
         return colorEEnum;
     }
@@ -3537,6 +3844,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getListOfTaskLists() {
         return listOfTaskListsEDataType;
     }
@@ -3546,6 +3854,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getTask2CoreMapType() {
         return task2CoreMapTypeEDataType;
     }
@@ -3555,6 +3864,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getStringList() {
         return stringListEDataType;
     }
@@ -3564,6 +3874,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getTask2ExecutionInstancesMapType() {
         return task2ExecutionInstancesMapTypeEDataType;
     }
@@ -3573,6 +3884,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ModelFactory getModelFactory() {
         return (ModelFactory)getEFactoryInstance();
     }

@@ -103,6 +103,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -112,6 +113,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -124,6 +126,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Property> getProperties() {
         if (properties == null) {
             properties = new EObjectContainmentEList<Property>(Property.class, this, ModelPackage.SOFTWARE_ELEMENT__PROPERTIES);
@@ -136,6 +139,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String toString() {
         return this.getName();
     }
@@ -145,6 +149,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<CustomProperty> getCustomPropertiesWithName(final String name) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -164,6 +169,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<CustomProperty> getCustomPropertiesWithNameAndValue(final String name, final String value) {
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
             public Boolean apply(final CustomProperty it) {
@@ -179,6 +185,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getCustomStringProperty(final String name) {
         String _xifexpression = null;
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {
@@ -208,6 +215,7 @@ public class SoftwareElementImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getCustomIntProperty(final String name) {
         int _xifexpression = (int) 0;
         final Function1<CustomProperty, Boolean> _function = new Function1<CustomProperty, Boolean>() {

@@ -149,6 +149,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ExplorationCandidate getCandidate() {
         if (candidate != null && candidate.eIsProxy()) {
             InternalEObject oldCandidate = (InternalEObject)candidate;
@@ -175,6 +176,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCandidate(ExplorationCandidate newCandidate) {
         ExplorationCandidate oldCandidate = candidate;
         candidate = newCandidate;
@@ -187,6 +189,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AssistModel getModel() {
         if (model != null && model.eIsProxy()) {
             InternalEObject oldModel = (InternalEObject)model;
@@ -213,6 +216,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setModel(AssistModel newModel) {
         AssistModel oldModel = model;
         model = newModel;
@@ -225,6 +229,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MappingResult getMappingResult() {
         if (mappingResult != null && mappingResult.eIsProxy()) {
             InternalEObject oldMappingResult = (InternalEObject)mappingResult;
@@ -251,6 +256,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMappingResult(MappingResult newMappingResult) {
         MappingResult oldMappingResult = mappingResult;
         mappingResult = newMappingResult;
@@ -263,6 +269,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isFeasible() {
         return feasible;
     }
@@ -272,6 +279,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setFeasible(boolean newFeasible) {
         boolean oldFeasible = feasible;
         feasible = newFeasible;
@@ -284,6 +292,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Double getAbsoluteScore() {
         return absoluteScore;
     }
@@ -293,6 +302,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setAbsoluteScore(Double newAbsoluteScore) {
         Double oldAbsoluteScore = absoluteScore;
         absoluteScore = newAbsoluteScore;
@@ -305,6 +315,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Double getScaledScore() {
         return scaledScore;
     }
@@ -314,6 +325,7 @@ public class ExplorationResultImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setScaledScore(Double newScaledScore) {
         Double oldScaledScore = scaledScore;
         scaledScore = newScaledScore;

@@ -120,6 +120,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -129,6 +130,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -141,6 +143,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getHyperPeriodLength() {
         return hyperPeriodLength;
     }
@@ -150,6 +153,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHyperPeriodLength(int newHyperPeriodLength) {
         int oldHyperPeriodLength = hyperPeriodLength;
         hyperPeriodLength = newHyperPeriodLength;
@@ -162,6 +166,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AssistModel getModel() {
         if (model != null && model.eIsProxy()) {
             InternalEObject oldModel = (InternalEObject)model;
@@ -188,6 +193,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setModel(AssistModel newModel) {
         AssistModel oldModel = model;
         model = newModel;
@@ -200,6 +206,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HashMap<Task, List<TaskExecutionInstance>> getSchedule() {
         return schedule;
     }
@@ -209,6 +216,7 @@ public class SchedulingResultImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setSchedule(HashMap<Task, List<TaskExecutionInstance>> newSchedule) {
         HashMap<Task, List<TaskExecutionInstance>> oldSchedule = schedule;
         schedule = newSchedule;

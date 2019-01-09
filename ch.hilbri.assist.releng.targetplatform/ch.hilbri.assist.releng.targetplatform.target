@@ -1,56 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target name="ch.hilbri.assist.releng.targetplatform" sequenceNumber="29">
-<locations>
-	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<unit id="org.eclipse.sphinx.feature.group" version="0.11.0.201706140911"/>
-		<repository location="http://download.eclipse.org/sphinx/releases/0.11.x"/>
-	</location>
-	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.7.0.v20180711-0440"/>
-		<unit id="org.eclipse.equinox.sdk.feature.group" version="3.15.0.v20180904-1442"/>
-		<unit id="org.eclipse.jdt.feature.group" version="3.15.0.v20180906-0745"/>
-		<unit id="org.eclipse.swtbot.eclipse.feature.group" version="2.7.0.201806111355"/>
-		<unit id="org.eclipse.swtbot.feature.group" version="2.7.0.201806111355"/>
-		<unit id="org.eclipse.swtbot.ide.feature.group" version="2.7.0.201806111355"/>
-		<unit id="org.eclipse.wb.core.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.core.java.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.core.ui.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.doc.user.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.layout.group.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.rcp.doc.user.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.rcp.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.wb.swt.feature.feature.group" version="1.9.1.201809061025"/>
-		<unit id="org.eclipse.xtend.sdk.feature.group" version="2.15.0.v20180916-1232"/>
-		<unit id="org.eclipse.xtext.sdk.feature.group" version="2.15.0.v20180916-1232"/>
-		<unit id="org.eclipse.zest.sdk.feature.group" version="1.7.0.201606061308"/>
-		<repository location="http://download.eclipse.org/releases/2018-09"/>
-    	<unit id="org.eclipse.e4.rcp.feature.group" version="1.6.200.v20180906-1121"/>
-    	<unit id="org.eclipse.rcp.feature.group" version="4.9.0.v20180906-1121"/>
-    	<unit id="org.eclipse.platform.feature.group" version="4.9.0.v20180906-1121"/>
-    	<unit id="org.eclipse.e4.core.tools.feature.feature.group" version="4.9.0.v20180823-1503"/>
-	</location>
-	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<unit id="ch.qos.logback.classic" version="1.1.2.v20171220-1825"/>
-		<unit id="ch.qos.logback.classic.source" version="1.1.2.v20171220-1825"/>
-		<unit id="ch.qos.logback.core" version="1.1.2.v20160208-0839"/>
-		<unit id="ch.qos.logback.core.source" version="1.1.2.v20160208-0839"/>
-		<unit id="ch.qos.logback.slf4j" version="1.1.2.v20160301-0943"/>
-		<unit id="ch.qos.logback.slf4j.source" version="1.1.2.v20160301-0943"/>
-		<unit id="org.apache.commons.io" version="2.2.0.v201405211200"/>
-		<unit id="org.apache.commons.io.source" version="2.2.0.v201405211200"/>
-		<unit id="org.apache.commons.math3" version="3.5.0.v20160301-1110"/>
-		<unit id="org.apache.commons.math3.source" version="3.5.0.v20160301-1110"/>
-		<unit id="org.swtchart" version="0.10.0.v201605200358"/>
-		<unit id="org.swtchart.source" version="0.10.0.v201605200358"/>
-		<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository"/>
-	</location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-        <unit id="org.eclipse.app4mc.amalthea.models.feature.group" version="0.9.1.201808011342"/>
-        <repository location="http://download.eclipse.org/app4mc/updatesites/releases/0.9.1/"/>
-        <unit id="org.eclipse.app4mc.amalthea.models.sdk.feature.group" version="0.9.1.201808011342"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="ch.hilbri.assist.releng.targetplatform" sequenceNumber="1547032957">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.sphinx.core.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/sphinx/releases/0.11.x"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-        <unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="1.0.0.201812241324"/>
-        <repository location="http://download.eclipse.org/nebula/releases/2.1.0"/>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.e4.core.tools.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.core.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.core.java.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.core.ui.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.doc.user.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.layout.group.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.rcp.doc.user.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.rcp.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wb.swt.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtend.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.zest.sdk.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/2018-12"/>
     </location>
-</locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="ch.qos.logback.classic" version="0.0.0"/>
+      <unit id="ch.qos.logback.classic.source" version="0.0.0"/>
+      <unit id="ch.qos.logback.core" version="0.0.0"/>
+      <unit id="ch.qos.logback.core.source" version="0.0.0"/>
+      <unit id="ch.qos.logback.slf4j" version="0.0.0"/>
+      <unit id="ch.qos.logback.slf4j.source" version="0.0.0"/>
+      <unit id="org.apache.commons.io" version="0.0.0"/>
+      <unit id="org.apache.commons.io.source" version="0.0.0"/>
+      <unit id="org.apache.commons.math3" version="0.0.0"/>
+      <unit id="org.apache.commons.math3.source" version="0.0.0"/>
+      <unit id="org.swtchart" version="0.0.0"/>
+      <unit id="org.swtchart.source" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20181128170323/repository"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.app4mc.amalthea.models.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.app4mc.amalthea.models.sdk.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/app4mc/updatesites/releases/0.9.1/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/nebula/releases/2.1.0"/>
+    </location>
+  </locations>
 </target>

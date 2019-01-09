@@ -70,6 +70,7 @@ public class PeriodicityPropertyImpl extends PropertyImpl implements Periodicity
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public PeriodicityType getValue() {
         return value;
     }
@@ -79,6 +80,7 @@ public class PeriodicityPropertyImpl extends PropertyImpl implements Periodicity
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setValue(PeriodicityType newValue) {
         PeriodicityType oldValue = value;
         value = newValue == null ? VALUE_EDEFAULT : newValue;

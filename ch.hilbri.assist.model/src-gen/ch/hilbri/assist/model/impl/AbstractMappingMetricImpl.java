@@ -138,6 +138,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -147,6 +148,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -159,6 +161,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isBuiltIn() {
         return builtIn;
     }
@@ -168,6 +171,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBuiltIn(boolean newBuiltIn) {
         boolean oldBuiltIn = builtIn;
         builtIn = newBuiltIn;
@@ -180,6 +184,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isHigherScoreIsBetter() {
         return higherScoreIsBetter;
     }
@@ -189,6 +194,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHigherScoreIsBetter(boolean newHigherScoreIsBetter) {
         boolean oldHigherScoreIsBetter = higherScoreIsBetter;
         higherScoreIsBetter = newHigherScoreIsBetter;
@@ -201,6 +207,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getWeight() {
         return weight;
     }
@@ -210,6 +217,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setWeight(int newWeight) {
         int oldWeight = weight;
         weight = newWeight;
@@ -222,6 +230,7 @@ public abstract class AbstractMappingMetricImpl extends MinimalEObjectImpl.Conta
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public double computeAbsoluteScore(MappingResult result) {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT

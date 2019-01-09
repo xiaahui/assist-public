@@ -95,6 +95,7 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getBegin() {
         return begin;
     }
@@ -104,6 +105,7 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBegin(int newBegin) {
         int oldBegin = begin;
         begin = newBegin;
@@ -116,6 +118,7 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getEnd() {
         return end;
     }
@@ -125,6 +128,7 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setEnd(int newEnd) {
         int oldEnd = end;
         end = newEnd;
@@ -137,6 +141,7 @@ public class TaskExecutionInstanceImpl extends MinimalEObjectImpl.Container impl
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String toString() {
         int _begin = this.getBegin();
         String _plus = ("[" + Integer.valueOf(_begin));

@@ -80,6 +80,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         String _fullName = this.getProcessor().getFullName();
         String _plus = (_fullName + ".");
@@ -92,6 +93,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Processor getProcessor() {
         if (eContainerFeatureID() != ModelPackage.CORE__PROCESSOR) return null;
         return (Processor)eContainer();
@@ -122,6 +124,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setProcessor(Processor newProcessor) {
         if (newProcessor != eInternalContainer() || (eContainerFeatureID() != ModelPackage.CORE__PROCESSOR && newProcessor != null)) {
             if (EcoreUtil.isAncestor(this, newProcessor))
@@ -143,6 +146,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getCoreCapacity() {
         int _xifexpression = (int) 0;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -172,6 +176,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCoreCapacity(final int newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {
@@ -207,6 +212,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getCoreArchitecture() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -236,6 +242,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCoreArchitecture(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

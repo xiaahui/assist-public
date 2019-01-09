@@ -82,6 +82,7 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DissimilarityAttributes getDissimilarityAttribute() {
         return dissimilarityAttribute;
     }
@@ -91,6 +92,7 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDissimilarityAttribute(DissimilarityAttributes newDissimilarityAttribute) {
         DissimilarityAttributes oldDissimilarityAttribute = dissimilarityAttribute;
         dissimilarityAttribute = newDissimilarityAttribute == null ? DISSIMILARITY_ATTRIBUTE_EDEFAULT : newDissimilarityAttribute;
@@ -103,6 +105,7 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public HardwareArchitectureLevelType getHardwareLevel() {
         DissimilarityAttributes _dissimilarityAttribute = this.getDissimilarityAttribute();
         if (_dissimilarityAttribute != null) {

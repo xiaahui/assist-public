@@ -117,6 +117,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -126,6 +127,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -138,6 +140,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isBuiltIn() {
         return builtIn;
     }
@@ -147,6 +150,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBuiltIn(boolean newBuiltIn) {
         boolean oldBuiltIn = builtIn;
         builtIn = newBuiltIn;
@@ -159,6 +163,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isHigherScoreIsBetter() {
         return higherScoreIsBetter;
     }
@@ -168,6 +173,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHigherScoreIsBetter(boolean newHigherScoreIsBetter) {
         boolean oldHigherScoreIsBetter = higherScoreIsBetter;
         higherScoreIsBetter = newHigherScoreIsBetter;
@@ -180,6 +186,7 @@ public abstract class AbstractDSEMetricImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public double computeAbsoluteScore(ExplorationResult result) {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT

@@ -54,6 +54,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getStringValue() {
         if ((this instanceof StringProperty)) {
             return ((StringProperty) this).getValue();

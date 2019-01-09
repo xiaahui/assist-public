@@ -91,6 +91,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -100,6 +101,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -112,6 +114,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Board> getBoards() {
         if (boards == null) {
             boards = new EObjectContainmentEList<Board>(Board.class, this, ModelPackage.BOARD_ALTERNATIVE__BOARDS);

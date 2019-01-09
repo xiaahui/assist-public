@@ -95,6 +95,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getFullName() {
         String _fullName = this.getBoard().getFullName();
         String _plus = (_fullName + ".");
@@ -107,6 +108,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Board getBoard() {
         if (eContainerFeatureID() != ModelPackage.PROCESSOR__BOARD) return null;
         return (Board)eContainer();
@@ -137,6 +139,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBoard(Board newBoard) {
         if (newBoard != eInternalContainer() || (eContainerFeatureID() != ModelPackage.PROCESSOR__BOARD && newBoard != null)) {
             if (EcoreUtil.isAncestor(this, newBoard))
@@ -158,6 +161,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getCores() {
         if (cores == null) {
             cores = new EObjectContainmentWithInverseEList<Core>(Core.class, this, ModelPackage.PROCESSOR__CORES, ModelPackage.CORE__PROCESSOR);
@@ -170,6 +174,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Core> getAllCores() {
         return this.getCores();
     }
@@ -179,6 +184,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getProcessorType() {
         String _xifexpression = null;
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
@@ -208,6 +214,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setProcessorType(final String newValue) {
         final Function1<Property, Boolean> _function = new Function1<Property, Boolean>() {
             public Boolean apply(final Property it) {

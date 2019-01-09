@@ -91,6 +91,7 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -100,6 +101,7 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName(String newName) {
         String oldName = name;
         name = newName;
@@ -112,6 +114,7 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EList<Application> getApplications() {
         if (applications == null) {
             applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS);

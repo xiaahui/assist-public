@@ -237,6 +237,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getHash() {
         if (hash == -1) {
             Object theKey = getKey();
@@ -250,6 +251,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setHash(int hash) {
         this.hash = hash;
     }
@@ -259,6 +261,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AbstractMappingMetric getKey() {
         return getTypedKey();
     }
@@ -268,6 +271,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setKey(AbstractMappingMetric key) {
         setTypedKey(key);
     }
@@ -277,6 +281,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Double getValue() {
         return getTypedValue();
     }
@@ -286,6 +291,7 @@ public class MetricScorePairImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Double setValue(Double value) {
         Double oldValue = getValue();
         setTypedValue(value);
